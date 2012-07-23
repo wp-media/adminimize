@@ -1,6 +1,6 @@
 <?php 
 
-function adminize_meta_box_backend_options_page() {
+function adminimize_meta_box_backend_options_page() {
 	?>
 
 	<table summary="config" class="widefat">
@@ -48,7 +48,7 @@ function adminimize_add_textarea_for_advices() {
 	<?php
 }
 
-function adminize_add_meta_box_backend_options() {
+function adminimize_add_meta_box_backend_options() {
 
 	$settings = array();
 
@@ -163,15 +163,15 @@ function adminize_add_meta_box_backend_options() {
 	}
 
 	add_meta_box(
-		/* $id,           */ 'adminize_add_meta_box_backend_options',
+		/* $id,           */ 'adminimize_add_meta_box_backend_options',
 		/* $title,        */ __( 'Backend Options', 'adminimize' ),
-		/* $callback,     */ 'adminize_meta_box_backend_options_page',
+		/* $callback,     */ 'adminimize_meta_box_backend_options_page',
 		/* $post_type,    */ Adminimize_Options_Page::$pagehook,
 		/* $context,      */ 'normal'
 		/* $priority,     */
 		/* $callback_args */
 	);
 }
-add_action( 'admin_menu', 'adminize_add_meta_box_backend_options', 20 );
-add_action( 'network_admin_menu', 'adminize_add_meta_box_backend_options', 20 );
+add_action( 'admin_menu', 'adminimize_add_meta_box_backend_options', 20 );
+add_action( 'network_admin_menu', 'adminimize_add_meta_box_backend_options', 20 );
 
