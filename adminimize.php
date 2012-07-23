@@ -118,6 +118,7 @@ if ( ! class_exists( 'Adminimize' ) ) {
 			self::$plugin_name = $this->get_plugin_header( 'Name' );
 				
 			require_once dirname( __FILE__ ) . '/inc/api.php';
+			require_once dirname( __FILE__ ) . '/inc/helpers.php';
 
 			// Load the features
 			$this->load_features();

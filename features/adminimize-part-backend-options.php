@@ -1,53 +1,5 @@
 <?php 
 
-function adminimize_meta_box_backend_options_page() {
-	?>
-
-	<table summary="config" class="widefat">
-		<tbody>
-			<?php do_settings_fields( Adminimize_Options_Page::$pagehook, 'backend-options' ); ?>
-		</tbody>
-	</table>
-
-	<br style="clear: both">
-	<?php submit_button( __( 'Save Changes' ), 'button-primary', 'submit', TRUE ); ?>
-	<br style="clear: both">
-	<?php	
-}
-
-function adminimize_field_with_select( $args ) {
-
-	$settings_name = $args['settings_name'];
-	$args          = $args['args'];
-	$disabled_attr = isset( $args['disabled'] ) && $args['disabled'] ? ' disabled="disabled"' : '';
-
-	$current_value = adminimize_get_option($settings_name);
-
-	do_action( 'before_adminimize_field_with_select' );
-	do_action( 'before_adminimize_field_with_select-' . $settings_name );
-	?>
-
-	<select name="adminimize[<?php echo $settings_name ?>]"<?php echo $disabled_attr; ?>>
-		<?php foreach ($args['options'] as $value => $title): ?>
-			<option value="<?php echo $value ?>"<?php selected( $value, $current_value ) ?>><?php echo $title ?></option>
-		<?php endforeach ?>
-	</select>
-
-	<?php if ( $args['description'] ): ?>
-		<span class="description"><?php echo $args['description']; ?></span>
-	<?php endif ?>
-
-	<?php
-	do_action( 'after_adminimize_field_with_select' );
-	do_action( 'after_adminimize_field_with_select-' . $settings_name );
-}
-
-function adminimize_add_textarea_for_advices() {
-	?>
-	<textarea style="width: 85%" class="code" rows="2" cols="60" name="adminimize[advice_txt]" id="adminimize_advice_txt" ><?php echo htmlspecialchars( stripslashes( adminimize_get_option( 'advice_txt' ) ) ); ?></textarea>
-	<?php
-}
-
 function adminimize_add_meta_box_backend_options() {
 
 	$settings = array();
@@ -175,3 +127,8 @@ function adminimize_add_meta_box_backend_options() {
 add_action( 'admin_menu', 'adminimize_add_meta_box_backend_options', 20 );
 add_action( 'network_admin_menu', 'adminimize_add_meta_box_backend_options', 20 );
 
+function adminimize_add_textarea_for_advices() {
+	?>
+	<textarea style="width: 85%" class="code" rows="2" cols="60" name="adminimize[advice_txt]" id="adminimize_advice_txt" ><?php echo htmlspecialchars( stripslashes( adminimize_get_option( 'advice_txt' ) ) ); ?></textarea>
+	<?php
+}
