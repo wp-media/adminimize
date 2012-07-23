@@ -114,6 +114,8 @@ if ( ! class_exists( 'Adminimize_Options_Page' ) ) {
 				$this->plugin->get_plugin_basename(),
 				array( $this, 'get_settings_page' )
 			);
+
+			add_action( 'load-' . self::$pagehook, array( $this, 'prepare_dragndrop' ) );
 		}
 		
 		public function add_options_page() {
@@ -124,6 +126,13 @@ if ( ! class_exists( 'Adminimize_Options_Page' ) ) {
 				$this->plugin->get_plugin_basename(),
 				array( $this, 'get_settings_page' )
 			);
+
+			add_action( 'load-' . self::$pagehook, array( $this, 'prepare_dragndrop' ) );
+		}
+
+		public function prepare_dragndrop() {
+			wp_enqueue_script( 'postbox' );
+			add_screen_option( 'layout_columns', array( 'max' => 1, 'default' => 1 ) );
 		}
 
 		public function network_admin_plugin_action_links( $links, $file ) {
@@ -216,6 +225,23 @@ if ( ! class_exists( 'Adminimize_Options_Page' ) ) {
 						
 					</div> <!-- .metabox-holder -->
 
+				</form>
+
+				<!-- Stuff for opening / closing metaboxes -->
+				<script type="text/javascript">
+				jQuery( document ).ready( function( $ ) {
+					// close postboxes that should be closed
+					$('.if-js-closed').removeClass( 'if-js-closed' ).addClass('closed');
+					// postboxes setup
+					postboxes.add_postbox_toggles( '<?php echo self::$pagehook; ?>' );
+				} );
+				</script>
+				
+				<form style='display: none' method='get' action=''>
+					<?php
+					wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false );
+					wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false );
+					?>
 				</form>
 			</div>
 			<?php
