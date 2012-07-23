@@ -6,45 +6,6 @@ function adminize_meta_box_backend_options_page() {
 	<table summary="config" class="widefat">
 		<tbody>
 			<?php do_settings_fields( Adminimize_Options_Page::$pagehook, 'backend-options' ); ?>
-			<?php
-			/* FIXME: figure out what this does
-			// when remove dashboard
-			foreach ($user_roles as $role) {
-				$disabled_menu_[$role] = adminimize_get_option('mw_adminimize_disabled_menu_'. $role .'_items');
-				$disabled_submenu_[$role] = adminimize_get_option('mw_adminimize_disabled_submenu_'. $role .'_items');
-			}
-
-			$disabled_menu_all = array();
-			foreach ($user_roles as $role) {
-				array_push($disabled_menu_all, $disabled_menu_[$role]);
-				array_push($disabled_menu_all, $disabled_submenu_[$role]);
-			}
-
-			if ( '' != $disabled_menu_all ) {
-				if ( ! _mw_adminimize_recursive_in_array('index.php', $disabled_menu_all) ) {
-					$disabled_item2 = ' disabled="disabled"';
-				}
-				?>
-				<tr valign="top" class="form-invalid">
-					<td><?php _e('Dashboard deactivate, redirect to', 'adminimize' ); ?></td>
-					<td>
-						<?php $_mw_adminimize_db_redirect = adminimize_get_option('_mw_adminimize_db_redirect'); ?>
-						<select name="_mw_adminimize_db_redirect"<?php if ( isset($disabled_item2) ) echo $disabled_item2; ?>>
-							<option value="0"<?php if ($_mw_adminimize_db_redirect == '0') { echo ' selected="selected"'; } ?>><?php _e('Default', 'adminimize' ); ?> (profile.php)</option>
-							<option value="1"<?php if ($_mw_adminimize_db_redirect == '1') { echo ' selected="selected"'; } ?>><?php _e('Manage Posts', 'adminimize' ); ?> (edit.php)</option>
-							<option value="2"<?php if ($_mw_adminimize_db_redirect == '2') { echo ' selected="selected"'; } ?>><?php _e('Manage Pages', 'adminimize' ); ?> (edit-pages.php)</option>
-							<option value="3"<?php if ($_mw_adminimize_db_redirect == '3') { echo ' selected="selected"'; } ?>><?php _e('Write Post', 'adminimize' ); ?> (post-new.php)</option>
-							<option value="4"<?php if ($_mw_adminimize_db_redirect == '4') { echo ' selected="selected"'; } ?>><?php _e('Write Page', 'adminimize' ); ?> (page-new.php)</option>
-							<option value="5"<?php if ($_mw_adminimize_db_redirect == '5') { echo ' selected="selected"'; } ?>><?php _e('Comments', 'adminimize' ); ?> (edit-comments.php)</option>
-							<option value="6"<?php if ($_mw_adminimize_db_redirect == '6') { echo ' selected="selected"'; } ?>><?php _e('other Page', 'adminimize' ); ?></option>
-						</select>
-						<textarea style="width: 85%;" class="code" rows="1" cols="60" name="_mw_adminimize_db_redirect_txt" id="_mw_adminimize_db_redirect_txt" ><?php echo htmlspecialchars(stripslashes(adminimize_get_option('_mw_adminimize_db_redirect_txt'))); ?></textarea>
-						<br /><?php _e('You have deactivated the Dashboard, please select a page for redirection or define custom url, include http://?', 'adminimize' ); ?>
-					</td>
-				</tr>
-				<?php
-			}*/
-			?>
 		</tbody>
 	</table>
 
@@ -185,6 +146,8 @@ function adminize_add_meta_box_backend_options() {
 			1 => __( 'Activate', 'adminimize' )
 		)
 	);
+
+	// TODO: add missing setting 'Dashboard deactivate, redirect to'
 
 	add_action( 'after_adminimize_field_with_select-advice', 'adminimize_add_textarea_for_advices' );
 
