@@ -78,7 +78,6 @@ if ( ! class_exists( 'Adminimize_Options_Page' ) ) {
 			self::$option_string = 'adminimize';
 
 			if ( $this->plugin->is_active_for_multisite() ) {
-				file_put_contents('/tmp/php.log', print_r("\n" . "Adminimize is active for THE NETWORK", true), FILE_APPEND | LOCK_EX);
 				add_action( 'network_admin_menu',    array( $this, 'add_network_options_page' ) );
 				// add settings link
 				add_filter( 'network_admin_plugin_action_links', array( $this, 'network_admin_plugin_action_links' ), 10, 2 );
@@ -87,7 +86,6 @@ if ( ! class_exists( 'Adminimize_Options_Page' ) ) {
 				// return message for update settings
 				add_action( 'network_admin_notices', array( $this, 'get_network_admin_notices' ) );
 			} else {
-				file_put_contents('/tmp/php.log', print_r("\n" . "Adminimize is active for a single blog", true), FILE_APPEND | LOCK_EX);
 				add_action( 'admin_menu',            array( $this, 'add_options_page' ) );
 				// add settings link
 				add_filter( 'plugin_action_links',   array( $this, 'plugin_action_links' ), 10, 2 );
