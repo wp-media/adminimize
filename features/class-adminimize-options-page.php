@@ -186,6 +186,8 @@ if ( ! class_exists( 'Adminimize_Options_Page' ) ) {
 		
 		public function register_settings() {
 			register_setting( Adminimize_Options_Page::$pagehook, 'adminimize' );
+			register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_backend' );
+			register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_custom' );
 		}
 
 		public function get_settings_page() {

@@ -132,3 +132,20 @@ function adminimize_add_textarea_for_advices() {
 	<textarea style="width: 85%" class="code" rows="2" cols="60" name="adminimize[advice_txt]" id="adminimize_advice_txt" ><?php echo htmlspecialchars( stripslashes( adminimize_get_option( 'advice_txt' ) ) ); ?></textarea>
 	<?php
 }
+
+/**
+ * Table wrapper for settings metabox content.
+ */
+function adminimize_meta_box_backend_options_page() {
+	?>
+	<table summary="config" class="widefat">
+		<tbody>
+			<?php do_settings_fields( Adminimize_Options_Page::$pagehook, 'backend-options' ); ?>
+		</tbody>
+	</table>
+
+	<br style="clear: both">
+	<?php submit_button( __( 'Save Changes' ), 'button-primary', 'submit', TRUE ); ?>
+	<br style="clear: both">
+	<?php	
+}

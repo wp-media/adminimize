@@ -1,23 +1,6 @@
 <?php
 
 /**
- * Table wrapper for settings metabox content.
- */
-function adminimize_meta_box_backend_options_page() {
-	?>
-	<table summary="config" class="widefat">
-		<tbody>
-			<?php do_settings_fields( Adminimize_Options_Page::$pagehook, 'backend-options' ); ?>
-		</tbody>
-	</table>
-
-	<br style="clear: both">
-	<?php submit_button( __( 'Save Changes' ), 'button-primary', 'submit', TRUE ); ?>
-	<br style="clear: both">
-	<?php	
-}
-
-/**
  * Callback for add_settings_field to create a <select>.
  * 
  * @param  array $args Args has two parameters: 'settings_name' and 'args'.
