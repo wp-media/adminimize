@@ -120,6 +120,24 @@ if ( ! class_exists( 'Adminimize' ) ) {
 			// Load the features
 			$this->load_includes();
 			$this->load_features();
+
+			// javascript
+			add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
+		}
+
+		function register_admin_scripts() {
+
+			if ( false !== stripos( $_GET['page'], 'adminimize' ) ) {
+				wp_enqueue_script(
+					'adminimize_admin',
+					plugins_url( '/js/admin.js', __FILE__ ),
+					array( 'jquery' ),
+					'1.0'
+				);
+
+				wp_register_script( 'adminimize_admin' );
+			}
+
 		}
 
 		/**

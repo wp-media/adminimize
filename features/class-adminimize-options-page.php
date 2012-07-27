@@ -228,16 +228,6 @@ if ( ! class_exists( 'Adminimize_Options_Page' ) ) {
 					</div> <!-- .metabox-holder -->
 
 				</form>
-
-				<!-- Stuff for opening / closing metaboxes -->
-				<script type="text/javascript">
-				jQuery( document ).ready( function( $ ) {
-					// close postboxes that should be closed
-					$('.if-js-closed').removeClass( 'if-js-closed' ).addClass('closed');
-					// postboxes setup
-					postboxes.add_postbox_toggles( '<?php echo self::$pagehook; ?>' );
-				} );
-				</script>
 				
 				<form style='display: none' method='get' action=''>
 					<?php
