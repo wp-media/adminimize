@@ -117,10 +117,8 @@ if ( ! class_exists( 'Adminimize' ) ) {
 			// The Plugins Name
 			self::$plugin_name = $this->get_plugin_header( 'Name' );
 				
-			require_once dirname( __FILE__ ) . '/inc/api.php';
-			require_once dirname( __FILE__ ) . '/inc/helpers.php';
-
 			// Load the features
+			$this->load_includes();
 			$this->load_features();
 		}
 
@@ -190,31 +188,48 @@ if ( ! class_exists( 'Adminimize' ) ) {
 		}
 
 		/**
-		 * Scans the plugins subfolder "/features" for
-		 * new features
+		 * Autoloads all files in $dir subdirectory
+		 * 
+		 * @param  string $dir name of plugin subdirectory
+		 * @return void      
+		 */
+		private function autoload_subdirectory( $dir ) {
+
+			// Get dir
+			$handle = opendir( dirname( __FILE__ ) . '/' . $dir );
+			if ( ! $handle )
+				return;
+
+			// Loop through directory files
+			while ( FALSE != ( $file = readdir( $handle ) ) ) {
+
+				// Is this file for us?
+				if ( '.php' == substr( $file, -4 ) ) {
+						
+					// Include module file
+					require_once dirname( __FILE__ ) . '/' . $dir . '/' . $file;
+				}
+			}
+			closedir( $handle );
+		}
+
+		/**
+		 * Autoloads all files in "/inc" subdirectory
+		 * @return void
+		 */
+		protected function load_includes() {
+			$this->autoload_subdirectory( 'inc' );
+		}
+
+		/**
+		 * Autoloads all files in "/features" subdirectory
 		 *
 		 * @since	0.1
 		 * @access	protected
 		 * @return	void
 		 */
 		protected function load_features() {
-				
-			// Get dir
-			$handle = opendir( dirname( __FILE__ ) . '/features' );
-			if ( ! $handle )
-				return;
-
-			// Loop through directory files
-			while ( FALSE != ( $plugin = readdir( $handle ) ) ) {
-
-				// Is this file for us?
-				if ( '.php' == substr( $plugin, -4 ) ) {
-						
-					// Include module file
-					require_once dirname( __FILE__ ) . '/features/' . $plugin;
-				}
-			}
-			closedir( $handle );
+			$this->autoload_subdirectory( 'features' );
 		}
 	}
 
