@@ -120,24 +120,22 @@ if ( ! class_exists( 'Adminimize' ) ) {
 			// Load the features
 			$this->load_includes();
 			$this->load_features();
-
+			
 			// javascript
-			add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
+			//add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
+			add_action( 'admin_print_scripts-settings_page_Adminimize/adminimize' , array( $this, 'register_admin_scripts' ) );
 		}
 
 		function register_admin_scripts() {
-
-			if ( false !== stripos( $_GET['page'], 'adminimize' ) ) {
-				wp_enqueue_script(
-					'adminimize_admin',
-					plugins_url( '/js/admin.js', __FILE__ ),
-					array( 'jquery' ),
-					'1.0'
-				);
-
-				wp_register_script( 'adminimize_admin' );
-			}
-
+			
+			wp_register_script(
+				'adminimize_admin',
+				plugins_url( '/js/admin.js', __FILE__ ),
+				array( 'jquery' ),
+				'1.0'
+			);
+			wp_enqueue_script( 'adminimize_admin' );
+		
 		}
 
 		/**
@@ -202,6 +200,7 @@ if ( ! class_exists( 'Adminimize' ) ) {
 		}
 
 		public function is_active_for_multisite() {
+			
 			return is_multisite() && is_plugin_active_for_network( self::$plugin_base_name );
 		}
 
@@ -209,26 +208,13 @@ if ( ! class_exists( 'Adminimize' ) ) {
 		 * Autoloads all files in $dir subdirectory
 		 * 
 		 * @param  string $dir name of plugin subdirectory
-		 * @return void      
+		 * @return void
 		 */
 		private function autoload_subdirectory( $dir ) {
-
-			// Get dir
-			$handle = opendir( dirname( __FILE__ ) . '/' . $dir );
-			if ( ! $handle )
-				return;
-
-			// Loop through directory files
-			while ( FALSE != ( $file = readdir( $handle ) ) ) {
-
-				// Is this file for us?
-				if ( '.php' == substr( $file, -4 ) ) {
-						
-					// Include module file
-					require_once dirname( __FILE__ ) . '/' . $dir . '/' . $file;
-				}
-			}
-			closedir( $handle );
+			
+			// load all files with the pattern *.php from the $dir directory
+			foreach( glob( dirname( __FILE__ ) . '/' . $dir . '/*.php' ) as $file )
+				require_once $file;
 		}
 
 		/**
@@ -236,6 +222,7 @@ if ( ! class_exists( 'Adminimize' ) ) {
 		 * @return void
 		 */
 		protected function load_includes() {
+			
 			$this->autoload_subdirectory( 'inc' );
 		}
 
@@ -247,6 +234,7 @@ if ( ! class_exists( 'Adminimize' ) ) {
 		 * @return	void
 		 */
 		protected function load_features() {
+			
 			$this->autoload_subdirectory( 'features' );
 		}
 	}

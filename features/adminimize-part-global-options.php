@@ -55,11 +55,11 @@ function adminimize_meta_box_global_options_page() {
 						<?php echo $setting['title']; ?>
 						<span class="description">(<?php echo $setting['css_path']; ?>)</span>
 					</td>
-					<?php foreach ( $user_roles as $role ): ?>
+					<?php foreach ( $user_roles as $role ) { ?>
 						<td>
-							<input type="checkbox" name="adminimize_backend[<?php echo $index ?>][<?php echo $role ?>]" <?php checked( $values[ $role ], 'on' ) ?> >
+							<input type="checkbox" name="adminimize_backend[<?php echo $index ?>][<?php echo $role ?>]" <?php if ( isset($values[ $role ]) ) checked( $values[ $role ], 'on' ) ?> >
 						</td>
-					<?php endforeach ?>
+					<?php } ?>
 				</tr>
 			<?php endforeach ?>
 		</tbody>
