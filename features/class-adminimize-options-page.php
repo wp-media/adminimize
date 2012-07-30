@@ -193,6 +193,9 @@ if ( ! class_exists( 'Adminimize_Options_Page' ) ) {
 
 			register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_write' );
 			register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_write_custom' );
+
+			register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_links' );
+			register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_links_custom' );
 		}
 
 		public function get_settings_page() {
