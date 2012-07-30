@@ -3,7 +3,7 @@
 /**
  * Table wrapper for settings metabox content.
  */
-function adminimize_meta_box_write_options_page() {
+function adminimize_meta_box_write_post_options_page() {
 	$settings = array(
 		'help' => array(
 			'title' => __( 'Help', 'adminimize' ),
@@ -164,18 +164,18 @@ function adminimize_meta_box_write_options_page() {
 	);
 
 	$args = array(
-		'option_namespace' => 'adminimize_write',
+		'option_namespace' => 'adminimize_write_post',
 		'settings'         => $settings
 	);
 	adminimize_generate_checkbox_table( $args );
 }
 
-function adminimize_add_meta_box_write_options() {
+function adminimize_add_meta_box_write_post_options() {
 
 	add_meta_box(
-		/* $id,           */ 'adminimize_add_meta_box_write_options',
-		/* $title,        */ __( 'Deactivate Write Options for Roles', 'adminimize' ),
-		/* $callback,     */ 'adminimize_meta_box_write_options_page',
+		/* $id,           */ 'adminimize_add_meta_box_write_post_options',
+		/* $title,        */ __( 'Deactivate Write Post Options for Roles', 'adminimize' ),
+		/* $callback,     */ 'adminimize_meta_box_write_post_options_page',
 		/* $post_type,    */ Adminimize_Options_Page::$pagehook,
 		/* $context,      */ 'normal'
 		/* $priority,     */
@@ -184,10 +184,10 @@ function adminimize_add_meta_box_write_options() {
 	
 }
 
-add_action( 'admin_menu', 'adminimize_add_meta_box_write_options', 20 );
-add_action( 'network_admin_menu', 'adminimize_add_meta_box_write_options', 20 );
+add_action( 'admin_menu', 'adminimize_add_meta_box_write_post_options', 20 );
+add_action( 'network_admin_menu', 'adminimize_add_meta_box_write_post_options', 20 );
 
 add_action( 'adminimize_register_settings', function () {
-	register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_write' );
-	register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_write_custom' );
+	register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_write_post' );
+	register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_write_post_custom' );
 } );
