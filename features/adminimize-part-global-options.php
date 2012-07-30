@@ -82,14 +82,14 @@ function adminimize_meta_box_global_options_page() {
 		<tbody>
 			<tr valign="top">
 				<td>
-					<textarea class="code" name="adminimize_custom[options]" cols="60" rows="3" style="width: 95%;" ><?php echo adminimize_get_option( 'options', '', 'adminimize_custom' ); ?></textarea>
+					<textarea class="code" name="adminimize_backend_custom[options]" cols="60" rows="3" style="width: 95%;" ><?php echo adminimize_get_option( 'options', '', 'adminimize_backend_custom' ); ?></textarea>
 					<br />
 					<span class="description">
 						<?php _e( 'Possible nomination for ID or class. Separate multiple nominations through a carriage return.', 'adminimize' ); ?>
 					</span>
 				</td>
 				<td>
-					<textarea class="code" name="adminimize_custom[values]" cols="60" rows="3" id="_mw_adminimize_own_values" style="width: 95%;" ><?php echo adminimize_get_option( 'values', '', 'adminimize_custom' ); ?></textarea>
+					<textarea class="code" name="adminimize_backend_custom[values]" cols="60" rows="3" id="_mw_adminimize_own_values" style="width: 95%;" ><?php echo adminimize_get_option( 'values', '', 'adminimize_backend_custom' ); ?></textarea>
 					<br />
 					<span class="description">
 						<?php _e( 'Possible IDs or classes. Separate multiple values through a carriage return.', 'adminimize' ); ?>
