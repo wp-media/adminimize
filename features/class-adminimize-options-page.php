@@ -183,19 +183,10 @@ if ( ! class_exists( 'Adminimize_Options_Page' ) ) {
 		}
 		
 		public function register_settings() {
+			
 			register_setting( Adminimize_Options_Page::$pagehook, 'adminimize' );
 
-			register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_backend' );
-			register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_backend_custom' );
-
-			register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_dashboard' );
-			register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_dashboard_custom' );
-
-			register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_write' );
-			register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_write_custom' );
-
-			register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_links' );
-			register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_links_custom' );
+			do_action( 'adminimize_register_settings' );
 		}
 
 		public function get_settings_page() {

@@ -186,3 +186,8 @@ function adminimize_add_meta_box_write_options() {
 
 add_action( 'admin_menu', 'adminimize_add_meta_box_write_options', 20 );
 add_action( 'network_admin_menu', 'adminimize_add_meta_box_write_options', 20 );
+
+add_action( 'adminimize_register_settings', function () {
+	register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_write' );
+	register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_write_custom' );
+} );

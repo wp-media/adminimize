@@ -149,3 +149,8 @@ function adminimize_meta_box_backend_options_page() {
 	<br style="clear: both">
 	<?php	
 }
+
+add_action( 'adminimize_register_settings', function () {
+	register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_backend' );
+	register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_backend_custom' );
+} );
