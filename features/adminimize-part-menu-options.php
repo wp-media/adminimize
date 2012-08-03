@@ -1,64 +1,81 @@
 <?php 
+namespace Adminimize\Part;
+
+require_once 'class-adminimize-part-base-meta-box.php';
 
 /**
- * Table wrapper for settings metabox content.
+ * Options to hide menu entries.
  */
-function adminimize_meta_box_menu_options_page() {
-	global $menu, $submenu;
+class Menu_Options extends \Adminimize\Part\Base_Meta_Box {
 
-	$settings = array();
-
-	foreach ( $menu as $menu_entry ) {
-
-		if ( false !== stripos( $menu_entry[2], 'separator' ) )
-			continue;
-
-		$title = $menu_entry[0];
-		$file  = $menu_entry[2];
-
-		$settings[ strtolower( $title ) ] = array(
-			'title'       => $title,
-			'description' => $file
-		);
-
-		if ( isset( $submenu[ $file ] ) ) {
-			foreach ( $submenu[ $file ] as $submenu_entry ) {
-				$sub_title = $submenu_entry[0];
-				$sub_file  = $submenu_entry[2];
-
-				$settings[ strtolower( $sub_title ) ] = array(
-					'title'       => ' &mdash; ' . $sub_title,
-					'description' => $sub_file
-				);
-			}
-		}
+	/**
+	 * Get translated meta box title.
+	 * 
+	 * @return string
+	 */
+	public function get_meta_box_title() {
+		return __( 'Deactivate Menu Options for Roles', 'adminimize' );
 	}
 
-	$args = array(
-		'option_namespace' => 'adminimize_menu',
-		'settings'         => $settings,
-		'custom_options'   => false
-	);
-	adminimize_generate_checkbox_table( $args );
+	/**
+	 * Get option namespace.
+	 *
+	 * Will be used to serialize settings.
+	 * 
+	 * @return string
+	 */
+	public function get_option_namespace() {
+		return 'adminimize_menu';
+	}
+
+	/**
+	 * Print meta box contents.
+	 * 
+	 * @return void
+	 */
+	public function meta_box_content() {
+		global $menu, $submenu;
+
+		$settings = array();
+
+		foreach ( $menu as $menu_entry ) {
+
+			if ( false !== stripos( $menu_entry[2], 'separator' ) )
+				continue;
+
+			$title = $menu_entry[0];
+			$file  = $menu_entry[2];
+
+			$settings[ strtolower( $title ) ] = array(
+				'title'       => $title,
+				'description' => $file
+			);
+
+			if ( isset( $submenu[ $file ] ) ) {
+				foreach ( $submenu[ $file ] as $submenu_entry ) {
+					$sub_title = $submenu_entry[0];
+					$sub_file  = $submenu_entry[2];
+
+					$settings[ strtolower( $sub_title ) ] = array(
+						'title'       => ' &mdash; ' . $sub_title,
+						'description' => $sub_file
+					);
+				}
+			}
+		}
+
+		$args = array(
+			'option_namespace' => 'adminimize_menu',
+			'settings'         => $settings,
+			'custom_options'   => false
+		);
+		adminimize_generate_checkbox_table( $args );
+	}
+
 }
 
-function adminimize_add_meta_box_menu_options() {
+Menu_Options::get_instance();
 
-	add_meta_box(
-		/* $id,           */ 'adminimize_add_meta_box_menu_options',
-		/* $title,        */ __( 'Deactivate Menu Options for Roles', 'adminimize' ),
-		/* $callback,     */ 'adminimize_meta_box_menu_options_page',
-		/* $post_type,    */ Adminimize_Options_Page::$pagehook,
-		/* $context,      */ 'normal'
-		/* $priority,     */
-		/* $callback_args */
-	);
-	
-}
 
-add_action( 'admin_menu', 'adminimize_add_meta_box_menu_options', 20 );
-add_action( 'network_admin_menu', 'adminimize_add_meta_box_menu_options', 20 );
 
-add_action( 'adminimize_register_settings', function () {
-	register_setting( Adminimize_Options_Page::$pagehook, 'adminimize_menu' );
-} );
+
