@@ -13,6 +13,15 @@ abstract class Base_Meta_Box {
 	protected $settings = NULL;
 
 	/**
+	 * Meta Box priority within the context where the boxes should show.
+	 * 
+	 * 'high', 'core', 'default' or 'low'
+	 * 
+	 * @var string
+	 */
+	protected $priority = 'default';
+
+	/**
 	 * All Parts are singletons.
 	 * 
 	 * @return Base_Meta_Box
@@ -56,14 +65,15 @@ abstract class Base_Meta_Box {
 			/* $title,        */ $this->get_meta_box_title(),
 			/* $callback,     */ array( $this, 'meta_box_content' ),
 			/* $post_type,    */ \Adminimize_Options_Page::$pagehook,
-			/* $context,      */ 'normal'
-			/* $priority,     */
+			/* $context,      */ 'normal',
+			/* $priority,     */ $this->priority
 			/* $callback_args */
 		);
 	}
 
 	public final function register_setting() {
 		\register_setting( \Adminimize_Options_Page::$pagehook, $this->get_option_namespace() );
+		\register_setting( \Adminimize_Options_Page::$pagehook, $this->get_option_namespace() . '_custom' );
 	}
 
 	/**
