@@ -40,7 +40,8 @@ function adminimize_generate_checkbox_table( $args ) {
 
 	$defaults = array(
 		'option_namespace' => '',
-		'settings'         => array()
+		'settings'         => array(),
+		'custom_options'   => true
 	);
 	$args = wp_parse_args( $args, $defaults );
 
@@ -77,39 +78,41 @@ function adminimize_generate_checkbox_table( $args ) {
 		</tbody>
 	</table>
 
-	<h4><?php _e( 'Your own options', 'adminimize' ); ?></h4>
+	<?php if ( $args['custom_options'] ): ?>
+		<h4><?php _e( 'Your own options', 'adminimize' ); ?></h4>
 
-	<p class="description">
-		<?php _e( 'It is possible to add your own IDs or classes from elements and tags. You can find IDs and classes with the FireBug Add-on for Firefox. Assign a value and the associate name per line.', 'adminimize' ); ?>
-	</p>
+		<p class="description">
+			<?php _e( 'It is possible to add your own IDs or classes from elements and tags. You can find IDs and classes with the FireBug Add-on for Firefox. Assign a value and the associate name per line.', 'adminimize' ); ?>
+		</p>
 
-	<table summary="config_edit_post" class="widefat">
-		<thead>
-			<tr>
-				<th><?php _e( 'ID or class', 'adminimize' ); ?></th>
-				<th><?php _e( 'Option', 'adminimize' ); ?></th>
-			</tr>
-		</thead>
+		<table summary="config_edit_post" class="widefat">
+			<thead>
+				<tr>
+					<th><?php _e( 'ID or class', 'adminimize' ); ?></th>
+					<th><?php _e( 'Option', 'adminimize' ); ?></th>
+				</tr>
+			</thead>
 
-		<tbody>
-			<tr valign="top">
-				<td>
-					<textarea class="code" name="<?php echo $args['option_namespace'] ?>_custom[options]" cols="60" rows="3" style="width: 95%;" ><?php echo adminimize_get_option( 'options', '', $args['option_namespace'] . '_custom' ); ?></textarea>
-					<br />
-					<span class="description">
-						<?php _e( 'Possible nomination for ID or class. Separate multiple nominations through a carriage return.', 'adminimize' ); ?>
-					</span>
-				</td>
-				<td>
-					<textarea class="code" name="<?php echo $args['option_namespace'] ?>_custom[values]" cols="60" rows="3" id="_mw_adminimize_own_values" style="width: 95%;" ><?php echo adminimize_get_option( 'values', '', $args['option_namespace'] . '_custom' ); ?></textarea>
-					<br />
-					<span class="description">
-						<?php _e( 'Possible IDs or classes. Separate multiple values through a carriage return.', 'adminimize' ); ?>
-					</span>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+			<tbody>
+				<tr valign="top">
+					<td>
+						<textarea class="code" name="<?php echo $args['option_namespace'] ?>_custom[options]" cols="60" rows="3" style="width: 95%;" ><?php echo adminimize_get_option( 'options', '', $args['option_namespace'] . '_custom' ); ?></textarea>
+						<br />
+						<span class="description">
+							<?php _e( 'Possible nomination for ID or class. Separate multiple nominations through a carriage return.', 'adminimize' ); ?>
+						</span>
+					</td>
+					<td>
+						<textarea class="code" name="<?php echo $args['option_namespace'] ?>_custom[values]" cols="60" rows="3" id="_mw_adminimize_own_values" style="width: 95%;" ><?php echo adminimize_get_option( 'values', '', $args['option_namespace'] . '_custom' ); ?></textarea>
+						<br />
+						<span class="description">
+							<?php _e( 'Possible IDs or classes. Separate multiple values through a carriage return.', 'adminimize' ); ?>
+						</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	<?php endif ?>
 
 	<br style="clear: both">
 	<?php submit_button( __( 'Save Changes' ), 'button-primary', 'submit', TRUE ); ?>
