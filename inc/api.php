@@ -18,6 +18,23 @@ function adminimize_get_option( $name, $default = NULL, $namespace = 'adminimize
 }
 
 /**
+ * Check if user has given role.
+ * 
+ * @param  string  $role WordPress role identificator
+ * @param  WP_User $user WordPress user object. Defaults to current user.
+ * @return bool          true if user has given role. Otherwise false.
+ */
+function adminimize_user_has_role( $role, WP_User $user = NULL ) {
+
+	if ( NULL === $user )
+		$user = wp_get_current_user();
+
+	return is_array( $user->roles )
+	    && in_array( $role, $user->roles )
+	    && current_user_can( $role );
+}
+
+/**
  * Returns an array with all user roles(names) in it.
  * Includes self defined roles.
  * 

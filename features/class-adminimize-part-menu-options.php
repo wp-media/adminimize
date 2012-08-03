@@ -8,6 +8,62 @@ require_once 'class-adminimize-part-base-meta-box.php';
  */
 class Menu_Options extends \Adminimize\Part\Base_Meta_Box {
 
+	protected function __construct() {
+		parent::__construct();
+
+		add_action( 'admin_init', array( $this, 'hide_menu_entries' ) );
+	}
+
+	public function hide_menu_entries() {
+
+		$roles = adminimize_get_all_user_roles();
+
+		foreach ( $this->get_settings() as $setting_index => $setting_values ) {
+
+			$values = adminimize_get_option( $setting_index, array(), $this->get_option_namespace() );
+			foreach ( $roles as $role ) {
+				if ( adminimize_user_has_role( $role ) && isset( $values[ $role ] ) && $values[ $role ] ) {
+					
+					if ( NULL === $setting_values['submenu_index'] ) {
+						self::remove_mainmenu_entry( $setting_values['menu_index'] );
+					} else {
+						self::remove_submenu_entry( $setting_values['menu_index'], $setting_values['submenu_index'] );
+					}
+					
+
+				}
+			}
+		}
+	}
+
+	/**
+	 * Remove entry from main WordPress menu.
+	 * 
+	 * @param  int $menu_index
+	 * @return void
+	 */
+	private static function remove_mainmenu_entry( $menu_index ) {
+		global $menu;
+
+		unset( $menu[ $menu_index ] );
+	}
+
+	/**
+	 * Remove entry from a WordPress submenu.
+	 * 
+	 * @param  int $menu_index
+	 * @param  int $submenu_index
+	 * @return void
+	 */
+	private static function remove_submenu_entry( $menu_index, $submenu_index ) {
+		global $menu, $submenu;
+
+		$menu_entry       = $menu[ $menu_index ];
+		$menu_entry_link  = $menu_entry[2];
+
+		unset( $submenu[ $menu_entry_link ][ $submenu_index ] );
+	}
+
 	/**
 	 * Get translated meta box title.
 	 * 
@@ -38,7 +94,7 @@ class Menu_Options extends \Adminimize\Part\Base_Meta_Box {
 
 		$settings = array();
 
-		foreach ( $menu as $menu_entry ) {
+		foreach ( $menu as $menu_index => $menu_entry ) {
 
 			if ( false !== stripos( $menu_entry[2], 'separator' ) )
 				continue;
@@ -46,19 +102,23 @@ class Menu_Options extends \Adminimize\Part\Base_Meta_Box {
 			$title = $menu_entry[0];
 			$file  = $menu_entry[2];
 
-			$settings[ strtolower( $title ) ] = array(
-				'title'       => $title,
-				'description' => $file
+			$settings[ strtolower( $title . '_' . $file ) ] = array(
+				'title'         => $title,
+				'description'   => $file,
+				'menu_index'    => $menu_index,
+				'submenu_index' => NULL
 			);
 
 			if ( isset( $submenu[ $file ] ) ) {
-				foreach ( $submenu[ $file ] as $submenu_entry ) {
+				foreach ( $submenu[ $file ] as $submenu_index => $submenu_entry ) {
 					$sub_title = $submenu_entry[0];
 					$sub_file  = $submenu_entry[2];
 
-					$settings[ strtolower( $sub_title ) ] = array(
-						'title'       => ' &mdash; ' . $sub_title,
-						'description' => $sub_file
+					$settings[ strtolower( $sub_title . '_' . $sub_file ) ] = array(
+						'title'         => ' &mdash; ' . $sub_title,
+						'description'   => $sub_file,
+						'menu_index'    => $menu_index,
+						'submenu_index' => $submenu_index
 					);
 				}
 			}
