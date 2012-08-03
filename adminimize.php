@@ -123,7 +123,7 @@ if ( ! class_exists( 'Adminimize' ) ) {
 			
 			// javascript
 			//add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
-			add_action( 'admin_print_scripts-settings_page_Adminimize/adminimize' , array( $this, 'register_admin_scripts' ) );
+			add_action( 'admin_print_scripts-settings_page_adminimize-2/adminimize' , array( $this, 'register_admin_scripts' ) );
 		}
 
 		function register_admin_scripts() {
