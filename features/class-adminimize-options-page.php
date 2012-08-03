@@ -128,6 +128,9 @@ if ( ! class_exists( 'Adminimize_Options_Page' ) ) {
 			add_action( 'load-' . self::$pagehook, array( $this, 'prepare_dragndrop' ) );
 		}
 
+		/**
+		 * Tell WordPress to embed all metabox related code.
+		 */
 		public function prepare_dragndrop() {
 			wp_enqueue_script( 'postbox' );
 			add_screen_option( 'layout_columns', array( 'max' => 1, 'default' => 1 ) );
@@ -211,11 +214,7 @@ if ( ! class_exists( 'Adminimize_Options_Page' ) ) {
 					
 					<?php do_settings_fields( self::$pagehook, 'default' ); ?>
 
-					<div class="metabox-holder has-right-sidebar">
-						
-						<div class="inner-sidebar">
-							<?php do_meta_boxes( self::$pagehook, 'side', array() ); ?>
-						</div> <!-- .inner-sidebar -->
+					<div class="metabox-holder">
 						
 						<div id="post-body">
 							<div id="post-body-content">

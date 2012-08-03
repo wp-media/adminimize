@@ -5,7 +5,7 @@ function adminimize_add_meta_box_about() {
 		/* $title,        */ __( 'About the Plugin', 'adminimize' ),
 		/* $callback,     */ 'adminimize_meta_box_about_page',
 		/* $post_type,    */ Adminimize_Options_Page::$pagehook,
-		/* $context,      */ 'side'
+		/* $context,      */ 'normal'
 		/* $priority,     */
 		/* $callback_args */
 	);
@@ -15,7 +15,7 @@ add_action( 'network_admin_menu', 'adminimize_add_meta_box_about', 20 );
 
 function adminimize_meta_box_about_page() {
 	?>
-	<p style="text-align: center">
+	<p style="float: left; margin: 0px 15px 5px 0px">
 		<a href="http://www.inpsyde.com" target="_blank">
 			<img src="<?php echo plugin_dir_url( __FILE__ ) . '../images/inpsyde_logo.png' ?>" style="border: 7px solid #fff">
 		</a>
