@@ -6,6 +6,13 @@ require_once 'class-adminimize-options-page.php';
 abstract class Base_Meta_Box {
 
 	/**
+	 * Settings options array.
+	 * 
+	 * @var array|NULL
+	 */
+	protected $settings = NULL;
+
+	/**
 	 * All Parts are singletons.
 	 * 
 	 * @return Base_Meta_Box
@@ -60,6 +67,19 @@ abstract class Base_Meta_Box {
 	}
 
 	/**
+	 * Return settings array.
+	 * 
+	 * @return array
+	 */
+	public function get_settings() {
+
+		if ( NULL === $this->settings )
+			$this->init_settings();
+
+		return $this->settings;
+	}
+
+	/**
 	 * Get translated meta box title.
 	 * 
 	 * @return string
@@ -81,5 +101,12 @@ abstract class Base_Meta_Box {
 	 * @return void
 	 */
 	public abstract function meta_box_content();
+
+	/**
+	 * Populate $settings var with data.
+	 * 
+	 * @return void
+	 */
+	protected abstract function init_settings();
 
 }

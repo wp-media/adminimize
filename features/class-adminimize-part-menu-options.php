@@ -29,11 +29,11 @@ class Menu_Options extends \Adminimize\Part\Base_Meta_Box {
 	}
 
 	/**
-	 * Print meta box contents.
+	 * Populate $settings var with data.
 	 * 
 	 * @return void
 	 */
-	public function meta_box_content() {
+	protected function init_settings() {
 		global $menu, $submenu;
 
 		$settings = array();
@@ -64,9 +64,19 @@ class Menu_Options extends \Adminimize\Part\Base_Meta_Box {
 			}
 		}
 
+		$this->settings = $settings;
+	}
+
+	/**
+	 * Print meta box contents.
+	 * 
+	 * @return void
+	 */
+	public function meta_box_content() {
+
 		$args = array(
-			'option_namespace' => 'adminimize_menu',
-			'settings'         => $settings,
+			'option_namespace' => $this->get_option_namespace(),
+			'settings'         => $this->get_settings(),
 			'custom_options'   => false
 		);
 		adminimize_generate_checkbox_table( $args );
