@@ -25,43 +25,14 @@ class Menu_Options extends \Adminimize\Part\Base_Meta_Box {
 				if ( adminimize_user_has_role( $role ) && isset( $values[ $role ] ) && $values[ $role ] ) {
 					
 					if ( NULL === $setting_values['submenu_index'] ) {
-						self::remove_mainmenu_entry( $setting_values['menu_index'] );
+						\Adminimize\remove_mainmenu_entry( $setting_values['menu_index'] );
 					} else {
-						self::remove_submenu_entry( $setting_values['menu_index'], $setting_values['submenu_index'] );
+						\Adminimize\remove_submenu_entry( $setting_values['menu_index'], $setting_values['submenu_index'] );
 					}
-					
 
 				}
 			}
 		}
-	}
-
-	/**
-	 * Remove entry from main WordPress menu.
-	 * 
-	 * @param  int $menu_index
-	 * @return void
-	 */
-	private static function remove_mainmenu_entry( $menu_index ) {
-		global $menu;
-
-		unset( $menu[ $menu_index ] );
-	}
-
-	/**
-	 * Remove entry from a WordPress submenu.
-	 * 
-	 * @param  int $menu_index
-	 * @param  int $submenu_index
-	 * @return void
-	 */
-	private static function remove_submenu_entry( $menu_index, $submenu_index ) {
-		global $menu, $submenu;
-
-		$menu_entry       = $menu[ $menu_index ];
-		$menu_entry_link  = $menu_entry[2];
-
-		unset( $submenu[ $menu_entry_link ][ $submenu_index ] );
 	}
 
 	/**
@@ -139,7 +110,7 @@ class Menu_Options extends \Adminimize\Part\Base_Meta_Box {
 			'settings'         => $this->get_settings(),
 			'custom_options'   => false
 		);
-		adminimize_generate_checkbox_table( $args );
+		\Adminimize\adminimize_generate_checkbox_table( $args );
 	}
 
 }

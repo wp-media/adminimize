@@ -77,7 +77,7 @@ class Dashboard_Options extends \Adminimize\Part\Base_Meta_Box {
 			'option_namespace' => $this->get_option_namespace(),
 			'settings'         => $this->get_settings()
 		);
-		adminimize_generate_checkbox_table( $args );
+		\Adminimize\adminimize_generate_checkbox_table( $args );
 	}
 
 }

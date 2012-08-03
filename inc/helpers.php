@@ -1,4 +1,33 @@
 <?php
+namespace Adminimize;
+
+/**
+ * Remove entry from main WordPress menu.
+ * 
+ * @param  int $menu_index
+ * @return void
+ */
+function remove_mainmenu_entry( $menu_index ) {
+	global $menu;
+
+	unset( $menu[ $menu_index ] );
+}
+
+/**
+ * Remove entry from a WordPress submenu.
+ * 
+ * @param  int $menu_index
+ * @param  int $submenu_index
+ * @return void
+ */
+function remove_submenu_entry( $menu_index, $submenu_index ) {
+	global $menu, $submenu;
+
+	$menu_entry       = $menu[ $menu_index ];
+	$menu_entry_link  = $menu_entry[2];
+
+	unset( $submenu[ $menu_entry_link ][ $submenu_index ] );
+}
 
 /**
  * Callback for add_settings_field to create a <select>.
