@@ -38,7 +38,7 @@ function remove_submenu_entry( $menu_index, $submenu_index ) {
  *                           disabled    (bool)   optional.
  *                           description (string) optional.
  */
-function adminimize_field_with_select( $args ) {
+function field_with_select( $args ) {
 
 	$settings_name = $args['settings_name'];
 	$args          = $args['args'];
@@ -65,7 +65,7 @@ function adminimize_field_with_select( $args ) {
 	do_action( 'after_adminimize_field_with_select-' . $settings_name );
 }
 
-function adminimize_generate_checkbox_table( $args ) {
+function generate_checkbox_table( $args ) {
 
 	$defaults = array(
 		'option_namespace' => '',

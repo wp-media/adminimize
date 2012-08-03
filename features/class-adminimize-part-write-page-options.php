@@ -181,7 +181,7 @@ class Write_Page_Options extends \Adminimize\Part\Base_Meta_Box {
 			'option_namespace' => $this->get_option_namespace(),
 			'settings'         => $this->get_settings()
 		);
-		\Adminimize\adminimize_generate_checkbox_table( $args );
+		\Adminimize\generate_checkbox_table( $args );
 	}
 
 }

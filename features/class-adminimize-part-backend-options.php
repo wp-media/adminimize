@@ -154,7 +154,7 @@ class Backend_Options extends \Adminimize\Part\Base_Meta_Box {
 			add_settings_field(
 				/* $id,       */ 'adminimize_field_' . $settings_name,
 				/* $title,    */ $settings_args['title'],
-				/* $callback, */ '\Adminimize\adminimize_field_with_select',
+				/* $callback, */ '\Adminimize\field_with_select',
 				/* $page      */ \Adminimize_Options_Page::$pagehook,
 				/* $section   */ 'backend-options',
 				/* $args      */ array( 'settings_name' => $settings_name, 'args' => $settings_args )
