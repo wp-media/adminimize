@@ -1,4 +1,5 @@
 <?php
+namespace Inpsyde\Adminimize;
 
 /**
  * Get option from adminize settings namespace.
@@ -7,12 +8,12 @@
  * @param  mixed  $default 
  * @return mixed          
  */
-function adminimize_get_option( $name, $default = NULL, $namespace = 'adminimize' ) {
+function get_option( $name, $default = NULL, $namespace = 'adminimize' ) {
 
 	if ( Adminimize::get_instance()->is_active_for_multisite() )
-		$options = get_site_option( $namespace, array() );
+		$options = \get_site_option( $namespace, array() );
 	else
-		$options = get_option( $namespace, array() );
+		$options = \get_option( $namespace, array() );
 
 	return isset( $options[ $name ] ) ? $options[ $name ] : $default; 
 }
@@ -24,7 +25,7 @@ function adminimize_get_option( $name, $default = NULL, $namespace = 'adminimize
  * @param  WP_User $user WordPress user object. Defaults to current user.
  * @return bool          true if user has given role. Otherwise false.
  */
-function adminimize_user_has_role( $role, WP_User $user = NULL ) {
+function user_has_role( $role, WP_User $user = NULL ) {
 
 	if ( NULL === $user )
 		$user = wp_get_current_user();
@@ -40,7 +41,7 @@ function adminimize_user_has_role( $role, WP_User $user = NULL ) {
  * 
  * @return array
  */
-function adminimize_get_all_user_roles() {
+function get_all_user_roles() {
 	global $wp_roles;
 	
 	$user_roles = array();
@@ -60,7 +61,7 @@ function adminimize_get_all_user_roles() {
  * 
  * @return array
  */
-function adminimize_get_all_user_roles_names() {
+function get_all_user_roles_names() {
 	global $wp_roles;
 	
 	$user_roles_names = array();

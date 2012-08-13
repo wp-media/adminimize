@@ -62,7 +62,7 @@ abstract class Base {
 			/* $id,           */ 'adminimize_add_meta_box_' . strtolower( $class_name ),
 			/* $title,        */ $this->get_meta_box_title(),
 			/* $callback,     */ array( $this, 'meta_box_content' ),
-			/* $post_type,    */ \Adminimize_Options_Page::$pagehook,
+			/* $post_type,    */ \Inpsyde\Adminimize\Options_Page::$pagehook,
 			/* $context,      */ 'normal',
 			/* $priority,     */ $this->priority
 			/* $callback_args */
@@ -70,8 +70,8 @@ abstract class Base {
 	}
 
 	public final function register_setting() {
-		\register_setting( \Adminimize_Options_Page::$pagehook, $this->get_option_namespace() );
-		\register_setting( \Adminimize_Options_Page::$pagehook, $this->get_option_namespace() . '_custom' );
+		\register_setting( \Inpsyde\Adminimize\Options_Page::$pagehook, $this->get_option_namespace() );
+		\register_setting( \Inpsyde\Adminimize\Options_Page::$pagehook, $this->get_option_namespace() . '_custom' );
 	}
 
 	/**

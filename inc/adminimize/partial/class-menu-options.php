@@ -1,5 +1,6 @@
 <?php 
 namespace Inpsyde\Adminimize\Partial;
+use \Inpsyde\Adminimize;
 
 /**
  * Options to hide menu entries.
@@ -14,18 +15,18 @@ class Menu_Options extends Base {
 
 	public function hide_menu_entries() {
 
-		$roles = adminimize_get_all_user_roles();
+		$roles = Adminimize\get_all_user_roles();
 
 		foreach ( $this->get_settings() as $setting_index => $setting_values ) {
 
-			$values = adminimize_get_option( $setting_index, array(), $this->get_option_namespace() );
+			$values = Adminimize\get_option( $setting_index, array(), $this->get_option_namespace() );
 			foreach ( $roles as $role ) {
-				if ( adminimize_user_has_role( $role ) && isset( $values[ $role ] ) && $values[ $role ] ) {
+				if ( Adminimize\user_has_role( $role ) && isset( $values[ $role ] ) && $values[ $role ] ) {
 					
 					if ( NULL === $setting_values['submenu_index'] ) {
-						\Adminimize\remove_mainmenu_entry( $setting_values['menu_index'] );
+						Adminimize\remove_mainmenu_entry( $setting_values['menu_index'] );
 					} else {
-						\Adminimize\remove_submenu_entry( $setting_values['menu_index'], $setting_values['submenu_index'] );
+						Adminimize\remove_submenu_entry( $setting_values['menu_index'], $setting_values['submenu_index'] );
 					}
 
 				}
@@ -108,13 +109,7 @@ class Menu_Options extends Base {
 			'settings'         => $this->get_settings(),
 			'custom_options'   => false
 		);
-		\Adminimize\generate_checkbox_table( $args );
+		Adminimize\generate_checkbox_table( $args );
 	}
 
 }
-
-Menu_Options::get_instance();
-
-
-
-

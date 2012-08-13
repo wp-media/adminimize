@@ -1,10 +1,11 @@
 <?php 
 namespace Inpsyde\Adminimize\Partial;
+use Inpsyde\Adminimize;
 
 /**
  * Options to hide menu entries.
  */
-class Write_Page_Options extends Base {
+class Write_Post_Options extends Base {
 
 	/**
 	 * Get translated meta box title.
@@ -12,7 +13,7 @@ class Write_Page_Options extends Base {
 	 * @return string
 	 */
 	public function get_meta_box_title() {
-		return __( 'Deactivate Write Page Options for Roles', 'adminimize' );
+		return __( 'Deactivate Write Post Options for Roles', 'adminimize' );
 	}
 
 	/**
@@ -23,7 +24,7 @@ class Write_Page_Options extends Base {
 	 * @return string
 	 */
 	public function get_option_namespace() {
-		return 'adminimize_write_page';
+		return 'adminimize_write_post';
 	}
 
 	/**
@@ -32,6 +33,7 @@ class Write_Page_Options extends Base {
 	 * @return void
 	 */
 	protected function init_settings() {
+
 		$this->settings = array(
 			'help' => array(
 				'title' => __( 'Help', 'adminimize' ),
@@ -49,44 +51,24 @@ class Write_Page_Options extends Base {
 				'title' => __( 'Permalink', 'adminimize' ),
 				'description' => '#pageslugdiv'
 			),
-			'custom_fields' => array(
-				'title' => __( 'Custom Fields', 'adminimize' ),
-				'description' => '#pagepostcustom, #pagecustomdiv, #postcustom'
+			'tags' => array(
+				'title' => __( 'Tags', 'adminimize' ),
+				'description' => '#tags, #tagsdiv,#tagsdivsb,#tagsdiv-post_tag, th.column-tags, td.tags'
 			),
-			'comments_pings' => array(
-				'title' => __( 'Comments &amp; Pings', 'adminimize' ),
-				'description' => '#pagecommentstatusdiv, #commentsdiv, #comments, th.column-comments, td.comments'
+			'new_category' => array(
+				'title' => __( 'Add New Category', 'adminimize' ),
+				'description' => '#category-add-toggle'
 			),
 			'date' => array(
 				'title' => __( 'Date', 'adminimize' ),
 				'description' => '#date, #datediv, th.column-date, td.date, div.curtime'
 			),
 			'password_protect' => array(
-				'title' => __( 'Password Protect This Page', 'adminimize' ),
-				'description' => '#pagepassworddiv'
+				'title' => __( 'Password Protect This Post', 'adminimize' ),
+				'description' => '#passworddiv'
 			),
-			'attributes' => array(
-				'title' => __( 'Attributes', 'adminimize' ),
-				'description' => '#pageparentdiv'
-			),
-			'page_template' => array(
-				'title' => __( 'Page Template', 'adminimize' ),
-				'description' => '#pagetemplatediv'
-			),
-			'page_order' => array(
-				'title' => __( 'Page Order', 'adminimize' ),
-				'description' => '#pageorderdiv'
-			),
-			'page_author' => array(
-				'title' => __( 'Page Author', 'adminimize' ),
-				'description' => '#pageauthordiv, #author, #authordiv, th.column-author, td.author'
-			),
-			'page_revisions' => array(
-				'title' => __( 'Page Revisions', 'adminimize' ),
-				'description' => '#revisionsdiv'
-			),
-			'related' => array(
-				'title' => __( 'Related', 'adminimize' ),
+			'related_shortcuts' => array(
+				'title' => __( 'Related, Shortcuts', 'adminimize' ),
 				'description' => '.side-info'
 			),
 			'messages' => array(
@@ -105,8 +87,8 @@ class Write_Page_Options extends Base {
 				'title' => __( 'Word count', 'adminimize' ),
 				'description' => '#wp-word-count'
 			),
-			'page_slug' => array(
-				'title' => __( 'Page Slug', 'adminimize' ),
+			'post_slug' => array(
+				'title' => __( 'Post Slug', 'adminimize' ),
 				'description' => '#slugdiv,#edit-slug-box'
 			),
 			'publish_actions' => array(
@@ -121,11 +103,47 @@ class Write_Page_Options extends Base {
 				'title' => __( 'HTML Editor Button', 'adminimize' ),
 				'description' => '#editor-toolbar #edButtonHTML, #quicktags, #content-html'
 			),
-			'page_image' => array(
-				'title' => __( 'Page Image', 'adminimize' ),
+			'editor' => array(
+				'title' => __( 'Editor', 'adminimize' ),
+				'description' => '#editor, #editordiv, th.column-editor, td.editor'
+			),
+			'author' => array(
+				'title' => __( 'Author', 'adminimize' ),
+				'description' => '#author, #authordiv, th.column-author, td.author'
+			),
+			'thumbnail' => array(
+				'title' => __( 'Thumbnail', 'adminimize' ),
+				'description' => '#thumbnail, #thumbnaildiv, th.column-thumbnail, td.thumbnail'
+			),
+			'excerpt' => array(
+				'title' => __( 'Excerpt', 'adminimize' ),
+				'description' => '#postexcerpt, #postexcerptdiv, th.column-postexcerpt, td.postexcerpt'
+			),
+			'trackbacks' => array(
+				'title' => __( 'Trackbacks', 'adminimize' ),
+				'description' => '#trackbacks, #trackbacksdiv, th.column-trackbacks, td.trackbacks'
+			),
+			'custom_fields' => array(
+				'title' => __( 'Custom-fields', 'adminimize' ),
+				'description' => '#postcustom, #postcustomdiv, th.column-postcustom, td.postcustom'
+			),
+			'comments' => array(
+				'title' => __( 'Comments', 'adminimize' ),
+				'description' => '#comments, #commentsdiv, th.column-comments, td.comments'
+			),
+			'revisions' => array(
+				'title' => __( 'Revisions', 'adminimize' ),
+				'description' => '#revisions, #revisionsdiv, th.column-revisions, td.revisions'
+			),
+			'post_formats' => array(
+				'title' => __( 'Post-formats', 'adminimize' ),
+				'description' => '#format, #formatdiv, th.column-format, td.format'
+			),
+			'post_thumbnail' => array(
+				'title' => __( 'Post Thumbnail', 'adminimize' ),
 				'description' => '#postimagediv'
 			),
-			'qe_links' => array(
+			'quick_edit_link' => array(
 				'title' => __( 'Quick Edit Link', 'adminimize' ),
 				'description' => 'div.row-actions, div.row-actions .inline'
 			),
@@ -137,10 +155,6 @@ class Write_Page_Options extends Base {
 				'title' => __( ' QE ⇒ All Labels', 'adminimize' ),
 				'description' => 'fieldset.inline-edit-col-left label'
 			),
-			'qe_date' => array(
-				'title' => __( ' QE ⇒ Date', 'adminimize' ),
-				'description' => 'fieldset.inline-edit-col-left div.inline-edit-date'
-			),
 			'qe_author' => array(
 				'title' => __( ' QE ⇒ Author', 'adminimize' ),
 				'description' => 'fieldset.inline-edit-col-left label.inline-edit-author'
@@ -149,22 +163,34 @@ class Write_Page_Options extends Base {
 				'title' => __( ' QE ⇒ Password and Private', 'adminimize' ),
 				'description' => 'fieldset.inline-edit-col-left .inline-edit-group'
 			),
+			'qe_inline_edit_center' => array(
+				'title' => __( 'QE Inline Edit Center', 'adminimize' ),
+				'description' => 'fieldset.inline-edit-col-center'
+			),
+			'qe_categories_title' => array(
+				'title' => __( ' QE ⇒ Categories Title', 'adminimize' ),
+				'description' => 'fieldset.inline-edit-col-center .inline-edit-categories-label'
+			),
+			'qe_categories_list' => array(
+				'title' => __( ' QE ⇒ Categories List', 'adminimize' ),
+				'description' => 'fieldset.inline-edit-col-center .category-checklist'
+			),
 			'qe_inline_edit_right' => array(
 				'title' => __( 'QE Inline Edit Right', 'adminimize' ),
 				'description' => 'fieldset.inline-edit-col-right'
 			),
-			'qe_parent_order_template' => array(
-				'title' => __( ' QE ⇒ Parent, Order, Template', 'adminimize' ),
-				'description' => 'fieldset.inline-edit-col-right .inline-edit-col'
+			'qe_tags' => array(
+				'title' => __( ' QE ⇒ Tags', 'adminimize' ),
+				'description' => 'fieldset.inline-edit-col-right .inline-edit-tags'
 			),
-			'qe_status' => array(
-				'title' => __( ' QE ⇒ Status', 'adminimize' ),
+			'qe_status_sticky' => array(
+				'title' => __( ' QE ⇒ Status, Sticky', 'adminimize' ),
 				'description' => 'fieldset.inline-edit-col-right .inline-edit-group'
 			),
 			'qe_cancel_save_button' => array(
 				'title' => __( 'QE Cancel/Save Button', 'adminimize' ),
-				'description' => 'tr.inline-edit-page p.inline-edit-save'
-			),
+				'description' => 'tr.inline-edit-post p.inline-edit-save'
+			)
 		);
 	}
 
@@ -179,9 +205,7 @@ class Write_Page_Options extends Base {
 			'option_namespace' => $this->get_option_namespace(),
 			'settings'         => $this->get_settings()
 		);
-		\Adminimize\generate_checkbox_table( $args );
+		Adminimize\generate_checkbox_table( $args );
 	}
 
 }
-
-Write_Page_Options::get_instance();

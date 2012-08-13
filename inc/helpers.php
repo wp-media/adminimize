@@ -1,5 +1,6 @@
 <?php
-namespace Adminimize;
+namespace Inpsyde\Adminimize;
+use Inpsyde\Adminimize;
 
 /**
  * Remove entry from main WordPress menu.
@@ -24,7 +25,7 @@ function remove_submenu_entry( $menu_index, $submenu_index ) {
 	global $menu, $submenu;
 
 	$menu_entry       = $menu[ $menu_index ];
-	$menu_entry_link  = $menu_entry[2];
+	$menu_entry_link  = $menu_entry[ 2 ];
 
 	unset( $submenu[ $menu_entry_link ][ $submenu_index ] );
 }
@@ -44,7 +45,7 @@ function field_with_select( $args ) {
 	$args          = $args['args'];
 	$disabled_attr = isset( $args['disabled'] ) && $args['disabled'] ? ' disabled="disabled"' : '';
 
-	$current_value = adminimize_get_option($settings_name);
+	$current_value = Adminimize\get_option($settings_name);
 
 	do_action( 'before_adminimize_field_with_select' );
 	do_action( 'before_adminimize_field_with_select-' . $settings_name );
@@ -74,8 +75,8 @@ function generate_checkbox_table( $args ) {
 	);
 	$args = wp_parse_args( $args, $defaults );
 
-	$user_roles_names = adminimize_get_all_user_roles_names();
-	$user_roles       = adminimize_get_all_user_roles();
+	$user_roles_names = Adminimize\get_all_user_roles_names();
+	$user_roles       = Adminimize\get_all_user_roles();
 
 	?>
 	<table summary="config" class="widefat">
@@ -91,7 +92,7 @@ function generate_checkbox_table( $args ) {
 		</thead>
 		<tbody>
 			<?php foreach ( $args['settings'] as $index => $setting ): ?>
-				<?php $values = adminimize_get_option( $index, array(), $args['option_namespace'] ); ?>
+				<?php $values = Adminimize\get_option( $index, array(), $args['option_namespace'] ); ?>
 				<tr>
 					<td>
 						<?php echo $setting['title']; ?>
@@ -125,14 +126,14 @@ function generate_checkbox_table( $args ) {
 			<tbody>
 				<tr valign="top">
 					<td>
-						<textarea class="code" name="<?php echo $args['option_namespace'] ?>_custom[options]" cols="60" rows="3" style="width: 95%;" ><?php echo adminimize_get_option( 'options', '', $args['option_namespace'] . '_custom' ); ?></textarea>
+						<textarea class="code" name="<?php echo $args['option_namespace'] ?>_custom[options]" cols="60" rows="3" style="width: 95%;" ><?php echo Adminimize\get_option( 'options', '', $args['option_namespace'] . '_custom' ); ?></textarea>
 						<br />
 						<span class="description">
 							<?php _e( 'Possible nomination for ID or class. Separate multiple nominations through a carriage return.', 'adminimize' ); ?>
 						</span>
 					</td>
 					<td>
-						<textarea class="code" name="<?php echo $args['option_namespace'] ?>_custom[values]" cols="60" rows="3" id="_mw_adminimize_own_values" style="width: 95%;" ><?php echo adminimize_get_option( 'values', '', $args['option_namespace'] . '_custom' ); ?></textarea>
+						<textarea class="code" name="<?php echo $args['option_namespace'] ?>_custom[values]" cols="60" rows="3" id="_mw_adminimize_own_values" style="width: 95%;" ><?php echo Adminimize\get_option( 'values', '', $args['option_namespace'] . '_custom' ); ?></textarea>
 						<br />
 						<span class="description">
 							<?php _e( 'Possible IDs or classes. Separate multiple values through a carriage return.', 'adminimize' ); ?>

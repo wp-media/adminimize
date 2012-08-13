@@ -1,7 +1,6 @@
 <?php 
 namespace Inpsyde\Adminimize\Partial;
-
-require_once 'class-adminimize-part-base-meta-box.php';
+use Inpsyde\Adminimize;
 
 /**
  * Options to hide menu entries.
@@ -66,7 +65,7 @@ class Backend_Options extends Base {
 				0 => __( 'Default', 'adminimize' ),
 				1 => __( 'Frontpage of the Blog', 'adminimize' )
 			),
-			'disabled' => in_array( adminimize_get_option('user_info'), array( '', '1', '0' ) )
+			'disabled' => in_array( Adminimize\get_option('user_info'), array( '', '1', '0' ) )
 		);
 
 		$settings['footer'] = array(
@@ -144,7 +143,7 @@ class Backend_Options extends Base {
 
 		add_action( 'after_adminimize_field_with_select-advice', function () {
 			?>
-			<textarea style="width: 85%" class="code" rows="2" cols="60" name="adminimize_backend[advice_txt]" id="adminimize_backend_advice_txt" ><?php echo htmlspecialchars( stripslashes( adminimize_get_option( 'advice_txt', '', 'adminimize_backend' ) ) ); ?></textarea>
+			<textarea style="width: 85%" class="code" rows="2" cols="60" name="adminimize_backend[advice_txt]" id="adminimize_backend_advice_txt" ><?php echo htmlspecialchars( stripslashes( Adminimize\get_option( 'advice_txt', '', 'adminimize_backend' ) ) ); ?></textarea>
 			<?php
 		} );
 
@@ -154,8 +153,8 @@ class Backend_Options extends Base {
 			add_settings_field(
 				/* $id,       */ 'adminimize_field_' . $settings_name,
 				/* $title,    */ $settings_args['title'],
-				/* $callback, */ '\Adminimize\field_with_select',
-				/* $page      */ \Adminimize_Options_Page::$pagehook,
+				/* $callback, */ '\\Inpsyde\\Adminimize\\field_with_select',
+				/* $page      */ Adminimize\Options_Page::$pagehook,
 				/* $section   */ 'backend-options',
 				/* $args      */ array( 'settings_name' => $settings_name, 'args' => $settings_args )
 			);
@@ -164,7 +163,7 @@ class Backend_Options extends Base {
 		?>
 		<table summary="config" class="widefat">
 			<tbody>
-				<?php do_settings_fields( \Adminimize_Options_Page::$pagehook, 'backend-options' ); ?>
+				<?php do_settings_fields( Adminimize\Options_Page::$pagehook, 'backend-options' ); ?>
 			</tbody>
 		</table>
 
@@ -175,5 +174,3 @@ class Backend_Options extends Base {
 	}
 
 }
-
-Backend_Options::get_instance();

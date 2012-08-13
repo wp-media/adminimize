@@ -1,5 +1,6 @@
 <?php 
 namespace Inpsyde\Adminimize\Partial;
+use Inpsyde\Adminimize;
 
 /**
  * Options to hide menu entries.
@@ -71,9 +72,7 @@ class Global_Options extends Base {
 			'option_namespace' => $this->get_option_namespace(),
 			'settings'         => $this->get_settings()
 		);
-		\Adminimize\generate_checkbox_table( $args );
+		Adminimize\generate_checkbox_table( $args );
 	}
 
 }
-
-Global_Options::get_instance();

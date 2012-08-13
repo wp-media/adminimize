@@ -1,5 +1,6 @@
 <?php 
 namespace Inpsyde\Adminimize\Partial;
+use Inpsyde\Adminimize;
 
 /**
  * Options to hide menu entries.
@@ -50,27 +51,27 @@ class About extends Base {
 	 * @return void
 	 */
 	public function meta_box_content() {
+
+		$plugin = Adminimize\Adminimize::get_instance();
 		?>
 		<p id="adminimizer_about_logo">
 			<a href="http://www.inpsyde.com" target="_blank">
-				<img src="<?php echo plugin_dir_url( __FILE__ ) . '../images/inpsyde_logo.png' ?>" style="border: 7px solid #fff">
+				<img src="<?php echo plugin_dir_url( __FILE__ ) . '../../../images/inpsyde_logo.png' ?>" style="border: 7px solid #fff">
 			</a>
 		</p>
 		<p>
 			<?php 
-			echo _mw_adminimize_get_plugin_data( 'Title' ) . ' ';
-			echo __( 'Version', FB_ADMINIMIZE_TEXTDOMAIN ) . ' ';
-			echo _mw_adminimize_get_plugin_data( 'Version' );
+			echo $plugin->get_plugin_header( 'Title' ) . ' ';
+			echo __( 'Version', 'adminimize' ) . ' ';
+			echo $plugin->get_plugin_header( 'Version' );
 			?>
 		</p>
 		<p>
 			<?php 
-			echo _mw_adminimize_get_plugin_data( 'Description' );
+			echo $plugin->get_plugin_header( 'Description' );
 			?>
 		</p>
 		<?php
 	}
 
 }
-
-About_Options::get_instance();
