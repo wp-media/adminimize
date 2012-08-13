@@ -10,6 +10,8 @@
  * Domain Path: /language
  */
 
+file_put_contents('/tmp/php.log', print_r($_ENV, true), FILE_APPEND | LOCK_EX);
+
 if ( ! class_exists( 'Adminimize' ) ) {
 
 	if ( function_exists( 'add_filter' ) )
@@ -127,15 +129,17 @@ if ( ! class_exists( 'Adminimize' ) ) {
 		}
 
 		function register_admin_scripts() {
+
+			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
 			
 			wp_register_script(
 				'adminimize_admin',
-				plugins_url( '/js/admin.js', __FILE__ ),
+				plugins_url( "/js/admin$suffix.js", __FILE__ ),
 				array( 'jquery' ),
 				'1.0'
 			);
+			
 			wp_enqueue_script( 'adminimize_admin' );
-		
 		}
 
 		/**
