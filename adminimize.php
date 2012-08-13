@@ -20,25 +20,7 @@ require_once 'inc/helpers.php';
 // kickoff
 if ( function_exists( 'add_filter' ) ) {
 	add_filter( 'plugins_loaded' ,  function () {
-
-		$adminimize = \Inpsyde\Adminimize\Adminimize::get_instance();
-		\Inpsyde\Adminimize\Options_Page::get_instance()->set_plugin( $adminimize );
-
-		$partials = array(
-			'About',
-			'Backend_Options',
-			'Dashboard_Options',
-			'Global_Options',
-			'Links_Options',
-			'Menu_Options',
-			'Nav_Menu_Options',
-			'Write_Page_Options',
-			'Write_Post_Options'
-		);
-		$partials = apply_filters( 'adminimize_active_partials', $partials );
-
-		foreach ( $partials as $partial_class ) {
-			call_user_func( "\\Inpsyde\\Adminimize\\Partial\\$partial_class::get_instance" );
-		}
+		$plugin = \Inpsyde\Adminimize\Adminimize::get_instance();
+		\Inpsyde\Adminimize\Options_Page::get_instance()->set_plugin( $plugin );
 	} );
 }

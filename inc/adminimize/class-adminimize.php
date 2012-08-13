@@ -37,14 +37,40 @@ class Adminimize {
 	 * @access	public
 	 * @return	void
 	 */
-	public function __construct () {
-			
+	public function __construct() {
+
 		// Load the features
 		$this->load_features();
 		
 		// javascript
-		//add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
 		add_action( 'admin_print_scripts-settings_page_adminimize-2/adminimize' , array( $this, 'register_admin_scripts' ) );
+
+		$this->kickoff();
+	}
+
+	/**
+	 * Init all partials.
+	 * 
+	 * @return void
+	 */
+	public function kickoff() {
+
+		$partials = array(
+			'About',
+			'Backend_Options',
+			'Dashboard_Options',
+			'Global_Options',
+			'Links_Options',
+			'Menu_Options',
+			'Nav_Menu_Options',
+			'Write_Page_Options',
+			'Write_Post_Options'
+		);
+		$partials = apply_filters( 'adminimize_active_partials', $partials );
+
+		foreach ( $partials as $partial_class ) {
+			call_user_func( "\\Inpsyde\\Adminimize\\Partial\\$partial_class::get_instance" );
+		}
 	}
 
 	function register_admin_scripts() {
