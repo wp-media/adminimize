@@ -12,10 +12,12 @@
 
 namespace Inpsyde\Adminimize;
 
+// require files that cannot be loaded automatically
 require_once 'inc/autoload.php';
 require_once 'inc/api.php';
 require_once 'inc/helpers.php';
 
+// kickoff
 if ( function_exists( 'add_filter' ) ) {
 	add_filter( 'plugins_loaded' ,  function () {
 
