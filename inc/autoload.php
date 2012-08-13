@@ -7,7 +7,7 @@ namespace Inpsyde\Adminimize;
  * @param  string $class_name
  * @return bool
  */
-function inpsyde_adminimize_autoloader( $class_name ) {
+function autoloader( $class_name ) {
 
 	$file_name = '';
 	$namespace = '';
@@ -47,4 +47,4 @@ function inpsyde_adminimize_autoloader( $class_name ) {
 	return false;
 }
 
-spl_autoload_register( '\Inpsyde\Adminimize\inpsyde_adminimize_autoloader' );
+spl_autoload_register( '\Inpsyde\Adminimize\autoloader' );
