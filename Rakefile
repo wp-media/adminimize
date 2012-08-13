@@ -3,36 +3,39 @@ require "yui/compressor" # gem install require "yui/compressor"
 
 desc "prepare javascript files for production"
 task "prepare:js" do
-	Dir.glob("js/*.js").each do |file|
-		next unless file.match /\.dev\./
-		puts "> preparing #{file}"
-
-		# minify
-		minified = Uglifier.compile File.read(file)
-
-		# write to production file
-		new_file = "#{file.split(".")[0]}.js"
-		File.open(new_file, 'w') { |f| f.write minified }
+	minify "js/*.js" do |file|
+		Uglifier.compile File.read(file)
 	end
 end
 
 desc "prepare css files for production"
 task "prepare:css" do
-	Dir.glob("css/*.css") do |file|
-		next unless file.match /\.dev\./
-		puts "> preparing #{file}"
-
-		# minify
-		compressor = YUI::CssCompressor.new
-		minified   = compressor.compress File.read(file)
-
-		# write to production file
-		new_file = "#{file.split(".")[0]}.css"
-		File.open(new_file, 'w') { |f| f.write minified }
+	minify "css/*.css" do |file|
+		YUI::CssCompressor.new.compress File.read(file)
 	end
 end
 
 desc "prepare all assets for production"
 task :prepare => ["prepare:js", "prepare:css"] do
 	
+end
+
+# Minify a set of files using the given method.
+# 
+# glob  - filenames found by expanding the pattern, e.g. *.js
+#         automatically skips all files without ".dev."
+# block - takes file name and is expected to return minified file contents
+def minify(glob, &block)
+	Dir.glob(glob) do |file|
+		next unless file.match /\.dev\./
+		puts "> preparing #{file}"
+
+		# minify
+		minified = block.call file
+
+		# write to production file
+		file_parts = file.split(".")
+		new_file  = "#{file_parts[0]}.#{file_parts[2]}"
+		File.open(new_file, 'w') { |f| f.write minified }
+	end	
 end
