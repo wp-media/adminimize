@@ -53,7 +53,7 @@ class About_Options extends \Adminimize\Part\Base_Meta_Box {
 	 */
 	public function meta_box_content() {
 		?>
-		<p style="float: left; margin: 0px 15px 5px 0px">
+		<p id="adminimizer_about_logo">
 			<a href="http://www.inpsyde.com" target="_blank">
 				<img src="<?php echo plugin_dir_url( __FILE__ ) . '../images/inpsyde_logo.png' ?>" style="border: 7px solid #fff">
 			</a>
