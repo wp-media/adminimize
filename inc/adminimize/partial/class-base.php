@@ -1,9 +1,7 @@
 <?php
-namespace Adminimize\Part;
+namespace Inpsyde\Adminimize\Partial;
 
-require_once 'class-adminimize-options-page.php';
-
-abstract class Base_Meta_Box {
+abstract class Base {
 
 	/**
 	 * Settings options array.

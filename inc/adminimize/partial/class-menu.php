@@ -1,12 +1,10 @@
 <?php 
-namespace Adminimize\Part;
-
-require_once 'class-adminimize-part-base-meta-box.php';
+namespace Inpsyde\Adminimize\Partial;
 
 /**
  * Options to hide menu entries.
  */
-class Menu_Options extends \Adminimize\Part\Base_Meta_Box {
+class Menu_Options extends Base {
 
 	protected function __construct() {
 		parent::__construct();

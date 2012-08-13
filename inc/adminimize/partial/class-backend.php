@@ -1,12 +1,12 @@
 <?php 
-namespace Adminimize\Part;
+namespace Inpsyde\Adminimize\Partial;
 
 require_once 'class-adminimize-part-base-meta-box.php';
 
 /**
  * Options to hide menu entries.
  */
-class Backend_Options extends \Adminimize\Part\Base_Meta_Box {
+class Backend_Options extends Base {
 
 	/**
 	 * Get translated meta box title.
