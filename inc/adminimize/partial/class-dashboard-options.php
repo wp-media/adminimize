@@ -18,12 +18,12 @@ class Dashboard_Options extends Checkbox_Base {
 	 * @return void
 	 */
 	public function apply_checkbox_setting( $index, $values, $role ) {
+		
 		add_action( 'admin_print_styles-index.php', function () use ( $values ) {
 			?>
 			<style type="text/css"><?php echo $values['description']; ?> { display: none; }</style>
 			<?php
 		} );
-
 	}
 
 	/**

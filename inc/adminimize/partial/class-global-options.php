@@ -5,8 +5,32 @@ use Inpsyde\Adminimize;
 /**
  * Options to hide menu entries.
  */
-class Global_Options extends Base {
+class Global_Options extends Checkbox_Base {
 
+	/**
+	 * This method is called for every setting that is active.
+	 *
+	 * Generates CSS to hide global options.
+	 * Special treatment for admin bar.
+	 * 
+	 * @param  string $index  setting index
+	 * @param  array  $values setting values
+	 * @param  string $role   WordPress role handle
+	 * @return void
+	 */
+	public function apply_checkbox_setting( $index, $values, $role ) {
+
+		add_action( 'admin_head', function () use ( $index, $values ) {
+			?>
+			<style type="text/css">
+			<?php if ( $index === 'admin_bar' ): ?>
+				html.wp-toolbar { padding-top: 0px !important; }
+			<?php endif; ?>
+			<?php echo $values['description']; ?> { display: none !important; }
+			</style>
+			<?php
+		} );
+	}
 	/**
 	 * Get translated meta box title.
 	 * 
@@ -36,7 +60,7 @@ class Global_Options extends Base {
 		$this->settings = array(
 			'admin_bar' => array(
 				'title'    => __( 'Admin Bar', 'adminimize' ),
-				'description' => '.show-admin-bar'
+				'description' => '#wpadminbar, .show-admin-bar'
 			),
 			'fav_actions' => array(
 				'title'    => __( 'Favorite Actions', 'adminimize' ),
