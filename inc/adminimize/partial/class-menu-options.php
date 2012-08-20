@@ -53,6 +53,9 @@ class Menu_Options extends Checkbox_Base {
 	protected function init_settings() {
 		global $menu, $submenu;
 
+		if ( ! $menu )
+			return;
+
 		$settings = array();
 
 		foreach ( $menu as $menu_index => $menu_entry ) {

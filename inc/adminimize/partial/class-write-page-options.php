@@ -5,7 +5,45 @@ use Inpsyde\Adminimize;
 /**
  * Options to hide menu entries.
  */
-class Write_Page_Options extends Base {
+class Write_Page_Options extends Checkbox_Base {
+
+	/**
+	 * This method is called for every setting that is active.
+	 *
+	 * Generates CSS to hide page form elements.
+	 * Checking for post type is a bit of a mess due to different
+	 * WordPress initialization moments depending on weather you
+	 * create or edit a new page.
+	 * 
+	 * @param  string $index  setting index
+	 * @param  array  $values setting values
+	 * @param  string $role   WordPress role handle
+	 * @return void
+	 */
+	public function apply_checkbox_setting( $index, $values, $role ) {
+
+		$post_type = get_post_type();
+		
+		if ( ! $post_type )
+			$post_type = $_REQUEST['post_type'];
+
+		$actions = array( 'admin_print_styles-post-new.php', 'admin_print_styles-post.php' );
+		foreach ( $actions as $action ) {
+			add_action( $action, function () use ( $values, $post_type ) {
+
+				if ( ! $post_type )
+					$post_type = get_post_type();
+
+				if ( $post_type === 'page' ) {
+					?>
+					<style type="text/css"><?php echo $values['description']; ?> { display: none !important; }</style>
+					<?php
+				}
+
+			} );
+		}
+
+	}
 
 	/**
 	 * Get translated meta box title.
@@ -100,7 +138,7 @@ class Write_Page_Options extends Base {
 			),
 			'media_buttons' => array(
 				'title' => __( 'Media Buttons', 'adminimize' ),
-				'description' => 'all) (#media-buttons, #wp-content-media-buttons'
+				'description' => '#media-buttons, #wp-content-media-buttons'
 			),
 			'word_count' => array(
 				'title' => __( 'Word count', 'adminimize' ),

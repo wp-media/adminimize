@@ -16,8 +16,12 @@ abstract class Checkbox_Base extends Base {
 	public function apply_settings_for_current_user() {
 
 		$roles = Adminimize\get_all_user_roles();
+		$settings = $this->get_settings();
 
-		foreach ( $this->get_settings() as $setting_index => $setting_values ) {
+		if ( ! $settings || ! $roles )
+			return;
+
+		foreach ( $settings as $setting_index => $setting_values ) {
 
 			$values = Adminimize\get_option( $setting_index, array(), $this->get_option_namespace() );
 			foreach ( $roles as $role ) {

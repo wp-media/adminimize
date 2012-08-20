@@ -9,6 +9,8 @@ class Links_Options extends Checkbox_Base {
 
 	/**
 	 * This method is called for every setting that is active.
+	 *
+	 * Generates CSS to hide link form elements.
 	 * 
 	 * @param  string $index  setting index
 	 * @param  array  $values setting values
