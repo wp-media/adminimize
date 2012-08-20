@@ -34,24 +34,27 @@ function remove_submenu_entry( $menu_index, $submenu_index ) {
  * Callback for add_settings_field to create a <select>.
  * 
  * @param  array $args Args has two parameters: 'settings_name' and 'args'.
- *                     settings_name:    (string) required. settings name in adminimize settings namespace
+ *                     settings_name:      (string) required. setting name
+ *                     settings_namespace: (string) required. setting namespace
  *                     args: options     (array)  required. option list values
  *                           disabled    (bool)   optional.
  *                           description (string) optional.
  */
 function field_with_select( $args ) {
 
-	$settings_name = $args['settings_name'];
+	$settings_name      = $args['settings_name'];
+	$settings_namespace = $args['settings_namespace'];
+
 	$args          = $args['args'];
 	$disabled_attr = isset( $args['disabled'] ) && $args['disabled'] ? ' disabled="disabled"' : '';
 
-	$current_value = Adminimize\get_option($settings_name);
+	$current_value = Adminimize\get_option( $settings_name, NULL, $settings_namespace );
 
 	do_action( 'before_adminimize_field_with_select' );
 	do_action( 'before_adminimize_field_with_select-' . $settings_name );
 	?>
 
-	<select name="adminimize[<?php echo $settings_name ?>]"<?php echo $disabled_attr; ?>>
+	<select name="<?php echo $settings_namespace; ?>[<?php echo $settings_name ?>]"<?php echo $disabled_attr; ?>>
 		<?php foreach ($args['options'] as $value => $title): ?>
 			<option value="<?php echo $value ?>"<?php selected( $value, $current_value ) ?>><?php echo $title ?></option>
 		<?php endforeach ?>

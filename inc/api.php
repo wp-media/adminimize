@@ -89,7 +89,7 @@ function should_apply_options_for_user() {
 	if ( ! function_exists( 'is_super_admin' ) )
 		return true;
 
-	$exclude_super_admin = Adminimize\get_option( 'exclude_super_admin', 1, 'adminimize' );
+	$exclude_super_admin = Adminimize\get_option( 'exclude_super_admin', 1, 'adminimize_backend' );
 	if ( is_super_admin() && $exclude_super_admin )
 		return false;
 

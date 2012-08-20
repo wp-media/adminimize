@@ -156,7 +156,11 @@ class Backend_Options extends Base {
 				/* $callback, */ '\\Inpsyde\\Adminimize\\field_with_select',
 				/* $page      */ Adminimize\Options_Page::$pagehook,
 				/* $section   */ 'backend-options',
-				/* $args      */ array( 'settings_name' => $settings_name, 'args' => $settings_args )
+				/* $args      */ array(
+					'settings_name'      => $settings_name,
+					'settings_namespace' => $this->get_option_namespace(),
+					'args'               => $settings_args
+				)
 			);
 		}
 
