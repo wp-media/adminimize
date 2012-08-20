@@ -21,6 +21,9 @@ abstract class Checkbox_Base extends Base {
 		if ( ! $settings || ! $roles )
 			return;
 
+		if ( ! Adminimize\should_apply_options_for_user() )
+			return;
+
 		foreach ( $settings as $setting_index => $setting_values ) {
 
 			$values = Adminimize\get_option( $setting_index, array(), $this->get_option_namespace() );

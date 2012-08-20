@@ -1,5 +1,6 @@
 <?php
 namespace Inpsyde\Adminimize;
+use \Inpsyde\Adminimize;
 
 /**
  * Get option from adminize settings namespace.
@@ -10,7 +11,7 @@ namespace Inpsyde\Adminimize;
  */
 function get_option( $name, $default = NULL, $namespace = 'adminimize' ) {
 
-	if ( Adminimize::get_instance()->is_active_for_multisite() )
+	if ( Adminimize\Adminimize::get_instance()->is_active_for_multisite() )
 		$options = \get_site_option( $namespace, array() );
 	else
 		$options = \get_option( $namespace, array() );
@@ -76,4 +77,21 @@ function get_all_user_roles_names() {
 	}
 	
 	return $user_roles_names;
+}
+
+/**
+ * Check if any option should be applied for the current user.
+ * 
+ * @return bool False if user is super admin and super admins are excluded. Defaults to true.
+ */
+function should_apply_options_for_user() {
+
+	if ( ! function_exists( 'is_super_admin' ) )
+		return true;
+
+	$exclude_super_admin = Adminimize\get_option( 'exclude_super_admin', 1, 'adminimize' );
+	if ( is_super_admin() && $exclude_super_admin )
+		return false;
+
+	return true;
 }

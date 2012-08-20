@@ -41,8 +41,8 @@ class Backend_Options extends Base {
 				'title'       => __( 'Exclude Super Admin', 'adminimize' ),
 				'description' => __( 'Exclude the Super Admin on a WP Multisite Install from all limitations of this plugin.', 'adminimize' ),
 				'options'     => array(
-					0 => __( 'Default', 'adminimize' ),
-					1 => __( 'Activate', 'adminimize' )
+					1 => __( 'Exclude', 'adminimize' ),
+					0 => __( 'Don\'t exclude', 'adminimize' )
 				),
 			);
 		}
