@@ -8,8 +8,8 @@ use \Inpsyde\Adminimize;
 abstract class Checkbox_Base extends Base {
 	
 	protected function __construct() {
+		
 		parent::__construct();
-
 		add_action( 'admin_init', array( $this, 'apply_settings_for_current_user' ) );
 	}
 
