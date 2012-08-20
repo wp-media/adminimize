@@ -5,31 +5,24 @@ use Inpsyde\Adminimize;
 /**
  * Options to hide menu entries.
  */
-class Nav_Menu_Options extends Base {
+class Nav_Menu_Options extends Checkbox_Base {
 
-	protected function __construct() {
-		parent::__construct();
-
-		add_action( 'admin_head', array( $this, 'hide_nav_menu_entries' ) );
-	}
-
-	public function hide_nav_menu_entries() {
-
-		$roles = Adminimize\get_all_user_roles();
-
-		foreach ( $this->get_settings() as $setting_index => $setting_values ) {
-
-			$values = Adminimize\get_option( $setting_index, array(), $this->get_option_namespace() );
-			foreach ( $roles as $role ) {
-				if ( Adminimize\user_has_role( $role ) && isset( $values[ $role ] ) && $values[ $role ] ) {
-					?>
-					<style type="text/css">
-					<?php echo $setting_values['description'] ?> { display: none; }
-					</style>
-					<?php
-				}
-			}
-		}
+	/**
+	 * This method is called for every setting that is active.
+	 *
+	 * Generates CSS to hide nav menu entries.
+	 * 
+	 * @param  string $index  setting index
+	 * @param  array  $values setting values
+	 * @param  string $role   WordPress role handle
+	 * @return void
+	 */
+	public function apply_checkbox_setting( $index, $values, $role ) {
+		add_action( 'admin_head', function () use ( $values ) {
+			?>
+			<style type="text/css"><?php echo $values['description']; ?> { display: none; }</style>
+			<?php
+		} );
 	}
 
 	/**
