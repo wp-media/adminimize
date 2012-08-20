@@ -7,6 +7,31 @@ use Inpsyde\Adminimize;
  */
 class Nav_Menu_Options extends Base {
 
+	protected function __construct() {
+		parent::__construct();
+
+		add_action( 'admin_head', array( $this, 'hide_nav_menu_entries' ) );
+	}
+
+	public function hide_nav_menu_entries() {
+
+		$roles = Adminimize\get_all_user_roles();
+
+		foreach ( $this->get_settings() as $setting_index => $setting_values ) {
+
+			$values = Adminimize\get_option( $setting_index, array(), $this->get_option_namespace() );
+			foreach ( $roles as $role ) {
+				if ( Adminimize\user_has_role( $role ) && isset( $values[ $role ] ) && $values[ $role ] ) {
+					?>
+					<style type="text/css">
+					<?php echo $setting_values['description'] ?> { display: none; }
+					</style>
+					<?php
+				}
+			}
+		}
+	}
+
 	/**
 	 * Get translated meta box title.
 	 * 
