@@ -20,7 +20,7 @@ class Backend_Options extends Base {
 
 		$settings = $this->get_settings();
 		foreach ( $settings as $setting_index => $setting ) {
-			$disabled = Adminimize\get_option( $setting_index, array(), $this->get_option_namespace() );
+			$disabled = Adminimize\get_option( $setting_index, NULL, $this->get_option_namespace() );
 			if ( $disabled ) {
 				if ( isset( $setting['css'] ) ) {
 					add_action( $setting['css']['action'], function () use ( $setting ) {
