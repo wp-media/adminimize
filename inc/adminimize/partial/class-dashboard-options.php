@@ -5,7 +5,26 @@ use Inpsyde\Adminimize;
 /**
  * Options to hide menu entries.
  */
-class Dashboard_Options extends Base {
+class Dashboard_Options extends Checkbox_Base {
+
+	/**
+	 * This method is called for every setting that is active.
+	 *
+	 * Generates CSS to hide dashboard meta boxes.
+	 * 
+	 * @param  string $index  setting index
+	 * @param  array  $values setting values
+	 * @param  string $role   WordPress role handle
+	 * @return void
+	 */
+	public function apply_checkbox_setting( $index, $values, $role ) {
+		add_action( 'admin_print_styles-index.php', function () use ( $values ) {
+			?>
+			<style type="text/css"><?php echo $values['description']; ?> { display: none; }</style>
+			<?php
+		} );
+
+	}
 
 	/**
 	 * Get translated meta box title.
@@ -36,31 +55,31 @@ class Dashboard_Options extends Base {
 		$this->settings = array(
 			'right_now' => array(
 				'title'       => __( 'Right Now', 'adminimize' ),
-				'description' => 'dashboard_right_now'
+				'description' => '#dashboard_right_now'
 			),
 			'recent_comments' => array(
 				'title'       => __( 'Recent Comments', 'adminimize' ),
-				'description' => 'dashboard_recent_comments'
+				'description' => '#dashboard_recent_comments'
 			),
 			'incoming_links' => array(
 				'title'       => __( 'Incoming Links', 'adminimize' ),
-				'description' => 'dashboard_incoming_links'
+				'description' => '#dashboard_incoming_links'
 			),
 			'quick_press' => array(
 				'title'       => __( 'QuickPress', 'adminimize' ),
-				'description' => 'dashboard_quick_press'
+				'description' => '#dashboard_quick_press'
 			),
 			'recent_drafts' => array(
 				'title'       => __( 'Recent Drafts', 'adminimize' ),
-				'description' => 'dashboard_recent_drafts'
+				'description' => '#dashboard_recent_drafts'
 			),
 			'primary' => array(
 				'title'       => __( 'WordPress Blog', 'adminimize' ),
-				'description' => 'dashboard_primary'
+				'description' => '#dashboard_primary'
 			),
 			'secondary' => array(
 				'title'       => __( 'Other WordPress News', 'adminimize' ),
-				'description' => 'dashboard_secondary'
+				'description' => '#dashboard_secondary'
 			),
 		);
 	}
