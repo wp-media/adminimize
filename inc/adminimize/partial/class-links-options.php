@@ -5,7 +5,23 @@ use Inpsyde\Adminimize;
 /**
  * Options to hide menu entries.
  */
-class Links_Options extends Base {
+class Links_Options extends Checkbox_Base {
+
+	/**
+	 * This method is called for every setting that is active.
+	 * 
+	 * @param  string $index  setting index
+	 * @param  array  $values setting values
+	 * @param  string $role   WordPress role handle
+	 * @return void
+	 */
+	public function apply_checkbox_setting( $index, $values, $role ) {
+		add_action( 'admin_print_styles-link.php', function () use ( $values ) {
+			?>
+			<style type="text/css"><?php echo $values['description']; ?> { display: none; }</style>
+			<?php
+		} );
+	}
 
 	/**
 	 * Get translated meta box title.
