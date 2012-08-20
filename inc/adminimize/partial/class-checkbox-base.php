@@ -2,6 +2,9 @@
 namespace Inpsyde\Adminimize\Partial;
 use \Inpsyde\Adminimize;
 
+/**
+ * Abstract Class for "Checkbox Matrix" Partials.
+ */
 abstract class Checkbox_Base extends Base {
 	
 	protected function __construct() {
