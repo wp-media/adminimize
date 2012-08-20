@@ -7,6 +7,31 @@ use Inpsyde\Adminimize;
  */
 class Backend_Options extends Base {
 
+	protected function __construct() {
+		
+		parent::__construct();
+		add_action( 'admin_init', array( $this, 'apply_settings_for_current_user' ) );
+	}
+
+	public function apply_settings_for_current_user() {
+
+		if ( ! Adminimize\should_apply_options_for_user() )
+			return;
+
+		$settings = $this->get_settings();
+		foreach ( $settings as $setting_index => $setting ) {
+			$disabled = Adminimize\get_option( $setting_index, array(), $this->get_option_namespace() );
+			if ( $disabled ) {
+				if ( isset( $setting['css'] ) ) {
+					add_action( $setting['css']['action'], function () use ( $setting ) {
+						?><style type="text/css"><?php echo $setting['css']['style']; ?></style><?php
+					} );
+				}
+			}
+		}
+		
+	}
+
 	/**
 	 * Get translated meta box title.
 	 * 
@@ -49,12 +74,42 @@ class Backend_Options extends Base {
 
 		$settings['user_info'] = array(
 			'title'       => __( 'User-Info', 'adminimize' ),
-			'description' => __( 'The &quot;User-Info-area&quot; is on the top right side of the backend. You can hide or reduced show.', 'adminimize' ),
+			'description' => __( 'The &quot;User-Info-area&quot; is on the top right side of the backend.', 'adminimize' ),
 			'options'     => array(
-				0 => __( 'Default', 'adminimize' ),
-				1 => __( 'Hide', 'adminimize' ),
-				2 => __( 'Only Logout', 'adminimize' ),
-				3 => __( 'User &amp; Logout', 'adminimize' )
+				0 => __( 'Show', 'adminimize' ),
+				1 => __( 'Hide', 'adminimize' )
+			),
+			'css' => array(
+				'action' => 'admin_print_styles',
+				'style'  => '#wp-admin-bar-top-secondary { display: none; }'
+			)
+		);
+
+		$settings['user_info_profile'] = array(
+			'title'       => __( 'User-Info: Profile-Link', 'adminimize' ),
+			'description' => __( 'Hide only the profile link inside the user info box.', 'adminimize' ),
+			'options'     => array(
+				0 => __( 'Show', 'adminimize' ),
+				1 => __( 'Hide', 'adminimize' )
+			),
+			'css' => array(
+				'action' => 'admin_print_styles',
+				'style'  => '#wp-admin-bar-edit-profile { display: none; }
+							 #wp-admin-bar-user-actions { min-height: 85px; }'
+			)
+		);
+
+		$settings['user_info_logout'] = array(
+			'title'       => __( 'User-Info: Profile-Link', 'adminimize' ),
+			'description' => __( 'Hide only the logout link inside the user info box.', 'adminimize' ),
+			'options'     => array(
+				0 => __( 'Show', 'adminimize' ),
+				1 => __( 'Hide', 'adminimize' )
+			),
+			'css' => array(
+				'action' => 'admin_print_styles',
+				'style'  => '#wp-admin-bar-logout { display: none; }	
+							 #wp-admin-bar-user-actions { min-height: 85px; }'
 			)
 		);
 
