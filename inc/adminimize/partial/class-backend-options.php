@@ -148,7 +148,7 @@ class Backend_Options extends Base {
 				1 => __( 'Hide', 'adminimize' )
 			),
 			'callback' => function() {
-				// not working in 3.4 ...
+				// FIXME: not working in 3.4 ...
 				add_filter( 'show_admin_bar', function(){return false;}, 1000 );
 			}
 		);
@@ -159,7 +159,21 @@ class Backend_Options extends Base {
 			'options'     => array(
 				0 => __( 'Default', 'adminimize' ),
 				1 => __( 'Activate', 'adminimize' )
-			)
+			),
+			'callback' => function() {
+				global $pagenow;
+
+				if ( ! is_admin() || ! in_array( $pagenow, array( 'edit.php', 'post.php', 'post-new.php' ) ) )
+					return;
+
+				$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
+
+				wp_enqueue_script(
+					'_adminimize_timestamp',
+					plugins_url( "/js/timestamp$suffix.js", dirname( dirname( dirname( __FILE__ ) ) ) ),
+					array( 'jquery' )
+				);
+			}
 		);
 
 		$settings['tb_window'] = array(
