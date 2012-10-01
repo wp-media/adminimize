@@ -212,7 +212,17 @@ class Backend_Options extends Base {
 			'options'     => array(
 				0 => __( 'Default', 'adminimize' ),
 				1 => __( 'Activate', 'adminimize' )
-			)
+			),
+			'callback' => function () {
+
+				if ( ! Adminimize\is_edit_post_page() )
+					return;
+
+				wp_enqueue_style(
+					'adminimize-full-category',
+					Adminimize\plugins_url( "/css/categories_height" . Adminimize\script_suffix() . ".css" )
+				);
+			}
 		);
 
 		$settings['advice'] = array(

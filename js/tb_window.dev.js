@@ -1,4 +1,3 @@
-console.log("loaded");
 // send html to the post editor
 function send_to_editor(h) {
 	if ( typeof tinyMCE != 'undefined' && ( ed = tinyMCE.activeEditor ) && !ed.isHidden() ) {
