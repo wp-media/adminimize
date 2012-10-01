@@ -163,7 +163,7 @@ class Backend_Options extends Base {
 			'callback' => function() {
 				global $pagenow;
 
-				if ( ! is_admin() || ! in_array( $pagenow, array( 'edit.php', 'post.php', 'post-new.php' ) ) )
+				if ( ! Adminimize\is_edit_post_page() )
 					return;
 
 				wp_enqueue_script(

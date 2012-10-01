@@ -34,6 +34,17 @@ function remove_mainmenu_entry( $menu_index ) {
 }
 
 /**
+ * Return true if this is a page where you can edit a post. Otherwise false.
+ * 
+ * @return boolean
+ */
+function is_edit_post_page() {
+	global $pagenow;
+
+	return ! is_admin() || ! in_array( $pagenow, array( 'edit.php', 'post.php', 'post-new.php' ) );
+}
+
+/**
  * Remove entry from a WordPress submenu.
  * 
  * @param  int $menu_index
