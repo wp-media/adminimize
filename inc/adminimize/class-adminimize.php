@@ -79,7 +79,7 @@ class Adminimize {
 		
 		wp_register_script(
 			'adminimize_admin',
-			plugins_url( "/js/admin$suffix.js", __FILE__ ),
+			plugins_url( "/js/admin$suffix.js", dirname( dirname( __FILE__ ) ) ),
 			array( 'jquery' ),
 			'1.0'
 		);
