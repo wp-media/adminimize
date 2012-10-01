@@ -27,6 +27,9 @@ class Backend_Options extends Base {
 						?><style type="text/css"><?php echo $setting['css']['style']; ?></style><?php
 					} );
 				}
+				if ( isset( $setting['callback'] ) ) {
+					call_user_func( $setting['callback'] );
+				}
 			}
 		}
 		
@@ -127,9 +130,14 @@ class Backend_Options extends Base {
 			'title'       => __( 'Footer', 'adminimize' ),
 			'description' => __( 'The Footer-area can hide, include all links and details.', 'adminimize' ),
 			'options'     => array(
-				0 => __( 'Default', 'adminimize' ),
+				0 => __( 'Show', 'adminimize' ),
 				1 => __( 'Hide', 'adminimize' )
-			)
+			),
+			'callback' => function () {
+				$nothing = function(){return '';};
+				add_filter( 'admin_footer_text', $nothing, 100 );
+				add_filter( 'update_footer', $nothing, 100 );
+			}
 		);
 
 		$settings['header'] = array(
