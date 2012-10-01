@@ -166,11 +166,9 @@ class Backend_Options extends Base {
 				if ( ! is_admin() || ! in_array( $pagenow, array( 'edit.php', 'post.php', 'post-new.php' ) ) )
 					return;
 
-				$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
-
 				wp_enqueue_script(
 					'_adminimize_timestamp',
-					plugins_url( "/js/timestamp$suffix.js", dirname( dirname( dirname( __FILE__ ) ) ) ),
+					plugins_url( "/js/timestamp" . Adminimize\script_suffix() . ".js", dirname( dirname( dirname( __FILE__ ) ) ) ),
 					array( 'jquery' )
 				);
 			}

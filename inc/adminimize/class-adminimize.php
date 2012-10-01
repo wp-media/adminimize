@@ -75,11 +75,9 @@ class Adminimize {
 
 	function register_admin_scripts() {
 
-		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
-		
 		wp_register_script(
 			'adminimize_admin',
-			plugins_url( "/js/admin$suffix.js", dirname( dirname( __FILE__ ) ) ),
+			plugins_url( "/js/admin" . Adminimize\script_suffix() . ".js", dirname( dirname( __FILE__ ) ) ),
 			array( 'jquery' ),
 			'1.0'
 		);

@@ -2,6 +2,10 @@
 namespace Inpsyde\Adminimize;
 use Inpsyde\Adminimize;
 
+function script_suffix() {
+	return defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
+}
+
 /**
  * Remove entry from main WordPress menu.
  * 
