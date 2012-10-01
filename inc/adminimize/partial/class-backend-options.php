@@ -200,7 +200,10 @@ class Backend_Options extends Base {
 			'options'     => array(
 				0 => __( 'Default', 'adminimize' ),
 				1 => __( 'Activate', 'adminimize' )
-			)
+			),
+			'callback' => function () {
+				add_filter( 'flash_uploader', function(){return false;}, 1 );
+			}
 		);
 
 		$settings['cat_full'] = array(
