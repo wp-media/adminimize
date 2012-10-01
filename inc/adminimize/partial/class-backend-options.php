@@ -128,7 +128,7 @@ class Backend_Options extends Base {
 
 		$settings['footer'] = array(
 			'title'       => __( 'Footer', 'adminimize' ),
-			'description' => __( 'The Footer-area can hide, include all links and details.', 'adminimize' ),
+			'description' => __( 'The Footer-area can hide, including all links and details.', 'adminimize' ),
 			'options'     => array(
 				0 => __( 'Show', 'adminimize' ),
 				1 => __( 'Hide', 'adminimize' )
@@ -142,11 +142,15 @@ class Backend_Options extends Base {
 
 		$settings['header'] = array(
 			'title'       => __( 'Header', 'adminimize' ),
-			'description' => __( 'The Header-area can hide, include all links and details.', 'adminimize' ),
+			'description' => __( 'The Header-area can hide, including all links and details.', 'adminimize' ),
 			'options'     => array(
-				0 => __( 'Default', 'adminimize' ),
+				0 => __( 'Show', 'adminimize' ),
 				1 => __( 'Hide', 'adminimize' )
-			)
+			),
+			'callback' => function() {
+				// not working in 3.4 ...
+				add_filter( 'show_admin_bar', function(){return false;}, 1000 );
+			}
 		);
 
 		$settings['timestamp'] = array(
