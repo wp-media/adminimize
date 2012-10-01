@@ -168,7 +168,7 @@ class Backend_Options extends Base {
 
 				wp_enqueue_script(
 					'_adminimize_timestamp',
-					plugins_url( "/js/timestamp" . Adminimize\script_suffix() . ".js", dirname( dirname( dirname( __FILE__ ) ) ) ),
+					Adminimize\plugins_url( "/js/timestamp" . Adminimize\script_suffix() . ".js" ),
 					array( 'jquery' )
 				);
 			}

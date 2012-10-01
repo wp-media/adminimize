@@ -2,8 +2,23 @@
 namespace Inpsyde\Adminimize;
 use Inpsyde\Adminimize;
 
+/**
+ * Return .dev suffix if SCRIPT_DEBUG is set.
+ * 
+ * @return string
+ */
 function script_suffix() {
 	return defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.dev' : '';
+}
+
+/**
+ * Override default plugins_url() with second parameter set correctly.
+ * 
+ * @param  string $url url relative to plugin dir
+ * @return string
+ */
+function plugins_url( $url ) {
+	return \plugins_url( $url, dirname( __FILE__ ) );
 }
 
 /**
