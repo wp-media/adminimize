@@ -77,7 +77,7 @@ class Adminimize {
 
 		wp_register_script(
 			'adminimize_admin',
-			Adminimize\plugins_url( "/js/admin" . Adminimize\script_suffix() . ".js" ),
+			\Inpsyde\Adminimize\plugins_url( "/js/admin" . \Inpsyde\Adminimize\script_suffix() . ".js" ),
 			array( 'jquery' ),
 			'1.0'
 		);

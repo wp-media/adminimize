@@ -41,7 +41,7 @@ function remove_mainmenu_entry( $menu_index ) {
 function is_edit_post_page() {
 	global $pagenow;
 
-	return ! is_admin() || ! in_array( $pagenow, array( 'edit.php', 'post.php', 'post-new.php' ) );
+	return is_admin() && in_array( $pagenow, array( 'edit.php', 'post.php', 'post-new.php' ) );
 }
 
 /**
