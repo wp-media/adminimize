@@ -1,24 +1,25 @@
-<?php 
+<?php
 namespace Inpsyde\Adminimize\Partial;
 use Inpsyde\Adminimize;
 
 /**
  * Options to hide menu entries.
  */
-class About extends Base {
+class About extends Base
+{
 
 	/**
 	 * Meta Box priority within the context where the boxes should show.
-	 * 
+	 *
 	 * 'high', 'core', 'default' or 'low'
-	 * 
+	 *
 	 * @var string
 	 */
 	protected $priority = 'high';
 
 	/**
 	 * Get translated meta box title.
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_meta_box_title() {
@@ -29,7 +30,7 @@ class About extends Base {
 	 * Get option namespace.
 	 *
 	 * Will be used to serialize settings.
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_option_namespace() {
@@ -38,7 +39,7 @@ class About extends Base {
 
 	/**
 	 * Populate $settings var with data.
-	 * 
+	 *
 	 * @return void
 	 */
 	protected function init_settings() {
@@ -47,7 +48,7 @@ class About extends Base {
 
 	/**
 	 * Print meta box contents.
-	 * 
+	 *
 	 * @return void
 	 */
 	public function meta_box_content() {
@@ -60,14 +61,14 @@ class About extends Base {
 			</a>
 		</p>
 		<p>
-			<?php 
+			<?php
 			echo $plugin->get_plugin_header( 'Title' ) . ' ';
 			echo __( 'Version', 'adminimize' ) . ' ';
 			echo $plugin->get_plugin_header( 'Version' );
 			?>
 		</p>
 		<p>
-			<?php 
+			<?php
 			echo $plugin->get_plugin_header( 'Description' );
 			?>
 		</p>
