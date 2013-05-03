@@ -132,6 +132,7 @@ function generate_checkbox_table( $args ) {
 						<span class="description">(<?php echo $setting['description']; ?>)</span>
 					</td>
 					<?php foreach ( $user_roles as $role ): ?>
+					<?php 	if ( ! isset( $values[ $role ] ) ) continue; ?>
 						<td>
 							<input type="checkbox" name="<?php echo $args['option_namespace'] ?>[<?php echo $index ?>][<?php echo $role ?>]" <?php checked( $values[ $role ], 'on' ) ?> >
 						</td>
