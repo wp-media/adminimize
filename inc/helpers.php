@@ -4,7 +4,7 @@ use Inpsyde\Adminimize;
 
 /**
  * Return .dev suffix if SCRIPT_DEBUG is set.
- * 
+ *
  * @return string
  */
 function script_suffix() {
@@ -13,7 +13,7 @@ function script_suffix() {
 
 /**
  * Override default plugins_url() with second parameter set correctly.
- * 
+ *
  * @param  string $url url relative to plugin dir
  * @return string
  */
@@ -23,7 +23,7 @@ function plugins_url( $url ) {
 
 /**
  * Remove entry from main WordPress menu.
- * 
+ *
  * @param  int $menu_index
  * @return void
  */
@@ -35,7 +35,7 @@ function remove_mainmenu_entry( $menu_index ) {
 
 /**
  * Return true if this is a page where you can edit a post. Otherwise false.
- * 
+ *
  * @return boolean
  */
 function is_edit_post_page() {
@@ -46,7 +46,7 @@ function is_edit_post_page() {
 
 /**
  * Remove entry from a WordPress submenu.
- * 
+ *
  * @param  int $menu_index
  * @param  int $submenu_index
  * @return void
@@ -62,7 +62,7 @@ function remove_submenu_entry( $menu_index, $submenu_index ) {
 
 /**
  * Callback for add_settings_field to create a <select>.
- * 
+ *
  * @param  array $args Args has two parameters: 'settings_name' and 'args'.
  *                     settings_name:      (string) required. setting name
  *                     settings_namespace: (string) required. setting namespace
@@ -180,5 +180,5 @@ function generate_checkbox_table( $args ) {
 	<br style="clear: both">
 	<?php submit_button( __( 'Save Changes' ), 'button-primary', 'submit', TRUE ); ?>
 	<br style="clear: both">
-	<?php	
+	<?php
 }
