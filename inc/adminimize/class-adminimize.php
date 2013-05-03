@@ -22,10 +22,10 @@ class Adminimize {
 	 * @return	Adminimize
 	 */
 	public static function get_instance() {
-			
+
 		if ( ! self::$instance )
 			self::$instance = new self;
-			
+
 		return self::$instance;
 	}
 
@@ -39,9 +39,6 @@ class Adminimize {
 	 */
 	public function __construct() {
 
-		// Load the features
-		$this->load_features();
-		
 		// javascript
 		add_action( 'admin_print_scripts-settings_page_adminimize-2/adminimize' , array( $this, 'register_admin_scripts' ) );
 
@@ -50,7 +47,7 @@ class Adminimize {
 
 	/**
 	 * Init all partials.
-	 * 
+	 *
 	 * @return void
 	 */
 	public function kickoff() {
@@ -89,12 +86,12 @@ class Adminimize {
 	 * Get a value of the plugin header
 	 *
 	 * @todo  maybe more flexible regarding location
-	 * 
+	 *
 	 * @param	string $value
 	 * @return	string The plugin header value
 	 */
 	public function get_plugin_header( $value = 'TextDomain' ) {
-		
+
 		static $plugin_data; // only load file once
 
 		if ( ! function_exists( 'get_plugin_data' ) )
@@ -113,7 +110,7 @@ class Adminimize {
 	 * @return	string The plugins textdomain path
 	 */
 	public function get_domain_path() {
-			
+
 		return $this->get_plugin_header( 'DomainPath' );
 	}
 
@@ -134,35 +131,11 @@ class Adminimize {
 	}
 
 	public function is_active_for_multisite() {
-		
+
 		static $is_active;
 		$is_active = is_multisite() && is_plugin_active_for_network( $this->get_plugin_basename() );
 
 		return $is_active;
 	}
 
-	/**
-	 * Autoloads all files in $dir subdirectory
-	 * 
-	 * @param  string $dir name of plugin subdirectory
-	 * @return void
-	 */
-	private function autoload_subdirectory( $dir ) {
-		
-		// load all files with the pattern *.php from the $dir directory
-		foreach( glob( dirname( __FILE__ ) . '/' . $dir . '/*.php' ) as $file )
-			require_once $file;
-	}
-
-	/**
-	 * Autoloads all files in "/features" subdirectory
-	 *
-	 * @since	0.1
-	 * @access	protected
-	 * @return	void
-	 */
-	protected function load_features() {
-		
-		$this->autoload_subdirectory( 'inc/features' );
-	}
 }
