@@ -1,0 +1,24 @@
+#small_user_info {
+	float: right;
+	font-size: 12px;
+	line-height: 46px;
+	height: 46px;
+	position:absolute;
+	right:15px;
+	top:0;
+}
+
+#small_user_info a, #small_user_info a:visited {
+	color: #000;
+	text-decoration: none;
+}
+
+#small_user_info p {
+	margin: 0;
+	padding: 0;
+	line-height: 46px;
+}
+
+#favorite-actions {
+	margin-right: 250px;
+}

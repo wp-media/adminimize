@@ -1,0 +1,680 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Adminimize\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-05-17 23:17+0600\n"
+"PO-Revision-Date: 2009-07-02 14:22+0300\n"
+"Last-Translator: Fat Cow <zhr@tut.by>\n"
+"Language-Team: Fat Cow <zhr@tut.by>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Language: Belarusian\n"
+"X-Poedit-Country: BELARUS\n"
+"X-Poedit-SearchPath-0: X:\\web\\wordpress\\main\\LATEST\\wordpress-2.7.1-rus-lecactus-edition-powerpack\\wordpress\\wp-content\\plugins\\adminimize\n"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:85
+msgid "Unknown error."
+msgstr "Невядомая памылка."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:92
+msgid "The updates was saved."
+msgstr "Налады былі захаваныя."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:93
+msgid "You have not enough rights for edit entries in the database."
+msgstr "У вас няма мае рацыю для рэдагавання запісаў у базе дадзеных."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:94
+msgid "All entries in the database was delleted."
+msgstr "Усе запісы ў базе дадзеных былі выдаленыя."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:95
+msgid "Set the checkbox on deinstall-button."
+msgstr "Усталюеце галачку поруч кнопкі дэўсталёўкі."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:96
+msgid "Can't load menu and submenu."
+msgstr "Немагчыма загрузіць меню або падменю."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:97
+msgid "Backend-Theme was activated!"
+msgstr "Тэма адмінкі актываваная!"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:348
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:395
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:797
+msgid "Categories"
+msgstr "Рубрыкі"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:354
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:365
+msgid "+ Add New Category"
+msgstr "+ Дадаць новую рубрыку"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:356
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:367
+msgid "New category name"
+msgstr "Імя новай рубрыкі"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:357
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:369
+msgid "Parent category"
+msgstr "Бацькоўская рубрыка"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:358
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:370
+msgid "Add"
+msgstr "Дадаць"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:367
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:396
+msgid "Add New Category"
+msgstr "Дадаць новую рубрыку"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:391
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:392
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:394
+msgid "Tags"
+msgstr "Пазнакі"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:432
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:446
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:460
+msgid "Blue"
+msgstr "Галубай"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:439
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:453
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:467
+msgid "Gray"
+msgstr "Шэры"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:475
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:517
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:540
+msgid "Classic"
+msgstr "Класічны"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:482
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:524
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:547
+msgid "Fresh"
+msgstr "Новы"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:489
+msgid "WordPress 2.3"
+msgstr "WordPress 2.3"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:496
+msgid "Maybe i'm colorblind"
+msgstr "Вельмі ярка і кантрасна"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:503
+msgid "Grey"
+msgstr "Шэры"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:631
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:634
+msgid "Dashboard"
+msgstr "Дошка аб'яў"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:693
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:695
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:708
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:710
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:908
+msgid "Log Out"
+msgstr "Выхад"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:927
+msgid "Visit plugin homepage"
+msgstr "Наведаць хатнюю старонку ўбудовы"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:930
+msgid "plugin"
+msgstr "убудова"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:930
+msgid "Version"
+msgstr "Версія"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:930
+msgid "History"
+msgstr "Гісторыя"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:930
+msgid "Author"
+msgstr "Аўтар"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:933
+msgid "plugin activate"
+msgstr "убудова актываваны"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:948
+msgid "Settings"
+msgstr "Налады"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:1008
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:1028
+msgid "<a href=\"http://wordpress.org/extend/plugins/adminimize/\">Documentation</a>"
+msgstr "<a href=\"http://wordpress.org/extend/plugins/adminimize/\">Дакументацыя</a>"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:1025
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:70
+msgid "Adminimize"
+msgstr "Adminimize"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:1027
+msgid "Adminimize Options"
+msgstr "Налады Adminimize"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize.php:1041
+msgid "Cheatin&#8217; uh?"
+msgstr "Не песціся :-)"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:74
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:217
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:331
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:596
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:678
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:760
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:881
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:962
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:982
+msgid "Click to toggle"
+msgstr "Пстрыкніце каб пераключыць"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:75
+msgid "Backend Options"
+msgstr "Налады адмінкі"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:84
+msgid "User-Info"
+msgstr "Інфармацыя аб карыстачу"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:88
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:101
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:111
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:121
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:131
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:141
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:151
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:161
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:190
+msgid "Default"
+msgstr "Па змаўчанні"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:89
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:112
+msgid "Hide"
+msgstr "Схаваць"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:90
+msgid "Only logout"
+msgstr "Толькі выхад"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:91
+msgid "User &amp; Logout"
+msgstr "Профіль карыстача і выхад"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:92
+msgid "The &quot;User-Info-area&quot; is on the top right side of the backend. You can hide or reduced show."
+msgstr "Профіль карыстача і выхад у верхнім правым куту панэлі адміністравання. Вы ожете схаваць або змяніць яе выгляд."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:97
+msgid "Change User-Info, redirect to"
+msgstr "Пасля змены карыстацкай інфармацыі, пераадрасоўваць на"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:102
+msgid "Frontpage of the Blog"
+msgstr "Блог"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:103
+msgid "When the &quot;User-Info-area&quot; change it, then it is possible to change the redirect."
+msgstr "Пры змене блока высновы інфармацыі аб карыстачу, магчыма змяніць перанакіраванне."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:107
+msgid "Footer"
+msgstr "Склеп"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:113
+msgid "The Footer-area kann hide, include all links and details."
+msgstr "Склеп адмінкі можна схаваць, уключаючы ўсе спасылкі і дэталі."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:117
+msgid "WriteScroll"
+msgstr "Прагортка акна напісання"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:122
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:132
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:142
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:152
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:162
+msgid "Activate"
+msgstr "Актываваць"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:123
+msgid "With the WriteScroll option active, these pages will automatically scroll to an optimal position for editing, when you visit Write Post or Write Page."
+msgstr "Пры актыўнай опцыі WriteScroll, старонкі стварэнне запісаў і старонак будуць аўтаматычна пракручвацца да аптымальнай позации для рэдагавання."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:127
+msgid "Timestamp"
+msgstr "Дата і час"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:133
+msgid "Opens the post timestamp editing fields without you having to click the \"Edit\" link every time."
+msgstr "Адчыняе поле рэдагавання даты і часу без кліку па спасылцы \"Змяніць\" штораз."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:137
+msgid "Thickbox FullScreen"
+msgstr "Поўнаэкранны рэжым Thickbox"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:143
+msgid "All Thickbox-function use the full area of the browser. Thickbox is for examble in upload media-files."
+msgstr "Усё Thickbox-функцыі выкарыстаюць уся прастора акна браўзэра. Thickbox напрыклад выкарыстоўваецца пры загрузцы медыя-файлаў."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:147
+msgid "Flashuploader"
+msgstr "Флэш-загрузнік"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:153
+msgid "Disable the flashuploader and users use only the standard uploader."
+msgstr "Адключыць флэш-загрузнік і выкарыстаць толькі стандартны загрузнік."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:157
+msgid "Advice in Footer"
+msgstr "Рады ў Склепе"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:164
+msgid "In the Footer kann you display a advice for change the Default-design, (x)HTML is possible."
+msgstr "У склепе вы можаце паказаць сваю інфармацыю, змяняючы шаблон па змаўчанні. Дазволена выкарыстаць (x)HTML."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:186
+msgid "Dashboard deaktivate, redirect to"
+msgstr "Калі Дошка аб'яў адключаная, перанакіроўваць на "
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:191
+msgid "Manage Posts"
+msgstr "Кіраванне запісамі"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:192
+msgid "Manage Pages"
+msgstr "Кіраванне старонкамі"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:193
+msgid "Write Post"
+msgstr "Стварэнне запісу"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:194
+msgid "Write Page"
+msgstr "Стварэнне старонкі"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:195
+msgid "Comments"
+msgstr "Каментары"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:196
+msgid "other Page"
+msgstr "іншая старонка"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:199
+msgid "You have deaktivate the Dashboard, please select a page for redirect?"
+msgstr "Калі вы дэактывуеце Дошку аб'яў, калі ласка вылучыце старонку, на якую будзе перанакіраваны карыстач."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:208
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:322
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:587
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:669
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:751
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:871
+msgid "Update Options"
+msgstr "Абнавіць налады"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:218
+msgid "Global options"
+msgstr "Глабальныя налады"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:225
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:297
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:644
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:726
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:768
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:846
+msgid "Option"
+msgstr "Налада"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:228
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:341
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:607
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:689
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:771
+msgid "Deactivate for"
+msgstr "Адключыць для "
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:248
+msgid "Favorite Actions"
+msgstr "Каханыя дзеянні"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:249
+msgid "Screen-Meta"
+msgstr "Налады экрана"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:250
+msgid "Screen Options"
+msgstr "Налады экрана"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:251
+msgid "Contextual Help"
+msgstr "Кантэкстная дапамога"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:252
+msgid "Admin Color Scheme"
+msgstr "Колеравая схема адмінкі"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:296
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:845
+msgid "Your own options"
+msgstr "Вашы ўласныя налады"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:296
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:643
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:725
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:845
+msgid "ID or class"
+msgstr "ID або клас"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:303
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:650
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:732
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:852
+msgid "It is possible to add your own IDs or classes from elements and tags. You can find IDs and classes with the FireBug Add-on for Firefox. Assign a value and the associate name per line."
+msgstr "Існуе магчымасць дадаваць вашы ўласныя ID і класы з элементаў і тэгаў. Вы можаце знайсці ID-ы і класы з дапамогай адона FireBug для FireFox. Пераназначце значэнні і звязаныя імёны па адным у кожным радку."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:309
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:656
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:738
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:858
+msgid "Possible IDs or classes. Separate multiple values through a carriage return."
+msgstr "Магчымыя ID або класы. Падзеліце некалькі значэнняў з дапамогай звароту карэткі (націскам Enter)."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:314
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:661
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:743
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:863
+msgid "Possible nomination for ID or class. Separate multiple nomination through a carriage return."
+msgstr "Магчымыя намінанты на ID або класы.  Падзеліце некалькі значэнняў з дапамогай звароту карэткі (націскам Enter)."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:332
+msgid "Menu Options"
+msgstr "Налады меню"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:338
+msgid "Menu options - Menu, <span style=\\\"font-weight: 400;\\\">Submenu</span>"
+msgstr "Налады меню - Меню, <span style=\\\"font-weight: 400;\\\">Падменю</span>"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:393
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:475
+msgid "Permalink"
+msgstr "Сталая спасылка"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:397
+msgid "Excerpt"
+msgstr "Цытата"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:398
+msgid "Trackbacks"
+msgstr "Трэкбэкі"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:399
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:476
+msgid "Custom Fields"
+msgstr "Адвольныя палі"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:400
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:477
+msgid "Comments &amp; Pings"
+msgstr "Каментары і апавяшчэнні"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:401
+msgid "Password Protect This Post"
+msgstr "Абараніць запіс паролем"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:402
+msgid "Post Author"
+msgstr "Аўтар запісу"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:403
+msgid "Post Revisions"
+msgstr "Рэвізіі запісу"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:404
+msgid "Related, Shortcuts"
+msgstr "Звязанае, Цэтлікі"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:405
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:485
+msgid "Messenges"
+msgstr "Паведамленні"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:406
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:486
+msgid "h2: Advanced Options"
+msgstr "h2: Пашыраныя налады"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:407
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:487
+msgid "Media Buttons (all)"
+msgstr "Кнопкі Медыя (усё)"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:408
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:488
+msgid "Word count"
+msgstr "Лічыльнік слоў"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:409
+msgid "Post Slug, Slug Box"
+msgstr "Цэтлік запісу, блок цэтліка"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:410
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:490
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:801
+msgid "Publish Actions"
+msgstr "Дзеянні публікацыі"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:414
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:494
+msgid "Suggested tags from"
+msgstr "Звязаныя пазнакі з"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:416
+msgid "Text Control"
+msgstr "Кіраванне тэкстам"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:418
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:496
+msgid "HTML Special Characters"
+msgstr "Адмысловыя знакі HTML"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:478
+msgid "Password Protect This Page"
+msgstr "Абараніць старонку паролем"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:479
+msgid "Page Parent"
+msgstr "Бацькоўская старонка"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:480
+msgid "Page Template"
+msgstr "Шаблон старонкі"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:481
+msgid "Page Order"
+msgstr "Парадкавы нумар старонкі"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:482
+msgid "Page Author"
+msgstr "Аўтар"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:483
+msgid "Page Revisions"
+msgstr "Рэвізіі старонкі"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:484
+msgid "Related"
+msgstr "Звязаныя"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:489
+msgid "Page Slug, Slug Box"
+msgstr "Цэтлік старонкі, блок цэтліка"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:597
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:604
+msgid "Write options - Post"
+msgstr "Налады напісання - Запіс"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:643
+msgid "Your own post options"
+msgstr "Вашы ўласныя налады запісу"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:679
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:686
+msgid "Write options - Page"
+msgstr "Налады напісання - Старонка"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:725
+msgid "Your own page options"
+msgstr "Вашы ўласныя налады старонкі"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:761
+msgid "Links options"
+msgstr "Налады спасылак"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:794
+msgid "Name"
+msgstr "Імя"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:795
+msgid "Web Address"
+msgstr "Вэб адрас"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:796
+msgid "Description"
+msgstr "Апісанне"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:798
+msgid "Target"
+msgstr "Мэта"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:799
+msgid "Link Relationship (XFN)"
+msgstr "Дачыненне да спасылкі (XFN)"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:800
+msgid "Advanced"
+msgstr "Дадаткова"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:882
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:952
+msgid "Set Theme"
+msgstr "Усталяваць тэму"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:891
+msgid "User-ID"
+msgstr "ID карыстача"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:892
+msgid "Username"
+msgstr "Імя карыстача"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:893
+msgid "Display name publicly as"
+msgstr "Адлюстроўваць публічнае імя як"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:894
+msgid "Admin-Color Scheme"
+msgstr "Колеравая схема адмінкі"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:895
+msgid "User Level"
+msgstr "Узровень карыстача"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:896
+msgid "Role"
+msgstr "Роля"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:963
+msgid "Deinstall Options"
+msgstr "Налады дэўсталёўкі"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:966
+msgid "Use this option for clean your database from all entries of this plugin. When you deactivate the plugin, the deinstall of the plugin <strong>clean not</strong> all entries in the database."
+msgstr "Выкарыстайце гэтую опцыю для ачысткі базы дадзеных ад усіх запісаў гэтай убудовы. Пры звычайнай дэактывацыі ўбудовы, дэўсталёўка ўбудовы НЕ ВЫДАЛЯЕ усе запісы ўбудовы з базы дадзеных."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:970
+msgid "Delete Options"
+msgstr "Налады выдалення"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:983
+msgid "About the plugin"
+msgstr "Аб гэтай убудове"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:985
+msgid "Further information: Visit the <a href=\"http://bueltge.de/wordpress-admin-theme-adminimize/674/\">plugin homepage</a> for further information or to grab the latest version of this plugin."
+msgstr "Дадатковая інфармацыя: Наведаеце <a href='http://bueltge.de/wordpress-admin-theme-adminimize/674/''>хатнюю старонку ўбудовы</a> для атрымання дадатковай інфармацыі або запампоўкі свежай версіі ўбудовы. Русіфікаванне ўбудовы: <a href='http://lecactus.ru''>Lecactus.ru</a>."
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:991
+msgid "PayPal - The safer, easier way to pay online!"
+msgstr "PayPal - бяспечны і проста шлях для анлайну плацяжоў!"
+
+#: X:\web\wordpress\main\LATEST\wordpress-2.7.1-rus-lecactus-edition-powerpack\wordpress\wp-content\plugins\adminimize/adminimize_page.php:995
+msgid "You want to thank me? Visit my <a href=\"http://bueltge.de/wunschliste/\">wishlist</a> or donate."
+msgstr "Жадаеце аддзячыць мяне? Наведаеце мой <a href='http://bueltge.de/wunschliste/'>спіс пажаданняў</a> або зрабіце ахвяраванне."
+
+#~ msgid "All"
+#~ msgstr "Усё"
+#~ msgid "None"
+#~ msgstr "Нічога"
+#~ msgid "It is possible to hide the favorite-actions in the header."
+#~ msgstr "Магчыма схаваць каханыя дзеянні з загалоўка."
+#~ msgid "It is possible to hide the screen-options."
+#~ msgstr "Магчыма схаваць налады экрана"
+#~ msgid "Menu Order"
+#~ msgstr "Парадак меню"
+#~ msgid "It is possible to set a new menu-order."
+#~ msgstr "Магчыма задаць новы парадак меню."
+#~ msgid "Sidebar Width"
+#~ msgstr "Шырыня бакавой калонкі"
+#~ msgid ""
+#~ "The sidebar on the right side in the area <em>Edit</em> is configurable. "
+#~ "Default is 200 pixel in the WordPress Theme <em>Classic</em> and "
+#~ "<em>Fresh</em>"
+#~ msgstr ""
+#~ "Бакавая калонка з правага боку вобласці <em>рэдагавання</em> "
+#~ "наладжвальная. Па змаўчанні шырыня яе складае 200 пікселяў у стылях "
+#~ "WordPress <em>Класічны</em> і <em>Новы</em>"
+#~ msgid "Dashmenu"
+#~ msgstr "Меню панэлі"
+#~ msgid ""
+#~ "The &quot;Dashboard-area&quot; is on the top left side of the backend. "
+#~ "You can hide show."
+#~ msgstr ""
+#~ "Вобласць дошкі аб'яў у левым верхнім куту. Вы можаце схаваць яе."
+#~ msgid "It is possible to hide the Admin Color Schemes."
+#~ msgstr "Магчыма схаваць колеравыя схемы адмінкі."
+#~ msgid "Deactivate for Subscriber"
+#~ msgstr "Адключыць для падпісантаў"
+#~ msgid "Deactivate for Contributor"
+#~ msgstr "Адключыць для ўдзельнікаў"
+#~ msgid "Deactivate for Editor"
+#~ msgstr "Адключыць для рэдактараў"
+#~ msgid "Deactivate for Administrator"
+#~ msgstr "Адключыць для адміністратараў"
+#~ msgid "All items"
+#~ msgstr "Усе тыпы"
+#~ msgid "Write Options"
+#~ msgstr "Налады напісання"
+

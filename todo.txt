@@ -1,6 +1,0 @@
-ToDO:
-uninstall function ->
-	remove 'closedpostboxes_' . $pagehook from usermeta
-	remove 'metaboxhidden_' . $pagehook from usermeta
-	
-	DELETE FROM {$wpdb->usermeta} WHERE meta_key = 'closedpostboxes_{$pagehook}' OR meta_key = 'metaboxhidden_{$pagehook}'; 

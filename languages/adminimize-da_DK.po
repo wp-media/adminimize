@@ -1,0 +1,779 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Adminimize 1.7.9\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-09-19 18:17+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Team Blogos <wordpress@blogos.dk>\n"
+"Language-Team: Team Blogos <wordpress@blogos.dk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2;plural=n != 1;\n"
+"X-Poedit-Language: Danish\n"
+"X-Poedit-Country: DENMARK\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;__ngettext:1,2;__ngettext_noop:1,2;_nc:1,2;_nx:1,2;_n_noop:1,2;_nx_noop;_x;_c;esc_html__;esc_html_e;esc_html_x;esc_attr__;esc_attr_e;esc_attr_x\n"
+"X-Poedit-Basepath: d:\\wordpress\\plugins\\adminimize\n"
+"X-Poedit-SearchPath-0: d:\\wordpress\\plugins\\adminimize\n"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:91
+msgid "Unknown error."
+msgstr "Ukendt fejl."
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:98
+msgid "The updates were saved."
+msgstr "Opdateringerne blev gemt."
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:99
+msgid "You have not enough rights to edit entries in the database."
+msgstr "Du har ikke tilstrækkelige rettigheder til at redigere indholdet i databasen."
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:100
+msgid "All entries in the database were imported."
+msgstr "Alt indholdet i databasen er blevet importeret."
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:101
+msgid "All entries in the database were deleted."
+msgstr "Alt indholdet i databasen er blevet slettet."
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:102
+msgid "Set the checkbox on deinstall-button."
+msgstr "Sæt kryds i afkrydsningsfeltet på afinstallationsknappen."
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:103
+msgid "Can't load menu and submenu."
+msgstr "Kan ikke indlæse menu og undermenu."
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:104
+msgid "Backend-Theme was activated!"
+msgstr "Kontrolpaneltema er aktiveret!"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:105
+msgid "Load user data to themes was successful."
+msgstr "Indlæsning af brugerdata vedrørende temaerne lykkedes."
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:381
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:538
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:990
+msgid "Categories"
+msgstr "Kategorier"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:387
+#: d:\wordpress\plugins\adminimize/adminimize.php:398
+msgid "+ Add New Category"
+msgstr "+ Tilføj ny kategori"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:389
+#: d:\wordpress\plugins\adminimize/adminimize.php:400
+msgid "New category name"
+msgstr "Nyt kategorinavn"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:390
+#: d:\wordpress\plugins\adminimize/adminimize.php:402
+msgid "Parent category"
+msgstr "Forælder-kategori"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:391
+#: d:\wordpress\plugins\adminimize/adminimize.php:403
+msgid "Add"
+msgstr "Tilføj"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:400
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:539
+msgid "Add New Category"
+msgstr "Tilføj ny kategori"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:424
+#: d:\wordpress\plugins\adminimize/adminimize.php:425
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:537
+msgid "Tags"
+msgstr "Tags"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:465
+#: d:\wordpress\plugins\adminimize/adminimize.php:479
+#: d:\wordpress\plugins\adminimize/adminimize.php:493
+msgid "Blue"
+msgstr "Blå"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:472
+#: d:\wordpress\plugins\adminimize/adminimize.php:486
+#: d:\wordpress\plugins\adminimize/adminimize.php:500
+msgid "Gray"
+msgstr "Grå"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:508
+#: d:\wordpress\plugins\adminimize/adminimize.php:550
+#: d:\wordpress\plugins\adminimize/adminimize.php:573
+msgid "Classic"
+msgstr "Klassisk"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:515
+#: d:\wordpress\plugins\adminimize/adminimize.php:557
+#: d:\wordpress\plugins\adminimize/adminimize.php:580
+msgid "Fresh"
+msgstr "Frisk"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:522
+msgid "WordPress 2.3"
+msgstr "WordPress 2.3"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:529
+msgid "Maybe i'm colorblind"
+msgstr "Måske er jeg farveblind"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:536
+msgid "Grey"
+msgstr "Grå"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:664
+#: d:\wordpress\plugins\adminimize/adminimize.php:667
+msgid "Dashboard"
+msgstr "Kontrolpanel"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:722
+#: d:\wordpress\plugins\adminimize/adminimize.php:724
+#: d:\wordpress\plugins\adminimize/adminimize.php:737
+#: d:\wordpress\plugins\adminimize/adminimize.php:739
+#: d:\wordpress\plugins\adminimize/adminimize.php:971
+msgid "Log Out"
+msgstr "Log ud"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:990
+msgid "Visit plugin homepage"
+msgstr "Besøg plugin-hjemmesiden"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:993
+msgid "plugin"
+msgstr "plugin"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:993
+msgid "Version"
+msgstr "Version"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:993
+msgid "History"
+msgstr "Historik"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:993
+msgid "Author"
+msgstr "Forfatter"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:996
+msgid "plugin activate"
+msgstr "aktivér plugin"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:1016
+msgid "Settings"
+msgstr "Indstillinger"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:1077
+#: d:\wordpress\plugins\adminimize/adminimize.php:1098
+msgid "<a href=\"http://wordpress.org/extend/plugins/adminimize/\">Documentation</a>"
+msgstr "<a href=\"http://wordpress.org/extend/plugins/adminimize/\">Dokumentation</a>"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:1094
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:109
+msgid "Adminimize"
+msgstr "Adminimere"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:1096
+msgid "Adminimize Options"
+msgstr "Adminimize-indstillinger"
+
+#: d:\wordpress\plugins\adminimize/adminimize.php:1113
+msgid "Cheatin&#8217; uh?"
+msgstr "Snyder du, hva'?"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:115
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:140
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:186
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:350
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:465
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:787
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:870
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:953
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1075
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1173
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1208
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1229
+msgid "Click to toggle"
+msgstr "Klik for at invertere valg"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:116
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:172
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1230
+msgid "About the plugin"
+msgstr "Om pluginnet"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:118
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1233
+msgid "Further information: Visit the <a href=\"http://bueltge.de/wordpress-admin-theme-adminimize/674/\">plugin homepage</a> for further information or to grab the latest version of this plugin."
+msgstr "Yderligere information: Besøg <a href=\"http://bueltge.de/wordpress-admin-theme-adminimize/674/\">plugin-hjemmesiden</a> for yderligere information eller for at hente den seneste udgave af pluginnet."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:124
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1239
+msgid "PayPal - The safer, easier way to pay online!"
+msgstr "PayPal - Online-betalinger på den sikre og nemme måde!"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:128
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1243
+msgid "You want to thank me? Visit my <a href=\"http://bueltge.de/wunschliste/\">wishlist</a> or donate."
+msgstr "Ønsker du at takke mig? Besøg min <a href=\"http://bueltge.de/wunschliste/\">ønskeliste</a> eller send en donation."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:141
+msgid "MiniMenu"
+msgstr "MiniMenu"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:145
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:187
+msgid "Backend Options"
+msgstr "Indstillinger for kontrolpanel"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:148
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:351
+msgid "Global options"
+msgstr "Globale indstillinger"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:151
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:466
+msgid "Menu Options"
+msgstr "Menu-indstillinger"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:154
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:788
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:795
+msgid "Write options - Post"
+msgstr "Indstillinger for Nyt indlæg"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:157
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:871
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:878
+msgid "Write options - Page"
+msgstr "Indstillinger for Ny side"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:160
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:954
+msgid "Links options"
+msgstr "Links-indstillinger"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:163
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1076
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1161
+msgid "Set Theme"
+msgstr "Aktivér tema"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:166
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1174
+msgid "Export/Import Options"
+msgstr "Eksport/Import-indstillinger"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:169
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1209
+msgid "Deinstall Options"
+msgstr "Indstillinger for afinstallation"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:196
+msgid "User-Info"
+msgstr "Brugerinformation"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:200
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:213
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:223
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:233
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:243
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:253
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:263
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:273
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:283
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:293
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:322
+msgid "Default"
+msgstr "Standard"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:201
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:224
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:234
+msgid "Hide"
+msgstr "Skjul"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:202
+msgid "Only logout"
+msgstr "Kun log ud"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:203
+msgid "User &amp; Logout"
+msgstr "Bruger &amp; Log ud"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:204
+msgid "The &quot;User-Info-area&quot; is on the top right side of the backend. You can hide or reduced show."
+msgstr "&quot;Brugerinfo-området&quot; er for oven til højre i kontrolpanelet. Du kan skjule det eller gøre det mindre."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:209
+msgid "Change User-Info, redirect to"
+msgstr "Ændr Brugerinfo, viderestil til"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:214
+msgid "Frontpage of the Blog"
+msgstr "Bloggens forside"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:215
+msgid "When the &quot;User-Info-area&quot; change it, then it is possible to change the redirect."
+msgstr "Når &quot;Brugerinfo-området&quot; ændret det, er det muligt at ændre viderestillingen."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:219
+msgid "Footer"
+msgstr "Footeren"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:225
+msgid "The Footer-area can hide, include all links and details."
+msgstr "Footer-området kan skjules, inkl. alle links og detaljer."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:229
+msgid "Header"
+msgstr "Header"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:235
+msgid "The Header-area can hide, include all links and details."
+msgstr "Header-området kan skjules, inkl. alle links og detaljer."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:239
+msgid "WriteScroll"
+msgstr "SkriveScroll"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:244
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:254
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:264
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:274
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:284
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:294
+msgid "Activate"
+msgstr "Aktivér"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:245
+msgid "With the WriteScroll option active, these pages will automatically scroll to an optimal position for editing, when you visit Write Post or Write Page."
+msgstr "Når SkriveScroll-indstillingen er aktv, vil disse sider automatisk scrolle til en position, der er optimal for redigering, når du redigerer indlæg eller sider."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:249
+msgid "Timestamp"
+msgstr "Tidsstempel"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:255
+msgid "Opens the post timestamp editing fields without you having to click the \"Edit\" link every time."
+msgstr "Åbner redigeringsfelterne for indlæggets tidsstempel, uden at du behøver at klikke på \"Redigér\"-linket hele tiden."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:259
+msgid "Thickbox FullScreen"
+msgstr "Thickbox-fuldskærm"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:265
+msgid "All Thickbox-function use the full area of the browser. Thickbox is for example in upload media-files."
+msgstr "Alle Thickbox-funktioner bruger hele browserens område. Thickbox bruges f.eks. til upload af mediefiler."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:269
+msgid "Flashuploader"
+msgstr "Flash-uploader"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:275
+msgid "Disable the flashuploader and users use only the standard uploader."
+msgstr "Deaktivér Flash-uploaderen, så brugerne kun kan bruge standard-uploaderen."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:279
+msgid "Category Height"
+msgstr "Højde for kategorier"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:285
+msgid "View the Meta Box with Categories in the full height, no scrollbar or whitespace."
+msgstr "Se Meta-boksen med kategorier i fuld højde, ingen scrollbar eller whitespace."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:289
+msgid "Advice in Footer"
+msgstr "Henvisning i footer"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:296
+msgid "In the Footer you can display an  advice for changing the Default-design, (x)HTML is possible."
+msgstr "I footeren kan du vise et råd om at ændre standard-designet, (x)HTML kan bruges."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:318
+msgid "Dashboard deactivate, redirect to"
+msgstr "Deaktivér kontrolpanel; viderestil til"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:323
+msgid "Manage Posts"
+msgstr "Indlæg"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:324
+msgid "Manage Pages"
+msgstr "Sider"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:325
+msgid "Write Post"
+msgstr "Nyt indlæg"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:326
+msgid "Write Page"
+msgstr "Ny side"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:327
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:543
+msgid "Comments"
+msgstr "Kommentarer"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:328
+msgid "other Page"
+msgstr "anden side"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:331
+msgid "You have deactivated the Dashboard, please select a page for redirection?"
+msgstr "Du har deaktiveret kontrolpanelet; vælg en side, der skal viderestilles til?"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:340
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:455
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:777
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:860
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:943
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1064
+msgid "Update Options"
+msgstr "Opdatér indstillinger"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:342
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:457
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:779
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:862
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:945
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1067
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1166
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1200
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1221
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1247
+msgid "scroll to top"
+msgstr "scroll til top"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:358
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:430
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:835
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:918
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:961
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1039
+msgid "Option"
+msgstr "Indstilling"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:361
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:476
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:798
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:881
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:964
+msgid "Deactivate for"
+msgstr "Deaktivér for"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:381
+msgid "Favorite Actions"
+msgstr "Favorithandlinger"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:382
+msgid "Screen-Meta"
+msgstr "Skærm-meta"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:383
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:535
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:629
+msgid "Screen Options"
+msgstr "Skærm-indstillinger"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:384
+msgid "Contextual Help"
+msgstr "Konteksthjælp"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:385
+msgid "Admin Color Scheme"
+msgstr "Admin-farveskema"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:429
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1038
+msgid "Your own options"
+msgstr "Dine egne indstillinger"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:429
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:834
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:917
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1038
+msgid "ID or class"
+msgstr "Id eller klasse"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:436
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:841
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:924
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1045
+msgid "It is possible to add your own IDs or classes from elements and tags. You can find IDs and classes with the FireBug Add-on for Firefox. Assign a value and the associate name per line."
+msgstr "Det er muligt at tilføje dine egne id'er eller classes fra elementer og tags. Du kan finde disse id'er og classes med Firebug-udvidelsen til Firefox. Tildel en værdi og det tilhørende navn per linje."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:442
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:847
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:930
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1051
+msgid "Possible nomination for ID or class. Separate multiple nominations through a carriage return."
+msgstr "Mulig benævnelse på id eller klasse. Adskil flere benævnelser med ny linje."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:447
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:852
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:935
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1056
+msgid "Possible IDs or classes. Separate multiple values through a carriage return."
+msgstr "Mulige id'er eller classes. Adskil flere værdier med en ny linje."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:473
+msgid "Menu options - Menu, <span style=\\\"font-weight: 400;\\\">Submenu</span>"
+msgstr "Menu-indstillinger - Menu, <span style=\\\"font-weight: 400;\\\">Undermenu</span>"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:534
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:628
+msgid "Help"
+msgstr "Hjælp"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:536
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:630
+msgid "Permalink"
+msgstr "Permalink"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:540
+msgid "Excerpt"
+msgstr "Uddrag"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:541
+msgid "Trackbacks"
+msgstr "Trackbacks"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:542
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:631
+msgid "Custom Fields"
+msgstr "Egne felter"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:544
+msgid "Password Protect This Post"
+msgstr "Kodeordsbeskyt dette indlæg"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:545
+msgid "Post Author"
+msgstr "Indlægsforfatter"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:546
+msgid "Post Revisions"
+msgstr "Indlægsrevisioner"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:547
+msgid "Related, Shortcuts"
+msgstr "Se også: genveje"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:548
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:640
+msgid "Messenges"
+msgstr "Beskder"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:549
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:641
+msgid "h2: Advanced Options"
+msgstr "h2: Avancerede indstillinger"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:550
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:642
+msgid "Media Buttons (all)"
+msgstr "Medieknapper (alle)"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:551
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:643
+msgid "Word count"
+msgstr "Antal ord"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:552
+msgid "Post Slug"
+msgstr "Kort <span title=\"post slug\">indlægstitel</span>"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:553
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:645
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:994
+msgid "Publish Actions"
+msgstr "Udgiv-handlinger"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:554
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:646
+msgid "Discussion"
+msgstr "Diskussion"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:555
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:647
+msgid "HTML Editor Button"
+msgstr "Knap for HTML-editor"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:559
+msgid "Post Thumbnail"
+msgstr "Indlægsminiature"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:561
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:653
+msgid "Suggested tags from"
+msgstr "Foreslåede tags fra"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:563
+msgid "Text Control"
+msgstr "Tekstkontrol"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:565
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:655
+msgid "HTML Special Characters"
+msgstr "Specielle HTML-tegn"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:567
+msgid "All in One SEO Pack"
+msgstr "All in One SEO Pack"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:632
+msgid "Comments &amp; Pings"
+msgstr "Kommentarer &amp; Pings"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:633
+msgid "Password Protect This Page"
+msgstr "Kodeordsbeskyt denne side"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:634
+msgid "Attributes"
+msgstr "Egenskaber"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:635
+msgid "Page Template"
+msgstr "Sideskabelon"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:636
+msgid "Page Order"
+msgstr "Siderækkefølge"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:637
+msgid "Page Author"
+msgstr "Sideforfatter"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:638
+msgid "Page Revisions"
+msgstr "Siderevisioner"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:639
+msgid "Related"
+msgstr "Se også"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:644
+msgid "Page Slug"
+msgstr "Kort <span title=\"post slug\">sidetitel</span>"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:651
+msgid "Page Image"
+msgstr "Side-billede"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:693
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:741
+msgid "After activate the check box it heavy attitudes will change."
+msgstr "Når afkrydsningsfeltet er aktiveret, bliver det vanskeligere at ændre indstillinger."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:724
+msgid "Profile"
+msgstr "Profil"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:834
+msgid "Your own post options"
+msgstr "Dine egne indlægsindstillinger"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:917
+msgid "Your own page options"
+msgstr "Dine egne sideindstillinger"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:987
+msgid "Name"
+msgstr "Navn"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:988
+msgid "Web Address"
+msgstr "webadresse"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:989
+msgid "Description"
+msgstr "Beskrivelse"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:991
+msgid "Target"
+msgstr "Target"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:992
+msgid "Link Relationship (XFN)"
+msgstr "Linkrelationer (XFN)"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:993
+msgid "Advanced"
+msgstr "Avanceret"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1083
+msgid "For better peformance with many users on your blog; load only userlist, when you will change the theme options for users."
+msgstr "Hvis du mange brugere på din blog, kan du øge hastigheden ved kun at indlæse listen over brugere, når du vil ændre tema-indstillingerne for brugere."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1086
+msgid "Load User Data"
+msgstr "Indlæser data på brugere"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1097
+msgid "User-ID"
+msgstr "Bruger-id"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1098
+msgid "Username"
+msgstr "Brugernavn"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1099
+msgid "Display name publicly as"
+msgstr "Vis navn offentligt som"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1100
+msgid "Admin-Color Scheme"
+msgstr "Admin-farveskema"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1101
+msgid "User Level"
+msgstr "Brugerniveau"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1102
+msgid "Role"
+msgstr "Rolle"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1178
+msgid "Export"
+msgstr "Eksportér"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1180
+msgid "You can save a .seq file with your options."
+msgstr "Du kan gemme en SEQ-fil med dine indstillinger."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1183
+msgid "Export &raquo;"
+msgstr "Eksportér &raquo;"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1187
+msgid "Import"
+msgstr "Importér"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1190
+msgid "Choose a Adminimize (<em>.seq</em>) file to upload, then click <em>Upload file and import</em>."
+msgstr "Vælg en Adminimize (<em>.seq</em>) fil, du vil uploade; klik så <em>Upload fil og importér</em>."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1192
+msgid "Choose a file from your computer"
+msgstr "Vælg en fil fra din computer"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1197
+msgid "Upload file and import &raquo;"
+msgstr "Upload fil og importér &raquo;"
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1212
+msgid "Use this option for clean your database from all entries of this plugin. When you deactivate the plugin, the deinstall of the plugin <strong>clean not</strong> all entries in the database."
+msgstr "Brug denne indstilling for at rense din database for alle poster tilhørende dette plugin. Når du deaktiverer pluginet, <strong>fjerner</strong> pluginnet <strong>ikke</strong> alle sine poster i databasen."
+
+#: d:\wordpress\plugins\adminimize/adminimize_page.php:1216
+msgid "Delete Options"
+msgstr "Slet indstillinger"
+
+#~ msgid "Page Parent"
+#~ msgstr "Forælder-side"

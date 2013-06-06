@@ -1,0 +1,876 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Adminimize v1.7.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-04 17:38+0100\n"
+"PO-Revision-Date: 2010-03-17 21:44+0100\n"
+"Last-Translator: WordPressPluginGuide.com <info@wppg.me>\n"
+"Language-Team: http://wpwebshop.com <info@wppg.me>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: NETHERLANDS\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#@ adminimize
+#: adminimize.php:91
+msgid "Unknown error."
+msgstr "Onbekende fout."
+
+#@ adminimize
+#: adminimize.php:98
+msgid "The updates was saved."
+msgstr "De instellingen zijn opgeslagen."
+
+#@ adminimize
+#: adminimize.php:99
+msgid "You have not enough rights for edit entries in the database."
+msgstr "Je hebt niet genoeg rechten om ingevoerde data te editten in de database"
+
+#@ adminimize
+#: adminimize.php:101
+msgid "All entries in the database was delleted."
+msgstr "Alle ingevoerde data in de database zijn verwijderd."
+
+#@ adminimize
+#: adminimize.php:102
+msgid "Set the checkbox on deinstall-button."
+msgstr "Vink de selecteerbox aan op de deinstalleer knop"
+
+#@ adminimize
+#: adminimize.php:103
+msgid "Can't load menu and submenu."
+msgstr "Het menu en submenu kunnen niet geladen worden."
+
+#@ adminimize
+#: adminimize.php:104
+msgid "Backend-Theme was activated!"
+msgstr "Backend-Thema was geactiveerd!"
+
+#@ adminimize
+#: adminimize.php:105
+msgid "Load user data to themes was successful."
+msgstr "Het laden van gebruikersdata naar de thema's was succesvol."
+
+#@ adminimize
+#: adminimize.php:372
+#: adminimize_page.php:528
+#: adminimize_page.php:980
+msgid "Categories"
+msgstr "Categorieën"
+
+#: adminimize.php:378
+#: adminimize.php:389
+msgid "+ Add New Category"
+msgstr "+ Voeg een nieuwe categorie toe"
+
+#: adminimize.php:380
+#: adminimize.php:391
+msgid "New category name"
+msgstr "Nieuwe categorie naam"
+
+#: adminimize.php:381
+#: adminimize.php:393
+msgid "Parent category"
+msgstr "Hoofdcategorie"
+
+#: adminimize.php:382
+#: adminimize.php:394
+msgid "Add"
+msgstr "Toevoegen"
+
+#@ adminimize
+#: adminimize.php:391
+#: adminimize_page.php:529
+msgid "Add New Category"
+msgstr "Voeg een nieuwe categorie toe"
+
+#@ adminimize
+#: adminimize.php:415
+#: adminimize.php:416
+#: adminimize_page.php:527
+msgid "Tags"
+msgstr "Tags"
+
+#: adminimize.php:456
+#: adminimize.php:470
+#: adminimize.php:484
+msgid "Blue"
+msgstr "Blauw"
+
+#: adminimize.php:463
+#: adminimize.php:477
+#: adminimize.php:491
+msgid "Gray"
+msgstr "Grijs"
+
+#: adminimize.php:499
+#: adminimize.php:541
+#: adminimize.php:564
+msgid "Classic"
+msgstr "Classic"
+
+#: adminimize.php:506
+#: adminimize.php:548
+#: adminimize.php:571
+msgid "Fresh"
+msgstr "Fresh"
+
+#: adminimize.php:513
+msgid "WordPress 2.3"
+msgstr "WordPress 2.3"
+
+#: adminimize.php:520
+msgid "Maybe i'm colorblind"
+msgstr "Misschien ben ik kleurenblind"
+
+#: adminimize.php:527
+msgid "Grey"
+msgstr "Grijs"
+
+#: adminimize.php:655
+#: adminimize.php:658
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: adminimize.php:717
+#: adminimize.php:719
+#: adminimize.php:732
+#: adminimize.php:734
+#: adminimize.php:925
+msgid "Log Out"
+msgstr "Uitloggen"
+
+#: adminimize.php:944
+msgid "Visit plugin homepage"
+msgstr "Bezoek de homepage van de plugin "
+
+#: adminimize.php:947
+msgid "plugin"
+msgstr "plugin"
+
+#: adminimize.php:947
+msgid "Version"
+msgstr "Versie"
+
+#@ adminimize
+#: adminimize.php:947
+msgid "History"
+msgstr "Historie"
+
+#: adminimize.php:947
+msgid "Author"
+msgstr "Auteur"
+
+#@ adminimize
+#: adminimize.php:950
+msgid "plugin activate"
+msgstr "activeer plugin"
+
+#: adminimize.php:970
+msgid "Settings"
+msgstr "Instellingen"
+
+#@ adminimize
+#: adminimize.php:1031
+#: adminimize.php:1052
+msgid "<a href=\"http://wordpress.org/extend/plugins/adminimize/\">Documentation</a>"
+msgstr "<a href=\"http://bueltge.de/wordpress-admin-theme-adminimize/674/\">Documentatie (Duits)</a> (<a href=\"http://wordpress.org/extend/plugins/adminimize/\">Engels</a>)"
+
+#@ adminimize
+#: adminimize.php:1048
+#: adminimize_page.php:109
+msgid "Adminimize"
+msgstr "Adminimize"
+
+#@ adminimize
+#: adminimize.php:1050
+msgid "Adminimize Options"
+msgstr "Adminimize Instellingen"
+
+#: adminimize.php:1067
+msgid "Cheatin&#8217; uh?"
+msgstr "Bedriegen he?"
+
+#: adminimize_page.php:115
+#: adminimize_page.php:140
+#: adminimize_page.php:186
+#: adminimize_page.php:340
+#: adminimize_page.php:455
+#: adminimize_page.php:777
+#: adminimize_page.php:860
+#: adminimize_page.php:943
+#: adminimize_page.php:1065
+#: adminimize_page.php:1163
+#: adminimize_page.php:1198
+#: adminimize_page.php:1219
+msgid "Click to toggle"
+msgstr "Klik om om te schakelen"
+
+#@ adminimize
+#: adminimize_page.php:145
+#: adminimize_page.php:187
+msgid "Backend Options"
+msgstr "Backend Instellingen"
+
+#@ adminimize
+#: adminimize_page.php:196
+msgid "User-Info"
+msgstr "Gebruikersinformatie"
+
+#@ adminimize
+#: adminimize_page.php:200
+#: adminimize_page.php:213
+#: adminimize_page.php:223
+#: adminimize_page.php:233
+#: adminimize_page.php:243
+#: adminimize_page.php:253
+#: adminimize_page.php:263
+#: adminimize_page.php:273
+#: adminimize_page.php:283
+#: adminimize_page.php:312
+msgid "Default"
+msgstr "Standaard"
+
+#@ adminimize
+#: adminimize_page.php:201
+#: adminimize_page.php:224
+msgid "Hide"
+msgstr "Verbergen"
+
+#@ adminimize
+#: adminimize_page.php:202
+msgid "Only logout"
+msgstr "Alleen uitloggen"
+
+#@ adminimize
+#: adminimize_page.php:203
+msgid "User &amp; Logout"
+msgstr "Uitloggen Gebruiker"
+
+#@ adminimize
+#: adminimize_page.php:204
+msgid "The &quot;User-Info-area&quot; is on the top right side of the backend. You can hide or reduced show."
+msgstr "Het &quot;Gebruikers-Informatie-scherm&quot; bevindt zich aan de boven rechterkant van de backend interface. Je kunt deze verbergen of weergeven."
+
+#@ adminimize
+#: adminimize_page.php:209
+msgid "Change User-Info, redirect to"
+msgstr "Wijzig gebruikersinformatie, verwijs naar"
+
+#@ adminimize
+#: adminimize_page.php:214
+msgid "Frontpage of the Blog"
+msgstr "Startpagina van de Blog"
+
+#@ adminimize
+#: adminimize_page.php:215
+msgid "When the &quot;User-Info-area&quot; change it, then it is possible to change the redirect."
+msgstr "Wanneer het &quot;Gebruikers-Informatie-scherm&quot; veranderd wordt is het mogelijk om de verwijzing te wijzigen."
+
+#@ adminimize
+#: adminimize_page.php:219
+msgid "Footer"
+msgstr "Footer"
+
+#@ adminimize
+#: adminimize_page.php:225
+msgid "The Footer-area kann hide, include all links and details."
+msgstr "Het footer gebied kan verborgen worden, inclusief alle links en informatie."
+
+#@ adminimize
+#: adminimize_page.php:229
+msgid "WriteScroll"
+msgstr "WriteScroll"
+
+#@ adminimize
+#: adminimize_page.php:234
+#: adminimize_page.php:244
+#: adminimize_page.php:254
+#: adminimize_page.php:264
+#: adminimize_page.php:274
+#: adminimize_page.php:284
+msgid "Activate"
+msgstr "Aktief"
+
+#@ adminimize
+#: adminimize_page.php:235
+msgid "With the WriteScroll option active, these pages will automatically scroll to an optimal position for editing, when you visit Write Post or Write Page."
+msgstr "Wanneer de WriteScroll optie actief is zulllen pagina's automatisch automatisch naar de correcte positie scrollen voor optimale bewerking bij het schrijven van een bericht of pagina."
+
+#@ adminimize
+#: adminimize_page.php:239
+msgid "Timestamp"
+msgstr "Timestamp (Tijdsinformatie)"
+
+#@ adminimize
+#: adminimize_page.php:245
+msgid "Opens the post timestamp editing fields without you having to click the \"Edit\" link every time."
+msgstr "Opent de tijdsinformatie velden van het bericht zonder dat je elke keer op de \"Bewerk\" link hoeft te klikken"
+
+#@ adminimize
+#: adminimize_page.php:249
+msgid "Thickbox FullScreen"
+msgstr "Thickbox FullScreen"
+
+#@ adminimize
+#: adminimize_page.php:255
+msgid "All Thickbox-function use the full area of the browser. Thickbox is for examble in upload media-files."
+msgstr "Alle Thickbox-Funkties gebruiken de volledige ruimte van de browsers, bijvoorbeeld bij het uploaden van media bestanden."
+
+#@ adminimize
+#: adminimize_page.php:259
+msgid "Flashuploader"
+msgstr "Flashuploader"
+
+#@ adminimize
+#: adminimize_page.php:265
+msgid "Disable the flashuploader and users use only the standard uploader."
+msgstr "Deactiveer de flashuploader, gebruikers gebruiken alleen de standaard uploader"
+
+#@ adminimize
+#: adminimize_page.php:279
+msgid "Advice in Footer"
+msgstr "Advies in de footer"
+
+#@ adminimize
+#: adminimize_page.php:313
+msgid "Manage Posts"
+msgstr "Arrangeer Berichten"
+
+#@ adminimize
+#: adminimize_page.php:314
+msgid "Manage Pages"
+msgstr "Arrangeer Pagina's"
+
+#@ adminimize
+#: adminimize_page.php:315
+msgid "Write Post"
+msgstr "Schrijf Bericht"
+
+#@ adminimize
+#: adminimize_page.php:316
+msgid "Write Page"
+msgstr "Schrijf Pagina"
+
+#@ adminimize
+#: adminimize_page.php:317
+#: adminimize_page.php:533
+msgid "Comments"
+msgstr "Commentaar"
+
+#@ adminimize
+#: adminimize_page.php:318
+msgid "other Page"
+msgstr "andere pagina"
+
+#@ adminimize
+#: adminimize_page.php:330
+#: adminimize_page.php:445
+#: adminimize_page.php:767
+#: adminimize_page.php:850
+#: adminimize_page.php:933
+#: adminimize_page.php:1054
+msgid "Update Options"
+msgstr "Instellingen Wijzigen"
+
+#@ adminimize
+#: adminimize_page.php:148
+#: adminimize_page.php:341
+msgid "Global options"
+msgstr "Globale Instellingen"
+
+#@ adminimize
+#: adminimize_page.php:348
+#: adminimize_page.php:420
+#: adminimize_page.php:825
+#: adminimize_page.php:908
+#: adminimize_page.php:951
+#: adminimize_page.php:1029
+msgid "Option"
+msgstr "Instelling"
+
+#@ adminimize
+#: adminimize_page.php:351
+#: adminimize_page.php:466
+#: adminimize_page.php:788
+#: adminimize_page.php:871
+#: adminimize_page.php:954
+msgid "Deactivate for"
+msgstr "Deactiveer voor"
+
+#@ adminimize
+#: adminimize_page.php:371
+msgid "Favorite Actions"
+msgstr "Favoriete Acties"
+
+#@ adminimize
+#: adminimize_page.php:372
+msgid "Screen-Meta"
+msgstr "Scherm-Meta"
+
+#@ adminimize
+#: adminimize_page.php:373
+#: adminimize_page.php:525
+#: adminimize_page.php:619
+msgid "Screen Options"
+msgstr "Scherm Instellingen"
+
+#@ adminimize
+#: adminimize_page.php:374
+msgid "Contextual Help"
+msgstr "Contextuele Hulp"
+
+#@ adminimize
+#: adminimize_page.php:375
+msgid "Admin Color Scheme"
+msgstr "Kleurenpalet Instellen"
+
+#@ adminimize
+#: adminimize_page.php:419
+#: adminimize_page.php:1028
+msgid "Your own options"
+msgstr "Jouw instellingen"
+
+#@ adminimize
+#: adminimize_page.php:419
+#: adminimize_page.php:824
+#: adminimize_page.php:907
+#: adminimize_page.php:1028
+msgid "ID or class"
+msgstr "ID of klasse"
+
+#@ adminimize
+#: adminimize_page.php:426
+#: adminimize_page.php:831
+#: adminimize_page.php:914
+#: adminimize_page.php:1035
+msgid "It is possible to add your own IDs or classes from elements and tags. You can find IDs and classes with the FireBug Add-on for Firefox. Assign a value and the associate name per line."
+msgstr "Het is mogelijk dat je een eigen ID en klasse van elementen en tags toevoegd. Je kan ID's en klassen vinden met de FireBug extensie voor FireFox. Ken een waarde per regel en de bijbehorende naam toe."
+
+#@ adminimize
+#: adminimize_page.php:432
+#: adminimize_page.php:837
+#: adminimize_page.php:920
+#: adminimize_page.php:1041
+msgid "Possible nomination for ID or class. Separate multiple nomination through a carriage return."
+msgstr "Mogelijke benaming voor een ID of klasse. Verdeel de waarden met een nieuwe regel door de enter toets te gebruiken."
+
+#@ adminimize
+#: adminimize_page.php:437
+#: adminimize_page.php:842
+#: adminimize_page.php:925
+#: adminimize_page.php:1046
+msgid "Possible IDs or classes. Separate multiple values through a carriage return."
+msgstr "Mogelijke ID's of klassen. Verdeel de verschillende waarden met een nieuwe regel door de enter toets te gebruiken."
+
+#@ adminimize
+#: adminimize_page.php:151
+#: adminimize_page.php:456
+msgid "Menu Options"
+msgstr "Menu Instellingen"
+
+#@ adminimize
+#: adminimize_page.php:463
+msgid "Menu options - Menu, <span style=\\\"font-weight: 400;\\\">Submenu</span>"
+msgstr "Menu Instellingen - Menu, <span style=\"font-weight: 400;\">Submenu</span>"
+
+#: adminimize_page.php:524
+#: adminimize_page.php:618
+msgid "Help"
+msgstr "Help"
+
+#@ adminimize
+#: adminimize_page.php:526
+#: adminimize_page.php:620
+msgid "Permalink"
+msgstr "Permalink"
+
+#@ adminimize
+#: adminimize_page.php:530
+msgid "Excerpt"
+msgstr "Excerpt (samenvatting)"
+
+#@ adminimize
+#: adminimize_page.php:531
+msgid "Trackbacks"
+msgstr "Trackbacks"
+
+#: adminimize_page.php:532
+#: adminimize_page.php:621
+msgid "Custom Fields"
+msgstr "Velden gedefinieerd door de gebruiker"
+
+#@ adminimize
+#: adminimize_page.php:534
+msgid "Password Protect This Post"
+msgstr "Bescherm dit artikel met een wachtwoord"
+
+#: adminimize_page.php:535
+msgid "Post Author"
+msgstr "Auteur"
+
+#: adminimize_page.php:536
+msgid "Post Revisions"
+msgstr "Bericht Revisies"
+
+#@ adminimize
+#: adminimize_page.php:537
+msgid "Related, Shortcuts"
+msgstr "Gerelateerde Snelkoppelingen"
+
+#@ adminimize
+#: adminimize_page.php:538
+#: adminimize_page.php:630
+msgid "Messenges"
+msgstr "Mededelingen"
+
+#@ adminimize
+#: adminimize_page.php:539
+#: adminimize_page.php:631
+msgid "h2: Advanced Options"
+msgstr "h2: Uitgebreide Instellingen"
+
+#@ adminimize
+#: adminimize_page.php:540
+#: adminimize_page.php:632
+msgid "Media Buttons (all)"
+msgstr "Media Buttons (alle)"
+
+#@ adminimize
+#: adminimize_page.php:541
+#: adminimize_page.php:633
+msgid "Word count"
+msgstr "Aantal woorden"
+
+#: adminimize_page.php:542
+msgid "Post Slug"
+msgstr "Bericht Slug"
+
+#@ adminimize
+#: adminimize_page.php:543
+#: adminimize_page.php:635
+#: adminimize_page.php:984
+msgid "Publish Actions"
+msgstr "Publiceer acties"
+
+#: adminimize_page.php:544
+#: adminimize_page.php:636
+msgid "Discussion"
+msgstr "Discussie"
+
+#: adminimize_page.php:549
+msgid "Post Thumbnail"
+msgstr "Miniatuurafbeelding Bericht"
+
+#@ adminimize
+#: adminimize_page.php:551
+#: adminimize_page.php:643
+msgid "Suggested tags from"
+msgstr "Voorgestelde tags van"
+
+#: adminimize_page.php:553
+msgid "Text Control"
+msgstr "Tekst Controle"
+
+#: adminimize_page.php:555
+#: adminimize_page.php:645
+msgid "HTML Special Characters"
+msgstr "Speciale HTML Karakters"
+
+#: adminimize_page.php:557
+msgid "All in One SEO Pack"
+msgstr "All in One SEO Pack"
+
+#@ adminimize
+#: adminimize_page.php:622
+msgid "Comments &amp; Pings"
+msgstr "Commentaar &amp; Pings"
+
+#@ adminimize
+#: adminimize_page.php:623
+msgid "Password Protect This Page"
+msgstr "Deze pagina met een wachtwoord beschermen"
+
+#: adminimize_page.php:624
+msgid "Attributes"
+msgstr "Attributen"
+
+#@ adminimize
+#: adminimize_page.php:625
+msgid "Page Template"
+msgstr "Pagina Template"
+
+#@ adminimize
+#: adminimize_page.php:626
+msgid "Page Order"
+msgstr "Pagina Volgorde"
+
+#: adminimize_page.php:627
+msgid "Page Author"
+msgstr "Auteur"
+
+#: adminimize_page.php:628
+msgid "Page Revisions"
+msgstr "Pagina Revisies"
+
+#@ adminimize
+#: adminimize_page.php:629
+msgid "Related"
+msgstr "Zie ook"
+
+#: adminimize_page.php:634
+msgid "Page Slug"
+msgstr "Pagina Slug"
+
+#: adminimize_page.php:641
+msgid "Page Image"
+msgstr "Pagina Afbeelding"
+
+#@ adminimize
+#: adminimize_page.php:683
+#: adminimize_page.php:731
+msgid "After activate the check box it heavy attitudes will change."
+msgstr "Wanneer het selectievakje aangevinkt is worden de belangrijke instellingen veranderd"
+
+#: adminimize_page.php:714
+msgid "Profile"
+msgstr "Profiel"
+
+#@ adminimize
+#: adminimize_page.php:154
+#: adminimize_page.php:778
+#: adminimize_page.php:785
+msgid "Write options - Post"
+msgstr "Schrijf Instellingen - Bericht"
+
+#@ adminimize
+#: adminimize_page.php:824
+msgid "Your own post options"
+msgstr "Jouw eigen bericht instellingen"
+
+#@ adminimize
+#: adminimize_page.php:157
+#: adminimize_page.php:861
+#: adminimize_page.php:868
+msgid "Write options - Page"
+msgstr "Schrijf Instellingen - Pagina"
+
+#@ adminimize
+#: adminimize_page.php:907
+msgid "Your own page options"
+msgstr "Jouw eigen pagina instellingen"
+
+#@ adminimize
+#: adminimize_page.php:160
+#: adminimize_page.php:944
+msgid "Links options"
+msgstr "Link Instellingen"
+
+#: adminimize_page.php:977
+msgid "Name"
+msgstr "Naam"
+
+#: adminimize_page.php:978
+msgid "Web Address"
+msgstr "Website URL"
+
+#: adminimize_page.php:979
+msgid "Description"
+msgstr "Beschrijving"
+
+#: adminimize_page.php:981
+msgid "Target"
+msgstr "Doel"
+
+#: adminimize_page.php:982
+msgid "Link Relationship (XFN)"
+msgstr "Link Relatie (XFN)"
+
+#: adminimize_page.php:983
+msgid "Advanced"
+msgstr "Geavanceerd"
+
+#@ adminimize
+#: adminimize_page.php:163
+#: adminimize_page.php:1066
+#: adminimize_page.php:1151
+msgid "Set Theme"
+msgstr "Thema Instellen"
+
+#@ adminimize
+#: adminimize_page.php:1073
+msgid "For better peformance with many users on your blog; load only userlist, when you will change the theme options for users."
+msgstr "Voor een betere prestatie bij meer gebruikers op je blog; laad alleen de gebruikerslijst wanneer je de thema opties veranderd voor gebruikers."
+
+#@ adminimize
+#: adminimize_page.php:1076
+msgid "Load User Data"
+msgstr "Gebruikersdata laden"
+
+#: adminimize_page.php:1087
+msgid "User-ID"
+msgstr "User-ID"
+
+#: adminimize_page.php:1088
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: adminimize_page.php:1089
+msgid "Display name publicly as"
+msgstr "Laat naam publiekelijk zien als"
+
+#: adminimize_page.php:1090
+msgid "Admin-Color Scheme"
+msgstr "Admin kleuren schema"
+
+#: adminimize_page.php:1091
+msgid "User Level"
+msgstr "Gebruikersniveau"
+
+#: adminimize_page.php:1092
+msgid "Role"
+msgstr "Rol"
+
+#@ adminimize
+#: adminimize_page.php:169
+#: adminimize_page.php:1199
+msgid "Deinstall Options"
+msgstr "Deinstalleren Instellingen"
+
+#@ adminimize
+#: adminimize_page.php:1202
+msgid "Use this option for clean your database from all entries of this plugin. When you deactivate the plugin, the deinstall of the plugin <strong>clean not</strong> all entries in the database."
+msgstr "Gebruik deze instelling om de opties van deze plugin te verwijderen uit de database. Wanneer je alleen de plugin deactiveerd worden deze <strong>niet</strong> verwijderd !"
+
+#@ adminimize
+#: adminimize_page.php:1206
+msgid "Delete Options"
+msgstr "Instellingen Verwijderen"
+
+#@ adminimize
+#: adminimize_page.php:116
+#: adminimize_page.php:172
+#: adminimize_page.php:1220
+msgid "About the plugin"
+msgstr "Over de plugin"
+
+#@ adminimize
+#: adminimize_page.php:118
+#: adminimize_page.php:1223
+msgid "Further information: Visit the <a href=\"http://bueltge.de/wordpress-admin-theme-adminimize/674/\">plugin homepage</a> for further information or to grab the latest version of this plugin."
+msgstr "Voor meer informatie : bezoek de <a href=\"http://bueltge.de/wordpress-admin-theme-adminimize/674/\">Plugin Website</a> voor meer informatie of download de laatste versie van deze plugin."
+
+#@ adminimize
+#: adminimize_page.php:124
+#: adminimize_page.php:1229
+msgid "PayPal - The safer, easier way to pay online!"
+msgstr "PayPal - De veilige en makkelijke manier om online te betalen !"
+
+#@ adminimize
+#: adminimize_page.php:128
+#: adminimize_page.php:1233
+msgid "You want to thank me? Visit my <a href=\"http://bueltge.de/wunschliste/\">wishlist</a> or donate."
+msgstr "Wil je mij bedanken ? Bekijk mijn <a href=\"http://bueltge.de/wunschliste/\">verlanglijst</a> of je kunt een donatie geven."
+
+#@ adminimize
+#: adminimize.php:100
+msgid "All entries in the database was imported."
+msgstr "Alle invoeringen in de database zijn geimporteerd"
+
+#@ adminimize
+#: adminimize_page.php:166
+#: adminimize_page.php:1164
+msgid "Export/Import Options"
+msgstr "Exporteer/Importeer Instellingen"
+
+#@ adminimize
+#: adminimize_page.php:1168
+msgid "Export"
+msgstr "Exporteer"
+
+#@ adminimize
+#: adminimize_page.php:1173
+msgid "Export &raquo;"
+msgstr "Exporteren &raquo;"
+
+#@ adminimize
+#: adminimize_page.php:1177
+msgid "Import"
+msgstr "Importeer"
+
+#@ adminimize
+#: adminimize_page.php:1182
+msgid "Choose a file from your computer"
+msgstr "Selecteer een bestand van je computer"
+
+#@ adminimize
+#: adminimize_page.php:1187
+msgid "Upload file and import &raquo;"
+msgstr "Uploaden bestand en importeer &raquo;"
+
+#@ adminimize
+#: adminimize_page.php:141
+msgid "MiniMenu"
+msgstr "MiniMenu"
+
+#@ adminimize
+#: adminimize_page.php:332
+#: adminimize_page.php:447
+#: adminimize_page.php:769
+#: adminimize_page.php:852
+#: adminimize_page.php:935
+#: adminimize_page.php:1057
+#: adminimize_page.php:1156
+#: adminimize_page.php:1190
+#: adminimize_page.php:1211
+#: adminimize_page.php:1237
+msgid "scroll to top"
+msgstr "Naar boven"
+
+#@ adminimize
+#: adminimize_page.php:1170
+msgid "You can save a .seq file with your options."
+msgstr "Je kan een .seq bestand opslaan met jouw instellingen."
+
+#@ adminimize
+#: adminimize_page.php:1180
+msgid "Choose a Adminimize (<em>.seq</em>) file to upload, then click <em>Upload file and import</em>."
+msgstr "Selecteer een Adminimize (<em>.seq</em>) bestand om te uploaden en klik dan op <em>uploaden bestand en importeren</em>."
+
+#@ adminimize
+#: adminimize_page.php:269
+msgid "Category Height"
+msgstr "Categorie Hoogte"
+
+#@ adminimize
+#: adminimize_page.php:275
+msgid "View the Meta Box with Categories in the full height, no scrollbar or whitespace."
+msgstr "Bekijk de Meta Box met categorieën in de volle hoogte, zonder scrollbar of spaties."
+
+#@ adminimize
+#: adminimize_page.php:286
+msgid "In Footer kann you display a advice for change the Default-design, (x)HTML is possible."
+msgstr "In de footer kan je een advies weergeven voor het standaard design te wijzigen, (x)HTML is mogelijk."
+
+#@ adminimize
+#: adminimize_page.php:308
+msgid "Dashboard deactivate, redirect to"
+msgstr "Dashboard is niet actief, verwijzen naar"
+
+#@ adminimize
+#: adminimize_page.php:321
+msgid "You have deactivate the Dashboard, please select a page for redirect?"
+msgstr "Je hebt het dashboard gedeactiveerd, selecteer een pagina waar naar verwezen kan worden."
+
+#: adminimize_page.php:545
+#: adminimize_page.php:637
+msgid "HTML Editor Button"
+msgstr "HTML Editor knop"
+

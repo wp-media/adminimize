@@ -1,0 +1,1109 @@
+#@ adminimize
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Web Geeks\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#@ adminimize
+#: adminimize.php:127
+msgid "Unknown error."
+msgstr "Eroare necunoscută."
+
+#@ adminimize
+#: adminimize.php:136
+msgid "The updates were saved."
+msgstr "S-au salvat actualizările."
+
+#@ adminimize
+#: adminimize.php:137
+msgid "You have not enough rights to edit entries in the database."
+msgstr "Insuficiente drepturi pentru a edita intrările în baza de date."
+
+#@ adminimize
+#: adminimize.php:139
+msgid "All entries in the database were deleted."
+msgstr "Au fost elimină toate intrările din baza de date."
+
+#@ adminimize
+#: adminimize.php:140
+msgid "Set the checkbox on deinstall-button."
+msgstr "Setaţi caseta de selectare pe butonul stingere."
+
+#@ adminimize
+#: adminimize.php:141
+msgid "Can't load menu and submenu."
+msgstr "Imposibil de încărcat meniului şi submeniului."
+
+#@ adminimize
+#: adminimize.php:142
+msgid "Backend-Theme was activated!"
+msgstr "Backend-tema a fost activat!"
+
+#@ adminimize
+#: adminimize.php:143
+msgid "Load user data to themes was successful."
+msgstr "Încărcare date utilizator teme a fost de succes."
+
+#@ default
+#@ adminimize
+#: adminimize.php:468
+#: inc-options/links_options.php:52
+#: inc-options/write_cp_options.php:99
+#: inc-options/write_post_options.php:87
+msgid "Categories"
+msgstr "Categorii"
+
+#@ default
+#: adminimize.php:474
+#: adminimize.php:485
+msgid "+ Add New Category"
+msgstr "+ Adauga categorie nouă"
+
+#@ default
+#: adminimize.php:476
+#: adminimize.php:487
+msgid "New category name"
+msgstr "Noul nume categorie"
+
+#@ default
+#: adminimize.php:477
+#: adminimize.php:489
+msgid "Parent category"
+msgstr "Categoria părinte"
+
+#@ default
+#: adminimize.php:478
+#: adminimize.php:490
+msgid "Add"
+msgstr "Adăuga"
+
+#@ default
+#@ adminimize
+#: adminimize.php:487
+#: inc-options/write_cp_options.php:100
+#: inc-options/write_post_options.php:88
+msgid "Add New Category"
+msgstr "Adăugaţi noua categorie"
+
+#@ adminimize
+#@ default
+#: inc-options/write_cp_options.php:97
+#: inc-options/write_cp_options.php:135
+#: inc-options/write_post_options.php:85
+#: inc-options/write_post_options.php:121
+msgid "Tags"
+msgstr "Tag-uri"
+
+#@ default
+#: adminimize.php:572
+#: adminimize.php:575
+msgid "Dashboard"
+msgstr "Tabloul de bord"
+
+#@ default
+#: adminimize.php:636
+#: adminimize.php:638
+#: adminimize.php:659
+#: adminimize.php:661
+#: adminimize.php:1034
+#: inc-setup/admin-bar.php:57
+#: inc-setup/admin-bar.php:81
+#: inc-setup/admin-bar.php:250
+msgid "Log Out"
+msgstr "Conectaţi-vă"
+
+#@ adminimize
+#: inc-options/minimenu.php:85
+msgid "Version"
+msgstr "Versiunea"
+
+#@ default
+#: inc-options/write_cp_options.php:129
+#: inc-options/write_page_options.php:108
+#: inc-options/write_post_options.php:115
+msgid "Author"
+msgstr "Autor"
+
+#@ default
+#: adminimize.php:1067
+msgid "Settings"
+msgstr "Setări"
+
+#@ adminimize
+#. translators: plugin header field 'Name'
+#: adminimize.php:0
+#: adminimize.php:1086
+#: inc-options/minimenu.php:14
+msgid "Adminimize"
+msgstr "Adminimize"
+
+#@ adminimize
+#: adminimize.php:1085
+msgid "Adminimize Options"
+msgstr "Opţiuni Adminimize"
+
+#@ default
+#: adminimize.php:1111
+msgid "Cheatin’ uh?"
+msgstr "Cheatin's uh?"
+
+#@ default
+#: inc-options/backend_options.php:15
+#: inc-options/dashboard_options.php:16
+#: inc-options/deinstall_options.php:14
+#: inc-options/global_options.php:15
+#: inc-options/im_export_options.php:14
+#: inc-options/links_options.php:15
+#: inc-options/menu_options.php:15
+#: inc-options/minimenu.php:18
+#: inc-options/minimenu.php:82
+#: inc-options/theme_options.php:14
+#: inc-options/wp_nav_menu_options.php:14
+#: inc-options/write_cp_options.php:19
+#: inc-options/write_page_options.php:14
+#: inc-options/write_post_options.php:15
+msgid "Click to toggle"
+msgstr "Faceţi clic pentru a comuta"
+
+#@ adminimize
+#: inc-options/backend_options.php:16
+#: inc-options/minimenu.php:26
+msgid "Backend Options"
+msgstr "Opţiuni de backend"
+
+#@ adminimize
+#: inc-options/backend_options.php:37
+msgid "User-Info"
+msgstr "Utilizator-Info"
+
+#@ adminimize
+#: inc-options/backend_options.php:30
+#: inc-options/backend_options.php:41
+#: inc-options/backend_options.php:54
+#: inc-options/backend_options.php:64
+#: inc-options/backend_options.php:74
+#: inc-options/backend_options.php:84
+#: inc-options/backend_options.php:94
+#: inc-options/backend_options.php:104
+#: inc-options/backend_options.php:114
+#: inc-options/backend_options.php:124
+#: inc-options/backend_options.php:153
+msgid "Default"
+msgstr "Implicit"
+
+#@ adminimize
+#: inc-options/backend_options.php:42
+#: inc-options/backend_options.php:65
+#: inc-options/backend_options.php:75
+msgid "Hide"
+msgstr "Ascunde"
+
+#@ adminimize
+#: inc-options/backend_options.php:43
+msgid "Only logout"
+msgstr "Numai logout"
+
+#@ adminimize
+#: inc-options/backend_options.php:44
+msgid "User & Logout"
+msgstr "Utilizator & Logout"
+
+#@ adminimize
+#: inc-options/backend_options.php:50
+msgid "Change User-Info, redirect to"
+msgstr "Schimbare utilizator-Info, redirect la"
+
+#@ adminimize
+#: inc-options/backend_options.php:55
+msgid "Frontpage of the Blog"
+msgstr "FrontPage blog-ul"
+
+#@ adminimize
+#: inc-options/backend_options.php:56
+msgid "When the \"User-Info-area\" change it, then it is possible to change the redirect."
+msgstr "Atunci când \"Utilizator-Info-zona\" schimba, atunci este posibil să modificaţi redirecţionare."
+
+#@ adminimize
+#: inc-options/backend_options.php:60
+msgid "Footer"
+msgstr "Subsol"
+
+#@ adminimize
+#: inc-options/backend_options.php:66
+msgid "The Footer-area can hide, include all links and details."
+msgstr "Zona de subsol pot ascunde, includ toate link-uri şi detalii."
+
+#@ adminimize
+#: inc-options/backend_options.php:31
+#: inc-options/backend_options.php:85
+#: inc-options/backend_options.php:95
+#: inc-options/backend_options.php:105
+#: inc-options/backend_options.php:115
+#: inc-options/backend_options.php:125
+msgid "Activate"
+msgstr "Activa"
+
+#@ adminimize
+#: inc-options/backend_options.php:80
+msgid "Timestamp"
+msgstr "Timestamp"
+
+#@ adminimize
+#: inc-options/backend_options.php:86
+msgid "Opens the post timestamp editing fields without you having to click the \"Edit\" link every time."
+msgstr " link-ul de fiecare dată."
+
+#@ adminimize
+#: inc-options/backend_options.php:90
+msgid "Thickbox FullScreen"
+msgstr "Thickbox FullScreen"
+
+#@ adminimize
+#: inc-options/backend_options.php:100
+msgid "Flashuploader"
+msgstr "Flashuploader"
+
+#@ adminimize
+#: inc-options/backend_options.php:106
+msgid "Disable the flashuploader and users use only the standard uploader."
+msgstr "Dezactivaţi flashuploader şi utilizatorii utiliza numai uploader standard."
+
+#@ adminimize
+#: inc-options/backend_options.php:120
+msgid "Advice in Footer"
+msgstr "Consiliere în subsol"
+
+#@ adminimize
+#: inc-options/backend_options.php:154
+msgid "Manage Posts"
+msgstr "Gestionarea posturilor"
+
+#@ adminimize
+#: inc-options/backend_options.php:155
+msgid "Manage Pages"
+msgstr "Gestionaţi pagini"
+
+#@ adminimize
+#: inc-options/backend_options.php:156
+msgid "Write Post"
+msgstr "Scrie Post"
+
+#@ adminimize
+#: inc-options/backend_options.php:157
+msgid "Write Page"
+msgstr "Scrie pagină"
+
+#@ adminimize
+#: inc-options/backend_options.php:158
+#: inc-options/write_post_options.php:92
+msgid "Comments"
+msgstr "Comentarii"
+
+#@ adminimize
+#: inc-options/backend_options.php:159
+msgid "other Page"
+msgstr "alte pagini"
+
+#@ adminimize
+#: inc-options/backend_options.php:171
+#: inc-options/dashboard_options.php:122
+#: inc-options/global_options.php:122
+#: inc-options/links_options.php:126
+#: inc-options/menu_options.php:155
+#: inc-options/wp_nav_menu_options.php:147
+#: inc-options/write_cp_options.php:239
+#: inc-options/write_page_options.php:187
+#: inc-options/write_post_options.php:197
+msgid "Update Options"
+msgstr "Opţiuni de actualizare"
+
+#@ adminimize
+#: inc-options/global_options.php:16
+#: inc-options/minimenu.php:29
+msgid "Global options"
+msgstr "Opţiuni globale"
+
+#@ adminimize
+#: inc-options/dashboard_options.php:33
+#: inc-options/dashboard_options.php:97
+#: inc-options/global_options.php:23
+#: inc-options/global_options.php:97
+#: inc-options/links_options.php:23
+#: inc-options/links_options.php:101
+#: inc-options/wp_nav_menu_options.php:22
+#: inc-options/wp_nav_menu_options.php:122
+#: inc-options/write_cp_options.php:204
+#: inc-options/write_page_options.php:162
+#: inc-options/write_post_options.php:172
+msgid "Option"
+msgstr "Opţiunea"
+
+#@ adminimize
+#: inc-options/dashboard_options.php:36
+#: inc-options/global_options.php:26
+#: inc-options/links_options.php:26
+#: inc-options/menu_options.php:26
+#: inc-options/wp_nav_menu_options.php:25
+#: inc-options/write_cp_options.php:32
+#: inc-options/write_page_options.php:25
+#: inc-options/write_post_options.php:26
+msgid "Deactivate for"
+msgstr "Dezactiva pentru"
+
+#@ adminimize
+#: inc-options/global_options.php:48
+msgid "Favorite Actions"
+msgstr "Acţiuni preferat"
+
+#@ adminimize
+#: inc-options/global_options.php:49
+msgid "Screen-Meta"
+msgstr "Ecran-Meta"
+
+#@ adminimize
+#@ default
+#: inc-options/global_options.php:50
+#: inc-options/wp_nav_menu_options.php:49
+#: inc-options/write_cp_options.php:95
+#: inc-options/write_page_options.php:77
+#: inc-options/write_post_options.php:82
+msgid "Screen Options"
+msgstr "Opţiunile de ecran"
+
+#@ adminimize
+#: inc-options/global_options.php:51
+msgid "Contextual Help"
+msgstr "Ajutor contextual"
+
+#@ adminimize
+#: inc-options/global_options.php:52
+msgid "Admin Color Scheme"
+msgstr "Schema de culori admin"
+
+#@ adminimize
+#: inc-options/dashboard_options.php:96
+#: inc-options/global_options.php:96
+msgid "Your own options"
+msgstr "Opţiunile proprii"
+
+#@ adminimize
+#: inc-options/dashboard_options.php:96
+#: inc-options/global_options.php:96
+#: inc-options/links_options.php:100
+#: inc-options/wp_nav_menu_options.php:121
+#: inc-options/write_cp_options.php:202
+#: inc-options/write_page_options.php:161
+#: inc-options/write_post_options.php:171
+msgid "ID or class"
+msgstr "ID-ul sau clasa"
+
+#@ adminimize
+#: inc-options/dashboard_options.php:103
+#: inc-options/global_options.php:103
+#: inc-options/links_options.php:107
+#: inc-options/wp_nav_menu_options.php:128
+#: inc-options/write_cp_options.php:211
+#: inc-options/write_page_options.php:168
+#: inc-options/write_post_options.php:178
+msgid "It is possible to add your own IDs or classes from elements and tags. You can find IDs and classes with the FireBug Add-on for Firefox. Assign a value and the associate name per line."
+msgstr "Este posibil să adăugaţi propriul ID-uri sau clase de la elemente şi Tag-uri. Puteţi găsi ID-uri şi clasele cu FireBug Add-on pentru Firefox. Asociaţi o valoare şi numele asociat pe linie."
+
+#@ adminimize
+#: inc-options/dashboard_options.php:109
+#: inc-options/global_options.php:109
+#: inc-options/links_options.php:113
+#: inc-options/wp_nav_menu_options.php:134
+#: inc-options/write_cp_options.php:221
+#: inc-options/write_page_options.php:174
+#: inc-options/write_post_options.php:184
+msgid "Possible nomination for ID or class. Separate multiple nominations through a carriage return."
+msgstr "Nominalizarea posibil pentru ID-ul sau clasa. Separaţi mai multe nominalizări printr-un retur de car."
+
+#@ adminimize
+#: inc-options/dashboard_options.php:114
+#: inc-options/global_options.php:114
+#: inc-options/links_options.php:118
+#: inc-options/wp_nav_menu_options.php:139
+#: inc-options/write_cp_options.php:229
+#: inc-options/write_page_options.php:179
+#: inc-options/write_post_options.php:189
+msgid "Possible IDs or classes. Separate multiple values through a carriage return."
+msgstr "ID-uri posibil sau clase. Separa valori multiple prin un retur de car."
+
+#@ adminimize
+#: inc-options/menu_options.php:16
+#: inc-options/minimenu.php:35
+msgid "Menu Options"
+msgstr "Meniul Opţiuni"
+
+#@ adminimize
+#: inc-options/menu_options.php:23
+msgid "Menu options - Menu, <span style=\\\"font-weight: 400;\\\">Submenu</span>"
+msgstr "Opţiunile de meniu - Meniu, <span style=\\\"font-weight: 400;\\\"> Submeniu </ span>"
+
+#@ adminimize
+#@ default
+#: inc-options/wp_nav_menu_options.php:48
+#: inc-options/write_cp_options.php:94
+#: inc-options/write_page_options.php:76
+#: inc-options/write_post_options.php:81
+msgid "Help"
+msgstr "ajutor"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:96
+#: inc-options/write_page_options.php:79
+#: inc-options/write_post_options.php:84
+msgid "Permalink"
+msgstr "Permalink"
+
+#@ adminimize
+#: inc-options/write_post_options.php:89
+msgid "Excerpt"
+msgstr "Fragment"
+
+#@ adminimize
+#: inc-options/write_post_options.php:90
+msgid "Trackbacks"
+msgstr "Urmăritori"
+
+#@ default
+#: inc-options/write_page_options.php:80
+#: inc-options/write_post_options.php:91
+msgid "Custom Fields"
+msgstr "Câmpuri particularizate"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:101
+#: inc-options/write_post_options.php:93
+msgid "Password Protect This Post"
+msgstr "Password a proteja acest Post"
+
+#@ default
+#: inc-options/write_post_options.php:94
+msgid "Post Author"
+msgstr "Autor de post"
+
+#@ default
+#: inc-options/write_post_options.php:95
+msgid "Post Revisions"
+msgstr "Revizii post"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:102
+#: inc-options/write_post_options.php:96
+msgid "Related, Shortcuts"
+msgstr "Legate, comenzi rapide"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:104
+#: inc-options/write_page_options.php:90
+#: inc-options/write_post_options.php:98
+msgid "h2: Advanced Options"
+msgstr "H2: opţiuni avansate"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:105
+#: inc-options/write_page_options.php:91
+#: inc-options/write_post_options.php:99
+msgid "Media Buttons (all)"
+msgstr "Butoane media (toate)"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:106
+#: inc-options/write_page_options.php:92
+#: inc-options/write_post_options.php:100
+msgid "Word count"
+msgstr "Word count"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:107
+#: inc-options/write_post_options.php:101
+msgid "Post Slug"
+msgstr "Post Slug"
+
+#@ adminimize
+#: inc-options/links_options.php:56
+#: inc-options/write_cp_options.php:108
+#: inc-options/write_page_options.php:94
+#: inc-options/write_post_options.php:102
+msgid "Publish Actions"
+msgstr "Publică acţiunile"
+
+#@ default
+#@ adminimize
+#: inc-options/write_cp_options.php:109
+#: inc-options/write_page_options.php:95
+#: inc-options/write_post_options.php:103
+msgid "Discussion"
+msgstr "Discuţie"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:120
+#: inc-options/write_post_options.php:108
+msgid "Post Thumbnail"
+msgstr "Miniaturi post"
+
+#@ adminimize
+#: inc-options/write_page_options.php:81
+msgid "Comments & Pings"
+msgstr "Comentarii & Ping-uri"
+
+#@ adminimize
+#: inc-options/write_page_options.php:82
+msgid "Password Protect This Page"
+msgstr "Password a proteja această pagină"
+
+#@ adminimize
+#: inc-options/write_page_options.php:83
+msgid "Attributes"
+msgstr "Atribute"
+
+#@ adminimize
+#: inc-options/write_page_options.php:84
+msgid "Page Template"
+msgstr "Şablon de pagină"
+
+#@ adminimize
+#: inc-options/write_page_options.php:85
+msgid "Page Order"
+msgstr "Ordinea paginilor"
+
+#@ default
+#: inc-options/write_page_options.php:86
+msgid "Page Author"
+msgstr "Pagina autorului"
+
+#@ default
+#: inc-options/write_page_options.php:87
+msgid "Page Revisions"
+msgstr "Pagina revizuiri"
+
+#@ adminimize
+#: inc-options/write_page_options.php:88
+msgid "Related"
+msgstr "Legate de"
+
+#@ adminimize
+#: inc-options/write_page_options.php:93
+msgid "Page Slug"
+msgstr "Pagina Slug"
+
+#@ adminimize
+#: inc-options/write_page_options.php:100
+msgid "Page Image"
+msgstr "Imagine de pagină"
+
+#@ adminimize
+#: inc-options/menu_options.php:67
+#: inc-options/menu_options.php:119
+msgid "After activate the check box it heavy attitudes will change."
+msgstr "După ce activaţi caseta de selectare a va schimba atitudinile grele."
+
+#@ default
+#: inc-options/menu_options.php:102
+msgid "Profile"
+msgstr "Profil"
+
+#@ adminimize
+#: inc-options/minimenu.php:38
+#: inc-options/write_post_options.php:16
+#: inc-options/write_post_options.php:23
+msgid "Write options - Post"
+msgstr "Scrie opţiuni - Post"
+
+#@ adminimize
+#: inc-options/write_post_options.php:171
+msgid "Your own post options"
+msgstr "Opţiunile de post"
+
+#@ adminimize
+#: inc-options/minimenu.php:41
+#: inc-options/write_page_options.php:15
+#: inc-options/write_page_options.php:22
+msgid "Write options - Page"
+msgstr "Scrie opţiuni - pagina"
+
+#@ adminimize
+#: inc-options/write_page_options.php:161
+msgid "Your own page options"
+msgstr "Opţiunile de pagină"
+
+#@ adminimize
+#: inc-options/links_options.php:16
+#: inc-options/minimenu.php:61
+msgid "Links options"
+msgstr "Opţiuni de link-uri"
+
+#@ default
+#: inc-options/links_options.php:49
+msgid "Name"
+msgstr "nume"
+
+#@ default
+#: inc-options/links_options.php:50
+msgid "Web Address"
+msgstr "Adresa Web"
+
+#@ default
+#: inc-options/links_options.php:51
+msgid "Description"
+msgstr "Descriere"
+
+#@ default
+#: inc-options/links_options.php:53
+msgid "Target"
+msgstr "Ţintă"
+
+#@ default
+#: inc-options/links_options.php:54
+msgid "Link Relationship (XFN)"
+msgstr "Relaţie de link-ul (XFN)"
+
+#@ default
+#: inc-options/links_options.php:55
+msgid "Advanced"
+msgstr "Avansate"
+
+#@ adminimize
+#: inc-options/minimenu.php:67
+#: inc-options/theme_options.php:15
+#: inc-options/theme_options.php:100
+msgid "Set Theme"
+msgstr "Tema set"
+
+#@ adminimize
+#: inc-options/theme_options.php:22
+msgid "For better peformance with many users on your blog; load only userlist, when you will change the theme options for users."
+msgstr "Pentru peformance mai bine cu mai mulţi utilizatori pe blog-ul; încărcare numai useri, atunci când se va modifica opţiuni de temă pentru utilizatori."
+
+#@ adminimize
+#: inc-options/theme_options.php:25
+msgid "Load User Data"
+msgstr "Încărcare date utilizator"
+
+#@ default
+#: inc-options/theme_options.php:36
+msgid "User-ID"
+msgstr "ID utilizator"
+
+#@ default
+#: inc-options/theme_options.php:37
+msgid "Username"
+msgstr "Numele de utilizator"
+
+#@ default
+#: inc-options/theme_options.php:38
+msgid "Display name publicly as"
+msgstr "Afişare nume public ca"
+
+#@ default
+#: inc-options/theme_options.php:39
+msgid "Admin-Color Scheme"
+msgstr "Schema de culori admin"
+
+#@ default
+#: inc-options/theme_options.php:40
+msgid "User Level"
+msgstr "La nivel de utilizator"
+
+#@ default
+#: inc-options/theme_options.php:41
+msgid "Role"
+msgstr "Rol"
+
+#@ adminimize
+#: inc-options/deinstall_options.php:15
+#: inc-options/minimenu.php:73
+msgid "Deinstall Options"
+msgstr "Stingere opţiuni"
+
+#@ adminimize
+#: inc-options/deinstall_options.php:18
+msgid "Use this option for clean your database from all entries of this plugin. When you deactivate the plugin, the deinstall of the plugin <strong>clean not</strong> all entries in the database."
+msgstr "Utilizaţi această opţiune pentru curat bazei de date din toate intrările din acest plug-in. Când vă dezactiva plugin-ul, deinstall de plugin-ul <strong>curat nu</strong> toate intrările din baza de date."
+
+#@ adminimize
+#: inc-options/deinstall_options.php:22
+msgid "Delete Options"
+msgstr "Ştergeţi opţiuni"
+
+#@ adminimize
+#: inc-options/minimenu.php:23
+#: inc-options/minimenu.php:83
+msgid "About the plugin"
+msgstr "Despre plugin-ul"
+
+#@ adminimize
+#: inc-options/minimenu.php:94
+msgid "PayPal - The safer, easier way to pay online!"
+msgstr "PayPal - mod mai sigur, mai uşor de a plăti online!"
+
+#@ adminimize
+#: inc-options/minimenu.php:89
+msgid "You want to thank me? Visit my <a href=\"http://bueltge.de/wunschliste/\">wishlist</a> or donate."
+msgstr "Vrei să-mi mulţumeşti? Vizitaţi <a href=\"http://bueltge.de/wunschliste/\"> preferat </a> sau dona."
+
+#@ adminimize
+#: adminimize.php:138
+msgid "All entries in the database were imported."
+msgstr "Toate intrările din baza de date au fost importate."
+
+#@ adminimize
+#: inc-options/im_export_options.php:15
+#: inc-options/minimenu.php:70
+msgid "Export/Import Options"
+msgstr "Export/Import opţiuni"
+
+#@ adminimize
+#: inc-options/im_export_options.php:19
+msgid "Export"
+msgstr "Export"
+
+#@ adminimize
+#: inc-options/im_export_options.php:24
+msgid "Export »"
+msgstr "Export»"
+
+#@ adminimize
+#: inc-options/im_export_options.php:28
+msgid "Import"
+msgstr "Import"
+
+#@ adminimize
+#: inc-options/im_export_options.php:33
+msgid "Choose a file from your computer"
+msgstr "Selectaţi un fişier de pe computer"
+
+#@ adminimize
+#: inc-options/im_export_options.php:38
+msgid "Upload file and import »"
+msgstr "Fişier încărcat şi import»"
+
+#@ adminimize
+#: inc-options/minimenu.php:19
+msgid "MiniMenu"
+msgstr "MiniMenu"
+
+#@ adminimize
+#: inc-options/backend_options.php:173
+#: inc-options/dashboard_options.php:127
+#: inc-options/deinstall_options.php:27
+#: inc-options/global_options.php:124
+#: inc-options/im_export_options.php:41
+#: inc-options/links_options.php:129
+#: inc-options/menu_options.php:157
+#: inc-options/minimenu.php:99
+#: inc-options/theme_options.php:105
+#: inc-options/wp_nav_menu_options.php:149
+#: inc-options/write_cp_options.php:244
+#: inc-options/write_page_options.php:189
+#: inc-options/write_post_options.php:199
+msgid "scroll to top"
+msgstr "defila în sus"
+
+#@ adminimize
+#: inc-options/im_export_options.php:21
+msgid "You can save a .seq file with your options."
+msgstr "Puteţi salva un fişier .seq cu opţiunile dumneavoastră."
+
+#@ adminimize
+#: inc-options/im_export_options.php:31
+msgid "Choose a Adminimize (<em>.seq</em>) file to upload, then click <em>Upload file and import</em>."
+msgstr "Selectaţi un fişier de Adminimize (<em>.seq</em>) pentru a încărca, apoi faceţi clic pe <em>încărcare fişier şi de import</em>."
+
+#@ adminimize
+#: inc-options/backend_options.php:110
+msgid "Category Height"
+msgstr "Categoria înălţime"
+
+#@ adminimize
+#: inc-options/backend_options.php:116
+msgid "View the Meta Box with Categories in the full height, no scrollbar or whitespace."
+msgstr "Vizualizaţi caseta de Meta cu categorii în înălţime completă, nici o bară de defilare sau spaţiu."
+
+#@ adminimize
+#: inc-options/backend_options.php:127
+msgid "In the Footer you can display an  advice for changing the Default-design, (x)HTML is possible."
+msgstr "În notele de subsol se poate afişa un sfat pentru schimbarea implicit-design, (x) HTML este posibil."
+
+#@ adminimize
+#: inc-options/backend_options.php:149
+msgid "Dashboard deactivate, redirect to"
+msgstr "Tabloul de bord dezactiva, redirecţiona"
+
+#@ default
+#@ adminimize
+#: inc-options/write_cp_options.php:110
+#: inc-options/write_page_options.php:96
+#: inc-options/write_post_options.php:104
+msgid "HTML Editor Button"
+msgstr "Butonul HTML Editor"
+
+#@ adminimize
+#: inc-options/backend_options.php:96
+msgid "All Thickbox-function use the full area of the browser. Thickbox is for example in upload media-files."
+msgstr "Toate Thickbox-funcţia utilizaţi zona completă a browser-ului. Thickbox este, de exemplu, în mass-media-fişierele de încărcare."
+
+#@ adminimize
+#. translators: plugin header field 'PluginURI'
+#: adminimize.php:0
+msgid "http://bueltge.de/wordpress-admin-theme-adminimize/674/"
+msgstr "http://bueltge.de/WordPress-admin-Theme-adminimize/674/"
+
+#@ adminimize
+#. translators: plugin header field 'Description'
+#: adminimize.php:0
+msgid "Visually compresses the administratrive meta-boxes so that more admin page content can be initially seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for alle roles of your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible to simplify the admin in different for all roles."
+msgstr "Comprimă vizual administratrive meta-casetele astfel încât mai multe admin conţinutul paginii poate fi văzut în iniţial. Plugin-ul care vă permite să vă ascundeţi elementele \"inutile\" din meniul de administrare WordPress, pentru rolurile alle dvs. a instala. Puteţi, de asemenea, ascunde post meta controale pe zona de editare pentru a simplifica interfaţa. Este posibil să se simplifice admin în diferite pentru toate rolurile."
+
+#@ adminimize
+#. translators: plugin header field 'Author'
+#: adminimize.php:0
+msgid "Frank Bültge"
+msgstr "Frank Bültge"
+
+#@ adminimize
+#. translators: plugin header field 'AuthorURI'
+#: adminimize.php:0
+msgid "http://bueltge.de/"
+msgstr "http://bueltge.de/"
+
+#@ adminimize
+#: inc-options/backend_options.php:70
+msgid "Header"
+msgstr "Antet"
+
+#@ adminimize
+#: inc-options/backend_options.php:76
+msgid "The Header-area can hide, include all links and details."
+msgstr "Zona de antet poate ascunde, include toate link-uri şi detalii."
+
+#@ adminimize
+#: inc-options/write_page_options.php:78
+#: inc-options/write_post_options.php:83
+msgid "Title"
+msgstr "Titlul"
+
+#@ adminimize
+#: inc-options/backend_options.php:26
+msgid "Exclude Super Admin"
+msgstr "Exclude Super Admin"
+
+#@ adminimize
+#: inc-options/backend_options.php:32
+msgid "Exclude the Super Admin on a WP Multisite Install from all limitations of this plugin."
+msgstr "Exclude Admin Super pe un WP Multisite Install la toate limitele de acest plug-in."
+
+#@ adminimize
+#: inc-options/backend_options.php:162
+msgid "You have deactivated the Dashboard, please select a page for redirection or define custom url, include http://?"
+msgstr "Au dezactivat tabloul de bord, vă rugăm să selectaţi o pagină de redirecţionare sau defini url personalizat, include http://?"
+
+#@ adminimize
+#: inc-options/global_options.php:47
+msgid "Admin Bar"
+msgstr "Admin Bar"
+
+#@ adminimize
+#: inc-options/minimenu.php:64
+msgid "WP Nav Menu"
+msgstr "WP meniu Nav"
+
+#@ adminimize
+#: inc-options/wp_nav_menu_options.php:15
+msgid "WP Nav Menu options"
+msgstr "Opţiuni de meniu Nav WP"
+
+#@ adminimize
+#@ default
+#: inc-options/wp_nav_menu_options.php:50
+#: inc-options/wp_nav_menu_options.php:56
+msgid "Theme Locations"
+msgstr "Tema Locatii"
+
+#@ adminimize
+#: inc-options/wp_nav_menu_options.php:51
+msgid "Custom Links"
+msgstr "Legăturile particularizate"
+
+#@ adminimize
+#: inc-options/wp_nav_menu_options.php:52
+msgid "Add menu"
+msgstr "Adăugaţi meniul"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:98
+#: inc-options/write_post_options.php:86
+msgid "Format"
+msgstr "Format"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:103
+#: inc-options/write_page_options.php:89
+#: inc-options/write_post_options.php:97
+msgid "Messages"
+msgstr "Mesaje"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:126
+#: inc-options/write_page_options.php:104
+#: inc-options/write_post_options.php:112
+msgid "Quick Edit Link"
+msgstr "Rapid link-ul Editaţi"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:127
+#: inc-options/write_cp_options.php:131
+#: inc-options/write_cp_options.php:134
+#: inc-options/write_cp_options.php:137
+#: inc-options/write_page_options.php:105
+#: inc-options/write_page_options.php:110
+#: inc-options/write_page_options.php:113
+#: inc-options/write_post_options.php:113
+#: inc-options/write_post_options.php:117
+#: inc-options/write_post_options.php:120
+#: inc-options/write_post_options.php:123
+msgid "QE"
+msgstr "QE"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:127
+#: inc-options/write_page_options.php:105
+#: inc-options/write_post_options.php:113
+msgid "Inline Edit Left"
+msgstr "Editare inline stânga"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:128
+#: inc-options/write_page_options.php:106
+#: inc-options/write_post_options.php:114
+msgid "All Labels"
+msgstr "Toate etichetele"
+
+#@ adminimize
+#: inc-options/write_page_options.php:107
+msgid "Date"
+msgstr "Data"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:130
+#: inc-options/write_page_options.php:109
+#: inc-options/write_post_options.php:116
+msgid "Password and Private"
+msgstr "Parola şi Private"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:134
+#: inc-options/write_page_options.php:110
+#: inc-options/write_post_options.php:120
+msgid "Inline Edit Right"
+msgstr "Editare inline dreapta"
+
+#@ adminimize
+#: inc-options/write_page_options.php:111
+msgid "Parent, Order, Template"
+msgstr "Mamă, ordine, şablon"
+
+#@ adminimize
+#: inc-options/write_page_options.php:112
+msgid "Status"
+msgstr "Statutul"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:137
+#: inc-options/write_page_options.php:113
+#: inc-options/write_post_options.php:123
+msgid "Cancel/Save Button"
+msgstr "Butonul Revocare/salvare"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:131
+#: inc-options/write_post_options.php:117
+msgid "Inline Edit Center"
+msgstr "Centrul de editare inline"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:132
+#: inc-options/write_post_options.php:118
+msgid "Categories Title"
+msgstr "Titlul categorii"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:133
+#: inc-options/write_post_options.php:119
+msgid "Categories List"
+msgstr "Lista categorii"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:136
+#: inc-options/write_post_options.php:122
+msgid "Status, Sticky"
+msgstr "Statutul, lipicios"
+
+#@ adminimize
+#: inc-options/links_options.php:100
+msgid "Your own Link options"
+msgstr "Opţiunile de link-ul"
+
+#@ adminimize
+#: inc-options/minimenu.php:52
+#: inc-options/write_cp_options.php:21
+#: inc-options/write_cp_options.php:29
+msgid "Write options"
+msgstr "Scrie opţiuni"
+
+#@ adminimize
+#: inc-options/wp_nav_menu_options.php:121
+msgid "Your own Nav Menu options"
+msgstr "Opţiunile de meniu Nav"
+
+#@ adminimize
+#: inc-options/write_cp_options.php:201
+#, php-format
+msgid "Your own %s options"
+msgstr "Opţiunile de %s"
+
+#@ adminimize
+#: inc-options/dashboard_options.php:17
+#: inc-options/minimenu.php:32
+msgid "Dashboard options"
+msgstr "Opţiuni de tabloul de bord"
+
+#@ adminimize
+#: inc-options/dashboard_options.php:25
+msgid "To complete the installation for Dashboard Widgets you must visit your dashboard once and then come back to Settings > Adminimize to configure who has access to each widget."
+msgstr "Pentru a termina instalarea pentru widget-uri tabloul de bord trebuie să vizitaţi tabloul de bord o dată şi apoi reveni la setări > Adminimize pentru a configura cine are acces la fiecare widget."
+
+#@ adminimize
+#: inc-options/minimenu.php:87
+msgid "Further information: Visit the <a href=\"http://wordpress.org/extend/plugins/adminimize/\">plugin homepage</a> for further information or to grab the latest version of this plugin."
+msgstr "Mai multe informaţii: Vizitaţi <a href=\"http://wordpress.org/extend/plugins/adminimize/\"> plugin pagina </a> pentru informaţii suplimentare sau pentru a apuca cea mai recentă versiune a acestui plugin."
+
+#@ adminimize
+#. translators: plugin header field 'Version'
+#: adminimize.php:0
+msgid "1.7.26"
+msgstr "1.7.26"
+
+#@ adminimize
+#: inc-options/settings_notice.php:17
+msgid "Attention: The settings page ignores these Menu settings and views the menu with all entries!"
+msgstr "Atenţie: Pagina Setări ignoră aceste setări de meniu şi vizualizări din meniul cu toate intrările!"
+
+#@ default
+#: inc-setup/admin-bar.php:239
+msgid "Network Admin"
+msgstr "Reţea Admin"
+
+#@ default
+#: inc-setup/admin-bar.php:241
+msgid "Site Admin"
+msgstr "Site-ul Admin"
+

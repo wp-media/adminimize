@@ -1,0 +1,8 @@
+/**
+ * Category in sidebar
+ */
+#categorydiv div.tabs-panel, #linkcategorydiv div.tabs-panel {
+	height: auto !important;
+	max-height: 100% !important;
+	overflow: visible !important;
+}

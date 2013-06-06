@@ -1,4 +1,17 @@
 /**
- * Auto-Show "Published On" form element on post pages.
+ * timestamp open
  */
-addLoadEvent(function(){jQuery(".edit-timestamp").click(function(){return jQuery("#timestampdiv").is(":hidden")&&(jQuery("#timestampdiv").slideDown("normal"),jQuery(".edit-timestamp").hide()),!1}).click()});
+addLoadEvent(function(){
+	open_timestamp();
+	jQuery('.edit-timestamp').click();
+});
+
+function open_timestamp() {
+	jQuery('.edit-timestamp').click(function () {
+		if (jQuery('#timestampdiv').is(":hidden")) {
+			jQuery('#timestampdiv').slideDown("normal");
+			jQuery('.edit-timestamp').hide();
+		}
+		return false;
+	});
+}
