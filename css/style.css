@@ -3,3 +3,11 @@
 tr:hover {
 	background: #DFDFDF !important;
 }
+
+td:first-child + td,
+td:first-child + td + td + td,
+td:first-child + td + td + td + td + td,
+td:first-child + td + td + td + td + td + td + td,
+td:first-child + td + td + td + td + td + td + td + td + td {
+	background: #ffebe8;
+}
