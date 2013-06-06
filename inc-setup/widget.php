@@ -43,14 +43,13 @@ function _mw_adminimize_get_registered_sidebars() {
  * 
  * @return  void 
  */
-//add_action( 'plugins_loaded', '_mw_adminimize_on_widgets_init' );
 add_action( 'after_setup_theme', '_mw_adminimize_on_widgets_init' );
 function _mw_adminimize_on_widgets_init() {
 	
-	//if ( is_admin() && 'widgets.php' === $GLOBALS[ 'pagenow' ] ) {
+	if ( is_admin() && 'widgets.php' === $GLOBALS[ 'pagenow' ] ) {
 		add_action( 'widgets_init', '_mw_adminimize_unregister_widgets' );
 		add_action( 'widgets_init', '_mw_adminimize_unregister_sidebars', 9999 );
-	//}
+	}
 }
 
 /**

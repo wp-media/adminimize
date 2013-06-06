@@ -556,6 +556,7 @@ function _mw_adminimize_remove_dashboard() {
 			}
 		}
 		
+		// redirect option, if Dashboard is inactive
 		if ( isset($redirect) && $redirect ) {
 			$_mw_adminimize_db_redirect = _mw_adminimize_get_option_value( '_mw_adminimize_db_redirect' );
 			$_mw_adminimize_db_redirect_admin_url = get_option( 'siteurl' ) . '/wp-admin/';
