@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+#minimeu td a {
+	display: block;
+}
+
 tr:hover,
 td:first-child + td:hover,
 td:first-child + td + td + td:hover,
