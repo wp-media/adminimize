@@ -17,7 +17,7 @@ if ( ! isset( $wp_admin_bar ) )
 <div id="poststuff" class="ui-sortable meta-box-sortables">
 	<div class="postbox">
 		<div class="handlediv" title="<?php _e('Click to toggle'); ?>"><br/></div>
-		<h3 class="hndle" id="admin_bar_options"><?php _e('Admin Bar options', FB_ADMINIMIZE_TEXTDOMAIN ); ?></h3>
+		<h3 class="hndle" id="admin_bar_options"><?php _e('Admin Bar options', FB_ADMINIMIZE_TEXTDOMAIN ); ?> <em>&middot; Beta</em></h3>
 		<div class="inside">
 			<br class="clear" />
 
