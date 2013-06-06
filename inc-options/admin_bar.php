@@ -22,6 +22,15 @@ if ( ! isset( $wp_admin_bar ) )
 			<br class="clear" />
 
 			<table summary="config_widget" class="widefat">
+				<colgroup>
+				<?php
+				$col = 0;
+				foreach ($user_roles_names as $role_name) {
+					echo '<col class="col' . $col . '">' . "\n";
+					$col ++;
+				}
+				?>
+				</colgroup>
 				<thead>
 					<tr>
 						<th><?php _e('Option', FB_ADMINIMIZE_TEXTDOMAIN ); ?></th>

@@ -4,10 +4,19 @@ tr:hover {
 	background: #DFDFDF !important;
 }
 
+td:first-child {
+	width: 30%;
+}
+
 td:first-child + td,
 td:first-child + td + td + td,
 td:first-child + td + td + td + td + td,
 td:first-child + td + td + td + td + td + td + td,
 td:first-child + td + td + td + td + td + td + td + td + td {
-	background: #ffebe8;
+	background-color: #ffebe8;
+}
+
+.col1, .col3, .col5,
+.col7, .col9, .col11 {
+	background-color: #ffebe8;
 }
