@@ -89,6 +89,9 @@ See on [the official website](http://bueltge.de/wordpress-admin-theme-adminimize
 1. Adminimize Theme how in WordPress 2.3
 
 == Changelog ==
+= 1.8.5 (???) =
+* Add brazilian portuguese translation, thanks to [Rafael Funchal](http://www.rafaelfunchal.com.br/)
+
 = 1.8.4 (06/06/2013) =
 * Change Widget Settings, better to unregister widgtes from other themes and plugins
 * Add more usability to the settings page
@@ -411,6 +414,7 @@ The plugin comes with various translations, please refer to the [WordPress Codex
 * Thanks to [ray.s](http://letsbefamous.com/) for irish translation.
 * Thanks for bulgarian language files to [Web Geek](http://webhostinggeeks.com/)
 * Thanks for romanian language to [Alexander Ovsov - Web Geek](http://webhostinggeeks.com/)
+* Thanks to [Rafael Funchal](http://www.rafaelfunchal.com.br/) for brazilian portuguese translation
 
 
 == Frequently Asked Questions ==
