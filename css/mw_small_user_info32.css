@@ -1,0 +1,62 @@
+#small_user_info {
+	float:right;
+	font-size:12px;
+	position:absolute;
+	right:15px;
+	top:0;
+	color:#777;
+	margin:5px 5px 0;
+}
+
+#small_user_info:hover,
+#small_user_info.active {
+	color: #185069;
+}
+
+#small_user_info.active {
+	background-color: #f7fcfe; /* Fallback */
+	background-image: -ms-linear-gradient(bottom, #f7fcfe, #f9f9f9); /* IE10 */
+	background-image: -moz-linear-gradient(bottom, #f7fcfe, #f9f9f9); /* Firefox */
+	background-image: -o-linear-gradient(bottom, #f7fcfe, #f9f9f9); /* Opera */
+	background-image: -webkit-gradient(linear, left bottom, left top, from(#f7fcfe), to(#f9f9f9)); /* old Webkit */
+	background-image: -webkit-linear-gradient(bottom, #f7fcfe, #f9f9f9); /* new Webkit */
+	background-image: linear-gradient(bottom, #f7fcfe, #f9f9f9); /* proposed W3C Markup */
+	border-color: #d0dfe9 #d0dfe9 #d0dfe9;
+}
+
+#small_user_info a:link,
+#small_user_info a:visited {
+	text-decoration: none;
+}
+
+#small_user_info.active {
+	border-width: 1px;
+	margin-right: -1px;
+	margin-top: 2px;
+	-moz-border-radius: 3px 3px 0 0;
+	-webkit-border-top-right-radius: 3px;
+	-webkit-border-top-left-radius: 3px;
+	-khtml-border-top-right-radius: 3px;
+	-khtml-border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+}
+
+#small_user_info p {
+	margin: 0;
+	padding: 0;
+	line-height: 25px;
+	cursor: pointer;
+}
+
+#small_user_info .hide-if-no-js p {
+	margin: 0 20px 0 0;
+}
+
+#small_user_info:hover .hide-if-no-js p {
+	text-decoration: underline;
+}
+#small_user_info.active .hide-if-no-js p {
+	text-decoration: none;
+}
+
