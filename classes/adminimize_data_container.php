@@ -5,7 +5,7 @@ class Adminimize_Data_Container
 	 * Key for options in database
 	 * @var string
 	 */
-	const OPTION_KEY = 'mw_adminimize';
+	const OPTION_KEY = 'adminimizeOOP';
 
 	/**
 	 * Menu Slug

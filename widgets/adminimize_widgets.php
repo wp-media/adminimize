@@ -212,8 +212,6 @@ class Adminimize_Widgets
 		/*
 		 * starting the widget content
 		 */
-// 		require_once 'inside_widget/dashboard_options.php';
-
 		$option = $attr['option_name'];
 
 		// get widgets
