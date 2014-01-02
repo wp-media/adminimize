@@ -1,6 +1,6 @@
 <?php
 $dc = new Adminimize_Data_Container();
-$plugindata = $dc->get( 'pluginheader' );
+$plugindata = PluginHeaderReader::get_instance( 'adminimize' );
 ?>
 					<p><?php echo $plugindata->Title; echo ' '; _e( 'Version', ADMINIMIZE_TEXTDOMAIN ); echo ' '; echo $plugindata->Version ?></p>
 					<p><?php echo $plugindata->Description ?></p>
