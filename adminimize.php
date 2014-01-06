@@ -76,9 +76,6 @@ function adminimize_plugin_init() {
 
 	global $datacontainer;
 
-	if ( ! defined( 'ADMINIMIZE_TEXTDOMAIN' ) )
-		define( 'ADMINIMIZE_TEXTDOMAIN', 'adminimize' );
-
 	adminimize_autoloader();
 
 	// setup basedirs
@@ -86,6 +83,10 @@ function adminimize_plugin_init() {
 	$datacontainer->set_basedirs( __FILE__ );
 
 	PluginHeaderReader::init( __FILE__, 'adminimize' );
+	$pluginheaders = PluginHeaderReader::get_instance( 'adminimize' );
+
+	if ( ! defined( 'ADMINIMIZE_TEXTDOMAIN' ) )
+		define( 'ADMINIMIZE_TEXTDOMAIN', $pluginheaders->TextDomain );
 
 	if ( is_admin() ) {
 

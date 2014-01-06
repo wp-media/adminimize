@@ -1,19 +1,18 @@
 <?php
 /**
- * Interface for PluginHeaderReader
+ * Interface for FileHeaderReader
  * @author Ralf Albert
  *
  */
-// if ( ! class_exists( 'I_PluginHeaderReader' ) ) {
 
-interface I_PluginHeaderReader
+interface I_FileHeaderReader
 {
 	/**
 	 * Reads the plugin header from given filename
 	 * @param string $filename File with plugin header
 	 * @return boolean False if the file does not exists
 	 */
-	public static function init( $filename );
+	public static function init( $filename = '', $id = '' );
 
 	/**
 	 * Returns an instance of itself
@@ -42,5 +41,3 @@ interface I_PluginHeaderReader
 	public function __isset( $name );
 
 }
-
-// }
