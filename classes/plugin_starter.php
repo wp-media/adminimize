@@ -28,7 +28,7 @@ if ( ! class_exists( 'Plugin_Starter' ) ) {
 		 * Loads the plugin textdomain
 		 * @param PluginHeader_Reader $plugindata PluginHeader_Reader object containing basic informations (the plugin header) about the plugin
 		 */
-		public static function loadtextdomain( PluginHeader_Reader $plugindata ) {
+		public static function loadtextdomain( PluginHeaderReader $plugindata ) {
 
 			self::$textdomain_loaded = load_plugin_textdomain(
 				$plugindata->TextDomain,
