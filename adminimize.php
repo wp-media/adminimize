@@ -47,18 +47,19 @@ add_action(
  * Initialize the autoloader
  */
 function adminimize_autoloader() {
-	// load classes
-	$classes = glob( plugin_dir_path( __FILE__ ) . 'classes/*.php' );
-
-	foreach( $classes as $class ) {
-		require_once $class;
-	}
 
 	// load interfaces
 	$interfaces = glob( plugin_dir_path( __FILE__ ) . 'interfaces/*.php' );
 
 	foreach( $interfaces as $interface ) {
 		require_once $interface;
+	}
+
+	// load classes
+	$classes = glob( plugin_dir_path( __FILE__ ) . 'classes/*.php' );
+
+	foreach( $classes as $class ) {
+		require_once $class;
 	}
 
 }
@@ -84,12 +85,7 @@ function adminimize_plugin_init() {
 	$datacontainer = new Adminimize_Data_Container();
 	$datacontainer->set_basedirs( __FILE__ );
 
-	// setup the plugin header data
-	// initialize the PluginHeader_Reader
-	// save a copy (instance) of the PluginHeader_Reader for later use
-	PluginHeader_Reader::init( __FILE__ );
-	$datacontainer->set( 'pluginheader', PluginHeader_Reader::get_instance() );
-
+	PluginHeaderReader::init( __FILE__, 'adminimize' );
 
 	if ( is_admin() ) {
 
@@ -124,7 +120,7 @@ function adminimize_on_admin_init() {
 	global $datacontainer;
 
 	Plugin_Starter::$basename = $datacontainer->get( 'basename' );
-	Plugin_Starter::loadtextdomain( PluginHeader_Reader::get_instance() );
+	Plugin_Starter::load_textdomain( PluginHeaderReader::get_instance( 'adminimize' ) );
 
 	Plugin_Starter::load_styles( __FILE__, array( 'adminimize-style' => '/css/style.css' ) );
 

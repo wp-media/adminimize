@@ -1,17 +1,13 @@
 <?php
 /**
- * Interface for PluginHeader_Reader
+ * Interface for PluginHeaderReader
  * @author Ralf Albert
  *
  */
-interface I_PluginHeader_Reader
-{
-	/**
-	 * Array for data from plugin header
-	 * @var array
-	 */
-// 	public static $data;
+// if ( ! class_exists( 'I_PluginHeaderReader' ) ) {
 
+interface I_PluginHeaderReader
+{
 	/**
 	 * Reads the plugin header from given filename
 	 * @param string $filename File with plugin header
@@ -23,7 +19,7 @@ interface I_PluginHeader_Reader
 	 * Returns an instance of itself
 	 * @return object Instance of itself
 	 */
-	public static function get_instance();
+	public static function get_instance( $id );
 
 	/**
 	 * Magic get; returns the value if it is set
@@ -32,4 +28,19 @@ interface I_PluginHeader_Reader
 	 */
 	public function __get( $value );
 
+	/**
+	 * Sets a value
+	 * @param string $name Name of the value
+	 * @param mixed $value Value to be set
+	 */
+	public function __set( $name, $value );
+
+	/**
+	 * Implements the isset() functionality for class propperties
+	 * @param string $name
+	 */
+	public function __isset( $name );
+
 }
+
+// }
