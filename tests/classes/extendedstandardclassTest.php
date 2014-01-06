@@ -128,13 +128,38 @@ class ExtendedStandardClassTest extends \WP_UnitTestCase
 	}
 
 	/**
+	 * @covers ExtendedStandardClass::getIterator()
+	 */
+	public function testGetIterator_direkt() {
+
+		$arr = $this->object->getIterator();
+
+		$result = ( is_array( $arr ) || $arr instanceof Traversable );
+		$this->assertTrue( $result );
+
+	}
+
+	/**
 	 * @covers ExtendedStandardClass::print_error()
 	 */
-	public function testPrint_error() {
+	public function testPrint_error_indirekt() {
+
+		Dummy_ESC::$show_errors = true;
 
 		$this->setExpectedException( 'PHPUnit_Framework_Error_Notice' );
 		$this->assertFalse( $this->object->set_id( '' ) );
 		$this->assertFalse( $this->object->bar );
+
+	}
+
+	/**
+	 * @covers ExtendedStandardClass::print_error()
+	 */
+	public function testPrint_error_direkt() {
+
+		Dummy_ESC::$show_errors = false;
+
+		$this->assertFalse( $this->object->print_error( 'no id', __METHOD__ ) );
 
 	}
 

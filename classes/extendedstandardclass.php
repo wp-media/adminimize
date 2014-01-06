@@ -35,19 +35,29 @@ abstract class ExtendedStandardClass implements IteratorAggregate
 	public static $id = '';
 
 	/**
+	 * Switch between display errors and hide errors
+	 * @var bool
+	 */
+	public static $show_errors = false;
+
+	/**
 	 * Triggers an error
 	 * @param	string	$err		Error type
 	 * @param	string	$method	Method where the error occurs
 	 */
-	protected function print_error( $error, $method = '' ) {
+	public function print_error( $error, $method = '' ) {
 
 		$errors = array(
 			'no id'      => array( 'Error in %s: no id was set', E_USER_NOTICE ),
 			'invalid id' => array( 'Error in %s: invalid id', E_USER_NOTICE ),
 		);
 
-		if ( isset( $errors[ $error ] ) )
-			trigger_error( sprintf( $errors[ $error ][0], $method ), $errors[ $error ][1] );
+		if ( isset( $errors[ $error ] ) ) {
+
+			if ( true == self::$show_errors )
+			 trigger_error( sprintf( $errors[ $error ][0], $method ), $errors[ $error ][1] );
+
+		}
 
 		return false;
 
