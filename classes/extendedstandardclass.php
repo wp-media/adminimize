@@ -1,12 +1,12 @@
 <?php
 /**
- * WordPress Class to read and keep the file headers
+ * Class to handle datas
  *
  * PHP version 5.2
  *
  * @category   PHP
  * @package    WordPress
- * @subpackage FileHeaderReader
+ * @subpackage RalfAlbert\Tooling
  * @author     Ralf Albert <me@neun12.de>
  * @license    GPLv3 http://www.gnu.org/licenses/gpl-3.0.txt
  * @version    1.0
@@ -97,10 +97,10 @@ abstract class ExtendedStandardClass implements IteratorAggregate
 		$id = self::$id;
 
 		if ( ! is_object( self::$data ) )
-			self::$data = new \stdClass();
+			self::$data = new stdClass();
 
-		if ( ! is_object( self::$data->$id ) )
-			self::$data->$id = new \stdClass();
+		if ( ! property_exists( self::$data, $id ) || ! is_object( self::$data->$id ) )
+			self::$data->$id = new stdClass();
 
 		self::$data->$id->$name = $value;
 
@@ -128,7 +128,7 @@ abstract class ExtendedStandardClass implements IteratorAggregate
 
 	/**
 	 * Returns the iterator
-	 * @return \ArrayIterator
+	 * @return ArrayIterator
 	 */
 	public function getIterator() {
 
