@@ -42,12 +42,14 @@ abstract class ExtendedStandardClass implements IteratorAggregate
 	protected function print_error( $error, $method = '' ) {
 
 		$errors = array(
-			'no param' => array( 'Error in %s: parameter (string) name expected', E_USER_NOTICE ),
-			'no id'    => array( 'Error in %s: no id was set', E_USER_NOTICE ),
+			'no id'      => array( 'Error in %s: no id was set', E_USER_NOTICE ),
+			'invalid id' => array( 'Error in %s: invalid id', E_USER_NOTICE ),
 		);
 
 		if ( isset( $errors[ $error ] ) )
-			trigger_error( sprintf( $errors[ $error ][0], $method ), $errors[1] );
+			trigger_error( sprintf( $errors[ $error ][0], $method ), $errors[ $error ][1] );
+
+		return false;
 
 	}
 
@@ -56,6 +58,9 @@ abstract class ExtendedStandardClass implements IteratorAggregate
 	 * @param	string	$id	ID
 	 */
 	public function set_id( $id ) {
+
+		if ( empty( $id ) )
+			$this->print_error( 'no id', __METHOD__ );
 
 		self::$id = $id;
 
@@ -67,9 +72,6 @@ abstract class ExtendedStandardClass implements IteratorAggregate
 	 * @return mixed The value if it is set, else null
 	 */
 	public function __get( $name ) {
-
-		if ( empty( $name ) )
-			$this->print_error( 'no param', __METHOD__ );
 
 		if ( empty( self::$id ) )
 			$this->print_error( 'no id', __METHOD__ );
@@ -87,9 +89,6 @@ abstract class ExtendedStandardClass implements IteratorAggregate
 	 * @param string $value The value itself
 	 */
 	public function __set( $name, $value = null ) {
-
-		if ( empty( $name ) )
-			$this->print_error( 'no param', __METHOD__ );
 
 		if ( empty( self::$id ) )
 			$this->print_error( 'no id', __METHOD__ );

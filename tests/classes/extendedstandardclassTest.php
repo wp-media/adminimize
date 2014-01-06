@@ -127,4 +127,15 @@ class ExtendedStandardClassTest extends \WP_UnitTestCase
 
 	}
 
+	/**
+	 * @covers ExtendedStandardClass::print_error()
+	 */
+	public function testPrint_error() {
+
+		$this->setExpectedException( 'PHPUnit_Framework_Error_Notice' );
+		$this->assertFalse( $this->object->set_id( '' ) );
+		$this->assertFalse( $this->object->bar );
+
+	}
+
 }
