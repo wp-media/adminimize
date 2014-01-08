@@ -1,5 +1,5 @@
 <?php
-require_once 'adminimize_data_container.php';
+require_once 'adminimize_storage.php';
 
 class Adminimize_Do_Actions
 {
@@ -154,22 +154,21 @@ ADMINHEAD;
 
 		global $wp_admin_bar;
 
-		$dc = new Adminimize_Data_Container();
+		$storage = new Adminimize_Storage();
 
 		// get back our option page object
-		$optpage = $dc->get( 'options_page_object' );
-		$pagehook = $optpage->pagehook;
+		$pagehook = $storage->options_page_object->pagehook;
 
 		$screen = get_current_screen();
 
 		if ( empty( $screen ) || $screen->base != $pagehook )
 			return null;
 
-		$saved_nodes   = $dc->get( 'adminbar_nodes' );
+		$saved_nodes   = $storage->adminbar_nodes;
 		$toolbar_nodes = $wp_admin_bar->get_nodes();
 
 		if ( empty( $saved_nodes ) && ! empty( $toolbar_nodes ) )
-			$dc->set_option( 'adminbar_nodes', $wp_admin_bar->get_nodes() );
+			$storage->set_option( 'adminbar_nodes', $wp_admin_bar->get_nodes() );
 
 	}
 

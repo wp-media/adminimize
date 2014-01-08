@@ -32,7 +32,7 @@ abstract class ExtendedStandardClass implements IteratorAggregate
 	 * Instance identifier
 	 * @var string
 	*/
-	public static $id = '';
+	public $id = '';
 
 	/**
 	 * Switch between display errors and hide errors
@@ -72,7 +72,7 @@ abstract class ExtendedStandardClass implements IteratorAggregate
 		if ( empty( $id ) )
 			$this->print_error( 'no id', __METHOD__ );
 
-		self::$id = $id;
+		$this->id = $id;
 
 	}
 
@@ -83,10 +83,10 @@ abstract class ExtendedStandardClass implements IteratorAggregate
 	 */
 	public function __get( $name ) {
 
-		if ( empty( self::$id ) )
+		if ( empty( $this->id ) )
 			$this->print_error( 'no id', __METHOD__ );
 
-		$id = self::$id;
+		$id = $this->id;
 
 		return ( isset( self::$data->$id->$name ) ) ?
 			self::$data->$id->$name : null;
@@ -100,10 +100,10 @@ abstract class ExtendedStandardClass implements IteratorAggregate
 	 */
 	public function __set( $name, $value = null ) {
 
-		if ( empty( self::$id ) )
+		if ( empty( $this->id ) )
 			$this->print_error( 'no id', __METHOD__ );
 
-		$id = self::$id;
+		$id = $this->id;
 
 		if ( ! is_object( self::$data ) )
 			self::$data = new stdClass();
@@ -122,10 +122,10 @@ abstract class ExtendedStandardClass implements IteratorAggregate
 	 */
 	public function __isset( $name ) {
 
-		if ( empty( self::$id ) )
+		if ( empty( $this->id ) )
 			$this->print_error( 'no id', __METHOD__ );
 
-		$id = self::$id;
+		$id = $this->id;
 
 		if ( ! is_object( self::$data->$id ) )
 			return false;
@@ -141,10 +141,10 @@ abstract class ExtendedStandardClass implements IteratorAggregate
 	 */
 	public function getIterator() {
 
-		if ( empty( self::$id ) )
+		if ( empty( $this->id ) )
 			$this->print_error( 'no id', __METHOD__ );
 
-		$id = self::$id;
+		$id = $this->id;
 
 		return new ArrayIterator( self::$data->$id );
 

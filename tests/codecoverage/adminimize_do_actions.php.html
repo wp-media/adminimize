@@ -60,7 +60,7 @@
        </div>
 </td>
       <td class="danger small"><div align="right">0.00%</div></td>
-      <td class="danger small"><div align="right">0&nbsp;/&nbsp;74</div></td>
+      <td class="danger small"><div align="right">0&nbsp;/&nbsp;73</div></td>
      </tr>
 
      <tr>
@@ -83,7 +83,7 @@
        </div>
 </td>
       <td class="danger small"><div align="right">0.00%</div></td>
-      <td class="danger small"><div align="right">0&nbsp;/&nbsp;74</div></td>
+      <td class="danger small"><div align="right">0&nbsp;/&nbsp;73</div></td>
      </tr>
 
      <tr>
@@ -168,7 +168,7 @@
        </div>
 </td>
       <td class="danger small"><div align="right">0.00%</div></td>
-      <td class="danger small"><div align="right">0&nbsp;/&nbsp;12</div></td>
+      <td class="danger small"><div align="right">0&nbsp;/&nbsp;11</div></td>
      </tr>
 
 
@@ -177,7 +177,7 @@
    <table class="table table-borderless table-condensed">
     <tbody>
      <tr><td><div align="right"><a name="1"></a><a href="#1">1</a></div></td><td class="codeLine">&lt;?php</td></tr>
-     <tr><td><div align="right"><a name="2"></a><a href="#2">2</a></div></td><td class="codeLine">require_once 'adminimize_data_container.php';</td></tr>
+     <tr><td><div align="right"><a name="2"></a><a href="#2">2</a></div></td><td class="codeLine">require_once 'adminimize_storage.php';</td></tr>
      <tr><td><div align="right"><a name="3"></a><a href="#3">3</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="4"></a><a href="#4">4</a></div></td><td class="codeLine">class Adminimize_Do_Actions</td></tr>
      <tr><td><div align="right"><a name="5"></a><a href="#5">5</a></div></td><td class="codeLine">{</td></tr>
@@ -332,25 +332,24 @@
      <tr><td><div align="right"><a name="154"></a><a href="#154">154</a></div></td><td class="codeLine"></td></tr>
      <tr class="danger"><td><div align="right"><a name="155"></a><a href="#155">155</a></div></td><td class="codeLine">        global $wp_admin_bar;</td></tr>
      <tr><td><div align="right"><a name="156"></a><a href="#156">156</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="157"></a><a href="#157">157</a></div></td><td class="codeLine">        $dc = new Adminimize_Data_Container();</td></tr>
+     <tr class="danger"><td><div align="right"><a name="157"></a><a href="#157">157</a></div></td><td class="codeLine">        $storage = new Adminimize_Storage();</td></tr>
      <tr><td><div align="right"><a name="158"></a><a href="#158">158</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="159"></a><a href="#159">159</a></div></td><td class="codeLine">        // get back our option page object</td></tr>
-     <tr class="danger"><td><div align="right"><a name="160"></a><a href="#160">160</a></div></td><td class="codeLine">        $optpage = $dc-&gt;get( 'options_page_object' );</td></tr>
-     <tr class="danger"><td><div align="right"><a name="161"></a><a href="#161">161</a></div></td><td class="codeLine">        $pagehook = $optpage-&gt;pagehook;</td></tr>
-     <tr><td><div align="right"><a name="162"></a><a href="#162">162</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="163"></a><a href="#163">163</a></div></td><td class="codeLine">        $screen = get_current_screen();</td></tr>
-     <tr><td><div align="right"><a name="164"></a><a href="#164">164</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="165"></a><a href="#165">165</a></div></td><td class="codeLine">        if ( empty( $screen ) || $screen-&gt;base != $pagehook )</td></tr>
-     <tr class="danger"><td><div align="right"><a name="166"></a><a href="#166">166</a></div></td><td class="codeLine">            return null;</td></tr>
-     <tr><td><div align="right"><a name="167"></a><a href="#167">167</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="168"></a><a href="#168">168</a></div></td><td class="codeLine">        $saved_nodes   = $dc-&gt;get( 'adminbar_nodes' );</td></tr>
-     <tr class="danger"><td><div align="right"><a name="169"></a><a href="#169">169</a></div></td><td class="codeLine">        $toolbar_nodes = $wp_admin_bar-&gt;get_nodes();</td></tr>
-     <tr><td><div align="right"><a name="170"></a><a href="#170">170</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="171"></a><a href="#171">171</a></div></td><td class="codeLine">        if ( empty( $saved_nodes ) &amp;&amp; ! empty( $toolbar_nodes ) )</td></tr>
-     <tr class="danger"><td><div align="right"><a name="172"></a><a href="#172">172</a></div></td><td class="codeLine">            $dc-&gt;set_option( 'adminbar_nodes', $wp_admin_bar-&gt;get_nodes() );</td></tr>
-     <tr><td><div align="right"><a name="173"></a><a href="#173">173</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="174"></a><a href="#174">174</a></div></td><td class="codeLine">    }</td></tr>
-     <tr><td><div align="right"><a name="175"></a><a href="#175">175</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="160"></a><a href="#160">160</a></div></td><td class="codeLine">        $pagehook = $storage-&gt;options_page_object-&gt;pagehook;</td></tr>
+     <tr><td><div align="right"><a name="161"></a><a href="#161">161</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="162"></a><a href="#162">162</a></div></td><td class="codeLine">        $screen = get_current_screen();</td></tr>
+     <tr><td><div align="right"><a name="163"></a><a href="#163">163</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="164"></a><a href="#164">164</a></div></td><td class="codeLine">        if ( empty( $screen ) || $screen-&gt;base != $pagehook )</td></tr>
+     <tr class="danger"><td><div align="right"><a name="165"></a><a href="#165">165</a></div></td><td class="codeLine">            return null;</td></tr>
+     <tr><td><div align="right"><a name="166"></a><a href="#166">166</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="167"></a><a href="#167">167</a></div></td><td class="codeLine">        $saved_nodes   = $storage-&gt;adminbar_nodes;</td></tr>
+     <tr class="danger"><td><div align="right"><a name="168"></a><a href="#168">168</a></div></td><td class="codeLine">        $toolbar_nodes = $wp_admin_bar-&gt;get_nodes();</td></tr>
+     <tr><td><div align="right"><a name="169"></a><a href="#169">169</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="170"></a><a href="#170">170</a></div></td><td class="codeLine">        if ( empty( $saved_nodes ) &amp;&amp; ! empty( $toolbar_nodes ) )</td></tr>
+     <tr class="danger"><td><div align="right"><a name="171"></a><a href="#171">171</a></div></td><td class="codeLine">            $storage-&gt;set_option( 'adminbar_nodes', $wp_admin_bar-&gt;get_nodes() );</td></tr>
+     <tr><td><div align="right"><a name="172"></a><a href="#172">172</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="173"></a><a href="#173">173</a></div></td><td class="codeLine">    }</td></tr>
+     <tr><td><div align="right"><a name="174"></a><a href="#174">174</a></div></td><td class="codeLine"></td></tr>
 
     </tbody>
    </table>
@@ -362,7 +361,7 @@
      <span class="warning"><strong>Dead Code</strong></span>
     </p>
     <p>
-     <small>Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.2.13</a> using <a href="http://www.php.net/" target="_top">PHP 5.4.4</a> and <a href="http://phpunit.de/">PHPUnit 3.7.28</a> at Wed Jan 8 4:53:25 UTC 2014.</small>
+     <small>Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.2.13</a> using <a href="http://www.php.net/" target="_top">PHP 5.4.4</a> and <a href="http://phpunit.de/">PHPUnit 3.7.28</a> at Wed Jan 8 5:51:38 UTC 2014.</small>
     </p>
    </footer>
   </div>

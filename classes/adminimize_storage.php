@@ -1,6 +1,14 @@
 <?php
-class Adminimize_Data_Container
+require_once 'extendedstandardclass.php';
+
+class Adminimize_Storage extends ExtendedStandardClass
 {
+	/**
+	 * ID for the ExtendedStandardClass
+	 * @var string
+	 */
+	const ID = 'adminimize_storage';
+
 	/**
 	 * Key for options in database
 	 * @var string
@@ -13,51 +21,9 @@ class Adminimize_Data_Container
 	 */
 	const MENU_SLUG  = 'adminimizeoop';
 
-	/**
-	 * Options from database
-	 * @var array
-	 */
-	public static $options = null;
+	public function __construct() {
 
-	/**
-	 * Values stored in the datacontainer
-	 * @var array
-	 */
-	public static $values = array();
-
-	/**
-	 * Set a value in the datacontainer
-	 * @param string $name Name of the value
-	 * @param string $value Value to set
-	 * @return boolean
-	 */
-	public function set( $name = '', $value = null ) {
-
-		if ( empty( $name ) || ! is_string( $name ) )
-			return false;
-		else
-			$name = strtolower( $name );
-
-		self::$values[$name] = $value;
-
-		return true;
-
-	}
-
-	/**
-	 * Get a value from the datacontainer
-	 * @param string $name Value to retrieve
-	 * @return boolean|NULL
-	 */
-	public function get( $name = '' ) {
-
-		if ( empty( $name ) || ! is_string( $name ) )
-			return false;
-		else
-			$name = strtolower( $name );
-
-		return ( isset( self::$values[$name] ) ) ?
-			self::$values[$name] : null;
+		$this->set_id( self::ID );
 
 	}
 
@@ -67,21 +33,19 @@ class Adminimize_Data_Container
 	 */
 	public function set_basedirs( $filename ) {
 
-		if ( ! empty( self::$values ) )
-			return self::$values;
-
 		$basedir = dirname( $filename );
 
-		self::set( 'basefile', $filename );
-		self::set( 'basedir',  $basedir );
-		self::set( 'basejs',   $basedir . '/js/' );
+		$this->basefile      = $filename;
+		$this->basedir       = $basedir;
+		$this->basejs        = $basedir . '/js/';
+		$this->basename      = plugin_basename( $filename );
+		$this->basefolder    = plugin_basename( dirname( $filename ) );
+		$this->MW_ADMIN_FILE = plugin_basename( $filename );
+
 // 		self::set( 'basecss',  $basedir . '/css/' );
 // 		self::set( 'classes',  $basedir . '/classes/');
 // 		self::set( 'widgets',  $basedir . '/widgets/' );
 
-		self::set( 'basename',      plugin_basename( $filename ) );
-		self::set( 'basefolder',    plugin_basename( dirname( $filename ) ) );
-		self::set( 'MW_ADMIN_FILE', plugin_basename( $filename ) );
 
 	}
 
@@ -93,7 +57,7 @@ class Adminimize_Data_Container
 	public function get_option( $name = '' ) {
 
 		// check for use on multisite
-		if ( is_multisite() && is_plugin_active_for_network( self::get( 'MW_ADMIN_FILE' ) ) )
+		if ( is_multisite() && is_plugin_active_for_network( $this->MW_ADMIN_FILE ) )
 			$adminimizeoptions = get_site_option( self::OPTION_KEY );
 		else
 			$adminimizeoptions = get_option( self::OPTION_KEY );
@@ -122,7 +86,7 @@ class Adminimize_Data_Container
 
 		$options[$name] = $value;
 
-		if ( is_multisite() && is_plugin_active_for_network( $this->get( 'MW_ADMIN_FILE' ) ) )
+		if ( is_multisite() && is_plugin_active_for_network( $this->MW_ADMIN_FILE ) )
 			update_site_option( self::OPTION_KEY, $options );
 		else
 			update_option( self::OPTION_KEY, $options );

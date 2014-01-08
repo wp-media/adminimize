@@ -1,5 +1,5 @@
 <?php
-class Adminimize_Validate_Options extends Adminimize_Data_Container
+class Adminimize_Validate_Options extends Adminimize_Storage
 {
 
 	public function validate( $input ) {

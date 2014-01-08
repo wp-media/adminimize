@@ -14,7 +14,7 @@ define( 'DB_CHARSET', 'utf8' );
 define( 'DB_COLLATE', '' );
 
 define( 'WPLANG', '' );
-define( 'WP_DEBUG', true );
+define( 'WP_DEBUG', false );
 define( 'WP_DEBUG_DISPLAY', true );
 
 define( 'WP_TESTS_DOMAIN', 'inpsyde.tld' );

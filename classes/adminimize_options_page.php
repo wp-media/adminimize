@@ -6,7 +6,7 @@
  */
 
 require_once 'menupage_widgets_sapi.php';
-require_once 'adminimize_data_container.php';
+require_once 'adminimize_storage.php';
 
 class Adminimize_Options_Page extends MenuPage_Widgets_SAPI
 {
@@ -59,19 +59,24 @@ class Adminimize_Options_Page extends MenuPage_Widgets_SAPI
 	 */
 	public static $default_options = array();
 
+	public $storage = null;
+
+	public $plugindata = null;
+
 	/**
 	 * Constructor
 	 * Setup the rest of the needed vars
 	 */
 	public function __construct() {
 
-		$dc = new Adminimize_Data_Container();
+		$this->storage    = new Adminimize_Storage();
+		$this->plugindata = new PluginHeaderReader( 'adminimize' );
 
-		$this->option_group = Adminimize_Data_Container::OPTION_KEY;
-		$this->option_name  = Adminimize_Data_Container::OPTION_KEY;
+		$this->option_group = Adminimize_Storage::OPTION_KEY;
+		$this->option_name  = Adminimize_Storage::OPTION_KEY;
 
-		$this->menu_slug  = Adminimize_Data_Container::MENU_SLUG;
-		$this->menu_title = $this->page_title = __( 'Adminimize OOP', ADMINIMIZE_TEXTDOMAIN );
+		$this->menu_slug  = Adminimize_Storage::MENU_SLUG;
+		$this->menu_title = $this->page_title = __( 'Adminimize OOP', $this->plugindata->TextDomain );
 
 		$this->page_callback     = array( $this, 'main_frame' );
 		$this->validate_callback = array( $this, 'validate_callback' );
@@ -91,13 +96,9 @@ class Adminimize_Options_Page extends MenuPage_Widgets_SAPI
 	 */
 	public function enqueue_scripts() {
 
-		$dc = new Adminimize_Data_Container();
-
-		$basedir = $dc->get( 'basejs' );
-
 		wp_register_script(
 			'adminimize-backend',
-			plugins_url( '/js/adminimize-backend.js', $basedir ),
+			plugins_url( '/js/adminimize-backend.js', $this->storage->basejs ),
 			array( 'jquery', 'postbox'  ),
 			false,
 			true
@@ -110,12 +111,10 @@ class Adminimize_Options_Page extends MenuPage_Widgets_SAPI
 	 */
 	protected function get_available_widgets() {
 
-		$dc = new Adminimize_Data_Container();
-
 		$widget_class = 'Adminimize_Widgets';
 
 		if ( ! class_exists( $widget_class ) || ! is_a( $my_widgets, $widget_class ) ) {
-			require_once $dc->get( 'basedir' ) . '/widgets/adminimize_widgets.php';
+			require_once $this->storage->basedir . '/widgets/adminimize_widgets.php';
 			$my_widgets = new $widget_class();
 		}
 
@@ -150,9 +149,9 @@ class Adminimize_Options_Page extends MenuPage_Widgets_SAPI
 
 		echo '<div class="adminimize_wrap">';
 
-		printf( '<h1>%s</h1>', esc_html( __( 'Adminimize', ADMINIMIZE_TEXTDOMAIN ) ) );
+		printf( '<h1>%s</h1>', esc_html( __( 'Adminimize', $this->plugindata->TextDomain ) ) );
 
-		$this->display_widgets( $this->screen);
+		$this->display_widgets( $this->screen );
 
 		echo '</div>'; //  end class wrap
 
@@ -163,7 +162,7 @@ class Adminimize_Options_Page extends MenuPage_Widgets_SAPI
 	 */
 	public function default_widget() {
 
-		printf( '<p>%s</p>', esc_html( __( 'There was no content or callback defined for this widget.' ) ) );
+		printf( '<p>%s</p>', esc_html( __( 'There was no content or callback defined for this widget.', $this->plugindata->TextDomain ) ) );
 
 	}
 

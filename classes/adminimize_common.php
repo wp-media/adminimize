@@ -1,9 +1,8 @@
 <?php
-require_once 'adminimize_data_container.php';
+require_once 'adminimize_storage.php';
 
-class Adminimize_Common extends Adminimize_Data_Container
+class Adminimize_Common extends Adminimize_Storage
 {
-
 	/**
 	 * _mw_adminimize_get_all_user_roles() - Returns an array with all user roles(names) in it.
 	 * Inclusive self defined roles (for example with the 'Role Manager' plugin).
@@ -81,7 +80,7 @@ class Adminimize_Common extends Adminimize_Data_Container
 	 */
 	public function get_admin_bar_items() {
 
-		$admin_bar_items = self::get_option( 'adminbar_nodes' );
+		$admin_bar_items = $this->get_option( 'adminbar_nodes' );
 		return $admin_bar_items;
 
 	}

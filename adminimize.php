@@ -24,6 +24,7 @@
  * Version:     2.0
  * License:     GPLv3
  */
+
 !( defined( 'ABSPATH' ) ) AND die( 'Standing On The Shoulders Of Giants' );
 
 global $wp_version;
@@ -49,18 +50,16 @@ add_action(
 function adminimize_autoloader() {
 
 	// load interfaces
-	$interfaces = glob( plugin_dir_path( __FILE__ ) . 'interfaces/*.php' );
+// 	$interfaces = glob( plugin_dir_path( __FILE__ ) . 'interfaces/*.php' );
+// 	$classes = glob( plugin_dir_path( __FILE__ ) . 'classes/*.php' );
 
-	foreach( $interfaces as $interface ) {
-		require_once $interface;
-	}
+	$files = array_merge(
+			glob( plugin_dir_path( __FILE__ ) . 'interfaces/*.php' ),
+			glob( plugin_dir_path( __FILE__ ) . 'classes/*.php' )
+	);
 
-	// load classes
-	$classes = glob( plugin_dir_path( __FILE__ ) . 'classes/*.php' );
-
-	foreach( $classes as $class ) {
-		require_once $class;
-	}
+	foreach( $files as $file )
+		require_once $file;
 
 }
 
@@ -74,21 +73,18 @@ function adminimize_autoloader() {
  */
 function adminimize_plugin_init() {
 
-	global $datacontainer;
-
 	adminimize_autoloader();
 
 	// setup basedirs
-	$datacontainer = new Adminimize_Data_Container();
-	$datacontainer->set_basedirs( __FILE__ );
+	$storage = new Adminimize_Storage( 'adminimize_storage' );
+	$storage->set_basedirs( __FILE__ );
 
-	PluginHeaderReader::init( __FILE__, 'adminimize' );
-	$pluginheaders = PluginHeaderReader::get_instance( 'adminimize' );
-
-	if ( ! defined( 'ADMINIMIZE_TEXTDOMAIN' ) )
-		define( 'ADMINIMIZE_TEXTDOMAIN', $pluginheaders->TextDomain );
+	$pluginheaders =  new PluginHeaderReader( 'adminimize', __FILE__ );
 
 	if ( is_admin() ) {
+
+		if ( ! defined( 'ADMINIMIZE_TEXTDOMAIN' ) )
+			define( 'ADMINIMIZE_TEXTDOMAIN', $pluginheaders->TextDomain );
 
 		add_action(
 			'admin_init',
@@ -118,23 +114,23 @@ function adminimize_plugin_init() {
 
 function adminimize_on_admin_init() {
 
-	global $datacontainer;
-
+	$storage       = new Adminimize_Storage();
 	$pluginstarter = new Plugin_Starter();
 
-	$pluginstarter->basename = $datacontainer->get( 'basename' );
-	$pluginstarter->load_textdomain( PluginHeaderReader::get_instance( 'adminimize' ) );
+	$pluginstarter->basename = $storage->basename;
+	$pluginstarter->load_textdomain( new PluginHeaderReader( 'adminimize' ) );
 	$pluginstarter->load_styles( array( 'adminimize-style' => array( 'file' => '/css/style.css', 'enqueue' => false ) ) );
 
 }
 
 function adminimize_add_options_page() {
 
-	global $datacontainer;
-
 	if ( ! is_admin() )
 		return false;
 
-	$datacontainer->set( 'options_page_object', new Adminimize_Options_Page() );
+	$storage = new Adminimize_Storage( 'adminimize_storage' );
+
+	$opt_page = new Adminimize_Options_Page();
+	$storage->options_page_object = $opt_page;
 
 }
