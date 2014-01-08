@@ -111,50 +111,30 @@ class MenuPage_Widgets_SAPITest extends \WP_UnitTestCase
 	 * @covers MenuPage_Widgets_SAPI::add_menu_page()
 	 */
 	public function testAdd_menu_page(){
-		// Remove the following lines when you implement this test.
-		$this->markTestIncomplete(
-				'This test has not been implemented yet.'
-		);
 	}
 
 	/**
 	 * @covers MenuPage_Widgets_SAPI::enqueue_scripts()
 	 */
 	public function testEnqueue_scripts(){
-		// Remove the following lines when you implement this test.
-		$this->markTestIncomplete(
-				'This test has not been implemented yet.'
-		);
 	}
 
 	/**
 	 * @covers MenuPage_Widgets_SAPI::add_screen_options()
 	 */
 	public function testAdd_screen_options(){
-		// Remove the following lines when you implement this test.
-		$this->markTestIncomplete(
-				'This test has not been implemented yet.'
-		);
 	}
 
 	/**
 	 * @covers MenuPage_Widgets_SAPI::add_widgets()
 	 */
 	public function testAdd_widgets(){
-		// Remove the following lines when you implement this test.
-		$this->markTestIncomplete(
-				'This test has not been implemented yet.'
-		);
 	}
 
 	/**
 	 * @covers MenuPage_Widgets_SAPI::display_widgets()
 	 */
 	public function testDisplay_widgets(){
-		// Remove the following lines when you implement this test.
-		$this->markTestIncomplete(
-				'This test has not been implemented yet.'
-		);
 	}
 
 }
