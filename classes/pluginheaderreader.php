@@ -26,10 +26,10 @@ class PluginHeaderReader extends ExtendedStandardClass implements I_FileHeaderRe
 	public function __construct( $id = '', $filename = '' ) {
 
 		if ( ! defined( 'ABSPATH' ) )
-			trigger_error( 'This class requires WordPress. ABSPATH not found', E_USER_ERROR );
+			trigger_error( 'This class requires WordPress. ABSPATH not found', E_USER_WARNING );
 
 		if ( empty( $id ) || ! is_string( $id ) )
-			return false;
+			trigger_error( 'Param (string) id expected', E_USER_WARNING );
 
 		$this->id = $id;
 
@@ -39,10 +39,9 @@ class PluginHeaderReader extends ExtendedStandardClass implements I_FileHeaderRe
 		if ( ! empty( $filename ) && file_exists( $filename ) ) {
 
 			self::$ids[ $id ] = $filename;
+			self::$data->$id  = new stdClass();
 
-				self::$data->$id = new stdClass();
-
-				$this->read();
+			$this->read();
 
 		}
 

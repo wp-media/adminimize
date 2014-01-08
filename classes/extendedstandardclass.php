@@ -55,7 +55,7 @@ abstract class ExtendedStandardClass implements IteratorAggregate
 		if ( isset( $errors[ $error ] ) ) {
 
 			if ( true == self::$show_errors )
-			 trigger_error( sprintf( $errors[ $error ][0], $method ), $errors[ $error ][1] );
+				trigger_error( sprintf( $errors[ $error ][0], $method ), $errors[ $error ][1] );
 
 		}
 
@@ -70,7 +70,7 @@ abstract class ExtendedStandardClass implements IteratorAggregate
 	public function set_id( $id ) {
 
 		if ( empty( $id ) )
-			$this->print_error( 'no id', __METHOD__ );
+			return $this->print_error( 'no id', __METHOD__ );
 
 		$this->id = $id;
 
@@ -87,6 +87,9 @@ abstract class ExtendedStandardClass implements IteratorAggregate
 			$this->print_error( 'no id', __METHOD__ );
 
 		$id = $this->id;
+
+		if ( empty( $id ) )
+			return null;
 
 		return ( isset( self::$data->$id->$name ) ) ?
 			self::$data->$id->$name : null;

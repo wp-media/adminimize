@@ -33,12 +33,11 @@ class Plugin_starterTest extends \WP_UnitTestCase
 	 */
 	public function testLoad_textdomain() {
 
-		PluginHeaderReader::init( $this->basefile, $this->id );
-		$plugindata = PluginHeaderReader::get_instance( $this->id );
+		$plugindata    = new PluginHeaderReader( $this->id, $this->basefile );
 		$pluginstarter = new Plugin_Starter();
  		$pluginstarter->basename = $this->basefile;
 
- 		$result = $pluginstarter->load_textdomain( PluginHeaderReader::get_instance( $this->id ) );
+ 		$result = $pluginstarter->load_textdomain( $plugindata );
 
 // 		$this->assertTrue( $pluginstarter->textdomain_loaded );
 		$this->assertTrue( $result );

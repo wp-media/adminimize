@@ -38,34 +38,45 @@ class PluginHeaderReaderTest extends \WP_UnitTestCase
 	public function tearDown() {}
 
 	/**
-	 * @covers PluginHeaderReader::init()
+	 * @covers PluginHeaderReader::__construct()
 	 */
 	public function testInit() {
 
-		PluginHeaderReader::init( __FILE__, $this->id );
+		new PluginHeaderReader( $this->id, __FILE__ );
 
 		$this->assertTrue( property_exists( PluginHeaderReader::$data, $this->id ) );
 
-		// empty filename
-		$this->assertFalse( PluginHeaderReader::init( 'foo', $this->id ) );
+		// file not exists
+		$id         = $this->id . '_2';
+		$instance   = new PluginHeaderReader( $id, 'foo' );
+		$reflection = new ReflectionClass( $instance );
+		$data       = $reflection->getStaticPropertyValue( 'data' );
+
+		$this->assertFalse( is_object( $data->$id ) );
 
 		// empty id
-		$this->assertFalse( PluginHeaderReader::init( __FILE__, '' ) );
+		$this->setExpectedException( 'PHPUnit_Framework_Error_Warning' );
+		$id         = '';
+		$instance   = new PluginHeaderReader( $id, __FILE__ );
 
 	}
 
 	/**
-	 * @covers PluginHeaderReader::get_instance()
+	 * @covers PluginHeaderReader::__construct()
 	 */
 	public function testGet_instance() {
 
-		$instance = PluginHeaderReader::get_instance( $this->id );
+		$instance = new PluginHeaderReader( $this->id );
 
 		$this->assertTrue( is_object( $instance ) );
 
-		$instance = PluginHeaderReader::get_instance( 'invalid_id' );
+		// invalid id
+		$id         = 'invalid_id';
+		$instance   = new PluginHeaderReader( $id );
+		$reflection = new ReflectionClass( $instance );
+		$data       = $reflection->getStaticPropertyValue( 'data' );
 
-		$this->assertFalse( is_object( $instance ) );
+		$this->assertFalse( is_object( $data->$id ) );
 
 	}
 
@@ -74,8 +85,7 @@ class PluginHeaderReaderTest extends \WP_UnitTestCase
 	 */
 	public function testRead() {
 
-		PluginHeaderReader::init( __FILE__, $this->id );
-		$instance = PluginHeaderReader::get_instance( $this->id );
+		$instance = new PluginHeaderReader( $this->id, __FILE__ );
 		$id = $this->id;
 
 		$result = $instance->read();

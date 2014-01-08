@@ -87,7 +87,7 @@
      </tr>
 
      <tr>
-      <td class="danger" colspan="4">&nbsp;<a href="#15">get_all_user_roles()</a></td>
+      <td class="danger" colspan="4">&nbsp;<a href="#14">get_all_user_roles()</a></td>
       <td class="danger big">       <div class="progress progress-danger" style="width: 100px;">
         <div class="bar" style="width: 0.00%;"></div>
        </div>
@@ -104,7 +104,7 @@
      </tr>
 
      <tr>
-      <td class="danger" colspan="4">&nbsp;<a href="#48">get_all_user_roles_names()</a></td>
+      <td class="danger" colspan="4">&nbsp;<a href="#47">get_all_user_roles_names()</a></td>
       <td class="danger big">       <div class="progress progress-danger" style="width: 100px;">
         <div class="bar" style="width: 0.00%;"></div>
        </div>
@@ -121,7 +121,7 @@
      </tr>
 
      <tr>
-      <td class="danger" colspan="4">&nbsp;<a href="#82">get_admin_bar_items()</a></td>
+      <td class="danger" colspan="4">&nbsp;<a href="#81">get_admin_bar_items()</a></td>
       <td class="danger big">       <div class="progress progress-danger" style="width: 100px;">
         <div class="bar" style="width: 0.00%;"></div>
        </div>
@@ -138,7 +138,7 @@
      </tr>
 
      <tr>
-      <td class="danger" colspan="4">&nbsp;<a href="#89">recursive_in_array( $needle, $haystack )</a></td>
+      <td class="danger" colspan="4">&nbsp;<a href="#88">recursive_in_array( $needle, $haystack )</a></td>
       <td class="danger big">       <div class="progress progress-danger" style="width: 100px;">
         <div class="bar" style="width: 0.00%;"></div>
        </div>
@@ -155,7 +155,7 @@
      </tr>
 
      <tr>
-      <td class="danger" colspan="4">&nbsp;<a href="#102">exclude_super_admin()</a></td>
+      <td class="danger" colspan="4">&nbsp;<a href="#101">exclude_super_admin()</a></td>
       <td class="danger big">       <div class="progress progress-danger" style="width: 100px;">
         <div class="bar" style="width: 0.00%;"></div>
        </div>
@@ -181,114 +181,113 @@
      <tr><td><div align="right"><a name="3"></a><a href="#3">3</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="4"></a><a href="#4">4</a></div></td><td class="codeLine">class Adminimize_Common extends Adminimize_Storage</td></tr>
      <tr><td><div align="right"><a name="5"></a><a href="#5">5</a></div></td><td class="codeLine">{</td></tr>
-     <tr><td><div align="right"><a name="6"></a><a href="#6">6</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="7"></a><a href="#7">7</a></div></td><td class="codeLine">    /**</td></tr>
-     <tr><td><div align="right"><a name="8"></a><a href="#8">8</a></div></td><td class="codeLine">     * _mw_adminimize_get_all_user_roles() - Returns an array with all user roles(names) in it.</td></tr>
-     <tr><td><div align="right"><a name="9"></a><a href="#9">9</a></div></td><td class="codeLine">     * Inclusive self defined roles (for example with the 'Role Manager' plugin).</td></tr>
-     <tr><td><div align="right"><a name="10"></a><a href="#10">10</a></div></td><td class="codeLine">     * code by Vincent Weber, www.webRtistik.nl</td></tr>
-     <tr><td><div align="right"><a name="11"></a><a href="#11">11</a></div></td><td class="codeLine">     *</td></tr>
-     <tr><td><div align="right"><a name="12"></a><a href="#12">12</a></div></td><td class="codeLine">     * @uses $wp_roles</td></tr>
-     <tr><td><div align="right"><a name="13"></a><a href="#13">13</a></div></td><td class="codeLine">     * @return $user_roles</td></tr>
-     <tr><td><div align="right"><a name="14"></a><a href="#14">14</a></div></td><td class="codeLine">     */</td></tr>
-     <tr><td><div align="right"><a name="15"></a><a href="#15">15</a></div></td><td class="codeLine">    public function get_all_user_roles() {</td></tr>
-     <tr><td><div align="right"><a name="16"></a><a href="#16">16</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="17"></a><a href="#17">17</a></div></td><td class="codeLine">        global $wp_roles;</td></tr>
-     <tr><td><div align="right"><a name="18"></a><a href="#18">18</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="19"></a><a href="#19">19</a></div></td><td class="codeLine">        $user_roles = array ();</td></tr>
-     <tr><td><div align="right"><a name="20"></a><a href="#20">20</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="21"></a><a href="#21">21</a></div></td><td class="codeLine">        if ( isset( $wp_roles-&gt;roles ) &amp;&amp; is_array( $wp_roles-&gt;roles ) ) {</td></tr>
-     <tr class="danger"><td><div align="right"><a name="22"></a><a href="#22">22</a></div></td><td class="codeLine">            foreach ( $wp_roles-&gt;roles as $role =&gt; $data ) {</td></tr>
-     <tr class="danger"><td><div align="right"><a name="23"></a><a href="#23">23</a></div></td><td class="codeLine">                array_push( $user_roles, $role );</td></tr>
-     <tr><td><div align="right"><a name="24"></a><a href="#24">24</a></div></td><td class="codeLine">                // $data contains caps, maybe for later use..</td></tr>
-     <tr class="danger"><td><div align="right"><a name="25"></a><a href="#25">25</a></div></td><td class="codeLine">            }</td></tr>
-     <tr class="danger"><td><div align="right"><a name="26"></a><a href="#26">26</a></div></td><td class="codeLine">        }</td></tr>
-     <tr><td><div align="right"><a name="27"></a><a href="#27">27</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="28"></a><a href="#28">28</a></div></td><td class="codeLine">        // exclude the new bbPress roles</td></tr>
-     <tr class="danger"><td><div align="right"><a name="29"></a><a href="#29">29</a></div></td><td class="codeLine">        $user_roles = array_diff( $user_roles, array (</td></tr>
-     <tr class="danger"><td><div align="right"><a name="30"></a><a href="#30">30</a></div></td><td class="codeLine">                'bbp_keymaster',</td></tr>
-     <tr class="danger"><td><div align="right"><a name="31"></a><a href="#31">31</a></div></td><td class="codeLine">                'bbp_moderator',</td></tr>
-     <tr class="danger"><td><div align="right"><a name="32"></a><a href="#32">32</a></div></td><td class="codeLine">                'bbp_participant',</td></tr>
-     <tr class="danger"><td><div align="right"><a name="33"></a><a href="#33">33</a></div></td><td class="codeLine">                'bbp_spectator',</td></tr>
-     <tr><td><div align="right"><a name="34"></a><a href="#34">34</a></div></td><td class="codeLine">                'bbp_blocked'</td></tr>
-     <tr class="danger"><td><div align="right"><a name="35"></a><a href="#35">35</a></div></td><td class="codeLine">        ) );</td></tr>
-     <tr><td><div align="right"><a name="36"></a><a href="#36">36</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="37"></a><a href="#37">37</a></div></td><td class="codeLine">        return $user_roles;</td></tr>
-     <tr><td><div align="right"><a name="38"></a><a href="#38">38</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="39"></a><a href="#39">39</a></div></td><td class="codeLine">    }</td></tr>
-     <tr><td><div align="right"><a name="40"></a><a href="#40">40</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="41"></a><a href="#41">41</a></div></td><td class="codeLine">    /**</td></tr>
-     <tr><td><div align="right"><a name="42"></a><a href="#42">42</a></div></td><td class="codeLine">     * _mw_adminimize_get_all_user_roles_names() - Returns an array with all user roles_names in it.</td></tr>
-     <tr><td><div align="right"><a name="43"></a><a href="#43">43</a></div></td><td class="codeLine">     * Inclusive self defined roles (for example with the 'Role Manager' plugin).</td></tr>
-     <tr><td><div align="right"><a name="44"></a><a href="#44">44</a></div></td><td class="codeLine">     *</td></tr>
-     <tr><td><div align="right"><a name="45"></a><a href="#45">45</a></div></td><td class="codeLine">     * @uses $wp_roles</td></tr>
-     <tr><td><div align="right"><a name="46"></a><a href="#46">46</a></div></td><td class="codeLine">     * @return $user_roles_names</td></tr>
-     <tr><td><div align="right"><a name="47"></a><a href="#47">47</a></div></td><td class="codeLine">     */</td></tr>
-     <tr><td><div align="right"><a name="48"></a><a href="#48">48</a></div></td><td class="codeLine">    public function get_all_user_roles_names() {</td></tr>
-     <tr><td><div align="right"><a name="49"></a><a href="#49">49</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="50"></a><a href="#50">50</a></div></td><td class="codeLine">        global $wp_roles;</td></tr>
-     <tr><td><div align="right"><a name="51"></a><a href="#51">51</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="52"></a><a href="#52">52</a></div></td><td class="codeLine">        $user_roles_names = array ();</td></tr>
-     <tr><td><div align="right"><a name="53"></a><a href="#53">53</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="54"></a><a href="#54">54</a></div></td><td class="codeLine">        foreach ( $wp_roles-&gt;role_names as $role_name =&gt; $data ) {</td></tr>
-     <tr class="danger"><td><div align="right"><a name="55"></a><a href="#55">55</a></div></td><td class="codeLine">            if ( function_exists( 'translate_user_role' ) )</td></tr>
-     <tr class="danger"><td><div align="right"><a name="56"></a><a href="#56">56</a></div></td><td class="codeLine">                $data = translate_user_role( $data );</td></tr>
-     <tr><td><div align="right"><a name="57"></a><a href="#57">57</a></div></td><td class="codeLine">            else</td></tr>
-     <tr class="danger"><td><div align="right"><a name="58"></a><a href="#58">58</a></div></td><td class="codeLine">                $data = translate_with_context( $data );</td></tr>
-     <tr><td><div align="right"><a name="59"></a><a href="#59">59</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="60"></a><a href="#60">60</a></div></td><td class="codeLine">            array_push( $user_roles_names, $data );</td></tr>
-     <tr class="danger"><td><div align="right"><a name="61"></a><a href="#61">61</a></div></td><td class="codeLine">        }</td></tr>
-     <tr><td><div align="right"><a name="62"></a><a href="#62">62</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="63"></a><a href="#63">63</a></div></td><td class="codeLine">        // exclude the new bbPress roles</td></tr>
-     <tr class="danger"><td><div align="right"><a name="64"></a><a href="#64">64</a></div></td><td class="codeLine">        $user_roles_names = array_diff( $user_roles_names, array (</td></tr>
-     <tr class="danger"><td><div align="right"><a name="65"></a><a href="#65">65</a></div></td><td class="codeLine">                __( 'Keymaster', 'bbpress' ),</td></tr>
-     <tr class="danger"><td><div align="right"><a name="66"></a><a href="#66">66</a></div></td><td class="codeLine">                __( 'Moderator', 'bbpress' ),</td></tr>
-     <tr class="danger"><td><div align="right"><a name="67"></a><a href="#67">67</a></div></td><td class="codeLine">                __( 'Participant', 'bbpress' ),</td></tr>
-     <tr class="danger"><td><div align="right"><a name="68"></a><a href="#68">68</a></div></td><td class="codeLine">                __( 'Spectator', 'bbpress' ),</td></tr>
-     <tr class="danger"><td><div align="right"><a name="69"></a><a href="#69">69</a></div></td><td class="codeLine">                __( 'Blocked', 'bbpress' )</td></tr>
-     <tr class="danger"><td><div align="right"><a name="70"></a><a href="#70">70</a></div></td><td class="codeLine">        ) );</td></tr>
-     <tr><td><div align="right"><a name="71"></a><a href="#71">71</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="72"></a><a href="#72">72</a></div></td><td class="codeLine">        return $user_roles_names;</td></tr>
-     <tr><td><div align="right"><a name="73"></a><a href="#73">73</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="74"></a><a href="#74">74</a></div></td><td class="codeLine">    }</td></tr>
-     <tr><td><div align="right"><a name="75"></a><a href="#75">75</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="76"></a><a href="#76">76</a></div></td><td class="codeLine">    /**</td></tr>
-     <tr><td><div align="right"><a name="77"></a><a href="#77">77</a></div></td><td class="codeLine">     * Get all admin bar items from settings</td></tr>
-     <tr><td><div align="right"><a name="78"></a><a href="#78">78</a></div></td><td class="codeLine">     *</td></tr>
-     <tr><td><div align="right"><a name="79"></a><a href="#79">79</a></div></td><td class="codeLine">     * @since 1.8.1 01/10/2013</td></tr>
-     <tr><td><div align="right"><a name="80"></a><a href="#80">80</a></div></td><td class="codeLine">     * @return void</td></tr>
-     <tr><td><div align="right"><a name="81"></a><a href="#81">81</a></div></td><td class="codeLine">     */</td></tr>
-     <tr><td><div align="right"><a name="82"></a><a href="#82">82</a></div></td><td class="codeLine">    public function get_admin_bar_items() {</td></tr>
-     <tr><td><div align="right"><a name="83"></a><a href="#83">83</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="84"></a><a href="#84">84</a></div></td><td class="codeLine">        $admin_bar_items = $this-&gt;get_option( 'adminbar_nodes' );</td></tr>
-     <tr class="danger"><td><div align="right"><a name="85"></a><a href="#85">85</a></div></td><td class="codeLine">        return $admin_bar_items;</td></tr>
-     <tr><td><div align="right"><a name="86"></a><a href="#86">86</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="87"></a><a href="#87">87</a></div></td><td class="codeLine">    }</td></tr>
-     <tr><td><div align="right"><a name="88"></a><a href="#88">88</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="89"></a><a href="#89">89</a></div></td><td class="codeLine">    public function recursive_in_array( $needle, $haystack ) {</td></tr>
-     <tr><td><div align="right"><a name="90"></a><a href="#90">90</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="91"></a><a href="#91">91</a></div></td><td class="codeLine">        if ( '' != $haystack ) {</td></tr>
-     <tr class="danger"><td><div align="right"><a name="92"></a><a href="#92">92</a></div></td><td class="codeLine">            foreach ( $haystack as $stalk ) {</td></tr>
-     <tr class="danger"><td><div align="right"><a name="93"></a><a href="#93">93</a></div></td><td class="codeLine">                if ( $needle == $stalk || (is_array( $stalk ) &amp;&amp; $this-&gt;recursive_in_array( $needle, $stalk ) ) ) {</td></tr>
-     <tr class="danger"><td><div align="right"><a name="94"></a><a href="#94">94</a></div></td><td class="codeLine">                    return TRUE;</td></tr>
-     <tr><td><div align="right"><a name="95"></a><a href="#95">95</a></div></td><td class="codeLine">                }</td></tr>
-     <tr class="danger"><td><div align="right"><a name="96"></a><a href="#96">96</a></div></td><td class="codeLine">            }</td></tr>
-     <tr class="danger"><td><div align="right"><a name="97"></a><a href="#97">97</a></div></td><td class="codeLine">            return FALSE;</td></tr>
-     <tr><td><div align="right"><a name="98"></a><a href="#98">98</a></div></td><td class="codeLine">        }</td></tr>
-     <tr><td><div align="right"><a name="99"></a><a href="#99">99</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="100"></a><a href="#100">100</a></div></td><td class="codeLine">    }</td></tr>
-     <tr><td><div align="right"><a name="101"></a><a href="#101">101</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="102"></a><a href="#102">102</a></div></td><td class="codeLine">    public function exclude_super_admin() {</td></tr>
-     <tr><td><div align="right"><a name="103"></a><a href="#103">103</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="104"></a><a href="#104">104</a></div></td><td class="codeLine">        // exclude super admin</td></tr>
-     <tr class="danger"><td><div align="right"><a name="105"></a><a href="#105">105</a></div></td><td class="codeLine">        if ( function_exists( 'is_super_admin' )</td></tr>
-     <tr class="danger"><td><div align="right"><a name="106"></a><a href="#106">106</a></div></td><td class="codeLine">            &amp;&amp; is_super_admin()</td></tr>
-     <tr class="danger"><td><div align="right"><a name="107"></a><a href="#107">107</a></div></td><td class="codeLine">            &amp;&amp; true == $this-&gt;get_option( 'exclude_super_admin' )</td></tr>
-     <tr class="danger"><td><div align="right"><a name="108"></a><a href="#108">108</a></div></td><td class="codeLine">        )</td></tr>
-     <tr class="danger"><td><div align="right"><a name="109"></a><a href="#109">109</a></div></td><td class="codeLine">            return TRUE;</td></tr>
-     <tr><td><div align="right"><a name="110"></a><a href="#110">110</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="111"></a><a href="#111">111</a></div></td><td class="codeLine">        return FALSE;</td></tr>
-     <tr><td><div align="right"><a name="112"></a><a href="#112">112</a></div></td><td class="codeLine">    }</td></tr>
-     <tr><td><div align="right"><a name="113"></a><a href="#113">113</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="6"></a><a href="#6">6</a></div></td><td class="codeLine">    /**</td></tr>
+     <tr><td><div align="right"><a name="7"></a><a href="#7">7</a></div></td><td class="codeLine">     * _mw_adminimize_get_all_user_roles() - Returns an array with all user roles(names) in it.</td></tr>
+     <tr><td><div align="right"><a name="8"></a><a href="#8">8</a></div></td><td class="codeLine">     * Inclusive self defined roles (for example with the 'Role Manager' plugin).</td></tr>
+     <tr><td><div align="right"><a name="9"></a><a href="#9">9</a></div></td><td class="codeLine">     * code by Vincent Weber, www.webRtistik.nl</td></tr>
+     <tr><td><div align="right"><a name="10"></a><a href="#10">10</a></div></td><td class="codeLine">     *</td></tr>
+     <tr><td><div align="right"><a name="11"></a><a href="#11">11</a></div></td><td class="codeLine">     * @uses $wp_roles</td></tr>
+     <tr><td><div align="right"><a name="12"></a><a href="#12">12</a></div></td><td class="codeLine">     * @return $user_roles</td></tr>
+     <tr><td><div align="right"><a name="13"></a><a href="#13">13</a></div></td><td class="codeLine">     */</td></tr>
+     <tr><td><div align="right"><a name="14"></a><a href="#14">14</a></div></td><td class="codeLine">    public function get_all_user_roles() {</td></tr>
+     <tr><td><div align="right"><a name="15"></a><a href="#15">15</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="16"></a><a href="#16">16</a></div></td><td class="codeLine">        global $wp_roles;</td></tr>
+     <tr><td><div align="right"><a name="17"></a><a href="#17">17</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="18"></a><a href="#18">18</a></div></td><td class="codeLine">        $user_roles = array ();</td></tr>
+     <tr><td><div align="right"><a name="19"></a><a href="#19">19</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="20"></a><a href="#20">20</a></div></td><td class="codeLine">        if ( isset( $wp_roles-&gt;roles ) &amp;&amp; is_array( $wp_roles-&gt;roles ) ) {</td></tr>
+     <tr class="danger"><td><div align="right"><a name="21"></a><a href="#21">21</a></div></td><td class="codeLine">            foreach ( $wp_roles-&gt;roles as $role =&gt; $data ) {</td></tr>
+     <tr class="danger"><td><div align="right"><a name="22"></a><a href="#22">22</a></div></td><td class="codeLine">                array_push( $user_roles, $role );</td></tr>
+     <tr><td><div align="right"><a name="23"></a><a href="#23">23</a></div></td><td class="codeLine">                // $data contains caps, maybe for later use..</td></tr>
+     <tr class="danger"><td><div align="right"><a name="24"></a><a href="#24">24</a></div></td><td class="codeLine">            }</td></tr>
+     <tr class="danger"><td><div align="right"><a name="25"></a><a href="#25">25</a></div></td><td class="codeLine">        }</td></tr>
+     <tr><td><div align="right"><a name="26"></a><a href="#26">26</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="27"></a><a href="#27">27</a></div></td><td class="codeLine">        // exclude the new bbPress roles</td></tr>
+     <tr class="danger"><td><div align="right"><a name="28"></a><a href="#28">28</a></div></td><td class="codeLine">        $user_roles = array_diff( $user_roles, array (</td></tr>
+     <tr class="danger"><td><div align="right"><a name="29"></a><a href="#29">29</a></div></td><td class="codeLine">                'bbp_keymaster',</td></tr>
+     <tr class="danger"><td><div align="right"><a name="30"></a><a href="#30">30</a></div></td><td class="codeLine">                'bbp_moderator',</td></tr>
+     <tr class="danger"><td><div align="right"><a name="31"></a><a href="#31">31</a></div></td><td class="codeLine">                'bbp_participant',</td></tr>
+     <tr class="danger"><td><div align="right"><a name="32"></a><a href="#32">32</a></div></td><td class="codeLine">                'bbp_spectator',</td></tr>
+     <tr><td><div align="right"><a name="33"></a><a href="#33">33</a></div></td><td class="codeLine">                'bbp_blocked'</td></tr>
+     <tr class="danger"><td><div align="right"><a name="34"></a><a href="#34">34</a></div></td><td class="codeLine">        ) );</td></tr>
+     <tr><td><div align="right"><a name="35"></a><a href="#35">35</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="36"></a><a href="#36">36</a></div></td><td class="codeLine">        return $user_roles;</td></tr>
+     <tr><td><div align="right"><a name="37"></a><a href="#37">37</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="38"></a><a href="#38">38</a></div></td><td class="codeLine">    }</td></tr>
+     <tr><td><div align="right"><a name="39"></a><a href="#39">39</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="40"></a><a href="#40">40</a></div></td><td class="codeLine">    /**</td></tr>
+     <tr><td><div align="right"><a name="41"></a><a href="#41">41</a></div></td><td class="codeLine">     * _mw_adminimize_get_all_user_roles_names() - Returns an array with all user roles_names in it.</td></tr>
+     <tr><td><div align="right"><a name="42"></a><a href="#42">42</a></div></td><td class="codeLine">     * Inclusive self defined roles (for example with the 'Role Manager' plugin).</td></tr>
+     <tr><td><div align="right"><a name="43"></a><a href="#43">43</a></div></td><td class="codeLine">     *</td></tr>
+     <tr><td><div align="right"><a name="44"></a><a href="#44">44</a></div></td><td class="codeLine">     * @uses $wp_roles</td></tr>
+     <tr><td><div align="right"><a name="45"></a><a href="#45">45</a></div></td><td class="codeLine">     * @return $user_roles_names</td></tr>
+     <tr><td><div align="right"><a name="46"></a><a href="#46">46</a></div></td><td class="codeLine">     */</td></tr>
+     <tr><td><div align="right"><a name="47"></a><a href="#47">47</a></div></td><td class="codeLine">    public function get_all_user_roles_names() {</td></tr>
+     <tr><td><div align="right"><a name="48"></a><a href="#48">48</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="49"></a><a href="#49">49</a></div></td><td class="codeLine">        global $wp_roles;</td></tr>
+     <tr><td><div align="right"><a name="50"></a><a href="#50">50</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="51"></a><a href="#51">51</a></div></td><td class="codeLine">        $user_roles_names = array ();</td></tr>
+     <tr><td><div align="right"><a name="52"></a><a href="#52">52</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="53"></a><a href="#53">53</a></div></td><td class="codeLine">        foreach ( $wp_roles-&gt;role_names as $role_name =&gt; $data ) {</td></tr>
+     <tr class="danger"><td><div align="right"><a name="54"></a><a href="#54">54</a></div></td><td class="codeLine">            if ( function_exists( 'translate_user_role' ) )</td></tr>
+     <tr class="danger"><td><div align="right"><a name="55"></a><a href="#55">55</a></div></td><td class="codeLine">                $data = translate_user_role( $data );</td></tr>
+     <tr><td><div align="right"><a name="56"></a><a href="#56">56</a></div></td><td class="codeLine">            else</td></tr>
+     <tr class="danger"><td><div align="right"><a name="57"></a><a href="#57">57</a></div></td><td class="codeLine">                $data = translate_with_context( $data );</td></tr>
+     <tr><td><div align="right"><a name="58"></a><a href="#58">58</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="59"></a><a href="#59">59</a></div></td><td class="codeLine">            array_push( $user_roles_names, $data );</td></tr>
+     <tr class="danger"><td><div align="right"><a name="60"></a><a href="#60">60</a></div></td><td class="codeLine">        }</td></tr>
+     <tr><td><div align="right"><a name="61"></a><a href="#61">61</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="62"></a><a href="#62">62</a></div></td><td class="codeLine">        // exclude the new bbPress roles</td></tr>
+     <tr class="danger"><td><div align="right"><a name="63"></a><a href="#63">63</a></div></td><td class="codeLine">        $user_roles_names = array_diff( $user_roles_names, array (</td></tr>
+     <tr class="danger"><td><div align="right"><a name="64"></a><a href="#64">64</a></div></td><td class="codeLine">                __( 'Keymaster', 'bbpress' ),</td></tr>
+     <tr class="danger"><td><div align="right"><a name="65"></a><a href="#65">65</a></div></td><td class="codeLine">                __( 'Moderator', 'bbpress' ),</td></tr>
+     <tr class="danger"><td><div align="right"><a name="66"></a><a href="#66">66</a></div></td><td class="codeLine">                __( 'Participant', 'bbpress' ),</td></tr>
+     <tr class="danger"><td><div align="right"><a name="67"></a><a href="#67">67</a></div></td><td class="codeLine">                __( 'Spectator', 'bbpress' ),</td></tr>
+     <tr class="danger"><td><div align="right"><a name="68"></a><a href="#68">68</a></div></td><td class="codeLine">                __( 'Blocked', 'bbpress' )</td></tr>
+     <tr class="danger"><td><div align="right"><a name="69"></a><a href="#69">69</a></div></td><td class="codeLine">        ) );</td></tr>
+     <tr><td><div align="right"><a name="70"></a><a href="#70">70</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="71"></a><a href="#71">71</a></div></td><td class="codeLine">        return $user_roles_names;</td></tr>
+     <tr><td><div align="right"><a name="72"></a><a href="#72">72</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="73"></a><a href="#73">73</a></div></td><td class="codeLine">    }</td></tr>
+     <tr><td><div align="right"><a name="74"></a><a href="#74">74</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="75"></a><a href="#75">75</a></div></td><td class="codeLine">    /**</td></tr>
+     <tr><td><div align="right"><a name="76"></a><a href="#76">76</a></div></td><td class="codeLine">     * Get all admin bar items from settings</td></tr>
+     <tr><td><div align="right"><a name="77"></a><a href="#77">77</a></div></td><td class="codeLine">     *</td></tr>
+     <tr><td><div align="right"><a name="78"></a><a href="#78">78</a></div></td><td class="codeLine">     * @since 1.8.1 01/10/2013</td></tr>
+     <tr><td><div align="right"><a name="79"></a><a href="#79">79</a></div></td><td class="codeLine">     * @return void</td></tr>
+     <tr><td><div align="right"><a name="80"></a><a href="#80">80</a></div></td><td class="codeLine">     */</td></tr>
+     <tr><td><div align="right"><a name="81"></a><a href="#81">81</a></div></td><td class="codeLine">    public function get_admin_bar_items() {</td></tr>
+     <tr><td><div align="right"><a name="82"></a><a href="#82">82</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="83"></a><a href="#83">83</a></div></td><td class="codeLine">        $admin_bar_items = $this-&gt;get_option( 'adminbar_nodes' );</td></tr>
+     <tr class="danger"><td><div align="right"><a name="84"></a><a href="#84">84</a></div></td><td class="codeLine">        return $admin_bar_items;</td></tr>
+     <tr><td><div align="right"><a name="85"></a><a href="#85">85</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="86"></a><a href="#86">86</a></div></td><td class="codeLine">    }</td></tr>
+     <tr><td><div align="right"><a name="87"></a><a href="#87">87</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="88"></a><a href="#88">88</a></div></td><td class="codeLine">    public function recursive_in_array( $needle, $haystack ) {</td></tr>
+     <tr><td><div align="right"><a name="89"></a><a href="#89">89</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="90"></a><a href="#90">90</a></div></td><td class="codeLine">        if ( '' != $haystack ) {</td></tr>
+     <tr class="danger"><td><div align="right"><a name="91"></a><a href="#91">91</a></div></td><td class="codeLine">            foreach ( $haystack as $stalk ) {</td></tr>
+     <tr class="danger"><td><div align="right"><a name="92"></a><a href="#92">92</a></div></td><td class="codeLine">                if ( $needle == $stalk || (is_array( $stalk ) &amp;&amp; $this-&gt;recursive_in_array( $needle, $stalk ) ) ) {</td></tr>
+     <tr class="danger"><td><div align="right"><a name="93"></a><a href="#93">93</a></div></td><td class="codeLine">                    return TRUE;</td></tr>
+     <tr><td><div align="right"><a name="94"></a><a href="#94">94</a></div></td><td class="codeLine">                }</td></tr>
+     <tr class="danger"><td><div align="right"><a name="95"></a><a href="#95">95</a></div></td><td class="codeLine">            }</td></tr>
+     <tr class="danger"><td><div align="right"><a name="96"></a><a href="#96">96</a></div></td><td class="codeLine">            return FALSE;</td></tr>
+     <tr><td><div align="right"><a name="97"></a><a href="#97">97</a></div></td><td class="codeLine">        }</td></tr>
+     <tr><td><div align="right"><a name="98"></a><a href="#98">98</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="99"></a><a href="#99">99</a></div></td><td class="codeLine">    }</td></tr>
+     <tr><td><div align="right"><a name="100"></a><a href="#100">100</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="101"></a><a href="#101">101</a></div></td><td class="codeLine">    public function exclude_super_admin() {</td></tr>
+     <tr><td><div align="right"><a name="102"></a><a href="#102">102</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="103"></a><a href="#103">103</a></div></td><td class="codeLine">        // exclude super admin</td></tr>
+     <tr class="danger"><td><div align="right"><a name="104"></a><a href="#104">104</a></div></td><td class="codeLine">        if ( function_exists( 'is_super_admin' )</td></tr>
+     <tr class="danger"><td><div align="right"><a name="105"></a><a href="#105">105</a></div></td><td class="codeLine">            &amp;&amp; is_super_admin()</td></tr>
+     <tr class="danger"><td><div align="right"><a name="106"></a><a href="#106">106</a></div></td><td class="codeLine">            &amp;&amp; true == $this-&gt;get_option( 'exclude_super_admin' )</td></tr>
+     <tr class="danger"><td><div align="right"><a name="107"></a><a href="#107">107</a></div></td><td class="codeLine">        )</td></tr>
+     <tr class="danger"><td><div align="right"><a name="108"></a><a href="#108">108</a></div></td><td class="codeLine">            return TRUE;</td></tr>
+     <tr><td><div align="right"><a name="109"></a><a href="#109">109</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="110"></a><a href="#110">110</a></div></td><td class="codeLine">        return FALSE;</td></tr>
+     <tr><td><div align="right"><a name="111"></a><a href="#111">111</a></div></td><td class="codeLine">    }</td></tr>
+     <tr><td><div align="right"><a name="112"></a><a href="#112">112</a></div></td><td class="codeLine"></td></tr>
 
     </tbody>
    </table>
@@ -300,7 +299,7 @@
      <span class="warning"><strong>Dead Code</strong></span>
     </p>
     <p>
-     <small>Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.2.13</a> using <a href="http://www.php.net/" target="_top">PHP 5.4.4</a> and <a href="http://phpunit.de/">PHPUnit 3.7.28</a> at Wed Jan 8 5:51:38 UTC 2014.</small>
+     <small>Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.2.13</a> using <a href="http://www.php.net/" target="_top">PHP 5.4.4</a> and <a href="http://phpunit.de/">PHPUnit 3.7.28</a> at Wed Jan 8 7:41:41 UTC 2014.</small>
     </p>
    </footer>
   </div>

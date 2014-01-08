@@ -40,7 +40,7 @@ class ExtendedStandardClassTest extends \WP_UnitTestCase
 
 		$this->object->set_id( $this->id );
 
-		$result = ( Dummy_ESC::$id === $this->id );
+		$result = ( $this->object->id === $this->id );
 
 		$this->assertTrue( $result );
 
@@ -131,6 +131,7 @@ class ExtendedStandardClassTest extends \WP_UnitTestCase
 	 */
 	public function testGetIterator_direkt() {
 
+		$this->object->set_id( $this->id );
 		$arr = $this->object->getIterator();
 
 		$result = ( is_array( $arr ) || $arr instanceof Traversable );
@@ -143,11 +144,11 @@ class ExtendedStandardClassTest extends \WP_UnitTestCase
 	 */
 	public function testPrint_error_indirekt() {
 
-		Dummy_ESC::$show_errors = true;
+		Dummy_ESC::$show_errors = false;
 
-		$this->setExpectedException( 'PHPUnit_Framework_Error_Notice' );
+// 		$this->setExpectedException( 'PHPUnit_Framework_Error_Notice' );
 		$this->assertFalse( $this->object->set_id( '' ) );
-		$this->assertFalse( $this->object->bar );
+		$this->assertNull( $this->object->bar );
 
 	}
 

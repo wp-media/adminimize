@@ -1,12 +1,6 @@
 <?php
 require_once dirname( dirname( dirname( __FILE__ ) ) ) . '\classes\adminimize_storage.php';
 
-class Dummy_WPDB extends wpdb
-{
-	public function get_dbh() {
-		return $this->dbh;
-	}
-}
 /**
  * Test class for PluginHeaderReader
  */
@@ -15,14 +9,27 @@ class Adminimize_StorageTest extends \WP_UnitTestCase
 
 	public $object = null;
 
-	public $id = 'test';
+	public $id = '';
+
+	public $sample = array();
 
 	/**
 	 * Sets up the fixture, for example, opens a network connection.
 	 * This method is called before a test is executed.
 	 */
 	public function setUp() {
-		$this->object = new Adminimize_Storage( $this->id );
+
+		global $wpdb;
+
+		$wpdb->db_connect();
+
+		$this->object = new Adminimize_Storage();
+		$this->id     = $this->object->id;
+
+		$this->sample = array( 'foo' => 'bar', 'baz' => 1 );
+
+		add_option( Adminimize_Storage::OPTION_KEY, $this->sample );
+
 	}
 
 	/**
@@ -35,11 +42,7 @@ class Adminimize_StorageTest extends \WP_UnitTestCase
 	 * @covers Adminimize_Storage::__construct()
 	 */
 	public function testConstruct() {
-
-		$ref = new ReflectionClass( $this->object );
-		$id = $ref->getStaticPropertyValue( 'id' );
-
-		$this->assertTrue( $id === $this->id );
+		$this->assertTrue( $this->object->id === $this->id );
 
 	}
 
@@ -58,16 +61,46 @@ class Adminimize_StorageTest extends \WP_UnitTestCase
 	/**
 	 * @covers Adminimize_Storage::get_option()
 	 */
-	public function testGet_option() {
+	public function testGet_All_Options() {
 
-// 		$db = new wpdb( 'root', '', 'wp_unittesting', 'localhost' );
-// // 		var_dump( $db->get_dbh() );
-// 		var_dump( $db->_real_escape( 'hello#world' ) );
-
-
-		// get all options
 		$options = $this->object->get_option();
-		var_dump( $options );
+		$this->assertCount( count( $this->sample ), $options );
+
+
+	}
+
+	/**
+	 * @covers Adminimize_Storage::get_option()
+	 */
+	public function testGet_Single_Option() {
+
+		$option = $this->object->get_option( 'foo' );
+		$this->assertTrue( 'bar' === $option );
+
+		// fail
+		$option = $this->object->get_option( 'igel' );
+		$this->assertNull( $option );
+
+	}
+
+	/**
+	 * @covers Adminimize_Storage::set_option()
+	 */
+	public function testSet_Option() {
+
+		$old_value    = $this->sample['foo'];
+		$new_value    = 'bazbazbaz';
+
+		$result = $this->object->set_option( 'foo', $new_value );
+		$stored_value = $this->object->get_option( 'foo' );
+
+		$this->assertTrue( $result );
+		$this->assertTrue( $stored_value === $new_value );
+		$this->assertFalse( $stored_value === $old_value );
+
+		// fail
+		$result = $this->object->set_option( '', $new_value );
+		$this->assertFalse( $result );
 
 	}
 
