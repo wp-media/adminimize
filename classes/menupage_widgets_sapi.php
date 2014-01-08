@@ -19,6 +19,18 @@ abstract class MenuPage_Widgets_SAPI
 {
 
 	/**
+	 * Flag to show if the initialisation of the class was successfull
+	 * @var bool
+	 */
+	public $valid_instance = false;
+
+	/**
+	 * Error messages
+	 * @var array
+	 */
+	public $errors = array();
+
+	/**
 	 * Option Group
 	 * @var string
 	 */
@@ -112,31 +124,41 @@ abstract class MenuPage_Widgets_SAPI
 			add_action( 'admin_init', array( $this, 'settings_api_init' ), 1, 0 );
 			add_action( 'admin_menu', array( $this, 'add_menu_page' ), 10, 0 );
 
+			$this->valid_instance = true;
+
 		}
 
+	}
+
+	/**
+	 * Returns error messages
+	 * @return array
+	 */
+	public function get_errors() {
+		return $this->errors;
 	}
 
 	/**
 	 * Checks if everything was correctly setup
 	 * @return boolean True on success, false on error
 	 */
-	private function check_settings() {
+	public function check_settings() {
 
 		$success = true;
 
 		if ( empty( $this->page_callback ) ) {
-			trigger_error( 'The page callback can not be empty!', E_USER_WARNING );
 			$success = false;
+			$this->errors['page_callback'] = 'The page callback can not be empty!';
 		}
 
 		if ( empty( $this->option_name ) ) {
-			trigger_error( 'The options-name can not be empty!', E_USER_WARNING );
 			$success = false;
+			$this->errors['option_name'] = 'The options-name can not be empty!';
 		}
 
 		if ( empty( $this->widgets ) ) {
-			trigger_error( 'There are no registered widgets for this page to display!', E_USER_WARNING );
 			$success = false;
+			$this->errors['no_widgets'] = 'There are no registered widgets for this page to display!';
 		}
 
 		// create a random menu slug if it is not set

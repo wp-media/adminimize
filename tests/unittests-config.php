@@ -6,7 +6,7 @@ if ( isset( $match[1] ) )
 else
 	die( 'Could not resolve ABSPATH' );
 
-define( 'DB_NAME', 'wptest' );
+define( 'DB_NAME', 'wp_unittesting' );
 define( 'DB_USER', 'root' );
 define( 'DB_PASSWORD', '' );
 define( 'DB_HOST', 'localhost' );
@@ -17,7 +17,7 @@ define( 'WPLANG', '' );
 define( 'WP_DEBUG', true );
 define( 'WP_DEBUG_DISPLAY', true );
 
-define( 'WP_TESTS_DOMAIN', 'wpse.tld' );
+define( 'WP_TESTS_DOMAIN', 'inpsyde.tld' );
 define( 'WP_TESTS_EMAIL', 'neun12@gmail.com' );
 define( 'WP_TESTS_TITLE', 'Test Blog' );
 define( 'WP_TESTS_NETWORK_TITLE', 'Test Network' );

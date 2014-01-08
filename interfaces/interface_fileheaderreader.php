@@ -20,4 +20,8 @@ interface I_FileHeaderReader
 	 */
 	public static function get_instance( $id );
 
+	/**
+	 * Reads the file headers
+	 */
+	public static function read();
 }

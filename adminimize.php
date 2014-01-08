@@ -120,10 +120,11 @@ function adminimize_on_admin_init() {
 
 	global $datacontainer;
 
-	Plugin_Starter::$basename = $datacontainer->get( 'basename' );
-	Plugin_Starter::load_textdomain( PluginHeaderReader::get_instance( 'adminimize' ) );
+	$pluginstarter = new Plugin_Starter();
 
-	Plugin_Starter::load_styles( __FILE__, array( 'adminimize-style' => '/css/style.css' ) );
+	$pluginstarter->basename = $datacontainer->get( 'basename' );
+	$pluginstarter->load_textdomain( PluginHeaderReader::get_instance( 'adminimize' ) );
+	$pluginstarter->load_styles( array( 'adminimize-style' => array( 'file' => '/css/style.css', 'enqueue' => false ) ) );
 
 }
 

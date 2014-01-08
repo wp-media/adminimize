@@ -8,8 +8,14 @@
  */
 if ( ! class_exists( 'PluginHeaderReader' ) ) {
 
-class PluginHeaderReader extends FileHeaderReader
+class PluginHeaderReader extends ExtendedStandardClass implements I_FileHeaderReader
 {
+
+	/**
+	 * Array for id's
+	 * @var arary
+	 */
+	public static $ids = array();
 
 	/**
 	 * Reads the plugin header from given filename
@@ -28,6 +34,43 @@ class PluginHeaderReader extends FileHeaderReader
 		if ( empty( $id ) || ! is_string( $id ) )
 			return false;
 
+		self::$id = $id;
+		self::$ids[ $id ] = $filename;
+
+		if ( ! is_object( self::$data ) )
+			self::$data = new stdClass();
+
+		self::$data->$id = new stdClass();
+
+		return true;
+
+	}
+
+	/**
+	 * Returns an instance of itself
+	 * @return object Instance of itself or null on invalid id
+	 */
+	public static function get_instance( $id ) {
+
+		if ( ! key_exists( $id, self::$ids ) )
+			return null;
+
+		self::$id = $id;
+		self::read();
+
+		return new self();
+
+	}
+
+	/**
+	 * Read the plugin headers
+	 * @return boolean True on suuccess, false on error
+	 */
+	public static function read() {
+
+		$id       = self::$id;
+		$filename = self::$ids[ $id ];
+
 		if ( ! function_exists( 'get_plugin_data' ) )
 			require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
 
@@ -36,9 +79,9 @@ class PluginHeaderReader extends FileHeaderReader
 		if ( ! empty( $headers ) && is_array( $headers ) ) {
 
 			if ( ! is_object( self::$data ) )
-				self::$data = new \stdClass();
+				self::$data = new stdClass();
 
-			self::$data->$id = new \stdClass();
+			self::$data->$id = new stdClass();
 
 			self::$data->$id = (object) $headers;
 			self::$data->$id->headers_was_set = true;
@@ -48,21 +91,6 @@ class PluginHeaderReader extends FileHeaderReader
 		unset( $headers );
 
 		return true;
-
-	}
-
-	/**
-	 * Returns an instance of itself
-	 * @return object Instance of itself
-	 */
-	public static function get_instance( $id ) {
-
-		if ( empty( $id ) || ! is_string( $id ) )
-			trigger_error( 'Error in ' . __METHOD__ . ': parameter (string) id expected', E_USER_NOTICE );
-
-		self::$id = $id;
-
-		return new self();
 
 	}
 
