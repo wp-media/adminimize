@@ -6,7 +6,7 @@
 	* Class providing the widgets for My_Widget_SAPI_MenuPage
 	*
 	*/
-class Adminimize_New_Widgets implements I_Adminimize_Widgets_Provider
+class Adminimize_Widgets implements I_Adminimize_Widgets_Provider
 {
 
 	/**

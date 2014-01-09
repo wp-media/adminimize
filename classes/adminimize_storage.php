@@ -25,7 +25,7 @@ class Adminimize_Storage extends ExtendedStandardClass
 	 * Class containing the widget handling
 	 * @var string
 	 */
-	const WIDGET_CLASS = 'Adminimize_New_Widgets';
+	const WIDGET_CLASS = 'Adminimize_Widgets';
 
 	/**
 	 * Directory where to find the widgets.
