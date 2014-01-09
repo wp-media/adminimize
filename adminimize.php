@@ -134,3 +134,14 @@ function adminimize_add_options_page() {
 	$storage->options_page_object = $opt_page;
 
 }
+
+
+/*
+ * Just for developing !!!
+ */
+register_deactivation_hook( __FILE__, 'adminimize_deactivate' );
+
+function adminimize_deactivate() {
+	$opt_key = Adminimize_Storage::OPTION_KEY;
+	delete_option( $opt_key );
+}
