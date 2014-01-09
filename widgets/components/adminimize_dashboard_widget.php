@@ -21,10 +21,9 @@ class Adminimize_Dashboard_Widget extends Adminimize_Base_Widget implements I_Ad
 		 * starting the widget content
 		 */
 		$attr = $this->get_attributes();
-		$option = $attr['option_name'];
 
 		// get widgets
-		$widgets = $this->storage->get_option( $option );
+		$widgets = $this->storage->get_option( $attr['option_name'] );
 
 		// no widgets?
 		if ( empty( $widgets ) ) {
@@ -52,7 +51,7 @@ class Adminimize_Dashboard_Widget extends Adminimize_Base_Widget implements I_Ad
 		} else {
 
 			// create table
-			echo $this->templater->get_table( $option, $widgets, 'dashboard' );
+			echo $this->templater->get_table( $attr['option_name'], $widgets, 'dashboard' );
 
 		}
 
