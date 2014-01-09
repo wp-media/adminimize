@@ -83,10 +83,7 @@ class MenuPage_Widgets_SAPITest extends \WP_UnitTestCase
 	 */
 	public function testConstruct() {
 
-		$this->assertTrue( $this->object->valid_instance );
-
-		$bad_object = new Dummy_MPWS( false );
-		$this->assertFalse( $bad_object->valid_instance );
+		$this->assertEmpty( $this->object->errors );
 
 	}
 
@@ -97,19 +94,19 @@ class MenuPage_Widgets_SAPITest extends \WP_UnitTestCase
 
 		$this->assertTrue( $this->object->check_settings() );
 
-		$this->object->widgets = array();
-		$this->assertFalse( $this->object->check_settings() );
-		$this->assertCount( 1, $this->object->errors );
-		$this->assertArrayHasKey( 'no_widgets', $this->object->errors );
+// 		$this->object->widgets = array();
+// 		$this->assertFalse( $this->object->check_settings() );
+// 		$this->assertCount( 1, $this->object->errors );
+// 		$this->assertArrayHasKey( 'no_widgets', $this->object->errors );
 
 		$this->object->option_name = '';
 		$this->assertFalse( $this->object->check_settings() );
-		$this->assertCount( 2, $this->object->errors );
+		$this->assertCount( 1, $this->object->errors );
 		$this->assertArrayHasKey( 'option_name', $this->object->errors );
 
 		$this->object->page_callback = '';
 		$this->assertFalse( $this->object->check_settings() );
-		$this->assertCount( 3, $this->object->errors );
+		$this->assertCount( 2, $this->object->errors );
 		$this->assertArrayHasKey( 'page_callback', $this->object->errors );
 
 	}

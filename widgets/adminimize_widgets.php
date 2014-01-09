@@ -7,7 +7,7 @@
  *
  */
 
-class Adminimize_Widgets
+class Adminimize_Widgets implements I_Adminimize_Widgets_Provider
 {
 	/**
 	 * Container for common functions
@@ -83,7 +83,7 @@ class Adminimize_Widgets
 	 * Returns an array with the used option names
 	 * @return array
 	 */
-	public static function get_used_options() {
+	public function get_used_options() {
 
 		$used_options = array();
 
@@ -104,7 +104,7 @@ class Adminimize_Widgets
 	 * Get the attributes of each available widget
 	 * @return array
 	 */
-	public function get_widgets_attributes() {
+	public function get_widgets() {
 
 		// set dummy options if none was set before
 		if ( empty( $this->screen ) )

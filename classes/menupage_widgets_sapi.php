@@ -19,12 +19,6 @@ abstract class MenuPage_Widgets_SAPI
 {
 
 	/**
-	 * Flag to show if the initialisation of the class was successfull
-	 * @var bool
-	 */
-	public $valid_instance = false;
-
-	/**
 	 * Tag used for the automatic generated js-script
 	 * @var string
 	 */
@@ -35,6 +29,12 @@ abstract class MenuPage_Widgets_SAPI
 	 * @var array
 	 */
 	public $errors = array();
+
+	/**
+	 * Templater object to render templates
+	 * @var object
+	 */
+	public $templater = null;
 
 	/**
 	 * Option Group
@@ -130,8 +130,6 @@ abstract class MenuPage_Widgets_SAPI
 			add_action( 'admin_init', array( $this, 'settings_api_init' ), 1, 0 );
 			add_action( 'admin_menu', array( $this, 'add_menu_page' ), 10, 0 );
 
-			$this->valid_instance = true;
-
 		}
 
 	}
@@ -160,11 +158,6 @@ abstract class MenuPage_Widgets_SAPI
 		if ( empty( $this->option_name ) ) {
 			$success = false;
 			$this->errors['option_name'] = 'The options-name can not be empty!';
-		}
-
-		if ( empty( $this->widgets ) ) {
-			$success = false;
-			$this->errors['no_widgets'] = 'There are no registered widgets for this page to display!';
 		}
 
 		// create a random menu slug if it is not set
@@ -308,14 +301,19 @@ abstract class MenuPage_Widgets_SAPI
 	 * @param object $screen Screen object
 	 * @return boolean
 	 */
-	public function display_widgets( $screen = null ) {
+	public function display_widgets() {
 
 		global $pagenow;
 
-		if ( null === $screen )
+		if ( empty( $this->screen ) ) {
+			$this->errors['no_screen'] = 'There is no screen-object set for this page!';
 			return false;
+		}
 
-		$templater = new Adminimize_Templater();
+		if ( empty( $this->widgets ) ) {
+			$this->errors['no_widgets'] = 'There are no registered widgets for this page to display!';
+			return false;
+		}
 
 		$pattern = '
 		<form action="{page}" method="POST">
@@ -333,7 +331,7 @@ abstract class MenuPage_Widgets_SAPI
 		$this->v              = new stdClass();
 		$this->v->page        = esc_attr( admin_url( 'options.php' ) );
 		$this->v->slug        = $this->menu_slug;
-		$this->v->class       = 'columns-' . $screen->get_columns();
+		$this->v->class       = 'columns-' . $this->screen->get_columns();
 		$this->v->sapi_fields = $this->get_settings_fields();
 
 		$this->v->nonce1      = wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false, false );
@@ -354,7 +352,7 @@ abstract class MenuPage_Widgets_SAPI
 		foreach ( $this->columns as $key => $context )
 			$this->postboxes_callback( $context, $key );
 
-		$templater->printf( $pattern, $this->v );
+		$this->templater->printf( $pattern, $this->v );
 
 	}
 
@@ -367,7 +365,7 @@ abstract class MenuPage_Widgets_SAPI
 
 		$this->v->metaboxes .= sprintf(
 				'<div id="postbox-container-%d" class="postbox-container">%s</div>',
-				( $key + 1 ), $this->get_widgets_html( $this->screen->id, $context, '' )
+				( $key + 1 ), $this->get_widgets_html( $this->screen, $context, '' )
 		);
 
 	}
@@ -381,9 +379,11 @@ abstract class MenuPage_Widgets_SAPI
 	 * @return string
 	 */
 	protected function get_widgets_html( $screen, $context, $object ) {
+
 		ob_start();
 		do_meta_boxes( $screen, $context, $object );
 		return ob_get_clean();
+
 	}
 
 	/**
@@ -391,9 +391,11 @@ abstract class MenuPage_Widgets_SAPI
 	 * @return string
 	 */
 	protected function get_settings_fields() {
+
 		ob_start();
 		settings_fields( $this->option_group );
 		return ob_get_clean();
+
 	}
 
 	/**

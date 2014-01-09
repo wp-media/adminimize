@@ -10,13 +10,14 @@ class Adminimize_Validate_Options extends Adminimize_Storage
 
 		$output = array();
 		$output = $this->get_option();
+		$widgets = $this->widget_object;
 
 // var_dump( 'INPUT', $input );
 // var_dump( 'OUTPUT', $output );
 
 		$common       = new Adminimize_Common();
 		$user_roles   = $common->get_all_user_roles();
-		$used_options = Adminimize_Widgets::get_used_options();
+		$used_options = $widgets->get_used_options();
 
 		foreach( $used_options as $option ) {
 

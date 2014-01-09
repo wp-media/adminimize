@@ -30,6 +30,12 @@ class Adminimize_Options_Page extends MenuPage_Widgets_SAPI
 	public $widgets = array();
 
 	/**
+	 * Name of the class which provide the widgets
+	 * @var string
+	 */
+	public $widget_class = '';
+
+	/**
 	 * Callback to display the page (main) content
 	 * @var array
 	 */
@@ -71,6 +77,16 @@ class Adminimize_Options_Page extends MenuPage_Widgets_SAPI
 
 		$this->storage    = new Adminimize_Storage();
 		$this->plugindata = new PluginHeaderReader( 'adminimize' );
+//TODO Maybe change dependency of templater
+		$this->templater  = new Adminimize_Templater();
+
+		$widget_class     = Adminimize_Storage::WIDGET_CLASS;
+
+		if ( ! class_exists( $widget_class ) )
+			require_once sprintf( '%s/widgets/%s.php', $this->storage->basedir, strtolower( $widget_class ) );
+
+		$this->widget_class = new $widget_class();
+		$this->storage->widget_object = $this->widget_class;
 
 		$this->option_group = Adminimize_Storage::OPTION_KEY;
 		$this->option_name  = Adminimize_Storage::OPTION_KEY;
@@ -84,10 +100,26 @@ class Adminimize_Options_Page extends MenuPage_Widgets_SAPI
 		$this->layout_columns = array( 'max' => 3, 'default' => 1 );
 		$this->columns        = array( 'column1', 'column2', 'column3' );
 
-		// setup $widgets array
-		$this->get_available_widgets();
+		$this->get_available_widgets( $this->widget_class );
 
 		parent::__construct();
+
+// TODO Remove die(var_dump()) after testing
+		if ( ! empty( $this->errors ) )
+			die( var_dump( $this->errors ) );
+
+	}
+
+	/**
+	 * Set $screen to the current screen
+	 * @return object	$current_screen	Screen object of the current screen
+	 */
+	public function get_screen() {
+
+		global $current_screen;
+
+		return ( isset( $current_screen ) ) ?
+			$current_screen : null;
 
 	}
 
@@ -109,22 +141,18 @@ class Adminimize_Options_Page extends MenuPage_Widgets_SAPI
 	/**
 	 * Get the available widgets
 	 */
-	protected function get_available_widgets() {
+	protected function get_available_widgets( I_Adminimize_Widgets_Provider $widget_class ) {
 
-		$widget_class = Adminimize_Storage::WIDGET_CLASS;
+		if ( empty( $this->screen ) )
+			$this->get_screen();
 
-		if ( ! class_exists( $widget_class ) || ! is_a( $my_widgets, $widget_class ) ) {
-			require_once $this->storage->basedir . '/widgets/adminimize_widgets.php';
-			$my_widgets = new $widget_class();
-		}
+		$widget_class->option_name = $this->option_name;
+		$widget_class->screen      = $this->screen;
+		$widget_class->columns     = $this->columns;
 
-		$my_widgets->option_name = $this->option_name;
-		$my_widgets->screen      = $this->screen;
-		$my_widgets->columns     = $this->columns;
+		$widget_class->default_widget_attr = $this->get_default_widget_attributes();
 
-		$my_widgets->default_widget_attr = $this->get_default_widget_attributes();
-
-		$this->widgets = $my_widgets->get_widgets_attributes();
+		$this->widgets = $widget_class->get_widgets();
 
 		return true;
 
@@ -154,7 +182,7 @@ class Adminimize_Options_Page extends MenuPage_Widgets_SAPI
 
 		printf( '<h1>%s</h1>', esc_html( __( 'Adminimize', $this->plugindata->TextDomain ) ) );
 
-		$this->display_widgets( $this->screen );
+		$this->display_widgets();
 
 		echo '</div>'; //  end class wrap
 
