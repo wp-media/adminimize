@@ -17,9 +17,6 @@ class Adminimize_Dashboard_Widget extends Adminimize_Base_Widget implements I_Ad
 
 	public function content() {
 
-		/*
-		 * starting the widget content
-		 */
 		$attr = $this->get_attributes();
 
 		// get widgets
