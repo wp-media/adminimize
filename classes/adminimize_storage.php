@@ -21,6 +21,12 @@ class Adminimize_Storage extends ExtendedStandardClass
 	 */
 	const MENU_SLUG  = 'adminimizeoop';
 
+	/**
+	 * Class containing the widget handling
+	 * @var string
+	 */
+	const WIDGET_CLASS = 'Adminimize_Widgets';
+
 	public function __construct() {
 
 		$this->set_id( self::ID );

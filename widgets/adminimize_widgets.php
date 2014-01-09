@@ -72,8 +72,8 @@ class Adminimize_Widgets
 				self::$templater = new Adminimize_Templater();
 
 			// setup the $widget_attr array
-			if ( empty( self::$widgets_attr ) )
-				$this->get_widgets_attributes();
+// 			if ( empty( self::$widgets_attr ) )
+// 				$this->get_widgets_attributes();
 
 		}
 
@@ -111,7 +111,7 @@ class Adminimize_Widgets
 			$this->screen = '';
 
 		if ( empty( $this->columns ) )
-			$this->columns = array_fill( 0, 90, 'foo' );
+			$this->columns = array_fill( 0, 1, 'foo' );
 
 		// get the widgets
 		$widgets     = get_class_methods( __CLASS__ );
@@ -164,28 +164,30 @@ class Adminimize_Widgets
 		/*
 		 * starting the widget content
 		 */
-		$option = $attr['option_name'];
+// 		$option = $attr['option_name'];
 
-		$test_option = self::$common->get_option( $option );
+// 		$test_option = self::$common->get_option( $option );
 
-		$v1 = new stdClass();
-		$v1->text     = __( 'A test option: ', ADMINIMIZE_TEXTDOMAIN );
-		$v1->name_arg = self::$templater->get_name_arg( $option );
-		$v1->value    = ( ! empty( $test_option ) ) ? $test_option : 'nothing';
-		$v1_pat       = '{text} <input type="text" size="10" value="{value}" {name_arg} />';
+// 		$v1 = new stdClass();
+// 		$v1->text     = __( 'A test option: ', ADMINIMIZE_TEXTDOMAIN );
+// 		$v1->name_arg = self::$templater->get_name_arg( $option );
+// 		$v1->value    = ( ! empty( $test_option ) ) ? $test_option : 'nothing';
+// 		$v1_pat       = '{text} <input type="text" size="10" value="{value}" {name_arg} />';
 
-		$v2 = new stdClass();
-		$v2->label = self::$templater->get_label( $option );
-		$v2->input = self::$templater->sprintf( $v1_pat, $v1 );
-		$v2_pat    = '{label}{input}</label>';
+// 		$v2 = new stdClass();
+// 		$v2->label = self::$templater->get_label( $option );
+// 		$v2->input = self::$templater->sprintf( $v1_pat, $v1 );
+// 		$v2_pat    = '{label}{input}</label>';
 
-		$out  = self::$templater->sprintf( $v2_pat, $v2 );
-		$out .= self::$templater->get_submitbutton();
+// 		$out  = self::$templater->sprintf( $v2_pat, $v2 );
+// 		$out .= self::$templater->get_submitbutton();
 
 // 		print( $out );
 
-		var_dump( self::$common->get_option() );
+// 		var_dump( self::$common->get_option() );
 
+		$screen = get_current_screen();
+		var_dump( array_keys( $GLOBALS['wp_meta_boxes'] ), $screen->id );
 	}
 
 	/**

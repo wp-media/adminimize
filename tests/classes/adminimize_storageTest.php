@@ -28,7 +28,8 @@ class Adminimize_StorageTest extends \WP_UnitTestCase
 
 		$this->sample = array( 'foo' => 'bar', 'baz' => 1 );
 
-		add_option( Adminimize_Storage::OPTION_KEY, $this->sample );
+		// use update_option() to override existing data
+		update_option( Adminimize_Storage::OPTION_KEY, $this->sample );
 
 	}
 
@@ -36,7 +37,9 @@ class Adminimize_StorageTest extends \WP_UnitTestCase
 	 * Tears down the fixture, for example, closes a network connection.
 	 * This method is called after a test is executed.
 	 */
-	public function tearDown() {}
+	public function tearDown() {
+		delete_option( Adminimize_Storage::OPTION_KEY );
+	}
 
 	/**
 	 * @covers Adminimize_Storage::__construct()

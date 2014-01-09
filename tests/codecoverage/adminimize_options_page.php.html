@@ -138,7 +138,7 @@
      </tr>
 
      <tr>
-      <td class="danger" colspan="4">&nbsp;<a href="#134">validate_callback( $input )</a></td>
+      <td class="danger" colspan="4">&nbsp;<a href="#137">validate_callback( $input )</a></td>
       <td class="danger big">       <div class="progress progress-danger" style="width: 100px;">
         <div class="bar" style="width: 0.00%;"></div>
        </div>
@@ -155,7 +155,7 @@
      </tr>
 
      <tr>
-      <td class="danger" colspan="4">&nbsp;<a href="#146">main_frame()</a></td>
+      <td class="danger" colspan="4">&nbsp;<a href="#149">main_frame()</a></td>
       <td class="danger big">       <div class="progress progress-danger" style="width: 100px;">
         <div class="bar" style="width: 0.00%;"></div>
        </div>
@@ -172,7 +172,7 @@
      </tr>
 
      <tr>
-      <td class="danger" colspan="4">&nbsp;<a href="#163">default_widget()</a></td>
+      <td class="danger" colspan="4">&nbsp;<a href="#166">default_widget()</a></td>
       <td class="danger big">       <div class="progress progress-danger" style="width: 100px;">
         <div class="bar" style="width: 0.00%;"></div>
        </div>
@@ -306,7 +306,7 @@
      <tr><td><div align="right"><a name="111"></a><a href="#111">111</a></div></td><td class="codeLine">     */</td></tr>
      <tr><td><div align="right"><a name="112"></a><a href="#112">112</a></div></td><td class="codeLine">    protected function get_available_widgets() {</td></tr>
      <tr><td><div align="right"><a name="113"></a><a href="#113">113</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="114"></a><a href="#114">114</a></div></td><td class="codeLine">        $widget_class = 'Adminimize_Widgets';</td></tr>
+     <tr class="danger"><td><div align="right"><a name="114"></a><a href="#114">114</a></div></td><td class="codeLine">        $widget_class = Adminimize_Storage::WIDGET_CLASS;</td></tr>
      <tr><td><div align="right"><a name="115"></a><a href="#115">115</a></div></td><td class="codeLine"></td></tr>
      <tr class="danger"><td><div align="right"><a name="116"></a><a href="#116">116</a></div></td><td class="codeLine">        if ( ! class_exists( $widget_class ) || ! is_a( $my_widgets, $widget_class ) ) {</td></tr>
      <tr class="danger"><td><div align="right"><a name="117"></a><a href="#117">117</a></div></td><td class="codeLine">            require_once $this-&gt;storage-&gt;basedir . '/widgets/adminimize_widgets.php';</td></tr>
@@ -316,51 +316,54 @@
      <tr class="danger"><td><div align="right"><a name="121"></a><a href="#121">121</a></div></td><td class="codeLine">        $my_widgets-&gt;option_name = $this-&gt;option_name;</td></tr>
      <tr class="danger"><td><div align="right"><a name="122"></a><a href="#122">122</a></div></td><td class="codeLine">        $my_widgets-&gt;screen      = $this-&gt;screen;</td></tr>
      <tr class="danger"><td><div align="right"><a name="123"></a><a href="#123">123</a></div></td><td class="codeLine">        $my_widgets-&gt;columns     = $this-&gt;columns;</td></tr>
-     <tr class="danger"><td><div align="right"><a name="124"></a><a href="#124">124</a></div></td><td class="codeLine">        $my_widgets-&gt;default_widget_attr = $this-&gt;get_default_widget_attributes();</td></tr>
-     <tr><td><div align="right"><a name="125"></a><a href="#125">125</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="126"></a><a href="#126">126</a></div></td><td class="codeLine">        $this-&gt;widgets = $my_widgets-&gt;get_widgets_attributes();</td></tr>
-     <tr><td><div align="right"><a name="127"></a><a href="#127">127</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="128"></a><a href="#128">128</a></div></td><td class="codeLine">    }</td></tr>
-     <tr><td><div align="right"><a name="129"></a><a href="#129">129</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="130"></a><a href="#130">130</a></div></td><td class="codeLine">    /**</td></tr>
-     <tr><td><div align="right"><a name="131"></a><a href="#131">131</a></div></td><td class="codeLine">     * Implementation to validate the options</td></tr>
-     <tr><td><div align="right"><a name="132"></a><a href="#132">132</a></div></td><td class="codeLine">     * @see MenuPage_Widgets_SAPI::validate_callback()</td></tr>
-     <tr><td><div align="right"><a name="133"></a><a href="#133">133</a></div></td><td class="codeLine">     */</td></tr>
-     <tr><td><div align="right"><a name="134"></a><a href="#134">134</a></div></td><td class="codeLine">    public function validate_callback( $input ){</td></tr>
-     <tr><td><div align="right"><a name="135"></a><a href="#135">135</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="136"></a><a href="#136">136</a></div></td><td class="codeLine">        $validate = new Adminimize_Validate_Options();</td></tr>
-     <tr><td><div align="right"><a name="137"></a><a href="#137">137</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="138"></a><a href="#138">138</a></div></td><td class="codeLine">        return $validate-&gt;validate( $input );</td></tr>
-     <tr><td><div align="right"><a name="139"></a><a href="#139">139</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="140"></a><a href="#140">140</a></div></td><td class="codeLine">    }</td></tr>
-     <tr><td><div align="right"><a name="141"></a><a href="#141">141</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="142"></a><a href="#142">142</a></div></td><td class="codeLine">    /**</td></tr>
-     <tr><td><div align="right"><a name="143"></a><a href="#143">143</a></div></td><td class="codeLine">     * Display the page</td></tr>
-     <tr><td><div align="right"><a name="144"></a><a href="#144">144</a></div></td><td class="codeLine">     * @see MenuPage_Widgets::main_frame()</td></tr>
-     <tr><td><div align="right"><a name="145"></a><a href="#145">145</a></div></td><td class="codeLine">     */</td></tr>
-     <tr><td><div align="right"><a name="146"></a><a href="#146">146</a></div></td><td class="codeLine">    public function main_frame() {</td></tr>
-     <tr><td><div align="right"><a name="147"></a><a href="#147">147</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="148"></a><a href="#148">148</a></div></td><td class="codeLine">        wp_enqueue_script( 'adminimize-backend' );</td></tr>
-     <tr><td><div align="right"><a name="149"></a><a href="#149">149</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="150"></a><a href="#150">150</a></div></td><td class="codeLine">        echo '&lt;div class=&quot;adminimize_wrap&quot;&gt;';</td></tr>
-     <tr><td><div align="right"><a name="151"></a><a href="#151">151</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="152"></a><a href="#152">152</a></div></td><td class="codeLine">        printf( '&lt;h1&gt;%s&lt;/h1&gt;', esc_html( __( 'Adminimize', $this-&gt;plugindata-&gt;TextDomain ) ) );</td></tr>
-     <tr><td><div align="right"><a name="153"></a><a href="#153">153</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="154"></a><a href="#154">154</a></div></td><td class="codeLine">        $this-&gt;display_widgets( $this-&gt;screen );</td></tr>
-     <tr><td><div align="right"><a name="155"></a><a href="#155">155</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="156"></a><a href="#156">156</a></div></td><td class="codeLine">        echo '&lt;/div&gt;'; //  end class wrap</td></tr>
-     <tr><td><div align="right"><a name="157"></a><a href="#157">157</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="158"></a><a href="#158">158</a></div></td><td class="codeLine">    }</td></tr>
-     <tr><td><div align="right"><a name="159"></a><a href="#159">159</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="160"></a><a href="#160">160</a></div></td><td class="codeLine">    /**</td></tr>
-     <tr><td><div align="right"><a name="161"></a><a href="#161">161</a></div></td><td class="codeLine">     * Default callback for the widget content if no callback was set</td></tr>
-     <tr><td><div align="right"><a name="162"></a><a href="#162">162</a></div></td><td class="codeLine">     */</td></tr>
-     <tr><td><div align="right"><a name="163"></a><a href="#163">163</a></div></td><td class="codeLine">    public function default_widget() {</td></tr>
-     <tr><td><div align="right"><a name="164"></a><a href="#164">164</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="165"></a><a href="#165">165</a></div></td><td class="codeLine">        printf( '&lt;p&gt;%s&lt;/p&gt;', esc_html( __( 'There was no content or callback defined for this widget.', $this-&gt;plugindata-&gt;TextDomain ) ) );</td></tr>
-     <tr><td><div align="right"><a name="166"></a><a href="#166">166</a></div></td><td class="codeLine"></td></tr>
-     <tr class="danger"><td><div align="right"><a name="167"></a><a href="#167">167</a></div></td><td class="codeLine">    }</td></tr>
-     <tr><td><div align="right"><a name="168"></a><a href="#168">168</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="124"></a><a href="#124">124</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="125"></a><a href="#125">125</a></div></td><td class="codeLine">        $my_widgets-&gt;default_widget_attr = $this-&gt;get_default_widget_attributes();</td></tr>
+     <tr><td><div align="right"><a name="126"></a><a href="#126">126</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="127"></a><a href="#127">127</a></div></td><td class="codeLine">        $this-&gt;widgets = $my_widgets-&gt;get_widgets_attributes();</td></tr>
+     <tr><td><div align="right"><a name="128"></a><a href="#128">128</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="129"></a><a href="#129">129</a></div></td><td class="codeLine">        return true;</td></tr>
+     <tr><td><div align="right"><a name="130"></a><a href="#130">130</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="131"></a><a href="#131">131</a></div></td><td class="codeLine">    }</td></tr>
+     <tr><td><div align="right"><a name="132"></a><a href="#132">132</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="133"></a><a href="#133">133</a></div></td><td class="codeLine">    /**</td></tr>
+     <tr><td><div align="right"><a name="134"></a><a href="#134">134</a></div></td><td class="codeLine">     * Implementation to validate the options</td></tr>
+     <tr><td><div align="right"><a name="135"></a><a href="#135">135</a></div></td><td class="codeLine">     * @see MenuPage_Widgets_SAPI::validate_callback()</td></tr>
+     <tr><td><div align="right"><a name="136"></a><a href="#136">136</a></div></td><td class="codeLine">     */</td></tr>
+     <tr><td><div align="right"><a name="137"></a><a href="#137">137</a></div></td><td class="codeLine">    public function validate_callback( $input ){</td></tr>
+     <tr><td><div align="right"><a name="138"></a><a href="#138">138</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="139"></a><a href="#139">139</a></div></td><td class="codeLine">        $validate = new Adminimize_Validate_Options();</td></tr>
+     <tr><td><div align="right"><a name="140"></a><a href="#140">140</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="141"></a><a href="#141">141</a></div></td><td class="codeLine">        return $validate-&gt;validate( $input );</td></tr>
+     <tr><td><div align="right"><a name="142"></a><a href="#142">142</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="143"></a><a href="#143">143</a></div></td><td class="codeLine">    }</td></tr>
+     <tr><td><div align="right"><a name="144"></a><a href="#144">144</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="145"></a><a href="#145">145</a></div></td><td class="codeLine">    /**</td></tr>
+     <tr><td><div align="right"><a name="146"></a><a href="#146">146</a></div></td><td class="codeLine">     * Display the page</td></tr>
+     <tr><td><div align="right"><a name="147"></a><a href="#147">147</a></div></td><td class="codeLine">     * @see MenuPage_Widgets::main_frame()</td></tr>
+     <tr><td><div align="right"><a name="148"></a><a href="#148">148</a></div></td><td class="codeLine">     */</td></tr>
+     <tr><td><div align="right"><a name="149"></a><a href="#149">149</a></div></td><td class="codeLine">    public function main_frame() {</td></tr>
+     <tr><td><div align="right"><a name="150"></a><a href="#150">150</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="151"></a><a href="#151">151</a></div></td><td class="codeLine">        wp_enqueue_script( 'adminimize-backend' );</td></tr>
+     <tr><td><div align="right"><a name="152"></a><a href="#152">152</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="153"></a><a href="#153">153</a></div></td><td class="codeLine">        echo '&lt;div class=&quot;adminimize_wrap&quot;&gt;';</td></tr>
+     <tr><td><div align="right"><a name="154"></a><a href="#154">154</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="155"></a><a href="#155">155</a></div></td><td class="codeLine">        printf( '&lt;h1&gt;%s&lt;/h1&gt;', esc_html( __( 'Adminimize', $this-&gt;plugindata-&gt;TextDomain ) ) );</td></tr>
+     <tr><td><div align="right"><a name="156"></a><a href="#156">156</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="157"></a><a href="#157">157</a></div></td><td class="codeLine">        $this-&gt;display_widgets( $this-&gt;screen );</td></tr>
+     <tr><td><div align="right"><a name="158"></a><a href="#158">158</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="159"></a><a href="#159">159</a></div></td><td class="codeLine">        echo '&lt;/div&gt;'; //  end class wrap</td></tr>
+     <tr><td><div align="right"><a name="160"></a><a href="#160">160</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="161"></a><a href="#161">161</a></div></td><td class="codeLine">    }</td></tr>
+     <tr><td><div align="right"><a name="162"></a><a href="#162">162</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="163"></a><a href="#163">163</a></div></td><td class="codeLine">    /**</td></tr>
+     <tr><td><div align="right"><a name="164"></a><a href="#164">164</a></div></td><td class="codeLine">     * Default callback for the widget content if no callback was set</td></tr>
+     <tr><td><div align="right"><a name="165"></a><a href="#165">165</a></div></td><td class="codeLine">     */</td></tr>
+     <tr><td><div align="right"><a name="166"></a><a href="#166">166</a></div></td><td class="codeLine">    public function default_widget() {</td></tr>
+     <tr><td><div align="right"><a name="167"></a><a href="#167">167</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="168"></a><a href="#168">168</a></div></td><td class="codeLine">        printf( '&lt;p&gt;%s&lt;/p&gt;', esc_html( __( 'There was no content or callback defined for this widget.', $this-&gt;plugindata-&gt;TextDomain ) ) );</td></tr>
+     <tr><td><div align="right"><a name="169"></a><a href="#169">169</a></div></td><td class="codeLine"></td></tr>
+     <tr class="danger"><td><div align="right"><a name="170"></a><a href="#170">170</a></div></td><td class="codeLine">    }</td></tr>
+     <tr><td><div align="right"><a name="171"></a><a href="#171">171</a></div></td><td class="codeLine"></td></tr>
 
     </tbody>
    </table>
@@ -372,7 +375,7 @@
      <span class="warning"><strong>Dead Code</strong></span>
     </p>
     <p>
-     <small>Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.2.13</a> using <a href="http://www.php.net/" target="_top">PHP 5.4.4</a> and <a href="http://phpunit.de/">PHPUnit 3.7.28</a> at Wed Jan 8 7:41:41 UTC 2014.</small>
+     <small>Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.2.13</a> using <a href="http://www.php.net/" target="_top">PHP 5.4.4</a> and <a href="http://phpunit.de/">PHPUnit 3.7.28</a> at Wed Jan 8 9:32:53 UTC 2014.</small>
     </p>
    </footer>
   </div>

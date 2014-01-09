@@ -25,6 +25,12 @@ abstract class MenuPage_Widgets_SAPI
 	public $valid_instance = false;
 
 	/**
+	 * Tag used for the automatic generated js-script
+	 * @var string
+	 */
+	public $script_tag = '';
+
+	/**
 	 * Error messages
 	 * @var array
 	 */
@@ -210,6 +216,8 @@ abstract class MenuPage_Widgets_SAPI
 		add_action( 'load-' . $this->pagehook, array( $this, 'enqueue_scripts') );
 		add_action( 'load-' . $this->pagehook, array( $this, 'add_screen_options' ) );
 
+		return $this->pagehook;
+
 	}
 
 	/**
@@ -217,8 +225,10 @@ abstract class MenuPage_Widgets_SAPI
 	 */
 	public function enqueue_scripts() {
 
+		$this->script_tag = 'menupage_widgets' . rand( 0, 999 );
+
 		wp_enqueue_script(
-			'menupage_widgets',
+			$this->script_tag,
 			plugin_dir_url( __FILE__ ) . basename( __FILE__ ),
 			array( 'jquery', 'postbox'  ),
 			false,
@@ -240,7 +250,8 @@ abstract class MenuPage_Widgets_SAPI
 
 		add_screen_option( 'layout_columns', $this->layout_columns );
 
-		$this->add_widgets();
+		if ( ! empty( $this->widgets ) )
+			$this->add_widgets();
 
 	}
 

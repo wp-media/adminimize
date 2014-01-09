@@ -14,7 +14,31 @@ class Dummy_MPWS extends MenuPage_Widgets_SAPI {
 		$this->validate_callback = array( $this, 'validate_callback' );
 		$this->option_name       = 'test';
 		$this->option_group      = 'test';
-		$this->widgets           = array( 1 );
+		$this->columns           = array( 'column1', 'column2' );
+		$this->widgets           = array(
+		  array(
+		    'id'            => 'test_1_widget',
+		    'title'         => 'Test Options Widget for Developers',
+		    'callback'      => array ( $this, 'dummy_text' ) ,
+		    'post_type'     => '',
+		    'context'       => 'column1',
+		    'priority'      => 'default',
+		    'callback_args' => array (),
+		    'option_name'   => 'test_1_option',
+		  ),
+
+		  array(
+		    'id'            => 'test_2_widget',
+		    'title'         => 'Test Options Widget for Developers',
+		    'callback'      => array ( $this, 'dummy_text' ) ,
+		    'post_type'     => '',
+		    'context'       => 'column2',
+		    'priority'      => 'default',
+		    'callback_args' => array (),
+		    'option_name'   => 'test_2_option',
+		  ),
+
+		);
 
 		parent::__construct();
 
@@ -39,7 +63,13 @@ class MenuPage_Widgets_SAPITest extends \WP_UnitTestCase
 	 * This method is called before a test is executed.
 	 */
 	public function setUp() {
-	 $this->object = new Dummy_MPWS();
+
+		global $wpdb;
+
+		$wpdb->db_connect();
+
+		$this->object = new Dummy_MPWS();
+
 	}
 
 	/**
@@ -111,30 +141,82 @@ class MenuPage_Widgets_SAPITest extends \WP_UnitTestCase
 	 * @covers MenuPage_Widgets_SAPI::add_menu_page()
 	 */
 	public function testAdd_menu_page(){
+
+		wp_set_current_user( 1 );
+
+		$pagehook = $this->object->add_menu_page();
+		$this->assertNotEmpty( $pagehook );
+		$this->assertNotEmpty( $this->object->pagehook );
+
 	}
 
 	/**
 	 * @covers MenuPage_Widgets_SAPI::enqueue_scripts()
 	 */
 	public function testEnqueue_scripts(){
+
+		$this->object->enqueue_scripts();
+		$tag = $this->object->script_tag;
+		$this->assertArrayHasKey( $tag, $GLOBALS['wp_scripts']->registered );
+
 	}
 
 	/**
 	 * @covers MenuPage_Widgets_SAPI::add_screen_options()
 	 */
 	public function testAdd_screen_options(){
+
+		if ( ! function_exists( 'get_current_screen' ) )
+			require_once 'wp-admin/includes/screen.php';
+
+		if ( ! function_exists( 'add_meta_box' ) )
+			require_once 'wp-admin/includes/template.php';
+
+		$pagehook = $this->object->add_menu_page();
+		set_current_screen( $pagehook );
+
+		$this->object->add_screen_options();
+
+		$screen = $this->object->screen;
+		$opts   = $screen->get_options( $pagehook );
+
+		$this->assertArrayHasKey( 'layout_columns', $opts );
+
+		$this->assertEquals( $this->object->layout_columns, $opts['layout_columns'] );
+
 	}
 
 	/**
 	 * @covers MenuPage_Widgets_SAPI::add_widgets()
 	 */
 	public function testAdd_widgets(){
+
+		global $wp_meta_boxes;
+
+		$this->object->add_widgets();
+
+		// test just one column
+		$cols = array_shift( $wp_meta_boxes );
+
+		foreach ( $this->object->widgets as $widget ) {
+			extract( $widget );
+			$this->assertEquals( $widget['id'], $cols[$context][$priority][$id]['id'] );
+		}
+
 	}
 
 	/**
 	 * @covers MenuPage_Widgets_SAPI::display_widgets()
 	 */
 	public function testDisplay_widgets(){
+
+
+// 		ob_start();
+// 		$this->object->display_widgets( $this->object->screen );
+// 		$out = ob_get_flush();
+
+// 		$this->expectOutputString($expectedString);
+
 	}
 
 }

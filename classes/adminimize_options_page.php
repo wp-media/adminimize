@@ -111,7 +111,7 @@ class Adminimize_Options_Page extends MenuPage_Widgets_SAPI
 	 */
 	protected function get_available_widgets() {
 
-		$widget_class = 'Adminimize_Widgets';
+		$widget_class = Adminimize_Storage::WIDGET_CLASS;
 
 		if ( ! class_exists( $widget_class ) || ! is_a( $my_widgets, $widget_class ) ) {
 			require_once $this->storage->basedir . '/widgets/adminimize_widgets.php';
@@ -121,9 +121,12 @@ class Adminimize_Options_Page extends MenuPage_Widgets_SAPI
 		$my_widgets->option_name = $this->option_name;
 		$my_widgets->screen      = $this->screen;
 		$my_widgets->columns     = $this->columns;
+
 		$my_widgets->default_widget_attr = $this->get_default_widget_attributes();
 
 		$this->widgets = $my_widgets->get_widgets_attributes();
+
+		return true;
 
 	}
 

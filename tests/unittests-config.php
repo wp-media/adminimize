@@ -41,6 +41,6 @@ if ( WP_ALLOW_MULTISITE && !defined('WP_INSTALLING') ) {
 	//define( 'SUNRISE', TRUE );
 }
 
-$table_prefix  = 'wp_';
+$table_prefix  = 'adminimize_';
 
 define( 'WP_PHP_BINARY', 'php' );
