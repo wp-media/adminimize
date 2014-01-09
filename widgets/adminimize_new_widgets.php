@@ -51,7 +51,10 @@ class Adminimize_New_Widgets implements I_Adminimize_Widgets_Provider
 	 */
 	public function get_used_options() {
 
-		$used_options = array();
+		if ( ! empty( $this->used_options ) )
+			return $this->used_options;
+
+		$this->used_options = array();
 
 		// get widgets if not already done
 		if ( empty( $this->widgets ) )
@@ -59,10 +62,12 @@ class Adminimize_New_Widgets implements I_Adminimize_Widgets_Provider
 
 		foreach ( $this->widgets as $attr ) {
 			if ( isset( $attr['option_name'] ) )
-				array_push( $used_options, $attr['option_name'] );
+				array_push( $this->used_options, $attr['option_name'] );
 		}
 
-		return array_unique( $used_options );
+		$this->used_options = array_unique( $this->used_options );
+
+		return $this->used_options;
 
 	}
 
