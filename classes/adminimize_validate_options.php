@@ -23,13 +23,12 @@ class Adminimize_Validate_Options extends Adminimize_Storage
 
 			foreach( $user_roles as $role ) {
 
-				$id = sprintf( '%s_%s', $option, $role );
+				$id   = sprintf( '%s_%s', $option, $role );
+				$data = ( isset( $output[$id] ) ) ? $output[$id] :
+					( isset( $input[$id] ) ? $input[$id] : array() );
 
-				if ( isset( $output[$id] ) ) {
-					foreach ( $output[$id] as $key => $value ) {
-						$output[$id][$key] = ( isset( $input[$id][$key] ) && ! empty( $input[$id][$key] ) ) ? true : false;
-					}
-				}
+				foreach ( $data as $key => $value )
+					$output[$id][$key] = ( isset( $input[$id][$key] ) && ! empty( $input[$id][$key] ) ) ? true : false;
 
 			}
 
