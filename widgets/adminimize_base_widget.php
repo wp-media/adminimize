@@ -8,12 +8,14 @@
 class Adminimize_Base_Widget
 {
 	public $storage       = null;
+	public $common        = null;
 	public $templater     = null;
 	public $pluginheaders = null;
 
 	public function __construct() {
 
 		$this->storage       = new Adminimize_Storage();
+		$this->common        = new Adminimize_Common();
 		$this->templater     = new Adminimize_Templater();
 		$this->pluginheaders = new PluginHeaderReader( 'adminimize' );
 
