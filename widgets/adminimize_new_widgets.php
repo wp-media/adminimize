@@ -53,11 +53,11 @@ class Adminimize_New_Widgets implements I_Adminimize_Widgets_Provider
 
 		$used_options = array();
 
-		// create $widgets_attr if not exists
-		if ( empty( self::$widgets_attr ) )
-			new self( true );
+		// get widgets if not already done
+		if ( empty( $this->widgets ) )
+			$this->get_widgets();
 
-		foreach ( self::$widgets_attr as $attr ) {
+		foreach ( $this->widgets as $attr ) {
 			if ( isset( $attr['option_name'] ) )
 				array_push( $used_options, $attr['option_name'] );
 		}
@@ -72,9 +72,10 @@ class Adminimize_New_Widgets implements I_Adminimize_Widgets_Provider
 	 */
 	public function get_widgets() {
 
-		// set dummy options if none was set before
 		if ( empty( $this->columns ) || empty( $this->default_widget_attr ) )
 			return array();
+
+//FIXME Ugly thing... we need a PSR autoloader to fix this
 
 		// make things easy, require the base widget class here
 		if ( ! class_exists( 'Adminimize_Base_Widget' ) )
