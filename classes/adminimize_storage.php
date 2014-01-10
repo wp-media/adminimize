@@ -116,7 +116,7 @@ class Adminimize_Storage extends ExtendedStandardClass
 		$custom_options = $this->get_option( $option_name . '_custom' );
 
 		return ( empty( $custom_options ) ) ?
-			array( 'options' => '', 'values' => '' ) :
+			array( 'options' => array(), 'values' => array(), 'original' => array() ) :
 			array(
 				'options'  => array_keys( $custom_options ),
 				'values'   => array_values( $custom_options ),

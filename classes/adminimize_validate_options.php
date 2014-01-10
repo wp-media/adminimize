@@ -12,12 +12,12 @@ class Adminimize_Validate_Options extends Adminimize_Storage
 		$output  = $this->get_option();
 		$widgets = $this->widget_object;
 
-// var_dump( 'INPUT', $input );
-// var_dump( 'OUTPUT', $output );
-
 		$common       = new Adminimize_Common();
 		$user_roles   = $common->get_all_user_roles();
 		$used_options = $widgets->get_used_options();
+
+// var_dump( 'INPUT', $input['dashboard_widgets_editor'] );
+// var_dump( 'OUTPUT', $output['dashboard_widgets_editor'] );
 
 		foreach( $used_options as $option ) {
 
@@ -27,11 +27,23 @@ class Adminimize_Validate_Options extends Adminimize_Storage
 			foreach( $user_roles as $role ) {
 
 				$id   = sprintf( '%s_%s', $option, $role );
-				$data = ( isset( $output[$id] ) ) ? $output[$id] :
-					( isset( $input[$id] ) ? $input[$id] : array() );
 
-				foreach ( $data as $key => $value )
-					$output[$id][$key] = ( isset( $input[$id][$key] ) && ! empty( $input[$id][$key] ) ) ? true : false;
+				if ( ! key_exists( $id, $input ) )
+					$input[ $id ] = array();
+
+				if ( ! key_exists( $id, $output ) )
+					$output[ $id ] = array();
+
+				$output[$id] = array_merge( $output[ $id ], $input[ $id ] );
+
+				foreach ( $output[ $id ] as $key => $value ) {
+
+					if ( isset( $output[ $id ][ $key ] ) && ! key_exists( $key, $input[ $id ] ) )
+						$output[ $id ][ $key ] = false;
+
+					$output[ $id ][ $key ] = (bool) trim( $output[ $id ][ $key ] );
+
+				}
 
 			}
 
@@ -66,16 +78,61 @@ class Adminimize_Validate_Options extends Adminimize_Storage
 				$output[ $option . '_custom' ] = array_combine( $opts, $vals );
 
 			}
+			/* end sanitize custom options */
 
 		}
 
 
+		/*
+		 * cleanup unused options
+		 */
+		$output = $this->cleanup( $output );
+
+
+// var_dump( 'INPUT', $input['dashboard_widgets_editor'] );
+// var_dump( 'OUTPUT', $output['dashboard_widgets_editor'] );
+
 
 // var_dump( 'INPUT', $input );
-// var_dump( 'OUTPUT', $output['dashboard_widgets_custom']  );
+// $out = array_keys( $output );
+// sort( $out );
+// var_dump( 'OUTPUT', $out );
+// var_dump( $output['dashboard_widgets_editor'] );
 // exit;
 
 		return $output;
+
+	}
+
+	protected function cleanup( $output ) {
+
+		$do_not_clean = array( 'dashboard_widgets', 'adminbar_nodes' );
+
+		foreach ( $output as $key => $value ) {
+
+			if ( in_array( $key, $do_not_clean ) )
+				continue;
+
+			if ( ! is_array( $value ) )
+				if ( empty( $value ) )
+					unset( $output[ $key ] );
+
+			$has_values = false;
+
+			if ( ! is_array( $value ) )
+				continue;
+
+			foreach ( $value as $k => $v )
+				if ( ! empty( $v ) )
+					$has_values = true;
+
+			if ( false == $has_values )
+				unset( $output[ $key ] );
+
+		}
+
+		return $output;
+
 	}
 
 }

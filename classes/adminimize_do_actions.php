@@ -42,12 +42,15 @@ class Adminimize_Do_Actions
 		if ( current_user_can( 'manage_options' ) )
 			$common->set_option( 'dashboard_widgets', $widgets );
 
-		$user       = wp_get_current_user();
-		$user_roles = $user->roles;
+		$user         = wp_get_current_user();
+		$user_roles   = $user->roles;
+//FIXME Using 'custom' as role name is dangerous if someone creates an role and nmed it 'custom'!!
+		$user_roles[] = 'custom'; // add the custom options 'role'
 
 		foreach ( $user_roles as $role ) {
 
 			$disabled = $common->get_option( 'dashboard_widgets_' . $role );
+
 			if ( ! is_array( $disabled ) )
 				continue;
 

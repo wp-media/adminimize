@@ -307,7 +307,7 @@ INNER;
 
 				$checked = checked(
 						true,
-						( isset( $disabled[$id] ) && true === $disabled[$id] ),
+						( isset( $disabled[$id] ) && true == $disabled[$id] ),
 						false
 				);
 
