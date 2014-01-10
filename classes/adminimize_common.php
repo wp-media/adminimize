@@ -1,5 +1,19 @@
 <?php
-require_once 'adminimize_storage.php';
+/**
+ * Class with common functions
+ *
+ * PHP version 5.2
+ *
+ * @category   PHP
+ * @package    WordPress
+ * @subpackage Inpsyde\Adminimize
+ * @author     Ralf Albert <me@neun12.de>
+ * @license    GPLv3 http://www.gnu.org/licenses/gpl-3.0.txt
+ * @version    1.0
+ * @link       http://wordpress.com
+ */
+
+if ( ! class_exists( 'Adminimize_Common' ) ) {
 
 class Adminimize_Common extends Adminimize_Storage
 {
@@ -109,5 +123,7 @@ class Adminimize_Common extends Adminimize_Storage
 
 		return FALSE;
 	}
+
+}
 
 }

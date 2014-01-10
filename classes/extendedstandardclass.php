@@ -13,13 +13,8 @@
  * @link       http://wordpress.com
  */
 
-/**
- * ExtendedStandardClass
- * @author Ralf Albert
- * @version 1.0
- *
- * An extended version of the PHP standard class
- */
+if ( ! class_exists( 'ExtendedStandardClass' ) ) {
+
 abstract class ExtendedStandardClass implements IteratorAggregate
 {
 	/**
@@ -152,5 +147,7 @@ abstract class ExtendedStandardClass implements IteratorAggregate
 		return new ArrayIterator( self::$data->$id );
 
 	}
+
+}
 
 }

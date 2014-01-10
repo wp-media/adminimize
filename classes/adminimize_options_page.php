@@ -1,12 +1,19 @@
 <?php
 /**
  * Concrete implementation of the abstract class MenuPage_Widgets_SAPI
- * @author Ralf Albert
  *
+ * PHP version 5.2
+ *
+ * @category   PHP
+ * @package    WordPress
+ * @subpackage Inpsyde\Adminimize
+ * @author     Ralf Albert <me@neun12.de>
+ * @license    GPLv3 http://www.gnu.org/licenses/gpl-3.0.txt
+ * @version    1.0
+ * @link       http://wordpress.com
  */
 
-require_once 'menupage_widgets_sapi.php';
-require_once 'adminimize_storage.php';
+if ( ! class_exists( 'Adminimize_Options_Page' ) ) {
 
 class Adminimize_Options_Page extends MenuPage_Widgets_SAPI
 {
@@ -199,5 +206,7 @@ class Adminimize_Options_Page extends MenuPage_Widgets_SAPI
 		printf( '<p>%s</p>', esc_html( __( 'There was no content or callback defined for this widget.', $this->plugindata->TextDomain ) ) );
 
 	}
+
+}
 
 }

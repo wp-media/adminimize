@@ -1,10 +1,16 @@
 <?php
 /**
- * MenuPage_Widgets_SAPI
- * @author Ralf Albert
- * @version 1.0
- *
  * Creates a menupage with widgets which uses the Settings API to save options
+ *
+ * PHP version 5.2
+ *
+ * @category   PHP
+ * @package    WordPress
+ * @subpackage RalfAlbert\Tooling
+ * @author     Ralf Albert <me@neun12.de>
+ * @license    GPLv3 http://www.gnu.org/licenses/gpl-3.0.txt
+ * @version    1.0
+ * @link       http://wordpress.com
  */
 
 /**
@@ -14,6 +20,8 @@
 if ( isset( $_GET['ver'] ) ) {
 	echo "postboxes.add_postbox_toggles( pagenow, {} );";
 }
+
+if ( ! class_exists( 'MenuPage_Widgets_SAPI' ) ) {
 
 abstract class MenuPage_Widgets_SAPI
 {
@@ -416,5 +424,7 @@ abstract class MenuPage_Widgets_SAPI
 	 * Default callback for the widget content if no callback was set
 	 */
 	abstract public function default_widget();
+
+}
 
 }
