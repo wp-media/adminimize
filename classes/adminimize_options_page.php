@@ -136,6 +136,9 @@ class Adminimize_Options_Page extends MenuPage_Widgets_SAPI
 			true
 		);
 
+		// enque the registered style(s)
+		wp_enqueue_style( 'adminimize-style' );
+
 	}
 
 	/**
