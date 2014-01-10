@@ -1,11 +1,19 @@
 <?php
 /**
- * I_Adminimize_Widgets_Provider
- * @author Ralf Albert
- *
  * Interface for widgets provider classes
  *
+ * PHP version 5.2
+ *
+ * @category   PHP
+ * @package    WordPress
+ * @subpackage RalfAlbert\Tooling
+ * @author     Ralf Albert <me@neun12.de>
+ * @license    GPLv3 http://www.gnu.org/licenses/gpl-3.0.txt
+ * @version    1.0
+ * @link       http://wordpress.com
  */
+
+if ( ! class_exists( 'I_Adminimize_Widgets_Provider' ) ) {
 
 interface I_Adminimize_Widgets_Provider
 {
@@ -20,5 +28,7 @@ interface I_Adminimize_Widgets_Provider
 	 * @return array
 	 */
 	public function get_widgets();
+
+}
 
 }

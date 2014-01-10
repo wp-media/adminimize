@@ -1,11 +1,20 @@
 <?php
-	/**
-	 * Adminimize_Widgets
-	* @author Ralf Albert
-	*
-	* Class providing the widgets for My_Widget_SAPI_MenuPage
-	*
-	*/
+/**
+ * Class providing the widgets displayed on the Adminimize options page
+ *
+ * PHP version 5.2
+ *
+ * @category   PHP
+ * @package    WordPress
+ * @subpackage Inpsyde\Adminimize
+ * @author     Ralf Albert <me@neun12.de>
+ * @license    GPLv3 http://www.gnu.org/licenses/gpl-3.0.txt
+ * @version    1.0
+ * @link       http://wordpress.com
+ */
+
+if ( ! class_exists( 'Adminimize_Widgets' ) ) {
+
 class Adminimize_Widgets implements I_Adminimize_Widgets_Provider
 {
 
@@ -80,12 +89,6 @@ class Adminimize_Widgets implements I_Adminimize_Widgets_Provider
 		if ( empty( $this->columns ) || empty( $this->default_widget_attr ) )
 			return array();
 
-//FIXME Ugly thing... we need a PSR autoloader to fix this
-
-		// make things easy, require the base widget class here
-		if ( ! class_exists( 'Adminimize_Base_Widget' ) )
-			require_once 'adminimize_base_widget.php';
-
 		$dir_pattern = sprintf(
 				'%s/%s/*_widget.php',
 				dirname( __FILE__ ),
@@ -132,5 +135,7 @@ class Adminimize_Widgets implements I_Adminimize_Widgets_Provider
 		return $attr;
 
 	}
+
+}
 
 }

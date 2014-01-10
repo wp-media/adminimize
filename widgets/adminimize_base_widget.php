@@ -1,10 +1,22 @@
 <?php
 /**
+ * Widget base class
  * Provide basic functionality used by nearly every widget
  * like TextDomain, common functions, storage, etc
- * @author Ralf Albert
  *
+ * PHP version 5.2
+ *
+ * @category   PHP
+ * @package    WordPress
+ * @subpackage Inpsyde\Adminimize
+ * @author     Ralf Albert <me@neun12.de>
+ * @license    GPLv3 http://www.gnu.org/licenses/gpl-3.0.txt
+ * @version    1.0
+ * @link       http://wordpress.com
  */
+
+if ( ! class_exists( 'Adminimize_Base_Widget' ) ) {
+
 class Adminimize_Base_Widget
 {
 	public $storage       = null;
@@ -20,5 +32,7 @@ class Adminimize_Base_Widget
 		$this->pluginheaders = new Adminimize_PluginHeaders();
 
 	}
+
+}
 
 }
