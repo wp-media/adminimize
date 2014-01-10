@@ -106,4 +106,23 @@ class Adminimize_Storage extends ExtendedStandardClass
 
 	}
 
+	/**
+	 * Get custom options
+	 * @param string $option_name
+	 * @return array	$anon	Array in format array( 'options' => [array], 'values' => [array] )
+	 */
+	public function get_custom_options( $option_name = '' ) {
+
+		$custom_options = $this->get_option( $option_name . '_custom' );
+
+		return ( empty( $custom_options ) ) ?
+			array( 'options' => '', 'values' => '' ) :
+			array(
+				'options'  => array_keys( $custom_options ),
+				'values'   => array_values( $custom_options ),
+				'original' => $custom_options
+			);
+
+	}
+
 }

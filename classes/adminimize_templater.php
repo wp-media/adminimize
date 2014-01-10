@@ -166,6 +166,20 @@ PATTERN;
 	}
 
 	/**
+	 * Generates a submitbutton and a scroll-top button
+	 * @return string
+	 */
+	public function get_widget_bottom() {
+
+		$out = '';
+		$out .= $this->get_submitbutton();
+		$out .= $this->get_scrolltop();
+
+		return $out;
+
+	}
+
+	/**
 	 * Generates a col group for the table head
 	 * @return string
 	 */
@@ -313,10 +327,66 @@ INNER;
 		$out = '';
 
 		$out .= $this->sprintf( $table, $content );
-		$out .= $this->get_submitbutton();
-		$out .= $this->get_scrolltop();
 
 		return $out;
+
+	}
+
+	/**
+	 * Generates table for custom options
+	 * @param string $option
+	 * @param unknown $elements
+	 * @param string $summary
+	 * @return string
+	 */
+	public function get_custom_setings_table( $option = '', $elements = array(), $summary = '' ) {
+
+		$head_pattern =
+<<<HEAD
+<br style="margin-top: 10px;" />
+<table summary="config_edit_{summary}" class="widefat">
+	<thead>
+		<tr>
+			<th>{own_options_str}<br />{id_or_class_str}</th>
+			<th><br />{option_str}</th>
+		</tr>
+	</thead>
+	{body}
+</table>
+HEAD;
+
+		$body_pattern =
+<<<BODY
+	<tbody>
+		<tr valign="top">
+			<td colspan="2">
+				{table_desc}
+			</td>
+		</tr>
+		<tr valign="top">
+			<td>
+				<textarea cols="60" rows="3" style="width: 95%" {name_arg_1}>{content_1}</textarea><br />{desc_1}
+			</td>
+			<td>
+				<textarea class="code" cols="60" rows="3" style="width: 95%" {name_arg_2}>{content_2}</textarea><br />{desc_2}
+		</tr>
+	</tbody>
+BODY;
+
+		$v = new stdClass();
+		$v->own_options_str = __('Your own options', $this->pluginheaders->TextDomain );
+		$v->id_or_class_str = __('ID or class', $this->pluginheaders->TextDomain );
+		$v->option_str      = __('Option', $this->pluginheaders->TextDomain );
+		$v->table_desc      = __('It is possible to add your own IDs or classes from elements and tags. You can find IDs and classes with the FireBug Add-on for Firefox. Assign a value and the associate name per line.', $this->pluginheaders->TextDomain );
+		$v->name_arg_1      = $this->get_name_arg( sprintf( 'custom_%s_options', $option ) );
+		$v->content_1       = implode( "\n", $elements['options'] );
+		$v->desc_1          = __('Possible nomination for ID or class. Separate multiple nominations through a carriage return.', $this->pluginheaders->TextDomain );
+		$v->name_arg_2      = $this->get_name_arg( sprintf( 'custom_%s_values', $option ) );
+		$v->content_2       = implode( "\n", $elements['values'] );
+		$v->desc_2          = __('Possible IDs or classes. Separate multiple values through a carriage return.', $this->pluginheaders->TextDomain );
+		$v->body            =	 $this->sprintf( $body_pattern, $v );
+
+		return $this->sprintf( $head_pattern, $v );
 
 	}
 

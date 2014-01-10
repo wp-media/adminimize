@@ -28,7 +28,21 @@ class Adminimize_Global_Widget extends Adminimize_Base_Widget implements I_Admin
 				array( 'id' => '#admin_color_scheme', 'title' => __('Admin Color Scheme', $this->pluginheaders->TextDomain ) ),
 		);
 
+		$custom_globals = $this->storage->get_custom_options( $attr['option_name'] );
+
+		// merge standard options with custom options
+		foreach ( $custom_globals['original'] as $title => $id ) {
+
+			if ( empty( $id ) || empty( $title ) )
+				continue;
+
+			$global_options[] = array( 'id' => $id, 'title' => $title );
+
+		}
+
 		echo $this->templater->get_table( $attr['option_name'], $global_options, 'global' );
+		echo $this->templater->get_custom_setings_table( $attr['option_name'], $custom_globals, 'global' );
+		echo $this->templater->get_widget_bottom();
 
 	}
 

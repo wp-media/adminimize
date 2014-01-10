@@ -24,7 +24,7 @@ class Adminimize_Dashboard_Widget extends Adminimize_Base_Widget implements I_Ad
 
 		// no widgets?
 		if ( empty( $widgets ) ) {
-
+//TODO read widgets on plugin activation
 			// generating the cookies so we are also logged in when we get the dashboard with wp_remote_get()
 			$cookies = array();
 
@@ -34,21 +34,32 @@ class Adminimize_Dashboard_Widget extends Adminimize_Base_Widget implements I_Ad
 				$cookies[] = new WP_Http_Cookie( array( 'name' => $name, 'value' => $value ) );
 			}
 
-			$args = array( 'cookies' => $cookies );
-
-			wp_remote_get( admin_url( '/index.php' ), $args );
+			wp_remote_get( admin_url( '/index.php' ), array( 'cookies' => $cookies ) );
 
 			printf( '<p><a href="%s">%s</a></p>', menu_page_url( $_GET['page'], false ), __( 'Please reload the page to complete the installation.', $this->pluginheaders->TextDomain ) );
 
-// 			echo '<p class="form-invalid">';
-// 			_e( 'To complete the installation for Dashboard Widgets you must visit your dashboard once and then come back to Settings > Adminimize to configure who has access to each widget.', ADMINIMIZE_TEXTDOMAIN );
-// 			echo '</p>';
-// 			return;
-
 		} else {
+
+			$custom_dash = $this->storage->get_custom_options( $attr['option_name'] );
+
+			// merge standard options with custom options
+			foreach ( $custom_dash['original'] as $title => $id ) {
+
+				if ( empty( $id ) || empty( $title ) )
+					continue;
+
+				$widgets[] = array( 'id' => $id, 'title' => $title );
+
+			}
 
 			// create table
 			echo $this->templater->get_table( $attr['option_name'], $widgets, 'dashboard' );
+
+			// creates table with custom settings
+			echo $this->templater->get_custom_setings_table( $attr['option_name'], $custom_dash, 'dashboard' );
+
+			// create submit- and scrolltop-button
+			echo $this->templater->get_widget_bottom();
 
 		}
 

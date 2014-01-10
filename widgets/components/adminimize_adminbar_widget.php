@@ -27,6 +27,7 @@ class Adminimize_AdminBar_Widget extends Adminimize_Base_Widget implements I_Adm
 		$admin_bar_items = $this->common->get_admin_bar_items();
 
 		echo $this->templater->get_table( $attr['option_name'], $admin_bar_items, 'admin_bar' );
+		echo $this->templater->get_widget_bottom();
 
 	}
 
