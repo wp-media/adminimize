@@ -79,7 +79,8 @@ function adminimize_plugin_init() {
 	$storage = new Adminimize_Storage( 'adminimize_storage' );
 	$storage->set_basedirs( __FILE__ );
 
-	$pluginheaders =  new PluginHeaderReader( 'adminimize', __FILE__ );
+	// initialize the PluginHeaderReader through helper class
+	$pluginheaders =  new Adminimize_PluginHeaders( __FILE__ );
 
 	if ( is_admin() ) {
 
@@ -118,7 +119,7 @@ function adminimize_on_admin_init() {
 	$pluginstarter = new Plugin_Starter();
 
 	$pluginstarter->basename = $storage->basename;
-	$pluginstarter->load_textdomain( new PluginHeaderReader( 'adminimize' ) );
+	$pluginstarter->load_textdomain( new Adminimize_PluginHeaders() );
 	$pluginstarter->load_styles( array( 'adminimize-style' => array( 'file' => '/css/style.css', 'enqueue' => false ) ) );
 
 }

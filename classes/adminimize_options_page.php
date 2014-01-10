@@ -76,7 +76,7 @@ class Adminimize_Options_Page extends MenuPage_Widgets_SAPI
 	public function __construct() {
 
 		$this->storage    = new Adminimize_Storage();
-		$this->plugindata = new PluginHeaderReader( 'adminimize' );
+		$this->plugindata = new Adminimize_PluginHeaders();
 //TODO Maybe change dependency of templater
 		$this->templater  = new Adminimize_Templater();
 

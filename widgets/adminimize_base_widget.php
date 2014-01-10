@@ -17,7 +17,7 @@ class Adminimize_Base_Widget
 		$this->storage       = new Adminimize_Storage();
 		$this->common        = new Adminimize_Common();
 		$this->templater     = new Adminimize_Templater();
-		$this->pluginheaders = new PluginHeaderReader( 'adminimize' );
+		$this->pluginheaders = new Adminimize_PluginHeaders();
 
 	}
 

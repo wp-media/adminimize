@@ -1,6 +1,6 @@
 <?php
 $storage    = new Adminimize_Storage();
-$plugindata = new PluginHeaderReader( 'adminimize' );
+$plugindata = new Adminimize_PluginHeaders();
 ?>
 					<p><?php echo $plugindata->Title; echo ' '; _e( 'Version', $plugindata->TextDomain ); echo ' '; echo $plugindata->Version ?></p>
 					<p><?php echo $plugindata->Description ?></p>
