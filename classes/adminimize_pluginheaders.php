@@ -19,9 +19,10 @@ class Adminimize_PluginHeaders extends PluginHeaderReader
 	 * Simply calls the parent constructor with a fixed id. If the param $file is set, the parent class will be
 	 * initialized.
 	 *
-	 * @param string $file Absolute path to file with plugin headers
+	 * @param string $file	Absolute path to file with plugin headers
+	 * @param string $id		Not used, required by interface
 	 */
-	public function __construct( $file = '' ) {
+	public function __construct( $file = '', $id = '' ) {
 
 		parent::__construct( self::ID, $file );
 

@@ -12,7 +12,7 @@ interface I_FileHeaderReader
 	 * @param string $filename File with plugin header
 	 * @return boolean False if the file does not exists
 	 */
-	public function __construct( $filename = '', $id = '' );
+	public function __construct( $id = '', $filename = ''  );
 
 	/**
 	 * Reads the file headers

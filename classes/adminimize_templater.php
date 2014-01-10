@@ -6,7 +6,13 @@ class Adminimize_Templater
 	 * Container for common functions
 	 * @var object
 	 */
-	public $common = null;
+	public $common = null;#
+
+	/**
+	 * Object with pluginheaders
+	 * @var object
+	 */
+	public $pluginheaders = null;
 
 	/**
 	 * Option name
@@ -38,9 +44,9 @@ class Adminimize_Templater
 	 */
 	public function __construct() {
 
-		$this->option_name = Adminimize_Common::OPTION_KEY;
-
-		$this->common = new Adminimize_Common();
+		$this->option_name   = Adminimize_Storage::OPTION_KEY;
+		$this->common        = new Adminimize_Common();
+		$this->pluginheaders = new Adminimize_PluginHeaders();
 
 		if ( empty( self::$user_roles ) )
 			self::$user_roles = $this->common->get_all_user_roles();
@@ -121,6 +127,10 @@ class Adminimize_Templater
 		return sprintf( '<label for="%s-%s">', $this->option_name, $name );
 	}
 
+	/**
+	 * Generates a button to scroll to the top of page
+	 * @return string
+	 */
 	public function get_scrolltop() {
 
 		$pattern =
@@ -132,12 +142,17 @@ class Adminimize_Templater
 PATTERN;
 
 		$values = new stdClass();
-		$values->text = __( 'scroll to top', ADMINIMIZE_TEXTDOMAIN );
+		$values->text = __( 'scroll to top', $this->pluginheaders->TextDomain );
 
 		return $this->sprintf( $pattern, $values );
 
 	}
 
+	/**
+	 * Generates a submit button with selectable name attribute
+	 * @param string $name	Name attribute
+	 * @return string
+	 */
 	public function get_submitbutton( $name = '' ) {
 
 		if ( empty( $name ) )
@@ -145,11 +160,15 @@ PATTERN;
 
 		return sprintf(
 				'<p id="submitbutton">%s</p>',
-				get_submit_button( __('Update Options', ADMINIMIZE_TEXTDOMAIN ), 'primary', $name, false )
+				get_submit_button( __('Update Options', $this->pluginheaders->TextDomain ), 'primary', $name, false )
 		);
 
 	}
 
+	/**
+	 * Generates a col group for the table head
+	 * @return string
+	 */
 	public function get_colgroups() {
 
 		$pattern = '<colgroup>{groups}</colgroup>';
@@ -164,6 +183,10 @@ PATTERN;
 
 	}
 
+	/**
+	 * Generates the table head
+	 * @return string
+	 */
 	public function get_table_header() {
 
 		$pattern =
@@ -177,18 +200,18 @@ PATTERN;
 PATTERN;
 
 		$values = new stdClass();
-		$values->upper_left = __('Option', ADMINIMIZE_TEXTDOMAIN );
+		$values->upper_left = __('Option', $this->pluginheaders->TextDomain );
 		$values->head_cols = '';
 
 		foreach ( self::$user_roles_names as $role_name )
-			$values->head_cols .= sprintf( '<th>%s<br /><span class="adminimize_table_head_user_role">%s</span></th>', __( 'Deactivate for', ADMINIMIZE_TEXTDOMAIN ), $role_name );
+			$values->head_cols .= sprintf( '<th>%s<br /><span class="adminimize_table_head_user_role">%s</span></th>', __( 'Deactivate for', $this->pluginheaders->TextDomain ), $role_name );
 
 		return $this->sprintf( $pattern, $values );
 
 	}
 
 	/**
-	 *
+	 * Generates a html table
 	 * @param string $option Option-name
 	 * @param unknown $elements Elements from database stored with the option-name
 	 * @param string $summary Summary-slug for the table
@@ -261,7 +284,7 @@ INNER;
 			$v1->inner = '';
 
 			if ( empty( $v1->title ) )
-				$v1->title = __( 'No Title', ADMINIMIZE_TEXTDOMAIN );
+				$v1->title = __( 'No Title', $this->pluginheaders->TextDomain );
 
 			foreach ( self::$user_roles as $role ) {
 
@@ -277,7 +300,7 @@ INNER;
 				);
 
 				$v2          = new stdClass();
-				$v2->x       = $x;
+// 				$v2->x       = $x;
 				$v2->option  = $this->get_name_arg( $option_name, $id );
 				$v2->checked = $checked;
 				$v2->id      = $v1->id;
@@ -288,7 +311,7 @@ INNER;
 
 			$content->body .= $this->sprintf( $outer, $v1 );
 
-			$x ++;
+// 			$x++;
 
 		}
 

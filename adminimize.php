@@ -49,17 +49,15 @@ add_action(
  */
 function adminimize_autoloader() {
 
-	// load interfaces
-// 	$interfaces = glob( plugin_dir_path( __FILE__ ) . 'interfaces/*.php' );
-// 	$classes = glob( plugin_dir_path( __FILE__ ) . 'classes/*.php' );
+	require_once 'classes/adminimize_autoload.php';
 
-	$files = array_merge(
-			glob( plugin_dir_path( __FILE__ ) . 'interfaces/*.php' ),
-			glob( plugin_dir_path( __FILE__ ) . 'classes/*.php' )
+	// load interfaces first!!!
+	$dirs = array(
+			dirname( __FILE__ ) . '/interfaces',
+			dirname( __FILE__ ) . '/classes',
 	);
 
-	foreach( $files as $file )
-		require_once $file;
+	new Adminimize_Autoload( $dirs );
 
 }
 
