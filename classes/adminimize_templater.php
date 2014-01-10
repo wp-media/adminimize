@@ -265,8 +265,6 @@ INNER;
 		$content->summary   = ( empty( $summary ) ) ? 'config_edit' : 'config_edit_' . trim( $summary );
 		$content->body      = '';
 
-		$x = 0;
-
 		foreach ( $elements as $element ) {
 
 			if ( is_object( $element ) )
@@ -300,7 +298,6 @@ INNER;
 				);
 
 				$v2          = new stdClass();
-// 				$v2->x       = $x;
 				$v2->option  = $this->get_name_arg( $option_name, $id );
 				$v2->checked = $checked;
 				$v2->id      = $v1->id;
@@ -310,8 +307,6 @@ INNER;
 			}
 
 			$content->body .= $this->sprintf( $outer, $v1 );
-
-// 			$x++;
 
 		}
 
