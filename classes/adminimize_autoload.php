@@ -84,6 +84,12 @@ if ( ! class_exists( 'Adminimize_Autoload' ) ) {
 
 		}
 
+		/**
+		 * Reads a directory recursiv using glob()
+		 * @param	string	$pattern		Pattern to match
+		 * @param	number	$flags			Flags for glob()
+		 * @return arary	$files			Array with files
+		 */
 		protected function glob_recursive( $pattern, $flags = 0 ) {
 
 			$files = glob( $pattern, $flags );
