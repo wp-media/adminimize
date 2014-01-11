@@ -51,10 +51,10 @@ function adminimize_autoloader() {
 
 	require_once 'classes/adminimize_autoload.php';
 
-	// load interfaces first!!!
+	// do not forget to include the widgets directory
 	$dirs = array(
-			dirname( __FILE__ ) . '/interfaces',
 			dirname( __FILE__ ) . '/classes',
+			dirname( __FILE__ ) . '/widgets',
 	);
 
 	new Adminimize_Autoload( $dirs );
