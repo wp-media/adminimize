@@ -29,25 +29,6 @@ class Adminimize_Storage extends ExtendedStandardClass
 	 */
 	const OPTION_KEY = 'adminimizeOOP';
 
-	/**
-	 * Menu Slug
-	 * @var string
-	 */
-	const MENU_SLUG  = 'adminimizeoop';
-
-	/**
-	 * Class containing the widget handling
-	 * @var string
-	 */
-	const WIDGET_CLASS = 'Adminimize_Widgets';
-
-	/**
-	 * Directory where to find the widgets.
-	 * Path is relative to the directory of the widget class (see above)
-	 * @var string
-	 */
-	const WIDGET_DIR = '/components/';
-
 	public function __construct() {
 
 		$this->set_id( self::ID );
@@ -68,10 +49,10 @@ class Adminimize_Storage extends ExtendedStandardClass
 		$this->basename      = plugin_basename( $filename );
 		$this->basefolder    = plugin_basename( dirname( $filename ) );
 		$this->MW_ADMIN_FILE = plugin_basename( $filename );
+		$this->widgets_dir   =  $basedir . 'widgets';
 
 // 		self::set( 'basecss',  $basedir . '/css/' );
 // 		self::set( 'classes',  $basedir . '/classes/');
-// 		self::set( 'widgets',  $basedir . '/widgets/' );
 
 
 	}

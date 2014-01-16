@@ -31,6 +31,14 @@ class Adminimize_AdminBar_Widget extends Adminimize_Base_Widget implements I_Adm
 
 	}
 
+	public function get_hooks() {
+		return array(
+		 	'actions' => array(
+		 			array( 'wp_before_admin_bar_render', array( $this, 'get_adminbar_nodes' ), 0, 0 )
+			),
+		);
+	}
+
 	public function content() {
 
 		global $wp_admin_bar;
@@ -44,6 +52,26 @@ class Adminimize_AdminBar_Widget extends Adminimize_Base_Widget implements I_Adm
 
 		echo $this->templater->get_table( $attr['option_name'], $admin_bar_items, 'admin_bar' );
 		echo $this->templater->get_widget_bottom();
+
+	}
+
+	public function get_adminbar_nodes() {
+
+		global $wp_admin_bar;
+
+		// get back our option page object
+		$pagehook = $this->storage->options_page_object->pagehook;
+
+		$screen = get_current_screen();
+
+		if ( empty( $screen ) || $screen->base != $pagehook )
+			return null;
+
+		$saved_nodes   = $this->storage->adminbar_nodes;
+		$toolbar_nodes = $wp_admin_bar->get_nodes();
+
+		if ( empty( $saved_nodes ) && ! empty( $toolbar_nodes ) )
+			$this->storage->set_option( 'adminbar_nodes', $wp_admin_bar->get_nodes() );
 
 	}
 

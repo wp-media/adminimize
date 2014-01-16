@@ -39,7 +39,7 @@ class PluginHeaderReader extends ExtendedStandardClass implements I_FileHeaderRe
 		if ( empty( $id ) || ! is_string( $id ) )
 			trigger_error( 'Param (string) id expected', E_USER_WARNING );
 
-		$this->id = $id;
+		$this->set_id( $id );
 
 		if ( ! is_object( self::$data ) )
 			self::$data = new stdClass();

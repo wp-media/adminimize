@@ -40,7 +40,13 @@ class Adminimize_Widgets implements I_Adminimize_Widgets_Provider
 	 * Array with attributes of each available widget
 	 * @var array
 	*/
-	public $widgets = array();
+	public $widgets_attributes = array();
+
+	/**
+	 * Array with classname => widget objects
+	 * @var array
+	 */
+	protected $widgets_objects = array();
 
 	/**
 	 * Array with option names used by the widgets
@@ -66,10 +72,10 @@ class Adminimize_Widgets implements I_Adminimize_Widgets_Provider
 		$this->used_options = array();
 
 		// get widgets if not already done
-		if ( empty( $this->widgets ) )
-			$this->get_widgets();
+		if ( empty( $this->widgets_attributes ) )
+			$this->get_widgets_attributes();
 
-		foreach ( $this->widgets as $attr ) {
+		foreach ( $this->widgets_attributes as $attr ) {
 			if ( isset( $attr['option_name'] ) )
 				array_push( $this->used_options, $attr['option_name'] );
 		}
@@ -81,18 +87,63 @@ class Adminimize_Widgets implements I_Adminimize_Widgets_Provider
 	}
 
 	/**
-	 * Get the attributes of each available widget
-	 * @return array
+	 * (non-PHPdoc)
+	 * @see I_Adminimize_Widgets_Provider::get_widgets_attributes()
 	 */
-	public function get_widgets() {
+	public function get_widgets_attributes() {
 
 		if ( empty( $this->columns ) || empty( $this->default_widget_attr ) )
 			return array();
 
+		if ( empty( $this->widgets_objects ) )
+			$this->read_widget_dir();
+
+		foreach ( $this->widgets_objects as $widget ) {
+
+			$attr = $this->sanitize_attrs( $widget->get_attributes(), $widget );
+
+			$this->widgets_attributes[] = array_merge( $this->default_widget_attr, $attr );
+
+		}
+
+		return $this->widgets_attributes;
+
+	}
+
+	/**
+	 * (non-PHPdoc)
+	 * @see I_Adminimize_Widgets_Provider::get_widgets_actions()
+	 */
+	public function get_widgets_actions() {
+
+		$hooks = array();
+
+		if ( empty( $this->widgets_objects ) )
+			$this->read_widget_dir();
+
+		foreach ( $this->widgets_objects as $widget ) {
+
+			$actions_and_filters = $widget->get_hooks();
+
+			if ( ! empty( $actions_and_filters ) )
+				$hooks[] = $actions_and_filters;
+
+		}
+
+		return $hooks;
+
+	}
+
+	/**
+	 * Get all widgets from widget directory and create an instance of each
+	 * @return arary	Array with classname => widget object
+	 */
+	public function read_widget_dir() {
+
 		$dir_pattern = sprintf(
 				'%s/%s/*_widget.php',
 				dirname( __FILE__ ),
-				str_replace( '/', '', Adminimize_Storage::WIDGET_DIR )
+				str_replace( '/', '', Adminimize_Registry::WIDGET_DIR )
 		);
 
 		// get the widgets
@@ -105,13 +156,17 @@ class Adminimize_Widgets implements I_Adminimize_Widgets_Provider
 			$class = str_replace( '.php', '', basename( $widget ) );
 			$obj = new $class();
 
-			$attr = $this->sanitize_attrs( $obj->get_attributes(), $obj );
+			// skip widgets which are not an instance of the widget base class
+			if ( ! $obj instanceof Adminimize_Base_Widget ) {
+				unset( $obj );
+				continue;
+			}
 
-			$this->widgets[] = array_merge( $this->default_widget_attr, $attr );
+			$this->widgets_objects[ $class ] = $obj;
 
 		}
 
-		return $this->widgets;
+		return $this->widgets_objects;
 
 	}
 
@@ -124,6 +179,7 @@ class Adminimize_Widgets implements I_Adminimize_Widgets_Provider
 	public function sanitize_attrs( $attr, $obj ) {
 
 		$col = (int) $attr['context'];
+
 		$attr['context'] = ( isset( $this->columns[ $col ] ) ) ?
 			$this->columns[ $col ] : $this->columns[0];
 

@@ -125,7 +125,7 @@ abstract class ExtendedStandardClass implements IteratorAggregate
 
 		$id = $this->id;
 
-		if ( ! is_object( self::$data->$id ) )
+		if ( ! property_exists( self::$data, $id ) || ! is_object( self::$data->$id ) )
 			return false;
 
 		return ( property_exists( self::$data->$id, $name ) ) ?

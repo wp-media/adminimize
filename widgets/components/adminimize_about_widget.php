@@ -33,6 +33,14 @@ class Adminimize_About_Widget extends Adminimize_Base_Widget implements I_Admini
 	}
 
 	/**
+	 * (non-PHPdoc)
+	 * @see Adminimize_Base_Widget::get_hooks()
+	 */
+	public function get_hooks() {
+		return false;
+	}
+
+	/**
 	 * About the plugin
 	 * Returns the widget content
 	 */
@@ -65,6 +73,7 @@ class Adminimize_About_Widget extends Adminimize_Base_Widget implements I_Admini
 <?php
 
 	}
+
 
 }
 

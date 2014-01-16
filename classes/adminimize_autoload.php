@@ -12,6 +12,7 @@
  * @link http://wordpress.com
  */
 if ( ! class_exists( 'Adminimize_Autoload' ) ) {
+
 	class Adminimize_Autoload
 	{
 
@@ -105,4 +106,5 @@ if ( ! class_exists( 'Adminimize_Autoload' ) ) {
 		}
 
 	}
+
 }

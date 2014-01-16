@@ -23,11 +23,12 @@ class Adminimize_PluginHeaders extends PluginHeaderReader
 	 * The used ID
 	 * @var string
 	 */
-	const ID = 'adminimize';
+	const ID = 'adminimize_pluginheaders';
 
 	/**
 	 * Simply calls the parent constructor with a fixed id. If the param $file is set, the parent class will be
-	 * initialized.
+	 * initialized. The positions of params $file and $id are switched, so we can initialize the class just
+	 * by specify the base-file leavoing the id empty/unset.
 	 *
 	 * @param string $file	Absolute path to file with plugin headers
 	 * @param string $id		Not used, required by interface

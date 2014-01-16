@@ -17,7 +17,7 @@
 
 if ( ! class_exists( 'Adminimize_Base_Widget' ) ) {
 
-class Adminimize_Base_Widget
+abstract class Adminimize_Base_Widget
 {
 	public $storage       = null;
 	public $common        = null;
@@ -26,12 +26,29 @@ class Adminimize_Base_Widget
 
 	public function __construct() {
 
-		$this->storage       = new Adminimize_Storage();
-		$this->common        = new Adminimize_Common();
-		$this->templater     = new Adminimize_Templater();
-		$this->pluginheaders = new Adminimize_PluginHeaders();
+		$registry = new Adminimize_Registry();
+
+		$this->storage       = $registry->get_storage();
+		$this->common        = $registry->get_common_functions();
+		$this->templater     = $registry->get_templater();
+		$this->pluginheaders = $registry->get_pluginheaders();
 
 	}
+
+	/**
+	 * Returns an array with the widget attributesto display it on the Adminimize dashboard
+	 */
+	abstract function get_attributes();
+
+	/**
+	 * Returns the hooks and filters a widget need to execute it's actions
+	 */
+	abstract public function get_hooks();
+
+	/**
+	 * Create the widget content on Adminimize dashboard
+	 */
+	abstract function content();
 
 }
 

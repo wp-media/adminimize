@@ -15,7 +15,7 @@
 
 if ( ! class_exists( 'Adminimize_Validate_Options' ) ) {
 
-class Adminimize_Validate_Options extends Adminimize_Storage
+class Adminimize_Validate_Options
 {
 
 	public function validate( $input ) {
@@ -24,8 +24,12 @@ class Adminimize_Validate_Options extends Adminimize_Storage
 		if ( ! isset( $_REQUEST['action'] ) || $_REQUEST['action'] != 'update' )
 			return $input;
 
-		$output  = $this->get_option();
-		$widgets = $this->widget_object;
+		$registry = new Adminimize_Registry();
+		$storage  = $registry->get_storage();
+		$common   = $registry->get_common_functions();
+		$widgets  = $registry->get_widget_provider();
+
+		$output   = $storage->get_option();
 
 		$user_roles   = $common->get_all_user_roles();
 		$used_options = $widgets->get_used_options();

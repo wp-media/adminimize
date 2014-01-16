@@ -60,9 +60,17 @@ class Adminimize_Templater
 	 */
 	public function __construct() {
 
+		$registry = new Adminimize_Registry();
 		$this->option_name   = Adminimize_Storage::OPTION_KEY;
-		$this->common        = new Adminimize_Common();
-		$this->pluginheaders = new Adminimize_PluginHeaders();
+		$this->common        = $registry->get_common_functions();
+		$this->pluginheaders = $registry->get_pluginheaders();
+
+	}
+
+	/**
+	 * Set up the user roles and user roles names
+	 */
+	protected function get_user_roles() {
 
 		if ( empty( self::$user_roles ) )
 			self::$user_roles = $this->common->get_all_user_roles();
@@ -201,6 +209,8 @@ PATTERN;
 	 */
 	public function get_colgroups() {
 
+		$this->get_user_roles();
+
 		$pattern = '<colgroup>{groups}</colgroup>';
 
 		$values = new stdClass();
@@ -218,6 +228,8 @@ PATTERN;
 	 * @return string
 	 */
 	public function get_table_header() {
+
+		$this->get_user_roles();
 
 		$pattern =
 <<<PATTERN
@@ -248,6 +260,8 @@ PATTERN;
 	 * @return string|unknown
 	 */
 	public function get_table( $option = '', $elements = array(), $summary = '' ) {
+
+		$this->get_user_roles();
 
 		if ( empty( $option ) ) {
 			return '';

@@ -31,6 +31,16 @@ class Adminimize_Dashboard_Widget extends Adminimize_Base_Widget implements I_Ad
 
 	}
 
+	public function get_hooks() {
+
+		return array(
+				'actions' => array(
+					array( 'wp_dashboard_setup', array( $this, 'dashboard_setup' ), 99, 0 ),
+				)
+		);
+
+	}
+
 	public function content() {
 
 		$attr = $this->get_attributes();
@@ -79,6 +89,87 @@ class Adminimize_Dashboard_Widget extends Adminimize_Base_Widget implements I_Ad
 
 		}
 
+	}
+
+	/**
+	 * Setup the dashboard
+	 * @return NULL
+	 */
+	public function dashboard_setup() {
+
+		global $wp_meta_boxes;
+
+		// exclude super admin
+		if ( $this->common->exclude_super_admin() )
+			return NULL;
+
+		// refresh widgets
+		$widgets = $this->get_dashboard_widgets();
+
+		if ( current_user_can( 'manage_options' ) )
+			$this->storage->set_option( 'dashboard_widgets', $widgets );
+
+		$user         = wp_get_current_user();
+		$user_roles   = $user->roles;
+//FIXME Using 'custom' as role name is dangerous if someone creates an role and named it 'custom'!!
+		$user_roles[] = 'custom'; // add the custom options 'role'
+
+		foreach ( $user_roles as $role ) {
+
+			$disabled = $this->common->get_option( 'dashboard_widgets_' . $role );
+
+			if ( ! is_array( $disabled ) )
+				continue;
+
+			$disabled_widgets  = array_keys( $disabled );
+			$available_widgets = array_keys( $widgets );
+
+			foreach ( $disabled_widgets as $widget_to_remove ) {
+
+				if ( in_array( $widget_to_remove, $available_widgets ) ) {
+					remove_meta_box( $widget_to_remove, 'dashboard', $widgets[$widget_to_remove]['context'] );
+				}
+
+			}
+
+		}
+
+	}
+
+	/**
+	 * Get the registered dashboard widgets
+	 * @return array
+	 */
+	public function get_dashboard_widgets () {
+
+		global $wp_meta_boxes;
+
+		$widgets = array();
+
+		if ( isset( $wp_meta_boxes['dashboard'] ) ) {
+
+			foreach( $wp_meta_boxes['dashboard'] as $context => $data ) {
+
+				foreach( $data as $priority => $data ) {
+
+					foreach( $data as $widget => $data ) {
+
+						$widgets[$widget] = array(
+								'id'       => $widget,
+								'title'    => strip_tags( preg_replace( '/( |)<span.*span>/im', '', $data['title'] ) ),
+								'context'  => $context,
+								'priority' => $priority
+						);
+
+					}
+
+				}
+
+			}
+
+		}
+
+		return $widgets;
 	}
 
 }

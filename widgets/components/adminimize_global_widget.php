@@ -30,6 +30,16 @@ class Adminimize_Global_Widget extends Adminimize_Base_Widget implements I_Admin
 
 	}
 
+	public function get_hooks() {
+
+		return array(
+		 	'actions' => array(
+		 			array( 'admin_head', array( $this, 'do_global_options' ), 1, 0 ),
+			),
+		);
+
+	}
+
 	public function content() {
 
 		$attr = $this->get_attributes();
@@ -62,6 +72,50 @@ class Adminimize_Global_Widget extends Adminimize_Base_Widget implements I_Admin
 
 	}
 
+	/**
+	 * set global options in backend in all areas
+	 */
+	public function do_global_options() {
+
+		global $_wp_admin_css_colors;
+
+		// exclude super admin
+		if ( $this->common->exclude_super_admin() )
+			return NULL;
+
+		$user         = wp_get_current_user();
+		$user_roles   = $user->roles;
+
+		$global_style = '';
+		$admin_head   =
+<<<ADMINHEAD
+<!-- global options -->
+<style type="text/css">
+%s
+</style>
+ADMINHEAD;
+
+		foreach ( $user_roles as $role ) {
+
+			$style   = '';
+			$options = $this->common->get_option( 'global_option_' . $role );
+
+			if ( is_array( $options ) ) {
+				$style  = implode( ', ', array_keys( $options ) );
+				$style .= " {display: none !important;}\n";
+
+				$global_style .= $style;
+
+				if ( isset( $options['#your-profile .form-table fieldset'] ) && true == $options['#your-profile .form-table fieldset'] )
+					$_wp_admin_css_colors = 0;
+
+			}
+
+		}
+
+		printf( $admin_head, $global_style );
+
+	}
 }
 
 }

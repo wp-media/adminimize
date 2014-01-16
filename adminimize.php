@@ -71,43 +71,45 @@ function adminimize_autoloader() {
  */
 function adminimize_plugin_init() {
 
+	if ( ! is_admin() )
+		return false;
+
 	adminimize_autoloader();
 
 	// setup basedirs
-	$storage = new Adminimize_Storage( 'adminimize_storage' );
+	$storage = new Adminimize_Storage();
 	$storage->set_basedirs( __FILE__ );
 
 	// initialize the PluginHeaderReader through helper class
 	$pluginheaders =  new Adminimize_PluginHeaders( __FILE__ );
 
-	if ( is_admin() ) {
+	if ( ! defined( 'ADMINIMIZE_TEXTDOMAIN' ) )
+		define( 'ADMINIMIZE_TEXTDOMAIN', $pluginheaders->TextDomain );
 
-		if ( ! defined( 'ADMINIMIZE_TEXTDOMAIN' ) )
-			define( 'ADMINIMIZE_TEXTDOMAIN', $pluginheaders->TextDomain );
+	add_action(
+		'admin_init',
+		'adminimize_on_admin_init',
+		10,
+		0
+	);
 
-		add_action(
-			'admin_init',
-			'adminimize_on_admin_init',
-			10,
-			0
-		);
+	// adds the options page
+	add_action(
+		'init',
+		'adminimize_add_options_page',
+		10,
+		0
+	);
 
-		// adds the options page
-		add_action(
-			'init',
-			'adminimize_add_options_page',
-			10,
-			0
-		);
+	$registry = new Adminimize_Registry();
+	$registry->add_hooks();
 
-	}
+// 	$do_actions = 'Adminimize_Do_Actions';
 
-	$do_actions = 'Adminimize_Do_Actions';
+// 	add_action( 'wp_dashboard_setup', array( $do_actions, 'dashboard_setup' ), 99, 0 );
+// 	add_action( 'admin_head',         array( $do_actions, 'do_global_options' ), 1, 0 );
 
-	add_action( 'wp_dashboard_setup', array( $do_actions, 'dashboard_setup' ), 99, 0 );
-	add_action( 'admin_head',         array( $do_actions, 'do_global_options' ), 1, 0 );
-
-	add_action( 'wp_before_admin_bar_render', array( $do_actions, 'get_adminbar_nodes' ), 0, 0 );
+// 	add_action( 'wp_before_admin_bar_render', array( $do_actions, 'get_adminbar_nodes' ), 0, 0 );
 
 }
 
@@ -127,8 +129,7 @@ function adminimize_add_options_page() {
 	if ( ! is_admin() )
 		return false;
 
-	$storage = new Adminimize_Storage( 'adminimize_storage' );
-
+	$storage  = new Adminimize_Storage();
 	$opt_page = new Adminimize_Options_Page();
 	$storage->options_page_object = $opt_page;
 

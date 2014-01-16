@@ -27,7 +27,13 @@ interface I_Adminimize_Widgets_Provider
 	 * Get the attributes of each available widget
 	 * @return array
 	 */
-	public function get_widgets();
+	public function get_widgets_attributes();
+
+	/**
+	 * Get the action hooks and filters for each widget
+	 * @return array
+	 */
+	public function get_widgets_actions();
 
 }
 
