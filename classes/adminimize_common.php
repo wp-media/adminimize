@@ -86,19 +86,6 @@ class Adminimize_Common extends Adminimize_Storage
 
 	}
 
-	/**
-	 * Get all admin bar items from settings
-	 *
-	 * @since 1.8.1 01/10/2013
-	 * @return void
-	 */
-	public function get_admin_bar_items() {
-
-		$admin_bar_items = $this->get_option( 'adminbar_nodes' );
-		return $admin_bar_items;
-
-	}
-
 	public function recursive_in_array( $needle, $haystack ) {
 
 		if ( '' != $haystack ) {

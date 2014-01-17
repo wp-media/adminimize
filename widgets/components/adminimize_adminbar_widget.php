@@ -34,7 +34,8 @@ class Adminimize_AdminBar_Widget extends Adminimize_Base_Widget implements I_Adm
 	public function get_hooks() {
 		return array(
 		 	'actions' => array(
-		 			array( 'wp_before_admin_bar_render', array( $this, 'get_adminbar_nodes' ), 0, 0 )
+		 			array( 'wp_before_admin_bar_render', array( $this, 'get_adminbar_nodes' ), 0, 0 ),
+		 			array( 'admin_bar_menu', array( $this, 'change_admin_bar' ), 99999, 1 ),
 			),
 		);
 	}
@@ -48,7 +49,7 @@ class Adminimize_AdminBar_Widget extends Adminimize_Base_Widget implements I_Adm
 		if ( ! isset( $wp_admin_bar ) )
 			$wp_admin_bar = '';
 
-		$admin_bar_items = $this->common->get_admin_bar_items();
+		$admin_bar_items = $this->get_admin_bar_items();
 
 		echo $this->templater->get_table( $option_name, $admin_bar_items, 'admin_bar' );
 		echo $this->templater->get_widget_bottom();
@@ -72,6 +73,48 @@ class Adminimize_AdminBar_Widget extends Adminimize_Base_Widget implements I_Adm
 
 		if ( empty( $saved_nodes ) && ! empty( $toolbar_nodes ) )
 			$this->storage->set_option( 'adminbar_nodes', $wp_admin_bar->get_nodes() );
+
+	}
+
+	/**
+	 * Get all admin bar items from settings
+	 *
+	 * @since 1.8.1 01/10/2013
+	 * @return void
+	 */
+	public function get_admin_bar_items() {
+
+		return $this->storage->get_option( 'adminbar_nodes' );
+
+	}
+
+	public function change_admin_bar( $wp_admin_bar ) {
+
+		// Don't filter on settings page
+		$pagehook = $this->storage->options_page_object->pagehook;
+		$screen   = get_current_screen();
+
+		if ( empty( $screen ) || $screen->base == $pagehook )
+			return null;
+
+		// Exclude super admin
+		if ( $this->common->exclude_super_admin() )
+			return NULL;
+
+		$option_name = $this->get_used_option();
+		$options     = $this->storage->get_option( $option_name );
+
+		$user_roles  = $this->common->get_all_user_roles();
+		$user        = wp_get_current_user();
+
+		foreach ( $user_roles as $role ) {
+
+			if ( is_array( $user->roles ) && in_array( $role, $user->roles ) )
+				if ( current_user_can( $role ) && is_array( $options[$role] ) )
+					foreach( array_keys( $options[$role] ) as $admin_bar_item )
+						$wp_admin_bar->remove_node( $admin_bar_item );
+
+		}
 
 	}
 

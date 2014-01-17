@@ -321,7 +321,8 @@ INNER;
 			$v1->inner = '';
 
 			if ( empty( $v1->title ) )
-				$v1->title = __( 'No Title', $this->pluginheaders->TextDomain );
+// 				$v1->title = __( 'No Title', $this->pluginheaders->TextDomain );
+				$v1->title = $element['id'];
 
 			foreach ( self::$user_roles as $role ) {
 
