@@ -43,30 +43,22 @@ class Adminimize_Dashboard_Widget extends Adminimize_Base_Widget implements I_Ad
 
 	public function content() {
 
-		$attr = $this->get_attributes();
-
-		// get widgets
-		$widgets = $this->storage->get_option( $attr['option_name'] );
+		$option_name  = $this->get_used_option();
+		$dash_widgets = $this->storage->get_option( 'available_' . $option_name );
 
 		// no widgets?
-		if ( empty( $widgets ) ) {
-//TODO read widgets on plugin activation
-			// generating the cookies so we are also logged in when we get the dashboard with wp_remote_get()
-			$cookies = array();
+		if ( empty( $dash_widgets ) ) {
 
-			foreach ( $_COOKIE as $name => $value ) {
-				if ( 'PHPSESSID' === $name )
-					continue;
-				$cookies[] = new WP_Http_Cookie( array( 'name' => $name, 'value' => $value ) );
-			}
-
-			wp_remote_get( admin_url( '/index.php' ), array( 'cookies' => $cookies ) );
-
-			printf( '<p><a href="%s">%s</a></p>', menu_page_url( $_GET['page'], false ), __( 'Please reload the page to complete the installation.', $this->pluginheaders->TextDomain ) );
+			printf(
+				'<p>%s</p>',
+				esc_html(
+					__( 'Something went terrible wrong during plugin installation. Please deactivate and reactivate the plugin. If the error still occurs, please notify the administrator.', $this->pluginheaders->TextDomain )
+				)
+			);
 
 		} else {
 
-			$custom_dash = $this->storage->get_custom_options( $attr['option_name'] );
+			$custom_dash = $this->storage->get_custom_options( $option_name );
 
 			// merge standard options with custom options
 			foreach ( $custom_dash['original'] as $title => $id ) {
@@ -74,15 +66,15 @@ class Adminimize_Dashboard_Widget extends Adminimize_Base_Widget implements I_Ad
 				if ( empty( $id ) || empty( $title ) )
 					continue;
 
-				$widgets[] = array( 'id' => $id, 'title' => $title );
+				$dash_widgets[] = array( 'id' => $id, 'title' => $title );
 
 			}
 
 			// create table
-			echo $this->templater->get_table( $attr['option_name'], $widgets, 'dashboard' );
+			echo $this->templater->get_table( $option_name, $dash_widgets, 'dashboard' );
 
 			// creates table with custom settings
-			echo $this->templater->get_custom_setings_table( $attr['option_name'], $custom_dash, 'dashboard' );
+			echo $this->templater->get_custom_setings_table( $option_name, $custom_dash, 'dashboard' );
 
 			// create submit- and scrolltop-button
 			echo $this->templater->get_widget_bottom();
@@ -103,20 +95,20 @@ class Adminimize_Dashboard_Widget extends Adminimize_Base_Widget implements I_Ad
 		if ( $this->common->exclude_super_admin() )
 			return NULL;
 
+		$option_name = $this->get_used_option();
+
 		// refresh widgets
 		$widgets = $this->get_dashboard_widgets();
 
 		if ( current_user_can( 'manage_options' ) )
-			$this->storage->set_option( 'dashboard_widgets', $widgets );
+			$this->storage->set_option( 'available_' . $option_name, $widgets );
 
 		$user         = wp_get_current_user();
 		$user_roles   = $user->roles;
-//FIXME Using 'custom' as role name is dangerous if someone creates an role and named it 'custom'!!
-		$user_roles[] = 'custom'; // add the custom options 'role'
 
 		foreach ( $user_roles as $role ) {
 
-			$disabled = $this->common->get_option( 'dashboard_widgets_' . $role );
+			$disabled = $this->storage->get_option( array( $option_name, $role ) );
 
 			if ( ! is_array( $disabled ) )
 				continue;

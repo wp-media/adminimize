@@ -18,6 +18,8 @@ if ( ! class_exists( 'Adminimize_Templater' ) ) {
 class Adminimize_Templater
 {
 
+	public $storage = null;
+
 	/**
 	 * Container for common functions
 	 * @var object
@@ -61,9 +63,10 @@ class Adminimize_Templater
 	public function __construct() {
 
 		$registry = new Adminimize_Registry();
-		$this->option_name   = Adminimize_Storage::OPTION_KEY;
+		$this->storage       = $registry->get_storage();
 		$this->common        = $registry->get_common_functions();
 		$this->pluginheaders = $registry->get_pluginheaders();
+		$this->option_name   = Adminimize_Storage::OPTION_KEY;
 
 	}
 
@@ -134,12 +137,12 @@ class Adminimize_Templater
 	 * @param string $name Name of the field
 	 * @return string
 	 */
-	public function get_name_arg( $name='', $sub_name = '' ) {
+	public function get_name_arg( $option = '', $role = '', $id = '' ) {
 
-		if ( ! empty( $sub_name ) )
-			$sub_name = sprintf( '[%s]', $sub_name );
+		if ( ! empty( $id ) )
+			$id = sprintf( '[%s]', $id );
 
-		return sprintf( ' name="%1$s[%2$s]%3$s" id="%1$s-%2$s "', $this->option_name, $name, $sub_name );
+		return sprintf( ' name="%1$s[%2$s][%3$s]%4$s" id="%2$s-%3$s-%4$s"', $this->option_name, $option, $role, $id );
 	}
 
 	/**
@@ -263,18 +266,10 @@ PATTERN;
 
 		$this->get_user_roles();
 
-		if ( empty( $option ) ) {
+		if ( empty( $option ) )
 			return '';
-		} else {
-			// first remove any (misplaced) role-pattern and then add the role-pattern at the right place.
-			$option = str_replace( '_{role}', '', $option );
-			$option .= '_{role}';
-		}
 
-		if ( empty( $elements ) )
-			$elements = array();
-
-		if ( is_object( $elements ) )
+		if ( empty( $elements ) || is_object( $elements ) )
 			$elements = (array) $elements;
 
 		$table =
@@ -318,7 +313,7 @@ INNER;
 			if ( empty( $element['id'] ) )
 				continue;
 
-			$id = &$element['id'];
+			$id = is_array( $element['id'] ) ? '' : (string) $element['id'];
 
 			$v1        = new stdClass();
 			$v1->title = strip_tags( $element['title'] );
@@ -330,19 +325,17 @@ INNER;
 
 			foreach ( self::$user_roles as $role ) {
 
-				$option_name = $this->sprintf( $option, array( 'role' => $role) );
-
 				// return array
-				$disabled = $this->common->get_option( $option_name );
+				$disabled = $this->storage->get_option( array( $option, $role, $id ) );
 
 				$checked = checked(
 						true,
-						( isset( $disabled[$id] ) && true == $disabled[$id] ),
+						( isset( $disabled ) && true == $disabled ),
 						false
 				);
 
 				$v2          = new stdClass();
-				$v2->option  = $this->get_name_arg( $option_name, $id );
+				$v2->option  = $this->get_name_arg( $option, $role, $id );
 				$v2->checked = $checked;
 				$v2->id      = $v1->id;
 
@@ -354,11 +347,7 @@ INNER;
 
 		}
 
-		$out = '';
-
-		$out .= $this->sprintf( $table, $content );
-
-		return $out;
+		return  $this->sprintf( $table, $content );
 
 	}
 
@@ -408,11 +397,11 @@ BODY;
 		$v->id_or_class_str = __('ID or class', $this->pluginheaders->TextDomain );
 		$v->option_str      = __('Option', $this->pluginheaders->TextDomain );
 		$v->table_desc      = __('It is possible to add your own IDs or classes from elements and tags. You can find IDs and classes with the FireBug Add-on for Firefox. Assign a value and the associate name per line.', $this->pluginheaders->TextDomain );
-		$v->name_arg_1      = $this->get_name_arg( sprintf( 'custom_%s_options', $option ) );
-		$v->content_1       = implode( "\n", $elements['options'] );
+		$v->name_arg_1      = $this->get_name_arg( $option, 'custom_left' );
+		$v->content_1       = implode( "\n", $elements['custom_left'] );
 		$v->desc_1          = __('Possible nomination for ID or class. Separate multiple nominations through a carriage return.', $this->pluginheaders->TextDomain );
-		$v->name_arg_2      = $this->get_name_arg( sprintf( 'custom_%s_values', $option ) );
-		$v->content_2       = implode( "\n", $elements['values'] );
+		$v->name_arg_2      = $this->get_name_arg( $option, 'custom_right' );
+		$v->content_2       = implode( "\n", $elements['custom_right'] );
 		$v->desc_2          = __('Possible IDs or classes. Separate multiple values through a carriage return.', $this->pluginheaders->TextDomain );
 		$v->body            =	 $this->sprintf( $body_pattern, $v );
 

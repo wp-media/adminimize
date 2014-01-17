@@ -74,9 +74,46 @@ class Adminimize_Storage extends ExtendedStandardClass
 		if ( empty( $name ) )
 			return $adminimizeoptions;
 
+		// return nested options
+		if ( is_array( $name ) )
+			return $this->get_nested_option( $name, $adminimizeoptions );
+
 		// return specified option
 		return ( isset( $adminimizeoptions[$name] ) ) ?
 			( $adminimizeoptions[$name] ) : null;
+
+	}
+
+	/**
+	 * Returns a nested option
+	 * @param  array $name   Array with index to search for
+	 * @param  array $option Array with options
+	 * @return mixed         Null if the option could not be found, else the option value
+	 */
+	public function get_nested_option( $name = array(), $option = array() ) {
+
+		$found = true;
+
+		foreach ( $name as $key ) {
+
+			if ( is_array( $option ) ) {
+
+				if ( key_exists( $key, $option ) ) {
+
+					 $option = $option[ $key ];
+
+				} else {
+
+					$found = false;
+
+				}
+
+			}
+
+		}
+
+		return ( true == $found ) ?
+			$option : null;
 
 	}
 
@@ -108,14 +145,14 @@ class Adminimize_Storage extends ExtendedStandardClass
 	 */
 	public function get_custom_options( $option_name = '' ) {
 
-		$custom_options = $this->get_option( $option_name . '_custom' );
+		$customs = $this->get_option( array( $option_name, 'custom' ) );
 
-		return ( empty( $custom_options ) ) ?
-			array( 'options' => array(), 'values' => array(), 'original' => array() ) :
+		return ( empty( $customs ) ) ?
+			array( 'custom_left' => array(), 'custom_right' => array(), 'original' => array() ) :
 			array(
-				'options'  => array_keys( $custom_options ),
-				'values'   => array_values( $custom_options ),
-				'original' => $custom_options
+				'custom_left'  => array_keys( $customs ),
+				'custom_right' => array_values( $customs ),
+				'original'     => $customs
 			);
 
 	}

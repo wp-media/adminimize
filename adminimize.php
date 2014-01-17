@@ -76,12 +76,16 @@ function adminimize_plugin_init() {
 
 	adminimize_autoloader();
 
+	// adding the widget hooks early
+	$registry = new Adminimize_Registry();
+	$registry->add_widgets_hooks();
+
 	// setup basedirs
-	$storage = new Adminimize_Storage();
+	$storage = $registry->get_storage();
 	$storage->set_basedirs( __FILE__ );
 
-	// initialize the PluginHeaderReader through helper class
-	$pluginheaders =  new Adminimize_PluginHeaders( __FILE__ );
+	// initialize the PluginHeaderReader through the registry
+	$pluginheaders = $registry->get_pluginheaders( __FILE__ );
 
 	if ( ! defined( 'ADMINIMIZE_TEXTDOMAIN' ) )
 		define( 'ADMINIMIZE_TEXTDOMAIN', $pluginheaders->TextDomain );
@@ -101,25 +105,38 @@ function adminimize_plugin_init() {
 		0
 	);
 
-	$registry = new Adminimize_Registry();
-	$registry->add_hooks();
 
-// 	$do_actions = 'Adminimize_Do_Actions';
+/*
+ * get the widgets with a remote request
+ */
+//FIXME: remove hardcoded option name
+ $widgets = $storage->get_option( 'available_dashboard_widgets' );
+// die(var_dump($widgets));
+//  if ( empty( $widgets ) ) {
 
-// 	add_action( 'wp_dashboard_setup', array( $do_actions, 'dashboard_setup' ), 99, 0 );
-// 	add_action( 'admin_head',         array( $do_actions, 'do_global_options' ), 1, 0 );
+//  	$cookies = array();
 
-// 	add_action( 'wp_before_admin_bar_render', array( $do_actions, 'get_adminbar_nodes' ), 0, 0 );
+// 	 	foreach ( $_COOKIE as $name => $value ) {
+// 	 		if ( 'PHPSESSID' === $name )
+// 	 			continue;
+// 	 		$cookies[] = new WP_Http_Cookie( array( 'name' => $name, 'value' => $value ) );
+// 	 	}
+
+// 	 	wp_remote_get( admin_url( '/index.php' ), array( 'cookies' => $cookies ) );
+
+//  }
 
 }
 
 function adminimize_on_admin_init() {
 
-	$storage       = new Adminimize_Storage();
+	$registry      = new Adminimize_Registry();
+	$storage       = $registry->get_storage();
+	$pluginheaders = $registry->get_pluginheaders();
 	$pluginstarter = new Plugin_Starter();
 
 	$pluginstarter->basename = $storage->basename;
-	$pluginstarter->load_textdomain( new Adminimize_PluginHeaders() );
+	$pluginstarter->load_textdomain( $pluginheaders );
 	$pluginstarter->load_styles( array( 'adminimize-style' => array( 'file' => '/css/style.css', 'enqueue' => false ) ) );
 
 }

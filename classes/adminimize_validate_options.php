@@ -18,6 +18,10 @@ if ( ! class_exists( 'Adminimize_Validate_Options' ) ) {
 class Adminimize_Validate_Options
 {
 
+	protected $storage = null;
+	protected $common = null;
+	protected $user_roles = array();
+
 	public function validate( $input ) {
 
 		// do not validate if it is not an update request
@@ -25,29 +29,37 @@ class Adminimize_Validate_Options
 			return $input;
 
 		$registry = new Adminimize_Registry();
-		$storage  = $registry->get_storage();
-		$common   = $registry->get_common_functions();
-		$widgets  = $registry->get_widget_provider();
+		$this->storage  = $registry->get_storage();
+		$this->common   = $registry->get_common_functions();
 
-		$output   = $storage->get_option();
+		// get stored options
+		$output   = $this->storage->get_option();
+		$widgets  = $registry->get_widgets();
 
-		$user_roles   = $common->get_all_user_roles();
-		$used_options = $widgets->get_used_options();
+// var_dump( 'INPUT', $input );
+// var_dump( 'OUTPUT', $output );
 
-// var_dump( 'INPUT', $input['dashboard_widgets_editor'] );
-// var_dump( 'OUTPUT', $output['dashboard_widgets_editor'] );
+		foreach ( $widgets as $widget ) {
 
-		foreach( $used_options as $option ) {
+			$used_option = $widget->get_used_option();
 
-			/*
-			 * sanitize checkboxes
-			 */
-			$this->sanitize_checkboxes( $user_roles, $option, $input, $output );
+			// break if no data for the used option was submitted
+			if ( ! key_exists( $used_option, $input ) )
+				continue;
+			else
+				$posted_options = $input[ $used_option ];
 
-			/*
-			 * sanitize custom options
-			 */
-			$this->sanitize_custom_options( $option, $input, $output );
+			// perform the callback functions to validate the options
+			$callbacks = (array) $widget->get_validation_callbacks();
+
+			foreach ( $callbacks as $cb ) {
+
+				$cb = trim( strtolower( $cb ) );
+
+				if ( is_string( $cb ) && method_exists( $this, $cb ) )
+					$this->$cb( $used_option, $posted_options, $output );
+
+			}
 
 		}
 
@@ -57,45 +69,37 @@ class Adminimize_Validate_Options
 		 */
 		$output = $this->cleanup( $output );
 
-
-// var_dump( 'INPUT', $input['dashboard_widgets_editor'] );
-// var_dump( 'OUTPUT', $output['dashboard_widgets_editor'] );
-
-
-// var_dump( 'INPUT', $input );
-// $out = array_keys( $output );
-// sort( $out );
-// var_dump( 'OUTPUT', $out );
-// var_dump( $output['dashboard_widgets_editor'] );
+// var_dump( $input );
+// var_dump( $output['dashboard_widgets'] );
 // exit;
 
 		return $output;
 
 	}
 
+	protected function get_user_roles() {
+		$this->user_roles = $this->common->get_all_user_roles();
+		return $this->user_roles;
+	}
+
+	/**
+	 * Removes empty values from options
+	 * @param  array $output Options to be cleaned
+	 * @return array $output Cleaned options
+	 */
 	protected function cleanup( $output ) {
 
-		$do_not_clean = array( 'dashboard_widgets', 'adminbar_nodes' );
+		$do_not_clean = array( 'available_dashboard_widgets', 'adminbar_nodes' );
 
-		foreach ( $output as $key => $value ) {
+		foreach ( $output as $key => &$value ) {
 
 			if ( in_array( $key, $do_not_clean ) )
 				continue;
 
-			if ( ! is_array( $value ) )
-				if ( empty( $value ) )
-					unset( $output[ $key ] );
+			if ( is_array( $value ) )
+				$value = $this->cleanup( $value );
 
-			$has_values = false;
-
-			if ( ! is_array( $value ) )
-				continue;
-
-			foreach ( $value as $k => $v )
-				if ( ! empty( $v ) )
-					$has_values = true;
-
-			if ( false == $has_values )
+			if ( empty( $value ) )
 				unset( $output[ $key ] );
 
 		}
@@ -104,67 +108,84 @@ class Adminimize_Validate_Options
 
 	}
 
-	protected function sanitize_checkboxes( $user_roles, $option, $input, &$output ) {
+	/**
+	 * Sanitize checkboxes
+	 * @param  string $option Option name
+	 * @param  array  $input  Array with options which was send
+	 * @param  array  $output Reference to the original options for saving
+	 * @return array  $output Array with sanitized checkboxes
+	 */
+	protected function sanitize_checkboxes( $option, $input, &$output ) {
 
-		foreach( $user_roles as $role ) {
+		if ( empty( $this->user_roles ) )
+			$this->user_roles = $this->get_user_roles();
 
-			$id = sprintf( '%s_%s', $option, $role );
+		$old_values = (array) $this->storage->get_option( $option );
 
-			if ( ! key_exists( $id, $input ) )
-				$input[ $id ] = array();
+		foreach( $this->user_roles as $role ) {
 
-			if ( ! key_exists( $id, $output ) )
-				$output[ $id ] = array();
+			// set checked checkboxes
+			if ( key_exists( $role, $input ) )
+				foreach ( $input[ $role ] as $id => $value )
+					$output[ $option ][ $role ][ $id ] = (bool) $value;
 
-			$output[$id] = array_merge( $output[ $id ], $input[ $id ] );
+			// delete unchecked checkboxes
+			if ( key_exists( $role, $old_values ) )
+				foreach ( $old_values[ $role ] as $id => $value )
+					if ( ! key_exists( $role, $input ) || ! key_exists( $id, $input[ $role ] ) )
+						$output[ $option ][ $role ][ $id ] = false;
 
-			foreach ( $output[ $id ] as $key => $value ) {
-
-				if ( isset( $output[ $id ][ $key ] ) && ! key_exists( $key, $input[ $id ] ) )
-					$output[ $id ][ $key ] = false;
-
-				$output[ $id ][ $key ] = (bool) trim( $output[ $id ][ $key ] );
-
-			}
 
 		}
+
+		return $output;
 
 	}
 
+	/**
+	 * Sanitize the options from custom table
+	 * @param unknown $option
+	 * @param unknown $input
+	 * @param unknown $output
+	 * @return Ambigous <multitype:string , string, mixed>
+	 */
 	protected function sanitize_custom_options( $option, $input, &$output ) {
 
-		$custom_option_options = sprintf( 'custom_%s_options', $option );
-		$custom_option_values  = sprintf( 'custom_%s_values', $option );
+			$custom_left = $custom_right = array();
 
-		if ( key_exists( $custom_option_options, $input ) && key_exists( $custom_option_values, $input ) ) {
+			if ( key_exists( 'custom_left', $input ) ) {
 
-			$opts = explode( "\n", $input[ $custom_option_options ] );
-			$vals = explode( "\n", $input[ $custom_option_values ] );
+				$customs = explode( "\n", $input['custom_left'] );
 
-			// make both arrays the same size
-			$c_opts = count( $opts );
-			$c_vals = count( $vals );
-
-			if ( $c_opts > $c_vals ) {
-
-				$vals = array_pad( $vals, $c_opts, '' );
-
-			} elseif( $c_vals > $c_opts ) {
-
-				$opts = array_pad( $opts, $c_vals, '' );
+				foreach ( $customs as $elem )
+					$custom_left[] = esc_html( $elem );
 
 			}
 
-			// escaping-escaping-escaping!!!oneeleven
-			foreach ( $opts as &$o )
-				$o = esc_attr( trim( $o ) );
+			if ( key_exists( 'custom_right', $input ) ) {
 
-			foreach ( $vals as &$v )
-				$v = esc_attr( trim( $v ) );
+				$customs = explode( "\n", $input['custom_right'] );
 
-			$output[ $option . '_custom' ] = array_combine( $opts, $vals );
+				foreach ( $customs as $elem )
+					$custom_right[] = esc_html( $elem );
 
-		}
+			}
+
+			// get both sides the same size
+			$cl = count( $custom_left );
+			$cr = count( $custom_right );
+
+			if ( $cl > $cr ) {
+				$custom_right = array_pad( $custom_right, '', $cl );
+			} elseif ( $cr > $cl ) {
+				$custom_left = array_pad( $custom_left, '', $cr );
+			}
+
+			$both = array_combine( $custom_left, $custom_right );
+
+			$output[ $option ]['custom'] = $both;
+
+		return $output;
 
 	}
 

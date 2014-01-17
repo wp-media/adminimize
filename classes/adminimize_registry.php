@@ -63,14 +63,16 @@ class Adminimize_Registry extends ExtendedStandardClass
 
 	/**
 	 * Create an instance of the requested class if not already done and stores this instance
-	 * @param		object		$class		Instance of the requested class
+	 * @param  string $class  Name of the requested class
+	 * @param  mixed  $args   Arguments passed to the class constructor
+	 * @return object $object Instance of the requested class
 	 */
-	protected function get_class_instance( $class ) {
+	protected function get_class_instance( $class, $args = null ) {
 
-		if ( isset( $this->$class) && ! empty( $this->$class) )
+		if ( isset( $this->$class) && ! empty( $this->$class ) && empty( $args ) )
 			return $this->$class;
 
-		$this->$class = new $class();
+		$this->$class = new $class( $args );
 
 		return $this->$class;
 
@@ -92,8 +94,8 @@ class Adminimize_Registry extends ExtendedStandardClass
 		return $this->get_class_instance( self::STORAGE );
 	}
 
-	public function get_pluginheaders() {
-		return $this->get_class_instance( self::PLUGIN_HEADERS );
+	public function get_pluginheaders( $args = null ) {
+		return $this->get_class_instance( self::PLUGIN_HEADERS, $args );
 	}
 
 	public function get_common_functions() {
@@ -103,7 +105,7 @@ class Adminimize_Registry extends ExtendedStandardClass
 	/**
 	 * Add the hooks needed by the widgets to work
 	 */
-	public function add_hooks() {
+	public function add_widgets_hooks() {
 
 		$hooks = $this->get_widgets_actions( $this->get_widget_provider() );
 
@@ -121,8 +123,7 @@ class Adminimize_Registry extends ExtendedStandardClass
 					if ( empty( $accepted_args ) )
 						$accepted_args = 0;
 
-					add_filter( $tag, $callback, $priority, $accepted_args );
-					$this->register_action( $action );
+					$this->add_hook( $tag, $callback, $priority, $accepted_args );
 
 				}
 
@@ -147,10 +148,39 @@ class Adminimize_Registry extends ExtendedStandardClass
 
 	}
 
+	public function add_hook( $tag, $callback, $priority = 10, $accepted_args = 0 ) {
+
+		add_filter( $tag, $callback, $priority, $accepted_args );
+		$this->register_action( array( $tag, $callback, $priority ) );
+
+	}
+
 	public function remove_hook( $tag ) {
 
 		if ( key_exists( $tag, self::$hooks ) )
 			remove_filter( $tag, self::$hooks[ $tag ] );
+	}
+
+	/**
+	 * Returns a list of widget instances
+	 * @return array
+	 */
+	public function get_widgets() {
+
+		if ( empty( $this->widget_provider ) )
+			$this->widget_provider = $this->get_widget_provider();
+
+		return $this->get_widgets_objects( $this->widget_provider );
+
+	}
+
+	/**
+	 * Fetch a list of widget instances from widget provider
+	 * @param I_Adminimize_Widgets_Provider $widget_provider
+	 * @return array
+	 */
+	protected function get_widgets_objects( I_Adminimize_Widgets_Provider $widget_provider ) {
+		return $widget_provider->get_widgets();
 	}
 
 	/**

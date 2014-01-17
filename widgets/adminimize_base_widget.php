@@ -45,6 +45,20 @@ abstract class Adminimize_Base_Widget
 	 */
 	abstract public function get_hooks();
 
+	public function get_used_option() {
+
+		$attr = $this->get_attributes();
+		return key_exists( 'option_name', $attr ) ? $attr['option_name'] : '';
+
+	}
+
+	public function get_validation_callbacks() {
+		return array(
+				'sanitize_checkboxes',     // no array = use method of validation class (standard function)
+				'sanitize_custom_options',
+		);
+	}
+
 	/**
 	 * Create the widget content on Adminimize dashboard
 	 */

@@ -42,7 +42,7 @@ class Adminimize_Global_Widget extends Adminimize_Base_Widget implements I_Admin
 
 	public function content() {
 
-		$attr = $this->get_attributes();
+		$option_name = $this->get_used_option();
 
 		$global_options = array(
 				array( 'id' => '.show-admin-bar', 'title' => __('Admin Bar', $this->pluginheaders->TextDomain ) ),
@@ -54,7 +54,7 @@ class Adminimize_Global_Widget extends Adminimize_Base_Widget implements I_Admin
 				array( 'id' => '#admin_color_scheme', 'title' => __('Admin Color Scheme', $this->pluginheaders->TextDomain ) ),
 		);
 
-		$custom_globals = $this->storage->get_custom_options( $attr['option_name'] );
+		$custom_globals = $this->storage->get_custom_options( $option_name );
 
 		// merge standard options with custom options
 		foreach ( $custom_globals['original'] as $title => $id ) {
@@ -66,8 +66,8 @@ class Adminimize_Global_Widget extends Adminimize_Base_Widget implements I_Admin
 
 		}
 
-		echo $this->templater->get_table( $attr['option_name'], $global_options, 'global' );
-		echo $this->templater->get_custom_setings_table( $attr['option_name'], $custom_globals, 'global' );
+		echo $this->templater->get_table( $option_name, $global_options, 'global' );
+		echo $this->templater->get_custom_setings_table( $option_name, $custom_globals, 'global' );
 		echo $this->templater->get_widget_bottom();
 
 	}
@@ -85,6 +85,7 @@ class Adminimize_Global_Widget extends Adminimize_Base_Widget implements I_Admin
 
 		$user         = wp_get_current_user();
 		$user_roles   = $user->roles;
+		$glob_options = $this->common->get_option( $this->get_used_option() );
 
 		$global_style = '';
 		$admin_head   =
@@ -95,10 +96,12 @@ class Adminimize_Global_Widget extends Adminimize_Base_Widget implements I_Admin
 </style>
 ADMINHEAD;
 
+
 		foreach ( $user_roles as $role ) {
 
 			$style   = '';
-			$options = $this->common->get_option( 'global_option_' . $role );
+
+			$options = key_exists( $role, $glob_options ) ? $glob_options[ $role ] : array();
 
 			if ( is_array( $options ) ) {
 				$style  = implode( ', ', array_keys( $options ) );

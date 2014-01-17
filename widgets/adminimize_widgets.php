@@ -87,6 +87,19 @@ class Adminimize_Widgets implements I_Adminimize_Widgets_Provider
 	}
 
 	/**
+	 * Returns a list with widget instances
+	 * @return array $widget_objects List with widget instances
+	 */
+	public function get_widgets() {
+
+		if ( empty( $this->widgets_objects ) )
+			$this->read_widget_dir();
+
+		return $this->widgets_objects;
+
+	}
+
+	/**
 	 * (non-PHPdoc)
 	 * @see I_Adminimize_Widgets_Provider::get_widgets_attributes()
 	 */
@@ -131,6 +144,30 @@ class Adminimize_Widgets implements I_Adminimize_Widgets_Provider
 		}
 
 		return $hooks;
+
+	}
+
+	/**
+	 * (non-PHPdoc)
+	 * @see I_Adminimize_Widgets_Provider::get_widgets_validation_callbacks()
+	 */
+	public function get_widgets_validation_callbacks() {
+
+		$callbacks = array();
+
+		if ( empty( $this->widgets_objects ) )
+			$this->read_widget_dir();
+
+		foreach ( $this->widgets_objects as $widget ) {
+
+			$validation_callback = $widget->get_validation_callback();
+
+			if ( ! empty( $validation_callback ) )
+				$callbacks[ get_class( $widget ) ] = $validation_callback;
+
+		}
+
+		return $callbacks;
 
 	}
 

@@ -24,6 +24,12 @@ interface I_Adminimize_Widgets_Provider
 	public function get_used_options();
 
 	/**
+	 * Returns a list of widget instances
+	 * @return array
+	 */
+	public function get_widgets();
+
+	/**
 	 * Get the attributes of each available widget
 	 * @return array
 	 */
@@ -34,6 +40,12 @@ interface I_Adminimize_Widgets_Provider
 	 * @return array
 	 */
 	public function get_widgets_actions();
+
+	/**
+	 * Returns an array with callbacks to sanitize the widget options
+	 * @return array
+	 */
+	public function get_widgets_validation_callbacks();
 
 }
 

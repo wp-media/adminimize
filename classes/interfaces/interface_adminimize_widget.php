@@ -24,6 +24,24 @@ interface I_Adminimize_Widget
 	public function get_attributes();
 
 	/**
+	 * Returns the option used by this widget
+	 * @return string
+	 */
+	public function get_used_option();
+
+	/**
+	 * Returns an array with used hooks
+	 * @return array
+	 */
+	public function get_hooks();
+
+	/**
+	 * Returns a callback function to validate the used options
+	 * @return array
+	 */
+	public function get_validation_callbacks();
+
+	/**
 	 * Outputs the content of the widget
 	 */
 	public function content();
