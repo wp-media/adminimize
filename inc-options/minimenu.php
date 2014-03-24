@@ -15,7 +15,6 @@ if ( is_multisite() && is_plugin_active_for_network( plugin_basename( MW_ADMIN_F
 	$message = __( 'Network' );
 ?>
 
-		<?php screen_icon('options-general'); ?>
 		<h2><?php _e('Adminimize', FB_ADMINIMIZE_TEXTDOMAIN ); echo ' ' . $message; ?></h2>
 		<br class="clear" />
 		<div id="poststuff" class="ui-sortable meta-box-sortables">

@@ -4,8 +4,7 @@ jQuery(document).ready( function() {
 	 * Define the option areas we want to tweak, needs to be updated each time we add a new custom content type.
 	 * This could be done away with if there were proper ids on the containers, instead of #poststuff for everything
 	 */
-	var areas = new Array (
-		'Admin Bar options',
+	var areas = ['Admin Bar options',
 		'Global options',
 		'Dashboard options',
 		'Menu Options',
@@ -18,8 +17,7 @@ jQuery(document).ready( function() {
 		'Write options - What is Food Security',
 		'Widget options',
 		'WP Nav Menu options',
-		'Write options - MSVU Link - Sidebar'
-	)
+		'Write options - MSVU Link - Sidebar'];
 
 	for (var i = 0; i < areas.length; i++) {
 

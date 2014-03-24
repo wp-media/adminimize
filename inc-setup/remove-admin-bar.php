@@ -139,7 +139,8 @@ function _mw_adminimize_remove_admin_bar() {
 		if ( ! isset( $disabled_global_option_[$role]['0'] ) )
 			$disabled_global_option_[$role]['0'] = '';
 	}
-	
+
+	$global_options = '';
 	$remove_adminbar = FALSE;
 	// new 1.7.8
 	foreach ( $user_roles as $role ) {
@@ -181,10 +182,10 @@ function _mw_adminimize_remove_admin_bar() {
 					create_function(
 						'',
 						"echo '<style>body.admin-bar, body.admin-bar #wpcontent, body.admin-bar #adminmenu {
-							 padding-top: 0px !important;
+							 padding-top: 0 !important;
 						}
 						html.wp-toolbar {
-							padding-top: 0px !important;
+							padding-top: 0 !important;
 						}</style>';"
 					)
 				);
@@ -193,6 +194,8 @@ function _mw_adminimize_remove_admin_bar() {
 			add_action( 'in_admin_header', '_mw_adminimize_restore_links' );
 		} // end else version 3.3
 	} // end if $remove_adminbar TRUE
+
+	return NULL;
 }
 
 /**

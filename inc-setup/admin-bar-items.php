@@ -54,7 +54,7 @@ function _mw_adminimize_get_admin_bar_nodes() {
  * Get all admin bar items from settings
  * 
  * @since   1.8.1  01/10/2013
- * @return  void
+ * @return  Array | String
  */
 function _mw_adminimize_get_admin_bar_items() {
 		

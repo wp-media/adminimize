@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Adminimize">
+    <serverData>
+      <paths name="Adminimize">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/wpbeta/plugins/wp-admin/options-general.php?page=Adminimize/adminimize.php" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
+
