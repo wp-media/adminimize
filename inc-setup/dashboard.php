@@ -72,15 +72,15 @@ function _mw_adminimize_get_dashboard_widgets () {
 	$widgets = array();
 	if ( isset($wp_meta_boxes['dashboard']) ) {
 		
-		foreach( $wp_meta_boxes['dashboard'] as $context => $data ) {
-			foreach( $data as $priority => $data ) {
-				foreach( $data as $widget => $data ) {
+		foreach( $wp_meta_boxes['dashboard'] as $context => $datas ) {
+			foreach( $datas as $priority => $data ) {
+				foreach( $data as $widget => $value ) {
 					$widgets[$widget] = array(
 						'id' => $widget,
 						'title' => strip_tags(
-							preg_replace( '/( |)<span.*span>/im', '', $data['title'] )
+							preg_replace( '/( |)<span.*span>/im', '', $value['title'] )
 						),
-						'context' => $context,
+						'context'  => $context,
 						'priority' => $priority
 					);
 				}

@@ -59,12 +59,11 @@ if ( ! function_exists( 'add_action' ) ) {
 							
 							// get registered widgets
 							$registered_widgets = _mw_adminimize_get_all_widgets();
-							foreach ( $registered_widgets as $key => $value ) {
-								
+							foreach ( (array) $registered_widgets as $key => $value ) {
 								array_push( $widget_options, $key );
 								array_push( $widget_options_names, $value->name );
 							}
-							
+
 							$_mw_adminimize_own_widget_values  = _mw_adminimize_get_option_value('_mw_adminimize_own_widget_values');
 							$_mw_adminimize_own_widget_values = preg_split( "/\r\n/", $_mw_adminimize_own_widget_values );
 							foreach ( (array) $_mw_adminimize_own_widget_values as $key => $_mw_adminimize_own_widget_value ) {

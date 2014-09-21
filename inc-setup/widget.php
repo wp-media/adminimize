@@ -18,6 +18,8 @@ function _mw_adminimize_get_all_widgets() {
 	
 	if ( is_object( $wp_widget_factory ) )
 		return $wp_widget_factory->widgets;
+
+	return FALSE;
 }
 
 function _mw_adminimize_get_registered_widgets() {

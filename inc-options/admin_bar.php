@@ -2,7 +2,7 @@
 /**
  * @package    Adminimize
  * @subpackage Admin Bar Options, settings page
- * @author     Frank Bültge
+ * @author     Frank BÃ¼ltge
  * @since      1.8.1  01/10/2013
  */
 if ( ! function_exists( 'add_action' ) ) {
@@ -23,22 +23,22 @@ if ( ! isset( $wp_admin_bar ) )
 
 			<table summary="config_widget" class="widefat">
 				<colgroup>
-				<?php
-				$col = 0;
-				foreach ($user_roles_names as $role_name) {
-					echo '<col class="col' . $col . '">' . "\n";
-					$col ++;
-				}
-				?>
+					<?php
+					$col = 0;
+					foreach ($user_roles_names as $role_name) {
+						echo '<col class="col' . $col . '">' . "\n";
+						$col ++;
+					}
+					?>
 				</colgroup>
 				<thead>
-					<tr>
-						<th><?php _e('Option', FB_ADMINIMIZE_TEXTDOMAIN ); ?></th>
-						<?php
-							foreach ($user_roles_names as $role_name) { ?>
-								<th><?php _e('Deactivate for', FB_ADMINIMIZE_TEXTDOMAIN ); echo '<br/>' . $role_name; ?></th>
-						<?php } ?>
-					</tr>
+				<tr>
+					<th><?php _e('Option', FB_ADMINIMIZE_TEXTDOMAIN ); ?></th>
+					<?php
+					foreach ($user_roles_names as $role_name) { ?>
+						<th><?php _e('Deactivate for', FB_ADMINIMIZE_TEXTDOMAIN ); echo '<br/>' . $role_name; ?></th>
+					<?php } ?>
+				</tr>
 				</thead>
 
 				<tbody>
@@ -68,18 +68,18 @@ if ( ! isset( $wp_admin_bar ) )
 						$checked_user_role_ = array();
 						foreach ( $user_roles as $role ) {
 							$checked_user_role_[$role]  = ( isset( $disabled_admin_bar_option_[$role] ) &&
-								in_array( $key, $disabled_admin_bar_option_[$role] )
+							                                in_array( $key, $disabled_admin_bar_option_[$role] )
 							) ? ' checked="checked"' : '';
 						}
 
 						echo '<tr' . $item_class . '>' . "\n";
 						echo '<td>' . $item_string . strip_tags( $value->title )
-							. ' <span style="color:#ccc; font-weight: 400;">('
-							. $key . ')</span> </td>' . "\n";
+						     . ' <span style="color:#ccc; font-weight: 400;">('
+						     . $key . ')</span> </td>' . "\n";
 						foreach ( $user_roles as $role ) {
 							echo '<td class="num"><input id="check_post'. $role . $x .'" type="checkbox"'
-								. $checked_user_role_[$role] . ' name="mw_adminimize_disabled_admin_bar_'
-								. $role .'_items[]" value="' . $key . '" /></td>' . "\n";
+							     . $checked_user_role_[$role] . ' name="mw_adminimize_disabled_admin_bar_'
+							     . $role .'_items[]" value="' . $key . '" /></td>' . "\n";
 						}
 						echo '</tr>' . "\n";
 						$x ++;
