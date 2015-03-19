@@ -52,7 +52,7 @@ if ( ! isset( $wp_admin_bar ) )
 				$x = 0;
 				// add items to array for select
 				$admin_bar_items = _mw_adminimize_get_admin_bar_items();
-				if ( ! empty( $admin_bar_items ) ) {
+				if ( ! empty( $admin_bar_items ) && is_array( $admin_bar_items ) ) {
 					foreach ( $admin_bar_items as $key => $value ) {
 
 						$is_parent = ! empty( $value->parent );
