@@ -9,6 +9,10 @@ if ( ! function_exists( 'add_action' ) ) {
 	die( "Hi there!  I'm just a part of plugin, not much I can do when called directly." );
 }
 
+// Need only on admin area
+if ( ! is_admin() )
+	return NULL;
+
 // fix some badly enqueued scripts with no sense of HTTPS
 // Kudos to http://snippets.webaware.com.au/snippets/cleaning-up-wordpress-plugin-script-and-stylesheet-loads-over-ssl/
 add_action( 'wp_print_scripts', 'enqueueScriptsFix', 100 );
