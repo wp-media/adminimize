@@ -4,11 +4,14 @@
  * Plugin URI:  https://wordpress.org/plugins/adminimize/
  * Text Domain: adminimize
  * Domain Path: /languages
- * Description: Visually compresses the administratrive meta-boxes so that more admin page content can be initially
- * seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for alle roles of
+ * Description: Visually compresses the administrative meta-boxes so that more admin page content can be initially
+ * seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for all roles of
  * your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible to
- * simplify the admin in different for all roles. Author:      Frank Bültge Author URI:  http://bueltge.de/ Version:
- *  1.8.5-beta License:     GPLv2+
+ * simplify the admin in different for all roles.
+ * Author:      Frank Bültge
+ * Author URI:  http://bueltge.de/
+ * Version:     1.8.5
+ * License:     GPLv2+
  *
  * Php Version 5.3
  *
@@ -1320,6 +1323,8 @@ require_once( 'inc-setup/admin-bar-items.php' );
  * Add action link(s) to plugins page
  *
  * @param $links , $file
+ *
+ * @param $file
  *
  * @return  $links
  */

@@ -1,16 +1,27 @@
 === Adminimize ===
-Contributors: Bueltge, inpsyde
+Contributors: Bueltge
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4578111
 Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
 Requires at least: 2.5
-Tested up to: 3.9-beta2
-Stable tag: 1.8.4
+Tested up to: 4.2
+Stable tag: 1.8.5
 
-Adminimize is a WordPress plugin that lets you hide 'unnecessary' items from the WordPress backend and many many more ...
+Adminimize that lets you hide 'unnecessary' items from the WordPress backend
 
 == Description ==
-Visually compresses the administratrive header so that more admin page content can be initially seen. Also moves 'Dashboard' onto the main administrative menu because having it sit in the tip-top black bar was ticking me off and many other changes in the edit-area. Adminimize is a WordPress plugin that lets you hide 'unnecessary' items from the WordPress administration menu, submenu and even the 'Dashboard', with forwarding to the Manage-page. On top of that, you can also hide post meta controls on the Write page and other areas in the admin-area and Write-page, so as to simplify the editing interface. Compatible with WordPress 2.5 or later. 
-Configure all metaboxes and other areas in the write-area. The new theme move the Tags- and Categorys-box to the sidebar, switch off optional metaboxes and other areas in the write-area. Many options for menu, submenu and all areas, metaboxes in the write-area, separated for all roles in WordPress.
+If you manage a multi-author WordPress blog or WordPress sites for clients, then you may have wondered if it was possible to clean up the WordPress admin area for your users? There are lots of things in the WordPress admin area that your users don’t need to see or use. This plugin help you to hide unnecessary items from WordPress admin area.
+
+Adminimize makes it easy to remove items from view based on a user’s role.
+
+= Search for helping hands =
+Over the time the plugin was extended the plugin with much requirements and his solutions. But the source is not easy to maintain for me, I’m unhappy with the source. I have learned about coding, architecture etc.
+
+Currently I search for developer there will help on dev and support the plugin. The plugin have a [github repository](https://github.com/bueltge/Adminimize) to easy add a issue or a create a fork, pull request. Also to add issues to understand problems.
+
+Especially the functionality for WP Multisite is currently more a hack as a solution. But is very complex, not easy to create a solution for this.
+
+For development see this repository: https://github.com/bueltge/Adminimize
+The master branch is the current version and the new will leave in the v2.0 branch.
 
 = Support Custom Options on all different post types =
 With version 1.6.1 it is possible to add own options for hide areas in the backend of WordPress. It is easy and you must only forgive ID or class of the tag. Also it is possible to use a fixed menu and header.
@@ -61,10 +72,6 @@ The plugin changes the administration backend and gives you the power to assign 
 1. remove items on custom post types for different role
 1. ... many many more
 
-**Made by [Inpsyde](http://inpsyde.com) &middot; We love WordPress**
-
-Have a look at the premium plugins in our [market](http://marketpress.com).
-
 == Installation ==
 1. Unpack the download-package
 2. Upload folder include all files to the `/wp-content/plugins/` directory. The final directory tree should look like `/wp-content/plugins/adminimize/adminimize.php`, `/wp-content/plugins/adminimize/adminimize_page.php`, `/wp-content/plugins/adminimize/css/` and `/wp-content/plugins/adminimize/languages`
@@ -75,7 +82,7 @@ Have a look at the premium plugins in our [market](http://marketpress.com).
 * or use the automatic install via backend of WordPress
 
 = Advice =
-Please use the `Deinstall-Function` in the option-area before update to version 1.4! Version 1.4 and higher have only one database entry and the `Deinstall-Option` deinstall the old entrys.
+Please use the `Deinstall-Function` in the option-area before update to version 1.4! Version 1.4 and higher have only one database entry and the `Deinstall-Option` deinstall the old entry's.
 
 See on [the official website](http://bueltge.de/wordpress-admin-theme-adminimize/674/ "Adminimize").
 
@@ -89,12 +96,16 @@ See on [the official website](http://bueltge.de/wordpress-admin-theme-adminimize
 1. Adminimize Theme how in WordPress 2.3
 
 == Changelog ==
-= 1.8.5 (???) =
+= 1.8.5 (2015-03-19) =
 * Add brazilian portuguese translation, thanks to [Rafael Funchal](http://www.rafaelfunchal.com.br/)
-* Small code changes for php hints
+* Small code changes for php notices
+* Fix Admin Bar Feature
+* Different code maintenance
+* Enhance readme for helpful links under FAQ
+* Fix to remove admin bar
 
 = 1.8.4 (06/06/2013) =
-* Change Widget Settings, better to unregister widgtes from other themes and plugins
+* Change Widget Settings, better to unregister widgets from other themes and plugins
 * Add more usability to the settings page
 * Small major changes
 
