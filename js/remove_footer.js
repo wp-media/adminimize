@@ -1,6 +1,6 @@
 /**
  * remove footer
  */
-jQuery(document).ready(function($) {
-	$('#footer, #footer-left, #footer-upgrade').remove();
-});
+jQuery(document).ready( function( $ ) {
+	$( '#footer, #footer-left, #footer-upgrade' ).remove();
+} );

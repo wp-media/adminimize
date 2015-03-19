@@ -14,6 +14,8 @@ add_action( 'init', '_mw_adminimize_remove_admin_bar', 0 );
 
 /**
  * Change the var of Admin Bar in WP 3.3
+ *
+ * @param array $admin_bar_keys
  */
 function _mw_adminimize_customize_admin_bar( $admin_bar_keys = array() ) {
 
@@ -38,12 +40,12 @@ function _mw_adminimize_remove_my_account() {
 
 /**
  * Add Logout link to admin abr in wp 3.3
+ *
+ * @param $wp_admin_bar
  */
 function _mw_adminimize_add_logout( $wp_admin_bar ) {
 
 	$user_id                    = get_current_user_id();
-	$current_user               = wp_get_current_user();
-	$profile_url                = get_edit_profile_url( $user_id );
 	$_mw_adminimize_ui_redirect = _mw_adminimize_get_option_value( '_mw_adminimize_ui_redirect' );
 	if ( '1' === $_mw_adminimize_ui_redirect ) {
 		$redirect = '&amp;redirect_to=' . get_option( 'siteurl' );
@@ -69,7 +71,6 @@ function _mw_adminimize_add_user_logout( $wp_admin_bar ) {
 
 	$user_id                    = get_current_user_id();
 	$current_user               = wp_get_current_user();
-	$profile_url                = get_edit_profile_url( $user_id );
 	$_mw_adminimize_ui_redirect = _mw_adminimize_get_option_value( '_mw_adminimize_ui_redirect' );
 	if ( '1' === $_mw_adminimize_ui_redirect ) {
 		$redirect = '&amp;redirect_to=' . get_option( 'siteurl' );
@@ -95,8 +96,6 @@ function _mw_adminimize_add_user_logout( $wp_admin_bar ) {
 
 function _mw_adminimize_set_menu_option_33() {
 
-	global $pagenow, $menu, $submenu, $user_identity, $wp_version;
-
 	// exclude super admin
 	if ( _mw_adminimize_exclude_super_admin() ) {
 		return NULL;
@@ -113,9 +112,7 @@ function _mw_adminimize_set_menu_option_33() {
 		);
 	}
 
-	$_mw_adminimize_admin_head  = "\n";
 	$_mw_adminimize_user_info   = _mw_adminimize_get_option_value( '_mw_adminimize_user_info' );
-	$_mw_adminimize_ui_redirect = _mw_adminimize_get_option_value( '_mw_adminimize_ui_redirect' );
 	// change user-info
 	switch ( $_mw_adminimize_user_info ) {
 		case 1:
@@ -158,7 +155,6 @@ function _mw_adminimize_remove_admin_bar() {
 		}
 	}
 
-	$global_options  = '';
 	$remove_adminbar = FALSE;
 	// new 1.7.8
 	foreach ( $user_roles as $role ) {
@@ -168,7 +164,6 @@ function _mw_adminimize_remove_admin_bar() {
 				&& isset( $disabled_global_option_[ $role ] )
 				&& is_array( $disabled_global_option_[ $role ] )
 			) {
-				$global_options = implode( ', ', $disabled_global_option_[ $role ] );
 				if ( _mw_adminimize_recursive_in_array( '.show-admin-bar', $disabled_global_option_[ $role ] ) ) {
 					$remove_adminbar = TRUE;
 				}

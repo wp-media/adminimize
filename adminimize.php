@@ -269,7 +269,7 @@ function _mw_get_current_post_type() {
  */
 function _mw_adminimize_admin_init() {
 
-	global $pagenow, $post_type, $menu, $submenu, $wp_version;
+	global $pagenow, $post_type, $menu, $submenu;
 
 	if ( isset( $_GET[ 'post' ] ) ) {
 		$post_id = (int) esc_attr( $_GET[ 'post' ] );
@@ -318,8 +318,6 @@ function _mw_adminimize_admin_init() {
 	$nav_menu_pages = array( 'nav-menus.php' );
 	// widget pages
 	$widget_pages = array( 'widgets.php' );
-	// get admin color for current user
-	$_mw_admin_color = get_user_option( 'admin_color' );
 
 	foreach ( $user_roles as $role ) {
 		$disabled_global_option_[ $role ]  = _mw_adminimize_get_option_value(
@@ -601,9 +599,11 @@ function _mw_adminimize_sidecat_list_category_box() {
  */
 function _mw_adminimize_remove_dashboard() {
 
-	global $menu, $submenu, $user_ID, $wp_version;
+	global $menu, $user_ID, $wp_version;
 
-	$user_roles = _mw_adminimize_get_all_user_roles();
+	$disabled_menu_    = '';
+	$disabled_submenu_ = '';
+	$user_roles        = _mw_adminimize_get_all_user_roles();
 
 	foreach ( $user_roles as $role ) {
 		$disabled_menu_[ $role ]    = _mw_adminimize_get_option_value(
@@ -712,7 +712,7 @@ function _mw_adminimize_remove_dashboard() {
  */
 function _mw_adminimize_set_user_info() {
 
-	global $pagenow, $menu, $submenu, $user_identity, $wp_version;
+	global $user_identity, $wp_version;
 
 	// exclude super admin
 	if ( _mw_adminimize_exclude_super_admin() ) {
@@ -845,7 +845,7 @@ function _mw_adminimize_set_user_info() {
  */
 function _mw_adminimize_set_menu_option() {
 
-	global $pagenow, $menu, $submenu, $user_identity, $wp_version, $current_screen;
+	global $menu, $submenu, $current_screen;
 
 	// exclude super admin
 	if ( _mw_adminimize_exclude_super_admin() ) {
@@ -856,7 +856,9 @@ function _mw_adminimize_set_menu_option() {
 		return NULL;
 	}
 
-	$user_roles = _mw_adminimize_get_all_user_roles();
+	$user_roles        = _mw_adminimize_get_all_user_roles();
+	$disabled_menu_    = '';
+	$disabled_submenu_ = '';
 
 	foreach ( $user_roles as $role ) {
 		$disabled_menu_[ $role ]    = _mw_adminimize_get_option_value(
@@ -944,8 +946,7 @@ function _mw_adminimize_set_global_option() {
 		}
 	}
 
-	$global_options  = '';
-	$remove_adminbar = FALSE;
+	$global_options = '';
 	// new 1.7.8
 	foreach ( $user_roles as $role ) {
 		$user = wp_get_current_user();
@@ -955,9 +956,6 @@ function _mw_adminimize_set_global_option() {
 				&& is_array( $disabled_global_option_[ $role ] )
 			) {
 				$global_options = implode( ', ', $disabled_global_option_[ $role ] );
-				if ( _mw_adminimize_recursive_in_array( '.show-admin-bar', $disabled_global_option_[ $role ] ) ) {
-					$remove_adminbar = TRUE;
-				}
 			}
 		}
 	}
@@ -982,11 +980,9 @@ function _mw_adminimize_set_metabox_post_option() {
 		return NULL;
 	}
 
-	$user_roles = _mw_adminimize_get_all_user_roles();
-
+	$user_roles                = _mw_adminimize_get_all_user_roles();
 	$_mw_adminimize_admin_head = '';
-
-	// remove_action( 'admin_head', 'index_js' );
+	$metaboxes                 = '';
 
 	foreach ( $user_roles as $role ) {
 		$disabled_metaboxes_post_[ $role ] = _mw_adminimize_get_option_value(
@@ -998,7 +994,6 @@ function _mw_adminimize_set_metabox_post_option() {
 		}
 
 		// new 1.7.8
-		//foreach ( $user_roles as $role ) {
 		$user = wp_get_current_user();
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles ) ) {
 			if ( current_user_can( $role ) && isset( $disabled_metaboxes_post_[ $role ] )
@@ -1009,13 +1004,12 @@ function _mw_adminimize_set_metabox_post_option() {
 				$metaboxes = implode( ',', $disabled_metaboxes_post_[ $role ] );
 			}
 		}
-		//}
 	}
 
 	$_mw_adminimize_admin_head .= '<style type="text/css">' .
 		$metaboxes . ' {display: none !important;}</style>' . "\n";
 
-	if ( $metaboxes ) {
+	if ( ! empty( $metaboxes ) ) {
 		echo $_mw_adminimize_admin_head;
 	}
 }
@@ -1030,11 +1024,9 @@ function _mw_adminimize_set_metabox_page_option() {
 		return NULL;
 	}
 
-	$user_roles = _mw_adminimize_get_all_user_roles();
-
+	$user_roles                = _mw_adminimize_get_all_user_roles();
 	$_mw_adminimize_admin_head = '';
-
-	// remove_action( 'admin_head', 'index_js' );
+	$metaboxes                 = '';
 
 	foreach ( $user_roles as $role ) {
 		$disabled_metaboxes_page_[ $role ] = _mw_adminimize_get_option_value(
@@ -1046,7 +1038,6 @@ function _mw_adminimize_set_metabox_page_option() {
 		}
 
 		// new 1.7.8
-		//foreach ( $user_roles as $role ) {
 		$user = wp_get_current_user();
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles ) ) {
 			if ( current_user_can( $role )
@@ -1056,13 +1047,12 @@ function _mw_adminimize_set_metabox_page_option() {
 				$metaboxes = implode( ',', $disabled_metaboxes_page_[ $role ] );
 			}
 		}
-		//}
 	}
 
 	$_mw_adminimize_admin_head .= '<style type="text/css">' .
 		$metaboxes . ' {display: none !important;}</style>' . "\n";
 
-	if ( $metaboxes ) {
+	if ( ! empty( $metaboxes ) ) {
 		echo $_mw_adminimize_admin_head;
 	}
 }
@@ -1089,19 +1079,19 @@ function _mw_adminimize_set_metabox_cp_option() {
 	if ( ! isset( $current_post_type ) ) {
 		$current_post_type = get_post_type( $post_id );
 	}
+
 	if ( ! isset( $current_post_type ) || ! $current_post_type ) {
 		$current_post_type = str_replace( 'post_type=', '', esc_attr( $_SERVER[ 'QUERY_STRING' ] ) );
 	}
-	if ( ! $current_post_type ) // set hard to post
-	{
+
+	// set hard to post
+	if ( ! $current_post_type ) {
 		$current_post_type = 'post';
 	}
 
-	$user_roles = _mw_adminimize_get_all_user_roles();
-
+	$user_roles                = _mw_adminimize_get_all_user_roles();
 	$_mw_adminimize_admin_head = '';
-
-	// remove_action( 'admin_head', 'index_js' );
+	$metaboxes                 = '';
 
 	foreach ( $user_roles as $role ) {
 		$disabled_metaboxes_[ $current_post_type . '_' . $role ] = _mw_adminimize_get_option_value(
@@ -1112,7 +1102,6 @@ function _mw_adminimize_set_metabox_cp_option() {
 			$disabled_metaboxes_[ $current_post_type . '_' . $role ][ '0' ] = '';
 		}
 
-		//foreach ( $user_roles as $role ) {
 		$user = wp_get_current_user();
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles ) ) {
 			if ( current_user_can( $role )
@@ -1122,13 +1111,12 @@ function _mw_adminimize_set_metabox_cp_option() {
 				$metaboxes = implode( ',', $disabled_metaboxes_[ $current_post_type . '_' . $role ] );
 			}
 		}
-		//}
 	}
 
 	$_mw_adminimize_admin_head .= '<style type="text/css">' .
 		$metaboxes . ' {display: none !important;}</style>' . "\n";
 
-	if ( $metaboxes ) {
+	if ( ! empty( $metaboxes ) ) {
 		echo $_mw_adminimize_admin_head;
 	}
 }
@@ -1161,6 +1149,7 @@ function _mw_adminimize_set_link_option() {
 		}
 	}
 
+	$link_options = '';
 	// new 1.7.8
 	foreach ( $user_roles as $role ) {
 		$user = wp_get_current_user();
@@ -1176,7 +1165,7 @@ function _mw_adminimize_set_link_option() {
 	$_mw_adminimize_admin_head .= '<style type="text/css">' .
 		$link_options . ' {display: none !important;}</style>' . "\n";
 
-	if ( $link_options ) {
+	if ( ! empty( $link_options ) ) {
 		echo $_mw_adminimize_admin_head;
 	}
 }
@@ -1418,7 +1407,11 @@ function _mw_adminimize_set_theme() {
 }
 
 /**
- * read otpions
+ * read options
+ *
+ * @param $key
+ *
+ * @return null
  */
 function _mw_adminimize_get_option_value( $key ) {
 
@@ -1875,9 +1868,9 @@ function _mw_adminimize_import() {
 	$str_file_ext  = explode( ".", $str_file_name );
 
 	if ( $str_file_ext[ 1 ] != 'seq' ) {
-		$addreferer = 'notexist';
+		wp_die( 'No exist.' );
 	} elseif ( file_exists( $_FILES[ 'datei' ][ 'name' ] ) ) {
-		$addreferer = 'exist';
+		wp_die( 'Exist.' );
 	} else {
 		// path for file
 		$str_ziel = WP_CONTENT_DIR . '/' . $_FILES[ 'datei' ][ 'name' ];
@@ -1906,11 +1899,11 @@ function _mw_adminimize_import() {
 			unlink( $str_ziel );
 		}
 
-		$addreferer = 'true';
 	}
 
 	$myErrors = new _mw_adminimize_message_class();
 	$myErrors = '<div id="message" class="updated fade"><p>' .
 		$myErrors->get_error( '_mw_adminimize_import' ) . '</p></div>';
+
 	echo $myErrors;
 }
