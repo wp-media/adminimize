@@ -435,7 +435,7 @@ My english ist gruesome here and there and you can see the [entry on the WP comm
 
 = Post about the plugin with helpful hints =
  * [wpbeginner.com: How to Hide Unnecessary Items From WordPress Admin with Adminimize](http://www.wpbeginner.com/plugins/how-to-hide-unnecessary-items-from-wordpress-admin-with-adminimize/)
-  * [wptavern.com: Create A Custom WordPress Admin Experience With Adminimize](http://wptavern.com/create-a-custom-wordpress-admin-experience-with-adminimize)
+ * [wptavern.com: Create A Custom WordPress Admin Experience With Adminimize](http://wptavern.com/create-a-custom-wordpress-admin-experience-with-adminimize)
 
 = Where can I get more information? =
 Please visit [the official website](http://bueltge.de/wordpress-admin-theme-adminimize/674/ "Adminimize") for the latest information on this plugin.
