@@ -159,7 +159,7 @@ function _mw_adminimize_exclude_super_admin() {
  * code by Vincent Weber, www.webRtistik.nl
  *
  * @uses   $wp_roles
- * @return $user_roles
+ * @return array $user_roles
  */
 function _mw_adminimize_get_all_user_roles() {
 
@@ -188,7 +188,7 @@ function _mw_adminimize_get_all_user_roles() {
  * Inclusive self defined roles (for example with the 'Role Manager' plugin).
  *
  * @uses   $wp_roles
- * @return $user_roles_names
+ * @return array $user_roles_names
  */
 function _mw_adminimize_get_all_user_roles_names() {
 
@@ -1300,19 +1300,26 @@ function _mw_adminimize_small_user_info() {
 /**
  * include options-page in wp-admin
  */
+// include helping functions
+require_once( 'inc-setup/helping_hands.php' );
+
 // inc. settings page
 require_once( 'adminimize_page.php' );
 // @ToDO release XML Ex-Import
 //require_once( 'inc-options/class-eximport.php' );
-// dashbaord options
+
+// dashboard options
 require_once( 'inc-setup/dashboard.php' );
+
 // widget options
 require_once( 'inc-setup/widget.php' );
 require_once( 'inc-setup/admin-footer.php' );
-// globale settings
+
+// global settings
 //require_once( 'inc-options/settings_notice.php' );
 // remove admin bar
 require_once( 'inc-setup/remove-admin-bar.php' );
+
 // admin bar helper, setup
 // work always in frontend
 require_once( 'inc-setup/admin-bar-items.php' );
