@@ -1,19 +1,21 @@
 <?php
 /**
- * @package Adminimize
- * @author Frank Bültge
- */
-
-/**
  * Plugin Name: Adminimize
- * Plugin URI:  http://bueltge.de/wordpress-admin-theme-adminimize/674/
+ * Plugin URI:  https://wordpress.org/plugins/adminimize/
  * Text Domain: adminimize
  * Domain Path: /languages
  * Description: Visually compresses the administratrive meta-boxes so that more admin page content can be initially seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for alle roles of your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible to simplify the admin in different for all roles.
  * Author:      Frank Bültge
  * Author URI:  http://bueltge.de/
  * Version:     1.8.5-beta
- * License:     GPLv2
+ * License:     GPLv2+
+ *
+ * Php Version 5.3
+ *
+ * @package WordPress
+ * @author  Frank Bültge <f.bueltge@inpsyde.com>
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+ * @version 2015-03-19
  */
 
 /**
@@ -28,15 +30,6 @@
 if ( ! function_exists( 'add_action' ) ) {
 	echo "Hi there!  I'm just a part of plugin, not much I can do when called directly.";
 	exit;
-}
-
-global $wp_version;
-if ( version_compare( $wp_version, "2.5alpha", "<" ) ) {
-	$exit_msg = 'The plugin <em><a href="http://bueltge.de/wordpress-admin-theme-adminimize/674/">Adminimize</a></em> requires WordPress 2.5 or newer. <a href="http://codex.wordpress.org/Upgrading_WordPress">Please update WordPress</a> or delete the plugin.';
-
-	header( 'Status: 403 Forbidden' );
-	header( 'HTTP/1.1 403 Forbidden' );
-	exit( $exit_msg );
 }
 
 // plugin definitions
@@ -801,7 +794,7 @@ function _mw_adminimize_set_global_option() {
 			}
 		}
 	}
-	if ( 0 != strpos( $global_options, '#your-profile .form-table fieldset' ) )
+	if ( isset( $global_options ) && 0 != strpos( $global_options, '#your-profile .form-table fieldset' ) )
 		$_wp_admin_css_colors = 0;
 	$_mw_adminimize_admin_head .= '<!-- global options -->' . "\n";
 	$_mw_adminimize_admin_head .= '<style type="text/css">' . $global_options . ' {display: none !important;}</style>' . "\n";
