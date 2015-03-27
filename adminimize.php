@@ -899,17 +899,19 @@ function _mw_adminimize_set_menu_option() {
 					continue;
 				}
 
-				if ( isset( $mw_adminimize_menu ) && in_array( $item[ 2 ], $mw_adminimize_menu ) ) {
-					unset( $menu[ $index ] );
-				}
+				if ( isset( $item[ 2 ] ) ) {
+					if ( isset( $mw_adminimize_menu ) && in_array( $item[ 2 ], $mw_adminimize_menu ) ) {
+						unset( $menu[ $index ] );
+					}
 
-				if ( isset( $submenu ) && ! empty( $submenu[ $item[ 2 ] ] ) ) {
-					foreach ( $submenu[ $item[ 2 ] ] as $subindex => $subitem ) {
-						if ( isset( $mw_adminimize_submenu ) && in_array( $subitem[ 2 ], $mw_adminimize_submenu ) )
-							//if ( 'profile.php' === $subitem[2] )
-							//	unset( $menu[70] );
-						{
-							unset( $submenu[ $item[ 2 ] ][ $subindex ] );
+					if ( isset( $submenu ) && ! empty( $submenu[ $item[ 2 ] ] ) ) {
+						foreach ( $submenu[ $item[ 2 ] ] as $subindex => $subitem ) {
+							if ( isset( $mw_adminimize_submenu ) && in_array( $subitem[ 2 ], $mw_adminimize_submenu ) )
+								//if ( 'profile.php' === $subitem[2] )
+								//	unset( $menu[70] );
+							{
+								unset( $submenu[ $item[ 2 ] ][ $subindex ] );
+							}
 						}
 					}
 				}
