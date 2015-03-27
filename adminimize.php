@@ -875,7 +875,7 @@ function _mw_adminimize_set_menu_option() {
 	$mw_adminimize_menu = array();
 	$mw_adminimize_submenu = array();
 	// set menu
-	if ( isset( $disabled_menu_[ 'editor' ] ) && '' != $disabled_menu_[ 'editor' ] ) {
+	//if ( isset( $disabled_menu_[ 'editor' ] ) && '' != $disabled_menu_[ 'editor' ] ) {
 
 		// set admin-menu
 		foreach ( $user_roles as $role ) {
@@ -918,7 +918,7 @@ function _mw_adminimize_set_menu_option() {
 			}
 		}
 
-	}
+	//}
 
 }
 
