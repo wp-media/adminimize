@@ -10,7 +10,7 @@
  * simplify the admin in different for all roles.
  * Author:      Frank Bültge
  * Author URI:  http://bueltge.de/
- * Version:     1.8.5
+ * Version:     1.8.6-Dev
  * License:     GPLv2+
  *
  * Php Version 5.3
@@ -18,16 +18,16 @@
  * @package WordPress
  * @author  Frank Bültge <f.bueltge@inpsyde.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2015-03-19
+ * @version 2015-03-27
  */
 
 /**
- * The stylesheet and the initial idea is from Eric A. Meyer, http://meyerweb.com/
- * and i have written a plugin with many options on the basis
- * of differently user-right and a user-friendly range in admin-area.
+ * The stylesheet and the initial idea is from Eric A. Meyer http://meyerweb.com/
+ * I have written a plugin with many options on the basis idea
+ * of differently user-right and a user-friendly range in admin-area via reduce areas.
  *
- * :( grmpf i have so much wishes and hints form users, do use the plugin and
- *    it is not possible to development this on my free time
+ * :( grmpf i have so much wishes and hints form users, there use the plugin and
+ *    it is not easy to development this on my free time.
  */
 
 if ( ! function_exists( 'add_action' ) ) {
@@ -872,7 +872,8 @@ function _mw_adminimize_set_menu_option() {
 		);
 	}
 
-	$mw_adminimize_menu = '';
+	$mw_adminimize_menu = array();
+	$mw_adminimize_submenu = array();
 	// set menu
 	if ( isset( $disabled_menu_[ 'editor' ] ) && '' != $disabled_menu_[ 'editor' ] ) {
 
