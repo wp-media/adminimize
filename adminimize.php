@@ -968,8 +968,8 @@ function _mw_adminimize_set_global_option() {
 	if ( isset( $global_options ) && 0 != strpos( $global_options, '#your-profile .form-table fieldset' ) ) {
 		$_wp_admin_css_colors = 0;
 	}
-	$_mw_adminimize_admin_head .= '<!-- global options -->' . "\n";
-	$_mw_adminimize_admin_head .= '<style type="text/css">' . $global_options . ' {display: none !important;}</style>' . "\n";
+	$_mw_adminimize_admin_head .= '<!-- Set Adminimize global options -->' . "\n";
+	$_mw_adminimize_admin_head .= '<style type="text/css">' . $global_options . ' {display:none !important;}</style>' . "\n";
 
 	if ( ! empty( $global_options ) ) {
 		echo $_mw_adminimize_admin_head;
@@ -1012,8 +1012,9 @@ function _mw_adminimize_set_metabox_post_option() {
 		}
 	}
 
+	$_mw_adminimize_admin_head .= '<!-- Set Adminimize metabox post options -->' . "\n";
 	$_mw_adminimize_admin_head .= '<style type="text/css">' .
-		$metaboxes . ' {display: none !important;}</style>' . "\n";
+		$metaboxes . ' {display:none !important;}</style>' . "\n";
 
 	if ( ! empty( $metaboxes ) ) {
 		echo $_mw_adminimize_admin_head;
@@ -1055,8 +1056,9 @@ function _mw_adminimize_set_metabox_page_option() {
 		}
 	}
 
+	$_mw_adminimize_admin_head .= '<!-- Set Adminimize metabox page options -->' . "\n";
 	$_mw_adminimize_admin_head .= '<style type="text/css">' .
-		$metaboxes . ' {display: none !important;}</style>' . "\n";
+		$metaboxes . ' {display:none !important;}</style>' . "\n";
 
 	if ( ! empty( $metaboxes ) ) {
 		echo $_mw_adminimize_admin_head;
@@ -1119,8 +1121,9 @@ function _mw_adminimize_set_metabox_cp_option() {
 		}
 	}
 
+	$_mw_adminimize_admin_head .= '<!-- Set Adminimize post options -->' . "\n";
 	$_mw_adminimize_admin_head .= '<style type="text/css">' .
-		$metaboxes . ' {display: none !important;}</style>' . "\n";
+		$metaboxes . ' {display:none !important;}</style>' . "\n";
 
 	if ( ! empty( $metaboxes ) ) {
 		echo $_mw_adminimize_admin_head;
@@ -1168,8 +1171,10 @@ function _mw_adminimize_set_link_option() {
 			}
 		}
 	}
+
+	$_mw_adminimize_admin_head .= '<!-- Set Adminimize links options -->' . "\n";
 	$_mw_adminimize_admin_head .= '<style type="text/css">' .
-		$link_options . ' {display: none !important;}</style>' . "\n";
+		$link_options . ' {display:none !important;}</style>' . "\n";
 
 	if ( ! empty( $link_options ) ) {
 		echo $_mw_adminimize_admin_head;
@@ -1218,6 +1223,8 @@ function _mw_adminimize_set_nav_menu_option() {
 		}
 	}
 	//remove_meta_box( $id, 'nav-menus', 'side' );
+
+	$_mw_adminimize_admin_head .= '<!-- Set Adminimize WP Nav Menu options -->' . "\n";
 	$_mw_adminimize_admin_head .= '<style type="text/css">' .
 		$nav_menu_options . ' {display: none !important;}</style>' . "\n";
 
@@ -1266,6 +1273,8 @@ function _mw_adminimize_set_widget_option() {
 		}
 	}
 	//remove_meta_box( $id, 'nav-menus', 'side' );
+
+	$_mw_adminimize_admin_head .= '<!-- Set Adminimize Widget options -->' . "\n";
 	$_mw_adminimize_admin_head .= '<style type="text/css">' .
 		$widget_options . ' {display: none !important;}</style>' . "\n";
 
