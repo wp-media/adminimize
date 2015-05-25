@@ -99,7 +99,7 @@ function _mw_adminimize_unregister_widgets() {
 				foreach( $disabled_widget_option_[$role] as $widgets ) {
 					unregister_widget( $widgets );
 					$GLOBALS['wp_widget_factory']->unregister( $widgets );
-					//unregister_sidebar_widget( 'Monster_Widget' );
+					//wp_unregister_sidebar_widget( 'Monster_Widget' );
 				}
 			}
 			
