@@ -11,7 +11,7 @@ if ( ! function_exists( 'add_action' ) ) {
 
 // export options
 if ( isset( $_GET['_mw_adminimize_export'] ) ) {
-	_mw_adminimize_export();
+	_mw_adminimize_export_json();
 	die();
 }
 
@@ -43,16 +43,7 @@ function _mw_adminimize_options() {
 	// import options
 	if ( ( isset($_POST['_mw_adminimize_action']) && $_POST['_mw_adminimize_action'] == '_mw_adminimize_import') && $_POST['_mw_adminimize_save'] ) {
 
-		if ( function_exists('current_user_can') && current_user_can('manage_options') ) {
-			check_admin_referer('mw_adminimize_nonce');
-
-			_mw_adminimize_import();
-
-		} else {
-			$myErrors = new _mw_adminimize_message_class();
-			$myErrors = '<div id="message" class="error"><p>' . $myErrors->get_error('_mw_adminimize_access_denied') . '</p></div>';
-			wp_die($myErrors);
-		}
+		_mw_adminimize_import_json();
 	}
 
 	// deinstall options

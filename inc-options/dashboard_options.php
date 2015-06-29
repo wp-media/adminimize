@@ -46,8 +46,10 @@ if ( ! function_exists( 'add_action' ) ) {
 								
 								$dashboard_options = array();
 								$dashboard_options_names = array();
-
 								foreach ( $widgets as $widget ) {
+									// Object to array
+									if ( is_object( $widget ) )
+										$widget = get_object_vars( $widget );
 									array_push( $dashboard_options, $widget['id'] );
 									array_push( $dashboard_options_names, $widget['title'] );
 								}

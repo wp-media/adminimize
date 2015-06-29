@@ -32,7 +32,11 @@ if ( ! function_exists( 'add_action' ) ) {
 							<?php
 							$wp_menu    = _mw_adminimize_get_option_value('mw_adminimize_default_menu');
 							$wp_submenu = _mw_adminimize_get_option_value('mw_adminimize_default_submenu');
-							
+
+							// Object to array
+							if ( is_object( $wp_submenu ) )
+								$wp_submenu = get_object_vars( $wp_submenu );
+
 							if ( ! isset($wp_menu) || empty($wp_menu) ) {
 								global $menu;
 								
@@ -60,7 +64,7 @@ if ( ! function_exists( 'add_action' ) ) {
 								//array_push( $menu, $users );
 								
 								foreach ($wp_menu as $item) {
-									
+
 									// non checked items
 									if ( $item[2] === 'options-general.php' ) {
 										//$disabled_item_adm = ' disabled="disabled"';
@@ -69,7 +73,7 @@ if ( ! function_exists( 'add_action' ) ) {
 										$disabled_item_adm = '';
 										$disabled_item_adm_hint = '';
 									}
-									
+
 									if ( $item[2] != '' ) {
 										
 										if ( 'wp-menu-separator' === $item[4] )

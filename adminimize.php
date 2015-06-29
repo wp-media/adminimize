@@ -872,51 +872,51 @@ function _mw_adminimize_set_menu_option() {
 		);
 	}
 
-	$mw_adminimize_menu = array();
+	$mw_adminimize_menu    = array();
 	$mw_adminimize_submenu = array();
 	// set menu
 	//if ( isset( $disabled_menu_[ 'editor' ] ) && '' != $disabled_menu_[ 'editor' ] ) {
 
-		// set admin-menu
-		foreach ( $user_roles as $role ) {
-			$user = wp_get_current_user();
-			if ( is_array( $user->roles ) && in_array( $role, $user->roles ) ) {
-				if ( current_user_can( $role ) ) {
-					$mw_adminimize_menu    = $disabled_menu_[ $role ];
-					$mw_adminimize_submenu = $disabled_submenu_[ $role ];
-				}
+	// set admin-menu
+	foreach ( $user_roles as $role ) {
+		$user = wp_get_current_user();
+		if ( is_array( $user->roles ) && in_array( $role, $user->roles ) ) {
+			if ( current_user_can( $role ) ) {
+				$mw_adminimize_menu    = $disabled_menu_[ $role ];
+				$mw_adminimize_submenu = $disabled_submenu_[ $role ];
 			}
 		}
+	}
 
-		// fallback on users.php on all userroles smaller admin
-		if ( is_array( $mw_adminimize_menu ) && in_array( 'users.php', $mw_adminimize_menu ) ) {
-			$mw_adminimize_menu[ ] = 'profile.php';
-		}
+	// fallback on users.php on all userroles smaller admin
+	if ( is_array( $mw_adminimize_menu ) && in_array( 'users.php', $mw_adminimize_menu ) ) {
+		$mw_adminimize_menu[ ] = 'profile.php';
+	}
 
-		if ( isset( $menu ) && ! empty( $menu ) ) {
-			foreach ( $menu as $index => $item ) {
-				if ( 'index.php' === $item ) {
-					continue;
+	if ( isset( $menu ) && ! empty( $menu ) ) {
+		foreach ( $menu as $index => $item ) {
+			if ( 'index.php' === $item ) {
+				continue;
+			}
+
+			if ( isset( $item[ 2 ] ) ) {
+				if ( isset( $mw_adminimize_menu ) && in_array( $item[ 2 ], $mw_adminimize_menu ) ) {
+					unset( $menu[ $index ] );
 				}
 
-				if ( isset( $item[ 2 ] ) ) {
-					if ( isset( $mw_adminimize_menu ) && in_array( $item[ 2 ], $mw_adminimize_menu ) ) {
-						unset( $menu[ $index ] );
-					}
-
-					if ( isset( $submenu ) && ! empty( $submenu[ $item[ 2 ] ] ) ) {
-						foreach ( $submenu[ $item[ 2 ] ] as $subindex => $subitem ) {
-							if ( isset( $mw_adminimize_submenu ) && in_array( $subitem[ 2 ], $mw_adminimize_submenu ) )
-								//if ( 'profile.php' === $subitem[2] )
-								//	unset( $menu[70] );
-							{
-								unset( $submenu[ $item[ 2 ] ][ $subindex ] );
-							}
+				if ( isset( $submenu ) && ! empty( $submenu[ $item[ 2 ] ] ) ) {
+					foreach ( $submenu[ $item[ 2 ] ] as $subindex => $subitem ) {
+						if ( isset( $mw_adminimize_submenu ) && in_array( $subitem[ 2 ], $mw_adminimize_submenu ) )
+							//if ( 'profile.php' === $subitem[2] )
+							//	unset( $menu[70] );
+						{
+							unset( $submenu[ $item[ 2 ] ][ $subindex ] );
 						}
 					}
 				}
 			}
 		}
+	}
 
 	//}
 
@@ -1853,6 +1853,41 @@ function _mw_adminimize_install() {
 }
 
 /**
+ * Process a settings export that generates a .json file of the shop settings
+ */
+function _mw_adminimize_export_json() {
+
+	if ( empty( $_GET[ '_mw_adminimize_export' ] ) || 'true' != $_GET[ '_mw_adminimize_export' ] ) {
+		return;
+	}
+
+	require_once( ABSPATH . 'wp-includes/pluggable.php' );
+	if ( ! wp_verify_nonce( $_GET[ 'mw_adminimize_export_nonce' ], 'mw_adminimize_export_nonce' ) ) {
+		return;
+	}
+
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+
+	if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
+		$settings = get_site_option( 'mw_adminimize' );
+	} else {
+		$settings = get_option( 'mw_adminimize' );
+	}
+
+	ignore_user_abort( TRUE );
+
+	nocache_headers();
+	header( 'Content-Type: application/json; charset=utf-8' );
+	header( 'Content-Disposition: attachment; filename=mw_adminimize-settings-export-' . date( 'm-d-Y' ) . '.json' );
+	header( "Expires: 0" );
+
+	echo json_encode( $settings );
+	exit();
+}
+
+/**
  * export options in file
  */
 function _mw_adminimize_export() {
@@ -1873,6 +1908,45 @@ function _mw_adminimize_export() {
 	$export_data = mysql_result( $export_data, 0 );
 	echo $export_data;
 	flush();
+}
+
+/**
+ * Process a settings import from a json file
+ */
+function _mw_adminimize_import_json() {
+
+	if ( empty( $_POST[ '_mw_adminimize_action' ] ) || '_mw_adminimize_import' != $_POST[ '_mw_adminimize_action' ] ) {
+		return;
+	}
+
+	if ( ! wp_verify_nonce( $_POST[ 'mw_adminimize_import_nonce' ], 'mw_adminimize_import_nonce' ) ) {
+		return;
+	}
+
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+
+	$extension = pathinfo( $_FILES[ 'import_file' ][ 'name' ], PATHINFO_EXTENSION );
+	if ( $extension !== 'json' ) {
+		wp_die( __( 'Please upload a valid .json file' ) );
+	}
+
+	$import_file = $_FILES[ 'import_file' ][ 'tmp_name' ];
+
+	if ( empty( $import_file ) ) {
+		wp_die( __( 'Please upload a file to import' ) );
+	}
+
+	// Retrieve the settings from the file and convert the json object to an array.
+	$settings = (array) json_decode( file_get_contents( $import_file ) );
+	unlink( $import_file );
+
+	if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
+		update_site_option( 'mw_adminimize', $settings );
+	} else {
+		update_option( 'mw_adminimize', $settings );
+	}
 }
 
 /**
