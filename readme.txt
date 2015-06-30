@@ -96,6 +96,10 @@ See on [the official website](http://bueltge.de/wordpress-admin-theme-adminimize
 1. Adminimize Theme how in WordPress 2.3
 
 == Changelog ==
+= 1.8.6 () =
+* Change Ex-/Import functions to use JSON format and remove mysql topics, there no longer valid in WP core.
+* Update spanish and german language file
+
 = 1.8.5 (2015-03-19) =
 * Add brazilian portuguese translation, thanks to [Rafael Funchal](http://www.rafaelfunchal.com.br/)
 * Small code changes for php notices
