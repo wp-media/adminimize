@@ -3,7 +3,7 @@ Contributors: Bueltge
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4578111
 Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
 Requires at least: 2.5
-Tested up to: 4.2
+Tested up to: 4.3
 Stable tag: 1.8.5
 
 Adminimize that lets you hide 'unnecessary' items from the WordPress backend
@@ -99,6 +99,7 @@ See on [the official website](http://bueltge.de/wordpress-admin-theme-adminimize
 = 1.8.6 () =
 * Change Ex-/Import functions to use JSON format and remove mysql topics, there no longer valid in WP core.
 * Update spanish and german language file
+* Fix PHP Warning [PHP Warning: in_array()](https://wordpress.org/support/topic/php-warning-in_array-expects-parameter-2-to-be-array?replies=3)
 
 = 1.8.5 (2015-03-19) =
 * Add brazilian portuguese translation, thanks to [Rafael Funchal](http://www.rafaelfunchal.com.br/)
