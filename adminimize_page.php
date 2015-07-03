@@ -113,6 +113,9 @@ function _mw_adminimize_options() {
 		// Admin Bar options
 		require_once('inc-options/admin_bar.php');
 
+		// Admin Bar items frontend
+		require_once('inc-options/admin_bar_frontend.php');
+
 		// Backend Options for all roles
 		require_once('inc-options/backend_options.php');
 

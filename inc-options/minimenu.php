@@ -28,9 +28,13 @@ if ( is_multisite() && is_plugin_active_for_network( plugin_basename( MW_ADMIN_F
 						</tr>
 						
 						<tr class="alternate">
-							<td class="row-title"><a href="#admin_bar_options"><?php esc_attr_e('Admin Bar Options', FB_ADMINIMIZE_TEXTDOMAIN ); ?> <em>&middot; Beta</em></a></td>
+							<td class="row-title"><a href="#admin_bar_options"><?php esc_attr_e('Admin Bar Back end Options', FB_ADMINIMIZE_TEXTDOMAIN ); ?> <em>&middot; Beta</em></a></td>
 						</tr>
-						
+
+						<tr class="alternate">
+							<td class="row-title"><a href="#admin_bar_frontend_options"><?php esc_attr_e('Admin Bar Front end Options', FB_ADMINIMIZE_TEXTDOMAIN ); ?> <em>&middot; Beta</em></a></td>
+						</tr>
+
 						<tr class="alternate">
 							<td class="row-title"><a href="#backend_options"><?php esc_attr_e('Backend Options', FB_ADMINIMIZE_TEXTDOMAIN ); ?></a></td>
 						</tr>

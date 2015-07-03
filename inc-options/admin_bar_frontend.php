@@ -1,9 +1,9 @@
 <?php
 /**
  * @package    Adminimize
- * @subpackage Admin Bar Options, settings page
+ * @subpackage Admin Bar Front end Options, settings page
  * @author     Frank Bültge
- * @since      1.8.1  01/10/2013
+ * @since      2015-07-03
  */
 if ( ! function_exists( 'add_action' ) ) {
 	die( "Hi there!  I'm just a part of plugin, not much I can do when called directly." );
@@ -20,7 +20,7 @@ if ( ! isset( $user_roles_names ) ) {
 <div id="poststuff" class="ui-sortable meta-box-sortables">
 	<div class="postbox">
 		<div class="handlediv" title="<?php _e( 'Click to toggle' ); ?>"><br /></div>
-		<h3 class="hndle" id="admin_bar_options"><?php _e( 'Admin Bar Back end options', FB_ADMINIMIZE_TEXTDOMAIN ); ?>
+		<h3 class="hndle" id="admin_bar_frontend_options"><?php _e( 'Admin Bar Front end options', FB_ADMINIMIZE_TEXTDOMAIN ); ?>
 			<em>&middot; Beta</em></h3>
 
 		<div class="inside">
@@ -50,20 +50,20 @@ if ( ! isset( $user_roles_names ) ) {
 				<tbody>
 				<?php
 				foreach ( $user_roles as $role ) {
-					$disabled_admin_bar_option_[ $role ] = _mw_adminimize_get_option_value(
-						'mw_adminimize_disabled_admin_bar_' . $role . '_items'
+					$disabled_admin_bar_frontend_option_[ $role ] = _mw_adminimize_get_option_value(
+						'mw_adminimize_disabled_admin_bar_frontend_' . $role . '_items'
 					);
 				}
 
 				$x = 0;
 				// add items to array for select
 				// Use the hook to enhance for custom items, there was not in the list
-				$admin_bar_items = apply_filters(
-					'adminimize_admin_bar_items',
-					_mw_adminimize_get_admin_bar_items( 'mw_adminimize_admin_bar_nodes' )
+				$admin_bar_frontend_items = apply_filters(
+					'adminimize_admin_bar_frontend_items',
+					_mw_adminimize_get_admin_bar_items( 'mw_adminimize_admin_bar_frontend_nodes' )
 				);
-				if ( ! empty( $admin_bar_items ) && is_array( $admin_bar_items ) ) {
-					foreach ( $admin_bar_items as $key => $value ) {
+				if ( ! empty( $admin_bar_frontend_items ) && is_array( $admin_bar_frontend_items ) ) {
+					foreach ( $admin_bar_frontend_items as $key => $value ) {
 
 						$is_parent = ! empty( $value->parent );
 						$has_link  = ! empty( $value->href );
@@ -77,9 +77,9 @@ if ( ! isset( $user_roles_names ) ) {
 
 						$checked_user_role_ = array();
 						foreach ( $user_roles as $role ) {
-							$checked_user_role_[ $role ] = ( isset( $disabled_admin_bar_option_[ $role ] )
+							$checked_user_role_[ $role ] = ( isset( $disabled_admin_bar_frontend_option_[ $role ] )
 								&& in_array(
-									$key, $disabled_admin_bar_option_[ $role ]
+									$key, $disabled_admin_bar_frontend_option_[ $role ]
 								)
 							) ? ' checked="checked"' : '';
 						}
@@ -90,7 +90,7 @@ if ( ! isset( $user_roles_names ) ) {
 							. $key . ')</span> </td>' . "\n";
 						foreach ( $user_roles as $role ) {
 							echo '<td class="num"><input id="check_post' . $role . $x . '" type="checkbox"'
-								. $checked_user_role_[ $role ] . ' name="mw_adminimize_disabled_admin_bar_'
+								. $checked_user_role_[ $role ] . ' name="mw_adminimize_disabled_admin_bar_frontend_'
 								. $role . '_items[]" value="' . $key . '" /></td>' . "\n";
 						}
 						echo '</tr>' . "\n";

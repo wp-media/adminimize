@@ -1452,16 +1452,31 @@ function _mw_adminimize_update() {
 	$args       = array( 'public' => TRUE, '_builtin' => FALSE );
 	$post_types = get_post_types( $args );
 
+	// Admin Bar Back end settings
 	$adminimizeoptions[ 'mw_adminimize_admin_bar_nodes' ] = _mw_adminimize_get_option_value(
 		'mw_adminimize_admin_bar_nodes'
 	);
-	// admin bar options
+	// admin bar back end options
 	foreach ( $user_roles as $role ) {
-		// admin abr options
+		// admin bar back end options
 		if ( isset( $_POST[ 'mw_adminimize_disabled_admin_bar_' . $role . '_items' ] ) ) {
 			$adminimizeoptions[ 'mw_adminimize_disabled_admin_bar_' . $role . '_items' ] = $_POST[ 'mw_adminimize_disabled_admin_bar_' . $role . '_items' ];
 		} else {
 			$adminimizeoptions[ 'mw_adminimize_disabled_admin_bar_' . $role . '_items' ] = array();
+		}
+	}
+
+	// Admin Bar Front end settings
+	$adminimizeoptions[ 'mw_adminimize_admin_bar_frontend_nodes' ] = _mw_adminimize_get_option_value(
+		'mw_adminimize_admin_bar_frontend_nodes'
+	);
+	// admin bar front end options
+	foreach ( $user_roles as $role ) {
+		// admin bar fron tend options
+		if ( isset( $_POST[ 'mw_adminimize_disabled_admin_bar_frontend_' . $role . '_items' ] ) ) {
+			$adminimizeoptions[ 'mw_adminimize_disabled_admin_bar_frontend_' . $role . '_items' ] = $_POST[ 'mw_adminimize_disabled_admin_bar_frontend_' . $role . '_items' ];
+		} else {
+			$adminimizeoptions[ 'mw_adminimize_disabled_admin_bar_frontend_' . $role . '_items' ] = array();
 		}
 	}
 
