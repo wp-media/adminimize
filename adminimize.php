@@ -900,7 +900,7 @@ function _mw_adminimize_set_menu_option() {
 			}
 
 			if ( isset( $item[ 2 ] ) ) {
-				if ( isset( $mw_adminimize_menu ) && in_array( $item[ 2 ], $mw_adminimize_menu ) ) {
+				if ( isset( $mw_adminimize_menu ) && is_array( $mw_adminimize_menu ) && in_array( $item[ 2 ], $mw_adminimize_menu ) ) {
 					unset( $menu[ $index ] );
 				}
 
