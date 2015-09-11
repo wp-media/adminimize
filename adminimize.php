@@ -274,7 +274,7 @@ function _mw_adminimize_admin_init() {
 
 	global $pagenow, $post_type, $menu, $submenu;
 
-	if ( isset( $_GET[ 'post' ] ) ) {
+	if ( isset( $_GET[ 'post' ] ) && !is_array($_GET[ 'post' ]) ) {
 		$post_id = (int) esc_attr( $_GET[ 'post' ] );
 	} elseif ( isset( $_POST[ 'post_ID' ] ) ) {
 		$post_id = (int) esc_attr( $_POST[ 'post_ID' ] );
