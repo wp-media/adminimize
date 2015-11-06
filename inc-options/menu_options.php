@@ -47,7 +47,7 @@ if ( ! function_exists( 'add_action' ) ) {
 								
 								$wp_submenu = $submenu;
 							}
-							
+
 							foreach ($user_roles as $role) {
 								$disabled_metaboxes_post_[$role]  = _mw_adminimize_get_option_value('mw_adminimize_disabled_metaboxes_post_'. $role .'_items');
 								$disabled_metaboxes_page_[$role]  = _mw_adminimize_get_option_value('mw_adminimize_disabled_metaboxes_page_'. $role .'_items');
@@ -74,7 +74,7 @@ if ( ! function_exists( 'add_action' ) ) {
 										$disabled_item_adm_hint = '';
 									}
 
-									if ( $item[2] != '' ) {
+									if ( '' !== $item[2] ) {
 										
 										if ( 'wp-menu-separator' === $item[4] )
 											$item[0] = 'Separator';
@@ -98,8 +98,8 @@ if ( ! function_exists( 'add_action' ) ) {
 											echo "\t" . '<td class="num">' . $disabled_item_adm_hint . '<input id="check_menu'. $role . $x .'" type="checkbox"' . $disabled_item_adm . $checked_user_role_[$role] . ' name="mw_adminimize_disabled_menu_'. $role .'_items[]" value="' . htmlentities( $item[2] ) . '" />' . $disabled_item_adm_hint . '</td>' . "\n";
 										}
 										echo '</tr>';
-										
-										// only for user smaller administrator, change user-Profile-File
+
+										// Only for user smaller administrator, change user-Profile-File.
 										if ( 'users.php' === $item[2] ) {
 											$x++;
 											echo '<tr class="form-invalid">' . "\n";
@@ -115,9 +115,11 @@ if ( ! function_exists( 'add_action' ) ) {
 										if ( ! isset($wp_submenu[$item[2]]) )
 											continue;
 
-										// submenu items
+										// Loop about submenu items.
 										foreach ( $wp_submenu[ $item[2] ] as $subitem ) {
 											$class = ( ' class="alternate"' == $class ) ? '' : ' class="alternate"';
+
+											// Special solutions for the Adminimize link, that it not works on settings site.
 											if ( $subitem[2] === 'adminimize/adminimize.php' ) {
 												//$disabled_subitem_adm = ' disabled="disabled"';
 												$disabled_subitem_adm_hint = '<abbr title="' . __( 'After activate the check box it heavy attitudes will change.', FB_ADMINIMIZE_TEXTDOMAIN ) . '" style="cursor:pointer;"> ! </acronym>';

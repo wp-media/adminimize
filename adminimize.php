@@ -848,15 +848,16 @@ function _mw_adminimize_set_user_info() {
  */
 function _mw_adminimize_set_menu_option() {
 
-	global $menu, $submenu, $current_screen;
+	global $menu, $submenu;
 
 	// exclude super admin
 	if ( _mw_adminimize_exclude_super_admin() ) {
 		return NULL;
 	}
 
-	if ( 'settings_page_adminimize/adminimize' === $current_screen->id ) {
-		return NULL;
+	// Leave the settings screen from Adminimize to see all areas on settings.
+	if ( 'settings_page_adminimize/adminimize' === strtolower( get_current_screen()->id ) ) {
+		return;
 	}
 
 	$user_roles        = _mw_adminimize_get_all_user_roles();
@@ -874,8 +875,6 @@ function _mw_adminimize_set_menu_option() {
 
 	$mw_adminimize_menu    = array();
 	$mw_adminimize_submenu = array();
-	// set menu
-	//if ( isset( $disabled_menu_[ 'editor' ] ) && '' != $disabled_menu_[ 'editor' ] ) {
 
 	// set admin-menu
 	foreach ( $user_roles as $role ) {
@@ -888,12 +887,13 @@ function _mw_adminimize_set_menu_option() {
 		}
 	}
 
-	// fallback on users.php on all userroles smaller admin
+	// Fallback on users.php on all user roles smaller admin.
 	if ( is_array( $mw_adminimize_menu ) && in_array( 'users.php', $mw_adminimize_menu ) ) {
 		$mw_adminimize_menu[ ] = 'profile.php';
 	}
 
 	if ( isset( $menu ) && ! empty( $menu ) ) {
+
 		foreach ( $menu as $index => $item ) {
 			if ( 'index.php' === $item ) {
 				continue;
@@ -906,19 +906,15 @@ function _mw_adminimize_set_menu_option() {
 
 				if ( isset( $submenu ) && ! empty( $submenu[ $item[ 2 ] ] ) ) {
 					foreach ( $submenu[ $item[ 2 ] ] as $subindex => $subitem ) {
-						if ( isset( $mw_adminimize_submenu ) && in_array( $subitem[ 2 ], $mw_adminimize_submenu ) )
-							//if ( 'profile.php' === $subitem[2] )
-							//	unset( $menu[70] );
-						{
+						if ( isset( $mw_adminimize_submenu ) && in_array( $subitem[ 2 ], $mw_adminimize_submenu ) ) {
 							unset( $submenu[ $item[ 2 ] ][ $subindex ] );
 						}
 					}
 				}
 			}
 		}
-	}
 
-	//}
+	}
 
 }
 
