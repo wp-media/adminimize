@@ -114,9 +114,11 @@ if ( ! function_exists( 'add_action' ) ) {
 
 										if ( ! isset($wp_submenu[$item[2]]) )
 											continue;
-
+										//pre_print($item[2]);
+										//pre_print($wp_submenu['index.php']);
 										// Loop about submenu items.
-										foreach ( $wp_submenu[ $item[2] ] as $subitem ) {
+										foreach ( $wp_submenu[ $item[2] ] as $key => $subitem ) {
+
 											$class = ( ' class="alternate"' == $class ) ? '' : ' class="alternate"';
 
 											// Special solutions for the Adminimize link, that it not works on settings site.
@@ -130,16 +132,21 @@ if ( ! function_exists( 'add_action' ) ) {
 											
 											echo '<tr' . $class . '>' . "\n";
 											foreach ($user_roles as $role) {
-												if ( isset($disabled_submenu_[$role]) )
+												if ( isset( $disabled_submenu_[$role] ) )
 													$checked_user_role_[$role]  = ( in_array($subitem[2], $disabled_submenu_[$role] ) ) ? ' checked="checked"' : '';
 											}
-											echo '<td> &mdash; ' . $subitem[0] . ' <span style="color:#ccc; font-weight: 400;">(' . htmlentities( $subitem[2] ) . ')</span> </td>' . "\n";
+											echo '<td> &mdash; ' . $subitem[0] . ' <span style="font-style:small;color:#ccc;">['
+													. $key . '] (' . htmlentities( $subitem[2] ) . ')</span> </td>' . "\n";
+
 											foreach ($user_roles as $role) {
-												if ( $role != 'administrator' ) { // only admin disable items
+												if ( $role !== 'administrator' ) { // only admin disable items
 													$disabled_subitem_adm = '';
 													$disabled_subitem_adm_hint = '';
 												}
-												echo '<td class="num">' . $disabled_subitem_adm_hint . '<input id="check_menu'. $role.$x .'" type="checkbox"' . $disabled_subitem_adm . $checked_user_role_[$role] . ' name="mw_adminimize_disabled_submenu_'. $role .'_items[]" value="' . htmlentities( $subitem[2] ) . '" />' . $disabled_subitem_adm_hint . '</td>' . "\n";
+												echo '<td class="num">' . $disabled_subitem_adm_hint . '<input id="check_menu' . $role . $x
+														. '" type="checkbox"' . $disabled_subitem_adm . $checked_user_role_[$role]
+														. ' name="mw_adminimize_disabled_submenu_'. $role .'_items[]" value="'
+														. htmlentities( $subitem[2] ) . '" />' . $disabled_subitem_adm_hint . '</td>' . "\n";
 											}
 											echo '</tr>' . "\n";
 											$x++;
