@@ -87,7 +87,7 @@ class _mw_adminimize_message_class {
 	/**
 	 * constructor
 	 */
-	function _mw_adminimize_message_class() {
+	public function __construct() {
 
 		$this->localizion_name = FB_ADMINIMIZE_TEXTDOMAIN;
 		$this->errors          = new WP_Error();
@@ -102,11 +102,11 @@ class _mw_adminimize_message_class {
 	 *
 	 * @return string $errorMessage
 	 */
-	function get_error( $code = '' ) {
+	public function get_error( $code = '' ) {
 
 		$errorMessage = $this->errors->get_error_message( $code );
 
-		if ( NULL == $errorMessage ) {
+		if ( NULL === $errorMessage ) {
 			return __( 'Unknown error.', $this->localizion_name );
 		}
 
@@ -116,7 +116,7 @@ class _mw_adminimize_message_class {
 	/**
 	 * Initializes all the error messages
 	 */
-	function initialize_errors() {
+	public function initialize_errors() {
 
 		$this->errors->add( '_mw_adminimize_update', __( 'The updates were saved.', $this->localizion_name ) );
 		$this->errors->add(
@@ -479,7 +479,6 @@ function _mw_adminimize_admin_init() {
 
 	$adminimizeoptions[ 'mw_adminimize_default_menu' ]    = $menu;
 	$adminimizeoptions[ 'mw_adminimize_default_submenu' ] = $submenu;
-
 }
 
 /**
@@ -1316,8 +1315,6 @@ require_once( 'inc-setup/helping_hands.php' );
 
 // inc. settings page
 require_once( 'adminimize_page.php' );
-// @ToDO release XML Ex-Import
-//require_once( 'inc-options/class-eximport.php' );
 
 // dashboard options
 require_once( 'inc-setup/dashboard.php' );
@@ -1432,11 +1429,11 @@ function _mw_adminimize_set_theme() {
 }
 
 /**
- * read options
+ * Get setting value for each options key.
  *
- * @param $key
+ * @param string $key
  *
- * @return null
+ * @return string|array|null
  */
 function _mw_adminimize_get_option_value( $key ) {
 
