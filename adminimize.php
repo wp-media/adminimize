@@ -274,7 +274,7 @@ function _mw_adminimize_admin_init() {
 
 	global $pagenow, $post_type, $menu, $submenu;
 
-	if ( isset( $_GET[ 'post' ] ) && !is_array($_GET[ 'post' ]) ) {
+	if ( isset( $_GET[ 'post' ] ) && ! is_array( $_GET[ 'post' ] ) ) {
 		$post_id = (int) esc_attr( $_GET[ 'post' ] );
 	} elseif ( isset( $_POST[ 'post_ID' ] ) ) {
 		$post_id = (int) esc_attr( $_POST[ 'post_ID' ] );
@@ -591,7 +591,7 @@ function _mw_adminimize_sidecat_list_category_box() {
 			</div>
 		<?php } ?>
 	</div>
-<?php
+	<?php
 }
 
 /**
@@ -889,7 +889,7 @@ function _mw_adminimize_set_menu_option() {
 
 	// Fallback on users.php on all user roles smaller admin.
 	if ( is_array( $mw_adminimize_menu ) && in_array( 'users.php', $mw_adminimize_menu ) ) {
-		$mw_adminimize_menu[ ] = 'profile.php';
+		$mw_adminimize_menu[] = 'profile.php';
 	}
 
 	if ( isset( $menu ) && ! empty( $menu ) ) {
@@ -900,7 +900,11 @@ function _mw_adminimize_set_menu_option() {
 			}
 
 			if ( isset( $item[ 2 ] ) ) {
-				if ( isset( $mw_adminimize_menu ) && is_array( $mw_adminimize_menu ) && in_array( $item[ 2 ], $mw_adminimize_menu ) ) {
+				if ( isset( $mw_adminimize_menu ) && is_array( $mw_adminimize_menu )
+					&& in_array(
+						$item[ 2 ], $mw_adminimize_menu
+					)
+				) {
 					unset( $menu[ $index ] );
 				}
 
@@ -908,11 +912,11 @@ function _mw_adminimize_set_menu_option() {
 					foreach ( $submenu[ $item[ 2 ] ] as $subindex => $subitem ) {
 						// Check, if is menu item in the user role settings?
 						if (
-								isset( $mw_adminimize_submenu )
-								&& _mw_adminimize_in_arrays(
-										array( $subitem[ 2 ], $item[ 2 ] . '__' . $subindex ),
-										$mw_adminimize_submenu
-								)
+							isset( $mw_adminimize_submenu )
+							&& _mw_adminimize_in_arrays(
+								array( $subitem[ 2 ], $item[ 2 ] . '__' . $subindex ),
+								$mw_adminimize_submenu
+							)
 						) {
 							unset( $submenu[ $item[ 2 ] ][ $subindex ] );
 						}
@@ -1301,7 +1305,7 @@ function _mw_adminimize_small_user_info() {
 				title="<?php _e( 'Log Out' ) ?>"><?php _e( 'Log Out' ); ?></a>
 		</p>
 	</div>
-<?php
+	<?php
 }
 
 /**
