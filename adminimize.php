@@ -1332,7 +1332,7 @@ require_once( 'inc-setup/remove-admin-bar.php' );
 // work always in frontend
 require_once( 'inc-setup/admin-bar-items.php' );
 // meta boxes helper, setup
-//@todo not ready for productive systems.
+//@todo Meta Boxes: not ready for productive systems.
 //require_once( 'inc-setup/meta-boxes.php' );
 
 /**

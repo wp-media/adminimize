@@ -76,7 +76,7 @@ if ( ! function_exists( 'add_action' ) ) {
 											$checked_user_role_[$role]  = ( isset($disabled_dashboard_option_[$role]) && in_array($dashboard_option, $disabled_dashboard_option_[$role]) ) ? ' checked="checked"' : '';
 										}
 										echo '<tr>' . "\n";
-										echo '<td>' . $dashboard_options_names[$index] . ' <span style="color:#ccc; font-weight: 400;">(' . $dashboard_option . ')</span> </td>' . "\n";
+										echo '<td>' . $dashboard_options_names[$index] . ' <span>(' . $dashboard_option . ')</span> </td>' . "\n";
 										foreach ($user_roles as $role) {
 											echo '<td class="num"><input id="check_post'. $role . $x .'" type="checkbox"' . $checked_user_role_[$role] . ' name="mw_adminimize_disabled_dashboard_option_'. $role .'_items[]" value="' . $dashboard_option . '" /></td>' . "\n";
 										}
