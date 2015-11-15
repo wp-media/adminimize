@@ -31,7 +31,7 @@ if ( is_multisite() && is_plugin_active_for_network( plugin_basename( MW_ADMIN_F
 							<td class="row-title"><a href="#admin_bar_options"><?php esc_attr_e('Admin Bar Back end Options', FB_ADMINIMIZE_TEXTDOMAIN ); ?> <em>&middot; Beta</em></a></td>
 						</tr>
 
-						<tr class="alternate">
+						<tr>
 							<td class="row-title"><a href="#admin_bar_frontend_options"><?php esc_attr_e('Admin Bar Front end Options', FB_ADMINIMIZE_TEXTDOMAIN ); ?> <em>&middot; Beta</em></a></td>
 						</tr>
 
@@ -41,16 +41,16 @@ if ( is_multisite() && is_plugin_active_for_network( plugin_basename( MW_ADMIN_F
 						<tr>
 							<td class="row-title"><a href="#global_options"><?php esc_attr_e('Global options', FB_ADMINIMIZE_TEXTDOMAIN ); ?></a></td>
 						</tr>
-						<tr>
+						<tr class="alternate">
 							<td class="row-title"><a href="#dashboard_options"><?php esc_attr_e('Dashboard options', FB_ADMINIMIZE_TEXTDOMAIN ); ?></a></td>
 						</tr>
-						<tr class="alternate">
+						<tr>
 							<td class="row-title"><a href="#config_menu"><?php esc_attr_e('Menu Options', FB_ADMINIMIZE_TEXTDOMAIN ); ?></a></td>
 						</tr>
-						<tr>
+						<tr class="alternate">
 							<td class="row-title"><a href="#config_edit_post"><?php esc_attr_e('Write options - Post', FB_ADMINIMIZE_TEXTDOMAIN ); ?></a></td>
 						</tr>
-						<tr class="alternate">
+						<tr>
 							<td class="row-title"><a href="#config_edit_page"><?php esc_attr_e('Write options - Page', FB_ADMINIMIZE_TEXTDOMAIN ); ?></a></td>
 						</tr>
 						<?php 
@@ -81,16 +81,16 @@ if ( is_multisite() && is_plugin_active_for_network( plugin_basename( MW_ADMIN_F
 						<tr class="alternate">
 							<td class="row-title"><a href="#widget_options"><?php esc_attr_e('Widgets', FB_ADMINIMIZE_TEXTDOMAIN ); ?></a></td>
 						</tr>
-						<tr class="alternate">
+						<tr>
 							<td class="row-title"><a href="#nav_menu_options"><?php esc_attr_e('WP Nav Menu', FB_ADMINIMIZE_TEXTDOMAIN ); ?></a></td>
 						</tr>
-						<tr>
+						<tr class="alternate">
 							<td class="row-title"><a href="#set_theme"><?php esc_attr_e('Set Theme', FB_ADMINIMIZE_TEXTDOMAIN ); ?></a></td>
 						</tr>
-						<tr class="alternate">
+						<tr>
 							<td class="row-title"><a href="#import"><?php esc_attr_e('Export/Import Options', FB_ADMINIMIZE_TEXTDOMAIN ); ?></a></td>
 						</tr>
-						<tr>
+						<tr class="alternate">
 							<td class="row-title"><a href="#uninstall"><?php esc_attr_e('Deinstall Options', FB_ADMINIMIZE_TEXTDOMAIN ); ?></a></td>
 						</tr>
 					</table>
