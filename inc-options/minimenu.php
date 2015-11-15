@@ -9,7 +9,7 @@ if ( ! function_exists( 'add_action' ) ) {
 	exit;
 }
 
-$screen = get_current_screen();
+$screen  = get_current_screen();
 $message = '';
 if ( is_multisite() && is_plugin_active_for_network( plugin_basename( MW_ADMIN_FILE ) ) ) {
 	$message = __( 'Network' );
@@ -173,10 +173,13 @@ if ( is_multisite() && is_plugin_active_for_network( plugin_basename( MW_ADMIN_F
 				</li>
 			</ul>
 			<div class="form-invalid" style="padding:.3em 1em;">
-				<p><span style="font-size: 35px; float: left; margin: 10px 3px 0 0;">&#x261D;</span><?php esc_attr_e(
+				<p>
+					<span style="font-size: 35px; float: left; margin: 10px 3px 0 0;">&#x261D;</span>
+					<?php _e(
 						'Please note: The Adminimize settings page ignores the Menu Options below and displays the menu with all entries.<br /><span style="font-weight: 300;">To view your changes to the menu you need to navigate away from the Adminimize settings page.</span>',
 						FB_ADMINIMIZE_TEXTDOMAIN
-					); ?></p>
+					); ?>
+				</p>
 				<?php if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) { ?>
 					<p><?php esc_attr_e(
 							'You have to activated the Plugin for your Multisite Network. Your settings works now on all blogs in the network. Please set the settings only in one blog, there you have all active menu items and plugins. If you update the settings then write the plugin new settings in dependence of the blog where you put, save the settings.',
