@@ -20,7 +20,7 @@ if ( ! function_exists( 'add_action' ) ) {
 					<table summary="config_menu" class="widefat">
 						<thead>
 							<tr>
-								<th><?php _e('Menu options - Menu, <span style=\"font-weight: 400;\">Submenu</span>', FB_ADMINIMIZE_TEXTDOMAIN ); ?></th>
+								<th><?php _e('Menu options - Menu, <span>Submenu</span>', FB_ADMINIMIZE_TEXTDOMAIN ); ?></th>
 
 								<?php foreach ($user_roles_names as $role_name) { ?>
 										<th><?php _e('Deactivate for', FB_ADMINIMIZE_TEXTDOMAIN ); echo '<br/>' . $role_name; ?></th>
@@ -54,16 +54,23 @@ if ( ! function_exists( 'add_action' ) ) {
 							}
 							
 							// print menu, submenu
-							if ( isset($wp_menu) && '' != $wp_menu ) {
+							if ( isset( $wp_menu ) && '' !== $wp_menu ) {
 								
 								$i = 0;
 								$x = 0;
 								$class = '';
 								
-								$users = array( 0 => 'Profile', 1 => 'edit_users', 2 => 'profile.php', 3 => '', 4 => 'menu-top', 5 => 'menu-users', 6 => 'div' );
-								//array_push( $menu, $users );
+								$users = array(
+										0 => 'Profile',
+										1 => 'edit_users',
+										2 => 'profile.php',
+										3 => '',
+										4 => 'menu-top',
+										5 => 'menu-users',
+										6 => 'div'
+								);
 								
-								foreach ($wp_menu as $item) {
+								foreach ( $wp_menu as $key => $item ) {
 
 									// non checked items
 									if ( $item[2] === 'options-general.php' ) {
@@ -76,26 +83,41 @@ if ( ! function_exists( 'add_action' ) ) {
 
 									if ( '' !== $item[2] ) {
 										
-										if ( 'wp-menu-separator' === $item[4] )
-											$item[0] = 'Separator';
-										
-										foreach($user_roles as $role) {
+										if ( 'wp-menu-separator' === $item[4] ) {
+											$item[ 0 ] = 'Separator';
+										}
+
+										foreach ( $user_roles as $role ) {
+
 											// checkbox checked
-												if ( isset( $disabled_menu_[$role]) && in_array($item[2],  $disabled_menu_[$role]) ) {
+											$checked_user_role_[$role] = '';
+											if ( isset( $disabled_menu_[$role] )
+													// @since 2015-11-11
+													// Switch to the key and url of menu item.
+													&& _mw_adminimize_in_arrays( array( $key, $item[2] ), $disabled_menu_[$role] )
+											) {
 												$checked_user_role_[$role] = ' checked="checked"';
-											} else {
-												$checked_user_role_[$role] = '';
 											}
 										}
-	
+
 										echo '<tr class="form-invalid">' . "\n";
-										echo "\t" . '<th>' . $item[0] . ' <span style="color:#ccc; font-weight: 400;">(' . htmlentities( $item[2] ) . ')</span> </th>';
-										foreach ($user_roles as $role) {
+										echo "\t" . '<th>' . $item[ 0 ] . ' <span>['
+												. $key . ']('
+												. preg_replace(
+														"#[%2].*#",
+														'...',
+														htmlentities( $item[ 2 ] )
+												) . ')</span> </th>';
+
+										foreach ( $user_roles as $role ) {
 											if ( $role !== 'administrator' ) { // only admin disable items
 												$disabled_item_adm = '';
 												$disabled_item_adm_hint = '';
 											}
-											echo "\t" . '<td class="num">' . $disabled_item_adm_hint . '<input id="check_menu'. $role . $x .'" type="checkbox"' . $disabled_item_adm . $checked_user_role_[$role] . ' name="mw_adminimize_disabled_menu_'. $role .'_items[]" value="' . htmlentities( $item[2] ) . '" />' . $disabled_item_adm_hint . '</td>' . "\n";
+											echo "\t" . '<td class="num">' . $disabled_item_adm_hint . '<input id="check_menu'
+													. $role . $x .'" type="checkbox"' . $disabled_item_adm . $checked_user_role_[$role]
+													. ' name="mw_adminimize_disabled_menu_'. $role .'_items[]" value="'
+													. htmlentities( $item[2] ) . '" />' . $disabled_item_adm_hint . '</td>' . "\n";
 										}
 										echo '</tr>';
 
@@ -103,28 +125,33 @@ if ( ! function_exists( 'add_action' ) ) {
 										if ( 'users.php' === $item[2] ) {
 											$x++;
 											echo '<tr class="form-invalid">' . "\n";
-											echo "\t" . '<th>' . __('Profile') . ' <span style="color:#ccc; font-weight: 400;">(profile.php)</span> </th>';
-											foreach ($user_roles as $role) {
-												echo "\t" . '<td class="num"><input disabled="disabled" id="check_menu'. $role . $x .'" type="checkbox"' . $checked_user_role_[$role] . ' name="mw_adminimize_disabled_menu_'. $role .'_items[]" value="profile.php" /></td>' . "\n";
+											echo "\t" . '<th>' . __('Profile') . ' <span>(profile.php)</span> </th>';
+											foreach ( $user_roles as $role ) {
+												echo "\t" . '<td class="num"><input disabled="disabled" id="check_menu' . $role . $x
+														. '" type="checkbox"' . $checked_user_role_[$role]
+														. ' name="mw_adminimize_disabled_menu_' . $role
+														. '_items[]" value="profile.php" /></td>' . "\n";
 											}
 											echo '</tr>';
 										}
 
 										$x++;
 
-										if ( ! isset($wp_submenu[$item[2]]) )
+										if ( ! isset( $wp_submenu[ $item[ 2 ] ] ) ) {
 											continue;
-										//pre_print($item[2]);
-										//pre_print($wp_submenu['index.php']);
-										// Loop about submenu items.
-										foreach ( $wp_submenu[ $item[2] ] as $key => $subitem ) {
+										}
 
-											$class = ( ' class="alternate"' == $class ) ? '' : ' class="alternate"';
+										// Loop about submenu items.
+										foreach ( $wp_submenu[ $item[2] ] as $subkey => $subitem ) {
+
+											$class = ( ' class="alternate"' === $class ) ? '' : ' class="alternate"';
 
 											// Special solutions for the Adminimize link, that it not works on settings site.
 											if ( $subitem[2] === 'adminimize/adminimize.php' ) {
 												//$disabled_subitem_adm = ' disabled="disabled"';
-												$disabled_subitem_adm_hint = '<abbr title="' . __( 'After activate the check box it heavy attitudes will change.', FB_ADMINIMIZE_TEXTDOMAIN ) . '" style="cursor:pointer;"> ! </acronym>';
+												$disabled_subitem_adm_hint = '<abbr title="'
+														. __( 'After activate the check box it heavy attitudes will change.', FB_ADMINIMIZE_TEXTDOMAIN )
+														. '" style="cursor:pointer;"> ! </acronym>';
 											} else {
 												$disabled_subitem_adm = '';
 												$disabled_subitem_adm_hint = '';
@@ -132,11 +159,23 @@ if ( ! function_exists( 'add_action' ) ) {
 											
 											echo '<tr' . $class . '>' . "\n";
 											foreach ($user_roles as $role) {
-												if ( isset( $disabled_submenu_[$role] ) )
-													$checked_user_role_[$role]  = ( in_array($subitem[2], $disabled_submenu_[$role] ) ) ? ' checked="checked"' : '';
+												// checkbox checked
+												$checked_user_role_[$role] = '';
+												if ( isset( $disabled_submenu_[$role] )
+														// @since 2015-11-11
+														// Switch to custom key and url of menu item.
+														&& _mw_adminimize_in_arrays( array( $item[2] . '__' . $subkey, $subitem[2] ), $disabled_submenu_[$role] )
+												) {
+													$checked_user_role_[$role] = ' checked="checked"';
+												}
 											}
-											echo '<td> &mdash; ' . $subitem[0] . ' <span style="font-style:small;color:#ccc;">['
-													. $key . '] (' . htmlentities( $subitem[2] ) . ')</span> </td>' . "\n";
+											echo '<td> &mdash; ' . $subitem[0] . ' <span>['
+													.  $subkey . ']('
+													. preg_replace(
+															"#[%2].*#",
+															'...',
+															htmlentities( $subitem[2] )
+													) . ')</span> </td>' . "\n";
 
 											foreach ($user_roles as $role) {
 												if ( $role !== 'administrator' ) { // only admin disable items
@@ -146,7 +185,7 @@ if ( ! function_exists( 'add_action' ) ) {
 												echo '<td class="num">' . $disabled_subitem_adm_hint . '<input id="check_menu' . $role . $x
 														. '" type="checkbox"' . $disabled_subitem_adm . $checked_user_role_[$role]
 														. ' name="mw_adminimize_disabled_submenu_'. $role .'_items[]" value="'
-														. htmlentities( $subitem[2] ) . '" />' . $disabled_subitem_adm_hint . '</td>' . "\n";
+														. $item[2] . '__' . $subkey . '" />' . $disabled_subitem_adm_hint . '</td>' . "\n";
 											}
 											echo '</tr>' . "\n";
 											$x++;

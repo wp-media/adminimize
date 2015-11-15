@@ -14,6 +14,19 @@ if ( ! is_admin() ) {
 	return NULL;
 }
 
+/**
+ * Check if array contains all array values from another array.
+ *
+ * @param $array1
+ * @param $array2
+ *
+ * @return bool
+ */
+function _mw_adminimize_in_arrays( $array1, $array2 ) {
+
+	return (bool) count( array_intersect( $array1, $array2 ) );
+}
+
 // fix some badly enqueued scripts with no sense of HTTPS
 // Kudos to http://snippets.webaware.com.au/snippets/cleaning-up-wordpress-plugin-script-and-stylesheet-loads-over-ssl/
 add_action( 'wp_print_scripts', 'enqueueScriptsFix', 100 );

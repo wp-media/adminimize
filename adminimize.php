@@ -906,14 +906,14 @@ function _mw_adminimize_set_menu_option() {
 
 				if ( isset( $submenu ) && ! empty( $submenu[ $item[ 2 ] ] ) ) {
 					foreach ( $submenu[ $item[ 2 ] ] as $subindex => $subitem ) {
-						//pre_print($subindex);
-						pre_print($mw_adminimize_submenu);
-						if ( isset( $mw_adminimize_submenu ) && in_array( $subitem[ 2 ], $mw_adminimize_submenu ) ) {
-							echo 'For Hide';
-							pre_print($submenu[ $item[ 2 ] ]);
-							pre_print($subindex);
-							echo 'Key';
-							pre_print($submenu[ $item[ 2 ] ][ $subindex ]);
+						// Check, if is menu item in the user role settings?
+						if (
+								isset( $mw_adminimize_submenu )
+								&& _mw_adminimize_in_arrays(
+										array( $subitem[ 2 ], $item[ 2 ] . '__' . $subindex ),
+										$mw_adminimize_submenu
+								)
+						) {
 							unset( $submenu[ $item[ 2 ] ][ $subindex ] );
 						}
 					}
