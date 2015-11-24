@@ -86,7 +86,7 @@ if ( ! isset( $user_roles_names ) ) {
 
 						echo '<tr' . $item_class . '>' . "\n";
 						echo '<td>' . $item_string . strip_tags( $value->title )
-							. ' <span style="color:#ccc; font-weight: 400;">('
+							. ' <span>('
 							. $key . ')</span> </td>' . "\n";
 						foreach ( $user_roles as $role ) {
 							echo '<td class="num"><input id="check_post' . $role . $x . '" type="checkbox"'

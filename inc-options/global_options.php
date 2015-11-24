@@ -74,7 +74,7 @@ if ( ! function_exists( 'add_action' ) ) {
 										$checked_user_role_[$role]  = ( isset($disabled_global_option_[$role]) && in_array($global_option, $disabled_global_option_[$role]) ) ? ' checked="checked"' : '';
 									}
 									echo '<tr>' . "\n";
-									echo '<td>' . $global_options_names[$index] . ' <span style="color:#ccc; font-weight: 400;">(' . $global_option . ')</span> </td>' . "\n";
+									echo '<td>' . $global_options_names[$index] . ' <span>(' . $global_option . ')</span> </td>' . "\n";
 									foreach ($user_roles as $role) {
 										echo '<td class="num"><input id="check_post'. $role . $x .'" type="checkbox"' . $checked_user_role_[$role] . ' name="mw_adminimize_disabled_global_option_'. $role .'_items[]" value="' . $global_option . '" /></td>' . "\n";
 									}

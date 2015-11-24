@@ -98,6 +98,7 @@ See on [the official website](http://bueltge.de/wordpress-admin-theme-adminimize
 == Changelog ==
 = 1.8.6 () =
 * Change Ex-/Import functions to use JSON format and remove mysql topics, there no longer valid in WP core.
+* Add more checks to hide also dynamically menu items, like Customizer.
 * Update spanish and german language file
 * Fix PHP Warning [PHP Warning: in_array()](https://wordpress.org/support/topic/php-warning-in_array-expects-parameter-2-to-be-array?replies=3)
 * Fix PHP Notice: Array to string conversion

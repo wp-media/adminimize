@@ -163,7 +163,7 @@ if ( ! function_exists( 'add_action' ) ) {
 										$checked_user_role_[$role] = ( isset($disabled_metaboxes_page_[$role]) && in_array($metabox, $disabled_metaboxes_page_[$role]) ) ? ' checked="checked"' : '';
 									}
 									echo '<tr' . $class . '>' . "\n";
-									echo '<td>' . $metaboxes_names_page[$index] . ' <span style="color:#ccc; font-weight: 400;">(' . $metabox . ')</span> </td>' . "\n";
+									echo '<td>' . $metaboxes_names_page[$index] . ' <span>(' . $metabox . ')</span> </td>' . "\n";
 									foreach ($user_roles as $role) {
 										echo '<td class="num"><input id="check_page'. $role.$x .'" type="checkbox"' . $checked_user_role_[$role] . ' name="mw_adminimize_disabled_metaboxes_page_'. $role .'_items[]" value="' . $metabox . '" /></td>' . "\n";
 									}

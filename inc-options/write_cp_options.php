@@ -178,7 +178,7 @@ foreach ( get_post_types( $args ) as $post_type ) {
 									}
 									echo '<tr' . $class . '>' . "\n";
 									echo '<td>' . $metaboxes_names[$index] . 
-										' <span style="color:#ccc; font-weight: 400;">(' . $metabox . ')</span> </td>' . "\n";
+										' <span>(' . $metabox . ')</span> </td>' . "\n";
 									foreach ($user_roles as $role) {
 										echo '<td class="num"><input id="check_' . 
 											$post_type . $role . $x .'" type="checkbox"' . 

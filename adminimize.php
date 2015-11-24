@@ -87,7 +87,7 @@ class _mw_adminimize_message_class {
 	/**
 	 * constructor
 	 */
-	function _mw_adminimize_message_class() {
+	public function __construct() {
 
 		$this->localizion_name = FB_ADMINIMIZE_TEXTDOMAIN;
 		$this->errors          = new WP_Error();
@@ -102,11 +102,11 @@ class _mw_adminimize_message_class {
 	 *
 	 * @return string $errorMessage
 	 */
-	function get_error( $code = '' ) {
+	public function get_error( $code = '' ) {
 
 		$errorMessage = $this->errors->get_error_message( $code );
 
-		if ( NULL == $errorMessage ) {
+		if ( NULL === $errorMessage ) {
 			return __( 'Unknown error.', $this->localizion_name );
 		}
 
@@ -116,7 +116,7 @@ class _mw_adminimize_message_class {
 	/**
 	 * Initializes all the error messages
 	 */
-	function initialize_errors() {
+	public function initialize_errors() {
 
 		$this->errors->add( '_mw_adminimize_update', __( 'The updates were saved.', $this->localizion_name ) );
 		$this->errors->add(
@@ -274,7 +274,7 @@ function _mw_adminimize_admin_init() {
 
 	global $pagenow, $post_type, $menu, $submenu;
 
-	if ( isset( $_GET[ 'post' ] ) && !is_array($_GET[ 'post' ]) ) {
+	if ( isset( $_GET[ 'post' ] ) && ! is_array( $_GET[ 'post' ] ) ) {
 		$post_id = (int) esc_attr( $_GET[ 'post' ] );
 	} elseif ( isset( $_POST[ 'post_ID' ] ) ) {
 		$post_id = (int) esc_attr( $_POST[ 'post_ID' ] );
@@ -479,7 +479,6 @@ function _mw_adminimize_admin_init() {
 
 	$adminimizeoptions[ 'mw_adminimize_default_menu' ]    = $menu;
 	$adminimizeoptions[ 'mw_adminimize_default_submenu' ] = $submenu;
-
 }
 
 /**
@@ -591,7 +590,7 @@ function _mw_adminimize_sidecat_list_category_box() {
 			</div>
 		<?php } ?>
 	</div>
-<?php
+	<?php
 }
 
 /**
@@ -848,15 +847,16 @@ function _mw_adminimize_set_user_info() {
  */
 function _mw_adminimize_set_menu_option() {
 
-	global $menu, $submenu, $current_screen;
+	global $menu, $submenu;
 
 	// exclude super admin
 	if ( _mw_adminimize_exclude_super_admin() ) {
 		return NULL;
 	}
 
-	if ( 'settings_page_adminimize/adminimize' === $current_screen->id ) {
-		return NULL;
+	// Leave the settings screen from Adminimize to see all areas on settings.
+	if ( 'settings_page_adminimize/adminimize' === strtolower( get_current_screen()->id ) ) {
+		return;
 	}
 
 	$user_roles        = _mw_adminimize_get_all_user_roles();
@@ -874,8 +874,6 @@ function _mw_adminimize_set_menu_option() {
 
 	$mw_adminimize_menu    = array();
 	$mw_adminimize_submenu = array();
-	// set menu
-	//if ( isset( $disabled_menu_[ 'editor' ] ) && '' != $disabled_menu_[ 'editor' ] ) {
 
 	// set admin-menu
 	foreach ( $user_roles as $role ) {
@@ -888,37 +886,45 @@ function _mw_adminimize_set_menu_option() {
 		}
 	}
 
-	// fallback on users.php on all userroles smaller admin
+	// Fallback on users.php on all user roles smaller admin.
 	if ( is_array( $mw_adminimize_menu ) && in_array( 'users.php', $mw_adminimize_menu ) ) {
-		$mw_adminimize_menu[ ] = 'profile.php';
+		$mw_adminimize_menu[] = 'profile.php';
 	}
 
 	if ( isset( $menu ) && ! empty( $menu ) ) {
+
 		foreach ( $menu as $index => $item ) {
 			if ( 'index.php' === $item ) {
 				continue;
 			}
 
 			if ( isset( $item[ 2 ] ) ) {
-				if ( isset( $mw_adminimize_menu ) && is_array( $mw_adminimize_menu ) && in_array( $item[ 2 ], $mw_adminimize_menu ) ) {
+				if ( isset( $mw_adminimize_menu ) && is_array( $mw_adminimize_menu )
+					&& in_array(
+						$item[ 2 ], $mw_adminimize_menu
+					)
+				) {
 					unset( $menu[ $index ] );
 				}
 
 				if ( isset( $submenu ) && ! empty( $submenu[ $item[ 2 ] ] ) ) {
 					foreach ( $submenu[ $item[ 2 ] ] as $subindex => $subitem ) {
-						if ( isset( $mw_adminimize_submenu ) && in_array( $subitem[ 2 ], $mw_adminimize_submenu ) )
-							//if ( 'profile.php' === $subitem[2] )
-							//	unset( $menu[70] );
-						{
+						// Check, if is menu item in the user role settings?
+						if (
+							isset( $mw_adminimize_submenu )
+							&& _mw_adminimize_in_arrays(
+								array( $subitem[ 2 ], $item[ 2 ] . '__' . $subindex ),
+								$mw_adminimize_submenu
+							)
+						) {
 							unset( $submenu[ $item[ 2 ] ][ $subindex ] );
 						}
 					}
 				}
 			}
 		}
-	}
 
-	//}
+	}
 
 }
 
@@ -1298,7 +1304,7 @@ function _mw_adminimize_small_user_info() {
 				title="<?php _e( 'Log Out' ) ?>"><?php _e( 'Log Out' ); ?></a>
 		</p>
 	</div>
-<?php
+	<?php
 }
 
 /**
@@ -1309,8 +1315,6 @@ require_once( 'inc-setup/helping_hands.php' );
 
 // inc. settings page
 require_once( 'adminimize_page.php' );
-// @ToDO release XML Ex-Import
-//require_once( 'inc-options/class-eximport.php' );
 
 // dashboard options
 require_once( 'inc-setup/dashboard.php' );
@@ -1328,6 +1332,7 @@ require_once( 'inc-setup/remove-admin-bar.php' );
 // work always in frontend
 require_once( 'inc-setup/admin-bar-items.php' );
 // meta boxes helper, setup
+//@todo Meta Boxes: not ready for productive systems.
 //require_once( 'inc-setup/meta-boxes.php' );
 
 /**
@@ -1424,11 +1429,11 @@ function _mw_adminimize_set_theme() {
 }
 
 /**
- * read options
+ * Get setting value for each options key.
  *
- * @param $key
+ * @param string $key
  *
- * @return null
+ * @return string|array|null
  */
 function _mw_adminimize_get_option_value( $key ) {
 

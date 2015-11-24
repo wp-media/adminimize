@@ -99,7 +99,7 @@ if ( ! function_exists( 'add_action' ) ) {
 										$checked_user_role_[$role]  = ( isset($disabled_nav_menu_option_[$role]) && in_array($nav_menu_option, $disabled_nav_menu_option_[$role]) ) ? ' checked="checked"' : '';
 									}
 									echo '<tr>' . "\n";
-									echo '<td>' . $nav_menu_options_names[$index] . ' <span style="color:#ccc; font-weight: 400;">(' . $nav_menu_option . ')</span> </td>' . "\n";
+									echo '<td>' . $nav_menu_options_names[$index] . ' <span>(' . $nav_menu_option . ')</span> </td>' . "\n";
 									foreach ($user_roles as $role) {
 										echo '<td class="num"><input id="check_post'. $role . $x .'" type="checkbox"' . $checked_user_role_[$role] . ' name="mw_adminimize_disabled_nav_menu_option_'. $role .'_items[]" value="' . $nav_menu_option . '" /></td>' . "\n";
 									}

@@ -26,7 +26,7 @@ function _mw_adminimize_get_all_meta_boxes( $post_type, $priority, $post ) {
 		else
 			$adminimizeoptions = get_option( 'mw_adminimize' );
 		
-		// add admin bar array
+		// add meta box array for post type
 		$adminimizeoptions['mw_adminimize_meta_boxes_' . $post_type ] = $wp_meta_boxes[$post_type];
 		
 		// update options
