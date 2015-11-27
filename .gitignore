@@ -1,0 +1,4 @@
+release.sh
+vendor/
+.project
+.idea/
