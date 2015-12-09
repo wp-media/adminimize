@@ -103,6 +103,7 @@ See on [the official website](http://bueltge.de/wordpress-admin-theme-adminimize
 * Fix PHP Warning [PHP Warning: in_array()](https://wordpress.org/support/topic/php-warning-in_array-expects-parameter-2-to-be-array?replies=3)
 * Fix PHP Notice: Array to string conversion
 * UI change: Fixed head on tables
+* Update italian language files, probs to marcochiesi
 
 = 1.8.5 (2015-03-19) =
 * Add brazilian portuguese translation, thanks to [Rafael Funchal](http://www.rafaelfunchal.com.br/)

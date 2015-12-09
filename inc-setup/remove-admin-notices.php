@@ -70,7 +70,7 @@ function _mw_adminimize_check_to_remove_admin_notices() {
  * Remove different admin notices.
  */
 function _mw_adminimize_remove_admin_notices() {
-	
+
 	remove_action( 'admin_notices', 'update_nag', 3 );
 	remove_action( 'admin_notices', 'maintenance_nag', 10 );
 	remove_action( 'admin_notices', 'new_user_email_admin_notice' );

@@ -1369,12 +1369,15 @@ function _mw_adminimize_set_theme() {
 /**
  * Get setting value for each options key.
  *
- * @param string $key
+ * @param $key
  *
- * @return string|array|null
+ * @return null|void
  */
 function _mw_adminimize_get_option_value( $key ) {
 
+	if ( empty( $key ) ) {
+		return;
+	}
 	// check for use on multisite
 	if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
 		$adminimizeoptions = get_site_option( 'mw_adminimize' );
@@ -1382,8 +1385,12 @@ function _mw_adminimize_get_option_value( $key ) {
 		$adminimizeoptions = get_option( 'mw_adminimize' );
 	}
 
-	$value = $adminimizeoptions[ $key ];
-	return ( isset( $value ) ) ? ( $value ) : NULL;
+	if ( ! is_array( $adminimizeoptions ) ) {
+		return;
+	}
+
+	$value = isset( $adminimizeoptions[ $key ] ) ? $adminimizeoptions[ $key ] : NULL;
+	return $value;
 }
 
 /**
