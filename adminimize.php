@@ -1369,7 +1369,7 @@ function _mw_adminimize_set_theme() {
 /**
  * Get setting value for each options key.
  *
- * @param $key
+ * @param string $key
  *
  * @return null|void
  */
@@ -1389,6 +1389,7 @@ function _mw_adminimize_get_option_value( $key ) {
 		return;
 	}
 
+	/** @var array $adminimizeoptions */
 	$value = isset( $adminimizeoptions[ $key ] ) ? $adminimizeoptions[ $key ] : NULL;
 	return $value;
 }
