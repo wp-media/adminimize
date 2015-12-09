@@ -35,22 +35,23 @@ if ( ! function_exists( 'add_action' ) ) {
 							}
 								
 							$global_options = array(
-																			'.show-admin-bar',
-																			'#favorite-actions',
-																			'#screen-meta',
-																			'#screen-options, #screen-options-link-wrap',
-																			'#contextual-help-link-wrap',
-																			'#your-profile .form-table fieldset'
-																			);
+								'.show-admin-bar',
+								'#favorite-actions',
+								'#screen-meta',
+								'#screen-options, #screen-options-link-wrap',
+								'#contextual-help-link-wrap',
+								'#your-profile .form-table fieldset',
+								'.admin-notices',
+							);
 							
 							$global_options_names = array(
-																			__('Admin Bar', FB_ADMINIMIZE_TEXTDOMAIN),
-																			__('Favorite Actions', FB_ADMINIMIZE_TEXTDOMAIN),
-																			__('Screen-Meta', FB_ADMINIMIZE_TEXTDOMAIN),
-																			__('Screen Options', FB_ADMINIMIZE_TEXTDOMAIN),
-																			__('Contextual Help', FB_ADMINIMIZE_TEXTDOMAIN),
-																			__('Admin Color Scheme', FB_ADMINIMIZE_TEXTDOMAIN)
-																			);
+								esc_attr__('Admin Bar', FB_ADMINIMIZE_TEXTDOMAIN),
+								esc_attr__('Favorite Actions', FB_ADMINIMIZE_TEXTDOMAIN),
+								esc_attr__('Screen-Meta', FB_ADMINIMIZE_TEXTDOMAIN),
+								esc_attr__('Screen Options', FB_ADMINIMIZE_TEXTDOMAIN),
+								esc_attr__('Contextual Help', FB_ADMINIMIZE_TEXTDOMAIN),								esc_attr__('Admin Color Scheme', FB_ADMINIMIZE_TEXTDOMAIN),
+								esc_attr__( 'Admin Notices', FB_ADMINIMIZE_TEXTDOMAIN ),
+							);
 							
 							$_mw_adminimize_own_values = _mw_adminimize_get_option_value('_mw_adminimize_own_values');
 							$_mw_adminimize_own_values = preg_split( "/\r\n/", $_mw_adminimize_own_values );
@@ -68,19 +69,27 @@ if ( ! function_exists( 'add_action' ) ) {
 							
 							$x = 0;
 							foreach ($global_options as $index => $global_option) {
-								if ( $global_option != '') {
-									$checked_user_role_ = array();
-									foreach ($user_roles as $role) {
-										$checked_user_role_[$role]  = ( isset($disabled_global_option_[$role]) && in_array($global_option, $disabled_global_option_[$role]) ) ? ' checked="checked"' : '';
-									}
-									echo '<tr>' . "\n";
-									echo '<td>' . $global_options_names[$index] . ' <span>(' . $global_option . ')</span> </td>' . "\n";
-									foreach ($user_roles as $role) {
-										echo '<td class="num"><input id="check_post'. $role . $x .'" type="checkbox"' . $checked_user_role_[$role] . ' name="mw_adminimize_disabled_global_option_'. $role .'_items[]" value="' . $global_option . '" /></td>' . "\n";
-									}
-									echo '</tr>' . "\n";
-									$x++;
+
+								if ( empty( $global_option ) ) {
+									continue;
 								}
+
+
+								$checked_user_role_ = array();
+								foreach ($user_roles as $role) {
+									$checked_user_role_[$role]  = ( isset($disabled_global_option_[$role])
+											&& in_array($global_option, $disabled_global_option_[$role]) ) ? ' checked="checked"' : '';
+								}
+								echo '<tr>' . "\n";
+								echo '<td>' . $global_options_names[$index] . ' <span>(' . $global_option . ')</span> </td>' . "\n";
+								foreach ($user_roles as $role) {
+									echo '<td class="num"><input id="check_post'. $role . $x .'" type="checkbox"'
+											. $checked_user_role_[$role] . ' name="mw_adminimize_disabled_global_option_'
+											. $role .'_items[]" value="' . $global_option . '" /></td>' . "\n";
+								}
+								echo '</tr>' . "\n";
+								$x++;
+
 							}
 						?>
 						</tbody>

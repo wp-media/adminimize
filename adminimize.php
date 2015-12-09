@@ -79,70 +79,6 @@ function _mw_adminimize_recursive_in_array( $needle, $haystack ) {
 	return FALSE;
 }
 
-/**
- * some basics for message
- */
-class _mw_adminimize_message_class {
-
-	/**
-	 * constructor
-	 */
-	public function __construct() {
-
-		$this->localizion_name = FB_ADMINIMIZE_TEXTDOMAIN;
-		$this->errors          = new WP_Error();
-		$this->initialize_errors();
-	}
-
-	/**
-	 * get_error - Returns an error message based on the passed code
-	 * Parameters - $code (the error code as a string)
-	 *
-	 * @param string $code
-	 *
-	 * @return string $errorMessage
-	 */
-	public function get_error( $code = '' ) {
-
-		$errorMessage = $this->errors->get_error_message( $code );
-
-		if ( NULL === $errorMessage ) {
-			return __( 'Unknown error.', $this->localizion_name );
-		}
-
-		return $errorMessage;
-	}
-
-	/**
-	 * Initializes all the error messages
-	 */
-	public function initialize_errors() {
-
-		$this->errors->add( '_mw_adminimize_update', __( 'The updates were saved.', $this->localizion_name ) );
-		$this->errors->add(
-			'_mw_adminimize_access_denied',
-			__( 'You have not enough rights to edit entries in the database.', $this->localizion_name )
-		);
-		$this->errors->add(
-			'_mw_adminimize_import', __( 'All entries in the database were imported.', $this->localizion_name )
-		);
-		$this->errors->add(
-			'_mw_adminimize_deinstall', __( 'All entries in the database were deleted.', $this->localizion_name )
-		);
-		$this->errors->add(
-			'_mw_adminimize_deinstall_yes', __( 'Set the checkbox on deinstall-button.', $this->localizion_name )
-		);
-		$this->errors->add(
-			'_mw_adminimize_get_option', __( 'Can\'t load menu and submenu.', $this->localizion_name )
-		);
-		$this->errors->add( '_mw_adminimize_set_theme', __( 'Backend-Theme was activated!', $this->localizion_name ) );
-		$this->errors->add(
-			'_mw_adminimize_load_theme', __( 'Load user data to themes was successful.', $this->localizion_name )
-		);
-	}
-
-} // end class
-
 function _mw_adminimize_exclude_super_admin() {
 
 	// exclude super admin
@@ -1307,9 +1243,8 @@ function _mw_adminimize_small_user_info() {
 	<?php
 }
 
-/**
- * include options-page in wp-admin
- */
+// Include message class.
+require_once( 'inc-setup/messages.php' );
 // include helping functions
 require_once( 'inc-setup/helping_hands.php' );
 
@@ -1334,6 +1269,9 @@ require_once( 'inc-setup/admin-bar-items.php' );
 // meta boxes helper, setup
 //@todo Meta Boxes: not ready for productive systems.
 //require_once( 'inc-setup/meta-boxes.php' );
+
+// Remove Admin Notices.
+require_once( 'inc-setup/remove-admin-notices.php' );
 
 /**
  * @version WP 2.8
@@ -1444,8 +1382,8 @@ function _mw_adminimize_get_option_value( $key ) {
 		$adminimizeoptions = get_option( 'mw_adminimize' );
 	}
 
-	return ( isset( $adminimizeoptions[ $key ] ) ) ?
-		( $adminimizeoptions[ $key ] ) : NULL;
+	$value = $adminimizeoptions[ $key ];
+	return ( isset( $value ) ) ? ( $value ) : NULL;
 }
 
 /**
@@ -1908,29 +1846,6 @@ function _mw_adminimize_export_json() {
 }
 
 /**
- * export options in file
- */
-function _mw_adminimize_export() {
-
-	global $wpdb;
-
-	$filename = 'adminimize_export-' . date( 'Y-m-d_G-i-s' ) . '.seq';
-
-	header( "Content-Description: File Transfer" );
-	header( "Content-Disposition: attachment; filename=" . urlencode( $filename ) );
-	header( "Content-Type: application/force-download" );
-	header( "Content-Type: application/octet-stream" );
-	header( "Content-Type: application/download" );
-	header( 'Content-Type: text/seq; charset=' . get_option( 'blog_charset' ), TRUE );
-	flush();
-
-	$export_data = mysql_query( "SELECT option_value FROM $wpdb->options WHERE option_name = 'mw_adminimize'" );
-	$export_data = mysql_result( $export_data, 0 );
-	echo $export_data;
-	flush();
-}
-
-/**
  * Process a settings import from a json file
  */
 function _mw_adminimize_import_json() {
@@ -1967,54 +1882,4 @@ function _mw_adminimize_import_json() {
 	} else {
 		update_option( 'mw_adminimize', $settings );
 	}
-}
-
-/**
- * import options in table _options
- */
-function _mw_adminimize_import() {
-
-	// check file extension
-	$str_file_name = $_FILES[ 'datei' ][ 'name' ];
-	$str_file_ext  = explode( ".", $str_file_name );
-
-	if ( $str_file_ext[ 1 ] != 'seq' ) {
-		wp_die( 'No exist.' );
-	} elseif ( file_exists( $_FILES[ 'datei' ][ 'name' ] ) ) {
-		wp_die( 'Exist.' );
-	} else {
-		// path for file
-		$str_ziel = WP_CONTENT_DIR . '/' . $_FILES[ 'datei' ][ 'name' ];
-		// transfer
-		move_uploaded_file( $_FILES[ 'datei' ][ 'tmp_name' ], $str_ziel );
-		// access authorization
-		chmod( $str_ziel, 0644 );
-		// SQL import
-		ini_set( 'default_socket_timeout', 120 );
-		$import_file = file_get_contents( $str_ziel );
-
-		_mw_adminimize_deinstall();
-		$import_file = unserialize( $import_file );
-
-		if ( file_exists( $str_ziel ) ) {
-			unlink( $str_ziel );
-		}
-
-		if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
-			update_site_option( 'mw_adminimize', $import_file );
-		} else {
-			update_option( 'mw_adminimize', $import_file );
-		}
-
-		if ( file_exists( $str_ziel ) ) {
-			unlink( $str_ziel );
-		}
-
-	}
-
-	$myErrors = new _mw_adminimize_message_class();
-	$myErrors = '<div id="message" class="updated fade"><p>' .
-		$myErrors->get_error( '_mw_adminimize_import' ) . '</p></div>';
-
-	echo $myErrors;
 }

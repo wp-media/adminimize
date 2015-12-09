@@ -29,13 +29,13 @@ function _mw_adminimize_in_arrays( $array1, $array2 ) {
 
 // fix some badly enqueued scripts with no sense of HTTPS
 // Kudos to http://snippets.webaware.com.au/snippets/cleaning-up-wordpress-plugin-script-and-stylesheet-loads-over-ssl/
-add_action( 'wp_print_scripts', 'enqueueScriptsFix', 100 );
-add_action( 'wp_print_styles', 'enqueueStylesFix', 100 );
+add_action( 'wp_print_scripts', '_mw_adminimize_enqueueScriptsFix', 100 );
+add_action( 'wp_print_styles', '_mw_adminimize_enqueueStylesFix', 100 );
 
 /**
  * force plugins to load scripts with SSL if page is SSL
  */
-function enqueueScriptsFix() {
+function _mw_adminimize_enqueueScriptsFix() {
 
 	if ( ! is_admin() ) {
 		if ( ! empty( $_SERVER[ 'HTTPS' ] ) ) {
@@ -52,7 +52,7 @@ function enqueueScriptsFix() {
 /**
  * force plugins to load styles with SSL if page is SSL
  */
-function enqueueStylesFix() {
+function _mw_adminimize_enqueueStylesFix() {
 
 	if ( ! is_admin() ) {
 		if ( ! empty( $_SERVER[ 'HTTPS' ] ) ) {
