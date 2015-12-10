@@ -1295,19 +1295,6 @@ function _mw_adminimize_filter_plugin_meta( $links, $file ) {
  */
 function _mw_adminimize_add_settings_page() {
 
-	/*
-	 * Maybe later
-	if ( is_multisite() && is_plugin_active_for_network( plugin_basename( __FILE__ ) ) ) {
-		$pagehook = add_submenu_page(
-			'settings.php',
-			__( 'Adminimize Network Options', FB_ADMINIMIZE_TEXTDOMAIN ),
-			__( 'Adminimize', FB_ADMINIMIZE_TEXTDOMAIN ),
-			'manage_options',
-			plugin_basename( __FILE__ ),
-			'_mw_adminimize_options'
-		);
-	}
-	*/
 	$pagehook = add_options_page(
 		__( 'Adminimize Options', FB_ADMINIMIZE_TEXTDOMAIN ),
 		__( 'Adminimize', FB_ADMINIMIZE_TEXTDOMAIN ),
@@ -1330,7 +1317,7 @@ function _mw_adminimize_on_load_page() {
 		'adminimize-settings-script',
 		plugins_url( 'js/adminimize.js', __FILE__ ),
 		array( 'jquery' ),
-		'05/02/2013',
+		'',
 		TRUE
 	);
 	wp_enqueue_script( 'adminimize-settings-script' );
@@ -1369,7 +1356,6 @@ function _mw_adminimize_set_theme() {
  */
 function _mw_adminimize_get_option_value( $key = FALSE ) {
 
-	$adminimizeoptions = array();
 	// check for use on multisite
 	if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
 		$adminimizeoptions = get_site_option( 'mw_adminimize', array() );
