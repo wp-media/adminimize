@@ -29,11 +29,11 @@ With version 1.6.1 it is possible to add own options for hide areas in the backe
 = Support Custom Post Type =
 Also it is possible with version 1.7.18 to use on custom post types; hide 'unnecessary' areas on the custom post types for different roles and post types.
 
-= Compatibility with the plugins for MetaBoxes in Write-area =
-1. You can add your own options, you must only see for css selectors
+= Compatibility with plugins for MetaBoxes in Write-area =
+You can add your own options, you must only see for css selectors
 
 = Requirements =
-1. WordPress version 2.8 and later
+* WordPress version 2.8 and later; tested only in last stable version.
 
 = What does this plugin do? =
 The plugin changes the administration backend and gives you the power to assign rights on certain parts. Admins can activate/deactivate every part of the menu and even parts of the sub-menu. Meta fields can be administered separately for posts and pages. Certain parts of the write menu can be deactivated separately for admins or non-admins. The header of the backend is minimized and optimized to give you more space and the structure of the menu gets changed to make it more logical - this can all be done per user so each user can have his own settings.
@@ -83,8 +83,6 @@ The plugin changes the administration backend and gives you the power to assign 
 
 = Advice =
 Please use the `Uninstall-Function` in the option-area before update to version 1.4! Version 1.4 and higher have only one database entry and the `Uninstall-Option` uninstall the old entry's.
-
-See on [the official website](http://bueltge.de/wordpress-admin-theme-adminimize/674/ "Adminimize").
 
 == Screenshots ==
 1. Settings in WordPress 3.2-beta with two Custom Post Types
