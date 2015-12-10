@@ -124,7 +124,7 @@ if ( is_multisite() && is_plugin_active_for_network( plugin_basename( MW_ADMIN_F
 				</tr>
 				<tr class="alternate">
 					<td class="row-title"><a href="#uninstall"><?php esc_attr_e(
-								'Deinstall Options', FB_ADMINIMIZE_TEXTDOMAIN
+								'Uninstall Options', FB_ADMINIMIZE_TEXTDOMAIN
 							); ?></a></td>
 				</tr>
 			</table>
@@ -196,4 +196,3 @@ if ( is_multisite() && is_plugin_active_for_network( plugin_basename( MW_ADMIN_F
 		</div>
 	</div>
 </div>
-		

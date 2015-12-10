@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Adminimize
- * @subpackage Deinstall options
+ * @subpackage Uninstall options
  * @author Frank Bültge
  */
 if ( ! function_exists( 'add_action' ) ) {
@@ -12,7 +12,7 @@ if ( ! function_exists( 'add_action' ) ) {
 		<div id="poststuff" class="ui-sortable meta-box-sortables">
 			<div class="postbox">
 				<div class="handlediv" title="<?php _e('Click to toggle'); ?>"><br/></div>
-				<h3 class="hndle" id="uninstall"><?php _e('Deinstall Options', FB_ADMINIMIZE_TEXTDOMAIN ) ?></h3>
+				<h3 class="hndle" id="uninstall"><?php _e('Uninstall Options', FB_ADMINIMIZE_TEXTDOMAIN ) ?></h3>
 				<div class="inside">
 
 					<p><?php _e('Use this option for clean your database from all entries of this plugin. When you deactivate the plugin, the deinstall of the plugin <strong>clean not</strong> all entries in the database.', FB_ADMINIMIZE_TEXTDOMAIN ); ?></p>
