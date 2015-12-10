@@ -279,7 +279,7 @@ See on [the official website](http://bueltge.de/wordpress-admin-theme-adminimize
 
 = v1.7.4 (01/10/2010) =
 * Fix on Refresh menu and submenu on settings-page
-* Fix for older WordPress verisons and  function current_theme_supports 
+* Fix for older WordPress verisons and  function current_theme_supports
 
 = v1.7.3 (01/08/2010) =
 * Add Im-/Export function
@@ -445,9 +445,6 @@ My english ist gruesome here and there and you can see the [entry on the WP comm
 = Post about the plugin with helpful hints =
  * [wpbeginner.com: How to Hide Unnecessary Items From WordPress Admin with Adminimize](http://www.wpbeginner.com/plugins/how-to-hide-unnecessary-items-from-wordpress-admin-with-adminimize/)
  * [wptavern.com: Create A Custom WordPress Admin Experience With Adminimize](http://wptavern.com/create-a-custom-wordpress-admin-experience-with-adminimize)
-
-= Where can I get more information? =
-Please visit [the official website](http://bueltge.de/wordpress-admin-theme-adminimize/674/ "Adminimize") for the latest information on this plugin.
 
 = I love this plugin! How can I show the developer how much I appreciate his work? =
 Please visit [the official website](http://bueltge.de/wordpress-admin-theme-adminimize/674/ "Adminimize") and let him know your care or see the [wishlist](http://bueltge.de/wunschliste/ "Wishlist") of the author.
