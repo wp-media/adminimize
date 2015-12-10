@@ -202,12 +202,9 @@ function _mw_get_current_post_type() {
 }
 
 /**
- * check user-option and add new style
- *
- * @uses $pagenow
+ * Check user-option and add new style.
  */
 function _mw_adminimize_admin_init() {
-
 	global $pagenow, $post_type, $menu, $submenu;
 
 	if ( isset( $_GET[ 'post' ] ) && ! is_array( $_GET[ 'post' ] ) ) {
@@ -230,14 +227,11 @@ function _mw_adminimize_admin_init() {
 		$current_post_type = 'post';
 	}
 
+	// Get all user rolles.
 	$user_roles = _mw_adminimize_get_all_user_roles();
 
-	// check for use on multisite
-	if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
-		$adminimizeoptions = get_site_option( 'mw_adminimize' );
-	} else {
-		$adminimizeoptions = get_option( 'mw_adminimize' );
-	}
+	// Get settings.
+	$adminimizeoptions = _mw_adminimize_get_option_value();
 
 	// pages for post type Post
 	$def_post_pages              = array( 'edit.php', 'post.php', 'post-new.php' );
@@ -1369,29 +1363,26 @@ function _mw_adminimize_set_theme() {
 /**
  * Get setting value for each options key.
  *
- * @param string $key
+ * @param string|bool $key
  *
- * @return null|void
+ * @return array
  */
-function _mw_adminimize_get_option_value( $key ) {
+function _mw_adminimize_get_option_value( $key = FALSE ) {
 
-	if ( empty( $key ) ) {
-		return;
-	}
+	$adminimizeoptions = array();
 	// check for use on multisite
 	if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
-		$adminimizeoptions = get_site_option( 'mw_adminimize' );
+		$adminimizeoptions = get_site_option( 'mw_adminimize', array() );
 	} else {
-		$adminimizeoptions = get_option( 'mw_adminimize' );
+		$adminimizeoptions = get_option( 'mw_adminimize', array() );
 	}
 
-	if ( ! is_array( $adminimizeoptions ) ) {
-		return;
+	if ( ! $key ) {
+		return $adminimizeoptions;
 	}
 
 	/** @var array $adminimizeoptions */
-	$value = isset( $adminimizeoptions[ $key ] ) ? $adminimizeoptions[ $key ] : NULL;
-	return $value;
+	return isset( $adminimizeoptions[ $key ] ) ? $adminimizeoptions[ $key ] : NULL;
 }
 
 /**
