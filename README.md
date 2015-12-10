@@ -17,7 +17,7 @@ See this [entry on the WP community forum](http://wordpress.org/support/topic/32
  * [wptavern.com: Create A Custom WordPress Admin Experience With Adminimize](http://wptavern.com/create-a-custom-wordpress-admin-experience-with-adminimize)
 
 ### I love this plugin! How can I show the developer how much I appreciate his work?
-Please visit [the official website](http://bueltge.de/wordpress-admin-theme-adminimize/674/ "Adminimize") and let him know your care or see the [wishlist](http://bueltge.de/wunschliste/ "Wishlist") of the author.
+Please send a [review](https://wordpress.org/support/view/plugin-reviews/adminimize) and let him know your care or see the [wishlist](http://bueltge.de/wunschliste/ "Wishlist") of the author.
 
 ## Licence
 Good news, this plugin is free for everyone! Since it's released under the GPL, you can use it free of charge on your personal or commercial blog. But if you enjoy this plugin, you can thank me and leave a [small donation](http://bueltge.de/wunschliste/ "Wishliste and Donate") for the time I've spent writing and supporting this plugin. And I really don't want to know how many hours of my life this plugin has already eaten ;)

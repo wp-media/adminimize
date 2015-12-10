@@ -449,4 +449,4 @@ My english ist gruesome here and there and you can see the [entry on the WP comm
  * [wptavern.com: Create A Custom WordPress Admin Experience With Adminimize](http://wptavern.com/create-a-custom-wordpress-admin-experience-with-adminimize)
 
 = I love this plugin! How can I show the developer how much I appreciate his work? =
-Please visit [the official website](http://bueltge.de/wordpress-admin-theme-adminimize/674/ "Adminimize") and let him know your care or see the [wishlist](http://bueltge.de/wunschliste/ "Wishlist") of the author.
+Please send a [review](https://wordpress.org/support/view/plugin-reviews/adminimize) and let him know your care or see the [wishlist](http://bueltge.de/wunschliste/ "Wishlist") of the author.
