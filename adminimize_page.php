@@ -9,8 +9,8 @@ if ( ! function_exists( 'add_action' ) ) {
 	exit;
 }
 
-// export options
-if ( isset( $_GET['_mw_adminimize_export'] ) ) {
+// Export the options to local client.
+if ( array_key_exists( '_mw_adminimize_export', $_GET ) ) {
 	_mw_adminimize_export_json();
 	die();
 }
@@ -135,12 +135,14 @@ function _mw_adminimize_options() {
 		require_once('inc-options/write_page_options.php');
 
 		// Custom Post Type
-		if ( function_exists( 'get_post_types' ) )
-			require_once('inc-options/write_cp_options.php');
+		if ( function_exists( 'get_post_types' ) ) {
+			require_once( 'inc-options/write_cp_options.php' );
+		}
 
 		// Links Options
-		if ( 0 != get_option( 'link_manager_enabled' ) )
-			require_once('inc-options/links_options.php');
+		if ( 0 != get_option( 'link_manager_enabled' ) ) {
+			require_once( 'inc-options/links_options.php' );
+		}
 
 		// Widget options
 		require_once('inc-options/widget_options.php');
@@ -161,20 +163,18 @@ function _mw_adminimize_options() {
 		// Im/Export Options
 		require_once('inc-options/im_export_options.php');
 
-		// deinstall options
+		// Uninstall options
 		require_once('inc-options/deinstall_options.php');
 		?>
 
 		<script type="text/javascript">
 		<!--
-		<?php if ( version_compare( $wp_version, '2.7alpha', '<' ) ) { ?>
-		jQuery('.postbox h3').prepend('<a class="togbox">+</a> ');
-		<?php } ?>
-		jQuery('.postbox h3').click( function() { jQuery(jQuery(this).parent().get(0)).toggleClass('closed'); } );
-		jQuery('.postbox .handlediv').click( function() { jQuery(jQuery(this).parent().get(0)).toggleClass('closed'); } );
-		jQuery('.postbox.close-me').each(function() {
-			jQuery(this).addClass("closed");
-		});
+		jQuery( document ).ready( function( $ ) {
+			$('.postbox h3').on( 'click', function(e) {
+				$( this ).closest( '.postbox' ).toggleClass( 'closed' );
+				e.preventDefault();
+			});
+		} );
 		//-->
 		</script>
 
