@@ -105,6 +105,7 @@ Please use the `Uninstall-Function` in the option-area before update to version 
 * Add global option to hide admin notices for each role.
 * Replace static source to get option, only one function to get it.
 * Change Admin Bar Feature: Difference between front-end and back-end.
+* More stability on admin bar settings. Switch hook to set, get data of admin bar.
 * Several code changes.
 
 = 1.8.5 (2015-03-19) =
@@ -424,21 +425,6 @@ Good news, this plugin is free for everyone! Since it's released under the GPL, 
 
 = Translations =
 The plugin comes with various translations, please refer to the [WordPress Codex](http://codex.wordpress.org/Installing_WordPress_in_Your_Language "Installing WordPress in Your Language") for more information about activating the translation. If you want to help to translate the plugin to your language, please have a look at the sitemap.pot file which contains all definitions and may be used with a [gettext](http://www.gnu.org/software/gettext/) editor like [Poedit](http://www.poedit.net/) (Windows) or use, I prefers this, the [translation service from wordpress.org](https://translate.wordpress.org/projects/wp-plugins/adminimize).
-
-= Localizations =
-* Also Thanks to [Ovidio](http://pacura.ru/ "pacaru.ru") for an translations the details in english and [G&uuml;rkan G&uuml;r](http://www.seqizz.net/ "G&uuml;rkan G&uuml;r") for translation in turkish.
-* Thanks to [Gabriel Scheffer](http://www.gabrielscheffer.com.ar "Gabriel Scheffer") for the spanish language files.
-* Thanks to [Andrea Piccinelli] for the italian language files.
-* Thanks to Fat Cow for the belarussian language files.
-* Thanks to [Rene](http://wpwebshop.com/ "wpwebshop.com") for dutch translation.
-* Thanks to [GeorgWP](http://wordpress.blogos.dk/s%C3%B8g-efter-downloads/?did=208 "wordpress.blogos.dk/s%C3%B8g-efter-downloads/?did=208") for danish language files.
-* Thanks to [Scavenger](http://www.photos-marseille.fr) for french language files.
-* Thanks to [Outshine Solutions](http://outshinesolutions.com/web-hosting/web-hosting-india.html) for hindi language files.
-* Thanks to [ray.s](http://letsbefamous.com/) for irish translation.
-* Thanks for bulgarian language files to [Web Geek](http://webhostinggeeks.com/)
-* Thanks for romanian language to [Alexander Ovsov - Web Geek](http://webhostinggeeks.com/)
-* Thanks to [Rafael Funchal](http://www.rafaelfunchal.com.br/) for brazilian portuguese translation
-
 
 == Frequently Asked Questions ==
 = Help with "Your own options" =

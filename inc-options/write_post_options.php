@@ -13,17 +13,17 @@ if ( ! function_exists( 'add_action' ) ) {
 		<div id="poststuff" class="ui-sortable meta-box-sortables">
 			<div class="postbox">
 				<div class="handlediv" title="<?php _e('Click to toggle'); ?>"><br/></div>
-				<h3 class="hndle" id="config_edit_post"><?php _e('Write options - Post', FB_ADMINIMIZE_TEXTDOMAIN ); ?></h3>
+				<h3 class="hndle" id="config_edit_post"><?php _e('Write options - Post', 'adminimize' ); ?></h3>
 				<div class="inside">
 					<br class="clear" />
 
 					<table summary="config_edit_post" class="widefat">
 						<thead>
 							<tr>
-								<th><?php _e('Write options - Post', FB_ADMINIMIZE_TEXTDOMAIN ); ?></th>
+								<th><?php _e('Write options - Post', 'adminimize' ); ?></th>
 								<?php
 									foreach ($user_roles_names as $role_name) { ?>
-										<th><?php _e('Deactivate for', FB_ADMINIMIZE_TEXTDOMAIN ); echo '<br/>' . $role_name; ?></th>
+										<th><?php _e('Deactivate for', 'adminimize' ); echo '<br/>' . $role_name; ?></th>
 								<?php } ?>
 							</tr>
 						</thead>
@@ -91,20 +91,20 @@ if ( ! function_exists( 'add_action' ) ) {
 							$metaboxes_names = array(
 								__('Help'),
 								__('Screen Options'),
-								__('Title', FB_ADMINIMIZE_TEXTDOMAIN),
-								__('Permalink', FB_ADMINIMIZE_TEXTDOMAIN ),
-								__('Tags', FB_ADMINIMIZE_TEXTDOMAIN ),
-								__('Categories', FB_ADMINIMIZE_TEXTDOMAIN ),
-								__('Add New Category', FB_ADMINIMIZE_TEXTDOMAIN ),
+								__('Title', 'adminimize'),
+								__('Permalink', 'adminimize' ),
+								__('Tags', 'adminimize' ),
+								__('Categories', 'adminimize' ),
+								__('Add New Category', 'adminimize' ),
 								__('Date'),
-								__('Password Protect This Post', FB_ADMINIMIZE_TEXTDOMAIN ),
-								__('Related, Shortcuts', FB_ADMINIMIZE_TEXTDOMAIN ),
-								__('Messages', FB_ADMINIMIZE_TEXTDOMAIN ),
-								__('h2: Advanced Options', FB_ADMINIMIZE_TEXTDOMAIN ),
-								__('Media Buttons (all)', FB_ADMINIMIZE_TEXTDOMAIN ),
-								__('Word count', FB_ADMINIMIZE_TEXTDOMAIN ),
-								__('Post Slug', FB_ADMINIMIZE_TEXTDOMAIN),
-								__('Publish Actions', FB_ADMINIMIZE_TEXTDOMAIN ),
+								__('Password Protect This Post', 'adminimize' ),
+								__('Related, Shortcuts', 'adminimize' ),
+								__('Messages', 'adminimize' ),
+								__('h2: Advanced Options', 'adminimize' ),
+								__('Media Buttons (all)', 'adminimize' ),
+								__('Word count', 'adminimize' ),
+								__('Post Slug', 'adminimize'),
+								__('Publish Actions', 'adminimize' ),
 								__('Discussion'),
 								__('HTML Editor Button')
 							);
@@ -115,22 +115,22 @@ if ( ! function_exists( 'add_action' ) ) {
 							}
 							
 							if ( function_exists('current_theme_supports') && current_theme_supports( 'post-thumbnails', 'post' ) )
-								array_push($metaboxes_names, __('Post Thumbnail', FB_ADMINIMIZE_TEXTDOMAIN) );
+								array_push($metaboxes_names, __('Post Thumbnail', 'adminimize') );
 							
 							// quick edit names
 							$quickedit_names = array(
-								'<strong>' .__('Quick Edit Link', FB_ADMINIMIZE_TEXTDOMAIN) . '</strong>',
-								__('QE', FB_ADMINIMIZE_TEXTDOMAIN) . ' ' . __('Inline Edit Left', FB_ADMINIMIZE_TEXTDOMAIN),
-								'&emsp;QE &rArr;' . ' ' . __('All Labels', FB_ADMINIMIZE_TEXTDOMAIN),
+								'<strong>' .__('Quick Edit Link', 'adminimize') . '</strong>',
+								__('QE', 'adminimize') . ' ' . __('Inline Edit Left', 'adminimize'),
+								'&emsp;QE &rArr;' . ' ' . __('All Labels', 'adminimize'),
 								'&emsp;QE &rArr;' . ' ' . __('Author'),
-								'&emsp;QE &rArr;' . ' ' . __('Password and Private', FB_ADMINIMIZE_TEXTDOMAIN),
-								__('QE', FB_ADMINIMIZE_TEXTDOMAIN) . ' ' . __('Inline Edit Center', FB_ADMINIMIZE_TEXTDOMAIN),
-								'&emsp;QE &rArr;' . ' ' . __('Categories Title', FB_ADMINIMIZE_TEXTDOMAIN),
-								'&emsp;QE &rArr;' . ' ' . __('Categories List', FB_ADMINIMIZE_TEXTDOMAIN),
-								__('QE', FB_ADMINIMIZE_TEXTDOMAIN) . ' ' . __('Inline Edit Right', FB_ADMINIMIZE_TEXTDOMAIN),
+								'&emsp;QE &rArr;' . ' ' . __('Password and Private', 'adminimize'),
+								__('QE', 'adminimize') . ' ' . __('Inline Edit Center', 'adminimize'),
+								'&emsp;QE &rArr;' . ' ' . __('Categories Title', 'adminimize'),
+								'&emsp;QE &rArr;' . ' ' . __('Categories List', 'adminimize'),
+								__('QE', 'adminimize') . ' ' . __('Inline Edit Right', 'adminimize'),
 								'&emsp;QE &rArr;' . ' ' . __('Tags'),
-								'&emsp;QE &rArr;' . ' ' . __('Status, Sticky', FB_ADMINIMIZE_TEXTDOMAIN),
-								__('QE', FB_ADMINIMIZE_TEXTDOMAIN) . ' ' . __('Cancel/Save Button', FB_ADMINIMIZE_TEXTDOMAIN)
+								'&emsp;QE &rArr;' . ' ' . __('Status, Sticky', 'adminimize'),
+								__('QE', 'adminimize') . ' ' . __('Cancel/Save Button', 'adminimize')
 							);
 							$metaboxes_names = array_merge($metaboxes_names, $quickedit_names);
 							
@@ -178,25 +178,25 @@ if ( ! function_exists( 'add_action' ) ) {
 					<table summary="config_own_post" class="widefat">
 						<thead>
 							<tr>
-								<th><?php _e('Your own post options', FB_ADMINIMIZE_TEXTDOMAIN ); echo '<br />'; _e('ID or class', FB_ADMINIMIZE_TEXTDOMAIN ); ?></th>
-								<th><?php echo '<br />'; _e('Option', FB_ADMINIMIZE_TEXTDOMAIN ); ?></th>
+								<th><?php _e('Your own post options', 'adminimize' ); echo '<br />'; _e('ID or class', 'adminimize' ); ?></th>
+								<th><?php echo '<br />'; _e('Option', 'adminimize' ); ?></th>
 							</tr>
 						</thead>
 
 						<tbody>
 							<tr valign="top">
-								<td colspan="2"><?php _e('It is possible to add your own IDs or classes from elements and tags. You can find IDs and classes with the FireBug Add-on for Firefox. Assign a value and the associate name per line.', FB_ADMINIMIZE_TEXTDOMAIN ); ?></td>
+								<td colspan="2"><?php _e('It is possible to add your own IDs or classes from elements and tags. You can find IDs and classes with the FireBug Add-on for Firefox. Assign a value and the associate name per line.', 'adminimize' ); ?></td>
 							</tr>
 							<tr valign="top">
 								<td>
 									<textarea name="_mw_adminimize_own_post_options" cols="60" rows="3" id="_mw_adminimize_own_post_options" style="width: 95%;" ><?php echo _mw_adminimize_get_option_value('_mw_adminimize_own_post_options'); ?></textarea>
 									<br />
-									<?php _e('Possible nomination for ID or class. Separate multiple nominations through a carriage return.', FB_ADMINIMIZE_TEXTDOMAIN ); ?>
+									<?php _e('Possible nomination for ID or class. Separate multiple nominations through a carriage return.', 'adminimize' ); ?>
 								</td>
 								<td>
 									<textarea class="code" name="_mw_adminimize_own_post_values" cols="60" rows="3" id="_mw_adminimize_own_post_values" style="width: 95%;" ><?php echo _mw_adminimize_get_option_value('_mw_adminimize_own_post_values'); ?></textarea>
 									<br />
-									<?php _e('Possible IDs or classes. Separate multiple values through a carriage return.', FB_ADMINIMIZE_TEXTDOMAIN ); ?>
+									<?php _e('Possible IDs or classes. Separate multiple values through a carriage return.', 'adminimize' ); ?>
 								</td>
 							</tr>
 						</tbody>
@@ -204,9 +204,9 @@ if ( ! function_exists( 'add_action' ) ) {
 					
 					<p id="submitbutton">
 						<input type="hidden" name="_mw_adminimize_action" value="_mw_adminimize_insert" />
-						<input class="button button-primary" type="submit" name="_mw_adminimize_save" value="<?php _e('Update Options', FB_ADMINIMIZE_TEXTDOMAIN ); ?> &raquo;" /><input type="hidden" name="page_options" value="'dofollow_timeout'" />
+						<input class="button button-primary" type="submit" name="_mw_adminimize_save" value="<?php _e('Update Options', 'adminimize' ); ?> &raquo;" /><input type="hidden" name="page_options" value="'dofollow_timeout'" />
 					</p>
-					<p><a class="alignright button" href="javascript:void(0);" onclick="window.scrollTo(0,0);" style="margin:3px 0 0 30px;"><?php _e('scroll to top', FB_ADMINIMIZE_TEXTDOMAIN); ?></a><br class="clear" /></p>
+					<p><a class="alignright button" href="javascript:void(0);" onclick="window.scrollTo(0,0);" style="margin:3px 0 0 30px;"><?php _e('scroll to top', 'adminimize'); ?></a><br class="clear" /></p>
 
 				</div>
 			</div>

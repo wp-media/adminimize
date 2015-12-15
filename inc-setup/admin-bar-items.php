@@ -10,111 +10,86 @@ if ( ! function_exists( 'add_action' ) ) {
 	exit;
 }
 
-add_action( 'wp_before_admin_bar_render', '_mw_adminimize_get_admin_bar_nodes', 9999 );
+//add_action( 'wp_before_admin_bar_render', '_mw_adminimize_get_admin_bar_nodes', 9999 );
+add_action( 'admin_bar_menu', '_mw_adminimize_get_admin_bar_nodes', 99999 );
 /**
  * Get all admin bar items in back end and write in a options of Adminimize settings array
  *
  * @since   1.8.1  01/10/2013
  * @return  void
  */
-function _mw_adminimize_get_admin_bar_nodes() {
+function _mw_adminimize_get_admin_bar_nodes( $wp_admin_bar ) {
 
-	// On Fron end
+	if ( ! is_admin() ) {
+		return;
+	}
+
+	// On Front end
 	if ( ! function_exists( 'get_current_screen' ) ) {
-		return NULL;
+		return;
 	}
 
 	// Get admin page
 	$screen = get_current_screen();
 	if ( ! isset( $screen->id ) ) {
-		return NULL;
+		return;
 	}
 
 	// Update only on Adminimize Settings page
 	if ( FALSE === strpos( $screen->id, 'adminimize' ) ) {
-		return NULL;
+		return;
 	}
 
-	if ( ! is_admin() ) {
-		return NULL;
-	}
-
-	global $wp_admin_bar;
-	// @see: http://codex.wordpress.org/Function_Reference/get_nodes 
+	// @see: http://codex.wordpress.org/Function_Reference/get_nodes
 	$all_toolbar_nodes = $wp_admin_bar->get_nodes();
 
 	if ( $all_toolbar_nodes ) {
 		// get all options
-		if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
-			$adminimizeoptions = get_site_option( 'mw_adminimize' );
-		} else {
-			$adminimizeoptions = get_option( 'mw_adminimize' );
-		}
+		$adminimizeoptions = _mw_adminimize_get_option_value();
 
 		// add admin bar array
 		$adminimizeoptions[ 'mw_adminimize_admin_bar_nodes' ] = $all_toolbar_nodes;
 
 		// update options
-		if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
-			update_site_option( 'mw_adminimize', $adminimizeoptions );
-		} else {
-			update_option( 'mw_adminimize', $adminimizeoptions );
-		}
+		_mw_adminimize_update_option( $adminimizeoptions );
 	}
 }
 
-add_action( 'wp_before_admin_bar_render', '_mw_adminimize_get_admin_bar_frontend_nodes', 9999 );
+//add_action( 'wp_before_admin_bar_render', '_mw_adminimize_get_admin_bar_frontend_nodes', 9999 );
+add_action( 'admin_bar_menu', '_mw_adminimize_get_admin_bar_frontend_nodes', 99999 );
 /**
  * Get admin bar items from frontend view.
  *
  * @since 2015-07-03
  * @return null
  */
-function _mw_adminimize_get_admin_bar_frontend_nodes() {
+function _mw_adminimize_get_admin_bar_frontend_nodes( $wp_admin_bar ) {
 
-	if ( is_admin() ) {
-		return NULL;
+	if ( ! is_user_logged_in() ) {
+		return;
 	}
 
-	global $wp_admin_bar;
+	if ( is_admin() ) {
+		return;
+	}
+
+	// Only the right capability allow to get all items and update settings.
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
 	// @see: http://codex.wordpress.org/Function_Reference/get_nodes
 	$all_toolbar_nodes = $wp_admin_bar->get_nodes();
 
 	if ( $all_toolbar_nodes ) {
 		// get all options
-		if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
-			$adminimizeoptions = get_site_option( 'mw_adminimize' );
-		} else {
-			$adminimizeoptions = get_option( 'mw_adminimize' );
-		}
+		$adminimizeoptions = _mw_adminimize_get_option_value();
 
 		// add admin bar array
 		$adminimizeoptions[ 'mw_adminimize_admin_bar_frontend_nodes' ] = $all_toolbar_nodes;
 
 		// update options
-		if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
-			update_site_option( 'mw_adminimize', $adminimizeoptions );
-		} else {
-			update_option( 'mw_adminimize', $adminimizeoptions );
-		}
+		_mw_adminimize_update_option( $adminimizeoptions );
 	}
-}
-
-/**
- * Get all admin bar items from settings
- *
- * @since   1.8.1  01/10/2013
- * @version 2015-07-03
- *
- * @param   String $value The settings value.
- *
- * @return  Array | String
- */
-function _mw_adminimize_get_admin_bar_items( $value ) {
-
-	$admin_bar_items = _mw_adminimize_get_option_value( $value );
-
-	return $admin_bar_items;
 }
 
 add_action( 'admin_bar_menu', '_mw_adminimize_change_admin_bar', 99999 );
@@ -133,19 +108,23 @@ function _mw_adminimize_change_admin_bar( $wp_admin_bar ) {
 
 	// works only for back end admin bar
 	if ( ! is_admin() ) {
-		return NULL;
+		return;
+	}
+
+	// Get admin page
+	$screen = get_current_screen();
+	if ( ! isset( $screen->id ) ) {
+		return;
 	}
 
 	// Don't filter on settings page
-	if ( isset( $GLOBALS[ 'current_screen' ]->base )
-		&& 'settings_page_adminimize/adminimize' == $GLOBALS[ 'current_screen' ]->base
-	) {
-		return NULL;
+	if ( FALSE !== strpos( $screen->id, 'adminimize' ) ) {
+		return;
 	}
 
 	// Exclude super admin
 	if ( _mw_adminimize_exclude_super_admin() ) {
-		return NULL;
+		return;
 	}
 
 	$user_roles                 = _mw_adminimize_get_all_user_roles();
@@ -199,12 +178,12 @@ function _mw_adminimize_change_admin_bar_frontend( $wp_admin_bar ) {
 
 	// works only for back end admin bar
 	if ( is_admin() ) {
-		return NULL;
+		return;
 	}
 
 	// Exclude super admin
 	if ( _mw_adminimize_exclude_super_admin() ) {
-		return NULL;
+		return;
 	}
 
 	$user_roles                          = _mw_adminimize_get_all_user_roles();

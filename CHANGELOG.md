@@ -9,6 +9,7 @@
 * Add global option to hide admin notices for each role.
 * Replace static source to get option, only one function to get it.
 * Change Admin Bar Feature: Difference between front-end and back-end.
+* More stability on admin bar settings. Switch hook to set, get data of admin bar.
 * Several code changes.
 
 ## 1.8.5 (2015-03-19)
