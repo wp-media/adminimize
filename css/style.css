@@ -1,7 +1,17 @@
 @CHARSET "UTF-8";
+/**
+ * Stylesheet for the Adminimize settings page.
+ *
+ * @version 2015-12-16
+ */
 
 #minimenu td a {
 	display: block;
+}
+
+.widefat thead td input[type=checkbox] {
+	margin: 0 2px 0 0;
+	vertical-align: middle;
 }
 
 tr:hover,
@@ -18,10 +28,14 @@ td:first-child {
 }
 
 td:first-child + td,
+th:first-child + th,
 td:first-child + td + td + td,
+th:first-child + th + th + th,
 td:first-child + td + td + td + td + td,
+th:first-child + th + th + th + th + th,
 td:first-child + td + td + td + td + td + td + td,
-td:first-child + td + td + td + td + td + td + td + td + td {
+th:first-child + th + th + th + th + th + th + th,
+th:first-child + th + th + th + th + th + th + th + th + th {
 	background-color: #ffebe8;
 }
 

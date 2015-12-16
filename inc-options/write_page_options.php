@@ -25,6 +25,18 @@ if ( ! function_exists( 'add_action' ) ) {
 										<th><?php _e('Deactivate for', 'adminimize' ); echo '<br />' . $role_name; ?></th>
 								<?php } ?>
 							</tr>
+							<tr>
+								<td><?php esc_attr_e( 'Select all', 'adminimize' ); ?></td>
+								<?php
+								foreach ( $user_roles_names as $role_name ) {
+									$role_name = strtolower( $role_name );
+									$role_name = preg_replace( '/[^a-z0-9]+/', '', $role_name );
+									echo '<td class="num">';
+									echo '<input id="select_all" class="write_page_options_' . $role_name
+											. '" type="checkbox" name="" value="" />';
+									echo '</td>' . "\n";
+								} ?>
+							</tr>
 						</thead>
 
 						<tbody>
@@ -165,7 +177,12 @@ if ( ! function_exists( 'add_action' ) ) {
 									echo '<tr' . $class . '>' . "\n";
 									echo '<td>' . $metaboxes_names_page[$index] . ' <span>(' . $metabox . ')</span> </td>' . "\n";
 									foreach ($user_roles as $role) {
-										echo '<td class="num"><input id="check_page'. $role.$x .'" type="checkbox"' . $checked_user_role_[$role] . ' name="mw_adminimize_disabled_metaboxes_page_'. $role .'_items[]" value="' . $metabox . '" /></td>' . "\n";
+										echo '<td class="num">';
+										echo '<input id="check_page'. $role.$x .'" class="write_page_options_'
+											. preg_replace( '/[^a-z0-9]+/', '', $role ) . '" type="checkbox"'
+											. $checked_user_role_[$role] . ' name="mw_adminimize_disabled_metaboxes_page_'
+											. $role . '_items[]" value="' . $metabox . '" />';
+										echo '</td>' . "\n";
 									}
 									echo '</tr>' . "\n";
 									$x++;

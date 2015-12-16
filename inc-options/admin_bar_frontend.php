@@ -19,11 +19,9 @@ if ( ! isset( $user_roles_names ) ) {
 ?>
 <div id="poststuff" class="ui-sortable meta-box-sortables">
 	<div class="postbox">
-		<div class="handlediv" title="<?php _e( 'Click to toggle' ); ?>"><br /></div>
-		<h3 class="hndle" id="admin_bar_frontend_options"><?php _e(
-				'Admin Bar Front end options', 'adminimize'
-			); ?>
-			<em>&middot; Beta</em></h3>
+		<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle' ); ?>"><br /></div>
+		<h3 class="hndle" id="admin_bar_frontend_options" title="<?php esc_attr_e( 'Click to toggle' ); ?>"><?php
+			esc_attr_e( 'Admin Bar Front end options', 'adminimize' ); ?></h3>
 
 		<div class="inside">
 			<br class="clear" />
@@ -40,12 +38,23 @@ if ( ! isset( $user_roles_names ) ) {
 				</colgroup>
 				<thead>
 				<tr>
-					<th><?php _e( 'Option', 'adminimize' ); ?></th>
+					<th><?php esc_attr_e( 'Option', 'adminimize' ); ?></th>
 					<?php
 					foreach ( $user_roles_names as $role_name ) { ?>
-						<th><?php _e( 'Deactivate for', 'adminimize' );
+						<th><?php esc_attr_e( 'Deactivate for', 'adminimize' );
 							echo '<br/>' . $role_name; ?></th>
 					<?php } ?>
+				</tr>
+				<tr>
+					<td><?php esc_attr_e( 'Select all', 'adminimize' ); ?></td>
+					<?php
+					foreach ( $user_roles_names as $role_name ) {
+						$role_name = strtolower( $role_name );
+						echo '<td class="num">';
+						echo '<input id="select_all" class="admin_bar_frontend_' . $role_name
+								. '" type="checkbox" name="mw_adminimize_select_all' . $role_name . '" value="" />';
+						echo '</td>' . "\n";
+					} ?>
 				</tr>
 				</thead>
 
@@ -96,7 +105,8 @@ if ( ! isset( $user_roles_names ) ) {
 						echo '<td>' . $item_string . strip_tags( $value->title, '<strong><b><em><i>' )
 							. ' <span>(' . $key . ')</span> </td>' . "\n";
 						foreach ( $user_roles as $role ) {
-							echo '<td class="num"><input id="check_post' . $role . $x . '" type="checkbox"'
+							echo '<td class="num"><input id="check_post' . $role . $x
+								. '" class="admin_bar_frontend_' . $role . '" type="checkbox"'
 								. $checked_user_role_[ $role ] . ' name="mw_adminimize_disabled_admin_bar_frontend_'
 								. $role . '_items[]" value="' . $key . '" /></td>' . "\n";
 						}
@@ -117,15 +127,18 @@ if ( ! isset( $user_roles_names ) ) {
 			<p><?php echo $message; ?></p>
 			<p id="submitbutton">
 				<input type="hidden" name="_mw_adminimize_action" value="_mw_adminimize_insert" />
-				<input class="button button-primary" type="submit" name="_mw_adminimize_save" value="<?php _e(
+				<input class="button button-primary" type="submit" name="_mw_adminimize_save" value="<?php esc_attr_e(
 					'Update Options', 'adminimize'
 				); ?> &raquo;" /><input type="hidden" name="page_options" value="'dofollow_timeout'" />
 			</p>
 
 			<p>
-				<a class="alignright button" href="javascript:void(0);" onclick="window.scrollTo(0,0);" style="margin:3px 0 0 30px;"><?php _e(
+				<a class="alignright button" href="javascript:void(0);" onclick="window.scrollTo(0,0);"
+						style="margin:3px 0 0 30px;"><?php esc_attr_e(
 						'scroll to top', 'adminimize'
-					); ?></a><br class="clear" /></p>
+					); ?></a>
+				<br class="clear" />
+			</p>
 
 		</div>
 	</div>
