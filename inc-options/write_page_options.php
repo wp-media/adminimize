@@ -12,17 +12,17 @@ if ( ! function_exists( 'add_action' ) ) {
 		<div id="poststuff" class="ui-sortable meta-box-sortables">
 			<div class="postbox">
 				<div class="handlediv" title="<?php _e('Click to toggle'); ?>"><br/></div>
-				<h3 class="hndle" id="config_edit_page"><?php _e('Write options - Page', FB_ADMINIMIZE_TEXTDOMAIN ); ?></h3>
+				<h3 class="hndle" id="config_edit_page"><?php _e('Write options - Page', 'adminimize' ); ?></h3>
 				<div class="inside">
 					<br class="clear" />
 
 					<table summary="config_edit_page" class="widefat">
 						<thead>
 							<tr>
-								<th><?php _e('Write options - Page', FB_ADMINIMIZE_TEXTDOMAIN ); ?></th>
+								<th><?php _e('Write options - Page', 'adminimize' ); ?></th>
 								<?php
 									foreach ($user_roles_names as $role_name) { ?>
-										<th><?php _e('Deactivate for', FB_ADMINIMIZE_TEXTDOMAIN ); echo '<br />' . $role_name; ?></th>
+										<th><?php _e('Deactivate for', 'adminimize' ); echo '<br />' . $role_name; ?></th>
 								<?php } ?>
 							</tr>
 						</thead>
@@ -93,26 +93,26 @@ if ( ! function_exists( 'add_action' ) ) {
 							$metaboxes_names_page = array(
 								__('Help'),
 								__('Screen Options'),
-								__('Title', FB_ADMINIMIZE_TEXTDOMAIN),
-								__('Permalink', FB_ADMINIMIZE_TEXTDOMAIN ),
+								__('Title', 'adminimize'),
+								__('Permalink', 'adminimize' ),
 								__('Custom Fields'),
-								__('Comments &amp; Pings', FB_ADMINIMIZE_TEXTDOMAIN ),
+								__('Comments &amp; Pings', 'adminimize' ),
 								__('Date'),
-								__('Password Protect This Page', FB_ADMINIMIZE_TEXTDOMAIN ),
-								__('Attributes', FB_ADMINIMIZE_TEXTDOMAIN),
-								__('Page Template', FB_ADMINIMIZE_TEXTDOMAIN ),
-								__('Page Order', FB_ADMINIMIZE_TEXTDOMAIN ),
+								__('Password Protect This Page', 'adminimize' ),
+								__('Attributes', 'adminimize'),
+								__('Page Template', 'adminimize' ),
+								__('Page Order', 'adminimize' ),
 								__('Page Author'),
 								__('Page Revisions'),
-								__('Related', FB_ADMINIMIZE_TEXTDOMAIN ),
-								__('Messages', FB_ADMINIMIZE_TEXTDOMAIN ),
-								__('h2: Advanced Options', FB_ADMINIMIZE_TEXTDOMAIN ),
-								__('Media Buttons (all)', FB_ADMINIMIZE_TEXTDOMAIN ),
-								__('Word count', FB_ADMINIMIZE_TEXTDOMAIN ),
-								__('Page Slug', FB_ADMINIMIZE_TEXTDOMAIN),
-								__('Publish Actions', FB_ADMINIMIZE_TEXTDOMAIN ),
-								__('Discussion', FB_ADMINIMIZE_TEXTDOMAIN),
-								__('HTML Editor Button', FB_ADMINIMIZE_TEXTDOMAIN)
+								__('Related', 'adminimize' ),
+								__('Messages', 'adminimize' ),
+								__('h2: Advanced Options', 'adminimize' ),
+								__('Media Buttons (all)', 'adminimize' ),
+								__('Word count', 'adminimize' ),
+								__('Page Slug', 'adminimize'),
+								__('Publish Actions', 'adminimize' ),
+								__('Discussion', 'adminimize'),
+								__('HTML Editor Button', 'adminimize')
 							);
 							
 							foreach ( $GLOBALS['_wp_post_type_features'][$post_type] as $post_type_support => $key ) {
@@ -121,20 +121,20 @@ if ( ! function_exists( 'add_action' ) ) {
 							}
 							
 							if ( function_exists('current_theme_supports') && current_theme_supports( 'post-thumbnails', 'page' ) )
-								array_push($metaboxes_names_page, __('Page Image', FB_ADMINIMIZE_TEXTDOMAIN) );
+								array_push($metaboxes_names_page, __('Page Image', 'adminimize') );
 							
 							// quick edit names
 							$quickedit_page_names = array(
-								'<strong>' .__('Quick Edit Link', FB_ADMINIMIZE_TEXTDOMAIN) . '</strong>',
-								__('QE', FB_ADMINIMIZE_TEXTDOMAIN) . ' ' . __('Inline Edit Left', FB_ADMINIMIZE_TEXTDOMAIN),
-								'&emsp;QE &rArr;' . ' ' . __('All Labels', FB_ADMINIMIZE_TEXTDOMAIN),
-								'&emsp;QE &rArr;' . ' ' . __('Date', FB_ADMINIMIZE_TEXTDOMAIN),
+								'<strong>' .__('Quick Edit Link', 'adminimize') . '</strong>',
+								__('QE', 'adminimize') . ' ' . __('Inline Edit Left', 'adminimize'),
+								'&emsp;QE &rArr;' . ' ' . __('All Labels', 'adminimize'),
+								'&emsp;QE &rArr;' . ' ' . __('Date', 'adminimize'),
 								'&emsp;QE &rArr;' . ' ' . __('Author'),
-								'&emsp;QE &rArr;' . ' ' . __('Password and Private', FB_ADMINIMIZE_TEXTDOMAIN),
-								__('QE', FB_ADMINIMIZE_TEXTDOMAIN) . ' ' . __('Inline Edit Right', FB_ADMINIMIZE_TEXTDOMAIN),
-								'&emsp;QE &rArr;' . ' ' . __('Parent, Order, Template', FB_ADMINIMIZE_TEXTDOMAIN),
-								'&emsp;QE &rArr;' . ' ' . __('Status', FB_ADMINIMIZE_TEXTDOMAIN),
-								__('QE', FB_ADMINIMIZE_TEXTDOMAIN) . ' ' . __('Cancel/Save Button', FB_ADMINIMIZE_TEXTDOMAIN)
+								'&emsp;QE &rArr;' . ' ' . __('Password and Private', 'adminimize'),
+								__('QE', 'adminimize') . ' ' . __('Inline Edit Right', 'adminimize'),
+								'&emsp;QE &rArr;' . ' ' . __('Parent, Order, Template', 'adminimize'),
+								'&emsp;QE &rArr;' . ' ' . __('Status', 'adminimize'),
+								__('QE', 'adminimize') . ' ' . __('Cancel/Save Button', 'adminimize')
 							);
 							$metaboxes_names_page = array_merge($metaboxes_names_page, $quickedit_page_names);
 							
@@ -182,25 +182,25 @@ if ( ! function_exists( 'add_action' ) ) {
 					<table summary="config_own_page" class="widefat">
 						<thead>
 							<tr>
-								<th><?php _e('Your own page options', FB_ADMINIMIZE_TEXTDOMAIN ); echo '<br />'; _e('ID or class', FB_ADMINIMIZE_TEXTDOMAIN ); ?></th>
-								<th><?php echo '<br />'; _e('Option', FB_ADMINIMIZE_TEXTDOMAIN ); ?></th>
+								<th><?php _e('Your own page options', 'adminimize' ); echo '<br />'; _e('ID or class', 'adminimize' ); ?></th>
+								<th><?php echo '<br />'; _e('Option', 'adminimize' ); ?></th>
 							</tr>
 						</thead>
 
 						<tbody>
 							<tr valign="top">
-								<td colspan="2"><?php _e('It is possible to add your own IDs or classes from elements and tags. You can find IDs and classes with the FireBug Add-on for Firefox. Assign a value and the associate name per line.', FB_ADMINIMIZE_TEXTDOMAIN ); ?></td>
+								<td colspan="2"><?php _e('It is possible to add your own IDs or classes from elements and tags. You can find IDs and classes with the FireBug Add-on for Firefox. Assign a value and the associate name per line.', 'adminimize' ); ?></td>
 							</tr>
 							<tr valign="top">
 								<td>
 									<textarea name="_mw_adminimize_own_page_options" cols="60" rows="3" id="_mw_adminimize_own_page_options" style="width: 95%;" ><?php echo _mw_adminimize_get_option_value('_mw_adminimize_own_page_options'); ?></textarea>
 									<br />
-									<?php _e('Possible nomination for ID or class. Separate multiple nominations through a carriage return.', FB_ADMINIMIZE_TEXTDOMAIN ); ?>
+									<?php _e('Possible nomination for ID or class. Separate multiple nominations through a carriage return.', 'adminimize' ); ?>
 								</td>
 								<td>
 									<textarea class="code" name="_mw_adminimize_own_page_values" cols="60" rows="3" id="_mw_adminimize_own_page_values" style="width: 95%;" ><?php echo _mw_adminimize_get_option_value('_mw_adminimize_own_page_values'); ?></textarea>
 									<br />
-									<?php _e('Possible IDs or classes. Separate multiple values through a carriage return.', FB_ADMINIMIZE_TEXTDOMAIN ); ?>
+									<?php _e('Possible IDs or classes. Separate multiple values through a carriage return.', 'adminimize' ); ?>
 								</td>
 							</tr>
 						</tbody>
@@ -208,9 +208,9 @@ if ( ! function_exists( 'add_action' ) ) {
 					
 					<p id="submitbutton">
 						<input type="hidden" name="_mw_adminimize_action" value="_mw_adminimize_insert" />
-						<input class="button button-primary" type="submit" name="_mw_adminimize_save" value="<?php _e('Update Options', FB_ADMINIMIZE_TEXTDOMAIN ); ?> &raquo;" /><input type="hidden" name="page_options" value="'dofollow_timeout'" />
+						<input class="button button-primary" type="submit" name="_mw_adminimize_save" value="<?php _e('Update Options', 'adminimize' ); ?> &raquo;" /><input type="hidden" name="page_options" value="'dofollow_timeout'" />
 					</p>
-					<p><a class="alignright button" href="javascript:void(0);" onclick="window.scrollTo(0,0);" style="margin:3px 0 0 30px;"><?php _e('scroll to top', FB_ADMINIMIZE_TEXTDOMAIN); ?></a><br class="clear" /></p>
+					<p><a class="alignright button" href="javascript:void(0);" onclick="window.scrollTo(0,0);" style="margin:3px 0 0 30px;"><?php _e('scroll to top', 'adminimize'); ?></a><br class="clear" /></p>
 
 				</div>
 			</div>

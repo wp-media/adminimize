@@ -18,7 +18,7 @@
  * @package WordPress
  * @author  Frank Bültge <f.bueltge@inpsyde.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2015-03-27
+ * @version 2015-12-15
  */
 
 /**
@@ -38,7 +38,6 @@ if ( ! function_exists( 'add_action' ) ) {
 // plugin definitions
 define( 'FB_ADMINIMIZE_BASENAME', plugin_basename( __FILE__ ) );
 define( 'FB_ADMINIMIZE_BASEFOLDER', plugin_basename( dirname( __FILE__ ) ) );
-define( 'FB_ADMINIMIZE_TEXTDOMAIN', _mw_adminimize_get_plugin_data( 'TextDomain' ) );
 
 function _mw_adminimize_get_plugin_data( $value = 'Version' ) {
 
@@ -61,31 +60,22 @@ function _mw_adminimize_textdomain() {
 	);
 }
 
-function _mw_adminimize_recursive_in_array( $needle, $haystack ) {
+/**
+ * Exclude the Super Admin of Multisite.
+ *
+ * @return bool
+ */
+function _mw_adminimize_exclude_super_admin() {
 
-	if ( '' != $haystack ) {
-		foreach ( $haystack as $stalk ) {
-			if ( $needle == $stalk
-				|| ( is_array( $stalk ) && _mw_adminimize_recursive_in_array( $needle, $stalk )
-				)
-			) {
-				return TRUE;
-			}
-		}
-
+	if ( ! function_exists( 'is_super_admin' ) ) {
 		return FALSE;
 	}
 
-	return FALSE;
-}
+	if ( ! is_super_admin() ) {
+		return FALSE;
+	}
 
-function _mw_adminimize_exclude_super_admin() {
-
-	// exclude super admin
-	if ( function_exists( 'is_super_admin' )
-		&& is_super_admin()
-		&& 1 == _mw_adminimize_get_option_value( '_mw_adminimize_exclude_super_admin' )
-	) {
+	if ( 1 === (int) _mw_adminimize_get_option_value( '_mw_adminimize_exclude_super_admin' ) ) {
 		return TRUE;
 	}
 
@@ -93,9 +83,8 @@ function _mw_adminimize_exclude_super_admin() {
 }
 
 /**
- * _mw_adminimize_get_all_user_roles() - Returns an array with all user roles(names) in it.
+ * Returns an array with all user roles(names) in it.
  * Inclusive self defined roles (for example with the 'Role Manager' plugin).
- * code by Vincent Weber, www.webRtistik.nl
  *
  * @uses   $wp_roles
  * @return array $user_roles
@@ -113,7 +102,7 @@ function _mw_adminimize_get_all_user_roles() {
 		}
 	}
 
-	// exclude the new bbPress roles
+	// Exclude the new bbPress roles.
 	$user_roles = array_diff(
 		$user_roles,
 		array( 'bbp_keymaster', 'bbp_moderator', 'bbp_participant', 'bbp_spectator', 'bbp_blocked' )
@@ -1217,8 +1206,8 @@ function _mw_adminimize_filter_plugin_meta( $links, $file ) {
 function _mw_adminimize_add_settings_page() {
 
 	$pagehook = add_options_page(
-		__( 'Adminimize Options', FB_ADMINIMIZE_TEXTDOMAIN ),
-		__( 'Adminimize', FB_ADMINIMIZE_TEXTDOMAIN ),
+		__( 'Adminimize Options', 'adminimize' ),
+		__( 'Adminimize', 'adminimize' ),
 		'manage_options',
 		__FILE__,
 		'_mw_adminimize_options'
@@ -1289,7 +1278,25 @@ function _mw_adminimize_get_option_value( $key = FALSE ) {
 	}
 
 	/** @var array $adminimizeoptions */
-	return isset( $adminimizeoptions[ $key ] ) ? $adminimizeoptions[ $key ] : NULL;
+	return array_key_exists( $key, $adminimizeoptions ) ? $adminimizeoptions[ $key ] : NULL;
+}
+
+/**
+ * Update options.
+ *
+ * @param array $options
+ */
+function _mw_adminimize_update_option( $options ) {
+
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( __( 'Cheatin&#8217; uh? You do not have the right permission to update settings', 'adminimize' ) );
+	}
+
+	if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
+		update_site_option( 'mw_adminimize', $options );
+	} else {
+		update_option( 'mw_adminimize', $options );
+	}
 }
 
 /**
@@ -1651,14 +1658,8 @@ function _mw_adminimize_update() {
 		$adminimizeoptions[ 'mw_adminimize_default_submenu' ] = $GLOBALS[ 'submenu' ];
 	}
 
-	//update_option( 'mw_adminimize1', $adminimizeoptions['mw_adminimize_disabled_admin_bar_administrator_items'] );
-	//update_site_option( 'mw_adminimize1', $adminimizeoptions['mw_adminimize_disabled_admin_bar_administrator_items'] );
 	// update
-	if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
-		update_site_option( 'mw_adminimize', $adminimizeoptions );
-	} else {
-		update_option( 'mw_adminimize', $adminimizeoptions );
-	}
+	_mw_adminimize_update_option( $adminimizeoptions );
 
 	$myErrors = new _mw_adminimize_message_class();
 	$myErrors = '<div id="message" class="updated fade"><p>' . $myErrors->get_error(
@@ -1721,7 +1722,7 @@ function _mw_adminimize_install() {
  */
 function _mw_adminimize_export_json() {
 
-	if ( empty( $_GET[ '_mw_adminimize_export' ] ) || 'true' != $_GET[ '_mw_adminimize_export' ] ) {
+	if ( empty( $_GET[ '_mw_adminimize_export' ] ) || 'true' !== $_GET[ '_mw_adminimize_export' ] ) {
 		return;
 	}
 
@@ -1734,18 +1735,14 @@ function _mw_adminimize_export_json() {
 		return;
 	}
 
-	if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
-		$settings = get_site_option( 'mw_adminimize' );
-	} else {
-		$settings = get_option( 'mw_adminimize' );
-	}
+	$settings = _mw_adminimize_get_option_value();
 
 	ignore_user_abort( TRUE );
 
 	nocache_headers();
 	header( 'Content-Type: application/json; charset=utf-8' );
 	header( 'Content-Disposition: attachment; filename=mw_adminimize-settings-export-' . date( 'm-d-Y' ) . '.json' );
-	header( "Expires: 0" );
+	header( 'Expires: 0' );
 
 	echo json_encode( $settings );
 	exit();
@@ -1756,7 +1753,7 @@ function _mw_adminimize_export_json() {
  */
 function _mw_adminimize_import_json() {
 
-	if ( empty( $_POST[ '_mw_adminimize_action' ] ) || '_mw_adminimize_import' != $_POST[ '_mw_adminimize_action' ] ) {
+	if ( empty( $_POST[ '_mw_adminimize_action' ] ) || '_mw_adminimize_import' !== $_POST[ '_mw_adminimize_action' ] ) {
 		return;
 	}
 
@@ -1783,9 +1780,5 @@ function _mw_adminimize_import_json() {
 	$settings = (array) json_decode( file_get_contents( $import_file ) );
 	unlink( $import_file );
 
-	if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
-		update_site_option( 'mw_adminimize', $settings );
-	} else {
-		update_option( 'mw_adminimize', $settings );
-	}
+	_mw_adminimize_update_option( $settings );
 }

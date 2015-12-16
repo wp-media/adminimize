@@ -9,9 +9,32 @@ if ( ! function_exists( 'add_action' ) ) {
 	die( "Hi there!  I'm just a part of plugin, not much I can do when called directly." );
 }
 
-// Need only on admin area
-if ( ! is_admin() ) {
-	return NULL;
+/**
+ * Recursive search in array.
+ *
+ * @param $needle
+ * @param $haystack
+ *
+ * @return bool
+ */
+function _mw_adminimize_recursive_in_array( $needle, $haystack ) {
+
+	if ( empty( $haystack ) ) {
+		return FALSE;
+	}
+
+	foreach ( $haystack as $stalk ) {
+		if ( $needle === $stalk
+			|| ( is_array( $stalk ) && _mw_adminimize_recursive_in_array( $needle, $stalk )
+			)
+		) {
+			return TRUE;
+		}
+
+		return FALSE;
+	}
+
+	return FALSE;
 }
 
 /**

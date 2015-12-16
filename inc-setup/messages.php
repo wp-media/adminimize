@@ -18,7 +18,7 @@ class _mw_adminimize_message_class {
 	 */
 	public function __construct() {
 
-		$this->localizion_name = FB_ADMINIMIZE_TEXTDOMAIN;
+		$this->localizion_name = 'adminimize';
 		$this->errors          = new WP_Error();
 		$this->initialize_errors();
 	}

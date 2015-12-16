@@ -31,7 +31,7 @@ function _mw_adminimize_check_to_remove_admin_notices() {
 
 	// Exclude super admin.
 	if ( _mw_adminimize_exclude_super_admin() ) {
-		return NULL;
+		return;
 	}
 
 	$user_roles = _mw_adminimize_get_all_user_roles();
@@ -58,7 +58,9 @@ function _mw_adminimize_check_to_remove_admin_notices() {
 				&& isset( $disabled_global_option_[ $role ] )
 				&& is_array( $disabled_global_option_[ $role ] )
 			) {
-				$remove_admin_notices = _mw_adminimize_recursive_in_array( '.admin-notices', $disabled_global_option_[ $role ] );
+				$remove_admin_notices = _mw_adminimize_recursive_in_array(
+					'.admin-notices', $disabled_global_option_[ $role ]
+				);
 			}
 		}
 	}

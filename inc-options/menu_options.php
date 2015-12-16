@@ -13,17 +13,17 @@ if ( ! function_exists( 'add_action' ) ) {
 		<div id="poststuff" class="ui-sortable meta-box-sortables">
 			<div class="postbox">
 				<div class="handlediv" title="<?php _e('Click to toggle'); ?>"><br/></div>
-				<h3 class="hndle" id="config_menu"><?php _e('Menu Options', FB_ADMINIMIZE_TEXTDOMAIN ); ?></h3>
+				<h3 class="hndle" id="config_menu"><?php _e('Menu Options', 'adminimize' ); ?></h3>
 				<div class="inside">
 					<br class="clear" />
 					
 					<table summary="config_menu" class="widefat">
 						<thead>
 							<tr>
-								<th><?php _e('Menu options - Menu, <span>Submenu</span>', FB_ADMINIMIZE_TEXTDOMAIN ); ?></th>
+								<th><?php _e('Menu options - Menu, <span>Submenu</span>', 'adminimize' ); ?></th>
 
 								<?php foreach ($user_roles_names as $role_name) { ?>
-										<th><?php _e('Deactivate for', FB_ADMINIMIZE_TEXTDOMAIN ); echo '<br/>' . $role_name; ?></th>
+										<th><?php _e('Deactivate for', 'adminimize' ); echo '<br/>' . $role_name; ?></th>
 								<?php } ?>
 
 							</tr>
@@ -75,7 +75,7 @@ if ( ! function_exists( 'add_action' ) ) {
 									// non checked items
 									if ( $item[2] === 'options-general.php' ) {
 										//$disabled_item_adm = ' disabled="disabled"';
-										$disabled_item_adm_hint = '<abbr title="' . __( 'After activate the check box it heavy attitudes will change.', FB_ADMINIMIZE_TEXTDOMAIN ) . '" style="cursor:pointer;"> ! </acronym>';
+										$disabled_item_adm_hint = '<abbr title="' . __( 'After activate the check box it heavy attitudes will change.', 'adminimize' ) . '" style="cursor:pointer;"> ! </acronym>';
 									} else {
 										$disabled_item_adm = '';
 										$disabled_item_adm_hint = '';
@@ -150,7 +150,7 @@ if ( ! function_exists( 'add_action' ) ) {
 											if ( $subitem[2] === 'adminimize/adminimize.php' ) {
 												//$disabled_subitem_adm = ' disabled="disabled"';
 												$disabled_subitem_adm_hint = '<abbr title="'
-														. __( 'After activate the check box it heavy attitudes will change.', FB_ADMINIMIZE_TEXTDOMAIN )
+														. __( 'After activate the check box it heavy attitudes will change.', 'adminimize' )
 														. '" style="cursor:pointer;"> ! </acronym>';
 											} else {
 												$disabled_subitem_adm = '';
@@ -204,9 +204,9 @@ if ( ! function_exists( 'add_action' ) ) {
 					</table>
 					
 					<p id="submitbutton">
-						<input class="button button-primary" type="submit" name="_mw_adminimize_save" value="<?php _e('Update Options', FB_ADMINIMIZE_TEXTDOMAIN ); ?> &raquo;" /><input type="hidden" name="page_options" value="'dofollow_timeout'" />
+						<input class="button button-primary" type="submit" name="_mw_adminimize_save" value="<?php _e('Update Options', 'adminimize' ); ?> &raquo;" /><input type="hidden" name="page_options" value="'dofollow_timeout'" />
 					</p>
-					<p><a class="alignright button" href="javascript:void(0);" onclick="window.scrollTo(0,0);" style="margin:3px 0 0 30px;"><?php _e('scroll to top', FB_ADMINIMIZE_TEXTDOMAIN); ?></a><br class="clear" /></p>
+					<p><a class="alignright button" href="javascript:void(0);" onclick="window.scrollTo(0,0);" style="margin:3px 0 0 30px;"><?php _e('scroll to top', 'adminimize'); ?></a><br class="clear" /></p>
 
 				</div>
 			</div>
