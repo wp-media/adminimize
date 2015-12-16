@@ -10,6 +10,7 @@
 * Replace static source to get option, only one function to get it.
 * Change Admin Bar Feature: Difference between front-end and back-end.
 * More stability on admin bar settings. Switch hook to set, get data of admin bar.
+* Add possibilty to select/unselect all checkboxess for each area.
 * Several code changes.
 
 ## 1.8.5 (2015-03-19)
