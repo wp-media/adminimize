@@ -35,13 +35,13 @@ if ( is_multisite() && is_plugin_active_for_network( plugin_basename( MW_ADMIN_F
 				<tr class="alternate">
 					<td class="row-title"><a href="#admin_bar_options"><?php esc_attr_e(
 								'Admin Bar Back end Options', 'adminimize'
-							); ?> <em>&middot; Beta</em></a></td>
+							); ?></a></td>
 				</tr>
 
 				<tr>
 					<td class="row-title"><a href="#admin_bar_frontend_options"><?php esc_attr_e(
 								'Admin Bar Front end Options', 'adminimize'
-							); ?> <em>&middot; Beta</em></a></td>
+							); ?></a></td>
 				</tr>
 
 				<tr class="alternate">
