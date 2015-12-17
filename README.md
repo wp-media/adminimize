@@ -20,13 +20,13 @@ See this [entry on the WP community forum](http://wordpress.org/support/topic/32
 
 ### I love this plugin! How can I show the developer how much I appreciate his work?
 Please send a [review](https://wordpress.org/support/view/plugin-reviews/adminimize) and let him know your care or see 
-the [wishlist](http://bueltge.de/wunschliste/ "Wishlist") of the author.
+the [wishlist](http://bueltge.de/wunschliste/ "Wishlist") of the author.  Also you can send a [danation](https://www.paypal.me/FrankBueltge).
 
 ## Licence
 Good news, this plugin is free for everyone! Since it's released under the GPL, you can use it free of charge on your 
 personal or commercial blog. But if you enjoy this plugin, you can thank me and leave a 
 [small donation](http://bueltge.de/wunschliste/ "Wishliste and Donate") for the time I've spent writing and supporting 
-this plugin. And I really don't want to know how many hours of my life this plugin has already eaten ;) Also you can send a [danation](https://www.paypal.me/FrankBueltge).
+this plugin. And I really don't want to know how many hours of my life this plugin has already eaten ;)
 
 ## Changelog
 [Changelog](CHANGELOG.md)
