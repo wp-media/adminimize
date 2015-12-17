@@ -83,6 +83,28 @@ function _mw_adminimize_exclude_super_admin() {
 }
 
 /**
+ * Get the status, if is on the settings page.
+ *
+ * @return bool
+ */
+function _mw_adminimize_exclude_settings_page() {
+
+	if ( ! function_exists( 'get_current_screen' ) ) {
+		return TRUE;
+	}
+
+	// Get admin page
+	$screen = get_current_screen();
+
+	// Don't filter on settings page
+	if ( isset( $screen->id ) && FALSE !== strpos( $screen->id, 'adminimize' ) ) {
+		return TRUE;
+	}
+
+	return FALSE;
+}
+
+/**
  * Returns an array with all user roles(names) in it.
  * Inclusive self defined roles (for example with the 'Role Manager' plugin).
  *
@@ -194,6 +216,7 @@ function _mw_get_current_post_type() {
  * Check user-option and add new style.
  */
 function _mw_adminimize_admin_init() {
+
 	global $pagenow, $post_type, $menu, $submenu;
 
 	if ( isset( $_GET[ 'post' ] ) && ! is_array( $_GET[ 'post' ] ) ) {
@@ -327,7 +350,7 @@ function _mw_adminimize_admin_init() {
 			switch ( $_mw_adminimize_cat_full ) {
 				case 1:
 					wp_enqueue_style(
-						'adminimize-ful-category',
+						'adminimize-full-category',
 						WP_PLUGIN_URL . '/' . FB_ADMINIMIZE_BASEFOLDER . '/css/mw_cat_full.css'
 					);
 					break;
@@ -436,8 +459,6 @@ register_uninstall_hook( __FILE__, '_mw_adminimize_deinstall' );
 /**
  * Remove the dashboard
  *
- * @author Basic Austin Matzko
- * @see    http://www.ilfilosofo.com/blog/2006/05/24/plugin-remove-the-wordpress-dashboard/
  */
 function _mw_adminimize_remove_dashboard() {
 
@@ -467,23 +488,19 @@ function _mw_adminimize_remove_dashboard() {
 	// remove dashboard
 	if ( $disabled_menu_all != '' || $disabled_submenu_all != '' ) {
 
+		$redirect = FALSE;
 		foreach ( $user_roles as $role ) {
-
 			if ( current_user_can( $role ) ) {
-				if ( _mw_adminimize_recursive_in_array(
-						'index.php', $disabled_menu_[ $role ]
-					)
+				if ( _mw_adminimize_recursive_in_array( 'index.php', $disabled_menu_[ $role ] )
 					|| _mw_adminimize_recursive_in_array( 'index.php', $disabled_submenu_[ $role ] )
 				) {
 					$redirect = TRUE;
-				} else {
-					$redirect = FALSE;
 				}
 			}
 		}
 
 		// redirect option, if Dashboard is inactive
-		if ( isset( $redirect ) && $redirect ) {
+		if ( $redirect ) {
 			$_mw_adminimize_db_redirect           = _mw_adminimize_get_option_value( '_mw_adminimize_db_redirect' );
 			$_mw_adminimize_db_redirect_admin_url = get_option( 'siteurl' ) . '/wp-admin/';
 			switch ( $_mw_adminimize_db_redirect ) {
@@ -554,12 +571,16 @@ function _mw_adminimize_remove_dashboard() {
  */
 function _mw_adminimize_set_user_info() {
 
-	global $user_identity, $wp_version;
+	if ( _mw_adminimize_exclude_settings_page() ) {
+		return;
+	}
 
 	// exclude super admin
 	if ( _mw_adminimize_exclude_super_admin() ) {
-		return NULL;
+		return;
 	}
+
+	global $user_identity, $wp_version;
 
 	$user_roles = _mw_adminimize_get_all_user_roles();
 

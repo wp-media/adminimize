@@ -107,6 +107,7 @@ Please use the `Uninstall-Function` in the option-area before update to version 
 * Change Admin Bar Feature: Difference between front-end and back-end.
 * More stability on admin bar settings. Switch hook to set, get data of admin bar.
 * Add possibilty to select/unselect all checkboxess for each area.
+* Fix redirect feature, if Dashboard menu item is active for a role.
 * Several code changes.
 
 = 1.8.5 (2015-03-19) =

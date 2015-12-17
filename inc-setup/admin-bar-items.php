@@ -24,19 +24,7 @@ function _mw_adminimize_get_admin_bar_nodes( $wp_admin_bar ) {
 		return;
 	}
 
-	// On Front end
-	if ( ! function_exists( 'get_current_screen' ) ) {
-		return;
-	}
-
-	// Get admin page
-	$screen = get_current_screen();
-	if ( ! isset( $screen->id ) ) {
-		return;
-	}
-
-	// Update only on Adminimize Settings page
-	if ( FALSE === strpos( $screen->id, 'adminimize' ) ) {
+	if ( _mw_adminimize_exclude_settings_page() ) {
 		return;
 	}
 
@@ -111,14 +99,7 @@ function _mw_adminimize_change_admin_bar( $wp_admin_bar ) {
 		return;
 	}
 
-	// Get admin page
-	$screen = get_current_screen();
-	if ( ! isset( $screen->id ) ) {
-		return;
-	}
-
-	// Don't filter on settings page
-	if ( FALSE !== strpos( $screen->id, 'adminimize' ) ) {
+	if ( _mw_adminimize_exclude_settings_page() ) {
 		return;
 	}
 
