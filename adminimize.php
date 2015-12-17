@@ -527,15 +527,6 @@ function _mw_adminimize_remove_dashboard() {
 					break;
 			}
 
-			// fallback for WP smaller 3.0
-			if ( version_compare(
-					$wp_version, "3.0alpha", "<"
-				)
-				&& 'edit.php?post_type=page' == $_mw_adminimize_db_redirect
-			) {
-				$_mw_adminimize_db_redirect = 'edit-pages.php';
-			}
-
 			$the_user = new WP_User( $user_ID );
 			reset( $menu );
 			$page = key( $menu );
