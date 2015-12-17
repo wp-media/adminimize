@@ -20,7 +20,7 @@ See this [entry on the WP community forum](http://wordpress.org/support/topic/32
 
 ### I love this plugin! How can I show the developer how much I appreciate his work?
 Please send a [review](https://wordpress.org/support/view/plugin-reviews/adminimize) and let him know your care or see 
-the [wishlist](http://bueltge.de/wunschliste/ "Wishlist") of the author.  Also you can send a [danation](https://www.paypal.me/FrankBueltge).
+the [wishlist](http://bueltge.de/wunschliste/ "Wishlist") of the author. Also you can send a [donation](https://www.paypal.me/FrankBueltge).
 
 ## Licence
 Good news, this plugin is free for everyone! Since it's released under the GPL, you can use it free of charge on your 
