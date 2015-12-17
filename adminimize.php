@@ -10,15 +10,14 @@
  * simplify the admin in different for all roles.
  * Author:      Frank Bültge
  * Author URI:  http://bueltge.de/
- * Version:     1.8.6-Dev
+ * Version:     1.8.6-RC1
  * License:     GPLv2+
  *
- * Php Version 5.3
  *
  * @package WordPress
  * @author  Frank Bültge <f.bueltge@inpsyde.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2015-12-15
+ * @version 2015-12-17
  */
 
 /**
@@ -531,7 +530,7 @@ function _mw_adminimize_remove_dashboard() {
 			reset( $menu );
 			$page = key( $menu );
 
-			while ( ( __( 'Dashboard' ) != $menu[ $page ][ 0 ] ) && next( $menu )
+			while ( ( __( 'Dashboard' ) !== $menu[ $page ][ 0 ] ) && next( $menu )
 				|| ( __(
 						'Dashboard'
 					) != $menu[ $page ][ 1 ] )
@@ -539,7 +538,7 @@ function _mw_adminimize_remove_dashboard() {
 				$page = key( $menu );
 			}
 
-			if ( __( 'Dashboard' ) == $menu[ $page ][ 0 ] || __( 'Dashboard' ) == $menu[ $page ][ 1 ] ) {
+			if ( __( 'Dashboard' ) === $menu[ $page ][ 0 ] || __( 'Dashboard' ) === $menu[ $page ][ 1 ] ) {
 				unset( $menu[ $page ] );
 			}
 			reset( $menu );
