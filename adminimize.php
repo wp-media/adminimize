@@ -600,7 +600,7 @@ function _mw_adminimize_set_user_info() {
 
 			$_mw_adminimize_admin_head .= '<script type="text/javascript">' . "\n";
 			$_mw_adminimize_admin_head .= "\t" . 'jQuery(document).ready(function() { jQuery(\'#user_info\' ).remove();';
-			if ( $_mw_adminimize_ui_redirect == '1' ) {
+			if ( 1 === (int) $_mw_adminimize_ui_redirect ) {
 				$_mw_adminimize_admin_head .= 'jQuery(\'div#wpcontent\' ).after(\'<div id="small_user_info"><p><a href="' . get_option(
 						'siteurl'
 					) . wp_nonce_url(
