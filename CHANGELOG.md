@@ -12,6 +12,7 @@
 * More stability on admin bar settings. Switch hook to set, get data of admin bar.
 * Add possibilty to select/unselect all checkboxess for each area.
 * Fix redirect feature, if Dashboard menu item is active for a role.
+* Remove functions for WordPress versions smaller 3.5.
 * Several code changes.
 
 ## 1.8.5 (2015-03-19)

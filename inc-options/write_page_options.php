@@ -11,18 +11,18 @@ if ( ! function_exists( 'add_action' ) ) {
 ?>
 		<div id="poststuff" class="ui-sortable meta-box-sortables">
 			<div class="postbox">
-				<div class="handlediv" title="<?php _e('Click to toggle'); ?>"><br/></div>
-				<h3 class="hndle" id="config_edit_page"><?php _e('Write options - Page', 'adminimize' ); ?></h3>
+				<div class="handlediv" title="<?php esc_attr_e('Click to toggle'); ?>"><br/></div>
+				<h3 class="hndle" id="config_edit_page"><?php esc_attr_e('Write options - Page', 'adminimize' ); ?></h3>
 				<div class="inside">
 					<br class="clear" />
 
 					<table summary="config_edit_page" class="widefat">
 						<thead>
 							<tr>
-								<th><?php _e('Write options - Page', 'adminimize' ); ?></th>
+								<th><?php esc_attr_e('Write options - Page', 'adminimize' ); ?></th>
 								<?php
 									foreach ($user_roles_names as $role_name) { ?>
-										<th><?php _e('Deactivate for', 'adminimize' ); echo '<br />' . $role_name; ?></th>
+										<th><?php esc_attr_e('Deactivate for', 'adminimize' ); echo '<br />' . $role_name; ?></th>
 								<?php } ?>
 							</tr>
 							<tr>
@@ -199,25 +199,25 @@ if ( ! function_exists( 'add_action' ) ) {
 					<table summary="config_own_page" class="widefat">
 						<thead>
 							<tr>
-								<th><?php _e('Your own page options', 'adminimize' ); echo '<br />'; _e('ID or class', 'adminimize' ); ?></th>
-								<th><?php echo '<br />'; _e('Option', 'adminimize' ); ?></th>
+								<th><?php esc_attr_e('Your own page options', 'adminimize' ); echo '<br />'; esc_attr_e('ID or class', 'adminimize' ); ?></th>
+								<th><?php echo '<br />'; esc_attr_e('Option', 'adminimize' ); ?></th>
 							</tr>
 						</thead>
 
 						<tbody>
 							<tr valign="top">
-								<td colspan="2"><?php _e('It is possible to add your own IDs or classes from elements and tags. You can find IDs and classes with the FireBug Add-on for Firefox. Assign a value and the associate name per line.', 'adminimize' ); ?></td>
+								<td colspan="2"><?php esc_attr_e('It is possible to add your own IDs or classes from elements and tags. You can find IDs and classes with the FireBug Add-on for Firefox. Assign a value and the associate name per line.', 'adminimize' ); ?></td>
 							</tr>
 							<tr valign="top">
 								<td>
 									<textarea name="_mw_adminimize_own_page_options" cols="60" rows="3" id="_mw_adminimize_own_page_options" style="width: 95%;" ><?php echo _mw_adminimize_get_option_value('_mw_adminimize_own_page_options'); ?></textarea>
 									<br />
-									<?php _e('Possible nomination for ID or class. Separate multiple nominations through a carriage return.', 'adminimize' ); ?>
+									<?php esc_attr_e('Possible nomination for ID or class. Separate multiple nominations through a carriage return.', 'adminimize' ); ?>
 								</td>
 								<td>
 									<textarea class="code" name="_mw_adminimize_own_page_values" cols="60" rows="3" id="_mw_adminimize_own_page_values" style="width: 95%;" ><?php echo _mw_adminimize_get_option_value('_mw_adminimize_own_page_values'); ?></textarea>
 									<br />
-									<?php _e('Possible IDs or classes. Separate multiple values through a carriage return.', 'adminimize' ); ?>
+									<?php esc_attr_e('Possible IDs or classes. Separate multiple values through a carriage return.', 'adminimize' ); ?>
 								</td>
 							</tr>
 						</tbody>
@@ -225,9 +225,9 @@ if ( ! function_exists( 'add_action' ) ) {
 					
 					<p id="submitbutton">
 						<input type="hidden" name="_mw_adminimize_action" value="_mw_adminimize_insert" />
-						<input class="button button-primary" type="submit" name="_mw_adminimize_save" value="<?php _e('Update Options', 'adminimize' ); ?> &raquo;" /><input type="hidden" name="page_options" value="'dofollow_timeout'" />
+						<input class="button button-primary" type="submit" name="_mw_adminimize_save" value="<?php esc_attr_e('Update Options', 'adminimize' ); ?> &raquo;" /><input type="hidden" name="page_options" value="'dofollow_timeout'" />
 					</p>
-					<p><a class="alignright button" href="javascript:void(0);" onclick="window.scrollTo(0,0);" style="margin:3px 0 0 30px;"><?php _e('scroll to top', 'adminimize'); ?></a><br class="clear" /></p>
+					<p><a class="alignright button" href="javascript:void(0);" onclick="window.scrollTo(0,0);" style="margin:3px 0 0 30px;"><?php esc_attr_e('scroll to top', 'adminimize'); ?></a><br class="clear" /></p>
 
 				</div>
 			</div>

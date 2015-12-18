@@ -138,17 +138,23 @@ if ( is_multisite() && is_plugin_active_for_network( plugin_basename( MW_ADMIN_F
 		<h3 class="hndle" id="about-sidebar"><?php esc_attr_e( 'About the plugin', 'adminimize' ) ?></h3>
 
 		<div class="inside">
-			<p><?php echo _mw_adminimize_get_plugin_data( 'Title' );
-				echo ' ';
-				esc_attr_e( 'Version', 'adminimize' );
-				echo ' ';
-				echo _mw_adminimize_get_plugin_data( 'Version' ) ?></p>
+			<p>
+				<?php
+				echo _mw_adminimize_get_plugin_data( 'Title' ) . ', ' .
+					esc_attr__( 'Version', 'adminimize' ) . ' ' . _mw_adminimize_get_plugin_data( 'Version' );
+				?>
+			</p>
 
 			<p><?php echo _mw_adminimize_get_plugin_data( 'Description' ) ?></p>
 			<ul>
-				<li><?php _e(
-						'Further information: Visit the <a href="http://wordpress.org/extend/plugins/adminimize/">plugin homepage</a> for further information or to grab the latest version of this plugin. Also see the <a href="http://wordpress.org/support/plugin/adminimize">support forum</a> for questions.',
-						'adminimize'
+				<li><?php
+					printf(
+						__(
+							'Further information: Visit the <a href="%1$s">plugin homepage</a> for further information or to grab the latest version of this plugin. Also see the <a href="%2$s">support forum</a> for questions.',
+							'adminimize'
+						),
+						'http://wordpress.org/extend/plugins/adminimize/',
+						'http://wordpress.org/support/plugin/adminimize'
 					); ?></li>
 				<li><?php esc_attr_e( 'Report a issue on the development repository:', 'adminimize' ); ?>
 					<a href="https://github.com/bueltge/Adminimize/issues">issues</a></li>
@@ -157,26 +163,26 @@ if ( is_multisite() && is_plugin_active_for_network( plugin_basename( MW_ADMIN_F
 						'adminimize'
 					); ?> <a href="https://github.com/bueltge/Adminimize">github.com/bueltge/Adminimize</a></li>
 				<li>
-					<?php _e(
-						'You want to thank me? Visit my <a href="http://bueltge.de/wunschliste/">wishlist</a> or donate.',
-						'adminimize'
+					<?php printf(
+						__(
+							'You want to thank me? Visit my <a href="%1$s">wishlist</a> or <a href="%2$s">donate</a>.',
+							'adminimize'
+						),
+						'http://bueltge.de/wunschliste/',
+						'https://www.paypal.me/FrankBueltge'
 					); ?>
 					<span>
-								<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-									<input type="hidden" name="cmd" value="_s-xclick">
-									<input type="hidden" name="hosted_button_id" value="4578111">
-									<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="<?php esc_attr_e(
-										'PayPal - The safer, easier way to pay online!', 'adminimize'
-									); ?>">
-									<img alt="" border="0" src="https://www.paypal.com/de_DE/i/scr/pixel.gif" width="1" height="1">
-								</form>
 				</li>
 			</ul>
 			<div class="form-invalid" style="padding:.3em 1em;">
 				<p>
-					<span style="font-size: 35px; float: left; margin: 10px 3px 0 0;">&#x261D;</span>
-					<?php _e(
-						'Please note: The Adminimize settings page ignores the Menu Options below and displays the menu with all entries.<br /><span style="font-weight: 300;">To view your changes to the menu you need to navigate away from the Adminimize settings page.</span>',
+					<span style="font-size: 35px; float: left; margin: -5px 3px 0 0;">&#x261D;</span>
+					<?php esc_attr_e(
+						'Please note: The Adminimize settings page ignores the Menu Options below and displays the menu with all entries.',
+						'adminimize'
+					);
+					esc_attr_e(
+						'To view your changes to the menu you need to navigate away from the Adminimize settings page.',
 						'adminimize'
 					); ?>
 				</p>

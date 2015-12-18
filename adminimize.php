@@ -10,14 +10,14 @@
  * simplify the admin in different for all roles.
  * Author:      Frank Bültge
  * Author URI:  http://bueltge.de/
- * Version:     1.8.6-RC1
+ * Version:     1.9.0-RC1
  * License:     GPLv2+
  *
  *
  * @package WordPress
  * @author  Frank Bültge <f.bueltge@inpsyde.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2015-12-17
+ * @version 2015-12-18
  */
 
 /**

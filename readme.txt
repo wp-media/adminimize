@@ -2,7 +2,7 @@
 Contributors: Bueltge
 Donate link: https://www.paypal.me/FrankBueltge
 Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
-Requires at least: 2.5
+Requires at least: 4.0
 Tested up to: 4.4
 Stable tag: 1.8.5
 

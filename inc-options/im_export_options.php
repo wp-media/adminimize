@@ -11,16 +11,16 @@ if ( ! function_exists( 'add_action' ) ) {
 ?>
 <div id="poststuff" class="ui-sortable meta-box-sortables">
 	<div class="postbox">
-		<div class="handlediv" title="<?php _e( 'Click to toggle' ); ?>"><br /></div>
-		<h3 class="hndle" id="import"><?php _e( 'Export/Import Options', 'adminimize' ) ?></h3>
+		<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle' ); ?>"><br /></div>
+		<h3 class="hndle" id="import"><?php esc_attr_e( 'Export/Import Options', 'adminimize' ) ?></h3>
 
 		<div class="inside">
 			<br class="clear" />
 
-			<h4><?php _e( 'Export', 'adminimize' ) ?></h4>
+			<h4><?php esc_attr_e( 'Export', 'adminimize' ) ?></h4>
 
 			<form name="export_options" method="get" action="">
-				<p><?php _e(
+				<p><?php esc_attr_e(
 						'You can save a JSON formatted ".json" file with your settings.', 'adminimize'
 					) ?></p>
 
@@ -37,13 +37,13 @@ if ( ! function_exists( 'add_action' ) ) {
 				</p>
 			</form>
 
-			<h4><?php _e( 'Import', 'adminimize' ) ?></h4>
+			<h4><?php esc_attr_e( 'Import', 'adminimize' ) ?></h4>
 
 			<form name="import_options" enctype="multipart/form-data" method="post" action="?page=<?php echo esc_attr(
 				$_GET[ 'page' ]
 			); ?>">
 				<?php wp_nonce_field( 'mw_adminimize_nonce' ); ?>
-				<p><?php _e(
+				<p><?php esc_attr_e(
 						'Choose a Adminimize (<em>.json</em>) file to upload, then click <em>Upload file and import</em>.',
 						'adminimize'
 					);

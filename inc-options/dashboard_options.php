@@ -23,7 +23,7 @@ if ( ! function_exists( 'add_action' ) ) {
 			$widgets = _mw_adminimize_get_option_value( 'mw_adminimize_dashboard_widgets' );
 			if ( ! isset( $widgets ) ) {
 				echo '<p class="form-invalid">';
-				_e(
+				esc_attr_e(
 					'To complete the installation for Dashboard Widgets you must visit your dashboard once and then come back to Settings > Adminimize to configure who has access to each widget.',
 					'adminimize'
 				);
@@ -131,9 +131,9 @@ if ( ! function_exists( 'add_action' ) ) {
 					<tr>
 						<th><?php esc_attr_e( 'Your own options', 'adminimize' );
 							echo '<br />';
-							_e( 'ID or class', 'adminimize' ); ?></th>
+							esc_attr_e( 'ID or class', 'adminimize' ); ?></th>
 						<th><?php echo '<br />';
-							_e( 'Option', 'adminimize' ); ?></th>
+							esc_attr_e( 'Option', 'adminimize' ); ?></th>
 					</tr>
 					</thead>
 
