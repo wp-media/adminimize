@@ -149,7 +149,7 @@ function _mw_adminimize_get_all_user_roles_names() {
 		if ( function_exists( 'translate_user_role' ) ) {
 			$data = translate_user_role( $data );
 		} else {
-			$data = _x( $data, 'Translate each user role.' );
+			$data = esc_attr_x( $data, 'Translate each user role.' );
 		}
 
 		array_push( $user_roles_names, $data );
@@ -179,7 +179,7 @@ function _mw_adminimize_control_flashloader() {
 
 	$_mw_adminimize_control_flashloader = _mw_adminimize_get_option_value( '_mw_adminimize_control_flashloader' );
 
-	if ( $_mw_adminimize_control_flashloader == '1' ) {
+	if ( 1 === (int) $_mw_adminimize_control_flashloader ) {
 		return FALSE;
 	} else {
 		return TRUE;
