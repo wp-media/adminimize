@@ -1220,12 +1220,14 @@ function _mw_adminimize_add_settings_page() {
 
 function _mw_adminimize_on_load_page() {
 
-	wp_register_style( 'adminimize-style', plugins_url( 'css/style.css', __FILE__ ) );
+	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+	wp_register_style( 'adminimize-style', plugins_url( 'css/style' . $suffix . '.css', __FILE__ ) );
 	wp_enqueue_style( 'adminimize-style' );
 
 	wp_register_script(
 		'adminimize-settings-script',
-		plugins_url( 'js/adminimize.js', __FILE__ ),
+		plugins_url( 'js/adminimize' . $suffix . '.js', __FILE__ ),
 		array( 'jquery' ),
 		'',
 		TRUE

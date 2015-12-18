@@ -18,7 +18,6 @@ class _mw_adminimize_message_class {
 	 */
 	public function __construct() {
 
-		$this->localizion_name = 'adminimize';
 		$this->errors          = new WP_Error();
 		$this->initialize_errors();
 	}
@@ -36,7 +35,7 @@ class _mw_adminimize_message_class {
 		$errorMessage = $this->errors->get_error_message( $code );
 
 		if ( NULL === $errorMessage ) {
-			return __( 'Unknown error.', $this->localizion_name );
+			return esc_attr__( 'Unknown error.', 'adminimize' );
 		}
 
 		return $errorMessage;
@@ -47,26 +46,26 @@ class _mw_adminimize_message_class {
 	 */
 	public function initialize_errors() {
 
-		$this->errors->add( '_mw_adminimize_update', __( 'The updates were saved.', $this->localizion_name ) );
+		$this->errors->add( '_mw_adminimize_update', esc_attr__( 'The updates were saved.', 'adminimize' ) );
 		$this->errors->add(
 			'_mw_adminimize_access_denied',
-			__( 'You have not enough rights to edit entries in the database.', $this->localizion_name )
+			esc_attr__( 'You have not enough rights to edit entries in the database.', 'adminimize' )
 		);
 		$this->errors->add(
-			'_mw_adminimize_import', __( 'All entries in the database were imported.', $this->localizion_name )
+			'_mw_adminimize_import', esc_attr__( 'All entries in the database were imported.', 'adminimize' )
 		);
 		$this->errors->add(
-			'_mw_adminimize_deinstall', __( 'All entries in the database were deleted.', $this->localizion_name )
+			'_mw_adminimize_deinstall', esc_attr__( 'All entries in the database were deleted.', 'adminimize' )
 		);
 		$this->errors->add(
-			'_mw_adminimize_deinstall_yes', __( 'Set the checkbox on deinstall-button.', $this->localizion_name )
+			'_mw_adminimize_deinstall_yes', esc_attr__( 'Set the checkbox on deinstall-button.', 'adminimize' )
 		);
 		$this->errors->add(
-			'_mw_adminimize_get_option', __( 'Can\'t load menu and submenu.', $this->localizion_name )
+			'_mw_adminimize_get_option', esc_attr__( 'Can\'t load menu and submenu.', 'adminimize' )
 		);
-		$this->errors->add( '_mw_adminimize_set_theme', __( 'Backend-Theme was activated!', $this->localizion_name ) );
+		$this->errors->add( '_mw_adminimize_set_theme', esc_attr__( 'Backend-Theme was activated!', 'adminimize' ) );
 		$this->errors->add(
-			'_mw_adminimize_load_theme', __( 'Load user data to themes was successful.', $this->localizion_name )
+			'_mw_adminimize_load_theme', esc_attr__( 'Load user data to themes was successful.', 'adminimize' )
 		);
 	}
 

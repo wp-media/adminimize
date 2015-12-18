@@ -14,7 +14,7 @@
 	vertical-align: middle;
 }
 
-table tbody td span {
+table tbody td span, table tbody th span {
 	float: right;
 }
 

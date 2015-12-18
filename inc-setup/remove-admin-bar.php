@@ -61,7 +61,7 @@ function _mw_adminimize_add_logout( $wp_admin_bar ) {
 		array(
 			'id'     => 'mw-account',
 			'parent' => 'top-secondary',
-			'title'  => __( 'Log Out' ),
+			'title'  => esc_attr__( 'Log Out' ),
 			'href'   => wp_logout_url() . $redirect,
 		)
 	);
@@ -88,7 +88,7 @@ function _mw_adminimize_add_user_logout( $wp_admin_bar ) {
 		array(
 			'id'     => 'mw-account',
 			'parent' => 'top-secondary',
-			'title'  => $user_info . ' ' . __( 'Log Out' ),
+			'title'  => $user_info . ' ' . esc_attr__( 'Log Out' ),
 			'href'   => wp_logout_url() . $redirect,
 		)
 	);
@@ -253,7 +253,7 @@ function _mw_adminimize_restore_links() {
 		}
 	</style>
 	<div id="mw_adminimize_admin_bar">
-		<?php echo '<a id="mw_title" href="' . home_url() . '" title="' . __(
+		<?php echo '<a id="mw_title" href="' . home_url() . '" title="' . esc_attr__(
 				get_bloginfo( 'name' )
 			) . '" target="_blank">' . get_bloginfo( 'name' ) . '</a>';
 		?>
@@ -271,17 +271,17 @@ function _mw_adminimize_restore_links() {
 					if ( ! is_network_admin() ) {
 						echo '| <a href="' . network_admin_url() . '" title="' . esc_attr__(
 								'Network Admin'
-							) . '">' . __( 'Network Admin' ) . '</a>';
+							) . '">' . esc_attr__( 'Network Admin' ) . '</a>';
 					} else {
 						echo '| <a href="' . get_dashboard_url( get_current_user_id() ) . '" title="' . esc_attr__(
 								'Site Admin'
-							) . '">' . __( 'Site Admin' ) . '</a>';
+							) . '">' . esc_attr__( 'Site Admin' ) . '</a>';
 					}
 				}
 			}
 
 			if ( empty( $_mw_adminimize_user_info ) || 0 == $_mw_adminimize_user_info || 2 == $_mw_adminimize_user_info || 3 == $_mw_adminimize_user_info ) {
-				?>  | <?php echo '<a href="' . wp_logout_url() . '" title="' . esc_attr__( 'Log Out' ) . '">' . __(
+				?>  | <?php echo '<a href="' . wp_logout_url() . '" title="' . esc_attr__( 'Log Out' ) . '">' . esc_attr__(
 						'Log Out'
 					) . '</a>';
 			}

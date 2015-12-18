@@ -21,7 +21,7 @@ if ( ! function_exists( 'add_action' ) ) {
 			<table summary="config_menu" class="widefat">
 				<thead>
 				<tr>
-					<th><?php esc_attr_e( 'Menu options - Menu, <span>Submenu</span>', 'adminimize' ); ?></th>
+					<th><?php esc_attr_e( 'Menu options - Menu, Submenu', 'adminimize' ); ?></th>
 
 					<?php foreach ( $user_roles_names as $role_name ) { ?>
 						<th><?php esc_attr_e( 'Deactivate for', 'adminimize' );
@@ -38,10 +38,10 @@ if ( ! function_exists( 'add_action' ) ) {
 						echo '<td class="num">';
 						echo '<span class="form-invalid">';
 						echo '<input id="select_all" class="menu_options_' . $role_name
-								. '" type="checkbox" name="" value="" />';
+							. '" type="checkbox" name="" value="" />';
 						echo '</span>';
 						echo '<input id="select_all" class="submenu_options_' . $role_name
-								. '" type="checkbox" name="" value="" />';
+							. '" type="checkbox" name="" value="" />';
 						echo '</td>' . "\n";
 					} ?>
 				</tr>
@@ -97,8 +97,7 @@ if ( ! function_exists( 'add_action' ) ) {
 
 						// non checked items
 						if ( $item[ 2 ] === 'options-general.php' ) {
-							//$disabled_item_adm = ' disabled="disabled"';
-							$disabled_item_adm_hint = '<abbr title="' . __(
+							$disabled_item_adm_hint = '<abbr title="' . esc_attr__(
 									'After activate the check box it heavy attitudes will change.', 'adminimize'
 								) . '" style="cursor:pointer;"> ! </acronym>';
 						} else {
@@ -126,13 +125,19 @@ if ( ! function_exists( 'add_action' ) ) {
 							}
 
 							echo '<tr class="form-invalid">' . "\n";
-							echo "\t" . '<th>' . $item[ 0 ] . ' <span>['
-								. $key . ']('
+							echo "\t";
+							echo '<th>';
+							echo '<b>&bull; ' . $item[ 0 ] . '</b> <small>' . esc_attr__(
+									'Group', 'adminimize'
+								) . '</small>';
+							echo '<span>'
+								. $key . '('
 								. preg_replace(
 									"#[%2].*#",
 									'...',
 									htmlentities( $item[ 2 ] )
-								) . ')</span> </th>';
+								) . ')</span>';
+							echo '</th>';
 
 							foreach ( $user_roles as $role ) {
 								if ( $role !== 'administrator' ) { // only admin disable items
@@ -152,7 +157,7 @@ if ( ! function_exists( 'add_action' ) ) {
 							if ( 'users.php' === $item[ 2 ] ) {
 								$x ++;
 								echo '<tr class="form-invalid">' . "\n";
-								echo "\t" . '<th>' . __( 'Profile' ) . ' <span>(profile.php)</span> </th>';
+								echo "\t" . '<th>' . esc_attr__( 'Profile' ) . ' <span>(profile.php)</span> </th>';
 								foreach ( $user_roles as $role ) {
 									echo "\t" . '<td class="num"><input disabled="disabled" id="check_menu'
 										. $role . $x . '" class="menu_options_'
@@ -179,7 +184,7 @@ if ( ! function_exists( 'add_action' ) ) {
 								if ( $subitem[ 2 ] === 'adminimize/adminimize.php' ) {
 									//$disabled_subitem_adm = ' disabled="disabled"';
 									$disabled_subitem_adm_hint = '<abbr title="'
-										. __(
+										. esc_attr__(
 											'After activate the check box it heavy attitudes will change.', 'adminimize'
 										)
 										. '" style="cursor:pointer;"> ! </acronym>';

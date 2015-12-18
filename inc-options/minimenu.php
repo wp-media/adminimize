@@ -12,7 +12,7 @@ if ( ! function_exists( 'add_action' ) ) {
 $screen  = get_current_screen();
 $message = '';
 if ( is_multisite() && is_plugin_active_for_network( plugin_basename( MW_ADMIN_FILE ) ) ) {
-	$message = __( 'Network' );
+	$message = esc_attr__( 'Network' );
 }
 ?>
 
@@ -155,7 +155,11 @@ if ( is_multisite() && is_plugin_active_for_network( plugin_basename( MW_ADMIN_F
 						),
 						'http://wordpress.org/extend/plugins/adminimize/',
 						'http://wordpress.org/support/plugin/adminimize'
-					); ?></li>
+					);
+					printf(
+						__( '<br>For more hints about the functions and how to\'s with the possibilities of the plugin settings see the <a href="%s">FAQ page</a> on the plugin site.', 'adminimize' ),
+						'https://wordpress.org/plugins/adminimize/faq/'
+					);?></li>
 				<li><?php esc_attr_e( 'Report a issue on the development repository:', 'adminimize' ); ?>
 					<a href="https://github.com/bueltge/Adminimize/issues">issues</a></li>
 				<li><?php esc_attr_e(
