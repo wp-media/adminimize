@@ -609,7 +609,7 @@ function _mw_adminimize_set_user_info() {
 			} else {
 				$_mw_adminimize_admin_head .= 'jQuery(\'div#wpcontent\' ).after(\'<div id="small_user_info"><p><a href="' . get_option(
 						'siteurl'
-					) . wp_nonce_url( ( '/wp-login.php?action=logout' ), 'log-out' ) . '" title="' . __(
+					) . wp_nonce_url( ( '/wp-login.php?action=logout' ), 'log-out' ) . '" title="' . esc_attr__(
 						'Log Out'
 					) . '">' . esc_attr__( 'Log Out' ) . '</a></p></div>\' ) });' . "\n";
 			}
@@ -1104,7 +1104,7 @@ function _mw_adminimize_small_user_info() {
 				site_url( 'wp-login.php?action=logout' ),
 				'log-out'
 			) ?>"
-				title="<?php _e( 'Log Out' ) ?>"><?php _e( 'Log Out' ); ?></a>
+				title="<?php esc_attr_e( 'Log Out' ) ?>"><?php esc_attr_e( 'Log Out' ); ?></a>
 		</p>
 	</div>
 	<?php
@@ -1141,7 +1141,6 @@ require_once( 'inc-setup/admin-bar-items.php' );
 require_once( 'inc-setup/remove-admin-notices.php' );
 
 /**
- * @version WP 2.8
  * Add action link(s) to plugins page
  *
  * @param $links , $file
@@ -1153,7 +1152,7 @@ require_once( 'inc-setup/remove-admin-notices.php' );
 function _mw_adminimize_filter_plugin_meta( $links, $file ) {
 
 	/* create link */
-	if ( FB_ADMINIMIZE_BASENAME == $file ) {
+	if ( FB_ADMINIMIZE_BASENAME === $file ) {
 		array_unshift(
 			$links,
 			sprintf( '<a href="options-general.php?page=%s">%s</a>', FB_ADMINIMIZE_BASENAME, esc_attr__( 'Settings' ) )

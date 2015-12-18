@@ -53,3 +53,7 @@ th:first-child + th + th + th + th + th + th + th + th + th {
 	font-size: x-small;
 	font-weight: lighter;
 }
+
+table.usertheme .num {
+	width: 25px;
+}

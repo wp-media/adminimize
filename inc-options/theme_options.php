@@ -11,45 +11,46 @@ if ( ! function_exists( 'add_action' ) ) {
 ?>
 <div id="poststuff" class="ui-sortable meta-box-sortables">
 	<div class="postbox">
-		<div class="handlediv" title="<?php _e( 'Click to toggle' ); ?>"><br /></div>
-		<h3 class="hndle" id="set_theme"><?php _e( 'Set Theme', 'adminimize' ) ?></h3>
+		<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle' ); ?>"><br /></div>
+		<h3 class="hndle" id="set_theme" title="<?php esc_attr_e( 'Click to toggle' ); ?>"><?php
+			esc_attr_e( 'Set Theme', 'adminimize' ) ?></h3>
 
 		<div class="inside">
 			<br class="clear" />
 
-			<?php if ( ! isset( $_POST[ '_mw_adminimize_action' ] ) || ! ( $_POST[ '_mw_adminimize_action' ] == '_mw_adminimize_load_theme' ) ) { ?>
+			<?php if ( ! isset( $_POST[ '_mw_adminimize_action' ] ) || ! ( $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_load_theme' ) ) { ?>
 				<form name="set_theme" method="post" id="_mw_adminimize_set_theme" action="?page=<?php echo esc_attr(
 					$_GET[ 'page' ]
 				); ?>">
 					<?php wp_nonce_field( 'mw_adminimize_nonce' ); ?>
-					<p><?php _e(
+					<p><?php esc_attr_e(
 							'For better peformance with many users on your blog; load only userlist, when you will change the theme options for users.',
 							'adminimize'
 						); ?></p>
 
 					<p id="submitbutton">
 						<input type="hidden" name="_mw_adminimize_action" value="_mw_adminimize_load_theme" />
-						<input type="submit" name="_mw_adminimize_load" value="<?php _e(
+						<input type="submit" name="_mw_adminimize_load" value="<?php esc_attr_e(
 							'Load User Data', 'adminimize'
 						); ?> &raquo;" class="button button-primary" />
 					</p>
 				</form>
 			<?php }
-			if ( isset( $_POST[ '_mw_adminimize_action' ] ) && ( $_POST[ '_mw_adminimize_action' ] == '_mw_adminimize_load_theme' ) ) { ?>
+			if ( isset( $_POST[ '_mw_adminimize_action' ] ) && ( $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_load_theme' ) ) { ?>
 				<form name="set_theme" method="post" id="_mw_adminimize_set_theme" action="?page=<?php echo esc_attr(
 					$_GET[ 'page' ]
 				); ?>">
 					<?php wp_nonce_field( 'mw_adminimize_nonce' ); ?>
-					<table class="widefat">
+					<table class="widefat usertheme">
 						<thead>
 						<tr class="thead">
-							<th>&nbsp;</th>
-							<th class="num"><?php _e( 'User-ID' ) ?></th>
-							<th><?php _e( 'Username' ) ?></th>
-							<th><?php _e( 'Display name publicly as' ) ?></th>
-							<th><?php _e( 'Admin-Color Scheme' ) ?></th>
-							<th><?php _e( 'User Level' ) ?></th>
-							<th><?php _e( 'Role' ) ?></th>
+							<th class="num">&nbsp;</th>
+							<th class="num"><?php esc_attr_e( 'User-ID' ) ?></th>
+							<th><?php esc_attr_e( 'Username' ) ?></th>
+							<th><?php esc_attr_e( 'Display name publicly as' ) ?></th>
+							<th><?php esc_attr_e( 'Admin-Color Scheme' ) ?></th>
+							<th><?php esc_attr_e( 'User Level' ) ?></th>
+							<th><?php esc_attr_e( 'Role' ) ?></th>
 						</tr>
 						</thead>
 						<tbody id="users" class="list:user user-list">
@@ -76,10 +77,10 @@ if ( ! function_exists( 'add_action' ) ) {
 								$role_name = strrpos( $wp_roles->role_names[ $role ], '|' );
 							}
 
-							$style  = ( ' class="alternate"' == $style ) ? '' : ' class="alternate"';
+							$style  = ( ' class="alternate"' === $style ) ? '' : ' class="alternate"';
 							$return = '';
 							$return .= '<tr>' . "\n";
-							$return .= "\t" . '<td><input type="checkbox" name="mw_adminimize_theme_items[]" value="' . $user_id . '" /></td>' . "\n";
+							$return .= "\t" . '<td class="num"><input type="checkbox" name="mw_adminimize_theme_items[]" value="' . $user_id . '" /></td>' . "\n";
 							$return .= "\t" . '<td class="num">' . $user_id . '</td>' . "\n";
 							$return .= "\t" . '<td>' . $user_login . '</td>' . "\n";
 							$return .= "\t" . '<td>' . $display_name . '</td>' . "\n";
@@ -92,8 +93,8 @@ if ( ! function_exists( 'add_action' ) ) {
 						}
 						?>
 						<tr valign="top">
-							<td>&nbsp;</td>
-							<td>&nbsp;</td>
+							<td class="num">&nbsp;</td>
+							<td class="num">&nbsp;</td>
 							<td>&nbsp;</td>
 							<td>&nbsp;</td>
 							<td>
@@ -111,7 +112,7 @@ if ( ! function_exists( 'add_action' ) ) {
 					<p id="submitbutton">
 						<input type="hidden" name="_mw_adminimize_action" value="_mw_adminimize_set_theme" />
 						<input type="hidden" name="_mw_adminimize_load" value="_mw_adminimize_load_theme" />
-						<input type="submit" name="_mw_adminimize_save" value="<?php _e(
+						<input type="submit" name="_mw_adminimize_save" value="<?php esc_attr_e(
 							'Set Theme', 'adminimize'
 						); ?> &raquo;" class="button button-primary" />
 					</p>
@@ -119,7 +120,7 @@ if ( ! function_exists( 'add_action' ) ) {
 			<?php } ?>
 
 			<p>
-				<a class="alignright button" href="javascript:void(0);" onclick="window.scrollTo(0,0);" style="margin:3px 0 0 30px;"><?php _e(
+				<a class="alignright button" href="javascript:void(0);" onclick="window.scrollTo(0,0);" style="margin:3px 0 0 30px;"><?php esc_attr_e(
 						'scroll to top', 'adminimize'
 					); ?></a><br class="clear" /></p>
 		</div>
