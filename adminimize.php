@@ -41,7 +41,7 @@ define( 'FB_ADMINIMIZE_BASEFOLDER', plugin_basename( dirname( __FILE__ ) ) );
 function _mw_adminimize_get_plugin_data( $value = 'Version' ) {
 
 	if ( ! function_exists( 'get_plugin_data' ) ) {
-		require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+		require_once ABSPATH . '/wp-admin/includes/plugin.php';
 	}
 
 	$plugin_data  = get_plugin_data( __FILE__ );
@@ -1146,34 +1146,37 @@ function _mw_adminimize_small_user_info() {
 }
 
 // Include message class.
-require_once( 'inc-setup/messages.php' );
+require_once 'inc-setup/messages.php';
 // include helping functions
-require_once( 'inc-setup/helping_hands.php' );
+require_once 'inc-setup/helping_hands.php';
 
 // inc. settings page
-require_once( 'adminimize_page.php' );
+require_once 'adminimize_page.php';
 
 // dashboard options
-require_once( 'inc-setup/dashboard.php' );
+require_once 'inc-setup/dashboard.php';
 
 // widget options
-require_once( 'inc-setup/widget.php' );
-require_once( 'inc-setup/admin-footer.php' );
+require_once 'inc-setup/widget.php';
+require_once 'inc-setup/admin-footer.php';
 
 // global settings
+// @TODO Testing, not ready for productive
 //require_once( 'inc-options/settings_notice.php' );
+
 // remove admin bar
-require_once( 'inc-setup/remove-admin-bar.php' );
+require_once 'inc-setup/remove-admin-bar.php';
 
 // admin bar helper, setup
 // work always in frontend
-require_once( 'inc-setup/admin-bar-items.php' );
+require_once 'inc-setup/admin-bar-items.php';
+
 // meta boxes helper, setup
-//@todo Meta Boxes: not ready for productive systems.
+// @TODO Meta Boxes: not ready for productive systems.
 //require_once( 'inc-setup/meta-boxes.php' );
 
 // Remove Admin Notices.
-require_once( 'inc-setup/remove-admin-notices.php' );
+require_once 'inc-setup/remove-admin-notices.php';
 
 /**
  * Add action link(s) to plugins page
@@ -1725,7 +1728,7 @@ function _mw_adminimize_export_json() {
 		return;
 	}
 
-	require_once( ABSPATH . 'wp-includes/pluggable.php' );
+	require_once ABSPATH . 'wp-includes/pluggable.php';
 	if ( ! wp_verify_nonce( $_GET[ 'mw_adminimize_export_nonce' ], 'mw_adminimize_export_nonce' ) ) {
 		return;
 	}

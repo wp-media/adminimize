@@ -42,7 +42,7 @@ function _mw_adminimize_get_meta_boxes( $post_type = NULL, $context = 'advanced'
 
 function _mw_adminimize_remove_meta_boxes( $post_type = NULL, $context = 'advanced', $priority = 'default', $id ) {
 
-	//@todo foreach about settings
+	// @TODO foreach about settings
 	remove_meta_box( $id, $post_type, $context );
 }
 

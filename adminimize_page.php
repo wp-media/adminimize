@@ -141,51 +141,51 @@ function _mw_adminimize_options() {
 		<?php
 		do_action( 'mw_adminimize_before_settings_form' );
 		// Backend Options for all roles
-		require_once( 'inc-options/minimenu.php' );
+		require_once 'inc-options/minimenu.php';
 		?>
 		<form name="backend_option" method="post" id="_mw_adminimize_options" action="?page=<?php echo esc_attr(
 			$_GET[ 'page' ]
 		); ?>">
 			<?php
 			// Admin Bar options
-			require_once( 'inc-options/admin_bar.php' );
+			require_once 'inc-options/admin_bar.php';
 
 			// Admin Bar items frontend
-			require_once( 'inc-options/admin_bar_frontend.php' );
+			require_once 'inc-options/admin_bar_frontend.php';
 
 			// Backend Options for all roles
-			require_once( 'inc-options/backend_options.php' );
+			require_once 'inc-options/backend_options.php';
 
 			// global options on all pages in backend for different roles
-			require_once( 'inc-options/global_options.php' );
+			require_once 'inc-options/global_options.php';
 
 			// dashboard options for different roles
-			require_once( 'inc-options/dashboard_options.php' );
+			require_once 'inc-options/dashboard_options.php';
 
 			// Menu Sub-menu Options
-			require_once( 'inc-options/menu_options.php' );
+			require_once 'inc-options/menu_options.php';
 
 			// Write Page Options
-			require_once( 'inc-options/write_post_options.php' );
+			require_once 'inc-options/write_post_options.php';
 
 			// Write Page Options
-			require_once( 'inc-options/write_page_options.php' );
+			require_once 'inc-options/write_page_options.php';
 
 			// Custom Post Type
 			if ( function_exists( 'get_post_types' ) ) {
-				require_once( 'inc-options/write_cp_options.php' );
+				require_once 'inc-options/write_cp_options.php';
 			}
 
 			// Links Options
 			if ( 0 !== get_option( 'link_manager_enabled' ) ) {
-				require_once( 'inc-options/links_options.php' );
+				require_once 'inc-options/links_options.php';
 			}
 
 			// Widget options
-			require_once( 'inc-options/widget_options.php' );
+			require_once 'inc-options/widget_options.php';
 
 			// WP Nav Menu Options
-			require_once( 'inc-options/wp_nav_menu_options.php' );
+			require_once 'inc-options/wp_nav_menu_options.php';
 
 			do_action( 'mw_adminimize_settings_form' );
 			?>
@@ -195,13 +195,13 @@ function _mw_adminimize_options() {
 		do_action( 'mw_adminimize_after_settings_form' );
 
 		// Theme Options
-		require_once( 'inc-options/theme_options.php' );
+		require_once 'inc-options/theme_options.php';
 
 		// Im/Export Options
-		require_once( 'inc-options/im_export_options.php' );
+		require_once 'inc-options/im_export_options.php';
 
 		// Uninstall options
-		require_once( 'inc-options/deinstall_options.php' );
+		require_once 'inc-options/deinstall_options.php';
 		?>
 
 		<script type="text/javascript">
