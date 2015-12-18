@@ -159,11 +159,11 @@ function _mw_adminimize_get_all_user_roles_names() {
 	$user_roles_names = array_diff(
 		$user_roles_names,
 		array(
-			__( 'Keymaster', 'bbpress' ),
-			__( 'Moderator', 'bbpress' ),
-			__( 'Participant', 'bbpress' ),
-			__( 'Spectator', 'bbpress' ),
-			__( 'Blocked', 'bbpress' )
+			esc_attr__( 'Keymaster', 'bbpress' ),
+			esc_attr__( 'Moderator', 'bbpress' ),
+			esc_attr__( 'Participant', 'bbpress' ),
+			esc_attr__( 'Spectator', 'bbpress' ),
+			esc_attr__( 'Blocked', 'bbpress' )
 		)
 	);
 
@@ -530,15 +530,15 @@ function _mw_adminimize_remove_dashboard() {
 			reset( $menu );
 			$page = key( $menu );
 
-			while ( ( __( 'Dashboard' ) !== $menu[ $page ][ 0 ] ) && next( $menu )
-				|| ( __(
+			while ( ( esc_attr__( 'Dashboard' ) !== $menu[ $page ][ 0 ] ) && next( $menu )
+				|| ( esc_attr__(
 						'Dashboard'
 					) != $menu[ $page ][ 1 ] )
 				&& next( $menu ) ) {
 				$page = key( $menu );
 			}
 
-			if ( __( 'Dashboard' ) === $menu[ $page ][ 0 ] || __( 'Dashboard' ) === $menu[ $page ][ 1 ] ) {
+			if ( esc_attr__( 'Dashboard' ) === $menu[ $page ][ 0 ] || esc_attr__( 'Dashboard' ) === $menu[ $page ][ 1 ] ) {
 				unset( $menu[ $page ] );
 			}
 			reset( $menu );
@@ -557,7 +557,7 @@ function _mw_adminimize_remove_dashboard() {
 }
 
 /**
- * set menu options from database
+ * Set menu options from database.
  */
 function _mw_adminimize_set_user_info() {
 
@@ -629,13 +629,13 @@ function _mw_adminimize_set_user_info() {
 						'siteurl'
 					) . wp_nonce_url(
 						( '/wp-login.php?action=logout&amp;redirect_to=' ) . get_option( 'siteurl' ), 'log-out'
-					) . '" title="' . __( 'Log Out' ) . '">' . __( 'Log Out' ) . '</a></p></div>\' ) });' . "\n";
+					) . '" title="' . esc_attr__( 'Log Out' ) . '">' . esc_attr__( 'Log Out' ) . '</a></p></div>\' ) });' . "\n";
 			} else {
 				$_mw_adminimize_admin_head .= 'jQuery(\'div#wpcontent\' ).after(\'<div id="small_user_info"><p><a href="' . get_option(
 						'siteurl'
 					) . wp_nonce_url( ( '/wp-login.php?action=logout' ), 'log-out' ) . '" title="' . __(
 						'Log Out'
-					) . '">' . __( 'Log Out' ) . '</a></p></div>\' ) });' . "\n";
+					) . '">' . esc_attr__( 'Log Out' ) . '</a></p></div>\' ) });' . "\n";
 			}
 			$_mw_adminimize_admin_head .= '</script>' . "\n";
 			break;
@@ -649,7 +649,7 @@ function _mw_adminimize_set_user_info() {
 				$_mw_adminimize_admin_head .= '<link rel="stylesheet" href="' . WP_PLUGIN_URL . '/' . plugin_basename(
 						dirname( __FILE__ )
 					) . '/css/mw_small_user_info32.css" type="text/css" />' . "\n";
-			} elseif ( version_compare( $wp_version, "3.0alpha", ">=" ) ) {
+			} elseif ( version_compare( $wp_version, '3.0alpha', ">=" ) ) {
 				if ( function_exists( 'is_admin_bar_showing' ) && is_admin_bar_showing() ) {
 					$_mw_adminimize_admin_head .= '<link rel="stylesheet" href="' . WP_PLUGIN_URL . '/' . plugin_basename(
 							dirname( __FILE__ )
@@ -669,22 +669,22 @@ function _mw_adminimize_set_user_info() {
 			}
 			$_mw_adminimize_admin_head .= '<script type="text/javascript">' . "\n";
 			$_mw_adminimize_admin_head .= "\t" . 'jQuery(document).ready(function() { jQuery(\'#user_info\' ).remove();';
-			if ( $_mw_adminimize_ui_redirect == '1' ) {
-				$_mw_adminimize_admin_head .= 'jQuery(\'div#wpcontent\' ).after(\'<div id="small_user_info"><p><a href="' . get_option(
+			if ( 1 === (int) $_mw_adminimize_ui_redirect ) {
+				$_mw_adminimize_admin_head .= 'jQuery( \'div#wpcontent\' ).after( \'<div id="small_user_info"><p><a href="' . get_option(
 						'siteurl'
 					) . ( '/wp-admin/profile.php' ) . '">' . $user_identity . '</a> | <a href="' . get_option(
 						'siteurl'
 					) . wp_nonce_url(
 						( '/wp-login.php?action=logout&amp;redirect_to=' ) . get_option( 'siteurl' ), 'log-out'
-					) . '" title="' . __( 'Log Out' ) . '">' . __( 'Log Out' ) . '</a></p></div>\' ) });' . "\n";
+					) . '" title="' . esc_attr__( 'Log Out' ) . '">' . esc_attr__( 'Log Out' ) . '</a></p></div>\' ) });' . "\n";
 			} else {
 				$_mw_adminimize_admin_head .= 'jQuery(\'div#wpcontent\' ).after(\'<div id="small_user_info"><p><a href="' . get_option(
 						'siteurl'
 					) . ( '/wp-admin/profile.php' ) . '">' . $user_identity . '</a> | <a href="' . get_option(
 						'siteurl'
-					) . wp_nonce_url( ( '/wp-login.php?action=logout' ), 'log-out' ) . '" title="' . __(
+					) . wp_nonce_url( ( '/wp-login.php?action=logout' ), 'log-out' ) . '" title="' . esc_attr__(
 						'Log Out'
-					) . '">' . __( 'Log Out' ) . '</a></p></div>\' ) });' . "\n";
+					) . '">' . esc_attr__( 'Log Out' ) . '</a></p></div>\' ) });' . "\n";
 			}
 			$_mw_adminimize_admin_head .= '</script>' . "\n";
 			break;
@@ -1204,7 +1204,7 @@ function _mw_adminimize_filter_plugin_meta( $links, $file ) {
 	if ( FB_ADMINIMIZE_BASENAME == $file ) {
 		array_unshift(
 			$links,
-			sprintf( '<a href="options-general.php?page=%s">%s</a>', FB_ADMINIMIZE_BASENAME, __( 'Settings' ) )
+			sprintf( '<a href="options-general.php?page=%s">%s</a>', FB_ADMINIMIZE_BASENAME, esc_attr__( 'Settings' ) )
 		);
 	}
 
@@ -1217,8 +1217,8 @@ function _mw_adminimize_filter_plugin_meta( $links, $file ) {
 function _mw_adminimize_add_settings_page() {
 
 	$pagehook = add_options_page(
-		__( 'Adminimize Options', 'adminimize' ),
-		__( 'Adminimize', 'adminimize' ),
+		esc_attr__( 'Adminimize Options', 'adminimize' ),
+		esc_attr__( 'Adminimize', 'adminimize' ),
 		'manage_options',
 		__FILE__,
 		'_mw_adminimize_options'
@@ -1251,7 +1251,7 @@ function _mw_adminimize_on_load_page() {
 function _mw_adminimize_set_theme() {
 
 	if ( ! current_user_can( 'edit_users' ) ) {
-		wp_die( __( 'Cheatin&#8217; uh?' ) );
+		wp_die( esc_attr__( 'Cheatin&#8217; uh?' ) );
 	}
 
 	$user_ids    = $_POST[ 'mw_adminimize_theme_items' ];
@@ -1300,7 +1300,7 @@ function _mw_adminimize_get_option_value( $key = FALSE ) {
 function _mw_adminimize_update_option( $options ) {
 
 	if ( ! current_user_can( 'manage_options' ) ) {
-		wp_die( __( 'Cheatin&#8217; uh? You do not have the right permission to update settings', 'adminimize' ) );
+		wp_die( esc_attr__( 'Cheatin&#8217; uh? You do not have the right permission to update settings', 'adminimize' ) );
 	}
 
 	if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
@@ -1778,13 +1778,13 @@ function _mw_adminimize_import_json() {
 
 	$extension = pathinfo( $_FILES[ 'import_file' ][ 'name' ], PATHINFO_EXTENSION );
 	if ( $extension !== 'json' ) {
-		wp_die( __( 'Please upload a valid .json file' ) );
+		wp_die( esc_attr__( 'Please upload a valid .json file' ) );
 	}
 
 	$import_file = $_FILES[ 'import_file' ][ 'tmp_name' ];
 
 	if ( empty( $import_file ) ) {
-		wp_die( __( 'Please upload a file to import' ) );
+		wp_die( esc_attr__( 'Please upload a file to import' ) );
 	}
 
 	// Retrieve the settings from the file and convert the json object to an array.

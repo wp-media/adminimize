@@ -84,11 +84,15 @@ if ( ! isset( $user_roles_names ) ) {
 							$value->title = '<b><i>' . esc_attr__( 'No Title!', 'adminimize' ) . '</i></b>';
 						}
 
-						$item_class  = ' class="form-invalid"';
-						$item_string = '';
+						$item_class   = ' class="form-invalid"';
+						$item_string  = '&bull; ';
+						$before_title = '<b>';
+						$after_title  = '</b> <small>' . esc_attr__( 'Group', 'adminimize' ) . '</small>';
 						if ( $is_parent ) {
 							$item_class  = '';
-							$item_string = ' &mdash; ';
+							$item_string = '&mdash; ';
+							$before_title = '';
+							$after_title  = '';
 						}
 
 						$checked_user_role_ = array();
@@ -101,8 +105,8 @@ if ( ! isset( $user_roles_names ) ) {
 						}
 
 						echo '<tr' . $item_class . '>' . "\n";
-						echo '<td>' . $item_string . strip_tags( $value->title, '<strong><b><em><i>' )
-							. ' <span>(' . $key . ')</span> </td>' . "\n";
+						echo '<td>'. $before_title . $item_string . strip_tags( $value->title, '<strong><b><em><i>' )
+								. $after_title . ' <span>(' . $key . ')</span> </td>' . "\n";
 						foreach ( $user_roles as $role ) {
 							echo '<td class="num"><input id="check_post' . $role . $x . '" class="admin_bar_'
 									. $role . '" type="checkbox"'

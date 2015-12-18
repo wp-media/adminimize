@@ -52,7 +52,7 @@ if ( ! isset( $user_roles_names ) ) {
 						$role_name = strtolower( $role_name );
 						echo '<td class="num">';
 						echo '<input id="select_all" class="admin_bar_frontend_' . $role_name
-								. '" type="checkbox" name="mw_adminimize_select_all' . $role_name . '" value="" />';
+							. '" type="checkbox" name="mw_adminimize_select_all' . $role_name . '" value="" />';
 						echo '</td>' . "\n";
 					} ?>
 				</tr>
@@ -85,11 +85,15 @@ if ( ! isset( $user_roles_names ) ) {
 							$value->title = '<b><i>' . esc_attr__( 'No Title!', 'adminimize' ) . '</i></b>';
 						}
 
-						$item_class  = ' class="form-invalid"';
-						$item_string = '';
+						$item_class   = ' class="form-invalid"';
+						$item_string  = '&bull; ';
+						$before_title = '<b>';
+						$after_title  = '</b> <small>' . esc_attr__( 'Group', 'adminimize' ) . '</small>';
 						if ( $is_parent ) {
 							$item_class  = '';
-							$item_string = ' &mdash; ';
+							$item_string = '&mdash; ';
+							$before_title = '';
+							$after_title  = '';
 						}
 
 						$checked_user_role_ = array();
@@ -102,8 +106,8 @@ if ( ! isset( $user_roles_names ) ) {
 						}
 
 						echo '<tr' . $item_class . '>' . "\n";
-						echo '<td>' . $item_string . strip_tags( $value->title, '<strong><b><em><i>' )
-							. ' <span>(' . $key . ')</span> </td>' . "\n";
+						echo '<td>'. $before_title . $item_string . strip_tags( $value->title, '<strong><b><em><i>' )
+							. $after_title . ' <span>(' . $key . ')</span> </td>' . "\n";
 						foreach ( $user_roles as $role ) {
 							echo '<td class="num"><input id="check_post' . $role . $x
 								. '" class="admin_bar_frontend_' . $role . '" type="checkbox"'
@@ -125,6 +129,7 @@ if ( ! isset( $user_roles_names ) ) {
 			</table>
 
 			<p><?php echo $message; ?></p>
+
 			<p id="submitbutton">
 				<input type="hidden" name="_mw_adminimize_action" value="_mw_adminimize_insert" />
 				<input class="button button-primary" type="submit" name="_mw_adminimize_save" value="<?php esc_attr_e(
@@ -134,7 +139,7 @@ if ( ! isset( $user_roles_names ) ) {
 
 			<p>
 				<a class="alignright button" href="javascript:void(0);" onclick="window.scrollTo(0,0);"
-						style="margin:3px 0 0 30px;"><?php esc_attr_e(
+					style="margin:3px 0 0 30px;"><?php esc_attr_e(
 						'scroll to top', 'adminimize'
 					); ?></a>
 				<br class="clear" />
