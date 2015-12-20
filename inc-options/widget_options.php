@@ -13,7 +13,7 @@ if ( ! function_exists( 'add_action' ) ) {
 <div id="poststuff" class="ui-sortable meta-box-sortables">
 	<div class="postbox">
 		<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle' ); ?>"><br /></div>
-		<h3 class="hndle" id="widget_options"><?php esc_attr_e( 'Widget options', 'adminimize' ); ?></h3>
+		<h3 class="hndle" id="widget_options"><?php esc_attr_e( 'Widgets', 'adminimize' ); ?></h3>
 
 		<div class="inside">
 			<br class="clear" />

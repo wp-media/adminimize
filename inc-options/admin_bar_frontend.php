@@ -21,7 +21,7 @@ if ( ! isset( $user_roles_names ) ) {
 	<div class="postbox">
 		<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle' ); ?>"><br /></div>
 		<h3 class="hndle" id="admin_bar_frontend_options" title="<?php esc_attr_e( 'Click to toggle' ); ?>"><?php
-			esc_attr_e( 'Admin Bar Front end options', 'adminimize' ); ?></h3>
+			esc_attr_e( 'Admin Bar Front end Options', 'adminimize' ); ?></h3>
 
 		<div class="inside">
 			<br class="clear" />

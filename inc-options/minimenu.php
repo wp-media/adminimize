@@ -92,8 +92,8 @@ if ( is_multisite() && is_plugin_active_for_network( plugin_basename( MW_ADMIN_F
 					}
 				}
 
-				// check for active links, acive since WP 3.5
-				if ( 0 != get_option( 'link_manager_enabled' ) ) {
+				// check for active links, active since WP 3.5
+				if ( 0 !== (int) get_option( 'link_manager_enabled' ) ) {
 					?>
 					<tr>
 						<td class="row-title"><a href="#links_options"><?php esc_attr_e(
