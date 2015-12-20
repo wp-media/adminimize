@@ -4,11 +4,11 @@
  * Plugin URI:  https://wordpress.org/plugins/adminimize/
  * Text Domain: adminimize
  * Domain Path: /languages
- * Description: Visually compresses the administrative meta-boxes so that more admin page content can be initially seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for all roles of your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible to simplify the admin in different for all roles.
- * Author:      Frank Bültge
- * Author URI:  http://bueltge.de/
- * Version:     1.9.0-RC1
- * License:     GPLv2+
+ * Description: Visually compresses the administrative meta-boxes so that more admin page content can be initially
+ * seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for all roles of
+ * your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible to
+ * simplify the admin in different for all roles. Author:      Frank Bültge Author URI:  http://bueltge.de/ Version:
+ *  1.9.0-RC1 License:     GPLv2+
  *
  *
  * @package WordPress
@@ -349,7 +349,7 @@ function _mw_adminimize_admin_init() {
 				case 1:
 					wp_enqueue_style(
 						'adminimize-full-category',
-						WP_PLUGIN_URL . '/' . FB_ADMINIMIZE_BASEFOLDER . '/css/mw_cat_full.css'
+						WP_PLUGIN_URL . '/' . FB_ADMINIMIZE_BASEFOLDER . '/css/mw_cat_full' . $suffix . '.css'
 					);
 					break;
 			}
@@ -575,6 +575,7 @@ function _mw_adminimize_set_user_info() {
 
 	global $user_identity;
 
+	$suffix     = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 	$user_roles = _mw_adminimize_get_all_user_roles();
 
 	foreach ( $user_roles as $role ) {
@@ -600,7 +601,7 @@ function _mw_adminimize_set_user_info() {
 		case 2:
 			$_mw_adminimize_admin_head .= '<link rel="stylesheet" href="' . WP_PLUGIN_URL . '/' . plugin_basename(
 					dirname( __FILE__ )
-				) . '/css/mw_small_user_info.css" type="text/css" />' . "\n";
+				) . '/css/mw_small_user_info' . $suffix . '.css" type="text/css" />' . "\n";
 
 			$_mw_adminimize_admin_head .= '<script type="text/javascript">' . "\n";
 			$_mw_adminimize_admin_head .= "\t" . 'jQuery(document).ready(function() { jQuery(\'#user_info\' ).remove();';
@@ -624,7 +625,7 @@ function _mw_adminimize_set_user_info() {
 		case 3:
 			$_mw_adminimize_admin_head .= '<link rel="stylesheet" href="' . WP_PLUGIN_URL . '/' . plugin_basename(
 					dirname( __FILE__ )
-				) . '/css/mw_small_user_info.css" type="text/css" />' . "\n";
+				) . '/css/mw_small_user_info' . $suffix . '.css" type="text/css" />' . "\n";
 
 			$_mw_adminimize_admin_head .= '<script type="text/javascript">' . "\n";
 			$_mw_adminimize_admin_head .= "\t" . 'jQuery(document).ready(function() { jQuery(\'#user_info\' ).remove();';
@@ -757,7 +758,7 @@ function _mw_adminimize_set_global_option() {
 		return;
 	}
 
-	$user_roles = _mw_adminimize_get_all_user_roles();
+	$user_roles                = _mw_adminimize_get_all_user_roles();
 	$_mw_adminimize_admin_head = '';
 
 	foreach ( $user_roles as $role ) {
@@ -980,7 +981,7 @@ function _mw_adminimize_set_link_option() {
 		return;
 	}
 
-	$user_roles = _mw_adminimize_get_all_user_roles();
+	$user_roles                = _mw_adminimize_get_all_user_roles();
 	$_mw_adminimize_admin_head = '';
 
 	foreach ( $user_roles as $role ) {
@@ -1033,7 +1034,7 @@ function _mw_adminimize_set_nav_menu_option() {
 		return;
 	}
 
-	$user_roles = _mw_adminimize_get_all_user_roles();
+	$user_roles                = _mw_adminimize_get_all_user_roles();
 	$_mw_adminimize_admin_head = '';
 
 	foreach ( $user_roles as $role ) {
@@ -1087,7 +1088,7 @@ function _mw_adminimize_set_widget_option() {
 		return;
 	}
 
-	$user_roles = _mw_adminimize_get_all_user_roles();
+	$user_roles                = _mw_adminimize_get_all_user_roles();
 	$_mw_adminimize_admin_head = '';
 
 	foreach ( $user_roles as $role ) {
