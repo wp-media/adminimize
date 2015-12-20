@@ -458,7 +458,7 @@ register_uninstall_hook( __FILE__, '_mw_adminimize_deinstall' );
  */
 function _mw_adminimize_remove_dashboard() {
 
-	global $menu, $user_ID, $wp_version;
+	global $menu, $user_ID;
 
 	$disabled_menu_    = '';
 	$disabled_submenu_ = '';

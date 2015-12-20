@@ -17,4 +17,9 @@ jQuery( document ).ready( function( $ ) {
 		);
 	} );
 
+	$( '.postbox h3' ).on( 'click', function( e ) {
+		$( this ).closest( '.postbox' ).toggleClass( 'closed' );
+		e.preventDefault();
+	} );
+
 } );

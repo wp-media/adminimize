@@ -204,17 +204,6 @@ function _mw_adminimize_options() {
 		require_once 'inc-options/deinstall_options.php';
 		?>
 
-		<script type="text/javascript">
-			<!--
-			jQuery( document ).ready( function( $ ) {
-				$( '.postbox h3' ).on( 'click', function( e ) {
-					$( this ).closest( '.postbox' ).toggleClass( 'closed' );
-					e.preventDefault();
-				} );
-			} );
-			//-->
-		</script>
-
 	</div>
 	<?php
 }

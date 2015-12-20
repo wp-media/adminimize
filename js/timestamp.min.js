@@ -1,0 +1,1 @@
+function open_timestamp(){jQuery(".edit-timestamp").click(function(){return jQuery("#timestampdiv").is(":hidden")&&(jQuery("#timestampdiv").slideDown("normal"),jQuery(".edit-timestamp").hide()),!1})}addLoadEvent(function(){open_timestamp(),jQuery(".edit-timestamp").click()});
