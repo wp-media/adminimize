@@ -1,4 +1,4 @@
-## 1.8.6 ()
+## 1.9.0 ()
 * Change Ex-/Import functions to use JSON format and remove mysql topics, there no longer valid in WP core.
 * Add more checks to hide also dynamically menu items, like Customizer.
 * Update spanish and german language file.
@@ -13,6 +13,8 @@
 * Add possibilty to select/unselect all checkboxess for each area.
 * Fix redirect feature, if Dashboard menu item is active for a role.
 * Remove functions for WordPress versions smaller 3.5.
+* Remove css tyles small WP 4.0
+* Add minify js/css.
 * Several code changes.
 
 ## 1.8.5 (2015-03-19)
