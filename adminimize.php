@@ -14,7 +14,7 @@
  * @package WordPress
  * @author  Frank Bültge <f.bueltge@inpsyde.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2015-12-18
+ * @version 2015-12-20
  */
 
 /**
@@ -291,6 +291,8 @@ function _mw_adminimize_admin_init() {
 		array_push( $disabled_metaboxes_page_all, $disabled_metaboxes_page_[ $role ] );
 	}
 
+	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
 	// global options
 	// exclude super admin
 	if ( ! _mw_adminimize_exclude_super_admin() ) {
@@ -299,7 +301,7 @@ function _mw_adminimize_admin_init() {
 			case 1:
 				wp_enqueue_script(
 					'_mw_adminimize_remove_footer',
-					WP_PLUGIN_URL . '/' . FB_ADMINIMIZE_BASEFOLDER . '/js/remove_footer.js',
+					WP_PLUGIN_URL . '/' . FB_ADMINIMIZE_BASEFOLDER . '/js/remove_footer' . $suffix . '.js',
 					array( 'jquery' )
 				);
 				break;
@@ -310,7 +312,7 @@ function _mw_adminimize_admin_init() {
 			case 1:
 				wp_enqueue_script(
 					'_mw_adminimize_remove_header',
-					WP_PLUGIN_URL . '/' . FB_ADMINIMIZE_BASEFOLDER . '/js/remove_header.js',
+					WP_PLUGIN_URL . '/' . FB_ADMINIMIZE_BASEFOLDER . '/js/remove_header' . $suffix . '.js',
 					array( 'jquery' )
 				);
 				break;
@@ -325,7 +327,7 @@ function _mw_adminimize_admin_init() {
 					wp_deregister_script( 'media-upload' );
 					wp_enqueue_script(
 						'media-upload',
-						WP_PLUGIN_URL . '/' . FB_ADMINIMIZE_BASEFOLDER . '/js/tb_window.js',
+						WP_PLUGIN_URL . '/' . FB_ADMINIMIZE_BASEFOLDER . '/js/tb_window' . $suffix . '.js',
 						array( 'thickbox' )
 					);
 					break;
@@ -335,7 +337,7 @@ function _mw_adminimize_admin_init() {
 				case 1:
 					wp_enqueue_script(
 						'_mw_adminimize_timestamp',
-						WP_PLUGIN_URL . '/' . FB_ADMINIMIZE_BASEFOLDER . '/js/timestamp.js',
+						WP_PLUGIN_URL . '/' . FB_ADMINIMIZE_BASEFOLDER . '/js/timestamp' . $suffix . '.js',
 						array( 'jquery' )
 					);
 					break;

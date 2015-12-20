@@ -3,6 +3,7 @@
   "version": "1.9.0-RC1",
   "devDependencies": {
     "grunt": "~0.4.5",
+    "grunt-contrib-cssmin": "^0.14.0",
     "grunt-contrib-uglify": "^0.11.0"
   }
 }

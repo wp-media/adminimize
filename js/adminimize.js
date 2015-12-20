@@ -2,7 +2,7 @@
  * Adminimize script to select all checkbox for each rows.
  * Only load and usage on settings page.
  *
- * @version 2015-12-16
+ * @version 2015-12-20
  */
 jQuery( document ).ready( function( $ ) {
 	'use strict';
