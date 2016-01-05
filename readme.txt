@@ -111,6 +111,7 @@ Please use the `Uninstall-Function` in the option-area before update to version 
 * Remove css tyles small WP 4.0
 * Add minify js/css.
 * Several code changes.
+* Add custom fix for hide editors on post types.
 
 = 1.8.5 (2015-03-19) =
 * Add brazilian portuguese translation, thanks to [Rafael Funchal](http://www.rafaelfunchal.com.br/)
