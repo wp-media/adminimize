@@ -484,7 +484,7 @@ function _mw_adminimize_remove_dashboard() {
 	}
 
 	// remove dashboard
-	if ( $disabled_menu_all != '' || $disabled_submenu_all != '' ) {
+	if ( $disabled_menu_all !== '' || $disabled_submenu_all !== '' ) {
 
 		$redirect = FALSE;
 		foreach ( $user_roles as $role ) {

@@ -130,47 +130,6 @@ if ( ! function_exists( 'add_action' ) ) {
 						); ?>
 					</td>
 				</tr>
-				<?php
-				// not usable from WP 3.5
-				if ( version_compare( $wp_version, '3.5alpha', '<' ) ) { ?>
-					<tr valign="top">
-						<td><?php esc_attr_e( 'Thickbox FullScreen', 'adminimize' ); ?></td>
-						<td>
-							<?php $_mw_adminimize_tb_window = _mw_adminimize_get_option_value(
-								'_mw_adminimize_tb_window'
-							); ?>
-							<select name="_mw_adminimize_tb_window">
-								<option value="0"<?php if ( $_mw_adminimize_tb_window === '0' ) {
-									echo ' selected="selected"';
-								} ?>><?php esc_attr_e( 'Default', 'adminimize' ); ?></option>
-								<option value="1"<?php if ( $_mw_adminimize_tb_window === '1' ) {
-									echo ' selected="selected"';
-								} ?>><?php esc_attr_e( 'Activate', 'adminimize' ); ?></option>
-							</select> <?php esc_attr_e(
-								'All Thickbox-function use the full area of the browser. Thickbox is for example in upload media-files.',
-								'adminimize'
-							); ?>
-						</td>
-					</tr>
-					<tr valign="top">
-						<td><?php esc_attr_e( 'Flashuploader', 'adminimize' ); ?></td>
-						<td>
-							<?php $_mw_adminimize_control_flashloader = _mw_adminimize_get_option_value(
-								'_mw_adminimize_control_flashloader'
-							); ?>
-							<select name="_mw_adminimize_control_flashloader">
-								<option value="0"<?php if ( $_mw_adminimize_control_flashloader === '0' ) {
-									echo ' selected="selected"';
-								} ?>><?php esc_attr_e( 'Default', 'adminimize' ); ?></option>
-								<option value="1"<?php if ( $_mw_adminimize_control_flashloader === '1' ) {
-									echo ' selected="selected"';
-								} ?>><?php esc_attr_e( 'Activate', 'adminimize' ); ?></option>
-							</select> <?php esc_attr_e(
-								'Disable the flashuploader and users use only the standard uploader.', 'adminimize'
-							); ?>
-						</td>
-					</tr>
-				<?php } // end if < wp 3-6 ?>
 				<tr valign="top">
 					<td><?php esc_attr_e( 'Category Height', 'adminimize' ); ?></td>
 					<td>
