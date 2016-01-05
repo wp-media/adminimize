@@ -1291,9 +1291,7 @@ function _mw_adminimize_get_option_value( $key = FALSE ) {
 function _mw_adminimize_update_option( $options ) {
 
 	if ( ! current_user_can( 'manage_options' ) ) {
-		wp_die(
-			esc_attr__( 'Cheatin&#8217; uh? You do not have the right permission to update settings', 'adminimize' )
-		);
+		return;
 	}
 
 	if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {

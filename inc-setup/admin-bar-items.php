@@ -16,7 +16,8 @@ add_action( 'admin_bar_menu', '_mw_adminimize_get_admin_bar_nodes', 99999 );
  * Get all admin bar items in back end and write in a options of Adminimize settings array
  *
  * @since   1.8.1  01/10/2013
- * @return  void
+ *
+ * @param $wp_admin_bar
  */
 function _mw_adminimize_get_admin_bar_nodes( $wp_admin_bar ) {
 
@@ -49,6 +50,9 @@ add_action( 'admin_bar_menu', '_mw_adminimize_get_admin_bar_frontend_nodes', 999
  * Get admin bar items from frontend view.
  *
  * @since 2015-07-03
+ *
+ * @param $wp_admin_bar
+ *
  * @return null
  */
 function _mw_adminimize_get_admin_bar_frontend_nodes( $wp_admin_bar ) {
