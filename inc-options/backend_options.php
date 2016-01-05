@@ -186,7 +186,7 @@ if ( ! function_exists( 'add_action' ) ) {
 					array_push( $disabled_menu_all, $disabled_submenu_[ $role ] );
 				}
 
-				if ( '' != $disabled_menu_all ) {
+				if ( '' !== $disabled_menu_all ) {
 					if ( ! _mw_adminimize_recursive_in_array( 'index.php', $disabled_menu_all ) ) {
 						$disabled_item2 = ' disabled="disabled"';
 					}
