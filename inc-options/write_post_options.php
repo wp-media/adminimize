@@ -37,7 +37,7 @@ if ( ! function_exists( 'add_action' ) ) {
 						$role_name = preg_replace( '/[^a-z0-9]+/', '', $role_name );
 						echo '<td class="num">';
 						echo '<input id="select_all" class="write_post_options_' . $role_name
-								. '" type="checkbox" name="" value="" />';
+							. '" type="checkbox" name="" value="" />';
 						echo '</td>' . "\n";
 					} ?>
 				</tr>
@@ -83,6 +83,10 @@ if ( ! function_exists( 'add_action' ) ) {
 					if ( 'post-formats' === $post_type_support ) {
 						$post_type_support = 'format';
 					}
+					if ( 'editor' === $post_type_support ) {
+						$post_type_support = 'postdivrich';
+					}
+
 					array_push(
 						$metaboxes,
 						'#' . $post_type_support . ', #' . $post_type_support . 'div, th.column-' . $post_type_support . ', td.' . $post_type_support
