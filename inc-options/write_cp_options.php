@@ -195,10 +195,8 @@ foreach ( get_post_types( $args ) as $post_type ) {
 					}
 
 					$x     = 0;
-					$class = '';
 					foreach ( $metaboxes as $index => $metabox ) {
-						if ( '' != $metabox ) {
-							$class              = ( ' class="alternate"' == $class ) ? '' : ' class="alternate"';
+						if ( '' !== $metabox ) {
 							$checked_user_role_ = array();
 							foreach ( $user_roles as $role ) {
 								$disabled_metaboxes_[ $post_type . '_' . $role ] = _mw_adminimize_get_option_value(
@@ -211,7 +209,7 @@ foreach ( get_post_types( $args ) as $post_type ) {
 									)
 								) ? ' checked="checked"' : '';
 							}
-							echo '<tr' . $class . '>' . "\n";
+							echo '<tr>' . "\n";
 							echo '<td>' . $metaboxes_names[ $index ] .
 								' <span>(' . $metabox . ')</span> </td>' . "\n";
 							foreach ( $user_roles as $role ) {

@@ -183,10 +183,8 @@ if ( ! function_exists( 'add_action' ) ) {
 				}
 
 				$x     = 0;
-				$class = '';
 				foreach ( $metaboxes_page as $index => $metabox ) {
 					if ( $metabox != '' ) {
-						$class              = ( ' class="alternate"' == $class ) ? '' : ' class="alternate"';
 						$checked_user_role_ = array();
 						foreach ( $user_roles as $role ) {
 							$checked_user_role_[ $role ] = ( isset( $disabled_metaboxes_page_[ $role ] )
@@ -194,7 +192,7 @@ if ( ! function_exists( 'add_action' ) ) {
 									$metabox, $disabled_metaboxes_page_[ $role ]
 								) ) ? ' checked="checked"' : '';
 						}
-						echo '<tr' . $class . '>' . "\n";
+						echo '<tr>' . "\n";
 						echo '<td>' . $metaboxes_names_page[ $index ] . ' <span>(' . $metabox . ')</span> </td>' . "\n";
 						foreach ( $user_roles as $role ) {
 							echo '<td class="num">';

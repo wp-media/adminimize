@@ -81,7 +81,6 @@ if ( ! function_exists( 'add_action' ) ) {
 
 					$i     = 0;
 					$x     = 0;
-					$class = '';
 
 					$users = array(
 						0 => 'Profile',
@@ -178,8 +177,6 @@ if ( ! function_exists( 'add_action' ) ) {
 							// Loop about submenu items.
 							foreach ( $wp_submenu[ $item[ 2 ] ] as $subkey => $subitem ) {
 
-								$class = ( ' class="alternate"' === $class ) ? '' : ' class="alternate"';
-
 								// Special solutions for the Adminimize link, that it not works on settings site.
 								if ( $subitem[ 2 ] === 'adminimize/adminimize.php' ) {
 									//$disabled_subitem_adm = ' disabled="disabled"';
@@ -193,7 +190,7 @@ if ( ! function_exists( 'add_action' ) ) {
 									$disabled_subitem_adm_hint = '';
 								}
 
-								echo '<tr' . $class . '>' . "\n";
+								echo '<tr>' . "\n";
 								foreach ( $user_roles as $role ) {
 									// checkbox checked
 									$checked_user_role_[ $role ] = '';

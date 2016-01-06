@@ -2,11 +2,15 @@
 /**
  * Stylesheet for the Adminimize settings page.
  *
- * @version 2015-12-16
+ * @version 2016-01-06
  */
 
 #minimenu td a {
 	display: block;
+}
+
+table th, table tr:nth-child(odd) {
+	background: #eee;
 }
 
 .widefat thead td input[type=checkbox] {

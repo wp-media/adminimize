@@ -59,7 +59,6 @@ if ( ! function_exists( 'add_action' ) ) {
 							"SELECT ID, user_login, display_name FROM $wpdb->users ORDER BY ID"
 						);
 
-						$style = '';
 						foreach ( $wp_user_search as $userid ) {
 							$user_id       = (int) $userid->ID;
 							$user_login    = stripslashes( $userid->user_login );
@@ -77,7 +76,6 @@ if ( ! function_exists( 'add_action' ) ) {
 								$role_name = strrpos( $wp_roles->role_names[ $role ], '|' );
 							}
 
-							$style  = ( ' class="alternate"' === $style ) ? '' : ' class="alternate"';
 							$return = '';
 							$return .= '<tr>' . "\n";
 							$return .= "\t" . '<td class="num"><input type="checkbox" name="mw_adminimize_theme_items[]" value="' . $user_id . '" /></td>' . "\n";
