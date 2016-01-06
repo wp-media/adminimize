@@ -9,22 +9,23 @@ if ( ! function_exists( 'add_action' ) ) {
 	exit;
 }
 
-if ( ! is_admin() )
+if ( ! is_admin() ) {
 	return NULL;
+}
 
 // on init of WordPress
 add_action( 'admin_init', '_mw_adminimize_init_admin_footer' );
-
 function _mw_adminimize_init_admin_footer() {
-	
-	if ( (int) _mw_adminimize_get_option_value( '_mw_adminimize_advice' ) === 1 )
+
+	if ( (int) _mw_adminimize_get_option_value( '_mw_adminimize_advice' ) === 1 ) {
 		add_action( 'in_admin_footer', '_mw_adminimize_add_admin_footer' );
+	}
 }
 
 /**
- * Hint in wp-footer
+ * Print hint in wp-footer
  */
 function _mw_adminimize_add_admin_footer() {
-	
-	echo stripslashes( _mw_adminimize_get_option_value( '_mw_adminimize_advice_txt' ) ) . '<br />';
+
+	echo _mw_adminimize_get_option_value( '_mw_adminimize_advice_txt' ) . '<br />';
 }

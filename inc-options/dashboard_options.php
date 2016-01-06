@@ -19,9 +19,10 @@ if ( ! function_exists( 'add_action' ) ) {
 		<div class="inside">
 			<br class="clear" />
 			<?php
+			$disabled_dashboard_option_ = array();
 			// get widgets
 			$widgets = _mw_adminimize_get_option_value( 'mw_adminimize_dashboard_widgets' );
-			if ( ! isset( $widgets ) ) {
+			if ( NULL === $widgets ) {
 				echo '<p class="form-invalid">';
 				esc_attr_e(
 					'To complete the installation for Dashboard Widgets you must visit your dashboard once and then come back to Settings > Adminimize to configure who has access to each widget.',
@@ -49,7 +50,7 @@ if ( ! function_exists( 'add_action' ) ) {
 							$role_name = preg_replace( '/[^a-z0-9]+/', '', $role_name );
 							echo '<td class="num">';
 							echo '<input id="select_all" class="dashboard_options_' . $role_name
-									. '" type="checkbox" name="" value="" />';
+								. '" type="checkbox" name="" value="" />';
 							echo '</td>' . "\n";
 						} ?>
 					</tr>
@@ -63,15 +64,18 @@ if ( ! function_exists( 'add_action' ) ) {
 						);
 					}
 
-					$dashboard_options = array();
+					$dashboard_options       = array();
 					$dashboard_options_names = array();
 					foreach ( $widgets as $widget ) {
 						// Object to array
 						if ( is_object( $widget ) ) {
 							$widget = get_object_vars( $widget );
 						}
-						array_push( $dashboard_options, $widget[ 'id' ] );
-						array_push( $dashboard_options_names, $widget[ 'title' ] );
+						// Switch from array_push() to $array[] for better performance.
+						//array_push( $dashboard_options, $widget[ 'id' ] );
+						$dashboard_options[] = $widget[ 'id' ];
+						//array_push( $dashboard_options_names, $widget[ 'title' ] );
+						$dashboard_options_names[] = $widget[ 'title' ];
 					}
 
 					$_mw_adminimize_own_dashboard_values = _mw_adminimize_get_option_value(
@@ -80,7 +84,8 @@ if ( ! function_exists( 'add_action' ) ) {
 					$_mw_adminimize_own_dashboard_values = preg_split( "/\r\n/", $_mw_adminimize_own_dashboard_values );
 					foreach ( (array) $_mw_adminimize_own_dashboard_values as $key => $_mw_adminimize_own_dashboard_value ) {
 						$_mw_adminimize_own_dashboard_value = trim( $_mw_adminimize_own_dashboard_value );
-						array_push( $dashboard_options, $_mw_adminimize_own_dashboard_value );
+						//array_push( $dashboard_options, $_mw_adminimize_own_dashboard_value );
+						$dashboard_options[] = $_mw_adminimize_own_dashboard_value;
 					}
 
 					$_mw_adminimize_own_dashboard_options = _mw_adminimize_get_option_value(
@@ -91,20 +96,30 @@ if ( ! function_exists( 'add_action' ) ) {
 					);
 					foreach ( (array) $_mw_adminimize_own_dashboard_options as $key => $_mw_adminimize_own_dashboard_option ) {
 						$_mw_adminimize_own_dashboard_option = trim( $_mw_adminimize_own_dashboard_option );
-						array_push( $dashboard_options_names, $_mw_adminimize_own_dashboard_option );
+						//array_push( $dashboard_options_names, $_mw_adminimize_own_dashboard_option );
+						$dashboard_options_names[] = $_mw_adminimize_own_dashboard_option;
 					}
 
 					$x = 0;
 					foreach ( $dashboard_options as $index => $dashboard_option ) {
+
 						if ( '' !== $dashboard_option ) {
 							$checked_user_role_ = array();
 							foreach ( $user_roles as $role ) {
-								$checked_user_role_[ $role ] = ( isset( $disabled_dashboard_option_[ $role ] )
-									&& in_array(
-										$dashboard_option, $disabled_dashboard_option_[ $role ]
-									) ) ? ' checked="checked"' : '';
+
+								$checked_user_role_[ $role ] = ( in_array(
+									$dashboard_option, (array) $disabled_dashboard_option_[ $role ], FALSE
+								) ) ? ' checked="checked"' : '';
+
 							}
 							echo '<tr>' . "\n";
+
+							// No title on the Dashboard item.
+							if ( ! $dashboard_options_names[ $index ] ) {
+								$dashboard_options_names[ $index ] = '<b><i>' . esc_attr__(
+										'No Title!', 'adminimize'
+									) . '</i></b>';
+							}
 							echo '<td>' . $dashboard_options_names[ $index ] . ' <span>(' . $dashboard_option . ')</span> </td>' . "\n";
 							foreach ( $user_roles as $role ) {
 								echo '<td class="num">';
@@ -117,13 +132,14 @@ if ( ! function_exists( 'add_action' ) ) {
 							echo '</tr>' . "\n";
 							$x ++;
 						}
+
 					}
 					?>
 					</tbody>
 				</table>
 
 				<?php
-				//your own dashboard options
+				//Your own dashboard options.
 				?>
 				<br style="margin-top: 10px;" />
 				<table summary="config_edit_post" class="widefat">
@@ -146,24 +162,32 @@ if ( ! function_exists( 'add_action' ) ) {
 					</tr>
 					<tr valign="top">
 						<td>
-							<textarea name="_mw_adminimize_own_dashboard_options" cols="60" rows="3" id="_mw_adminimize_own_dashboard_options" style="width: 95%;"><?php echo _mw_adminimize_get_option_value(
+							<textarea name="_mw_adminimize_own_dashboard_options" cols="60" rows="3"
+								id="_mw_adminimize_own_dashboard_options" style="width: 95%;"><?php
+								echo _mw_adminimize_get_option_value(
 									'_mw_adminimize_own_dashboard_options'
 								); ?></textarea>
 							<br />
-							<?php esc_attr_e(
-								'Possible nomination for ID or class. Separate multiple nominations through a carriage return.',
-								'adminimize'
-							); ?>
+							<label for="_mw_adminimize_own_dashboard_options">
+								<?php esc_attr_e(
+									'Possible nomination for ID or class. Separate multiple nominations through a carriage return.',
+									'adminimize'
+								); ?>
+							</label>
 						</td>
 						<td>
-							<textarea class="code" name="_mw_adminimize_own_dashboard_values" cols="60" rows="3" id="_mw_adminimize_own_dashboard_values" style="width: 95%;"><?php echo _mw_adminimize_get_option_value(
+							<textarea class="code" name="_mw_adminimize_own_dashboard_values" cols="60" rows="3"
+								id="_mw_adminimize_own_dashboard_values" style="width: 95%;"><?php
+								echo _mw_adminimize_get_option_value(
 									'_mw_adminimize_own_dashboard_values'
 								); ?></textarea>
 							<br />
-							<?php esc_attr_e(
-								'Possible IDs or classes. Separate multiple values through a carriage return.',
-								'adminimize'
-							); ?>
+							<label for="_mw_adminimize_own_dashboard_values">
+								<?php esc_attr_e(
+									'Possible IDs or classes. Separate multiple values through a carriage return.',
+									'adminimize'
+								); ?>
+							</label>
 						</td>
 					</tr>
 					</tbody>

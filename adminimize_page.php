@@ -18,7 +18,7 @@ if ( array_key_exists( '_mw_adminimize_export', $_GET ) ) {
 function _mw_adminimize_options() {
 	global $wpdb, $_wp_admin_css_colors, $wp_version, $wp_roles, $table_prefix;
 
-	$_mw_adminimize_user_info = '';
+	$_mw_adminimize_user_info = 0;
 
 	// get array with userroles
 	// also provide for the other files

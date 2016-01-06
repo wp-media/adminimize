@@ -46,8 +46,8 @@ function _mw_adminimize_remove_my_account() {
 function _mw_adminimize_add_logout( $wp_admin_bar ) {
 
 	$user_id                    = get_current_user_id();
-	$_mw_adminimize_ui_redirect = _mw_adminimize_get_option_value( '_mw_adminimize_ui_redirect' );
-	if ( '1' === $_mw_adminimize_ui_redirect ) {
+	$_mw_adminimize_ui_redirect = (int) _mw_adminimize_get_option_value( '_mw_adminimize_ui_redirect' );
+	if ( 1 === $_mw_adminimize_ui_redirect ) {
 		$redirect = '&amp;redirect_to=' . get_option( 'siteurl' );
 	} else {
 		$redirect = '';
@@ -71,8 +71,8 @@ function _mw_adminimize_add_user_logout( $wp_admin_bar ) {
 
 	$user_id                    = get_current_user_id();
 	$current_user               = wp_get_current_user();
-	$_mw_adminimize_ui_redirect = _mw_adminimize_get_option_value( '_mw_adminimize_ui_redirect' );
-	if ( '1' === $_mw_adminimize_ui_redirect ) {
+	$_mw_adminimize_ui_redirect = (int) _mw_adminimize_get_option_value( '_mw_adminimize_ui_redirect' );
+	if ( 1 === $_mw_adminimize_ui_redirect ) {
 		$redirect = '&amp;redirect_to=' . get_option( 'siteurl' );
 	} else {
 		$redirect = '';
@@ -112,7 +112,7 @@ function _mw_adminimize_set_menu_option_33() {
 		);
 	}
 
-	$_mw_adminimize_user_info   = _mw_adminimize_get_option_value( '_mw_adminimize_user_info' );
+	$_mw_adminimize_user_info   = (int) _mw_adminimize_get_option_value( '_mw_adminimize_user_info' );
 	// change user-info
 	switch ( $_mw_adminimize_user_info ) {
 		case 1:
@@ -221,7 +221,7 @@ function _mw_adminimize_remove_admin_bar() {
  */
 function _mw_adminimize_restore_links() {
 
-	$_mw_adminimize_user_info = _mw_adminimize_get_option_value( '_mw_adminimize_user_info' );
+	$_mw_adminimize_user_info = (int) _mw_adminimize_get_option_value( '_mw_adminimize_user_info' );
 	?>
 	<style type="text/css">
 		#mw_adminimize_admin_bar {
@@ -261,7 +261,7 @@ function _mw_adminimize_restore_links() {
 			<?php
 			wp_get_current_user();
 			$current_user = wp_get_current_user();
-			if ( empty( $_mw_adminimize_user_info ) || 0 == $_mw_adminimize_user_info || 3 == $_mw_adminimize_user_info ) {
+			if ( empty( $_mw_adminimize_user_info ) || 0 === $_mw_adminimize_user_info || 3 === $_mw_adminimize_user_info ) {
 				if ( ! ( $current_user instanceof WP_User ) ) {
 					return;
 				}

@@ -33,10 +33,10 @@ if ( ! function_exists( 'add_action' ) ) {
 								'_mw_adminimize_exclude_super_admin'
 							); ?>
 							<select name="_mw_adminimize_exclude_super_admin">
-								<option value="0"<?php if ( $_mw_adminimize_exclude_super_admin === '0' ) {
+								<option value="0"<?php if ( $_mw_adminimize_exclude_super_admin === 0 ) {
 									echo ' selected="selected"';
 								} ?>><?php esc_attr_e( 'Default', 'adminimize' ); ?></option>
-								<option value="1"<?php if ( $_mw_adminimize_exclude_super_admin === '1' ) {
+								<option value="1"<?php if ( $_mw_adminimize_exclude_super_admin === 1 ) {
 									echo ' selected="selected"';
 								} ?>><?php esc_attr_e( 'Activate', 'adminimize' ); ?></option>
 							</select> <?php esc_attr_e(
@@ -53,16 +53,16 @@ if ( ! function_exists( 'add_action' ) ) {
 							'_mw_adminimize_user_info'
 						); ?>
 						<select name="_mw_adminimize_user_info">
-							<option value="0"<?php if ( $_mw_adminimize_user_info === '0' ) {
+							<option value="0"<?php if ( $_mw_adminimize_user_info === 0 ) {
 								echo ' selected="selected"';
 							} ?>><?php esc_attr_e( 'Default', 'adminimize' ); ?></option>
-							<option value="1"<?php if ( $_mw_adminimize_user_info === '1' ) {
+							<option value="1"<?php if ( $_mw_adminimize_user_info === 1 ) {
 								echo ' selected="selected"';
 							} ?>><?php esc_attr_e( 'Hide', 'adminimize' ); ?></option>
-							<option value="2"<?php if ( $_mw_adminimize_user_info === '2' ) {
+							<option value="2"<?php if ( $_mw_adminimize_user_info === 2 ) {
 								echo ' selected="selected"';
 							} ?>><?php esc_attr_e( 'Only logout', 'adminimize' ); ?></option>
-							<option value="3"<?php if ( $_mw_adminimize_user_info === '3' ) {
+							<option value="3"<?php if ( $_mw_adminimize_user_info === 3 ) {
 								echo ' selected="selected"';
 							} ?>><?php esc_attr_e( 'User &amp; Logout', 'adminimize' ); ?></option>
 						</select> <?php esc_attr_e(
@@ -71,22 +71,22 @@ if ( ! function_exists( 'add_action' ) ) {
 						); ?>
 					</td>
 				</tr>
-				<?php if ( ( $_mw_adminimize_user_info === '' ) || ( $_mw_adminimize_user_info === '1' ) || ( $_mw_adminimize_user_info === '0' ) ) {
+				<?php if ( ( $_mw_adminimize_user_info === '' ) || ( $_mw_adminimize_user_info === 1 ) || ( $_mw_adminimize_user_info === 0 ) ) {
 					$disabled_item = ' disabled="disabled"';
 				} ?>
 				<tr valign="top" class="form-invalid">
 					<td><?php esc_attr_e( 'Change User-Info, redirect to', 'adminimize' ); ?></td>
 					<td>
-						<?php $_mw_adminimize_ui_redirect = _mw_adminimize_get_option_value(
+						<?php $_mw_adminimize_ui_redirect = (int) _mw_adminimize_get_option_value(
 							'_mw_adminimize_ui_redirect'
 						); ?>
 						<select name="_mw_adminimize_ui_redirect" <?php if ( isset( $disabled_item ) ) {
 							echo $disabled_item;
 						} ?>>
-							<option value="0"<?php if ( $_mw_adminimize_ui_redirect === '0' ) {
+							<option value="0"<?php if ( $_mw_adminimize_ui_redirect === 0 ) {
 								echo ' selected="selected"';
 							} ?>><?php esc_attr_e( 'Default', 'adminimize' ); ?></option>
-							<option value="1"<?php if ( $_mw_adminimize_ui_redirect === '1' ) {
+							<option value="1"<?php if ( $_mw_adminimize_ui_redirect === 1 ) {
 								echo ' selected="selected"';
 							} ?>><?php esc_attr_e( 'Frontpage of the Blog', 'adminimize' ); ?>
 						</select> <?php esc_attr_e(
@@ -98,12 +98,12 @@ if ( ! function_exists( 'add_action' ) ) {
 				<tr valign="top">
 					<td><?php esc_attr_e( 'Footer', 'adminimize' ); ?></td>
 					<td>
-						<?php $_mw_adminimize_footer = _mw_adminimize_get_option_value( '_mw_adminimize_footer' ); ?>
+						<?php $_mw_adminimize_footer = (int) _mw_adminimize_get_option_value( '_mw_adminimize_footer' ); ?>
 						<select name="_mw_adminimize_footer">
-							<option value="0"<?php if ( $_mw_adminimize_footer === '0' ) {
+							<option value="0"<?php if ( $_mw_adminimize_footer === 0 ) {
 								echo ' selected="selected"';
 							} ?>><?php esc_attr_e( 'Default', 'adminimize' ); ?></option>
-							<option value="1"<?php if ( $_mw_adminimize_footer === '1' ) {
+							<option value="1"<?php if ( $_mw_adminimize_footer === 1 ) {
 								echo ' selected="selected"';
 							} ?>><?php esc_attr_e( 'Hide', 'adminimize' ); ?></option>
 						</select> <?php esc_attr_e(
@@ -114,14 +114,14 @@ if ( ! function_exists( 'add_action' ) ) {
 				<tr valign="top">
 					<td><?php esc_attr_e( 'Timestamp', 'adminimize' ); ?></td>
 					<td>
-						<?php $_mw_adminimize_timestamp = _mw_adminimize_get_option_value(
+						<?php $_mw_adminimize_timestamp = (int) _mw_adminimize_get_option_value(
 							'_mw_adminimize_timestamp'
 						); ?>
 						<select name="_mw_adminimize_timestamp">
-							<option value="0"<?php if ( $_mw_adminimize_timestamp === '0' ) {
+							<option value="0"<?php if ( $_mw_adminimize_timestamp === 0 ) {
 								echo ' selected="selected"';
 							} ?>><?php esc_attr_e( 'Default', 'adminimize' ); ?></option>
-							<option value="1"<?php if ( $_mw_adminimize_timestamp === '1' ) {
+							<option value="1"<?php if ( $_mw_adminimize_timestamp === 1 ) {
 								echo ' selected="selected"';
 							} ?>><?php esc_attr_e( 'Activate', 'adminimize' ); ?></option>
 						</select> <?php esc_attr_e(
@@ -133,14 +133,14 @@ if ( ! function_exists( 'add_action' ) ) {
 				<tr valign="top">
 					<td><?php esc_attr_e( 'Category Height', 'adminimize' ); ?></td>
 					<td>
-						<?php $_mw_adminimize_cat_full = _mw_adminimize_get_option_value(
+						<?php $_mw_adminimize_cat_full = (int) _mw_adminimize_get_option_value(
 							'_mw_adminimize_cat_full'
 						); ?>
 						<select name="_mw_adminimize_cat_full">
-							<option value="0"<?php if ( $_mw_adminimize_cat_full === '0' ) {
+							<option value="0"<?php if ( $_mw_adminimize_cat_full === 0 ) {
 								echo ' selected="selected"';
 							} ?>><?php esc_attr_e( 'Default', 'adminimize' ); ?></option>
-							<option value="1"<?php if ( $_mw_adminimize_cat_full === '1' ) {
+							<option value="1"<?php if ( $_mw_adminimize_cat_full === 1 ) {
 								echo ' selected="selected"';
 							} ?>><?php esc_attr_e( 'Activate', 'adminimize' ); ?></option>
 						</select> <?php esc_attr_e(
@@ -152,12 +152,12 @@ if ( ! function_exists( 'add_action' ) ) {
 				<tr valign="top">
 					<td><?php esc_attr_e( 'Advice in Footer', 'adminimize' ); ?></td>
 					<td>
-						<?php $_mw_adminimize_advice = _mw_adminimize_get_option_value( '_mw_adminimize_advice' ); ?>
+						<?php $_mw_adminimize_advice = (int) _mw_adminimize_get_option_value( '_mw_adminimize_advice' ); ?>
 						<select name="_mw_adminimize_advice">
-							<option value="0"<?php if ( $_mw_adminimize_advice === '0' ) {
+							<option value="0"<?php if ( $_mw_adminimize_advice === 0 ) {
 								echo ' selected="selected"';
 							} ?>><?php esc_attr_e( 'Default', 'adminimize' ); ?></option>
-							<option value="1"<?php if ( $_mw_adminimize_advice === '1' ) {
+							<option value="1"<?php if ( $_mw_adminimize_advice === 1 ) {
 								echo ' selected="selected"';
 							} ?>><?php esc_attr_e( 'Activate', 'adminimize' ); ?></option>
 						</select>
@@ -200,31 +200,31 @@ if ( ! function_exists( 'add_action' ) ) {
 							<select name="_mw_adminimize_db_redirect"<?php if ( isset( $disabled_item2 ) ) {
 								echo $disabled_item2;
 							} ?>>
-								<option value="0"<?php if ( $_mw_adminimize_db_redirect === '0' ) {
+								<option value="0"<?php if ( $_mw_adminimize_db_redirect === 0 ) {
 									echo ' selected="selected"';
 								} ?>><?php esc_attr_e( 'Default', 'adminimize' ); ?> (profile.php)
 								</option>
-								<option value="1"<?php if ( $_mw_adminimize_db_redirect === '1' ) {
+								<option value="1"<?php if ( $_mw_adminimize_db_redirect === 1 ) {
 									echo ' selected="selected"';
 								} ?>><?php esc_attr_e( 'Manage Posts', 'adminimize' ); ?> (edit.php)
 								</option>
-								<option value="2"<?php if ( $_mw_adminimize_db_redirect === '2' ) {
+								<option value="2"<?php if ( $_mw_adminimize_db_redirect === 2 ) {
 									echo ' selected="selected"';
 								} ?>><?php esc_attr_e( 'Manage Pages', 'adminimize' ); ?> (edit-pages.php)
 								</option>
-								<option value="3"<?php if ( $_mw_adminimize_db_redirect === '3' ) {
+								<option value="3"<?php if ( $_mw_adminimize_db_redirect === 3 ) {
 									echo ' selected="selected"';
 								} ?>><?php esc_attr_e( 'Write Post', 'adminimize' ); ?> (post-new.php)
 								</option>
-								<option value="4"<?php if ( $_mw_adminimize_db_redirect === '4' ) {
+								<option value="4"<?php if ( $_mw_adminimize_db_redirect === 4 ) {
 									echo ' selected="selected"';
 								} ?>><?php esc_attr_e( 'Write Page', 'adminimize' ); ?> (page-new.php)
 								</option>
-								<option value="5"<?php if ( $_mw_adminimize_db_redirect === '5' ) {
+								<option value="5"<?php if ( $_mw_adminimize_db_redirect === 5 ) {
 									echo ' selected="selected"';
 								} ?>><?php esc_attr_e( 'Comments', 'adminimize' ); ?> (edit-comments.php)
 								</option>
-								<option value="6"<?php if ( $_mw_adminimize_db_redirect === '6' ) {
+								<option value="6"<?php if ( $_mw_adminimize_db_redirect === 6 ) {
 									echo ' selected="selected"';
 								} ?>><?php esc_attr_e( 'other Page', 'adminimize' ); ?></option>
 							</select>
