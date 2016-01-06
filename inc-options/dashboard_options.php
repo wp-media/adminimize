@@ -96,7 +96,7 @@ if ( ! function_exists( 'add_action' ) ) {
 
 					$x = 0;
 					foreach ( $dashboard_options as $index => $dashboard_option ) {
-						if ( $dashboard_option != '' ) {
+						if ( '' !== $dashboard_option ) {
 							$checked_user_role_ = array();
 							foreach ( $user_roles as $role ) {
 								$checked_user_role_[ $role ] = ( isset( $disabled_dashboard_option_[ $role ] )

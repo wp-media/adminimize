@@ -23,6 +23,10 @@ function _mw_adminimize_recursive_in_array( $needle, $haystack ) {
 		return FALSE;
 	}
 
+	if ( ! $haystack ) {
+		return FALSE;
+	}
+
 	foreach ( $haystack as $stalk ) {
 		if ( $needle === $stalk
 			|| ( is_array( $stalk )

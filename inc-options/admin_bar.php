@@ -117,7 +117,8 @@ if ( ! isset( $user_roles_names ) ) {
 						$x ++;
 					}
 				} else {
-					$message = '<span style="font-size: 35px;">&#x261D;</span>' . esc_attr__( 'Update the options to get all items of the admin bar in the back end area.', 'adminimize' );
+					$message = '<span style="font-size: 35px;">&#x261D;</span>'
+						. esc_attr__( 'Switch to another back-end page and come back to update the options to get all items of the admin bar in the back end area.', 'adminimize' );
 				}
 				?>
 				</tbody>

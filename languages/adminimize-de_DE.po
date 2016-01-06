@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Adminimize\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-20 12:45+0100\n"
-"PO-Revision-Date: 2015-12-20 19:27+0100\n"
-"Last-Translator: Frank Bültge <frank@bueltge.de>\n"
+"POT-Creation-Date: 2016-01-06 13:45+0100\n"
+"PO-Revision-Date: 2016-01-06 13:46+0100\n"
+"Last-Translator: Frank Bueltge\n"
 "Language-Team: Frank Bueltge <frank@bueltge.de>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
@@ -17,46 +17,31 @@ msgstr ""
 "esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_attr_n:1,2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Textdomain-Support: yes\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.5\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: adminimize.php:7
-msgid ""
-"Visually compresses the administrative meta-boxes so that more admin page "
-"content can be initially seen. The plugin that lets you hide 'unnecessary' "
-"items from the WordPress administration menu, for all roles of your install. "
-"You can also hide post meta controls on the edit-area to simplify the "
-"interface. It is possible to simplify the admin in different for all roles."
-msgstr ""
-"Visuelle Reduzierung des administrativen Bereiches auf das, was notwendig "
-"ist. Das Plugin gibt die die Möglichkeit \"unnötige\" Bereiche aus dem "
-"WordPress Adminisrationsbereich, Menus zu entfernen, getrennt für jede "
-"existierende Benutzerrolle. Du kannst außerdem diverse andere Bereiche "
-"ausblenden um das Interface zu vereinfachen. Es ist außerdem möglich eigene "
-"Optione pro Benutzerrolle zu ergänzen."
-
-#: adminimize.php:162
+#: adminimize.php:159
 msgid "Keymaster"
 msgstr "Administrator"
 
-#: adminimize.php:163
+#: adminimize.php:160
 msgid "Moderator"
 msgstr "Moderator"
 
-#: adminimize.php:164
+#: adminimize.php:161
 msgid "Participant"
 msgstr "Teilnehmer"
 
-#: adminimize.php:165
+#: adminimize.php:162
 msgid "Spectator"
 msgstr "Zuschauer"
 
-#: adminimize.php:166
+#: adminimize.php:163
 msgid "Blocked"
 msgstr "Gesperrt"
 
 # @ default
-#: adminimize.php:534 adminimize.php:535 adminimize.php:541 adminimize.php:543
+#: adminimize.php:533 adminimize.php:534 adminimize.php:540 adminimize.php:542
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -89,19 +74,12 @@ msgstr "Adminimize"
 msgid "Cheatin&#8217; uh?"
 msgstr "Cheatin&#8217; uh?"
 
-#: adminimize.php:1295
-msgid ""
-"Cheatin&#8217; uh? You do not have the right permission to update settings"
-msgstr ""
-"Schummeln, was? Du hast nicht die ausreichenden Rechte um das Update der "
-"Einstellungen durchzuführen."
-
-#: adminimize.php:1774
+#: adminimize.php:1772
 msgid "Please upload a valid .json file"
 msgstr "Bitte lade eine valide .json Datei"
 
 # @ adminimize
-#: adminimize.php:1780
+#: adminimize.php:1778
 msgid "Please upload a file to import"
 msgstr "Bitte lade eine Datei zum importieren hoch"
 
@@ -132,9 +110,9 @@ msgstr "Admin Bar Backend"
 #: inc-options/links_options.php:24 inc-options/links_options.php:128
 #: inc-options/widget_options.php:24 inc-options/widget_options.php:140
 #: inc-options/wp_nav_menu_options.php:23
-#: inc-options/wp_nav_menu_options.php:155
-#: inc-options/write_cp_options.php:248 inc-options/write_page_options.php:226
-#: inc-options/write_post_options.php:225
+#: inc-options/wp_nav_menu_options.php:155 inc-options/write_cp_options.php:246
+#: inc-options/write_page_options.php:224
+#: inc-options/write_post_options.php:227
 msgid "Option"
 msgstr "Einstellung"
 
@@ -163,38 +141,39 @@ msgid "No Title!"
 msgstr "Kein Titel!"
 
 #: inc-options/admin_bar.php:90 inc-options/admin_bar_frontend.php:91
-#: inc-options/menu_options.php:131
+#: inc-options/menu_options.php:130
 msgid "Group"
 msgstr "Gruppe"
 
-#: inc-options/admin_bar.php:120
+#: inc-options/admin_bar.php:121
 msgid ""
-"Update the options to get all items of the admin bar in the back end area."
+"Switch to another back-end page and come back to update the options to get "
+"all items of the admin bar in the back end area."
 msgstr ""
-"Aktualisiere die Einstellungen um alle Einträge der Admin Bar im Backend zu "
-"ermitteln."
+"Wechsel auf eine andere Backend Seite und komme zurück um die Einstellungen "
+"zu aktualisieren. Im Anschluss erhälst du alle eingelesenen Einträge zur "
+"Admin Bar im Backend."
 
 # @ adminimize
-#: inc-options/admin_bar.php:130 inc-options/admin_bar_frontend.php:136
-#: inc-options/backend_options.php:289 inc-options/dashboard_options.php:175
+#: inc-options/admin_bar.php:131 inc-options/admin_bar_frontend.php:136
+#: inc-options/backend_options.php:248 inc-options/dashboard_options.php:175
 #: inc-options/global_options.php:167 inc-options/links_options.php:166
-#: inc-options/menu_options.php:251 inc-options/widget_options.php:178
-#: inc-options/wp_nav_menu_options.php:193
-#: inc-options/write_cp_options.php:296 inc-options/write_page_options.php:264
-#: inc-options/write_post_options.php:263
+#: inc-options/menu_options.php:248 inc-options/widget_options.php:178
+#: inc-options/wp_nav_menu_options.php:193 inc-options/write_cp_options.php:294
+#: inc-options/write_page_options.php:262
+#: inc-options/write_post_options.php:265
 msgid "Update Options"
 msgstr "Einstellungen aktualisieren"
 
 # @ adminimize
-#: inc-options/admin_bar.php:137 inc-options/admin_bar_frontend.php:143
-#: inc-options/backend_options.php:294 inc-options/dashboard_options.php:183
+#: inc-options/admin_bar.php:138 inc-options/admin_bar_frontend.php:143
+#: inc-options/backend_options.php:253 inc-options/dashboard_options.php:183
 #: inc-options/deinstall_options.php:36 inc-options/global_options.php:174
-#: inc-options/im_export_options.php:78 inc-options/links_options.php:172
-#: inc-options/menu_options.php:257 inc-options/minimenu.php:204
-#: inc-options/theme_options.php:124 inc-options/widget_options.php:184
-#: inc-options/wp_nav_menu_options.php:199
-#: inc-options/write_cp_options.php:302 inc-options/write_page_options.php:269
-#: inc-options/write_post_options.php:269
+#: inc-options/links_options.php:172 inc-options/menu_options.php:254
+#: inc-options/minimenu.php:204 inc-options/theme_options.php:122
+#: inc-options/widget_options.php:184 inc-options/wp_nav_menu_options.php:199
+#: inc-options/write_cp_options.php:300 inc-options/write_page_options.php:267
+#: inc-options/write_post_options.php:271
 msgid "scroll to top"
 msgstr "Nach oben"
 
@@ -223,16 +202,14 @@ msgstr "Ausschließen des Super Admin"
 # @ adminimize
 #: inc-options/backend_options.php:38 inc-options/backend_options.php:58
 #: inc-options/backend_options.php:88 inc-options/backend_options.php:105
-#: inc-options/backend_options.php:123 inc-options/backend_options.php:145
-#: inc-options/backend_options.php:164 inc-options/backend_options.php:183
-#: inc-options/backend_options.php:200 inc-options/backend_options.php:246
+#: inc-options/backend_options.php:123 inc-options/backend_options.php:142
+#: inc-options/backend_options.php:159 inc-options/backend_options.php:205
 msgid "Default"
 msgstr "Standard"
 
 # @ adminimize
 #: inc-options/backend_options.php:41 inc-options/backend_options.php:126
-#: inc-options/backend_options.php:148 inc-options/backend_options.php:167
-#: inc-options/backend_options.php:186 inc-options/backend_options.php:203
+#: inc-options/backend_options.php:145 inc-options/backend_options.php:162
 msgid "Activate"
 msgstr "Aktiv"
 
@@ -320,38 +297,12 @@ msgstr ""
 "ffnet."
 
 # @ adminimize
-#: inc-options/backend_options.php:137
-msgid "Thickbox FullScreen"
-msgstr "Thickbox FullScreen"
-
-# @ adminimize
-#: inc-options/backend_options.php:150
-msgid ""
-"All Thickbox-function use the full area of the browser. Thickbox is for "
-"example in upload media-files."
-msgstr ""
-"Alle Thickbox-Funktion verwenden den vollständigen Bereich des Browsers. "
-"Thickbox ist beispielsweise in der Medien-Upload-Funktion."
-
-# @ adminimize
-#: inc-options/backend_options.php:156
-msgid "Flashuploader"
-msgstr "Flashuploader"
-
-# @ adminimize
-#: inc-options/backend_options.php:169
-msgid "Disable the flashuploader and users use only the standard uploader."
-msgstr ""
-"Deaktiviere den Flashuploader und Nutzer können nur den Standard-Uploader "
-"erreichen."
-
-# @ adminimize
-#: inc-options/backend_options.php:175
+#: inc-options/backend_options.php:134
 msgid "Category Height"
 msgstr "Kategorie-Höhe"
 
 # @ adminimize
-#: inc-options/backend_options.php:188
+#: inc-options/backend_options.php:147
 msgid ""
 "View the Meta Box with Categories in the full height, no scrollbar or "
 "whitespace."
@@ -360,12 +311,12 @@ msgstr ""
 "kein Leerraum."
 
 # @ adminimize
-#: inc-options/backend_options.php:194
+#: inc-options/backend_options.php:153
 msgid "Advice in Footer"
 msgstr "Hinweis im Footer"
 
 # @ adminimize
-#: inc-options/backend_options.php:208
+#: inc-options/backend_options.php:167
 msgid ""
 "In the Footer you can display an  advice for changing the Default-design, "
 "(x)HTML is possible."
@@ -374,42 +325,42 @@ msgstr ""
 "Layout gesetzt werden, (x)HTML erlaubt."
 
 # @ adminimize
-#: inc-options/backend_options.php:236
+#: inc-options/backend_options.php:195
 msgid "Dashboard deactivate, redirect to"
 msgstr "Dashboard inaktiv, Weiterleitung nach"
 
 # @ adminimize
-#: inc-options/backend_options.php:250
+#: inc-options/backend_options.php:209
 msgid "Manage Posts"
 msgstr "Verwalten Beitr&auml;ge"
 
 # @ adminimize
-#: inc-options/backend_options.php:254
+#: inc-options/backend_options.php:213
 msgid "Manage Pages"
 msgstr "Verwalten Seiten"
 
 # @ adminimize
-#: inc-options/backend_options.php:258
+#: inc-options/backend_options.php:217
 msgid "Write Post"
 msgstr "Schreiben Beitrag"
 
 # @ adminimize
-#: inc-options/backend_options.php:262
+#: inc-options/backend_options.php:221
 msgid "Write Page"
 msgstr "Schreiben Seite"
 
 # @ adminimize
-#: inc-options/backend_options.php:266
+#: inc-options/backend_options.php:225
 msgid "Comments"
 msgstr "Kommentare"
 
 # @ adminimize
-#: inc-options/backend_options.php:270
+#: inc-options/backend_options.php:229
 msgid "other Page"
 msgstr "andere Seite"
 
 # @ adminimize
-#: inc-options/backend_options.php:277
+#: inc-options/backend_options.php:236
 msgid ""
 "You have deactivated the Dashboard, please select a page for redirection or "
 "define custom url, include http://?"
@@ -441,18 +392,18 @@ msgstr "Deine eigenen Einstellungen"
 # @ adminimize
 #: inc-options/dashboard_options.php:134 inc-options/global_options.php:125
 #: inc-options/links_options.php:126 inc-options/widget_options.php:138
-#: inc-options/wp_nav_menu_options.php:153
-#: inc-options/write_cp_options.php:245 inc-options/write_page_options.php:224
-#: inc-options/write_post_options.php:223
+#: inc-options/wp_nav_menu_options.php:153 inc-options/write_cp_options.php:243
+#: inc-options/write_page_options.php:222
+#: inc-options/write_post_options.php:225
 msgid "ID or class"
 msgstr "ID oder Klasse"
 
 # @ adminimize
 #: inc-options/dashboard_options.php:143 inc-options/global_options.php:134
 #: inc-options/links_options.php:135 inc-options/widget_options.php:147
-#: inc-options/wp_nav_menu_options.php:162
-#: inc-options/write_cp_options.php:256 inc-options/write_page_options.php:233
-#: inc-options/write_post_options.php:232
+#: inc-options/wp_nav_menu_options.php:162 inc-options/write_cp_options.php:254
+#: inc-options/write_page_options.php:231
+#: inc-options/write_post_options.php:234
 msgid ""
 "It is possible to add your own IDs or classes from elements and tags. You "
 "can find IDs and classes with the FireBug Add-on for Firefox. Assign a value "
@@ -465,9 +416,9 @@ msgstr ""
 # @ adminimize
 #: inc-options/dashboard_options.php:154 inc-options/global_options.php:146
 #: inc-options/links_options.php:146 inc-options/widget_options.php:158
-#: inc-options/wp_nav_menu_options.php:173
-#: inc-options/write_cp_options.php:271 inc-options/write_page_options.php:244
-#: inc-options/write_post_options.php:243
+#: inc-options/wp_nav_menu_options.php:173 inc-options/write_cp_options.php:269
+#: inc-options/write_page_options.php:242
+#: inc-options/write_post_options.php:245
 msgid ""
 "Possible nomination for ID or class. Separate multiple nominations through a "
 "carriage return."
@@ -477,9 +428,9 @@ msgstr ""
 # @ adminimize
 #: inc-options/dashboard_options.php:164 inc-options/global_options.php:157
 #: inc-options/links_options.php:156 inc-options/widget_options.php:168
-#: inc-options/wp_nav_menu_options.php:183
-#: inc-options/write_cp_options.php:284 inc-options/write_page_options.php:254
-#: inc-options/write_post_options.php:253
+#: inc-options/wp_nav_menu_options.php:183 inc-options/write_cp_options.php:282
+#: inc-options/write_page_options.php:252
+#: inc-options/write_post_options.php:255
 msgid ""
 "Possible IDs or classes. Separate multiple values through a carriage return."
 msgstr "Mögliche IDs oder Klassen. Trenne Werte durch eine neue Zeile."
@@ -530,7 +481,7 @@ msgstr "Screen-Meta"
 #: inc-options/global_options.php:67 inc-options/widget_options.php:63
 #: inc-options/wp_nav_menu_options.php:66 inc-options/write_cp_options.php:123
 #: inc-options/write_page_options.php:118
-#: inc-options/write_post_options.php:119
+#: inc-options/write_post_options.php:123
 msgid "Screen Options"
 msgstr "kontextabhängige Optionen"
 
@@ -565,11 +516,6 @@ msgid "You can save a JSON formatted \".json\" file with your settings."
 msgstr "Du kannst deine Einstellungen in einer \".json-Datei\" speichern."
 
 # @ adminimize
-#: inc-options/im_export_options.php:31
-msgid "Export &raquo;"
-msgstr "Exportieren &raquo;"
-
-# @ adminimize
 #: inc-options/im_export_options.php:40
 msgid "Import"
 msgstr "Import"
@@ -581,24 +527,6 @@ msgid ""
 "file and import</em>."
 msgstr ""
 "ually compresses the administrative meta-boxes so that more admin page "
-
-#: inc-options/im_export_options.php:50
-msgid ""
-"After import please reload the page to display also all global values from "
-"WordPress."
-msgstr ""
-"Nach dem Import lade die Seite neu um alle Einstellungen, auch die globalen "
-"Einstellungen von WordPress zu listen."
-
-# @ adminimize
-#: inc-options/im_export_options.php:56
-msgid "Choose a \".json\" file from your computer:"
-msgstr "Wähle eine .json-Datei von deinem Rechner."
-
-# @ adminimize
-#: inc-options/im_export_options.php:66
-msgid "Upload file and import &raquo;"
-msgstr "Hochladen der Datei und importieren &raquo;"
 
 # @ adminimize
 #: inc-options/links_options.php:16 inc-options/minimenu.php:100
@@ -623,7 +551,7 @@ msgstr "Beschreibung"
 # @ default
 # @ adminimize
 #: inc-options/links_options.php:68 inc-options/write_cp_options.php:127
-#: inc-options/write_post_options.php:123
+#: inc-options/write_post_options.php:127
 msgid "Categories"
 msgstr "Kategorien"
 
@@ -645,7 +573,7 @@ msgstr "Erweitert"
 # @ adminimize
 #: inc-options/links_options.php:72 inc-options/write_cp_options.php:136
 #: inc-options/write_page_options.php:136
-#: inc-options/write_post_options.php:133
+#: inc-options/write_post_options.php:137
 msgid "Publish Actions"
 msgstr "Publish Actions"
 
@@ -665,14 +593,14 @@ msgid "Menu options - Menu, Submenu"
 msgstr "Menu Einstellungen - Menu, Submenu"
 
 # @ adminimize
-#: inc-options/menu_options.php:101 inc-options/menu_options.php:188
+#: inc-options/menu_options.php:100 inc-options/menu_options.php:185
 msgid "After activate the check box it heavy attitudes will change."
 msgstr ""
 "Wenn die Checkbox aktiv ist, dann wird das Ändern von Einstellungen "
 "erschwert."
 
 # @ default
-#: inc-options/menu_options.php:160
+#: inc-options/menu_options.php:159
 msgid "Profile"
 msgstr "Profile"
 
@@ -725,7 +653,7 @@ msgstr "WP Nav Menü"
 
 # @ adminimize
 #: inc-options/minimenu.php:117 inc-options/theme_options.php:16
-#: inc-options/theme_options.php:116
+#: inc-options/theme_options.php:114
 msgid "Set Theme"
 msgstr "Theme zuweisen"
 
@@ -859,7 +787,7 @@ msgstr "Rolle"
 # @ default
 #: inc-options/widget_options.php:62 inc-options/wp_nav_menu_options.php:65
 #: inc-options/write_cp_options.php:122 inc-options/write_page_options.php:117
-#: inc-options/write_post_options.php:118
+#: inc-options/write_post_options.php:122
 msgid "Help"
 msgstr "Hilfe"
 
@@ -904,15 +832,15 @@ msgstr "Deine eigenen Nav Menu Einstellungen"
 
 # @ adminimize
 #: inc-options/write_cp_options.php:124 inc-options/write_page_options.php:120
-#: inc-options/write_post_options.php:121
+#: inc-options/write_post_options.php:125
 msgid "Permalink"
 msgstr "Permalink"
 
 # @ adminimize
 # @ default
 #: inc-options/write_cp_options.php:125 inc-options/write_cp_options.php:168
-#: inc-options/write_post_options.php:122
-#: inc-options/write_post_options.php:163
+#: inc-options/write_post_options.php:126
+#: inc-options/write_post_options.php:167
 msgid "Tags"
 msgstr "Tags"
 
@@ -923,71 +851,71 @@ msgstr "Format"
 
 # @ default
 # @ adminimize
-#: inc-options/write_cp_options.php:128 inc-options/write_post_options.php:124
+#: inc-options/write_cp_options.php:128 inc-options/write_post_options.php:128
 msgid "Add New Category"
 msgstr "Add New Category"
 
 # @ adminimize
-#: inc-options/write_cp_options.php:129 inc-options/write_post_options.php:126
+#: inc-options/write_cp_options.php:129 inc-options/write_post_options.php:130
 msgid "Password Protect This Post"
 msgstr "Diesen Artikel durch ein Passwort sch&uuml;tzen"
 
 # @ adminimize
-#: inc-options/write_cp_options.php:130 inc-options/write_post_options.php:127
+#: inc-options/write_cp_options.php:130 inc-options/write_post_options.php:131
 msgid "Related, Shortcuts"
 msgstr "Siehe auch, Tastaturk&uuml;rzel"
 
 # @ adminimize
 #: inc-options/write_cp_options.php:131 inc-options/write_page_options.php:131
-#: inc-options/write_post_options.php:128
+#: inc-options/write_post_options.php:132
 msgid "Messages"
 msgstr "Mitteilungen"
 
 # @ adminimize
 #: inc-options/write_cp_options.php:132 inc-options/write_page_options.php:132
-#: inc-options/write_post_options.php:129
+#: inc-options/write_post_options.php:133
 msgid "h2: Advanced Options"
 msgstr "h2: Erweiterte Einstellungen"
 
 # @ adminimize
 #: inc-options/write_cp_options.php:133 inc-options/write_page_options.php:133
-#: inc-options/write_post_options.php:130
+#: inc-options/write_post_options.php:134
 msgid "Media Buttons (all)"
 msgstr "Media Buttons (alle)"
 
 # @ adminimize
 #: inc-options/write_cp_options.php:134 inc-options/write_page_options.php:134
-#: inc-options/write_post_options.php:131
+#: inc-options/write_post_options.php:135
 msgid "Word count"
 msgstr "Word count"
 
 # @ adminimize
-#: inc-options/write_cp_options.php:135 inc-options/write_post_options.php:132
+#: inc-options/write_cp_options.php:135 inc-options/write_post_options.php:136
 msgid "Post Slug"
 msgstr "Titelform"
 
 # @ default
 # @ adminimize
 #: inc-options/write_cp_options.php:137 inc-options/write_page_options.php:137
-#: inc-options/write_post_options.php:134
+#: inc-options/write_post_options.php:138
 msgid "Discussion"
 msgstr "Kommentare"
 
 # @ default
 # @ adminimize
 #: inc-options/write_cp_options.php:138 inc-options/write_page_options.php:138
-#: inc-options/write_post_options.php:135
+#: inc-options/write_post_options.php:139
 msgid "HTML Editor Button"
 msgstr "HTML Editor Button"
 
 # @ adminimize
-#: inc-options/write_cp_options.php:151 inc-options/write_post_options.php:149
+#: inc-options/write_cp_options.php:151 inc-options/write_post_options.php:153
 msgid "Post Thumbnail"
 msgstr "Artikelbild"
 
 # @ adminimize
 #: inc-options/write_cp_options.php:159 inc-options/write_page_options.php:157
-#: inc-options/write_post_options.php:154
+#: inc-options/write_post_options.php:158
 msgid "Quick Edit Link"
 msgstr "QuickEdit Link"
 
@@ -997,78 +925,78 @@ msgstr "QuickEdit Link"
 #: inc-options/write_page_options.php:158
 #: inc-options/write_page_options.php:163
 #: inc-options/write_page_options.php:166
-#: inc-options/write_post_options.php:155
 #: inc-options/write_post_options.php:159
-#: inc-options/write_post_options.php:162
-#: inc-options/write_post_options.php:165
+#: inc-options/write_post_options.php:163
+#: inc-options/write_post_options.php:166
+#: inc-options/write_post_options.php:169
 msgid "QE"
 msgstr "QE"
 
 # @ adminimize
 #: inc-options/write_cp_options.php:160 inc-options/write_page_options.php:158
-#: inc-options/write_post_options.php:155
+#: inc-options/write_post_options.php:159
 msgid "Inline Edit Left"
 msgstr "Inline Edit Links"
 
 # @ adminimize
 #: inc-options/write_cp_options.php:161 inc-options/write_page_options.php:159
-#: inc-options/write_post_options.php:156
+#: inc-options/write_post_options.php:160
 msgid "All Labels"
 msgstr "Alle labels"
 
 # @ default
 #: inc-options/write_cp_options.php:162 inc-options/write_page_options.php:161
-#: inc-options/write_post_options.php:157
+#: inc-options/write_post_options.php:161
 msgid "Author"
 msgstr "Author"
 
 # @ adminimize
 #: inc-options/write_cp_options.php:163 inc-options/write_page_options.php:162
-#: inc-options/write_post_options.php:158
+#: inc-options/write_post_options.php:162
 msgid "Password and Private"
 msgstr "Passwort und Privat-Flag"
 
 # @ adminimize
-#: inc-options/write_cp_options.php:164 inc-options/write_post_options.php:159
+#: inc-options/write_cp_options.php:164 inc-options/write_post_options.php:163
 msgid "Inline Edit Center"
 msgstr "Inline Edit mitte"
 
 # @ adminimize
-#: inc-options/write_cp_options.php:165 inc-options/write_post_options.php:160
+#: inc-options/write_cp_options.php:165 inc-options/write_post_options.php:164
 msgid "Categories Title"
 msgstr "Kategorien Title"
 
 # @ adminimize
-#: inc-options/write_cp_options.php:166 inc-options/write_post_options.php:161
+#: inc-options/write_cp_options.php:166 inc-options/write_post_options.php:165
 msgid "Categories List"
 msgstr "Kategorien Liste"
 
 # @ adminimize
 #: inc-options/write_cp_options.php:167 inc-options/write_page_options.php:163
-#: inc-options/write_post_options.php:162
+#: inc-options/write_post_options.php:166
 msgid "Inline Edit Right"
 msgstr "Inline Edit rechts"
 
 # @ adminimize
-#: inc-options/write_cp_options.php:169 inc-options/write_post_options.php:164
+#: inc-options/write_cp_options.php:169 inc-options/write_post_options.php:168
 msgid "Status, Sticky"
 msgstr "Status, Sticky"
 
 # @ adminimize
 #: inc-options/write_cp_options.php:170 inc-options/write_page_options.php:166
-#: inc-options/write_post_options.php:165
+#: inc-options/write_post_options.php:169
 msgid "Cancel/Save Button"
 msgstr "Abbrechen/Aktualisieren Button"
 
 # @ adminimize
-#: inc-options/write_cp_options.php:243
+#: inc-options/write_cp_options.php:241
 #, php-format
 msgid "Your own %s options"
 msgstr "Deine eigenen %s Einstellungen"
 
 # @ adminimize
 #: inc-options/write_page_options.php:119
-#: inc-options/write_post_options.php:120
+#: inc-options/write_post_options.php:124
 msgid "Title"
 msgstr "Title"
 
@@ -1086,7 +1014,7 @@ msgstr "Kommentare &amp; Pings"
 # @ adminimize
 #: inc-options/write_page_options.php:123
 #: inc-options/write_page_options.php:160
-#: inc-options/write_post_options.php:125
+#: inc-options/write_post_options.php:129
 msgid "Date"
 msgstr "Datum"
 
@@ -1146,12 +1074,12 @@ msgid "Status"
 msgstr "Status"
 
 # @ adminimize
-#: inc-options/write_page_options.php:222
+#: inc-options/write_page_options.php:220
 msgid "Your own page options"
 msgstr "Deine eigenen Seiten-Einstellungen"
 
 # @ adminimize
-#: inc-options/write_post_options.php:221
+#: inc-options/write_post_options.php:223
 msgid "Your own post options"
 msgstr "Deine eigenen Beitrags-Einstellungen"
 
@@ -1209,6 +1137,74 @@ msgstr "Netwerk-Admin"
 #: inc-setup/remove-admin-bar.php:277 inc-setup/remove-admin-bar.php:278
 msgid "Site Admin"
 msgstr "Site-Admin"
+
+#~ msgid ""
+#~ "Visually compresses the administrative meta-boxes so that more admin page "
+#~ "content can be initially seen. The plugin that lets you hide "
+#~ "'unnecessary' items from the WordPress administration menu, for all roles "
+#~ "of your install. You can also hide post meta controls on the edit-area to "
+#~ "simplify the interface. It is possible to simplify the admin in different "
+#~ "for all roles."
+#~ msgstr ""
+#~ "Visuelle Reduzierung des administrativen Bereiches auf das, was notwendig "
+#~ "ist. Das Plugin gibt die die Möglichkeit \"unnötige\" Bereiche aus dem "
+#~ "WordPress Adminisrationsbereich, Menus zu entfernen, getrennt für jede "
+#~ "existierende Benutzerrolle. Du kannst außerdem diverse andere Bereiche "
+#~ "ausblenden um das Interface zu vereinfachen. Es ist außerdem möglich "
+#~ "eigene Optione pro Benutzerrolle zu ergänzen."
+
+#~ msgid ""
+#~ "Cheatin&#8217; uh? You do not have the right permission to update settings"
+#~ msgstr ""
+#~ "Schummeln, was? Du hast nicht die ausreichenden Rechte um das Update der "
+#~ "Einstellungen durchzuführen."
+
+#~ msgid ""
+#~ "Update the options to get all items of the admin bar in the back end area."
+#~ msgstr ""
+#~ "Aktualisiere die Einstellungen um alle Einträge der Admin Bar im Backend "
+#~ "zu ermitteln."
+
+# @ adminimize
+#~ msgid "Thickbox FullScreen"
+#~ msgstr "Thickbox FullScreen"
+
+# @ adminimize
+#~ msgid ""
+#~ "All Thickbox-function use the full area of the browser. Thickbox is for "
+#~ "example in upload media-files."
+#~ msgstr ""
+#~ "Alle Thickbox-Funktion verwenden den vollständigen Bereich des Browsers. "
+#~ "Thickbox ist beispielsweise in der Medien-Upload-Funktion."
+
+# @ adminimize
+#~ msgid "Flashuploader"
+#~ msgstr "Flashuploader"
+
+# @ adminimize
+#~ msgid "Disable the flashuploader and users use only the standard uploader."
+#~ msgstr ""
+#~ "Deaktiviere den Flashuploader und Nutzer können nur den Standard-Uploader "
+#~ "erreichen."
+
+# @ adminimize
+#~ msgid "Export &raquo;"
+#~ msgstr "Exportieren &raquo;"
+
+#~ msgid ""
+#~ "After import please reload the page to display also all global values "
+#~ "from WordPress."
+#~ msgstr ""
+#~ "Nach dem Import lade die Seite neu um alle Einstellungen, auch die "
+#~ "globalen Einstellungen von WordPress zu listen."
+
+# @ adminimize
+#~ msgid "Choose a \".json\" file from your computer:"
+#~ msgstr "Wähle eine .json-Datei von deinem Rechner."
+
+# @ adminimize
+#~ msgid "Upload file and import &raquo;"
+#~ msgstr "Hochladen der Datei und importieren &raquo;"
 
 # @ adminimize
 #~ msgid "WP Nav Menu options"
