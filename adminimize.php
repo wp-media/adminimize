@@ -173,22 +173,6 @@ function _mw_adminimize_get_all_user_roles_names() {
 }
 
 /**
- * Control Flash Uploader
- *
- * @return boolean
- */
-function _mw_adminimize_control_flashloader() {
-
-	$_mw_adminimize_control_flashloader = _mw_adminimize_get_option_value( '_mw_adminimize_control_flashloader' );
-
-	if ( 1 === (int) $_mw_adminimize_control_flashloader ) {
-		return FALSE;
-	} else {
-		return TRUE;
-	}
-}
-
-/**
  * return post type
  */
 function _mw_get_current_post_type() {
@@ -380,12 +364,6 @@ function _mw_adminimize_admin_init() {
 			}
 		}
 
-		$_mw_adminimize_control_flashloader = _mw_adminimize_get_option_value( '_mw_adminimize_control_flashloader' );
-		switch ( $_mw_adminimize_control_flashloader ) {
-			case 1:
-				add_filter( 'flash_uploader', '_mw_adminimize_control_flashloader', 1 );
-				break;
-		}
 	}
 
 	// set menu option
@@ -1401,14 +1379,6 @@ function _mw_adminimize_update() {
 		$adminimizeoptions[ '_mw_adminimize_timestamp' ] = (int) $_POST[ '_mw_adminimize_timestamp' ];
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_timestamp' ] = 0;
-	}
-
-	if ( isset( $_POST[ '_mw_adminimize_control_flashloader' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_control_flashloader' ] = strip_tags(
-			stripslashes( $_POST[ '_mw_adminimize_control_flashloader' ] )
-		);
-	} else {
-		$adminimizeoptions[ '_mw_adminimize_control_flashloader' ] = 0;
 	}
 
 	if ( isset( $_POST[ '_mw_adminimize_db_redirect_txt' ] ) ) {
