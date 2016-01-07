@@ -76,14 +76,14 @@ if ( ! function_exists( 'add_action' ) ) {
 				$_mw_adminimize_own_link_values = preg_split( "/\r\n/", $_mw_adminimize_own_link_values );
 				foreach ( (array) $_mw_adminimize_own_link_values as $key => $_mw_adminimize_own_link_value ) {
 					$_mw_adminimize_own_link_value = trim( $_mw_adminimize_own_link_value );
-					array_push( $link_options, $_mw_adminimize_own_link_value );
+					$link_options[] = $_mw_adminimize_own_link_value;
 				}
 
 				$_mw_adminimize_own_link_options = _mw_adminimize_get_option_value( '_mw_adminimize_own_link_options' );
 				$_mw_adminimize_own_link_options = preg_split( "/\r\n/", $_mw_adminimize_own_link_options );
 				foreach ( (array) $_mw_adminimize_own_link_options as $key => $_mw_adminimize_own_link_option ) {
 					$_mw_adminimize_own_link_option = trim( $_mw_adminimize_own_link_option );
-					array_push( $link_options_names, $_mw_adminimize_own_link_option );
+					$link_options_names[] = $_mw_adminimize_own_link_option;
 				}
 
 				$x = 0;

@@ -54,7 +54,7 @@ if ( ! function_exists( 'add_action' ) ) {
 					'#screen-options-link-wrap',
 					'#nav-menu-theme-locations',
 					'#add-custom-links',
-					'.menu-add-new'
+					'.menu-add-new',
 				);
 
 				if ( wp_get_nav_menus() ) {
@@ -66,7 +66,7 @@ if ( ! function_exists( 'add_action' ) ) {
 					esc_attr__( 'Screen Options' ),
 					esc_attr__( 'Theme Locations', 'adminimize' ),
 					esc_attr__( 'Custom Links', 'adminimize' ),
-					'#(' . esc_attr__( 'Add menu', 'adminimize' ) . ')'
+					'#(' . esc_attr__( 'Add menu', 'adminimize' ) . ')',
 				);
 
 				if ( wp_get_nav_menus() ) {
@@ -78,8 +78,8 @@ if ( ! function_exists( 'add_action' ) ) {
 				if ( $taxonomies ) {
 					foreach ( $taxonomies as $tax ) {
 						if ( $tax ) {
-							array_push( $nav_menu_options, '#add-' . $tax->name );
-							array_push( $nav_menu_options_names, $tax->labels->name );
+							$nav_menu_options[]       = '#add-' . $tax->name;
+							$nav_menu_options_names[] = $tax->labels->name;
 						}
 					}
 				}
@@ -89,8 +89,8 @@ if ( ! function_exists( 'add_action' ) ) {
 				if ( $post_types ) {
 					foreach ( $post_types as $post_type ) {
 						if ( $post_type ) {
-							array_push( $nav_menu_options, '#add-' . $post_type->name );
-							array_push( $nav_menu_options_names, $post_type->labels->name );
+							$nav_menu_options[] = '#add-' . $post_type->name;
+							$nav_menu_options_names[] = $post_type->labels->name;
 						}
 					}
 				}
@@ -101,7 +101,7 @@ if ( ! function_exists( 'add_action' ) ) {
 				$_mw_adminimize_own_nav_menu_values = preg_split( "/\r\n/", $_mw_adminimize_own_nav_menu_values );
 				foreach ( (array) $_mw_adminimize_own_nav_menu_values as $key => $_mw_adminimize_own_nav_menu_value ) {
 					$_mw_adminimize_own_nav_menu_value = trim( $_mw_adminimize_own_nav_menu_value );
-					array_push( $nav_menu_options, $_mw_adminimize_own_nav_menu_value );
+					$nav_menu_options[] = $_mw_adminimize_own_nav_menu_value;
 				}
 
 				$_mw_adminimize_own_nav_menu_options = _mw_adminimize_get_option_value(
@@ -110,7 +110,7 @@ if ( ! function_exists( 'add_action' ) ) {
 				$_mw_adminimize_own_nav_menu_options = preg_split( "/\r\n/", $_mw_adminimize_own_nav_menu_options );
 				foreach ( (array) $_mw_adminimize_own_nav_menu_options as $key => $_mw_adminimize_own_nav_menu_option ) {
 					$_mw_adminimize_own_nav_menu_option = trim( $_mw_adminimize_own_nav_menu_option );
-					array_push( $nav_menu_options_names, $_mw_adminimize_own_nav_menu_option );
+					$nav_menu_options_names[] = $_mw_adminimize_own_nav_menu_option;
 				}
 
 				$x = 0;

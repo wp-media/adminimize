@@ -182,8 +182,8 @@ if ( ! function_exists( 'add_action' ) ) {
 
 				$disabled_menu_all = array();
 				foreach ( $user_roles as $role ) {
-					array_push( $disabled_menu_all, $disabled_menu_[ $role ] );
-					array_push( $disabled_menu_all, $disabled_submenu_[ $role ] );
+					$disabled_menu_all[] = $disabled_menu_[ $role ];
+					$disabled_menu_all[] = $disabled_submenu_[ $role ];
 				}
 
 				if ( '' !== $disabled_menu_all ) {

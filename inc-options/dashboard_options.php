@@ -71,10 +71,7 @@ if ( ! function_exists( 'add_action' ) ) {
 						if ( is_object( $widget ) ) {
 							$widget = get_object_vars( $widget );
 						}
-						// Switch from array_push() to $array[] for better performance.
-						//array_push( $dashboard_options, $widget[ 'id' ] );
-						$dashboard_options[] = $widget[ 'id' ];
-						//array_push( $dashboard_options_names, $widget[ 'title' ] );
+						$dashboard_options[]       = $widget[ 'id' ];
 						$dashboard_options_names[] = $widget[ 'title' ];
 					}
 
@@ -84,8 +81,7 @@ if ( ! function_exists( 'add_action' ) ) {
 					$_mw_adminimize_own_dashboard_values = preg_split( "/\r\n/", $_mw_adminimize_own_dashboard_values );
 					foreach ( (array) $_mw_adminimize_own_dashboard_values as $key => $_mw_adminimize_own_dashboard_value ) {
 						$_mw_adminimize_own_dashboard_value = trim( $_mw_adminimize_own_dashboard_value );
-						//array_push( $dashboard_options, $_mw_adminimize_own_dashboard_value );
-						$dashboard_options[] = $_mw_adminimize_own_dashboard_value;
+						$dashboard_options[]                = $_mw_adminimize_own_dashboard_value;
 					}
 
 					$_mw_adminimize_own_dashboard_options = _mw_adminimize_get_option_value(
@@ -96,8 +92,7 @@ if ( ! function_exists( 'add_action' ) ) {
 					);
 					foreach ( (array) $_mw_adminimize_own_dashboard_options as $key => $_mw_adminimize_own_dashboard_option ) {
 						$_mw_adminimize_own_dashboard_option = trim( $_mw_adminimize_own_dashboard_option );
-						//array_push( $dashboard_options_names, $_mw_adminimize_own_dashboard_option );
-						$dashboard_options_names[] = $_mw_adminimize_own_dashboard_option;
+						$dashboard_options_names[]           = $_mw_adminimize_own_dashboard_option;
 					}
 
 					$x = 0;

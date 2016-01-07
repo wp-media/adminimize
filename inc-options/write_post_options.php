@@ -87,10 +87,10 @@ if ( ! function_exists( 'add_action' ) ) {
 						$post_type_support = 'postdivrich';
 					}
 
-					array_push(
-						$metaboxes,
-						'#' . $post_type_support . ', #' . $post_type_support . 'div, th.column-' . $post_type_support . ', td.' . $post_type_support
-					); //th and td for raw in edit screen
+					$metaboxes[] = '#' . $post_type_support
+						. ', #' . $post_type_support
+						. 'div, th.column-' . $post_type_support
+						. ', td.' . $post_type_support; //th and td for raw in edit screen
 				}
 
 				if ( function_exists( 'current_theme_supports' )
@@ -98,7 +98,7 @@ if ( ! function_exists( 'add_action' ) ) {
 						'post-thumbnails', 'post'
 					)
 				) {
-					array_push( $metaboxes, '#postimagediv' );
+					$metaboxes[] = '#postimagediv';
 				}
 
 				// quick edit areas, id and class
@@ -141,7 +141,7 @@ if ( ! function_exists( 'add_action' ) ) {
 
 				foreach ( $GLOBALS[ '_wp_post_type_features' ][ $post_type ] as $post_type_support => $key ) {
 					if ( post_type_supports( $post_type, $post_type_support ) ) {
-						array_push( $metaboxes_names, ucfirst( $post_type_support ) );
+						$metaboxes_names[] = ucfirst( $post_type_support );
 					}
 				}
 
@@ -150,7 +150,7 @@ if ( ! function_exists( 'add_action' ) ) {
 						'post-thumbnails', 'post'
 					)
 				) {
-					array_push( $metaboxes_names, esc_attr__( 'Post Thumbnail', 'adminimize' ) );
+					$metaboxes_names[] = esc_attr__( 'Post Thumbnail', 'adminimize' );
 				}
 
 				// quick edit names
@@ -175,14 +175,14 @@ if ( ! function_exists( 'add_action' ) ) {
 				$_mw_adminimize_own_post_values = preg_split( "/\r\n/", $_mw_adminimize_own_post_values );
 				foreach ( (array) $_mw_adminimize_own_post_values as $key => $_mw_adminimize_own_post_value ) {
 					$_mw_adminimize_own_post_value = trim( $_mw_adminimize_own_post_value );
-					array_push( $metaboxes, $_mw_adminimize_own_post_value );
+					$metaboxes[] = $_mw_adminimize_own_post_value;
 				}
 
 				$_mw_adminimize_own_post_options = _mw_adminimize_get_option_value( '_mw_adminimize_own_post_options' );
 				$_mw_adminimize_own_post_options = preg_split( "/\r\n/", $_mw_adminimize_own_post_options );
 				foreach ( (array) $_mw_adminimize_own_post_options as $key => $_mw_adminimize_own_post_option ) {
 					$_mw_adminimize_own_post_option = trim( $_mw_adminimize_own_post_option );
-					array_push( $metaboxes_names, $_mw_adminimize_own_post_option );
+					$metaboxes_names[] = $_mw_adminimize_own_post_option;
 				}
 
 				$x     = 0;

@@ -74,14 +74,14 @@ if ( ! function_exists( 'add_action' ) ) {
 				$_mw_adminimize_own_values = preg_split( "/\r\n/", $_mw_adminimize_own_values );
 				foreach ( (array) $_mw_adminimize_own_values as $key => $_mw_adminimize_own_value ) {
 					$_mw_adminimize_own_value = trim( $_mw_adminimize_own_value );
-					array_push( $global_options, $_mw_adminimize_own_value );
+					$global_options[] = $_mw_adminimize_own_value;
 				}
 
 				$_mw_adminimize_own_options = _mw_adminimize_get_option_value( '_mw_adminimize_own_options' );
 				$_mw_adminimize_own_options = preg_split( "/\r\n/", $_mw_adminimize_own_options );
 				foreach ( (array) $_mw_adminimize_own_options as $key => $_mw_adminimize_own_option ) {
 					$_mw_adminimize_own_option = trim( $_mw_adminimize_own_option );
-					array_push( $global_options_names, $_mw_adminimize_own_option );
+					$global_options_names[] = $_mw_adminimize_own_option;
 				}
 
 				$x = 0;

@@ -70,7 +70,7 @@ foreach ( get_post_types( $args ) as $post_type ) {
 						'#slugdiv,#edit-slug-box',
 						'#misc-publishing-actions',
 						'#commentstatusdiv',
-						'#editor-toolbar #edButtonHTML, #quicktags, #content-html'
+						'#editor-toolbar #edButtonHTML, #quicktags, #content-html',
 					);
 
 					foreach ( $GLOBALS[ '_wp_post_type_features' ][ $post_type ] as $post_type_support => $key ) {
@@ -85,20 +85,21 @@ foreach ( get_post_types( $args ) as $post_type ) {
 						if ( 'custom-fields' == $post_type_support ) {
 							$post_type_support = 'postcustom';
 						}
-						array_push(
-							$metaboxes,
-							'#' . $post_type_support . ', #' . $post_type_support . 'div, th.column-' . $post_type_support . ', td.' . $post_type_support
-						); // td for raw in edit screen
+
+						$metaboxes[] = '#' . $post_type_support
+							. ', #' . $post_type_support
+							. 'div, th.column-' . $post_type_support
+							. ', td.' . $post_type_support; // td for raw in edit screen
 					}
 					if ( function_exists( 'current_theme_supports' )
 						&& current_theme_supports(
 							'post-thumbnails', $post_type
 						)
 					) {
-						array_push( $metaboxes, '#postimagediv' );
+						$metaboxes[] = '#postimagediv';
 					}
 					if ( function_exists( 'sticky_add_meta_box' ) ) {
-						array_push( $metaboxes, '#poststickystatusdiv' );
+						$metaboxes[] = '#poststickystatusdiv';
 					}
 
 					// quick edit areas, id and class
@@ -114,7 +115,7 @@ foreach ( get_post_types( $args ) as $post_type ) {
 						'fieldset.inline-edit-col-right',
 						'fieldset.inline-edit-col-right .inline-edit-tags',
 						'fieldset.inline-edit-col-right .inline-edit-group',
-						'tr.inline-edit-save p.inline-edit-save'
+						'tr.inline-edit-save p.inline-edit-save',
 					);
 					$metaboxes       = array_merge( $metaboxes, $quickedit_areas );
 
@@ -135,12 +136,12 @@ foreach ( get_post_types( $args ) as $post_type ) {
 						esc_attr__( 'Post Slug', 'adminimize' ),
 						esc_attr__( 'Publish Actions', 'adminimize' ),
 						esc_attr__( 'Discussion' ),
-						esc_attr__( 'HTML Editor Button' )
+						esc_attr__( 'HTML Editor Button' ),
 					);
 
 					foreach ( $GLOBALS[ '_wp_post_type_features' ][ $post_type ] as $post_type_support => $key ) {
 						if ( post_type_supports( $post_type, $post_type_support ) ) {
-							array_push( $metaboxes_names, ucfirst( $post_type_support ) );
+							$metaboxes_names[] = ucfirst( $post_type_support );
 						}
 					}
 					if ( function_exists( 'current_theme_supports' )
@@ -148,10 +149,10 @@ foreach ( get_post_types( $args ) as $post_type ) {
 							'post-thumbnails', 'post'
 						)
 					) {
-						array_push( $metaboxes_names, esc_attr__( 'Post Thumbnail', 'adminimize' ) );
+						$metaboxes_names[] = esc_attr__( 'Post Thumbnail', 'adminimize' );
 					}
 					if ( function_exists( 'sticky_add_meta_box' ) ) {
-						array_push( $metaboxes_names, 'Post Sticky Status' );
+						$metaboxes_names[] = 'Post Sticky Status';
 					}
 
 					// quick edit names
@@ -167,7 +168,7 @@ foreach ( get_post_types( $args ) as $post_type ) {
 						esc_attr__( 'QE', 'adminimize' ) . ' ' . esc_attr__( 'Inline Edit Right', 'adminimize' ),
 						'&emsp;QE &rArr;' . ' ' . esc_attr__( 'Tags' ),
 						'&emsp;QE &rArr;' . ' ' . esc_attr__( 'Status, Sticky', 'adminimize' ),
-						esc_attr__( 'QE', 'adminimize' ) . ' ' . esc_attr__( 'Cancel/Save Button', 'adminimize' )
+						esc_attr__( 'QE', 'adminimize' ) . ' ' . esc_attr__( 'Cancel/Save Button', 'adminimize' ),
 					);
 					$metaboxes_names = array_merge( $metaboxes_names, $quickedit_names );
 
@@ -180,7 +181,7 @@ foreach ( get_post_types( $args ) as $post_type ) {
 					);
 					foreach ( (array) $_mw_adminimize_own_values_[ $post_type ] as $key => $_mw_adminimize_own_value_[ $post_type ] ) {
 						$_mw_adminimize_own_value_[ $post_type ] = trim( $_mw_adminimize_own_value_[ $post_type ] );
-						array_push( $metaboxes, $_mw_adminimize_own_value_[ $post_type ] );
+						$metaboxes[] = $_mw_adminimize_own_value_[ $post_type ];
 					}
 
 					$_mw_adminimize_own_options_[ $post_type ] = _mw_adminimize_get_option_value(
@@ -191,10 +192,10 @@ foreach ( get_post_types( $args ) as $post_type ) {
 					);
 					foreach ( (array) $_mw_adminimize_own_options_[ $post_type ] as $key => $_mw_adminimize_own_option_[ $post_type ] ) {
 						$_mw_adminimize_own_option_[ $post_type ] = trim( $_mw_adminimize_own_option_[ $post_type ] );
-						array_push( $metaboxes_names, $_mw_adminimize_own_option_[ $post_type ] );
+						$metaboxes_names[] = $_mw_adminimize_own_option_[ $post_type ];
 					}
 
-					$x     = 0;
+					$x = 0;
 					foreach ( $metaboxes as $index => $metabox ) {
 						if ( '' !== $metabox ) {
 							$checked_user_role_ = array();
@@ -238,7 +239,9 @@ foreach ( get_post_types( $args ) as $post_type ) {
 					<thead>
 					<tr>
 						<th>
-							<?php echo sprintf( esc_attr__( 'Your own %s options', 'adminimize' ), $post_type_object->label );
+							<?php echo sprintf(
+								esc_attr__( 'Your own %s options', 'adminimize' ), $post_type_object->label
+							);
 							echo '<br />';
 							esc_attr_e( 'ID or class', 'adminimize' ); ?>
 						</th>

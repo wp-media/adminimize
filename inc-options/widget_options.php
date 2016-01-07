@@ -69,15 +69,15 @@ if ( ! function_exists( 'add_action' ) ) {
 				$registered_sidebars = _mw_adminimize_get_registered_sidebars();
 				foreach ( $registered_sidebars as $key => $value ) {
 
-					array_push( $widget_options, $key );
-					array_push( $widget_options_names, $value[ 'name' ] );
+					$widget_options[] = $key;
+					$widget_options_names[] = $value[ 'name' ];
 				}
 
 				// get registered widgets
 				$registered_widgets = _mw_adminimize_get_all_widgets();
 				foreach ( (array) $registered_widgets as $key => $value ) {
-					array_push( $widget_options, $key );
-					array_push( $widget_options_names, $value->name );
+					$widget_options[] = $key;
+					$widget_options_names[] = $value->name;
 				}
 
 				$_mw_adminimize_own_widget_values = _mw_adminimize_get_option_value(
@@ -86,7 +86,7 @@ if ( ! function_exists( 'add_action' ) ) {
 				$_mw_adminimize_own_widget_values = preg_split( "/\r\n/", $_mw_adminimize_own_widget_values );
 				foreach ( (array) $_mw_adminimize_own_widget_values as $key => $_mw_adminimize_own_widget_value ) {
 					$_mw_adminimize_own_widget_value = trim( $_mw_adminimize_own_widget_value );
-					array_push( $widget_options, $_mw_adminimize_own_widget_value );
+					$widget_options[] = $_mw_adminimize_own_widget_value;
 				}
 
 				$_mw_adminimize_own_widget_options = _mw_adminimize_get_option_value(
@@ -95,7 +95,7 @@ if ( ! function_exists( 'add_action' ) ) {
 				$_mw_adminimize_own_widget_options = preg_split( "/\r\n/", $_mw_adminimize_own_widget_options );
 				foreach ( (array) $_mw_adminimize_own_widget_options as $key => $_mw_adminimize_own_widget_option ) {
 					$_mw_adminimize_own_widget_option = trim( $_mw_adminimize_own_widget_option );
-					array_push( $widget_options_names, $_mw_adminimize_own_widget_option );
+					$widget_options_names[] = $_mw_adminimize_own_widget_option;
 				}
 
 				$x = 0;

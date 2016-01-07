@@ -113,9 +113,9 @@ function _mw_adminimize_get_all_user_roles() {
 
 	$user_roles = array();
 
-	if ( isset( $wp_roles->roles ) && is_array( $wp_roles->roles ) ) {
+	if ( NULL !== $wp_roles->roles && is_array( $wp_roles->roles ) ) {
 		foreach ( $wp_roles->roles as $role => $data ) {
-			array_push( $user_roles, $role );
+			$user_roles[] = $role;
 			//$data contains caps, maybe for later use..
 		}
 	}
@@ -149,7 +149,7 @@ function _mw_adminimize_get_all_user_roles_names() {
 			$data = esc_attr_x( $data, 'Translate each user role.' );
 		}
 
-		array_push( $user_roles_names, $data );
+		$user_roles_names[] = $data;
 	}
 
 	// exclude the new bbPress roles
@@ -287,8 +287,8 @@ function _mw_adminimize_admin_init() {
 		$disabled_widget_option_[ $role ]   = _mw_adminimize_get_option_value(
 			'mw_adminimize_disabled_widget_option_' . $role . '_items'
 		);
-		array_push( $disabled_metaboxes_post_all, $disabled_metaboxes_post_[ $role ] );
-		array_push( $disabled_metaboxes_page_all, $disabled_metaboxes_page_[ $role ] );
+		$disabled_metaboxes_post_all[] = $disabled_metaboxes_post_[ $role ];
+		$disabled_metaboxes_page_all[] = $disabled_metaboxes_page_[ $role ];
 	}
 
 	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
@@ -441,10 +441,6 @@ define( 'MW_ADMIN_FILE', plugin_basename( __FILE__ ) );
 if ( is_admin() ) {
 	add_action( 'admin_init', '_mw_adminimize_textdomain' );
 	add_action( 'admin_init', '_mw_adminimize_admin_init', 2 );
-	/* maybe later
-	if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) )
-		add_action( 'network_admin_menu', '_mw_adminimize_add_settings_page' );
-	*/
 	add_action( 'admin_menu', '_mw_adminimize_add_settings_page' );
 	add_action( 'admin_menu', '_mw_adminimize_remove_dashboard' );
 }
@@ -479,8 +475,8 @@ function _mw_adminimize_remove_dashboard() {
 	$disabled_submenu_all = array();
 
 	foreach ( $user_roles as $role ) {
-		array_push( $disabled_menu_all, $disabled_menu_[ $role ] );
-		array_push( $disabled_submenu_all, $disabled_submenu_[ $role ] );
+		$disabled_menu_all[] = $disabled_menu_[ $role ];
+		$disabled_submenu_all[] = $disabled_submenu_[ $role ];
 	}
 
 	// remove dashboard

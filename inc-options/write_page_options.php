@@ -84,10 +84,10 @@ if ( ! function_exists( 'add_action' ) ) {
 					if ( 'post-formats' === $post_type_support ) {
 						$post_type_support = 'format';
 					}
-					array_push(
-						$metaboxes,
-						'#' . $post_type_support . ', #' . $post_type_support . 'div, th.column-' . $post_type_support . ', td.' . $post_type_support
-					); // td for raw in edit screen
+					$metaboxes[] = '#' . $post_type_support
+						. ', #' . $post_type_support
+						. 'div, th.column-' . $post_type_support
+						. ', td.' . $post_type_support; // td for raw in edit screen
 				}
 
 				if ( function_exists( 'current_theme_supports' )
@@ -95,7 +95,7 @@ if ( ! function_exists( 'add_action' ) ) {
 						'post-thumbnails', 'page'
 					)
 				) {
-					array_push( $metaboxes_page, '#postimagediv' );
+					$metaboxes_page[] = '#postimagediv';
 				}
 
 				// quick edit areas, id and class
@@ -140,7 +140,7 @@ if ( ! function_exists( 'add_action' ) ) {
 
 				foreach ( $GLOBALS[ '_wp_post_type_features' ][ $post_type ] as $post_type_support => $key ) {
 					if ( post_type_supports( $post_type, $post_type_support ) ) {
-						array_push( $metaboxes_names, ucfirst( $post_type_support ) );
+						$metaboxes_names[] = ucfirst( $post_type_support );
 					}
 				}
 
@@ -149,7 +149,7 @@ if ( ! function_exists( 'add_action' ) ) {
 						'post-thumbnails', 'page'
 					)
 				) {
-					array_push( $metaboxes_names_page, esc_attr__( 'Page Image', 'adminimize' ) );
+					$metaboxes_names_page[] = esc_attr__( 'Page Image', 'adminimize' );
 				}
 
 				// quick edit names
@@ -172,14 +172,14 @@ if ( ! function_exists( 'add_action' ) ) {
 				$_mw_adminimize_own_page_values = preg_split( "/\r\n/", $_mw_adminimize_own_page_values );
 				foreach ( (array) $_mw_adminimize_own_page_values as $key => $_mw_adminimize_own_page_value ) {
 					$_mw_adminimize_own_page_value = trim( $_mw_adminimize_own_page_value );
-					array_push( $metaboxes_page, $_mw_adminimize_own_page_value );
+					$metaboxes_page[] = $_mw_adminimize_own_page_value;
 				}
 
 				$_mw_adminimize_own_page_options = _mw_adminimize_get_option_value( '_mw_adminimize_own_page_options' );
 				$_mw_adminimize_own_page_options = preg_split( "/\r\n/", $_mw_adminimize_own_page_options );
 				foreach ( (array) $_mw_adminimize_own_page_options as $key => $_mw_adminimize_own_page_option ) {
 					$_mw_adminimize_own_page_option = trim( $_mw_adminimize_own_page_option );
-					array_push( $metaboxes_names_page, $_mw_adminimize_own_page_option );
+					$metaboxes_names_page[] = $_mw_adminimize_own_page_option;
 				}
 
 				$x     = 0;
