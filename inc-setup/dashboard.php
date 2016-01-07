@@ -48,7 +48,7 @@ function _mw_adminimize_dashboard_setup() {
 		$user = wp_get_current_user();
 
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles ) ) {
-			if ( current_user_can( $role ) && is_array( $disabled_dashboard_option_[ $role ] ) ) {
+			if ( _mw_adminimize_current_user_has_role( $role ) && is_array( $disabled_dashboard_option_[ $role ] ) ) {
 				foreach ( $disabled_dashboard_option_[ $role ] as $widget ) {
 					if ( isset( $widgets[ $widget ][ 'context' ] ) ) {
 						remove_meta_box( $widget, 'dashboard', $widgets[ $widget ][ 'context' ] );

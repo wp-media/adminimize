@@ -97,7 +97,7 @@ function _mw_adminimize_unregister_widgets() {
 
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles ) ) {
 
-			if ( current_user_can( $role ) && is_array( $disabled_widget_option_[ $role ] ) ) {
+			if ( _mw_adminimize_current_user_has_role( $role ) && is_array( $disabled_widget_option_[ $role ] ) ) {
 				foreach ( $disabled_widget_option_[ $role ] as $widgets ) {
 					unregister_widget( $widgets );
 					$GLOBALS[ 'wp_widget_factory' ]->unregister( $widgets );
@@ -147,7 +147,7 @@ function _mw_adminimize_unregister_sidebars() {
 
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles ) ) {
 
-			if ( current_user_can( $role ) && is_array( $disabled_widget_option_[ $role ] ) ) {
+			if ( _mw_adminimize_current_user_has_role( $role ) && is_array( $disabled_widget_option_[ $role ] ) ) {
 				foreach ( $disabled_widget_option_[ $role ] as $sidebar ) {
 					unregister_sidebar( $sidebar );
 				}

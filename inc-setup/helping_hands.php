@@ -91,3 +91,20 @@ function _mw_adminimize_enqueueStylesFix() {
 		}
 	}
 }
+
+/**
+ * Check the role with the current user data.
+ *
+ * @param string $role
+ *
+ * @return bool
+ */
+function _mw_adminimize_current_user_has_role( $role ) {
+
+	$user = wp_get_current_user();
+	if ( in_array( $role, (array) $user->roles ) ) {
+		return TRUE;
+	}
+
+	return FALSE;
+}

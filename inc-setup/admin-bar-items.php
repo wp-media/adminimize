@@ -113,7 +113,7 @@ function _mw_adminimize_change_admin_bar( $wp_admin_bar ) {
 	}
 
 	$user_roles                 = _mw_adminimize_get_all_user_roles();
-	$disabled_admin_bar_option_ = '';
+	$disabled_admin_bar_option_ = array();
 
 	foreach ( $user_roles as $role ) {
 
@@ -132,15 +132,15 @@ function _mw_adminimize_change_admin_bar( $wp_admin_bar ) {
 	foreach ( $user_roles as $role ) {
 		$user = wp_get_current_user();
 
-		if ( is_array( $user->roles ) && in_array( $role, $user->roles ) ) {
+		if ( is_array( $user->roles )
+			&& in_array( $role, $user->roles )
+			&& _mw_adminimize_current_user_has_role( $role )
+			&& is_array( $disabled_admin_bar_option_[ $role ] )
+		) {
 
-			if ( current_user_can( $role ) && is_array( $disabled_admin_bar_option_[ $role ] ) ) {
-
-				foreach ( $disabled_admin_bar_option_[ $role ] as $admin_bar_item ) {
-					$wp_admin_bar->remove_node( $admin_bar_item );
-				}
-
-			} // end if
+			foreach ( $disabled_admin_bar_option_[ $role ] as $admin_bar_item ) {
+				$wp_admin_bar->remove_node( $admin_bar_item );
+			}
 
 		} // end if user roles
 	}
@@ -193,7 +193,7 @@ function _mw_adminimize_change_admin_bar_frontend( $wp_admin_bar ) {
 
 		if ( is_array( $user->roles )
 			&& in_array( $role, $user->roles )
-			&& current_user_can( $role )
+			&& _mw_adminimize_current_user_has_role( $role )
 			&& is_array( $disabled_admin_bar_frontend_option_[ $role ] )
 		) {
 

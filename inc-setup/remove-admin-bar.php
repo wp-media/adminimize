@@ -160,7 +160,7 @@ function _mw_adminimize_remove_admin_bar() {
 	foreach ( $user_roles as $role ) {
 		$user = wp_get_current_user();
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles ) ) {
-			if ( current_user_can( $role )
+			if ( _mw_adminimize_current_user_has_role( $role )
 				&& isset( $disabled_global_option_[ $role ] )
 				&& is_array( $disabled_global_option_[ $role ] )
 			) {

@@ -112,6 +112,9 @@ Please use the `Uninstall-Function` in the option-area before update to version 
 * Add minify js/css.
 * Several code changes.
 * Add custom fix for hide editors on post types.
+* Several performance changes, like replace from `array_push`.
+* Fix Role check, new function to fix [#22624](https://core.trac.wordpress.org/ticket/22624).
+* Exclude Settings page and Super Admin from remove Dashboard function.
 
 = 1.8.5 (2015-03-19) =
 * Add brazilian portuguese translation, thanks to [Rafael Funchal](http://www.rafaelfunchal.com.br/)
