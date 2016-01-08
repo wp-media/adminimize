@@ -11,6 +11,23 @@
  * License:     GPLv3+
  */
 
+namespace Adminimize;
+
+use Inpsyde\Autoload;
+
 ! defined( 'ABSPATH' ) and exit;
 
-require_once __DIR__ . '/release/' . basename( __FILE__ );
+require_once __DIR__ . '/src/Autoload/bootstrap.php';
+
+add_action( 'plugins_loaded', __NAMESPACE__ . '\init' );
+/**
+ * Initialize in the WP circus.
+ */
+function init() {
+
+	$autoload = new Autoload\Autoload();
+	$autoload->add_rule( new Autoload\NamespaceRule( __DIR__ . '/src/', __NAMESPACE__ ) );
+
+	$plugin = new Plugin( __FILE__ );
+	$plugin->init();
+}
