@@ -3,7 +3,7 @@ namespace Adminimize\SettingsPage;
 
 use Adminimize\Settings\Option;
 
-class View {
+class View implements IView {
 
 	/**
 	 * @var SettingsPage

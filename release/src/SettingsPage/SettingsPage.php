@@ -1,7 +1,7 @@
 <?php # -*- coding: utf-8 -*-
 namespace Adminimize\SettingsPage;
 
-class SettingsPage {
+class SettingsPage implements ISettingsPage {
 
 	/**
 	 * @var string
