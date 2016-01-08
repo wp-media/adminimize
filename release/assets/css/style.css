@@ -1,0 +1,63 @@
+@CHARSET "UTF-8";
+/**
+ * Stylesheet for the Adminimize settings page.
+ *
+ * @version 2016-01-06
+ */
+
+#minimenu td a {
+	display: block;
+}
+
+table th, table tr:nth-child(odd) {
+	background: #eee;
+}
+
+.widefat thead td input[type=checkbox] {
+	margin: 0 2px 0 0;
+	vertical-align: middle;
+}
+
+table tbody td span, table tbody th span {
+	float: right;
+}
+
+tr:hover,
+td:first-child + td:hover,
+td:first-child + td + td + td:hover,
+td:first-child + td + td + td + td + td:hover,
+td:first-child + td + td + td + td + td + td + td:hover,
+td:first-child + td + td + td + td + td + td + td + td + td:hover {
+	background: #DFDFDF !important;
+}
+
+td:first-child {
+	width: 30%;
+}
+
+td:first-child + td,
+th:first-child + th,
+td:first-child + td + td + td,
+th:first-child + th + th + th,
+td:first-child + td + td + td + td + td,
+th:first-child + th + th + th + th + th,
+td:first-child + td + td + td + td + td + td + td,
+th:first-child + th + th + th + th + th + th + th,
+th:first-child + th + th + th + th + th + th + th + th + th {
+	background-color: #ffebe8;
+}
+
+.col1, .col3, .col5,
+.col7, .col9, .col11 {
+	background-color: #ffebe8;
+}
+
+.widefat td span, .widefat th span {
+	color: #ccc;
+	font-size: x-small;
+	font-weight: lighter;
+}
+
+table.usertheme .num {
+	width: 25px;
+}
