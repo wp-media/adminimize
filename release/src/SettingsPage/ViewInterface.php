@@ -1,7 +1,7 @@
 <?php # -*- coding: utf-8 -*-
 namespace Adminimize\SettingsPage;
 
-interface IView {
+interface ViewInterface {
 
 	/**
 	 * Adds the settings page to the WP menu.

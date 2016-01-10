@@ -1,7 +1,7 @@
 <?php # -*- coding: utf-8 -*-
 namespace Adminimize\SettingsPage;
 
-interface ISettingsPage {
+interface SettingsPageInterface {
 
 	/**
 	 * @return string

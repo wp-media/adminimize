@@ -1,7 +1,7 @@
 <?php # -*- coding: utf-8 -*-
 namespace Adminimize\SettingsPage;
 
-interface IController {
+interface ControllerInterface {
 
 	/**
 	 * Control the initialize of the settings page.

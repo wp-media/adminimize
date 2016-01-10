@@ -1,7 +1,7 @@
 <?php # -*- coding: utf-8 -*-
 namespace Adminimize\SettingsPage;
 
-class SettingsPage implements ISettingsPage {
+class SettingsPage implements SettingsPageInterface {
 
 	/**
 	 * @var string
@@ -14,7 +14,7 @@ class SettingsPage implements ISettingsPage {
 	private $slug;
 
 	/**
-	 * SettingsPage constructor.
+	 * SettingsPageInterface constructor.
 	 */
 	public function __construct() {
 

@@ -1,7 +1,7 @@
 <?php # -*- coding: utf-8 -*-
 namespace Adminimize\SettingsPage;
 
-class Controller implements IController {
+class Controller implements ControllerInterface {
 
 	/**
 	 * @var View

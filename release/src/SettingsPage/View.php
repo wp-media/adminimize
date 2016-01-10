@@ -3,10 +3,10 @@ namespace Adminimize\SettingsPage;
 
 use Adminimize\Settings\Option;
 
-class View implements IView {
+class View implements ViewInterface {
 
 	/**
-	 * @var SettingsPage
+	 * @var SettingsPageInterface
 	 */
 	private $settings_page;
 
@@ -23,8 +23,8 @@ class View implements IView {
 	/**
 	 * View constructor.
 	 *
-	 * @param SettingsPage $settings_page
-	 * @param Option       $option
+	 * @param \Adminimize\SettingsPage\SettingsPage|\Adminimize\SettingsPage\SettingsPageInterface $settings_page
+	 * @param Option                                                                               $option
 	 */
 	public function __construct( SettingsPage $settings_page, Option $option ) {
 
