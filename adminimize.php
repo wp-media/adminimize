@@ -7,13 +7,13 @@
  * Description: Visually compresses the administrative meta-boxes so that more admin page content can be initially seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for all roles of your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible to simplify the admin in different for all roles.
  * Author:      Frank Bültge
  * Author URI:  http://bueltge.de/
- * Version:     1.9.0-RC2
+ * Version:     1.9.0-RC3
  * License:     GPLv2+
  *
  * @package WordPress
  * @author  Frank Bültge <frank@bueltge.de>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2016-01-07
+ * @version 2016-01-18
  */
 
 /**
@@ -95,6 +95,24 @@ function _mw_adminimize_exclude_settings_page() {
 
 	// Don't filter on settings page
 	if ( isset( $screen->id ) && FALSE !== strpos( $screen->id, 'adminimize' ) ) {
+		return TRUE;
+	}
+
+	return FALSE;
+}
+
+/**
+ * Get status, if the plugin active network wide.
+ *
+ * @return bool
+ */
+function _mw_adminimize_is_active_on_multisite() {
+
+	if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
+		require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+	}
+
+	if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
 		return TRUE;
 	}
 
@@ -1257,7 +1275,7 @@ function _mw_adminimize_set_theme() {
 function _mw_adminimize_get_option_value( $key = FALSE ) {
 
 	// check for use on multisite
-	if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
+	if ( _mw_adminimize_is_active_on_multisite() ) {
 		$adminimizeoptions = get_site_option( 'mw_adminimize', array() );
 	} else {
 		$adminimizeoptions = get_option( 'mw_adminimize', array() );
@@ -1282,7 +1300,7 @@ function _mw_adminimize_update_option( $options ) {
 		return;
 	}
 
-	if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
+	if ( _mw_adminimize_is_active_on_multisite() ) {
 		update_site_option( 'mw_adminimize', $options );
 	} else {
 		update_option( 'mw_adminimize', $options );
@@ -1680,7 +1698,7 @@ function _mw_adminimize_install() {
 	$adminimizeoptions[ 'mw_adminimize_default_menu' ]    = $menu;
 	$adminimizeoptions[ 'mw_adminimize_default_submenu' ] = $submenu;
 
-	if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
+	if ( _mw_adminimize_is_active_on_multisite() ) {
 		add_site_option( 'mw_adminimize', $adminimizeoptions );
 	} else {
 		add_option( 'mw_adminimize', $adminimizeoptions );

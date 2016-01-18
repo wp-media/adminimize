@@ -11,7 +11,7 @@ if ( ! function_exists( 'add_action' ) ) {
 
 $screen  = get_current_screen();
 $message = '';
-if ( is_multisite() && is_plugin_active_for_network( plugin_basename( MW_ADMIN_FILE ) ) ) {
+if ( _mw_adminimize_is_active_on_multisite() ) {
 	$message = esc_attr__( 'Network' );
 }
 ?>
@@ -190,7 +190,7 @@ if ( is_multisite() && is_plugin_active_for_network( plugin_basename( MW_ADMIN_F
 						'adminimize'
 					); ?>
 				</p>
-				<?php if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) { ?>
+				<?php if ( _mw_adminimize_is_active_on_multisite() ) { ?>
 					<p><?php esc_attr_e(
 							'You have to activated the Plugin for your Multisite Network. Your settings works now on all blogs in the network. Please set the settings only in one blog, there you have all active menu items and plugins. If you update the settings then write the plugin new settings in dependence of the blog where you put, save the settings.',
 							'adminimize'

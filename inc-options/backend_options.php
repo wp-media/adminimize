@@ -22,9 +22,7 @@ if ( ! function_exists( 'add_action' ) ) {
 			<table summary="config" class="widefat">
 				<tbody>
 				<?php
-				if ( is_multisite()
-					&& is_plugin_active_for_network( MW_ADMIN_FILE )
-					&& function_exists( 'is_super_admin' )
+				if ( _mw_adminimize_is_active_on_multisite() && function_exists( 'is_super_admin' )
 				) { ?>
 					<tr valign="top" class="form-invalid">
 						<td><?php esc_attr_e( 'Exclude Super Admin', 'adminimize' ); ?></td>
