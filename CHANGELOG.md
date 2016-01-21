@@ -1,4 +1,4 @@
-## 1.9.0 ()
+## 1.9.0 (2016-01-21)
 * Change Ex-/Import functions to use JSON format and remove mysql topics, there no longer valid in WP core.
 * Add more checks to hide also dynamically menu items, like Customizer.
 * Update spanish and german language file.
