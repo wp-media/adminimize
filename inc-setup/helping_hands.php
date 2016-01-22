@@ -53,41 +53,47 @@ function _mw_adminimize_in_arrays( $array1, $array2 ) {
 	return (bool) count( array_intersect( $array1, $array2 ) );
 }
 
-// fix some badly enqueued scripts with no sense of HTTPS
+// Fix some badly enqueued scripts with no sense of HTTPS.
 // Kudos to http://snippets.webaware.com.au/snippets/cleaning-up-wordpress-plugin-script-and-stylesheet-loads-over-ssl/
 add_action( 'wp_print_scripts', '_mw_adminimize_enqueueScriptsFix', 100 );
 add_action( 'wp_print_styles', '_mw_adminimize_enqueueStylesFix', 100 );
 
 /**
- * force plugins to load scripts with SSL if page is SSL
+ * Force plugins to load scripts with SSL if page is SSL.
  */
 function _mw_adminimize_enqueueScriptsFix() {
 
-	if ( ! is_admin() ) {
-		if ( ! empty( $_SERVER[ 'HTTPS' ] ) ) {
-			global $wp_scripts;
-			foreach ( (array) $wp_scripts->registered as $script ) {
-				if ( stripos( $script->src, 'http://', 0 ) !== FALSE ) {
-					$script->src = str_replace( 'http://', 'https://', $script->src );
-				}
-			}
+	if ( is_admin() ) {
+		return;
+	}
+
+	if ( ! isset( $_SERVER[ 'HTTPS' ] ) || NULL === $_SERVER[ 'HTTPS' ] ) {
+		return;
+	}
+
+	foreach ( (array) $GLOBALS[ 'wp_scripts' ]->registered as $script ) {
+		if ( FALSE !== stripos( $script->src, 'http://', 0 ) ) {
+			$script->src = str_replace( 'http://', 'https://', $script->src );
 		}
 	}
 }
 
 /**
- * force plugins to load styles with SSL if page is SSL
+ * Force plugins to load styles with SSL if page is SSL.
  */
 function _mw_adminimize_enqueueStylesFix() {
 
-	if ( ! is_admin() ) {
-		if ( ! empty( $_SERVER[ 'HTTPS' ] ) ) {
-			global $wp_styles;
-			foreach ( (array) $wp_styles->registered as $script ) {
-				if ( stripos( $script->src, 'http://', 0 ) !== FALSE ) {
-					$script->src = str_replace( 'http://', 'https://', $script->src );
-				}
-			}
+	if ( is_admin() ) {
+		return;
+	}
+
+	if ( ! isset( $_SERVER[ 'HTTPS' ] ) || NULL === $_SERVER[ 'HTTPS' ] ) {
+		return;
+	}
+
+	foreach ( (array) $GLOBALS[ 'wp_styles' ]->registered as $script ) {
+		if ( FALSE !== stripos( $script->src, 'http://', 0 ) ) {
+			$script->src = str_replace( 'http://', 'https://', $script->src );
 		}
 	}
 }
