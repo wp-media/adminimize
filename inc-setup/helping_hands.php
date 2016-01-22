@@ -3,7 +3,7 @@
  * @package    Adminimize
  * @subpackage Helping_Functions
  * @author     Frank Bültge <frank@bueltge.de
- * @since      2015-03-19
+ * @since      2016-01-22
  */
 if ( ! function_exists( 'add_action' ) ) {
 	die( "Hi there!  I'm just a part of plugin, not much I can do when called directly." );
@@ -68,7 +68,7 @@ function _mw_adminimize_enqueueScriptsFix() {
 	}
 
 	$https_values = array( NULL, 'off' );
-	if ( ! isset( $_SERVER[ 'HTTPS' ] ) || in_array( $https_values ) ) {
+	if ( ! isset( $_SERVER[ 'HTTPS' ] ) || in_array( $_SERVER[ 'HTTPS' ], $https_values ) ) {
 		return;
 	}
 
@@ -89,7 +89,7 @@ function _mw_adminimize_enqueueStylesFix() {
 	}
 
 	$https_values = array( NULL, 'off' );
-	if ( ! isset( $_SERVER[ 'HTTPS' ] ) || in_array( $https_values ) ) {
+	if ( ! isset( $_SERVER[ 'HTTPS' ] ) || in_array( $_SERVER[ 'HTTPS' ], $https_values ) ) {
 		return;
 	}
 
