@@ -67,7 +67,7 @@ function _mw_adminimize_enqueueScriptsFix() {
 		return;
 	}
 
-	$https_values = array( NULL, 'OFF' );
+	$https_values = array( NULL, 'off' );
 	if ( ! isset( $_SERVER[ 'HTTPS' ] ) || in_array( $https_values ) ) {
 		return;
 	}
@@ -88,7 +88,7 @@ function _mw_adminimize_enqueueStylesFix() {
 		return;
 	}
 
-	$https_values = array( NULL, 'OFF' );
+	$https_values = array( NULL, 'off' );
 	if ( ! isset( $_SERVER[ 'HTTPS' ] ) || in_array( $https_values ) ) {
 		return;
 	}
