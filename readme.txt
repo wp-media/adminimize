@@ -55,7 +55,7 @@ Please use the `Uninstall-Function` in the option-area before update to version 
 
 == Changelog ==
 = 1.9.1 (2016-25-01) =
-* Bugfix for fixing ssl protocoll in WP core on include styles and scripts.
+* Bugfix for fixing ssl protocol in WP core on include styles and scripts.
 
 = 1.9.0 (2016-01-21) =
 * Change Ex-/Import functions to use JSON format and remove mysql topics, there no longer valid in WP core.
