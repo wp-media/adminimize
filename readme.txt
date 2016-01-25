@@ -3,8 +3,8 @@ Contributors: Bueltge
 Donate link: https://www.paypal.me/FrankBueltge
 Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
 Requires at least: 4.0
-Tested up to: 4.4
-Stable tag: 1.9.0
+Tested up to: 4.5-alpha
+Stable tag: 1.9.1
 
 Adminimize that lets you hide 'unnecessary' items from the WordPress backend
 
@@ -16,61 +16,27 @@ Adminimize makes it easy to remove items from view based on a user’s role.
 = Search for helping hands =
 Over the time the plugin was extended the plugin with much requirements and his solutions. But the source is not easy to maintain for me, I’m unhappy with the source. I have learned about coding, architecture etc.
 
-Currently I search for developer there will help on dev and support the plugin. The plugin have a [github repository](https://github.com/bueltge/Adminimize) to easy add a issue or a create a fork, pull request. Also to add issues to understand problems.
+Currently I search for developer there will help on dev and support the plugin. The plugin have a [github repository](https://github.com/bueltge/Adminimize) to easy add a issue or a create a fork, pull request. Also to add issues to understand the problems.
 
 Especially the functionality for WP Multisite is currently more a hack as a solution. But is very complex, not easy to create a solution for this.
 
 For development see this repository: https://github.com/bueltge/Adminimize
-The master branch is the current version and the new will leave in the v2.0 branch.
+The `master` branch is the current version and the new will leave in the `refactor` branch.
 
 = Support Custom Options on all different post types =
-With version 1.6.1 it is possible to add own options for hide areas in the backend of WordPress. It is easy and you must only forgive ID or class of the tag. Also it is possible to use a fixed menu and header.
+It is possible to add own options to hide areas in the back end of WordPress. It is easy and you must only forgive ID or class, a selector, of the markup, that you will hide.
 
 = Support Custom Post Type =
-Also it is possible with version 1.7.18 to use on custom post types; hide 'unnecessary' areas on the custom post types for different roles and post types.
+The plugin support all functions also for custom post types, automatically in the settings page.
 
 = Compatibility with plugins for MetaBoxes in Write-area =
 You can add your own options, you must only see for css selectors
 
 = Requirements =
-* WordPress version 2.8 and later; tested only in last stable version.
+* WordPress version 4.0 and later; tested only in last stable version.
 
 = What does this plugin do? =
 The plugin changes the administration backend and gives you the power to assign rights on certain parts. Admins can activate/deactivate every part of the menu and even parts of the sub-menu. Meta fields can be administered separately for posts and pages. Certain parts of the write menu can be deactivated separately for admins or non-admins. The header of the backend is minimized and optimized to give you more space and the structure of the menu gets changed to make it more logical - this can all be done per user so each user can have his own settings.
-
-= Details =
-1. the admin theme can be set per user. To change this go to user settings
-1. currently you can use the theme together with the color settings for the Fresh and Classic themes
-1. more colors can be easily added
-1. new menu structure: on the left hand site you find classic menu points for managing and writing, while the right part is reserved for settings, design, plugins and user settings
-1. the dashboard has been moved into the menu itself but this can be deactivated if its not desired
-1. the menu is now smaller and takes up less space
-1. the WRITE menu has been changed as follows:
-1. it is no longer limited to a fixed width but flows to fill your whole browser window now
-1. you can scroll all input fields now, no need to make certain parts of the WRITE screen bigger
-1. categories moved to the sidebar
-1. tags moved to the sidebar if you are not using the plugin "Simple Tags"
-1. the editing part gets auto-scrolled which makes sense when using a small resolution
-1. the media uploader now uses the whole screen width
-1. supports the plugin "Admin Drop Down Menu" - when the plugin is active the user has two more backend-themes to chose from
-1. supports the plugin "Lighter Menus" - when that plugin is active the user has another two backend-themes to chose from
-1. two new color schemes are now available
-1. the width of the sidebar is changeable to standard, 300px, 400px or 30%
-1. each meta field can now be deactivated (per user setting) so it doesn't clutter up your write screen
-1. you can even deactivate other parts like h2, messages or the info in the sidebar
-1. the part of the user info you have on the upper - right part of your menu can be deactivated or just the log-out link
-1. the dashboard can be completely removed from the backend
-1. all menu and sub menu points can be completely deactivated for admins and non-admins
-1. most of these changes are only loaded when needed - i.e. only in the write screen
-1. set a backend-theme for difficult user
-1. you can set an role to view the areas on link page, edit post, edit page and global
-1. you can add own options for set rights to role
-1. it is possible to disable HTML-Editor on edit-area, only Visual-tab
-1. remove widgets in widgets settings for different role
-1. remove admin bar for different role
-1. remove admin bar items for different role
-1. remove items on custom post types for different role
-1. ... many many more
 
 == Installation ==
 1. Unpack the download-package
@@ -79,7 +45,7 @@ The plugin changes the administration backend and gives you the power to assign 
 4. Selecting Colour Scheme and Theme, selection in Your Profile, go to your User Profile (under `Users` > `Your Profile` or by clicking on your name at the top right corner of the administration panel).
 5. Administrator can go to `Options` > `Adminimize` menu and configure the plugin (Menu, Sub-menu, Meta boxes, ...)
 
-* or use the automatic install via backend of WordPress
+* or use the automatic install via back end of WordPress
 
 = Advice =
 Please use the `Uninstall-Function` in the option-area before update to version 1.4! Version 1.4 and higher have only one database entry and the `Uninstall-Option` uninstall the old entry's.
@@ -88,6 +54,9 @@ Please use the `Uninstall-Function` in the option-area before update to version 
 1. Settings area in WP 4.5-alpha
 
 == Changelog ==
+= 1.9.1 (2016-25-01) =
+* Bugfix for fixing ssl protocoll in WP core on include styles and scripts.
+
 = 1.9.0 (2016-01-21) =
 * Change Ex-/Import functions to use JSON format and remove mysql topics, there no longer valid in WP core.
 * Add more checks to hide also dynamically menu items, like Customizer.
