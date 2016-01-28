@@ -120,7 +120,7 @@ if ( ! isset( $user_roles_names ) ) {
 				} else {
 					$message = '<span style="font-size: 35px;">&#x261D;</span>'
 						. esc_attr__(
-							'Display the front end include load or refresh of the site to get all items of the admin bar in the front end area.',
+							'You must open the front end of the site in this browser in order for the plugin to discover the Admin Bar items that are currently not visible.',
 							'adminimize'
 						);
 				}
