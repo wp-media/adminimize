@@ -53,7 +53,7 @@ function _mw_adminimize_in_arrays( $array1, $array2 ) {
 	return (bool) count( array_intersect( $array1, $array2 ) );
 }
 
-// Fix some badly enqueued scripts with no sense of HTTPS.
+// Fix some badly enqueued scripts with no sense of HTTPS for the back end only.
 // Kudos to http://snippets.webaware.com.au/snippets/cleaning-up-wordpress-plugin-script-and-stylesheet-loads-over-ssl/
 add_action( 'wp_print_scripts', '_mw_adminimize_enqueueScriptsFix', 100 );
 add_action( 'wp_print_styles', '_mw_adminimize_enqueueStylesFix', 100 );
@@ -63,7 +63,7 @@ add_action( 'wp_print_styles', '_mw_adminimize_enqueueStylesFix', 100 );
  */
 function _mw_adminimize_enqueueScriptsFix() {
 
-	if ( is_admin() ) {
+	if ( ! is_admin() ) {
 		return;
 	}
 
@@ -84,7 +84,7 @@ function _mw_adminimize_enqueueScriptsFix() {
  */
 function _mw_adminimize_enqueueStylesFix() {
 
-	if ( is_admin() ) {
+	if ( ! is_admin() ) {
 		return;
 	}
 
