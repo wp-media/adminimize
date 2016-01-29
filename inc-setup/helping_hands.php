@@ -63,7 +63,7 @@ function _mw_adminimize_in_arrays( $array1, $array2 ) {
 function _mw_adminimize_current_user_has_role( $role ) {
 
 	$user = wp_get_current_user();
-	if ( in_array( $role, (array) $user->roles ) ) {
+	if ( in_array( $role, (array) $user->roles, FALSE ) ) {
 		return TRUE;
 	}
 
@@ -72,12 +72,22 @@ function _mw_adminimize_current_user_has_role( $role ) {
 
 /**
  * Simple helper to debug to the console of the browser.
+ * Set WP_DEBUG_DISPLAY in your wp-config.php to true for view debug messages inside the console.
  *
- * @param string | array | object  
+ * @param string $description
+ * @param string | array | object
  */
-function _mw_adminimize_debug( $data ) {
+function _mw_adminimize_debug( $description = '' , $data ) {
 
-	$output  = 'console.info( \'Debug in Console via Adminimize Plugin:\' );';
+	if ( ! defined( WP_DEBUG_DISPLAY ) || ! WP_DEBUG_DISPLAY ) {
+		return;
+	}
+
+	if ( '' === $description ) {
+		$description = 'Debug in Console via Adminimize Plugin:';
+	}
+
+	$output  = 'console.info(' . json_encode( $description ) . ');';
 	$output .= 'console.log(' . json_encode( $data ) . ');';
 	$output  = sprintf( '<script>%s</script>', $output );
 

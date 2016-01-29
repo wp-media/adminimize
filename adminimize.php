@@ -13,7 +13,7 @@
  * @package WordPress
  * @author  Frank Bültge <frank@bueltge.de>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2016-01-25
+ * @version 2016-01-29
  */
 
 /**
@@ -40,9 +40,7 @@ function _mw_adminimize_get_plugin_data( $value = 'Version' ) {
 	}
 
 	$plugin_data  = get_plugin_data( __FILE__ );
-	$plugin_value = $plugin_data[ $value ];
-
-	return $plugin_value;
+	return $plugin_data[ $value ];
 }
 
 /**
@@ -699,10 +697,11 @@ function _mw_adminimize_set_menu_option() {
 
 		$user = wp_get_current_user();
 
-		if ( is_array( $user->roles ) && in_array( $role, $user->roles, FALSE )
-			&& _mw_adminimize_current_user_has_role(
-				$role
-			)
+		_mw_adminimize_debug( 'Adminimize Menu Current User', $user );
+
+		if ( is_array( $user->roles )
+			&& in_array( $role, $user->roles, FALSE )
+			&& _mw_adminimize_current_user_has_role( $role )
 		) {
 			$mw_adminimize_menu    = $disabled_menu_[ $role ];
 			$mw_adminimize_submenu = $disabled_submenu_[ $role ];
@@ -713,25 +712,31 @@ function _mw_adminimize_set_menu_option() {
 	if ( is_array( $mw_adminimize_menu ) && in_array( 'users.php', $mw_adminimize_menu, FALSE ) ) {
 		$mw_adminimize_menu[] = 'profile.php';
 	}
+	_mw_adminimize_debug( 'Adminimize Disabled Menu Items', $mw_adminimize_menu );
+	_mw_adminimize_debug( 'Adminimize Disabled Sub Menu Items', $mw_adminimize_submenu );
 
-	foreach ( $menu as $index => $item ) {
+	foreach ( $menu as $key => $item ) {
+
+		_mw_adminimize_debug( 'Adminimize Menu Item Key', $key );
+		_mw_adminimize_debug( 'Adminimize Menu Item', $item );
 
 		if ( 'index.php' === $item ) {
 			continue;
 		}
 
+		// Menu
 		if ( isset( $item[ 2 ] ) ) {
+			// Check, if the Menu item in the current user role settings?
 			if ( isset( $mw_adminimize_menu ) && is_array( $mw_adminimize_menu )
-				&& in_array(
-					$item[ 2 ], $mw_adminimize_menu, FALSE
-				)
+				&& _mw_adminimize_in_arrays( array( $key, $item[ 2 ] ), $mw_adminimize_menu )
 			) {
-				unset( $menu[ $index ] );
+				unset( $menu[ $key ] );
 			}
 
+			// Sub Menu Settings.
 			if ( isset( $submenu ) && ! empty( $submenu[ $item[ 2 ] ] ) ) {
 				foreach ( $submenu[ $item[ 2 ] ] as $subindex => $subitem ) {
-					// Check, if is menu item in the user role settings?
+					// Check, if is Sub Menu item in the user role settings?
 					if (
 						isset( $mw_adminimize_submenu )
 						&& _mw_adminimize_in_arrays(

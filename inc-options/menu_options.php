@@ -94,6 +94,9 @@ if ( ! function_exists( 'add_action' ) ) {
 
 					foreach ( $wp_menu as $key => $item ) {
 
+						_mw_adminimize_debug( 'Adminimize Menu Settings: Menu Item Key', $key );
+						_mw_adminimize_debug( 'Adminimize Menu Settings: Menu Item', $item );
+
 						// non checked items
 						if ( $item[ 2 ] === 'options-general.php' ) {
 							$disabled_item_adm_hint = '<abbr title="' . esc_attr__(
@@ -143,12 +146,18 @@ if ( ! function_exists( 'add_action' ) ) {
 									$disabled_item_adm      = '';
 									$disabled_item_adm_hint = '';
 								}
+								/**
+								 * Switch to key of each Menu item
+								 * @since 2016-01-29
+								 *
+								 * Use $key instead of htmlentities( $item[ 2 ] ) in the input field below, attribute value
+								 */
 								echo "\t" . '<td class="num">' . $disabled_item_adm_hint . '<input id="check_menu'
 									. $role . $x . '" class="menu_options_'
 									. preg_replace( '/[^a-z0-9]+/', '', $role ) . '" type="checkbox"'
 									. $disabled_item_adm . $checked_user_role_[ $role ]
 									. ' name="mw_adminimize_disabled_menu_' . $role . '_items[]" value="'
-									. htmlentities( $item[ 2 ] ) . '" />' . $disabled_item_adm_hint . '</td>' . "\n";
+									. $key . '" />' . $disabled_item_adm_hint . '</td>' . "\n";
 							}
 							echo '</tr>';
 
@@ -174,7 +183,7 @@ if ( ! function_exists( 'add_action' ) ) {
 								continue;
 							}
 
-							// Loop about submenu items.
+							// Loop about Sub Menu items.
 							foreach ( $wp_submenu[ $item[ 2 ] ] as $subkey => $subitem ) {
 
 								// Special solutions for the Adminimize link, that it not works on settings site.
