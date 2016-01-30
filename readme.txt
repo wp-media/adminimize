@@ -32,29 +32,26 @@ The plugin support all functions also for custom post types, automatically in th
 = Compatibility with plugins for MetaBoxes in Write-area =
 You can add your own options, you must only see for css selectors
 
-= Requirements =
-* WordPress version 4.0 and later; tested only in last stable version.
-
 = What does this plugin do? =
 The plugin changes the administration backend and gives you the power to assign rights on certain parts. Admins can activate/deactivate every part of the menu and even parts of the sub-menu. Meta fields can be administered separately for posts and pages. Certain parts of the write menu can be deactivated separately for admins or non-admins. The header of the backend is minimized and optimized to give you more space and the structure of the menu gets changed to make it more logical - this can all be done per user so each user can have his own settings.
 
 == Installation ==
-1. Unpack the download-package
-2. Upload folder include all files to the `/wp-content/plugins/` directory. The final directory tree should look like `/wp-content/plugins/adminimize/adminimize.php`, `/wp-content/plugins/adminimize/adminimize_page.php`, `/wp-content/plugins/adminimize/css/` and `/wp-content/plugins/adminimize/languages`
-3. Activate the plugin through the `Plugins` menu in WordPress
-4. Selecting Colour Scheme and Theme, selection in Your Profile, go to your User Profile (under `Users` > `Your Profile` or by clicking on your name at the top right corner of the administration panel).
-5. Administrator can go to `Options` > `Adminimize` menu and configure the plugin (Menu, Sub-menu, Meta boxes, ...)
+= Requirements =
+* WordPress version 4.0 and later; tested only in last stable version.
+* PHP 5.2.4, newer PHP versions will work faster. Tested only from version 5.4.
 
-* or use the automatic install via back end of WordPress
+Use the installer via back-end of your install or ...
 
-= Advice =
-Please use the `Uninstall-Function` in the option-area before update to version 1.4! Version 1.4 and higher have only one database entry and the `Uninstall-Option` uninstall the old entry's.
+1. Unpack the download-package.
+2. Upload the files to the `/wp-content/plugins/` directory.
+3. Activate the plugin through the Plugins menu in WordPress and click Activate.
+4. Administrator can go to `Settings` > `Adminimize` menu and configure the plugin (Menu, Sub-menu, Meta boxes, ...)
 
 == Screenshots ==
 1. Settings area in WP 4.5-alpha
 
 == Changelog ==
-## 1.9.2 (2016-01-30)
+= 1.9.2 (2016-01-30) =
 * Change get role name, return now a array with slug and name to fix "Select All" function for custom roles.
 * Change Menu Items to Key value, not the id. Makes possible to hide also menu items, there have a stupid menu entry.
 * Remove https fix; not necessary for the plugin. If you will usage, add this custom [plugin](https://gist.github.com/bueltge/01f37a868e2e1321b931).
