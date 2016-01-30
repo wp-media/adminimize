@@ -48,11 +48,11 @@ if ( ! isset( $user_roles_names ) ) {
 				<tr>
 					<td><?php esc_attr_e( 'Select all', 'adminimize' ); ?></td>
 					<?php
-					foreach ( $user_roles_names as $role_name ) {
+					foreach ( $user_roles_names as $role_slug => $role_name ) {
 						$role_name = strtolower( $role_name );
 						echo '<td class="num">';
-						echo '<input id="select_all" class="admin_bar_frontend_' . $role_name
-							. '" type="checkbox" name="mw_adminimize_select_all' . $role_name . '" value="" />';
+						echo '<input id="select_all" class="admin_bar_frontend_' . $role_slug
+							. '" type="checkbox" value="" />';
 						echo '</td>' . "\n";
 					} ?>
 				</tr>

@@ -157,19 +157,19 @@ function _mw_adminimize_get_all_user_roles() {
 function _mw_adminimize_get_all_user_roles_names() {
 
 	global $wp_roles;
+	$user_roles_names = $wp_roles->role_names;
 
-	$user_roles_names = array();
-
-	/** @var array $wp_roles */
-	foreach ( $wp_roles->role_names as $role_name => $data ) {
-		if ( function_exists( 'translate_user_role' ) ) {
-			$data = translate_user_role( $data );
-		} else {
-			$data = esc_attr_x( $data, 'Translate each user role.' );
-		}
-
-		$user_roles_names[] = $data;
-	}
+	// Remove Custom Format
+	// @since 2016-01-30
+	// ToDo Remove old Code.
+	//$user_roles_names = array();
+	//
+	///** @var array $wp_roles */
+	//foreach ( $wp_roles->role_names as $role_name => $data ) {
+	//
+	//	$data = translate_user_role( $data );
+	//	$user_roles_names[] = $data;
+	//}
 
 	// exclude the new bbPress roles
 	$user_roles_names = array_diff(

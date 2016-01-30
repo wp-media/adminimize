@@ -180,7 +180,7 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 			</ul>
 			<div class="form-invalid" style="padding:.3em 1em;">
 				<p>
-					<span style="font-size: 35px; float: left; margin: -5px 3px 0 0;">&#x261D;</span>
+					<span style="font-size: 35px; float: left; margin: -5px 3px 0 0;">&#x261D;</span><strong>
 					<?php esc_attr_e(
 						'Please note: The Adminimize settings page ignores the Menu Options below and displays the menu with all entries.',
 						'adminimize'
@@ -189,7 +189,7 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 						'To view your changes to the menu you need to navigate away from the Adminimize settings page.',
 						'adminimize'
 					); ?>
-				</p>
+				</strong></p>
 				<?php if ( _mw_adminimize_is_active_on_multisite() ) { ?>
 					<p><?php esc_attr_e(
 							'You have to activated the Plugin for your Multisite Network. Your settings works now on all blogs in the network. Please set the settings only in one blog, there you have all active menu items and plugins. If you update the settings then write the plugin new settings in dependence of the blog where you put, save the settings.',

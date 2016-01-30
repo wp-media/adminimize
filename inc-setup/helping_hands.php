@@ -79,7 +79,7 @@ function _mw_adminimize_current_user_has_role( $role ) {
  */
 function _mw_adminimize_debug( $description = '' , $data ) {
 
-	if ( ! defined( WP_DEBUG_DISPLAY ) || ! WP_DEBUG_DISPLAY ) {
+	if ( defined( WP_DEBUG_DISPLAY ) && ! WP_DEBUG_DISPLAY ) {
 		return;
 	}
 

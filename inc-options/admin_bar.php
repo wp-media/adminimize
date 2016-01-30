@@ -15,7 +15,7 @@ if ( ! isset( $wp_admin_bar ) ) {
 
 if ( ! isset( $user_roles_names ) ) {
 	$user_roles_names = _mw_adminimize_get_all_user_roles_names();
-}
+}_mw_adminimize_debug( 'User Role Name', $user_roles_names );
 ?>
 <div id="poststuff" class="ui-sortable meta-box-sortables">
 	<div class="postbox">
@@ -48,10 +48,9 @@ if ( ! isset( $user_roles_names ) ) {
 				<tr>
 					<td><?php esc_attr_e( 'Select all', 'adminimize' ); ?></td>
 					<?php
-					foreach ( $user_roles_names as $role_name ) {
-						$role_name = strtolower( $role_name );
+					foreach ( $user_roles_names as $role_slug => $role_name ) {
 						echo '<td class="num">';
-						echo '<input id="select_all" class="admin_bar_' . $role_name
+						echo '<input id="select_all" class="admin_bar_' . $role_slug
 								. '" type="checkbox" name="" value="" />';
 						echo '</td>' . "\n";
 					} ?>
