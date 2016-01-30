@@ -1,7 +1,8 @@
-## 1.9.2 ()
+## 1.9.2 (2016-01-30)
 * Change get role name, return now a array with slug and name to fix "Select All" function for custom roles.
 * Change Menu Items to Key value, not the id. Makes possible to hide also menu items, there have a stupid menu entry.
 * Remoge https fix; not necessary for the plugin. If you will usage, add this custom [plugin](https://gist.github.com/bueltge/01f37a868e2e1321b931).
+* Update pot and de_De language files.
 
 ## 1.9.1 (2016-25-01)
 * Bugfix for fixing ssl protocol in WP core on include styles and scripts.

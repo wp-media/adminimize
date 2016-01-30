@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/FrankBueltge
 Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
 Requires at least: 4.0
 Tested up to: 4.5-alpha
-Stable tag: 1.9.1
+Stable tag: 1.9.2
 
 Adminimize that lets you hide 'unnecessary' items from the WordPress backend
 
@@ -54,6 +54,12 @@ Please use the `Uninstall-Function` in the option-area before update to version 
 1. Settings area in WP 4.5-alpha
 
 == Changelog ==
+## 1.9.2 (2016-01-30)
+* Change get role name, return now a array with slug and name to fix "Select All" function for custom roles.
+* Change Menu Items to Key value, not the id. Makes possible to hide also menu items, there have a stupid menu entry.
+* Remoge https fix; not necessary for the plugin. If you will usage, add this custom [plugin](https://gist.github.com/bueltge/01f37a868e2e1321b931).
+* Update pot and de_De language files.
+
 = 1.9.1 (2016-25-01) =
 * Bugfix for fixing ssl protocol in WP core on include styles and scripts.
 
