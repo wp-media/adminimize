@@ -15,7 +15,7 @@ if ( ! function_exists( 'add_action' ) ) {
 		<h3 class="hndle" id="uninstall"><?php esc_attr_e( 'Uninstall Options', 'adminimize' ) ?></h3>
 		<div class="inside">
 
-			<p><?php esc_attr_e(
+			<p><?php _e(
 					'Use this option for clean your database from all entries of this plugin. When you deactivate the plugin, the deinstall of the plugin <strong>clean not</strong> all entries in the database.',
 					'adminimize'
 				); ?></p>
