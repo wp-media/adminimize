@@ -13,6 +13,10 @@ if ( ! isset( $wp_admin_bar ) ) {
 	$wp_admin_bar = '';
 }
 
+if ( ! isset( $user_roles ) ) {
+	$user_roles = _mw_adminimize_get_all_user_roles();
+}
+
 if ( ! isset( $user_roles_names ) ) {
 	$user_roles_names = _mw_adminimize_get_all_user_roles_names();
 }
@@ -48,8 +52,7 @@ if ( ! isset( $user_roles_names ) ) {
 				<tr>
 					<td><?php esc_attr_e( 'Select all', 'adminimize' ); ?></td>
 					<?php
-					foreach ( $user_roles_names as $role_slug => $role_name ) {
-						$role_name = strtolower( $role_name );
+					foreach ( $user_roles as $role_slug ) {
 						echo '<td class="num">';
 						echo '<input id="select_all" class="admin_bar_frontend_' . $role_slug
 							. '" type="checkbox" value="" />';
