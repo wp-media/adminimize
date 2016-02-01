@@ -131,7 +131,6 @@ function _mw_adminimize_get_all_user_roles() {
 	$user_roles = array();
 
 	if ( NULL !== $wp_roles->roles && is_array( $wp_roles->roles ) ) {
-		/** @var array $wp_roles */
 		foreach ( $wp_roles->roles as $role => $data ) {
 			$user_roles[] = $role;
 			//$data contains caps, maybe for later use..
@@ -157,19 +156,14 @@ function _mw_adminimize_get_all_user_roles() {
 function _mw_adminimize_get_all_user_roles_names() {
 
 	global $wp_roles;
-	$user_roles_names = $wp_roles->role_names;
+	$user_roles_names = array();
 
-	// Remove Custom Format
-	// @since 2016-01-30
-	// ToDo Remove old Code.
-	//$user_roles_names = array();
-	//
-	///** @var array $wp_roles */
-	//foreach ( $wp_roles->role_names as $role_name => $data ) {
-	//
-	//	$data = translate_user_role( $data );
-	//	$user_roles_names[] = $data;
-	//}
+	/** @var array $w_roles */
+	foreach ( $wp_roles->role_names as $role_name => $data ) {
+
+		$data = translate_user_role( $data );
+		$user_roles_names[] = $data;
+	}
 
 	// exclude the new bbPress roles
 	$user_roles_names = array_diff(
