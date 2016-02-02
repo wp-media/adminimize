@@ -1,3 +1,9 @@
+## 1.9.3 ()
+* Rewrite the Admin Bar settings, simplify the source and new hook to get and render the Admin Bar.
+* Change settings screen for custom post type.
+* Fix "select all" on Admin Bar settings.
+* Fix exclude settings page for pages, there is the current screen not existent.
+
 ## 1.9.2 (2016-01-30)
 * Change get role name, return now a array with slug and name to fix "Select All" function for custom roles.
 * Change Menu Items to Key value, not the id. Makes possible to hide also menu items, there have a stupid menu entry.
