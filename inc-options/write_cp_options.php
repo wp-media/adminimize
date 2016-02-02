@@ -40,11 +40,12 @@ foreach ( get_post_types( $args ) as $post_type ) {
 					<tr>
 						<td><?php esc_attr_e( 'Select all', 'adminimize' ); ?></td>
 						<?php
-						foreach ( $user_roles_names as $role_name ) {
-							$role_name = strtolower( $role_name );
-							$role_name = preg_replace( '/[^a-z0-9]+/', '', $role_name );
+						foreach ( $user_roles as $role_slug ) {
+							//$role_name = strtolower( $role_name );
+							//$role_name = preg_replace( '/[^a-z0-9]+/', '', $role_name );
 							echo '<td class="num">';
-							echo '<input id="select_all" class="write_cp_options_' . $role_name
+							echo '<input id="select_all" class="write_cp_options_' . $post_type .
+								'_' . $role_slug
 								. '" type="checkbox" name="" value="" />';
 							echo '</td>' . "\n";
 						} ?>
@@ -74,15 +75,13 @@ foreach ( get_post_types( $args ) as $post_type ) {
 					);
 
 					foreach ( $GLOBALS[ '_wp_post_type_features' ][ $post_type ] as $post_type_support => $key ) {
-						if ( post_type_supports( $post_type, $post_type_support ) ) {
-							if ( 'excerpt' === $post_type_support ) {
+						if ( post_type_supports( $post_type, $post_type_support ) && 'excerpt' === $post_type_support ) {
 								$post_type_support = 'postexcerpt';
-							}
 						}
 						if ( 'page-attributes' === $post_type_support ) {
 							$post_type_support = 'pageparentdiv';
 						}
-						if ( 'custom-fields' == $post_type_support ) {
+						if ( 'custom-fields' === $post_type_support ) {
 							$post_type_support = 'postcustom';
 						}
 
@@ -206,21 +205,22 @@ foreach ( get_post_types( $args ) as $post_type ) {
 								$checked_user_role_[ $post_type . '_' . $role ]  = (
 									isset( $disabled_metaboxes_[ $post_type . '_' . $role ] )
 									&& in_array(
-										$metabox, $disabled_metaboxes_[ $post_type . '_' . $role ]
+										$metabox, $disabled_metaboxes_[ $post_type . '_' . $role ], FALSE
 									)
 								) ? ' checked="checked"' : '';
 							}
 							echo '<tr>' . "\n";
 							echo '<td>' . $metaboxes_names[ $index ] .
 								' <span>(' . $metabox . ')</span> </td>' . "\n";
-							foreach ( $user_roles as $role ) {
+							foreach ( $user_roles as $role_slug ) {
 								echo '<td class="num">';
 								echo '<input id="check_' .
-									$post_type . $role . $x . '" class="write_cp_options_'
-									. preg_replace( '/[^a-z0-9]+/', '', $role ) . '" type="checkbox"' .
-									$checked_user_role_[ $post_type . '_' . $role ] .
+									$post_type . $role_slug . $x . '" class="write_cp_options_'
+									. $post_type .
+									'_' . $role_slug . '" type="checkbox"' .
+									$checked_user_role_[ $post_type . '_' . $role_slug ] .
 									' name="mw_adminimize_disabled_metaboxes_' . $post_type .
-									'_' . $role . '_items[]" value="' . $metabox . '" />';
+									'_' . $role_slug . '_items[]" value="' . $metabox . '" />';
 								echo '</td>' . "\n";
 							}
 							echo '</tr>' . "\n";
@@ -268,23 +268,27 @@ foreach ( get_post_types( $args ) as $post_type ) {
 											'_mw_adminimize_own_options_' . $post_type
 										); ?></textarea>
 							<br />
+							<label for="_mw_adminimize_own_options_<?php echo $post_type; ?>">
 							<?php esc_attr_e(
 								'Possible nomination for ID or class. Separate multiple nominations through a carriage return.',
 								'adminimize'
 							); ?>
+							</label>
 						</td>
 						<td>
-									<textarea class="code" name="_mw_adminimize_own_values_<?php echo $post_type; ?>"
-										cols="60" rows="3"
-										id="_mw_adminimize_own_values_<?php echo $post_type; ?>"
-										style="width: 95%;"><?php echo _mw_adminimize_get_option_value(
-											'_mw_adminimize_own_values_' . $post_type
-										); ?></textarea>
+							<textarea class="code" name="_mw_adminimize_own_values_<?php echo $post_type; ?>"
+								cols="60" rows="3"
+								id="_mw_adminimize_own_values_<?php echo $post_type; ?>"
+								style="width: 95%;"><?php echo _mw_adminimize_get_option_value(
+								'_mw_adminimize_own_values_' . $post_type
+							); ?></textarea>
 							<br />
+							<label for="_mw_adminimize_own_values_<?php echo $post_type; ?>">
 							<?php esc_attr_e(
 								'Possible IDs or classes. Separate multiple values through a carriage return.',
 								'adminimize'
 							); ?>
+							</label>
 						</td>
 					</tr>
 					</tbody>

@@ -85,7 +85,7 @@ function _mw_adminimize_exclude_super_admin() {
 function _mw_adminimize_exclude_settings_page() {
 
 	if ( ! function_exists( 'get_current_screen' ) ) {
-		return TRUE;
+		return FALSE;
 	}
 
 	// Get admin page
@@ -1311,6 +1311,9 @@ function _mw_adminimize_update_option( $options ) {
  */
 function _mw_adminimize_update() {
 
+	_mw_adminimize_debug( 'Adminimiize: php.ini - max_input_vars', ini_get( 'max_input_vars' ) );
+	_mw_adminimize_debug( 'Adminimiize: $_POST data on update', $_POST );
+
 	$user_roles = _mw_adminimize_get_all_user_roles();
 	$args       = array( 'public' => TRUE, '_builtin' => FALSE );
 	$post_types = get_post_types( $args );
@@ -1645,6 +1648,7 @@ function _mw_adminimize_update() {
 		$adminimizeoptions[ 'mw_adminimize_default_submenu' ] = $GLOBALS[ 'submenu' ];
 	}
 
+	_mw_adminimize_debug( 'Adminimiize: Update data', $adminimizeoptions );
 	// update
 	_mw_adminimize_update_option( $adminimizeoptions );
 

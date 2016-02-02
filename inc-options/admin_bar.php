@@ -9,6 +9,7 @@ if ( ! function_exists( 'add_action' ) ) {
 	die( "Hi there!  I'm just a part of plugin, not much I can do when called directly." );
 }
 
+/** @var $wp_admin_bar WP_Admin_Bar */
 if ( ! isset( $wp_admin_bar ) ) {
 	$wp_admin_bar = '';
 }

@@ -10,198 +10,95 @@ if ( ! function_exists( 'add_action' ) ) {
 	exit;
 }
 
-//add_action( 'wp_before_admin_bar_render', '_mw_adminimize_get_admin_bar_nodes', 9999 );
-add_action( 'admin_bar_menu', '_mw_adminimize_get_admin_bar_nodes', 99999 );
+// Get all Admin Bar items, different between front- and backend.
+add_action( 'wp_before_admin_bar_render', '_mw_adminimize_get_admin_bar_nodes', 99999 );
+// Render the Admin bar new, different between front- and backend.
+add_action( 'wp_before_admin_bar_render', '_mw_adminimize_change_admin_bar', 99999 );
+
 /**
  * Get all admin bar items in back end and write in a options of Adminimize settings array
  *
- * @since   1.8.1  01/10/2013
- *
- * @param $wp_admin_bar
+ * @since    1.8.1  01/10/2013
  */
-function _mw_adminimize_get_admin_bar_nodes( $wp_admin_bar ) {
+function _mw_adminimize_get_admin_bar_nodes() {
 
-	if ( ! is_admin() ) {
-		return;
-	}
-
-	if ( _mw_adminimize_exclude_settings_page() ) {
-		return;
-	}
-
-	// @see: http://codex.wordpress.org/Function_Reference/get_nodes
-	$all_toolbar_nodes = $wp_admin_bar->get_nodes();
-
-	if ( $all_toolbar_nodes ) {
-		// get all options
-		$adminimizeoptions = _mw_adminimize_get_option_value();
-
-		// add admin bar array
-		$adminimizeoptions[ 'mw_adminimize_admin_bar_nodes' ] = $all_toolbar_nodes;
-
-		// update options
-		_mw_adminimize_update_option( $adminimizeoptions );
-	}
-}
-
-//add_action( 'wp_before_admin_bar_render', '_mw_adminimize_get_admin_bar_frontend_nodes', 9999 );
-add_action( 'admin_bar_menu', '_mw_adminimize_get_admin_bar_frontend_nodes', 99999 );
-/**
- * Get admin bar items from frontend view.
- *
- * @since 2015-07-03
- *
- * @param $wp_admin_bar
- *
- * @return null
- */
-function _mw_adminimize_get_admin_bar_frontend_nodes( $wp_admin_bar ) {
-
-	if ( ! is_user_logged_in() ) {
-		return;
-	}
-
-	if ( is_admin() ) {
-		return;
-	}
-
-	// Only the right capability allow to get all items and update settings.
+	// Only Administrator get all items.
 	if ( ! current_user_can( 'manage_options' ) ) {
 		return;
 	}
+	;
+	if ( _mw_adminimize_exclude_settings_page() ) {
+		return;
+	}
+
+	/** @var $wp_admin_bar WP_Admin_Bar */
+	global $wp_admin_bar;
+
 	// @see: http://codex.wordpress.org/Function_Reference/get_nodes
 	$all_toolbar_nodes = $wp_admin_bar->get_nodes();
+
+	$settings = 'mw_adminimize_admin_bar_frontend_nodes';
+	// Set string on settings for Admin Area.
+	if ( is_admin() ){
+		$settings = 'mw_adminimize_admin_bar_nodes';
+	}
 
 	if ( $all_toolbar_nodes ) {
 		// get all options
 		$adminimizeoptions = _mw_adminimize_get_option_value();
 
 		// add admin bar array
-		$adminimizeoptions[ 'mw_adminimize_admin_bar_frontend_nodes' ] = $all_toolbar_nodes;
+		$adminimizeoptions[ $settings ] = $all_toolbar_nodes;
 
 		// update options
 		_mw_adminimize_update_option( $adminimizeoptions );
 	}
 }
 
-add_action( 'admin_bar_menu', '_mw_adminimize_change_admin_bar', 99999 );
-/**
- * Remove items in Admin Bar for current role of current active user in back end area
- * Exclude Super Admin, if active
- * Exclude Settings page of Adminimize
- *
- * @since   1.8.1  01/10/2013
- *
- * @param $wp_admin_bar
- *
- * @return null
- */
-function _mw_adminimize_change_admin_bar( $wp_admin_bar ) {
-
-	// works only for back end admin bar
-	if ( ! is_admin() ) {
-		return;
-	}
-
-	if ( _mw_adminimize_exclude_settings_page() ) {
-		return;
-	}
-
-	// Exclude super admin
-	if ( _mw_adminimize_exclude_super_admin() ) {
-		return;
-	}
-
-	$user_roles                 = _mw_adminimize_get_all_user_roles();
-	$disabled_admin_bar_option_ = array();
-
-	foreach ( $user_roles as $role ) {
-
-		$disabled_admin_bar_option_[ $role ] = _mw_adminimize_get_option_value(
-			'mw_adminimize_disabled_admin_bar_' . $role . '_items'
-		);
-	}
-
-	foreach ( $user_roles as $role ) {
-
-		if ( ! isset( $disabled_admin_bar_option_[ $role ][ '0' ] ) ) {
-			$disabled_admin_bar_option_[ $role ][ '0' ] = '';
-		}
-	}
-
-	foreach ( $user_roles as $role ) {
-		$user = wp_get_current_user();
-
-		if ( is_array( $user->roles )
-			&& in_array( $role, $user->roles )
-			&& _mw_adminimize_current_user_has_role( $role )
-			&& is_array( $disabled_admin_bar_option_[ $role ] )
-		) {
-
-			foreach ( $disabled_admin_bar_option_[ $role ] as $admin_bar_item ) {
-				$wp_admin_bar->remove_node( $admin_bar_item );
-			}
-
-		} // end if user roles
-	}
-
-}
-
-add_action( 'admin_bar_menu', '_mw_adminimize_change_admin_bar_frontend', 99999 );
 /**
  * Remove items in Admin Bar for current role of current active user in front end area
  * Exclude Super Admin, if active
  * Exclude Settings page of Adminimize
  *
  * @since   1.8.1  01/10/2013
- *
- * @param $wp_admin_bar
- *
- * @return null
  */
-function _mw_adminimize_change_admin_bar_frontend( $wp_admin_bar ) {
+function _mw_adminimize_change_admin_bar() {
 
-	// works only for back end admin bar
-	if ( is_admin() ) {
+	// Only for users, there logged in.
+	if ( ! is_user_logged_in() ) {
 		return;
 	}
 
-	// Exclude super admin
+	// Exclude super admin.
 	if ( _mw_adminimize_exclude_super_admin() ) {
 		return;
 	}
 
-	$user_roles                          = _mw_adminimize_get_all_user_roles();
-	$disabled_admin_bar_frontend_option_ = '';
+	/** @var $wp_admin_bar WP_Admin_Bar */
+	global $wp_admin_bar;
 
-	foreach ( $user_roles as $role ) {
+	// Get current user data.
+	$user      = wp_get_current_user();
+	$user_role = $user->roles[ 0 ];
 
-		$disabled_admin_bar_frontend_option_[ $role ] = _mw_adminimize_get_option_value(
-			'mw_adminimize_disabled_admin_bar_frontend_' . $role . '_items'
+	// Get Backend Admin Bar settings for the current user role.
+	if ( is_admin() ) {
+		$disabled_admin_bar_option_[ $user_role ] = _mw_adminimize_get_option_value(
+			'mw_adminimize_disabled_admin_bar_' . $user_role . '_items'
+		);
+	} else {
+		// Get Frontend Admin Bar settings for the current user role.
+		$disabled_admin_bar_option_[ $user_role ] = (array) _mw_adminimize_get_option_value(
+			'mw_adminimize_disabled_admin_bar_frontend_' . $user_role . '_items'
 		);
 	}
 
-	foreach ( $user_roles as $role ) {
-
-		if ( ! isset( $disabled_admin_bar_frontend_option_[ $role ][ '0' ] ) ) {
-			$disabled_admin_bar_frontend_option_[ $role ][ '0' ] = '';
-		}
+	// No settings for this role, exit.
+	if ( ! $disabled_admin_bar_option_[ $user_role ] ) {
+		return;
 	}
 
-	foreach ( $user_roles as $role ) {
-		$user = wp_get_current_user();
-
-		if ( is_array( $user->roles )
-			&& in_array( $role, $user->roles )
-			&& _mw_adminimize_current_user_has_role( $role )
-			&& is_array( $disabled_admin_bar_frontend_option_[ $role ] )
-		) {
-
-			foreach ( $disabled_admin_bar_frontend_option_[ $role ] as $admin_bar_item ) {
-				$wp_admin_bar->remove_node( $admin_bar_item );
-			}
-
-		} // end if user roles
+	foreach ( $disabled_admin_bar_option_[ $user_role ] as $admin_bar_item ) {
+		$wp_admin_bar->remove_node( $admin_bar_item );
 	}
-
 }
