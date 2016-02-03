@@ -92,11 +92,10 @@ if ( ! function_exists( 'add_action' ) ) {
 
 					foreach ( $wp_menu as $key => $item ) {
 
-						_mw_adminimize_debug( 'Adminimize Menu Settings: Menu Item Key', $key );
-						_mw_adminimize_debug( 'Adminimize Menu Settings: Menu Item', $item );
+						$menu_slug = $item[ 2 ];
 
 						// non checked items
-						if ( $item[ 2 ] === 'options-general.php' ) {
+						if ( $menu_slug === 'options-general.php' ) {
 							$disabled_item_adm_hint = '<abbr title="' . esc_attr__(
 									'After activate the check box it heavy attitudes will change.', 'adminimize'
 								) . '" style="cursor:pointer;"> ! </acronym>';
@@ -105,7 +104,7 @@ if ( ! function_exists( 'add_action' ) ) {
 							$disabled_item_adm_hint = '';
 						}
 
-						if ( '' !== $item[ 2 ] ) {
+						if ( '' !== $menu_slug ) {
 
 							if ( 'wp-menu-separator' === $item[ 4 ] ) {
 								$item[ 0 ] = 'Separator';
@@ -116,9 +115,7 @@ if ( ! function_exists( 'add_action' ) ) {
 								// checkbox checked
 								$checked_user_role_[ $role ] = '';
 								if ( isset( $disabled_menu_[ $role ] )
-									// @since 2015-11-11
-									// Switch to the key and url of menu item.
-									&& _mw_adminimize_in_arrays( array( $key, $item[ 2 ] ), $disabled_menu_[ $role ] )
+									&& in_array( $menu_slug, $disabled_menu_[ $role ], FALSE )
 								) {
 									$checked_user_role_[ $role ] = ' checked="checked"';
 								}
@@ -130,12 +127,11 @@ if ( ! function_exists( 'add_action' ) ) {
 							echo '<b>&bull; ' . $item[ 0 ] . '</b> <small>' . esc_attr__(
 									'Group', 'adminimize'
 								) . '</small>';
-							echo '<span>'
-								. $key . '('
+							echo '<span>('
 								. preg_replace(
 									"#[%2].*#",
 									'...',
-									htmlentities( $item[ 2 ] )
+									htmlentities( $menu_slug )
 								) . ')</span>';
 							echo '</th>';
 
@@ -155,12 +151,12 @@ if ( ! function_exists( 'add_action' ) ) {
 									. preg_replace( '/[^a-z0-9]+/', '', $role ) . '" type="checkbox"'
 									. $disabled_item_adm . $checked_user_role_[ $role ]
 									. ' name="mw_adminimize_disabled_menu_' . $role . '_items[]" value="'
-									. $key . '" />' . $disabled_item_adm_hint . '</td>' . "\n";
+									. $menu_slug . '" />' . $disabled_item_adm_hint . '</td>' . "\n";
 							}
 							echo '</tr>';
 
 							// Only for user smaller administrator, change user-Profile-File.
-							if ( 'users.php' === $item[ 2 ] ) {
+							if ( 'users.php' === $menu_slug ) {
 								$x ++;
 								echo '<tr class="form-invalid">' . "\n";
 								echo "\t" . '<th>' . esc_attr__( 'Profile' ) . ' <span>(profile.php)</span> </th>';
@@ -177,12 +173,12 @@ if ( ! function_exists( 'add_action' ) ) {
 
 							$x ++;
 
-							if ( ! isset( $wp_submenu[ $item[ 2 ] ] ) ) {
+							if ( ! isset( $wp_submenu[ $menu_slug ] ) ) {
 								continue;
 							}
 
 							// Loop about Sub Menu items.
-							foreach ( $wp_submenu[ $item[ 2 ] ] as $subkey => $subitem ) {
+							foreach ( $wp_submenu[ $menu_slug ] as $subkey => $subitem ) {
 
 								// Special solutions for the Adminimize link, that it not works on settings site.
 								if ( $subitem[ 2 ] === 'adminimize/adminimize.php' ) {
@@ -205,7 +201,7 @@ if ( ! function_exists( 'add_action' ) ) {
 										// @since 2015-11-11
 										// Switch to custom key and url of menu item.
 										&& _mw_adminimize_in_arrays(
-											array( $item[ 2 ] . '__' . $subkey, $subitem[ 2 ] ),
+											array( $menu_slug . '__' . $subkey, $subitem[ 2 ] ),
 											$disabled_submenu_[ $role ]
 										)
 									) {
@@ -230,7 +226,7 @@ if ( ! function_exists( 'add_action' ) ) {
 										. preg_replace( '/[^a-z0-9]+/', '', $role ) . '" type="checkbox"'
 										. $disabled_subitem_adm . $checked_user_role_[ $role ]
 										. ' name="mw_adminimize_disabled_submenu_' . $role . '_items[]" value="'
-										. $item[ 2 ] . '__' . $subkey . '" />' . $disabled_subitem_adm_hint . '</td>' . "\n";
+										. $menu_slug . '__' . $subkey . '" />' . $disabled_subitem_adm_hint . '</td>' . "\n";
 								}
 								echo '</tr>' . "\n";
 								$x ++;

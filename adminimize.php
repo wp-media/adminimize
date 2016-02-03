@@ -7,13 +7,13 @@
  * Description: Visually compresses the administrative meta-boxes so that more admin page content can be initially seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for all roles of your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible to simplify the admin in different for all roles.
  * Author:      Frank Bültge
  * Author URI:  http://bueltge.de/
- * Version:     1.9.3-RC1
+ * Version:     1.9.3-RC2
  * License:     GPLv3+
  *
  * @package WordPress
  * @author  Frank Bültge <frank@bueltge.de>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2016-02-02
+ * @version 2016-02-03
  */
 
 /**
@@ -686,12 +686,10 @@ function _mw_adminimize_set_menu_option() {
 	$mw_adminimize_menu    = array();
 	$mw_adminimize_submenu = array();
 
+	$user = wp_get_current_user();
+
 	// Set admin-menu.
 	foreach ( $user_roles as $role ) {
-
-		$user = wp_get_current_user();
-
-		_mw_adminimize_debug( 'Adminimize Menu Current User', $user );
 
 		if ( is_array( $user->roles )
 			&& in_array( $role, $user->roles, FALSE )
@@ -706,25 +704,24 @@ function _mw_adminimize_set_menu_option() {
 	if ( is_array( $mw_adminimize_menu ) && in_array( 'users.php', $mw_adminimize_menu, FALSE ) ) {
 		$mw_adminimize_menu[] = 'profile.php';
 	}
-	_mw_adminimize_debug( 'Adminimize Disabled Menu Items', $mw_adminimize_menu );
-	_mw_adminimize_debug( 'Adminimize Disabled Sub Menu Items', $mw_adminimize_submenu );
 
 	foreach ( $menu as $key => $item ) {
 
-		_mw_adminimize_debug( 'Adminimize Menu Item Key', $key );
-		_mw_adminimize_debug( 'Adminimize Menu Item', $item );
-
+		// TODO: kill it, no relevance, Test it.
 		if ( 'index.php' === $item ) {
 			continue;
 		}
 
 		// Menu
 		if ( isset( $item[ 2 ] ) ) {
+			$menu_slug = $item[ 2 ];
 			// Check, if the Menu item in the current user role settings?
 			if ( isset( $mw_adminimize_menu ) && is_array( $mw_adminimize_menu )
-				&& _mw_adminimize_in_arrays( array( $key, $item[ 2 ] ), $mw_adminimize_menu )
+				&& in_array( $menu_slug, $mw_adminimize_menu, FALSE )
 			) {
-				unset( $menu[ $key ] );
+				remove_menu_page( $menu_slug );
+				// ToDo: kill after tests.
+				//unset( $menu[ $key ] );
 			}
 
 			// Sub Menu Settings.
@@ -1311,9 +1308,6 @@ function _mw_adminimize_update_option( $options ) {
  */
 function _mw_adminimize_update() {
 
-	_mw_adminimize_debug( 'Adminimiize: php.ini - max_input_vars', ini_get( 'max_input_vars' ) );
-	_mw_adminimize_debug( 'Adminimiize: $_POST data on update', $_POST );
-
 	$user_roles = _mw_adminimize_get_all_user_roles();
 	$args       = array( 'public' => TRUE, '_builtin' => FALSE );
 	$post_types = get_post_types( $args );
@@ -1648,7 +1642,6 @@ function _mw_adminimize_update() {
 		$adminimizeoptions[ 'mw_adminimize_default_submenu' ] = $GLOBALS[ 'submenu' ];
 	}
 
-	_mw_adminimize_debug( 'Adminimiize: Update data', $adminimizeoptions );
 	// update
 	_mw_adminimize_update_option( $adminimizeoptions );
 
