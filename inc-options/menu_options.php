@@ -18,7 +18,7 @@ if ( ! function_exists( 'add_action' ) ) {
 		<div class="inside">
 			<br class="clear" />
 
-			<table summary="config_menu" class="widefat">
+			<table summary="config_menu" class="widefat config_menu">
 				<thead>
 				<tr>
 					<th><?php esc_attr_e( 'Menu options - Menu, Submenu', 'adminimize' ); ?></th>
@@ -32,15 +32,13 @@ if ( ! function_exists( 'add_action' ) ) {
 				<tr>
 					<td><?php esc_attr_e( 'Select all', 'adminimize' ); ?></td>
 					<?php
-					foreach ( $user_roles_names as $role_name ) {
-						$role_name = strtolower( $role_name );
-						$role_name = preg_replace( '/[^a-z0-9]+/', '', $role_name );
+					foreach ( $user_roles as $role_slug ) {
 						echo '<td class="num">';
 						echo '<span class="form-invalid">';
-						echo '<input id="select_all" class="menu_options_' . $role_name
+						echo '<input id="select_all" class="menu_options_' . $role_slug
 							. '" type="checkbox" name="" value="" />';
 						echo '</span>';
-						echo '<input id="select_all" class="submenu_options_' . $role_name
+						echo '<input id="select_all" class="submenu_options_' . $role_slug
 							. '" type="checkbox" name="" value="" />';
 						echo '</td>' . "\n";
 					} ?>

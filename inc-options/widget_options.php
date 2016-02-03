@@ -31,11 +31,9 @@ if ( ! function_exists( 'add_action' ) ) {
 				<tr>
 					<td><?php esc_attr_e( 'Select all', 'adminimize' ); ?></td>
 					<?php
-					foreach ( $user_roles_names as $role_name ) {
-						$role_name = strtolower( $role_name );
-						$role_name = preg_replace( '/[^a-z0-9]+/', '', $role_name );
+					foreach ( $user_roles as $role_slug ) {
 						echo '<td class="num">';
-						echo '<input id="select_all" class="widget_options_' . $role_name
+						echo '<input id="select_all" class="widget_options_' . $role_slug
 							. '" type="checkbox" name="" value="" />';
 						echo '</td>' . "\n";
 					} ?>

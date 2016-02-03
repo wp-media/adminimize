@@ -61,3 +61,7 @@ th:first-child + th + th + th + th + th + th + th + th + th {
 table.usertheme .num {
 	width: 25px;
 }
+
+table.config_menu span.awaiting-mod{
+	display: none;
+}
