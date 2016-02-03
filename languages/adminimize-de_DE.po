@@ -5,15 +5,15 @@ msgstr ""
 "Project-Id-Version: Development (trunk)\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/adminimize\n"
 "POT-Creation-Date: 2016-01-30 23:09+0100\n"
-"PO-Revision-Date: 2016-01-30 23:10+0100\n"
-"Last-Translator: Frank Bültge <frank@bueltge.de>\n"
+"PO-Revision-Date: 2016-02-03 14:59+0100\n"
+"Last-Translator: Frank Bueltge\n"
 "Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.5\n"
 
 #: adminimize.php:178
 msgid "Keymaster"
@@ -170,7 +170,7 @@ msgstr ""
 
 #: inc-options/backend_options.php:16 inc-options/minimenu.php:48
 msgid "Backend Options"
-msgstr "Einstellungen Backend"
+msgstr "Backend Einstellungen"
 
 #: inc-options/backend_options.php:28
 msgid "Exclude Super Admin"
@@ -553,7 +553,7 @@ msgstr "Schreiben Einstellungen - Seiten"
 #: inc-options/minimenu.php:86 inc-options/write_cp_options.php:22
 #: inc-options/write_cp_options.php:32
 msgid "Write options"
-msgstr "Einstellungen Schreiben"
+msgstr "Schreiben Einstellungen"
 
 #: inc-options/minimenu.php:106 inc-options/widget_options.php:16
 msgid "Widgets"

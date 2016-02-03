@@ -41,8 +41,6 @@ foreach ( get_post_types( $args ) as $post_type ) {
 						<td><?php esc_attr_e( 'Select all', 'adminimize' ); ?></td>
 						<?php
 						foreach ( $user_roles as $role_slug ) {
-							//$role_name = strtolower( $role_name );
-							//$role_name = preg_replace( '/[^a-z0-9]+/', '', $role_name );
 							echo '<td class="num">';
 							echo '<input id="select_all" class="write_cp_options_' . $post_type .
 								'_' . $role_slug
