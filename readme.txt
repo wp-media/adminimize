@@ -13,27 +13,17 @@ If you manage a multi-author WordPress blog or WordPress sites for clients, then
 
 Adminimize makes it easy to remove items from view based on a user’s role.
 
-= Search for helping hands =
-Over the time the plugin was extended the plugin with much requirements and his solutions. But the source is not easy to maintain for me, I’m unhappy with the source. I have learned about coding, architecture etc.
-
-Currently I search for developer there will help on dev and support the plugin. The plugin have a [github repository](https://github.com/bueltge/Adminimize) to easy add a issue or a create a fork, pull request. Also to add issues to understand the problems.
-
-Especially the functionality for WP Multisite is currently more a hack as a solution. But is very complex, not easy to create a solution for this.
-
-For development see this repository: https://github.com/bueltge/Adminimize
-The `master` branch is the current version and the new will leave in the `refactor` branch.
-
-= Support Custom Options on all different post types =
-It is possible to add own options to hide areas in the back end of WordPress. It is easy and you must only forgive ID or class, a selector, of the markup, that you will hide.
+= What does this plugin do? =
+The plugin changes the administration backend and gives you the power to assign rights on certain parts. Admins can activate/deactivate every part of the menu and even parts of the sub-menu. Meta fields can be administered separately for posts and pages. Certain parts of the write menu can be deactivated separately for admins or non-admins. The header of the backend is minimized and optimized to give you more space and the structure of the menu gets changed to make it more logical - this can all be done per user so each user can have his own settings.
 
 = Support Custom Post Type =
 The plugin support all functions also for custom post types, automatically in the settings page.
 
-= Compatibility with plugins for MetaBoxes in Write-area =
-You can add your own options, you must only see for css selectors
+= Support Custom Options on all different post types =
+It is possible to add own options to hide areas in the back-end of WordPress. It is easy and you must only forgive a ID or class, a selector, of the markup, that you will hide.
 
-= What does this plugin do? =
-The plugin changes the administration backend and gives you the power to assign rights on certain parts. Admins can activate/deactivate every part of the menu and even parts of the sub-menu. Meta fields can be administered separately for posts and pages. Certain parts of the write menu can be deactivated separately for admins or non-admins. The header of the backend is minimized and optimized to give you more space and the structure of the menu gets changed to make it more logical - this can all be done per user so each user can have his own settings.
+= Compatibility with plugins for MetaBoxes in Write-area =
+You can add your own options, you must only check for css selectors.
 
 == Installation ==
 = Requirements =
@@ -56,6 +46,8 @@ Use the installer via back-end of your install or ...
 * Change settings screen for custom post type.
 * Fix "select all" on Admin Bar settings.
 * Fix exclude settings page for pages, there is the current screen not existent.
+* Remove more legacy code before WP 3.3.
+* Change removel of Menu and Submenu items to WP core functions, possible to non support older WP Versions.
 
 = 1.9.2 (2016-01-30) =
 * Change get role name, return now a array with slug and name to fix "Select All" function for custom roles.
@@ -398,9 +390,9 @@ Use the installer via back-end of your install or ...
 
 == Other Notes ==
 = Help with "Your own options" =
-My english ist very bad and you can see the [entry on the WP community forum](http://wordpress.org/support/topic/328449 "Plugin: Adminimize Help with Your own options (3 posts)") for help with great function.
+See the [entry on the WP community forum](http://wordpress.org/support/topic/328449 "Plugin: Adminimize Help with Your own options (3 posts)") for help with this great possibility.
 
-= Licence =
+= License =
 Good news, this plugin is free for everyone! Since it's released under the GPL, you can use it free of charge on your personal or commercial blog. But if you enjoy this plugin, you can thank me and leave a [small donation](http://bueltge.de/wunschliste/ "Wishliste and Donate") for the time I've spent writing and supporting this plugin. And I really don't want to know how many hours of my life this plugin has already eaten ;)
 
 = Translations =
