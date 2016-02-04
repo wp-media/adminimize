@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Adminimize 1.9.3-RC2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/adminimize\n"
-"POT-Creation-Date: 2016-02-04 07:20:12+00:00\n"
+"POT-Creation-Date: 2016-02-04 12:01:57+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -42,17 +42,17 @@ msgid "Dashboard"
 msgstr ""
 
 #: adminimize.php:607 adminimize.php:613 adminimize.php:615 adminimize.php:633
-#: adminimize.php:641 adminimize.php:643 adminimize.php:1145
+#: adminimize.php:641 adminimize.php:643 adminimize.php:1144
 #: inc-setup/remove-admin-bar.php:64 inc-setup/remove-admin-bar.php:91
 #: inc-setup/remove-admin-bar.php:284
 msgid "Log Out"
 msgstr ""
 
-#: adminimize.php:1198
+#: adminimize.php:1197
 msgid "Settings"
 msgstr ""
 
-#: adminimize.php:1211
+#: adminimize.php:1210
 msgid "Adminimize Options"
 msgstr ""
 
@@ -60,15 +60,15 @@ msgstr ""
 msgid "Adminimize"
 msgstr ""
 
-#: adminimize.php:1247
+#: adminimize.php:1246
 msgid "Cheatin&#8217; uh?"
 msgstr ""
 
-#: adminimize.php:1754
+#: adminimize.php:1753
 msgid "Please upload a valid .json file"
 msgstr ""
 
-#: adminimize.php:1760
+#: adminimize.php:1759
 msgid "Please upload a file to import"
 msgstr ""
 
@@ -495,7 +495,7 @@ msgstr ""
 msgid "Menu options - Menu, Submenu"
 msgstr ""
 
-#: inc-options/menu_options.php:99 inc-options/menu_options.php:187
+#: inc-options/menu_options.php:99 inc-options/menu_options.php:188
 msgid "After activate the check box it heavy attitudes will change."
 msgstr ""
 
