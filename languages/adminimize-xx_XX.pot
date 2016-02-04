@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Adminimize 1.9.3-RC2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/adminimize\n"
-"POT-Creation-Date: 2016-02-04 12:01:57+00:00\n"
+"POT-Creation-Date: 2016-02-04 13:09:09+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,42 +17,40 @@ msgstr ""
 "attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 "Poedit: \n"
 
-#: adminimize.php:172
+#: adminimize.php:180
 msgid "Keymaster"
 msgstr ""
 
-#: adminimize.php:173
+#: adminimize.php:181
 msgid "Moderator"
 msgstr ""
 
-#: adminimize.php:174
+#: adminimize.php:182
 msgid "Participant"
 msgstr ""
 
-#: adminimize.php:175
+#: adminimize.php:183
 msgid "Spectator"
 msgstr ""
 
-#: adminimize.php:176
+#: adminimize.php:184
 msgid "Blocked"
 msgstr ""
 
-#: adminimize.php:530
+#: adminimize.php:520
 msgid "Dashboard"
 msgstr ""
 
-#: adminimize.php:607 adminimize.php:613 adminimize.php:615 adminimize.php:633
-#: adminimize.php:641 adminimize.php:643 adminimize.php:1144
-#: inc-setup/remove-admin-bar.php:64 inc-setup/remove-admin-bar.php:91
-#: inc-setup/remove-admin-bar.php:284
+#: adminimize.php:1038 inc-setup/remove-admin-bar.php:63
+#: inc-setup/remove-admin-bar.php:94 inc-setup/remove-admin-bar.php:287
 msgid "Log Out"
 msgstr ""
 
-#: adminimize.php:1197
+#: adminimize.php:1091
 msgid "Settings"
 msgstr ""
 
-#: adminimize.php:1210
+#: adminimize.php:1104
 msgid "Adminimize Options"
 msgstr ""
 
@@ -60,15 +58,15 @@ msgstr ""
 msgid "Adminimize"
 msgstr ""
 
-#: adminimize.php:1246
+#: adminimize.php:1140
 msgid "Cheatin&#8217; uh?"
 msgstr ""
 
-#: adminimize.php:1753
+#: adminimize.php:1647
 msgid "Please upload a valid .json file"
 msgstr ""
 
-#: adminimize.php:1759
+#: adminimize.php:1653
 msgid "Please upload a file to import"
 msgstr ""
 
@@ -914,11 +912,11 @@ msgstr ""
 msgid "Load user data to themes was successful."
 msgstr ""
 
-#: inc-setup/remove-admin-bar.php:272 inc-setup/remove-admin-bar.php:274
+#: inc-setup/remove-admin-bar.php:275 inc-setup/remove-admin-bar.php:277
 msgid "Network Admin"
 msgstr ""
 
-#: inc-setup/remove-admin-bar.php:276 inc-setup/remove-admin-bar.php:278
+#: inc-setup/remove-admin-bar.php:279 inc-setup/remove-admin-bar.php:281
 msgid "Site Admin"
 msgstr ""
 
