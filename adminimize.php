@@ -192,7 +192,7 @@ function _mw_adminimize_get_all_user_roles_names() {
 /**
  * return post type
  */
-function _mw_get_current_post_type() {
+function _mw_adminimize_get_current_post_type() {
 
 	global $post, $typenow, $current_screen;
 
@@ -234,7 +234,7 @@ function _mw_adminimize_admin_init() {
 		$current_post_type = get_post_type( $post_id );
 	}
 	if ( ! isset( $current_post_type ) || empty( $current_post_type ) ) {
-		$current_post_type = _mw_get_current_post_type();
+		$current_post_type = _mw_adminimize_get_current_post_type();
 	}
 	if ( ! $current_post_type ) // set hard to post
 	{
@@ -449,8 +449,8 @@ function _mw_adminimize_remove_dashboard() {
 
 	global $menu, $user_ID;
 
-	$disabled_menu_    = '';
-	$disabled_submenu_ = '';
+	$disabled_menu_    = array();
+	$disabled_submenu_ = array();
 	$user_roles        = _mw_adminimize_get_all_user_roles();
 
 	foreach ( $user_roles as $role ) {
