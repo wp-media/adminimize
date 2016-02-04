@@ -201,7 +201,7 @@ if ( ! function_exists( 'add_action' ) ) {
 									$checked_user_role_[ $role ] = '';
 									if ( isset( $disabled_submenu_[ $role ] )
 										 // @since 2015-11-11
-										 // Switch to custom key and url of menu item.
+										 // Switch to custom key and url-slug of menu item.
 										 && _mw_adminimize_in_arrays(
 											 array( $menu_slug . '__' . $subkey, $submenu_slug ),
 											 $disabled_submenu_[ $role ]

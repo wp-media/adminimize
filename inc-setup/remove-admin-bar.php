@@ -47,10 +47,9 @@ function _mw_adminimize_add_logout( $wp_admin_bar ) {
 
 	$user_id                    = get_current_user_id();
 	$_mw_adminimize_ui_redirect = (int) _mw_adminimize_get_option_value( '_mw_adminimize_ui_redirect' );
+	$redirect                   = '';
 	if ( 1 === $_mw_adminimize_ui_redirect ) {
 		$redirect = '&amp;redirect_to=' . get_option( 'siteurl' );
-	} else {
-		$redirect = '';
 	}
 
 	if ( ! $user_id ) {
@@ -67,15 +66,19 @@ function _mw_adminimize_add_logout( $wp_admin_bar ) {
 	);
 }
 
+/**
+ * Add Logout link include user info.
+ *
+ * @param $wp_admin_bar
+ */
 function _mw_adminimize_add_user_logout( $wp_admin_bar ) {
 
 	$user_id                    = get_current_user_id();
 	$current_user               = wp_get_current_user();
 	$_mw_adminimize_ui_redirect = (int) _mw_adminimize_get_option_value( '_mw_adminimize_ui_redirect' );
+	$redirect                   = '';
 	if ( 1 === $_mw_adminimize_ui_redirect ) {
 		$redirect = '&amp;redirect_to=' . get_option( 'siteurl' );
-	} else {
-		$redirect = '';
 	}
 
 	if ( ! $user_id ) {
@@ -94,11 +97,21 @@ function _mw_adminimize_add_user_logout( $wp_admin_bar ) {
 	);
 }
 
-function _mw_adminimize_set_menu_option_33() {
+/**
+ * Change logout, user info link in Admin bar.
+ *
+ * @return null|void
+ */
+function _mw_adminimize_set_logout_menu() {
 
 	// exclude super admin
 	if ( _mw_adminimize_exclude_super_admin() ) {
 		return NULL;
+	}
+
+	// Leave the settings screen from Adminimize to see all areas on settings.
+	if ( _mw_adminimize_exclude_settings_page() ) {
+		return;
 	}
 
 	$user_roles = _mw_adminimize_get_all_user_roles();
@@ -112,7 +125,7 @@ function _mw_adminimize_set_menu_option_33() {
 		);
 	}
 
-	$_mw_adminimize_user_info   = (int) _mw_adminimize_get_option_value( '_mw_adminimize_user_info' );
+	$_mw_adminimize_user_info = (int) _mw_adminimize_get_option_value( '_mw_adminimize_user_info' );
 	// change user-info
 	switch ( $_mw_adminimize_user_info ) {
 		case 1:
@@ -161,8 +174,8 @@ function _mw_adminimize_remove_admin_bar() {
 		$user = wp_get_current_user();
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles ) ) {
 			if ( _mw_adminimize_current_user_has_role( $role )
-				&& isset( $disabled_global_option_[ $role ] )
-				&& is_array( $disabled_global_option_[ $role ] )
+				 && isset( $disabled_global_option_[ $role ] )
+				 && is_array( $disabled_global_option_[ $role ] )
 			) {
 				if ( _mw_adminimize_recursive_in_array( '.show-admin-bar', $disabled_global_option_[ $role ] ) ) {
 					$remove_adminbar = TRUE;
@@ -288,6 +301,6 @@ function _mw_adminimize_restore_links() {
 			?>
 		</div>
 	</div>
-<?php
+	<?php
 }
 
