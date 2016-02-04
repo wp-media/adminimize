@@ -421,6 +421,7 @@ function _mw_adminimize_admin_init() {
 define( 'MW_ADMIN_FILE', plugin_basename( __FILE__ ) );
 if ( is_admin() ) {
 	add_action( 'admin_init', '_mw_adminimize_textdomain' );
+	add_action( 'admin_init', '_mw_adminimize_admin_init' );
 	add_action( 'admin_menu', '_mw_adminimize_add_settings_page' );
 	add_action( 'admin_menu', '_mw_adminimize_remove_dashboard' );
 }
