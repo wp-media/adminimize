@@ -720,22 +720,21 @@ function _mw_adminimize_set_menu_option() {
 				&& in_array( $menu_slug, $mw_adminimize_menu, FALSE )
 			) {
 				remove_menu_page( $menu_slug );
-				// ToDo: kill after tests.
-				//unset( $menu[ $key ] );
 			}
 
 			// Sub Menu Settings.
-			if ( isset( $submenu ) && ! empty( $submenu[ $item[ 2 ] ] ) ) {
-				foreach ( $submenu[ $item[ 2 ] ] as $subindex => $subitem ) {
+			if ( isset( $submenu ) && ! empty( $submenu[ $menu_slug ] ) ) {
+				foreach ( $submenu[ $menu_slug ] as $subindex => $subitem ) {
 					// Check, if is Sub Menu item in the user role settings?
 					if (
 						isset( $mw_adminimize_submenu )
 						&& _mw_adminimize_in_arrays(
-							array( $subitem[ 2 ], $item[ 2 ] . '__' . $subindex ),
+							array( $subitem[ 2 ], $menu_slug . '__' . $subindex ),
 							$mw_adminimize_submenu
 						)
 					) {
-						unset( $submenu[ $item[ 2 ] ][ $subindex ] );
+						remove_submenu_page( $menu_slug, $subitem[ 2 ] );
+						//unset( $submenu[ $menu_slug ][ $subindex ] );
 					}
 				}
 			}
@@ -745,7 +744,7 @@ function _mw_adminimize_set_menu_option() {
 }
 
 /**
- * set global options in backend in all areas
+ * Set global options in backend in all areas.
  */
 function _mw_adminimize_set_global_option() {
 
