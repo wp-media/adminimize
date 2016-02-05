@@ -19,6 +19,15 @@ if ( ! function_exists( 'add_action' ) ) {
 			<br class="clear" />
 
 			<table summary="config_menu" class="widefat config_menu">
+				<colgroup>
+					<?php
+					$col = 0;
+					foreach ( $user_roles_names as $role_name ) {
+						echo '<col class="col' . $col . '">' . "\n";
+						$col ++;
+					}
+					?>
+				</colgroup>
 				<thead>
 				<tr>
 					<th><?php esc_attr_e( 'Menu options - Menu, Submenu', 'adminimize' ); ?></th>
@@ -123,7 +132,7 @@ if ( ! function_exists( 'add_action' ) ) {
 
 							echo '<tr class="form-invalid">' . "\n";
 							echo "\t";
-							echo '<th>';
+							echo '<td>';
 							echo '<b>&bull; ' . $item[ 0 ] . '</b> <small>' . esc_attr__(
 									'Group', 'adminimize'
 								) . '</small>';
@@ -133,7 +142,7 @@ if ( ! function_exists( 'add_action' ) ) {
 									 '...',
 									 htmlentities( $menu_slug )
 								 ) . ')</span>';
-							echo '</th>';
+							echo '</td>';
 
 							foreach ( $user_roles as $role ) {
 								if ( $role !== 'administrator' ) { // only admin disable items
@@ -158,7 +167,7 @@ if ( ! function_exists( 'add_action' ) ) {
 							// Only for user smaller administrator, change user-Profile-File.
 							if ( 'users.php' === $menu_slug ) {
 								$x ++;
-								echo '<tr class="form-invalid">' . "\n";
+								echo '<tr>' . "\n";
 								echo "\t" . '<th>' . esc_attr__( 'Profile' ) . ' <span>(profile.php)</span> </th>';
 								foreach ( $user_roles as $role ) {
 									echo "\t" . '<td class="num"><input disabled="disabled" id="check_menu'

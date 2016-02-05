@@ -24,7 +24,7 @@ if ( ! function_exists( 'add_action' ) ) {
 				<?php
 				if ( _mw_adminimize_is_active_on_multisite() && function_exists( 'is_super_admin' )
 				) { ?>
-					<tr valign="top" class="form-invalid">
+					<tr valign="top">
 						<td><?php esc_attr_e( 'Exclude Super Admin', 'adminimize' ); ?></td>
 						<td>
 							<?php $_mw_adminimize_exclude_super_admin = _mw_adminimize_get_option_value(
@@ -72,7 +72,7 @@ if ( ! function_exists( 'add_action' ) ) {
 				<?php if ( ( $_mw_adminimize_user_info === '' ) || ( $_mw_adminimize_user_info === 1 ) || ( $_mw_adminimize_user_info === 0 ) ) {
 					$disabled_item = ' disabled="disabled"';
 				} ?>
-				<tr valign="top" class="form-invalid">
+				<tr valign="top">
 					<td><?php esc_attr_e( 'Change User-Info, redirect to', 'adminimize' ); ?></td>
 					<td>
 						<?php $_mw_adminimize_ui_redirect = (int) _mw_adminimize_get_option_value(
@@ -189,7 +189,7 @@ if ( ! function_exists( 'add_action' ) ) {
 						$disabled_item2 = ' disabled="disabled"';
 					}
 					?>
-					<tr valign="top" class="form-invalid">
+					<tr valign="top">
 						<td><?php esc_attr_e( 'Dashboard deactivate, redirect to', 'adminimize' ); ?></td>
 						<td>
 							<?php $_mw_adminimize_db_redirect = _mw_adminimize_get_option_value(

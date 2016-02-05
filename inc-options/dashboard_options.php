@@ -23,7 +23,7 @@ if ( ! function_exists( 'add_action' ) ) {
 			// get widgets
 			$widgets = _mw_adminimize_get_option_value( 'mw_adminimize_dashboard_widgets' );
 			if ( NULL === $widgets ) {
-				echo '<p class="form-invalid">';
+				echo '<p>';
 				esc_attr_e(
 					'To complete the installation for Dashboard Widgets you must visit your dashboard once and then come back to Settings > Adminimize to configure who has access to each widget.',
 					'adminimize'
@@ -33,6 +33,15 @@ if ( ! function_exists( 'add_action' ) ) {
 				?>
 
 				<table summary="config_edit_dashboard" class="widefat">
+					<colgroup>
+						<?php
+						$col = 0;
+						foreach ( $user_roles_names as $role_name ) {
+							echo '<col class="col' . $col . '">' . "\n";
+							$col ++;
+						}
+						?>
+					</colgroup>
 					<thead>
 					<tr>
 						<th><?php esc_attr_e( 'Option', 'adminimize' ); ?></th>
