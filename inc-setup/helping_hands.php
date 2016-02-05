@@ -93,3 +93,17 @@ function _mw_adminimize_debug( $description = '' , $data ) {
 
 	echo $output;
 }
+
+/**
+ * Return duplicate items from array.
+ *
+ * @param $array
+ *
+ * @return array
+ */
+function _mw_adminimize_get_duplicate( $array ) {
+
+	return array_unique(
+		array_diff_assoc( $array, array_unique( $array ) )
+	);
+}

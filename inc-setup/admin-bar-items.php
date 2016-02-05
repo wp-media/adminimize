@@ -79,6 +79,9 @@ function _mw_adminimize_change_admin_bar() {
 
 	// Get current user data.
 	$user      = wp_get_current_user();
+	if ( ! $user->roles[ 0 ] ) {
+		return;
+	}
 	$user_role = $user->roles[ 0 ];
 
 	// Get Backend Admin Bar settings for the current user role.
