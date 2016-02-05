@@ -578,8 +578,8 @@ function _mw_adminimize_set_menu_option() {
 		);
 	}
 
-	$mw_adminimize_menu_   = array();
-	$mw_adminimize_submenu_ = array();
+	$mw_adminimize_menu   = array();
+	$mw_adminimize_submenu = array();
 	$user = wp_get_current_user();
 
 	// Set admin-menu.
@@ -590,18 +590,20 @@ function _mw_adminimize_set_menu_option() {
 		) {
 			// Create array about all items with all affected roles, important for multiple roles.
 			foreach ( $disabled_menu_[ $role ] as $menu_item ) {
-				$mw_adminimize_menu_[] = $menu_item;
+				$mw_adminimize_menu[] = $menu_item;
 			}
 			foreach ( $disabled_submenu_[ $role ] as $submenu_item ) {
-				$mw_adminimize_submenu_[] = $submenu_item;
+				$mw_adminimize_submenu[] = $submenu_item;
 			}
 		}
 
 	}
 
 	// Support Multiple Roles for users.
-	$mw_adminimize_menu    = _mw_adminimize_get_duplicate( $mw_adminimize_menu_ );
-	$mw_adminimize_submenu = _mw_adminimize_get_duplicate( $mw_adminimize_submenu_ );
+	if ( 1 < count( $user->roles ) ) {
+		$mw_adminimize_menu    = _mw_adminimize_get_duplicate( $mw_adminimize_menu );
+		$mw_adminimize_submenu = _mw_adminimize_get_duplicate( $mw_adminimize_submenu );
+	}
 
 	// Fallback on users.php on all user roles smaller admin.
 	if ( in_array( 'users.php', $mw_adminimize_menu, FALSE ) ) {
@@ -663,7 +665,6 @@ function _mw_adminimize_set_global_option() {
 	$_mw_adminimize_admin_head = '';
 	$disabled_global_option    = array();
 	$disabled_global_option_   = array();
-	$global_options            = '';
 	$user                      = wp_get_current_user();
 
 	// Get settings for each role.
@@ -677,9 +678,16 @@ function _mw_adminimize_set_global_option() {
 	foreach ( $user_roles as $role ) {
 		if ( in_array( $role, $user->roles, FALSE ) && _mw_adminimize_current_user_has_role( $role ) ) {
 
-			// Support Multiple Roles for users.
-			$disabled_global_option = array_intersect( $disabled_global_option, $disabled_global_option_[ $role ] );
+			// Create array about all items with all affected roles, important for multiple roles.
+			foreach ( $disabled_global_option_[ $role ] as $global_item ) {
+				$disabled_global_option[] = $global_item;
+			}
 		}
+	}
+
+	// Support Multiple Roles for users.
+	if ( 1 < count( $user->roles ) ) {
+		$disabled_global_option = _mw_adminimize_get_duplicate( $disabled_global_option );
 	}
 	$global_options = implode( ', ', $disabled_global_option );
 
