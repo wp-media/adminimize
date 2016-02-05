@@ -454,10 +454,10 @@ function _mw_adminimize_remove_dashboard() {
 	$user_roles        = _mw_adminimize_get_all_user_roles();
 
 	foreach ( $user_roles as $role ) {
-		$disabled_menu_[ $role ]    = _mw_adminimize_get_option_value(
+		$disabled_menu_[ $role ]    = (array) _mw_adminimize_get_option_value(
 			'mw_adminimize_disabled_menu_' . $role . '_items'
 		);
-		$disabled_submenu_[ $role ] = _mw_adminimize_get_option_value(
+		$disabled_submenu_[ $role ] = (array) _mw_adminimize_get_option_value(
 			'mw_adminimize_disabled_submenu_' . $role . '_items'
 		);
 	}
