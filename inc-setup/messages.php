@@ -55,10 +55,10 @@ class _mw_adminimize_message_class {
 			'_mw_adminimize_import', esc_attr__( 'All entries in the database were imported.', 'adminimize' )
 		);
 		$this->errors->add(
-			'_mw_adminimize_deinstall', esc_attr__( 'All entries in the database were deleted.', 'adminimize' )
+			'_mw_adminimize_uninstall', esc_attr__( 'All entries in the database were deleted.', 'adminimize' )
 		);
 		$this->errors->add(
-			'_mw_adminimize_deinstall_yes', esc_attr__( 'Set the checkbox on deinstall-button.', 'adminimize' )
+			'_mw_adminimize_uninstall_yes', esc_attr__( 'Set the checkbox on deinstall-button.', 'adminimize' )
 		);
 		$this->errors->add(
 			'_mw_adminimize_get_option', esc_attr__( 'Can\'t load menu and submenu.', 'adminimize' )

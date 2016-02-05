@@ -56,31 +56,31 @@ function _mw_adminimize_options() {
 
 	// Uninstall options
 	if ( ( array_key_exists( '_mw_adminimize_action', $_POST )
-		&& $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_deinstall' )
-		&& ! array_key_exists( '_mw_adminimize_deinstall_yes', $_POST )
+		&& $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_uninstall' )
+		&& ! array_key_exists( '_mw_adminimize_uninstall_yes', $_POST )
 
 	) {
 		$myErrors = new _mw_adminimize_message_class();
 		$myErrors = '<div id="message" class="error"><p>' . $myErrors->get_error(
-				'_mw_adminimize_deinstall_yes'
+				'_mw_adminimize_uninstall_yes'
 			) . '</p></div>';
 		wp_die( $myErrors );
 	}
 
 	if ( ( array_key_exists( '_mw_adminimize_action', $_POST )
-		&& array_key_exists( '_mw_adminimize_deinstall_yes', $_POST )
-		&& $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_deinstall' )
-		&& $_POST[ '_mw_adminimize_deinstall' ]
-		&& $_POST[ '_mw_adminimize_deinstall_yes' ] === '_mw_adminimize_deinstall'
+		&& array_key_exists( '_mw_adminimize_uninstall_yes', $_POST )
+		&& $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_uninstall' )
+		&& $_POST[ '_mw_adminimize_uninstall' ]
+		&& $_POST[ '_mw_adminimize_uninstall_yes' ] === '_mw_adminimize_uninstall'
 	) {
 		if ( function_exists( 'current_user_can' ) && current_user_can( 'manage_options' ) ) {
 			check_admin_referer( 'mw_adminimize_nonce' );
 
-			_mw_adminimize_deinstall();
+			_mw_adminimize_uninstall();
 
 			$myErrors = new _mw_adminimize_message_class();
 			$myErrors = '<div id="message" class="updated fade"><p>' . $myErrors->get_error(
-					'_mw_adminimize_deinstall'
+					'_mw_adminimize_uninstall'
 				) . '</p></div>';
 			echo $myErrors;
 		} else {

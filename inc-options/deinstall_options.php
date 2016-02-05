@@ -24,11 +24,11 @@ if ( ! function_exists( 'add_action' ) ) {
 			); ?>">
 				<?php wp_nonce_field( 'mw_adminimize_nonce' ); ?>
 				<p id="submitbutton">
-					<input type="submit" name="_mw_adminimize_deinstall" value="<?php esc_attr_e(
+					<input type="submit" name="_mw_adminimize_uninstall" value="<?php esc_attr_e(
 						'Delete Options', 'adminimize'
 					); ?> &raquo;" class="button-secondary" />
-					<input type="checkbox" name="_mw_adminimize_deinstall_yes" value="_mw_adminimize_deinstall" />
-					<input type="hidden" name="_mw_adminimize_action" value="_mw_adminimize_deinstall" />
+					<input type="checkbox" name="_mw_adminimize_uninstall_yes" value="_mw_adminimize_uninstall" />
+					<input type="hidden" name="_mw_adminimize_action" value="_mw_adminimize_uninstall" />
 				</p>
 			</form>
 			<p>

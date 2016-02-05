@@ -429,8 +429,8 @@ if ( is_admin() ) {
 add_action( 'init', '_mw_adminimize_set_logout_menu', 2 );
 
 register_activation_hook( __FILE__, '_mw_adminimize_install' );
-register_uninstall_hook( __FILE__, '_mw_adminimize_deinstall' );
-//register_deactivation_hook(__FILE__, '_mw_adminimize_deinstall' );
+register_uninstall_hook( __FILE__, '_mw_adminimize_uninstall' );
+//register_deactivation_hook(__FILE__, '_mw_adminimize_uninstall' );
 
 /**
  * Remove the dashboard
@@ -1558,7 +1558,7 @@ function _mw_adminimize_update() {
 /**
  * Delete options in database
  */
-function _mw_adminimize_deinstall() {
+function _mw_adminimize_uninstall() {
 
 	delete_site_option( 'mw_adminimize' );
 	delete_option( 'mw_adminimize' );
