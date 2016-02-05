@@ -43,7 +43,7 @@ if ( ! function_exists( 'add_action' ) ) {
 				$_GET[ 'page' ]
 			); ?>">
 				<?php wp_nonce_field( 'mw_adminimize_nonce' ); ?>
-				<p><?php esc_attr_e(
+				<p><?php _e(
 						'Choose a Adminimize (<em>.json</em>) file to upload, then click <em>Upload file and import</em>.',
 						'adminimize'
 					);
