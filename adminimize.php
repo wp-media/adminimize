@@ -4,16 +4,16 @@
  * Plugin URI:  https://wordpress.org/plugins/adminimize/
  * Text Domain: adminimize
  * Domain Path: /languages
- * Description: Visually compresses the administrative meta-boxes so that more admin page content can be initially seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for all roles of your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible tosimplify the admin in different for all roles.
+ * Description: Visually compresses the administrative meta-boxes so that more admin page content can be initially seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for all roles of your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible to simplify the admin in different for all roles.
  * Author:      Frank Bültge
  * Author URI:  http://bueltge.de/
- * Version:     1.10.0-alpha
+ * Version:     1.10.0-alpha2
  * License:     GPLv3+
  *
  * @package WordPress
  * @author  Frank Bültge <frank@bueltge.de>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2016-02-05
+ * @version 2016-02-17
  */
 
 /**
@@ -92,19 +92,30 @@ function _mw_adminimize_exclude_super_admin() {
  */
 function _mw_adminimize_exclude_settings_page() {
 
-	if ( ! function_exists( 'get_current_screen' ) ) {
+	if ( ! is_admin() ) {
 		return FALSE;
 	}
 
-	// Get admin page
-	$screen = get_current_screen();
-
-	// Don't filter on settings page
-	if ( isset( $screen->id ) && FALSE !== strpos( $screen->id, 'adminimize' ) ) {
-		return TRUE;
+	if ( ! isset( $_GET[ 'page' ] ) ) {
+		$page = '';
+	} else {
+		$page = esc_attr( $_GET[ 'page' ] );
 	}
 
-	return FALSE;
+	if ( ! function_exists( 'get_current_screen' ) ) {
+		$screen = $page;
+	} else {
+		$screen = get_current_screen();
+	}
+
+	if ( ! isset( $screen->id ) ) {
+		$screen = $page;
+	} else {
+		$screen = $screen->id;
+	}
+
+	// Don't filter on settings page
+	return strpos( $screen, 'adminimize' );
 }
 
 /**
@@ -118,7 +129,7 @@ function _mw_adminimize_is_active_on_multisite() {
 		require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
 	}
 
-	if ( is_multisite() && is_plugin_active_for_network( MW_ADMIN_FILE ) ) {
+	if ( is_multisite() && is_plugin_active_for_network( FB_ADMINIMIZE_BASENAME ) ) {
 		return TRUE;
 	}
 
@@ -383,11 +394,6 @@ function _mw_adminimize_admin_init() {
 
 	}
 
-	// set menu option
-	add_action( 'admin_head', '_mw_adminimize_set_menu_option', 1 );
-	// global_options
-	add_action( 'admin_head', '_mw_adminimize_set_global_option', 1 );
-
 	// set meta-box post option
 	if ( in_array( $pagenow, $def_post_pages, FALSE ) && in_array( $current_post_type, $def_post_types, FALSE ) ) {
 		add_action( 'admin_head', '_mw_adminimize_set_metabox_post_option', 1 );
@@ -418,8 +424,11 @@ function _mw_adminimize_admin_init() {
 	}
 }
 
+// set menu option (ToDO: old hook admin_head)
+add_action( 'admin_menu', '_mw_adminimize_set_menu_option' );
+// global_options
+add_action( 'admin_head', '_mw_adminimize_set_global_option', 1 );
 // on admin init
-define( 'MW_ADMIN_FILE', plugin_basename( __FILE__ ) );
 if ( is_admin() ) {
 	add_action( 'admin_init', '_mw_adminimize_textdomain' );
 	add_action( 'admin_init', '_mw_adminimize_admin_init' );
@@ -553,7 +562,7 @@ function _mw_adminimize_set_menu_option() {
 	if ( _mw_adminimize_exclude_super_admin() ) {
 		return NULL;
 	}
-
+	//_mw_adminimize_debug('settings page',_mw_adminimize_exclude_settings_page());
 	// Leave the settings screen from Adminimize to see all areas on settings.
 	if ( _mw_adminimize_exclude_settings_page() ) {
 		return;
