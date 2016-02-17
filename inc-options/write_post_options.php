@@ -79,7 +79,6 @@ if ( ! function_exists( 'add_action' ) ) {
 						&& 'excerpt' === $post_type_support
 					) {
 						$post_type_support = $post_type . 'excerpt';
-
 					}
 					if ( 'page-attributes' === $post_type_support ) {
 						$post_type_support = 'pageparentdiv';
@@ -199,7 +198,7 @@ if ( ! function_exists( 'add_action' ) ) {
 						foreach ( $user_roles as $role ) {
 							$checked_user_role_[ $role ] = ( isset( $disabled_metaboxes_post_[ $role ] )
 								&& in_array(
-									$metabox, $disabled_metaboxes_post_[ $role ]
+									$metabox, $disabled_metaboxes_post_[ $role ], FALSE
 								) ) ? ' checked="checked"' : '';
 						}
 						echo '<tr>' . "\n";
