@@ -41,13 +41,15 @@ Use the installer via back-end of your install or ...
 1. Settings area in WP 4.5-alpha
 
 == Changelog ==
-= 1.9.3 () =
+= 1.10.0 (???) =
 * Rewrite the Admin Bar settings, simplify the source and new hook to get and render the Admin Bar.
 * Change settings screen for custom post type.
 * Fix "select all" on Admin Bar settings.
 * Fix exclude settings page for pages, there is the current screen not existent.
+* Improve the exclude settings page function for hooks, there fired before `get_current_screen`.
 * Remove more legacy code before WP 3.3.
 * Change removel of Menu and Submenu items to WP core functions, possible to non support older WP Versions.
+* Supports multible roles.
 
 = 1.9.2 (2016-01-30) =
 * Change get role name, return now a array with slug and name to fix "Select All" function for custom roles.
