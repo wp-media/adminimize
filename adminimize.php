@@ -1184,16 +1184,15 @@ function _mw_adminimize_get_option_value( $key = FALSE ) {
 
 	// check for use on multisite
 	if ( _mw_adminimize_is_active_on_multisite() ) {
-		$adminimizeoptions = get_site_option( 'mw_adminimize', array() );
+		$adminimizeoptions = (array) get_site_option( 'mw_adminimize', array() );
 	} else {
-		$adminimizeoptions = get_option( 'mw_adminimize', array() );
+		$adminimizeoptions = (array) get_option( 'mw_adminimize', array() );
 	}
 
 	if ( ! $key ) {
 		return $adminimizeoptions;
 	}
 
-	/** @var array $adminimizeoptions */
 	return array_key_exists( $key, $adminimizeoptions ) ? $adminimizeoptions[ $key ] : NULL;
 }
 
