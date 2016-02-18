@@ -424,8 +424,8 @@ function _mw_adminimize_admin_init() {
 	}
 }
 
-// set menu option (ToDO: old hook admin_head)
-add_action( 'admin_menu', '_mw_adminimize_set_menu_option' );
+
+add_action( 'admin_head', '_mw_adminimize_set_menu_option' );
 // global_options
 add_action( 'admin_head', '_mw_adminimize_set_global_option', 1 );
 // on admin init
@@ -562,7 +562,7 @@ function _mw_adminimize_set_menu_option() {
 	if ( _mw_adminimize_exclude_super_admin() ) {
 		return NULL;
 	}
-	//_mw_adminimize_debug('settings page',_mw_adminimize_exclude_settings_page());
+
 	// Leave the settings screen from Adminimize to see all areas on settings.
 	if ( _mw_adminimize_exclude_settings_page() ) {
 		return;
@@ -587,7 +587,7 @@ function _mw_adminimize_set_menu_option() {
 		);
 	}
 
-	$mw_adminimize_menu   = array();
+	$mw_adminimize_menu    = array();
 	$mw_adminimize_submenu = array();
 	$user = wp_get_current_user();
 
@@ -619,11 +619,6 @@ function _mw_adminimize_set_menu_option() {
 		$mw_adminimize_menu[] = 'profile.php';
 	}
 	foreach ( $menu as $key => $item ) {
-
-		// TODO: kill it, no relevance, Test it.
-		if ( 'index.php' === $item ) {
-			continue;
-		}
 
 		// Menu
 		if ( isset( $item[ 2 ] ) ) {

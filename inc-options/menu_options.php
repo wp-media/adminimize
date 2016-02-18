@@ -130,6 +130,10 @@ if ( ! function_exists( 'add_action' ) ) {
 								}
 							}
 
+							if ( ! $item[ 0 ] ) {
+								$item[ 0 ] = '<b><i>' . esc_attr__( 'No Title!', 'adminimize' ) . '</i></b>';
+							}
+
 							echo '<tr class="form-invalid">' . "\n";
 							echo "\t";
 							echo '<td>';
