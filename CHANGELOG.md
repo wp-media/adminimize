@@ -7,6 +7,7 @@
 * Remove more legacy code before WP 3.3.
 * Change removel of Menu and Submenu items to WP core functions, possible to non support older WP Versions.
 * Supports multible roles.
+* Add possibility to hide Admin Notices globaly, new setting point in "Global Options".
 
 ## 1.9.2 (2016-01-30)
 * Change get role name, return now a array with slug and name to fix "Select All" function for custom roles.

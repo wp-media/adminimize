@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Adminimize
- * @subpackage  Remove Admin Bar of WP 3.3 Setup
+ * @subpackage  Remove Admin Bar of > WP 3.3 Setup
  * @author      Frank Bültge
  */
 if ( ! function_exists( 'add_action' ) ) {
@@ -106,7 +106,7 @@ function _mw_adminimize_set_logout_menu() {
 
 	// exclude super admin
 	if ( _mw_adminimize_exclude_super_admin() ) {
-		return NULL;
+		return;
 	}
 
 	// Leave the settings screen from Adminimize to see all areas on settings.
@@ -144,12 +144,19 @@ function _mw_adminimize_set_logout_menu() {
 
 /**
  * Remove Admin Bar
+ *
+ * @return null|void
  */
 function _mw_adminimize_remove_admin_bar() {
 
 	// exclude super admin
 	if ( _mw_adminimize_exclude_super_admin() ) {
-		return NULL;
+		return;
+	}
+
+	// Leave the settings screen from Adminimize to see all areas on settings.
+	if ( _mw_adminimize_exclude_settings_page() ) {
+		return;
 	}
 
 	$user_roles = _mw_adminimize_get_all_user_roles();
@@ -166,18 +173,17 @@ function _mw_adminimize_remove_admin_bar() {
 		}
 	}
 
+	$user            = wp_get_current_user();
 	$remove_adminbar = FALSE;
 	// new 1.7.8
 	foreach ( $user_roles as $role ) {
-		$user = wp_get_current_user();
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles, FALSE ) ) {
 			if ( _mw_adminimize_current_user_has_role( $role )
-				 && isset( $disabled_global_option_[ $role ] )
-				 && is_array( $disabled_global_option_[ $role ] )
+				&& isset( $disabled_global_option_[ $role ] )
+				&& is_array( $disabled_global_option_[ $role ] )
+				&& _mw_adminimize_recursive_in_array( '.show-admin-bar', $disabled_global_option_[ $role ] )
 			) {
-				if ( _mw_adminimize_recursive_in_array( '.show-admin-bar', $disabled_global_option_[ $role ] ) ) {
-					$remove_adminbar = TRUE;
-				}
+				$remove_adminbar = TRUE;
 			}
 		}
 	}
@@ -215,8 +221,6 @@ function _mw_adminimize_remove_admin_bar() {
 		add_action( 'in_admin_header', '_mw_adminimize_restore_links' );
 
 	} // end if $remove_adminbar TRUE
-
-	return NULL;
 }
 
 /**
@@ -262,9 +266,10 @@ function _mw_adminimize_restore_links() {
 		?>
 		<div id="mw_adminimize_login">
 			<?php
-			wp_get_current_user();
 			$current_user = wp_get_current_user();
-			if ( empty( $_mw_adminimize_user_info ) || 0 === $_mw_adminimize_user_info || 3 === $_mw_adminimize_user_info ) {
+			if ( empty( $_mw_adminimize_user_info ) || 0 === $_mw_adminimize_user_info
+				|| 3 === $_mw_adminimize_user_info
+			) {
 				if ( ! ( $current_user instanceof WP_User ) ) {
 					return;
 				}
@@ -283,8 +288,13 @@ function _mw_adminimize_restore_links() {
 				}
 			}
 
-			if ( empty( $_mw_adminimize_user_info ) || 0 == $_mw_adminimize_user_info || 2 == $_mw_adminimize_user_info || 3 == $_mw_adminimize_user_info ) {
-				?>  | <?php echo '<a href="' . wp_logout_url() . '" title="' . esc_attr__( 'Log Out' ) . '">' . esc_attr__(
+			if ( empty( $_mw_adminimize_user_info ) || 0 === $_mw_adminimize_user_info
+				|| 2 === $_mw_adminimize_user_info
+				|| 3 === $_mw_adminimize_user_info
+			) {
+				?>  | <?php echo '<a href="' . wp_logout_url() . '" title="' . esc_attr__(
+						'Log Out'
+					) . '">' . esc_attr__(
 						'Log Out'
 					) . '</a>';
 			}
