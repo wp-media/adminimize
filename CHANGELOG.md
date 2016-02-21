@@ -1,4 +1,4 @@
-## 1.10.0 ()
+## 1.10.0 (2016-02-21)
 * Rewrite the Admin Bar settings, simplify the source and new hook to get and render the Admin Bar.
 * Change settings screen for custom post type.
 * Fix "select all" on Admin Bar settings.
@@ -6,7 +6,7 @@
 * Improve the exclude settings page function for hooks, there fired before `get_current_screen`.
 * Remove more legacy code before WP 3.3.
 * Change removel of Menu and Submenu items to WP core functions, possible to non support older WP Versions.
-* Supports multible roles.
+* Supports multible roles on "Menu Options" and "Global Options".
 * Add possibility to hide Admin Notices globaly, new setting point in "Global Options".
 
 ## 1.9.2 (2016-01-30)
