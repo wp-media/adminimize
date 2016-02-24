@@ -310,9 +310,9 @@ function _mw_adminimize_admin_init() {
 
 	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-	// global options
+	// Backend options
 	// exclude super admin
-	if ( ! _mw_adminimize_exclude_super_admin() ) {
+	if ( ! _mw_adminimize_exclude_super_admin() && ! _mw_adminimize_exclude_settings_page() ) {
 		$_mw_adminimize_footer = (int) _mw_adminimize_get_option_value( '_mw_adminimize_footer' );
 		switch ( $_mw_adminimize_footer ) {
 			case 1:
