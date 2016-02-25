@@ -1,3 +1,7 @@
+## 1.10.1 (ToDO:???)
+* Fix the Removing of Admin Color Scheme Select on the profile page.
+* Backend options are also exluded on the settings page.
+
 ## 1.10.0 (2016-02-21)
 * Rewrite the Admin Bar settings, simplify the source and new hook to get and render the Admin Bar.
 * Change settings screen for custom post type.
