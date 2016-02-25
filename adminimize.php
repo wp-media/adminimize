@@ -13,7 +13,7 @@
  * @package WordPress
  * @author  Frank Bültge <frank@bueltge.de>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2016-02-24
+ * @version 2016-02-25
  */
 
 /**
@@ -695,7 +695,7 @@ function _mw_adminimize_set_global_option() {
 	}
 	$global_options = implode( ', ', $disabled_global_option );
 
-	if ( 0 !== strpos( $global_options, '#your-profile .form-table fieldset' ) ) {
+	if ( 0 === strpos( $global_options, '#your-profile .form-table fieldset' ) ) {
 		global $_wp_admin_css_colors;
 		$_wp_admin_css_colors = 0;
 	}
