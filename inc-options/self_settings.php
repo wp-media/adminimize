@@ -1,0 +1,64 @@
+<?php
+/**
+ * @package    Adminimize
+ * @subpackage Admininmiz Options for the settings page
+ * @author     Frank Bültge
+ * @since      2016-02-26
+ */
+if ( ! function_exists( 'add_action' ) ) {
+	die( "Hi there!  I'm just a part of plugin, not much I can do when called directly." );
+}
+?>
+<div id="poststuff" class="ui-sortable meta-box-sortables">
+	<div id="about" class="postbox">
+		<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle' ); ?>"><br /></div>
+		<h3 class="hndle" id="self-settings"><?php esc_attr_e( 'Plugin Settings', 'adminimize' ) ?></h3>
+
+		<div class="inside">
+
+			<table class="form-table">
+				<tr>
+					<td class="row-title"><label for="mw_adminimize_multiple_roles">
+							<?php esc_attr_e( 'Support Multiple Roles', 'adminimize' ); ?>
+						</label>
+					</td>
+					<td>
+						<input type="checkbox" value="1" id="mw_adminimize_multiple_roles"
+							name="mw_adminimize_multiple_roles" <?php checked(
+							_mw_adminimize_get_option_value( 'mw_adminimize_multiple_roles' ),
+							1, TRUE ); ?>>
+						<?php esc_attr_e( 'If the user have more as one role and this function is active, Adminimize hide only items, there are active on each role of this user.', 'adminimize' ); ?>
+					</td>
+				</tr>
+				<tr>
+					<td class="row-title"><label for="mw_adminimize_support_bbpress">
+							<?php esc_attr_e( 'Support bbPress Roles', 'adminimize' ); ?>
+						</label>
+					</td>
+					<td>
+						<input type="checkbox" value="1" id="mw_adminimize_support_bbpress"
+							name="mw_adminimize_support_bbpress" <?php checked(
+							_mw_adminimize_get_option_value( 'mw_adminimize_support_bbpress' ),
+							1,
+							TRUE ); ?>>
+						<?php esc_attr_e( 'See the bbPress roles also in each area to hide for this context.', 'adminimize' ); ?>
+					</td>
+				</tr>
+			</table>
+
+			<p id="submitbutton">
+				<input type="hidden" name="_mw_adminimize_action" value="_mw_adminimize_insert" />
+				<input class="button button-primary" type="submit" name="_mw_adminimize_save" value="<?php esc_attr_e(
+					'Update Options', 'adminimize'
+				); ?> &raquo;" /><input type="hidden" name="page_options" value="'dofollow_timeout'" />
+			</p>
+
+			<p>
+				<a class="alignright button" href="javascript:void(0);"
+					onclick="window.scrollTo(0,0);" style="margin:3px 0 0 30px;"><?php esc_attr_e(
+						'scroll to top', 'adminimize'
+					); ?></a><br class="clear" />
+			</p>
+		</div>
+	</div>
+</div>

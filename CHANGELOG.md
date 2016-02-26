@@ -1,6 +1,9 @@
 ## 1.10.1 (ToDO:???)
 * Fix the Removing of Admin Color Scheme Select on the profile page.
 * Backend options are also exluded on the settings page.
+* Add new settings are for options of the plugin self.
+* The support if multiple roles is now optional.
+* The support of bbPress is now active and optional.
 
 ## 1.10.0 (2016-02-21)
 * Rewrite the Admin Bar settings, simplify the source and new hook to get and render the Admin Bar.

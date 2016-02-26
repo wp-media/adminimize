@@ -140,6 +140,7 @@ function _mw_adminimize_options() {
 	<div class="wrap">
 		<?php
 		do_action( 'mw_adminimize_before_settings_form' );
+
 		// Backend Options for all roles
 		require_once 'inc-options/minimenu.php';
 		?>
@@ -147,6 +148,9 @@ function _mw_adminimize_options() {
 			$_GET[ 'page' ]
 		); ?>">
 			<?php
+			// Adminimize Settings for the plugin.
+			require_once 'inc-options/self_settings.php';
+
 			// Admin Bar options
 			require_once 'inc-options/admin_bar.php';
 

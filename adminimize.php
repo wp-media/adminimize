@@ -158,10 +158,12 @@ function _mw_adminimize_get_all_user_roles() {
 	}
 
 	// Exclude the new bbPress roles.
-	$user_roles = array_diff(
-		$user_roles,
-		array( 'bbp_keymaster', 'bbp_moderator', 'bbp_participant', 'bbp_spectator', 'bbp_blocked' )
-	);
+	if ( ! _mw_adminimize_get_option_value( 'mw_adminimize_support_bbpress' ) ) {
+		$user_roles = array_diff(
+			$user_roles,
+			array( 'bbp_keymaster', 'bbp_moderator', 'bbp_participant', 'bbp_spectator', 'bbp_blocked' )
+		);
+	}
 
 	return $user_roles;
 }
@@ -186,16 +188,18 @@ function _mw_adminimize_get_all_user_roles_names() {
 	}
 
 	// exclude the new bbPress roles
-	$user_roles_names = array_diff(
-		$user_roles_names,
-		array(
-			esc_attr__( 'Keymaster', 'bbpress' ),
-			esc_attr__( 'Moderator', 'bbpress' ),
-			esc_attr__( 'Participant', 'bbpress' ),
-			esc_attr__( 'Spectator', 'bbpress' ),
-			esc_attr__( 'Blocked', 'bbpress' ),
-		)
-	);
+	if ( ! _mw_adminimize_get_option_value( 'mw_adminimize_support_bbpress' ) ) {
+		$user_roles_names = array_diff(
+			$user_roles_names,
+			array(
+				esc_attr__( 'Keymaster', 'bbpress' ),
+				esc_attr__( 'Moderator', 'bbpress' ),
+				esc_attr__( 'Participant', 'bbpress' ),
+				esc_attr__( 'Spectator', 'bbpress' ),
+				esc_attr__( 'Blocked', 'bbpress' ),
+			)
+		);
+	}
 
 	return $user_roles_names;
 }
@@ -609,7 +613,7 @@ function _mw_adminimize_set_menu_option() {
 	}
 
 	// Support Multiple Roles for users.
-	if ( 1 < count( $user->roles ) ) {
+	if ( _mw_adminimize_get_option_value( 'mw_adminimize_multiple_roles' ) && 1 < count( $user->roles ) ) {
 		$mw_adminimize_menu    = _mw_adminimize_get_duplicate( $mw_adminimize_menu );
 		$mw_adminimize_submenu = _mw_adminimize_get_duplicate( $mw_adminimize_submenu );
 	}
@@ -690,7 +694,7 @@ function _mw_adminimize_set_global_option() {
 	}
 
 	// Support Multiple Roles for users.
-	if ( 1 < count( $user->roles ) ) {
+	if ( _mw_adminimize_get_option_value( 'mw_adminimize_multiple_roles' ) && 1 < count( $user->roles ) ) {
 		$disabled_global_option = _mw_adminimize_get_duplicate( $disabled_global_option );
 	}
 	$global_options = implode( ', ', $disabled_global_option );
@@ -1232,13 +1236,26 @@ function _mw_adminimize_update() {
 		}
 	}
 
+	// Plugin Self Settings.
+	if ( isset( $_POST[ 'mw_adminimize_multiple_roles' ] ) ) {
+		$adminimizeoptions[ 'mw_adminimize_multiple_roles' ] = (int) $_POST[ 'mw_adminimize_multiple_roles' ];
+	} else {
+		$adminimizeoptions[ 'mw_adminimize_multiple_roles' ] = 0;
+	}
+
+	if ( isset( $_POST[ 'mw_adminimize_support_bbpress' ] ) ) {
+		$adminimizeoptions[ 'mw_adminimize_support_bbpress' ] = (int) $_POST[ 'mw_adminimize_support_bbpress' ];
+	} else {
+		$adminimizeoptions[ 'mw_adminimize_support_bbpress' ] = 0;
+	}
+
 	// Admin Bar Front end settings
 	$adminimizeoptions[ 'mw_adminimize_admin_bar_frontend_nodes' ] = _mw_adminimize_get_option_value(
 		'mw_adminimize_admin_bar_frontend_nodes'
 	);
 	// admin bar front end options
 	foreach ( $user_roles as $role ) {
-		// admin bar fron tend options
+		// admin bar front-end options
 		if ( isset( $_POST[ 'mw_adminimize_disabled_admin_bar_frontend_' . $role . '_items' ] ) ) {
 			$adminimizeoptions[ 'mw_adminimize_disabled_admin_bar_frontend_' . $role . '_items' ] = $_POST[ 'mw_adminimize_disabled_admin_bar_frontend_' . $role . '_items' ];
 		} else {
