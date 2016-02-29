@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/FrankBueltge
 Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
 Requires at least: 4.0
 Tested up to: 4.5-beta1
-Stable tag: 1.10.0
+Stable tag: 1.10.1
 
 Adminimize that lets you hide 'unnecessary' items from the WordPress backend
 
@@ -41,6 +41,13 @@ Use the installer via back-end of your install or ...
 1. Settings area in WP 4.5-alpha
 
 == Changelog ==
+## 1.10.1 (2016-02-29)
+* Fix the Removing of Admin Color Scheme Select on the profile page.
+* Backend options are also exluded on the settings page.
+* Add new settings are for options of the plugin self.
+* The support if multiple roles is now optional.
+* The support of bbPress is now active and optional.
+
 = 1.10.0 (2016-02-21) =
 * Rewrite the Admin Bar settings, simplify the source and new hook to get and render the Admin Bar.
 * Change settings screen for custom post type.
