@@ -1,6 +1,6 @@
 ## 1.10.1 (2016-02-29)
 * Fix the Removing of Admin Color Scheme Select on the profile page.
-* Backend options are also exluded on the settings page.
+* Back-end options are also excluded on the settings page.
 * Add new settings are for options of the plugin self.
 * The support if multiple roles is now optional.
 * The support of bbPress is now active and optional.
