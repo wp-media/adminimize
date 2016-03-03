@@ -1181,11 +1181,16 @@ function _mw_adminimize_set_theme() {
  */
 function _mw_adminimize_get_option_value( $key = FALSE ) {
 
-	// check for use on multisite
-	if ( _mw_adminimize_is_active_on_multisite() ) {
-		$adminimizeoptions = (array) get_site_option( 'mw_adminimize', array() );
-	} else {
-		$adminimizeoptions = (array) get_option( 'mw_adminimize', array() );
+	$adminimizeoptions = wp_cache_get( 'mw_adminimize' );
+
+	if ( FALSE === $adminimizeoptions ) {
+		// check for use on multisite
+		if ( _mw_adminimize_is_active_on_multisite() ) {
+			$adminimizeoptions = (array) get_site_option( 'mw_adminimize', array() );
+		} else {
+			$adminimizeoptions = (array) get_option( 'mw_adminimize', array() );
+		}
+		wp_cache_set( 'mw_adminimize', $adminimizeoptions );
 	}
 
 	if ( ! $key ) {
@@ -1580,6 +1585,7 @@ function _mw_adminimize_update() {
  */
 function _mw_adminimize_uninstall() {
 
+	wp_cache_delete( 'mw_adminimize' );
 	delete_site_option( 'mw_adminimize' );
 	delete_option( 'mw_adminimize' );
 }
@@ -1622,6 +1628,7 @@ function _mw_adminimize_install() {
 	} else {
 		add_option( 'mw_adminimize', $adminimizeoptions );
 	}
+	wp_cache_add( 'mw_adminimize', $adminimizeoptions );
 }
 
 /**
