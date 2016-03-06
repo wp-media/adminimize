@@ -149,9 +149,9 @@ if ( ! function_exists( 'add_action' ) ) {
 					<tr>
 						<th><?php esc_attr_e( 'Your own options', 'adminimize' );
 							echo '<br />';
-							esc_attr_e( 'ID or class', 'adminimize' ); ?></th>
+							esc_attr_e( 'Option name', 'adminimize' ); ?></th>
 						<th><?php echo '<br />';
-							esc_attr_e( 'Option', 'adminimize' ); ?></th>
+							esc_attr_e( 'Selector, ID or class', 'adminimize' ); ?></th>
 					</tr>
 					</thead>
 

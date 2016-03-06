@@ -578,6 +578,9 @@ function _mw_adminimize_set_menu_option() {
 		return;
 	}
 
+	_mw_adminimize_debug( $menu, 'WordPress Menu:' );
+	_mw_adminimize_debug( $submenu, 'WordPress Sub-Menu:' );
+
 	$user_roles        = _mw_adminimize_get_all_user_roles();
 	$disabled_menu_    = array();
 	$disabled_submenu_ = array();
@@ -617,6 +620,20 @@ function _mw_adminimize_set_menu_option() {
 		$mw_adminimize_menu    = _mw_adminimize_get_duplicate( $mw_adminimize_menu );
 		$mw_adminimize_submenu = _mw_adminimize_get_duplicate( $mw_adminimize_submenu );
 	}
+
+	/*
+	// Define custom slugs.
+	// Default menu slug as Administrator => Custom value
+	$custom_menu = array(
+		'vc-general' => 'vc-welcome'
+	);
+	// Custom Fall Backs for stupid plugins.
+	foreach ( $custom_menu as $slug => $custom_slug ) {
+		if ( in_array( $slug, $mw_adminimize_menu, FALSE ) ) {
+			$mw_adminimize_menu[] = $custom_slug;
+		}
+	}
+	*/
 
 	// Fallback on users.php on all user roles smaller admin.
 	if ( in_array( 'users.php', $mw_adminimize_menu, FALSE ) ) {
@@ -1357,6 +1374,22 @@ function _mw_adminimize_update() {
 		} else {
 			$adminimizeoptions[ 'mw_adminimize_disabled_submenu_' . $role . '_items' ] = array();
 		}
+	}
+	// own menu slug
+	if ( isset( $_POST[ '_mw_adminimize_own_menu_slug' ] ) ) {
+		$adminimizeoptions[ '_mw_adminimize_own_menu_slug' ] = stripslashes(
+			$_POST[ '_mw_adminimize_own_menu_slug' ]
+		);
+	} else {
+		$adminimizeoptions[ '_mw_adminimize_own_menu_slug' ] = '';
+	}
+	// own custom menu slug
+	if ( isset( $_POST[ '_mw_adminimize_own_menu_custom_slug' ] ) ) {
+		$adminimizeoptions[ '_mw_adminimize_own_menu_custom_slug' ] = stripslashes(
+			$_POST[ '_mw_adminimize_own_menu_custom_slug' ]
+		);
+	} else {
+		$adminimizeoptions[ '_mw_adminimize_own_menu_custom_slug' ] = '';
 	}
 
 	// global_options, metaboxes update

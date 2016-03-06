@@ -12,8 +12,8 @@ if ( ! function_exists( 'add_action' ) ) {
 /**
  * Recursive search in array.
  *
- * @param $needle
- * @param $haystack
+ * @param string $needle
+ * @param array  $haystack
  *
  * @return bool
  */
@@ -43,8 +43,8 @@ function _mw_adminimize_recursive_in_array( $needle, $haystack ) {
 /**
  * Check if array contains all array values from another array.
  *
- * @param $array1
- * @param $array2
+ * @param array $array1
+ * @param array $array2
  *
  * @return bool
  */
@@ -74,10 +74,10 @@ function _mw_adminimize_current_user_has_role( $role ) {
  * Simple helper to debug to the console of the browser.
  * Set WP_DEBUG_DISPLAY in your wp-config.php to true for view debug messages inside the console.
  *
- * @param string $description
  * @param string | array | object
+ * @param string $description
  */
-function _mw_adminimize_debug( $description = '' , $data ) {
+function _mw_adminimize_debug( $data, $description = '' ) {
 
 	if ( ! defined( 'WP_DEBUG_DISPLAY' ) || ( defined( 'WP_DEBUG_DISPLAY' ) && ! WP_DEBUG_DISPLAY ) ) {
 		return;
