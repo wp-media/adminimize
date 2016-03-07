@@ -1,6 +1,7 @@
 ## 1.10.2 ()
 * Add possibility for custom menu slugs, especially for Plugins, Themes, there add different slug for different roles.
 * Add the possibilty to use the WP object cache for settings, if the webspace support this, like Memcached, APC.
+* More clarity for the "own options" label.
 
 ## 1.10.1 (2016-02-29)
 * Fix the Removing of Admin Color Scheme Select on the profile page.

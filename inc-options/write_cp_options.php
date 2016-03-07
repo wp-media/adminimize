@@ -247,13 +247,14 @@ foreach ( get_post_types( $args ) as $post_type ) {
 					<tr>
 						<th>
 							<?php echo sprintf(
-								esc_attr__( 'Your own %s options', 'adminimize' ), $post_type_object->label
+								esc_attr__( 'Your own %s options', 'adminimize' ),
+								$post_type_object->label
 							);
 							echo '<br />';
-							esc_attr_e( 'ID or class', 'adminimize' ); ?>
+							esc_attr_e( 'Option name', 'adminimize' ); ?>
 						</th>
 						<th><?php echo '<br />';
-							esc_attr_e( 'Option', 'adminimize' ); ?></th>
+							esc_attr_e( 'Selector, ID or class', 'adminimize' ); ?></th>
 					</tr>
 					</thead>
 
