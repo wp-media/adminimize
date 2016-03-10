@@ -3,8 +3,8 @@ Contributors: Bueltge
 Donate link: https://www.paypal.me/FrankBueltge
 Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
 Requires at least: 4.0
-Tested up to: 4.5-beta1
-Stable tag: 1.10.1
+Tested up to: 4.5-beta3
+Stable tag: 1.10.2
 
 Adminimize that lets you hide 'unnecessary' items from the WordPress backend
 
@@ -41,9 +41,9 @@ Use the installer via back-end of your install or ...
 1. Settings area in WP 4.5-alpha
 
 == Changelog ==
-## 1.10.2 ()
+## 1.10.2 (2016-03-10)
 * Add possibility for custom menu slugs, especially for Plugins, Themes, there add different slug for different roles.
-* Add the possibilty to use the WP object cache for settings, if the webspace support this, like Memcached, APC.
+* Add the possibility to use the WP object cache for settings, if the webspace support this, like Memcached, APC.
 * More clarity for the "own options" label.
 
 = 1.10.1 (2016-02-29) =

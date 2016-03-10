@@ -18,6 +18,19 @@ if ( ! function_exists( 'add_action' ) ) {
 
 			<table class="form-table">
 				<tr>
+					<td class="row-title"><label for="mw_adminimize_debug">
+							<?php esc_attr_e( 'Active Debug Helper', 'adminimize' ); ?>
+						</label>
+					</td>
+					<td>
+						<input type="checkbox" value="1" id="mw_adminimize_debug"
+							name="mw_adminimize_debug" <?php checked(
+							_mw_adminimize_get_option_value( 'mw_adminimize_debug' ),
+							1, TRUE ); ?>>
+						<?php esc_attr_e( 'After activation is it possible to see several information inside the console of the browser for the current active user.', 'adminimize' ); ?>
+					</td>
+				</tr>
+				<tr>
 					<td class="row-title"><label for="mw_adminimize_multiple_roles">
 							<?php esc_attr_e( 'Support Multiple Roles', 'adminimize' ); ?>
 						</label>

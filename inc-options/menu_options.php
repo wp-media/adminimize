@@ -73,7 +73,7 @@ if ( ! function_exists( 'add_action' ) ) {
 
 					$wp_submenu = $submenu;
 				}
-				_mw_adminimize_debug( $wp_menu, 'Menu' );
+
 				// Enhance Menu with custom slugs.
 				$own_menu_slug        = _mw_adminimize_get_option_value(
 					'_mw_adminimize_own_menu_slug'
@@ -92,7 +92,7 @@ if ( ! function_exists( 'add_action' ) ) {
 						4 => 'custom',
 					);
 				}
-				_mw_adminimize_debug( $wp_menu, 'Menu' );
+
 				foreach ( $user_roles as $role ) {
 					$disabled_metaboxes_post_[ $role ] = _mw_adminimize_get_option_value(
 						'mw_adminimize_disabled_metaboxes_post_' . $role . '_items'

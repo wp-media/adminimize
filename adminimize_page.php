@@ -35,7 +35,6 @@ function _mw_adminimize_options() {
 			check_admin_referer( 'mw_adminimize_nonce' );
 
 			_mw_adminimize_update();
-
 		} else {
 			$myErrors = new _mw_adminimize_message_class();
 			$myErrors = '<div id="message" class="error"><p>' . $myErrors->get_error(

@@ -7,13 +7,13 @@
  * Description: Visually compresses the administrative meta-boxes so that more admin page content can be initially seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for all roles of your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible to simplify the admin in different for all roles.
  * Author:      Frank Bültge
  * Author URI:  http://bueltge.de/
- * Version:     1.10.2-alpha
+ * Version:     1.10.2
  * License:     GPLv3+
  *
  * @package WordPress
  * @author  Frank Bültge <frank@bueltge.de>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2016-02-29
+ * @version 2016-03-10
  */
 
 /**
@@ -578,8 +578,8 @@ function _mw_adminimize_set_menu_option() {
 		return;
 	}
 
-	_mw_adminimize_debug( $menu, 'WordPress Menu:' );
-	_mw_adminimize_debug( $submenu, 'WordPress Sub-Menu:' );
+	_mw_adminimize_debug( $menu, 'Adminimize, WordPress Menu:' );
+	_mw_adminimize_debug( $submenu, 'Adminimize, WordPress Sub-Menu:' );
 
 	$user_roles        = _mw_adminimize_get_all_user_roles();
 	$disabled_menu_    = array();
@@ -1198,7 +1198,10 @@ function _mw_adminimize_set_theme() {
  */
 function _mw_adminimize_get_option_value( $key = FALSE ) {
 
-	$adminimizeoptions = wp_cache_get( 'mw_adminimize' );
+	$adminimizeoptions = FALSE;
+	if ( ! _mw_adminimize_exclude_settings_page() ) {
+		$adminimizeoptions = wp_cache_get( 'mw_adminimize' );
+	}
 
 	if ( FALSE === $adminimizeoptions ) {
 		// check for use on multisite
@@ -1221,11 +1224,13 @@ function _mw_adminimize_get_option_value( $key = FALSE ) {
  * Update options.
  *
  * @param array $options
+ *
+ * @return bool
  */
 function _mw_adminimize_update_option( $options ) {
 
 	if ( ! current_user_can( 'manage_options' ) ) {
-		return;
+		return FALSE;
 	}
 
 	if ( _mw_adminimize_is_active_on_multisite() ) {
@@ -1233,6 +1238,8 @@ function _mw_adminimize_update_option( $options ) {
 	} else {
 		update_option( 'mw_adminimize', $options );
 	}
+
+	return TRUE;
 }
 
 /**
@@ -1259,6 +1266,12 @@ function _mw_adminimize_update() {
 	}
 
 	// Plugin Self Settings.
+	if ( isset( $_POST[ 'mw_adminimize_debug' ] ) ) {
+		$adminimizeoptions[ 'mw_adminimize_debug' ] = (int) $_POST[ 'mw_adminimize_debug' ];
+	} else {
+		$adminimizeoptions[ 'mw_adminimize_debug' ] = 0;
+	}
+
 	if ( isset( $_POST[ 'mw_adminimize_multiple_roles' ] ) ) {
 		$adminimizeoptions[ 'mw_adminimize_multiple_roles' ] = (int) $_POST[ 'mw_adminimize_multiple_roles' ];
 	} else {
@@ -1604,13 +1617,21 @@ function _mw_adminimize_update() {
 	}
 
 	// update
-	_mw_adminimize_update_option( $adminimizeoptions );
+	$update_status = _mw_adminimize_update_option( $adminimizeoptions );
 
 	$myErrors = new _mw_adminimize_message_class();
-	$myErrors = '<div id="message" class="updated fade"><p>' . $myErrors->get_error(
+	if ( $update_status ) {
+		$message = $myErrors->get_error(
 			'_mw_adminimize_update'
-		) . '</p></div>';
-	echo $myErrors;
+		);
+	} else {
+		$message = $myErrors->get_error(
+			'_mw_adminimize_access_denied'
+		);
+	}
+	echo '<div id="message" class="notice notice-success"><p>' . $message . '</p></div>';
+
+	return TRUE;
 }
 
 /**

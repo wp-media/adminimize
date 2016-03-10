@@ -79,7 +79,7 @@ function _mw_adminimize_current_user_has_role( $role ) {
  */
 function _mw_adminimize_debug( $data, $description = '' ) {
 
-	if ( ! defined( 'WP_DEBUG_DISPLAY' ) || ( defined( 'WP_DEBUG_DISPLAY' ) && ! WP_DEBUG_DISPLAY ) ) {
+	if ( ! _mw_adminimize_get_option_value( 'mw_adminimize_debug' ) ) {
 		return;
 	}
 
