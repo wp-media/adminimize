@@ -41,6 +41,10 @@ Use the installer via back-end of your install or ...
 1. Settings area in WP 4.5-alpha
 
 == Changelog ==
+= 1.10.3 ()=
+* Fix exclude of set new Admin Bar on settings oage of Adminimize.
+* Fix check for settings page.
+
 = 1.10.2 (2016-03-10) =
 * Add possibility for custom menu slugs, especially for Plugins, Themes, there add different slug for different roles.
 * Add the possibility to use the WP object cache for settings, if the webspace support this, like Memcached, APC.
