@@ -74,6 +74,11 @@ function _mw_adminimize_change_admin_bar() {
 		return;
 	}
 
+	// Exclude the new settings of the Admin Bar on settings page of Adminimize.
+	if ( _mw_adminimize_exclude_settings_page() ) {
+		return;
+	}
+
 	/** @var $wp_admin_bar WP_Admin_Bar */
 	global $wp_admin_bar;
 
