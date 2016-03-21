@@ -2,7 +2,7 @@
 /**
  * Stylesheet for the Adminimize settings page.
  *
- * @version 2016-01-06
+ * @version 2016-03-21
  */
 
 #minimenu td a {
@@ -23,21 +23,26 @@ table tbody td span, table tbody th span {
 }
 
 tr:hover,
-td:first-child + td:hover,
-td:first-child + td + td + td:hover,
-td:first-child + td + td + td + td + td:hover,
-td:first-child + td + td + td + td + td + td + td:hover,
-td:first-child + td + td + td + td + td + td + td + td + td:hover {
-	background: #DFDFDF !important;
+td:nth-child(even) + td:hover {
+	background-color: #dfdfdf !important;
+}
+
+table.widefat th:nth-child(even),
+table.widefat td:nth-child(even) {
+	background-color: #ffebe8;
+}
+
+table.widefat th:nth-child(even):hover,
+table.widefat td:nth-child(even):hover {
+	background-color: #dfdfdf;
 }
 
 td:first-child {
 	width: 30%;
 }
 
-.col1, .col3, .col5,
-.col7, .col9, .col11 {
-	background-color: #ffebe8;
+table.widefat tr:nth-child(2) {
+	font-style: italic;
 }
 
 .widefat td span, .widefat th span {
