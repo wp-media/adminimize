@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv3+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Adminimize 1.9.3-RC2\n"
+"Project-Id-Version: Adminimize 1.10.3-dev\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/adminimize\n"
-"POT-Creation-Date: 2016-02-04 13:09:09+00:00\n"
+"POT-Creation-Date: 2016-03-21 18:15:08+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,40 +17,41 @@ msgstr ""
 "attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
 "Poedit: \n"
 
-#: adminimize.php:180
+#: adminimize.php:195
 msgid "Keymaster"
 msgstr ""
 
-#: adminimize.php:181
+#: adminimize.php:196
 msgid "Moderator"
 msgstr ""
 
-#: adminimize.php:182
+#: adminimize.php:197
 msgid "Participant"
 msgstr ""
 
-#: adminimize.php:183
+#: adminimize.php:198
 msgid "Spectator"
 msgstr ""
 
-#: adminimize.php:184
+#: adminimize.php:199
 msgid "Blocked"
 msgstr ""
 
-#: adminimize.php:520
+#: adminimize.php:534
 msgid "Dashboard"
 msgstr ""
 
-#: adminimize.php:1038 inc-setup/remove-admin-bar.php:63
-#: inc-setup/remove-admin-bar.php:94 inc-setup/remove-admin-bar.php:287
+#: adminimize.php:1073 inc-setup/remove-admin-bar.php:63
+#: inc-setup/remove-admin-bar.php:94 inc-setup/remove-admin-bar.php:295
+#: inc-setup/remove-admin-bar.php:297
 msgid "Log Out"
 msgstr ""
 
-#: adminimize.php:1091
+#: adminimize.php:1126
 msgid "Settings"
 msgstr ""
 
-#: adminimize.php:1104
+#: adminimize.php:1139
 msgid "Adminimize Options"
 msgstr ""
 
@@ -58,15 +59,15 @@ msgstr ""
 msgid "Adminimize"
 msgstr ""
 
-#: adminimize.php:1140
+#: adminimize.php:1175
 msgid "Cheatin&#8217; uh?"
 msgstr ""
 
-#: adminimize.php:1647
+#: adminimize.php:1738
 msgid "Please upload a valid .json file"
 msgstr ""
 
-#: adminimize.php:1653
+#: adminimize.php:1744
 msgid "Please upload a file to import"
 msgstr ""
 
@@ -76,11 +77,11 @@ msgstr ""
 #: inc-options/deinstall_options.php:14 inc-options/global_options.php:15
 #: inc-options/im_export_options.php:14 inc-options/links_options.php:15
 #: inc-options/menu_options.php:15 inc-options/minimenu.php:24
-#: inc-options/minimenu.php:137 inc-options/theme_options.php:14
-#: inc-options/theme_options.php:15 inc-options/widget_options.php:15
-#: inc-options/wp_nav_menu_options.php:14 inc-options/write_cp_options.php:20
-#: inc-options/write_page_options.php:14 inc-options/write_post_options.php:15
-#: inc-options/write_post_options.php:16
+#: inc-options/minimenu.php:143 inc-options/self_settings.php:14
+#: inc-options/theme_options.php:14 inc-options/theme_options.php:15
+#: inc-options/widget_options.php:15 inc-options/wp_nav_menu_options.php:14
+#: inc-options/write_cp_options.php:20 inc-options/write_page_options.php:14
+#: inc-options/write_post_options.php:15 inc-options/write_post_options.php:16
 msgid "Click to toggle"
 msgstr ""
 
@@ -89,42 +90,37 @@ msgid "Admin Bar Back end options"
 msgstr ""
 
 #: inc-options/admin_bar.php:46 inc-options/admin_bar_frontend.php:45
-#: inc-options/dashboard_options.php:38 inc-options/dashboard_options.php:145
-#: inc-options/global_options.php:24 inc-options/global_options.php:125
-#: inc-options/links_options.php:24 inc-options/links_options.php:126
-#: inc-options/widget_options.php:24 inc-options/widget_options.php:138
-#: inc-options/wp_nav_menu_options.php:23
-#: inc-options/wp_nav_menu_options.php:153 inc-options/write_cp_options.php:247
-#: inc-options/write_page_options.php:222
-#: inc-options/write_post_options.php:225
+#: inc-options/dashboard_options.php:47 inc-options/global_options.php:33
+#: inc-options/links_options.php:33 inc-options/widget_options.php:33
+#: inc-options/wp_nav_menu_options.php:32
 msgid "Option"
 msgstr ""
 
 #: inc-options/admin_bar.php:49 inc-options/admin_bar_frontend.php:48
-#: inc-options/dashboard_options.php:41 inc-options/global_options.php:27
-#: inc-options/links_options.php:27 inc-options/menu_options.php:27
-#: inc-options/widget_options.php:27 inc-options/wp_nav_menu_options.php:26
-#: inc-options/write_cp_options.php:36 inc-options/write_page_options.php:25
-#: inc-options/write_post_options.php:28
+#: inc-options/dashboard_options.php:50 inc-options/global_options.php:36
+#: inc-options/links_options.php:36 inc-options/menu_options.php:36
+#: inc-options/widget_options.php:36 inc-options/wp_nav_menu_options.php:35
+#: inc-options/write_cp_options.php:45 inc-options/write_page_options.php:34
+#: inc-options/write_post_options.php:37
 msgid "Deactivate for"
 msgstr ""
 
 #: inc-options/admin_bar.php:54 inc-options/admin_bar_frontend.php:53
-#: inc-options/dashboard_options.php:46 inc-options/global_options.php:32
-#: inc-options/links_options.php:32 inc-options/menu_options.php:33
-#: inc-options/widget_options.php:32 inc-options/wp_nav_menu_options.php:31
-#: inc-options/write_cp_options.php:41 inc-options/write_page_options.php:30
-#: inc-options/write_post_options.php:33
+#: inc-options/dashboard_options.php:55 inc-options/global_options.php:41
+#: inc-options/links_options.php:41 inc-options/menu_options.php:42
+#: inc-options/widget_options.php:41 inc-options/wp_nav_menu_options.php:40
+#: inc-options/write_cp_options.php:50 inc-options/write_page_options.php:39
+#: inc-options/write_post_options.php:42
 msgid "Select all"
 msgstr ""
 
 #: inc-options/admin_bar.php:88 inc-options/admin_bar_frontend.php:88
-#: inc-options/dashboard_options.php:112
+#: inc-options/dashboard_options.php:121 inc-options/menu_options.php:153
 msgid "No Title!"
 msgstr ""
 
 #: inc-options/admin_bar.php:93 inc-options/admin_bar_frontend.php:93
-#: inc-options/menu_options.php:127
+#: inc-options/menu_options.php:156
 msgid "Group"
 msgstr ""
 
@@ -135,28 +131,28 @@ msgid ""
 msgstr ""
 
 #: inc-options/admin_bar.php:131 inc-options/admin_bar_frontend.php:136
-#: inc-options/backend_options.php:245 inc-options/dashboard_options.php:191
-#: inc-options/global_options.php:164 inc-options/links_options.php:163
-#: inc-options/menu_options.php:250 inc-options/widget_options.php:175
-#: inc-options/wp_nav_menu_options.php:190 inc-options/write_cp_options.php:299
-#: inc-options/write_page_options.php:259
-#: inc-options/write_post_options.php:262
+#: inc-options/backend_options.php:245 inc-options/dashboard_options.php:200
+#: inc-options/global_options.php:173 inc-options/links_options.php:172
+#: inc-options/menu_options.php:340 inc-options/self_settings.php:64
+#: inc-options/widget_options.php:184 inc-options/wp_nav_menu_options.php:199
+#: inc-options/write_cp_options.php:309 inc-options/write_page_options.php:268
+#: inc-options/write_post_options.php:270
 msgid "Update Options"
 msgstr ""
 
 #: inc-options/admin_bar.php:138 inc-options/admin_bar_frontend.php:143
-#: inc-options/backend_options.php:251 inc-options/dashboard_options.php:199
-#: inc-options/deinstall_options.php:36 inc-options/global_options.php:171
-#: inc-options/im_export_options.php:77 inc-options/links_options.php:169
-#: inc-options/menu_options.php:256 inc-options/minimenu.php:203
-#: inc-options/theme_options.php:121 inc-options/widget_options.php:181
-#: inc-options/wp_nav_menu_options.php:196 inc-options/write_cp_options.php:305
-#: inc-options/write_page_options.php:264
-#: inc-options/write_post_options.php:268
+#: inc-options/backend_options.php:251 inc-options/dashboard_options.php:208
+#: inc-options/deinstall_options.php:36 inc-options/global_options.php:180
+#: inc-options/im_export_options.php:77 inc-options/links_options.php:178
+#: inc-options/menu_options.php:346 inc-options/minimenu.php:209
+#: inc-options/self_settings.php:71 inc-options/theme_options.php:121
+#: inc-options/widget_options.php:190 inc-options/wp_nav_menu_options.php:205
+#: inc-options/write_cp_options.php:315 inc-options/write_page_options.php:273
+#: inc-options/write_post_options.php:276
 msgid "scroll to top"
 msgstr ""
 
-#: inc-options/admin_bar_frontend.php:28 inc-options/minimenu.php:42
+#: inc-options/admin_bar_frontend.php:28 inc-options/minimenu.php:48
 msgid "Admin Bar Front end Options"
 msgstr ""
 
@@ -166,7 +162,7 @@ msgid ""
 "plugin to discover the Admin Bar items that are currently not visible."
 msgstr ""
 
-#: inc-options/backend_options.php:16 inc-options/minimenu.php:48
+#: inc-options/backend_options.php:16 inc-options/minimenu.php:54
 msgid "Backend Options"
 msgstr ""
 
@@ -300,7 +296,7 @@ msgid ""
 "define custom url, include http://?"
 msgstr ""
 
-#: inc-options/dashboard_options.php:17 inc-options/minimenu.php:58
+#: inc-options/dashboard_options.php:17 inc-options/minimenu.php:64
 msgid "Dashboard options"
 msgstr ""
 
@@ -311,48 +307,58 @@ msgid ""
 "has access to each widget."
 msgstr ""
 
-#: inc-options/dashboard_options.php:141 inc-options/global_options.php:121
+#: inc-options/dashboard_options.php:150 inc-options/global_options.php:130
+#: inc-options/menu_options.php:291 inc-options/write_page_options.php:227
+#: inc-options/write_post_options.php:229
 msgid "Your own options"
 msgstr ""
 
-#: inc-options/dashboard_options.php:143 inc-options/global_options.php:123
-#: inc-options/links_options.php:124 inc-options/widget_options.php:136
-#: inc-options/wp_nav_menu_options.php:151 inc-options/write_cp_options.php:244
-#: inc-options/write_page_options.php:220
-#: inc-options/write_post_options.php:223
-msgid "ID or class"
+#: inc-options/dashboard_options.php:152 inc-options/global_options.php:132
+#: inc-options/links_options.php:133 inc-options/widget_options.php:145
+#: inc-options/wp_nav_menu_options.php:160 inc-options/write_cp_options.php:254
+#: inc-options/write_page_options.php:229
+#: inc-options/write_post_options.php:231
+msgid "Option name"
 msgstr ""
 
-#: inc-options/dashboard_options.php:151 inc-options/global_options.php:131
-#: inc-options/links_options.php:132 inc-options/widget_options.php:144
-#: inc-options/wp_nav_menu_options.php:159 inc-options/write_cp_options.php:254
-#: inc-options/write_page_options.php:228
-#: inc-options/write_post_options.php:231
+#: inc-options/dashboard_options.php:154 inc-options/global_options.php:134
+#: inc-options/links_options.php:135 inc-options/widget_options.php:147
+#: inc-options/wp_nav_menu_options.php:162 inc-options/write_cp_options.php:257
+#: inc-options/write_page_options.php:231
+#: inc-options/write_post_options.php:233
+msgid "Selector, ID or class"
+msgstr ""
+
+#: inc-options/dashboard_options.php:160 inc-options/global_options.php:140
+#: inc-options/links_options.php:141 inc-options/widget_options.php:153
+#: inc-options/wp_nav_menu_options.php:168 inc-options/write_cp_options.php:264
+#: inc-options/write_page_options.php:237
+#: inc-options/write_post_options.php:239
 msgid ""
 "It is possible to add your own IDs or classes from elements and tags. You "
 "can find IDs and classes with the FireBug Add-on for Firefox. Assign a "
 "value and the associate name per line."
 msgstr ""
 
-#: inc-options/dashboard_options.php:165 inc-options/global_options.php:143
-#: inc-options/links_options.php:143 inc-options/widget_options.php:155
-#: inc-options/wp_nav_menu_options.php:170 inc-options/write_cp_options.php:270
-#: inc-options/write_page_options.php:239
-#: inc-options/write_post_options.php:242
+#: inc-options/dashboard_options.php:174 inc-options/global_options.php:152
+#: inc-options/links_options.php:152 inc-options/widget_options.php:164
+#: inc-options/wp_nav_menu_options.php:179 inc-options/write_cp_options.php:280
+#: inc-options/write_page_options.php:248
+#: inc-options/write_post_options.php:250
 msgid ""
 "Possible nomination for ID or class. Separate multiple nominations through "
 "a carriage return."
 msgstr ""
 
-#: inc-options/dashboard_options.php:179 inc-options/global_options.php:154
-#: inc-options/links_options.php:153 inc-options/widget_options.php:165
-#: inc-options/wp_nav_menu_options.php:180 inc-options/write_cp_options.php:285
-#: inc-options/write_page_options.php:249
-#: inc-options/write_post_options.php:252
+#: inc-options/dashboard_options.php:188 inc-options/global_options.php:163
+#: inc-options/links_options.php:162 inc-options/widget_options.php:174
+#: inc-options/wp_nav_menu_options.php:189 inc-options/write_cp_options.php:295
+#: inc-options/write_page_options.php:258
+#: inc-options/write_post_options.php:260
 msgid "Possible IDs or classes. Separate multiple values through a carriage return."
 msgstr ""
 
-#: inc-options/deinstall_options.php:15 inc-options/minimenu.php:126
+#: inc-options/deinstall_options.php:15 inc-options/minimenu.php:132
 msgid "Uninstall Options"
 msgstr ""
 
@@ -367,42 +373,42 @@ msgstr ""
 msgid "Delete Options"
 msgstr ""
 
-#: inc-options/global_options.php:16 inc-options/minimenu.php:53
+#: inc-options/global_options.php:16 inc-options/minimenu.php:59
 msgid "Global options"
 msgstr ""
 
-#: inc-options/global_options.php:62
+#: inc-options/global_options.php:71
 msgid "Admin Bar"
 msgstr ""
 
-#: inc-options/global_options.php:63
+#: inc-options/global_options.php:72
 msgid "Favorite Actions"
 msgstr ""
 
-#: inc-options/global_options.php:64
+#: inc-options/global_options.php:73
 msgid "Screen-Meta"
 msgstr ""
 
-#: inc-options/global_options.php:65 inc-options/widget_options.php:61
-#: inc-options/wp_nav_menu_options.php:64 inc-options/write_cp_options.php:121
-#: inc-options/write_page_options.php:116
-#: inc-options/write_post_options.php:121
+#: inc-options/global_options.php:74 inc-options/widget_options.php:70
+#: inc-options/wp_nav_menu_options.php:73 inc-options/write_cp_options.php:130
+#: inc-options/write_page_options.php:125
+#: inc-options/write_post_options.php:129
 msgid "Screen Options"
 msgstr ""
 
-#: inc-options/global_options.php:66
+#: inc-options/global_options.php:75
 msgid "Contextual Help"
 msgstr ""
 
-#: inc-options/global_options.php:67
+#: inc-options/global_options.php:76
 msgid "Admin Color Scheme"
 msgstr ""
 
-#: inc-options/global_options.php:68
+#: inc-options/global_options.php:77
 msgid "Admin Notices"
 msgstr ""
 
-#: inc-options/im_export_options.php:15 inc-options/minimenu.php:121
+#: inc-options/im_export_options.php:15 inc-options/minimenu.php:127
 msgid "Export/Import Options"
 msgstr ""
 
@@ -442,63 +448,89 @@ msgstr ""
 msgid "Upload file and import &raquo;"
 msgstr ""
 
-#: inc-options/links_options.php:16 inc-options/minimenu.php:99
+#: inc-options/links_options.php:16 inc-options/minimenu.php:105
 msgid "Links options"
 msgstr ""
 
-#: inc-options/links_options.php:63
+#: inc-options/links_options.php:72
 msgid "Name"
 msgstr ""
 
-#: inc-options/links_options.php:64
+#: inc-options/links_options.php:73
 msgid "Web Address"
 msgstr ""
 
-#: inc-options/links_options.php:65
+#: inc-options/links_options.php:74
 msgid "Description"
 msgstr ""
 
-#: inc-options/links_options.php:66 inc-options/write_cp_options.php:125
-#: inc-options/write_post_options.php:125
+#: inc-options/links_options.php:75 inc-options/write_cp_options.php:134
+#: inc-options/write_post_options.php:133
 msgid "Categories"
 msgstr ""
 
-#: inc-options/links_options.php:67
+#: inc-options/links_options.php:76
 msgid "Target"
 msgstr ""
 
-#: inc-options/links_options.php:68
+#: inc-options/links_options.php:77
 msgid "Link Relationship (XFN)"
 msgstr ""
 
-#: inc-options/links_options.php:69
+#: inc-options/links_options.php:78
 msgid "Advanced"
 msgstr ""
 
-#: inc-options/links_options.php:70 inc-options/write_cp_options.php:134
-#: inc-options/write_page_options.php:134
-#: inc-options/write_post_options.php:135
+#: inc-options/links_options.php:79 inc-options/write_cp_options.php:143
+#: inc-options/write_page_options.php:143
+#: inc-options/write_post_options.php:143
 msgid "Publish Actions"
 msgstr ""
 
-#: inc-options/links_options.php:122
+#: inc-options/links_options.php:131
 msgid "Your own Link options"
 msgstr ""
 
-#: inc-options/menu_options.php:16 inc-options/minimenu.php:63
+#: inc-options/menu_options.php:16 inc-options/minimenu.php:69
 msgid "Menu Options"
 msgstr ""
 
-#: inc-options/menu_options.php:24
+#: inc-options/menu_options.php:33
 msgid "Menu options - Menu, Submenu"
 msgstr ""
 
-#: inc-options/menu_options.php:99 inc-options/menu_options.php:188
+#: inc-options/menu_options.php:127 inc-options/menu_options.php:223
 msgid "After activate the check box it heavy attitudes will change."
 msgstr ""
 
-#: inc-options/menu_options.php:162
+#: inc-options/menu_options.php:158
+msgid "Custom"
+msgstr ""
+
+#: inc-options/menu_options.php:197
 msgid "Profile"
+msgstr ""
+
+#: inc-options/menu_options.php:293
+msgid "Slug"
+msgstr ""
+
+#: inc-options/menu_options.php:295
+msgid "Custom Slug"
+msgstr ""
+
+#: inc-options/menu_options.php:301
+msgid "It is possible to add your own slugs for menu items."
+msgstr ""
+
+#: inc-options/menu_options.php:315
+msgid ""
+"String of the custom slug, matched to the the default menu slug, there you "
+"see aboive in the list."
+msgstr ""
+
+#: inc-options/menu_options.php:329
+msgid "String of the custom slug."
 msgstr ""
 
 #: inc-options/minimenu.php:15
@@ -509,95 +541,127 @@ msgstr ""
 msgid "MiniMenu"
 msgstr ""
 
-#: inc-options/minimenu.php:30 inc-options/minimenu.php:138
+#: inc-options/minimenu.php:30 inc-options/minimenu.php:144
 msgid "About the plugin"
 msgstr ""
 
-#: inc-options/minimenu.php:36
+#: inc-options/minimenu.php:36 inc-options/self_settings.php:15
+msgid "Plugin Settings"
+msgstr ""
+
+#: inc-options/minimenu.php:42
 msgid "Admin Bar Back end Options"
 msgstr ""
 
-#: inc-options/minimenu.php:68 inc-options/write_post_options.php:17
-#: inc-options/write_post_options.php:25
+#: inc-options/minimenu.php:74 inc-options/write_post_options.php:17
+#: inc-options/write_post_options.php:34
 msgid "Write options - Post"
 msgstr ""
 
-#: inc-options/minimenu.php:73 inc-options/write_page_options.php:15
-#: inc-options/write_page_options.php:22
+#: inc-options/minimenu.php:79 inc-options/write_page_options.php:15
+#: inc-options/write_page_options.php:31
 msgid "Write options - Page"
 msgstr ""
 
-#: inc-options/minimenu.php:86 inc-options/write_cp_options.php:22
-#: inc-options/write_cp_options.php:32
+#: inc-options/minimenu.php:92 inc-options/write_cp_options.php:22
+#: inc-options/write_cp_options.php:41
 msgid "Write options"
 msgstr ""
 
-#: inc-options/minimenu.php:106 inc-options/widget_options.php:16
+#: inc-options/minimenu.php:112 inc-options/widget_options.php:16
 msgid "Widgets"
 msgstr ""
 
-#: inc-options/minimenu.php:111 inc-options/wp_nav_menu_options.php:15
+#: inc-options/minimenu.php:117 inc-options/wp_nav_menu_options.php:15
 msgid "WP Nav Menu"
 msgstr ""
 
-#: inc-options/minimenu.php:116 inc-options/theme_options.php:16
+#: inc-options/minimenu.php:122 inc-options/theme_options.php:16
 #: inc-options/theme_options.php:113
 msgid "Set Theme"
 msgstr ""
 
-#: inc-options/minimenu.php:144
+#: inc-options/minimenu.php:150
 msgid "Version"
 msgstr ""
 
-#: inc-options/minimenu.php:152
+#: inc-options/minimenu.php:158
 msgid ""
 "Further information: Visit the <a href=\"%1$s\">plugin homepage</a> for "
 "further information or to grab the latest version of this plugin. Also see "
 "the <a href=\"%2$s\">support forum</a> for questions."
 msgstr ""
 
-#: inc-options/minimenu.php:160
+#: inc-options/minimenu.php:166
 msgid ""
 "<br>For more hints about the functions and how to's with the possibilities "
 "of the plugin settings see the <a href=\"%s\">FAQ page</a> on the plugin "
 "site."
 msgstr ""
 
-#: inc-options/minimenu.php:163
+#: inc-options/minimenu.php:169
 msgid "Report a issue on the development repository:"
 msgstr ""
 
-#: inc-options/minimenu.php:165
+#: inc-options/minimenu.php:171
 msgid ""
 "The plugin have a github repository to easy add a issue or a create a fork, "
 "pull request:"
 msgstr ""
 
-#: inc-options/minimenu.php:171
+#: inc-options/minimenu.php:177
 msgid ""
 "You want to thank me? Visit my <a href=\"%1$s\">wishlist</a> or <a "
 "href=\"%2$s\">donate</a>."
 msgstr ""
 
-#: inc-options/minimenu.php:184 inc-options/settings_notice.php:17
+#: inc-options/minimenu.php:190 inc-options/settings_notice.php:17
 msgid ""
 "Please note: The Adminimize settings page ignores the Menu Options below "
 "and displays the menu with all entries."
 msgstr ""
 
-#: inc-options/minimenu.php:188 inc-options/settings_notice.php:21
+#: inc-options/minimenu.php:194 inc-options/settings_notice.php:21
 msgid ""
 "To view your changes to the menu you need to navigate away from the "
 "Adminimize settings page."
 msgstr ""
 
-#: inc-options/minimenu.php:194
+#: inc-options/minimenu.php:200
 msgid ""
 "You have to activated the Plugin for your Multisite Network. Your settings "
 "works now on all blogs in the network. Please set the settings only in one "
 "blog, there you have all active menu items and plugins. If you update the "
 "settings then write the plugin new settings in dependence of the blog where "
 "you put, save the settings."
+msgstr ""
+
+#: inc-options/self_settings.php:22
+msgid "Active Debug Helper"
+msgstr ""
+
+#: inc-options/self_settings.php:30
+msgid ""
+"After activation is it possible to see several information inside the "
+"console of the browser for the current active user."
+msgstr ""
+
+#: inc-options/self_settings.php:35
+msgid "Support Multiple Roles"
+msgstr ""
+
+#: inc-options/self_settings.php:43
+msgid ""
+"If the user have more as one role and this function is active, Adminimize "
+"hide only items, there are active on each role of this user."
+msgstr ""
+
+#: inc-options/self_settings.php:48
+msgid "Support bbPress Roles"
+msgstr ""
+
+#: inc-options/self_settings.php:57
+msgid "See the bbPress roles also in each area to hide for this context."
 msgstr ""
 
 #: inc-options/theme_options.php:26
@@ -634,246 +698,238 @@ msgstr ""
 msgid "Role"
 msgstr ""
 
-#: inc-options/widget_options.php:60 inc-options/wp_nav_menu_options.php:63
-#: inc-options/write_cp_options.php:120 inc-options/write_page_options.php:115
-#: inc-options/write_post_options.php:120
+#: inc-options/widget_options.php:69 inc-options/wp_nav_menu_options.php:72
+#: inc-options/write_cp_options.php:129 inc-options/write_page_options.php:124
+#: inc-options/write_post_options.php:128
 msgid "Help"
 msgstr ""
 
-#: inc-options/widget_options.php:62
+#: inc-options/widget_options.php:71
 msgid "Available Widgets"
 msgstr ""
 
-#: inc-options/widget_options.php:63
+#: inc-options/widget_options.php:72
 msgid "Inactive Sidebar (not used)"
 msgstr ""
 
-#: inc-options/widget_options.php:64
+#: inc-options/widget_options.php:73
 msgid "Inactive Widgets"
 msgstr ""
 
-#: inc-options/widget_options.php:134
+#: inc-options/widget_options.php:143
 msgid "Your own Widget options"
 msgstr ""
 
-#: inc-options/wp_nav_menu_options.php:65
-#: inc-options/wp_nav_menu_options.php:71
+#: inc-options/wp_nav_menu_options.php:74
+#: inc-options/wp_nav_menu_options.php:80
 msgid "Theme Locations"
 msgstr ""
 
-#: inc-options/wp_nav_menu_options.php:66
+#: inc-options/wp_nav_menu_options.php:75
 msgid "Custom Links"
 msgstr ""
 
-#: inc-options/wp_nav_menu_options.php:67
+#: inc-options/wp_nav_menu_options.php:76
 msgid "Add menu"
 msgstr ""
 
-#: inc-options/wp_nav_menu_options.php:149
+#: inc-options/wp_nav_menu_options.php:158
 msgid "Your own Nav Menu options"
 msgstr ""
 
-#: inc-options/write_cp_options.php:122 inc-options/write_page_options.php:118
-#: inc-options/write_post_options.php:123
+#: inc-options/write_cp_options.php:131 inc-options/write_page_options.php:127
+#: inc-options/write_post_options.php:131
 msgid "Permalink"
 msgstr ""
 
-#: inc-options/write_cp_options.php:123 inc-options/write_cp_options.php:166
-#: inc-options/write_post_options.php:124
-#: inc-options/write_post_options.php:165
+#: inc-options/write_cp_options.php:132 inc-options/write_cp_options.php:175
+#: inc-options/write_post_options.php:132
+#: inc-options/write_post_options.php:173
 msgid "Tags"
 msgstr ""
 
-#: inc-options/write_cp_options.php:124
+#: inc-options/write_cp_options.php:133
 msgid "Format"
 msgstr ""
 
-#: inc-options/write_cp_options.php:126 inc-options/write_post_options.php:126
+#: inc-options/write_cp_options.php:135 inc-options/write_post_options.php:134
 msgid "Add New Category"
 msgstr ""
 
-#: inc-options/write_cp_options.php:127 inc-options/write_post_options.php:128
+#: inc-options/write_cp_options.php:136 inc-options/write_post_options.php:136
 msgid "Password Protect This Post"
 msgstr ""
 
-#: inc-options/write_cp_options.php:128 inc-options/write_post_options.php:129
+#: inc-options/write_cp_options.php:137 inc-options/write_post_options.php:137
 msgid "Related, Shortcuts"
 msgstr ""
 
-#: inc-options/write_cp_options.php:129 inc-options/write_page_options.php:129
-#: inc-options/write_post_options.php:130
+#: inc-options/write_cp_options.php:138 inc-options/write_page_options.php:138
+#: inc-options/write_post_options.php:138
 msgid "Messages"
 msgstr ""
 
-#: inc-options/write_cp_options.php:130 inc-options/write_page_options.php:130
-#: inc-options/write_post_options.php:131
+#: inc-options/write_cp_options.php:139 inc-options/write_page_options.php:139
+#: inc-options/write_post_options.php:139
 msgid "h2: Advanced Options"
 msgstr ""
 
-#: inc-options/write_cp_options.php:131 inc-options/write_page_options.php:131
-#: inc-options/write_post_options.php:132
+#: inc-options/write_cp_options.php:140 inc-options/write_page_options.php:140
+#: inc-options/write_post_options.php:140
 msgid "Media Buttons (all)"
 msgstr ""
 
-#: inc-options/write_cp_options.php:132 inc-options/write_page_options.php:132
-#: inc-options/write_post_options.php:133
+#: inc-options/write_cp_options.php:141 inc-options/write_page_options.php:141
+#: inc-options/write_post_options.php:141
 msgid "Word count"
 msgstr ""
 
-#: inc-options/write_cp_options.php:133 inc-options/write_post_options.php:134
+#: inc-options/write_cp_options.php:142 inc-options/write_post_options.php:142
 msgid "Post Slug"
 msgstr ""
 
-#: inc-options/write_cp_options.php:135 inc-options/write_page_options.php:135
-#: inc-options/write_post_options.php:136
+#: inc-options/write_cp_options.php:144 inc-options/write_page_options.php:144
+#: inc-options/write_post_options.php:144
 msgid "Discussion"
 msgstr ""
 
-#: inc-options/write_cp_options.php:136 inc-options/write_page_options.php:136
-#: inc-options/write_post_options.php:137
+#: inc-options/write_cp_options.php:145 inc-options/write_page_options.php:145
+#: inc-options/write_post_options.php:145
 msgid "HTML Editor Button"
 msgstr ""
 
-#: inc-options/write_cp_options.php:149 inc-options/write_post_options.php:151
+#: inc-options/write_cp_options.php:158 inc-options/write_post_options.php:159
 msgid "Post Thumbnail"
 msgstr ""
 
-#: inc-options/write_cp_options.php:157 inc-options/write_page_options.php:155
-#: inc-options/write_post_options.php:156
+#: inc-options/write_cp_options.php:166 inc-options/write_page_options.php:164
+#: inc-options/write_post_options.php:164
 msgid "Quick Edit Link"
 msgstr ""
 
-#: inc-options/write_cp_options.php:158 inc-options/write_cp_options.php:162
-#: inc-options/write_cp_options.php:165 inc-options/write_cp_options.php:168
-#: inc-options/write_page_options.php:156
-#: inc-options/write_page_options.php:161
-#: inc-options/write_page_options.php:164
-#: inc-options/write_post_options.php:157
-#: inc-options/write_post_options.php:161
-#: inc-options/write_post_options.php:164
-#: inc-options/write_post_options.php:167
+#: inc-options/write_cp_options.php:167 inc-options/write_cp_options.php:171
+#: inc-options/write_cp_options.php:174 inc-options/write_cp_options.php:177
+#: inc-options/write_page_options.php:165
+#: inc-options/write_page_options.php:170
+#: inc-options/write_page_options.php:173
+#: inc-options/write_post_options.php:165
+#: inc-options/write_post_options.php:169
+#: inc-options/write_post_options.php:172
+#: inc-options/write_post_options.php:175
 msgid "QE"
 msgstr ""
 
-#: inc-options/write_cp_options.php:158 inc-options/write_page_options.php:156
-#: inc-options/write_post_options.php:157
+#: inc-options/write_cp_options.php:167 inc-options/write_page_options.php:165
+#: inc-options/write_post_options.php:165
 msgid "Inline Edit Left"
 msgstr ""
 
-#: inc-options/write_cp_options.php:159 inc-options/write_page_options.php:157
-#: inc-options/write_post_options.php:158
+#: inc-options/write_cp_options.php:168 inc-options/write_page_options.php:166
+#: inc-options/write_post_options.php:166
 msgid "All Labels"
 msgstr ""
 
-#: inc-options/write_cp_options.php:160 inc-options/write_page_options.php:159
-#: inc-options/write_post_options.php:159
+#: inc-options/write_cp_options.php:169 inc-options/write_page_options.php:168
+#: inc-options/write_post_options.php:167
 msgid "Author"
 msgstr ""
 
-#: inc-options/write_cp_options.php:161 inc-options/write_page_options.php:160
-#: inc-options/write_post_options.php:160
+#: inc-options/write_cp_options.php:170 inc-options/write_page_options.php:169
+#: inc-options/write_post_options.php:168
 msgid "Password and Private"
 msgstr ""
 
-#: inc-options/write_cp_options.php:162 inc-options/write_post_options.php:161
+#: inc-options/write_cp_options.php:171 inc-options/write_post_options.php:169
 msgid "Inline Edit Center"
 msgstr ""
 
-#: inc-options/write_cp_options.php:163 inc-options/write_post_options.php:162
+#: inc-options/write_cp_options.php:172 inc-options/write_post_options.php:170
 msgid "Categories Title"
 msgstr ""
 
-#: inc-options/write_cp_options.php:164 inc-options/write_post_options.php:163
+#: inc-options/write_cp_options.php:173 inc-options/write_post_options.php:171
 msgid "Categories List"
 msgstr ""
 
-#: inc-options/write_cp_options.php:165 inc-options/write_page_options.php:161
-#: inc-options/write_post_options.php:164
+#: inc-options/write_cp_options.php:174 inc-options/write_page_options.php:170
+#: inc-options/write_post_options.php:172
 msgid "Inline Edit Right"
 msgstr ""
 
-#: inc-options/write_cp_options.php:167 inc-options/write_post_options.php:166
+#: inc-options/write_cp_options.php:176 inc-options/write_post_options.php:174
 msgid "Status, Sticky"
 msgstr ""
 
-#: inc-options/write_cp_options.php:168 inc-options/write_page_options.php:164
-#: inc-options/write_post_options.php:167
+#: inc-options/write_cp_options.php:177 inc-options/write_page_options.php:173
+#: inc-options/write_post_options.php:175
 msgid "Cancel/Save Button"
 msgstr ""
 
-#: inc-options/write_cp_options.php:241
+#: inc-options/write_cp_options.php:250
 msgid "Your own %s options"
 msgstr ""
 
-#: inc-options/write_page_options.php:117
-#: inc-options/write_post_options.php:122
+#: inc-options/write_page_options.php:126
+#: inc-options/write_post_options.php:130
 msgid "Title"
 msgstr ""
 
-#: inc-options/write_page_options.php:119
+#: inc-options/write_page_options.php:128
 msgid "Custom Fields"
 msgstr ""
 
-#: inc-options/write_page_options.php:120
+#: inc-options/write_page_options.php:129
 msgid "Comments &amp; Pings"
 msgstr ""
 
-#: inc-options/write_page_options.php:121
-#: inc-options/write_page_options.php:158
-#: inc-options/write_post_options.php:127
+#: inc-options/write_page_options.php:130
+#: inc-options/write_page_options.php:167
+#: inc-options/write_post_options.php:135
 msgid "Date"
 msgstr ""
 
-#: inc-options/write_page_options.php:122
+#: inc-options/write_page_options.php:131
 msgid "Password Protect This Page"
 msgstr ""
 
-#: inc-options/write_page_options.php:123
+#: inc-options/write_page_options.php:132
 msgid "Attributes"
 msgstr ""
 
-#: inc-options/write_page_options.php:124
+#: inc-options/write_page_options.php:133
 msgid "Page Template"
 msgstr ""
 
-#: inc-options/write_page_options.php:125
+#: inc-options/write_page_options.php:134
 msgid "Page Order"
 msgstr ""
 
-#: inc-options/write_page_options.php:126
+#: inc-options/write_page_options.php:135
 msgid "Page Author"
 msgstr ""
 
-#: inc-options/write_page_options.php:127
+#: inc-options/write_page_options.php:136
 msgid "Page Revisions"
 msgstr ""
 
-#: inc-options/write_page_options.php:128
+#: inc-options/write_page_options.php:137
 msgid "Related"
 msgstr ""
 
-#: inc-options/write_page_options.php:133
+#: inc-options/write_page_options.php:142
 msgid "Page Slug"
 msgstr ""
 
-#: inc-options/write_page_options.php:150
+#: inc-options/write_page_options.php:159
 msgid "Page Image"
 msgstr ""
 
-#: inc-options/write_page_options.php:162
+#: inc-options/write_page_options.php:171
 msgid "Parent, Order, Template"
 msgstr ""
 
-#: inc-options/write_page_options.php:163
+#: inc-options/write_page_options.php:172
 msgid "Status"
-msgstr ""
-
-#: inc-options/write_page_options.php:218
-msgid "Your own page options"
-msgstr ""
-
-#: inc-options/write_post_options.php:221
-msgid "Your own post options"
 msgstr ""
 
 #: inc-setup/messages.php:38
@@ -912,11 +968,11 @@ msgstr ""
 msgid "Load user data to themes was successful."
 msgstr ""
 
-#: inc-setup/remove-admin-bar.php:275 inc-setup/remove-admin-bar.php:277
+#: inc-setup/remove-admin-bar.php:280 inc-setup/remove-admin-bar.php:282
 msgid "Network Admin"
 msgstr ""
 
-#: inc-setup/remove-admin-bar.php:279 inc-setup/remove-admin-bar.php:281
+#: inc-setup/remove-admin-bar.php:284 inc-setup/remove-admin-bar.php:286
 msgid "Site Admin"
 msgstr ""
 

@@ -91,7 +91,7 @@ function _mw_adminimize_debug( $data, $description = '' ) {
 	$output .= 'console.log(' . json_encode( $data ) . ');';
 	$output  = sprintf( '<script>%s</script>', $output );
 
-	echo $output;
+	return $output;
 }
 
 /**

@@ -26,7 +26,7 @@ function _mw_adminimize_get_admin_bar_nodes() {
 	if ( ! current_user_can( 'manage_options' ) ) {
 		return;
 	}
-	;
+
 	if ( _mw_adminimize_exclude_settings_page() ) {
 		return;
 	}
