@@ -28,7 +28,7 @@ You can add your own options, you must only check for css selectors.
 == Installation ==
 = Requirements =
 * WordPress version 4.0 and later; tested only in last stable version.
-* PHP 5.2.4, newer PHP versions will work faster. Tested only from version 5.4.
+* PHP 5.2.4, newer PHP versions will work faster. Tested only from version 5.6.
 
 Use the installer via back-end of your install or ...
 
@@ -44,6 +44,8 @@ Use the installer via back-end of your install or ...
 = 1.10.3 ()=
 * Fix exclude of set new Admin Bar on settings oage of Adminimize.
 * Fix check for settings page.
+* Fix colors on raws, column of the settings page.
+* Add buffering for debug helper in the console.
 
 = 1.10.2 (2016-03-10) =
 * Add possibility for custom menu slugs, especially for Plugins, Themes, there add different slug for different roles.
