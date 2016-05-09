@@ -183,7 +183,7 @@ if ( ! function_exists( 'add_action' ) ) {
 								 */
 								echo "\t" . '<td class="num">' . $disabled_item_adm_hint . '<input id="check_menu'
 								     . $role . $x . '" class="menu_options_'
-								     . preg_replace( '/[^a-z0-9]+/', '', $role ) . '" type="checkbox"'
+								     . preg_replace( '/[^a-z0-9_-]+/', '', $role ) . '" type="checkbox"'
 								     . $disabled_item_adm . $checked_user_role_[ $role ]
 								     . ' name="mw_adminimize_disabled_menu_' . $role . '_items[]" value="'
 								     . $menu_slug . '" />' . $disabled_item_adm_hint . '</td>' . "\n";
@@ -198,7 +198,7 @@ if ( ! function_exists( 'add_action' ) ) {
 								foreach ( $user_roles as $role ) {
 									echo "\t" . '<td class="num"><input disabled="disabled" id="check_menu'
 									     . $role . $x . '" class="menu_options_'
-									     . preg_replace( '/[^a-z0-9]+/', '', $role )
+									     . preg_replace( '/[^a-z0-9_-]+/', '', $role )
 									     . '" type="checkbox"' . $checked_user_role_[ $role ]
 									     . ' name="mw_adminimize_disabled_menu_' . $role
 									     . '_items[]" value="profile.php" /></td>' . "\n";

@@ -204,7 +204,7 @@ if ( ! function_exists( 'add_action' ) ) {
 						foreach ( $user_roles as $role ) {
 							echo '<td class="num">';
 							echo '<input id="check_page' . $role . $x . '" class="write_page_options_'
-								. preg_replace( '/[^a-z0-9]+/', '', $role ) . '" type="checkbox"'
+								. preg_replace( '/[^a-z0-9_-]+/', '', $role ) . '" type="checkbox"'
 								. $checked_user_role_[ $role ] . ' name="mw_adminimize_disabled_metaboxes_page_'
 								. $role . '_items[]" value="' . $metabox . '" />';
 							echo '</td>' . "\n";

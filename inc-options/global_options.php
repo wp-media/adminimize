@@ -108,7 +108,7 @@ if ( ! function_exists( 'add_action' ) ) {
 					echo '<td>' . $global_options_names[ $index ] . ' <span>(' . $global_option . ')</span> </td>' . "\n";
 					foreach ( $user_roles as $role ) {
 						echo '<td class="num"><input id="check_post' . $role . $x . '" class="global_options_'
-							. preg_replace( '/[^a-z0-9]+/', '', $role ) . '" type="checkbox"'
+							. preg_replace( '/[^a-z0-9_-]+/', '', $role ) . '" type="checkbox"'
 							. $checked_user_role_[ $role ] . ' name="mw_adminimize_disabled_global_option_'
 							. $role . '_items[]" value="' . $global_option . '" /></td>' . "\n";
 					}
