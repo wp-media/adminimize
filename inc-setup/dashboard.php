@@ -13,21 +13,26 @@ if ( ! is_admin() ) {
 	return NULL;
 }
 
-// Return registered widgets; only on page index/dashboard :(
-add_action( 'wp_dashboard_setup', '_mw_adminimize_dashboard_setup', 99 );
-
-function _mw_adminimize_dashboard_setup() {
+add_action( 'wp_dashboard_setup', '_mw_adminimize_update_dashboard_widgets', 9998 );
+function _mw_adminimize_update_dashboard_widgets() {
 
 	$adminimizeoptions = _mw_adminimize_get_option_value();
 
 	$widgets                                                = _mw_adminimize_get_dashboard_widgets();
 	$adminimizeoptions[ 'mw_adminimize_dashboard_widgets' ] = $widgets;
-
 	_mw_adminimize_update_option( $adminimizeoptions );
+}
+
+// Return registered widgets; only on page index/dashboard :(
+add_action( 'wp_dashboard_setup', '_mw_adminimize_dashboard_setup', 9999 );
+/**
+ * Set dashboard widget options.
+ */
+function _mw_adminimize_dashboard_setup() {
 
 	// exclude super admin
 	if ( _mw_adminimize_exclude_super_admin() ) {
-		return NULL;
+		return;
 	}
 
 	$user_roles = _mw_adminimize_get_all_user_roles();
@@ -60,28 +65,32 @@ function _mw_adminimize_dashboard_setup() {
 
 }
 
+/**
+ * Get all registered dashboard widgets.
+ * @return array
+ */
 function _mw_adminimize_get_dashboard_widgets() {
 
 	global $wp_meta_boxes;
 
 	$widgets = array();
-	if ( isset( $wp_meta_boxes[ 'dashboard' ] ) ) {
+	if ( ! isset( $wp_meta_boxes[ 'dashboard' ] ) ) {
+		return $widgets;
+	}
 
-		foreach ( $wp_meta_boxes[ 'dashboard' ] as $context => $datas ) {
-			foreach ( $datas as $priority => $data ) {
-				foreach ( $data as $widget => $value ) {
-					$widgets[ $widget ] = array(
-						'id'       => $widget,
-						'title'    => strip_tags(
-							preg_replace( '/( |)<span.*span>/im', '', $value[ 'title' ] )
-						),
-						'context'  => $context,
-						'priority' => $priority
-					);
-				}
+	foreach ( $wp_meta_boxes[ 'dashboard' ] as $context => $datas ) {
+		foreach ( $datas as $priority => $data ) {
+			foreach ( $data as $widget => $value ) {
+				$widgets[ $widget ] = array(
+					'id'       => $widget,
+					'title'    => strip_tags(
+						preg_replace( '/( |)<span.*span>/im', '', $value[ 'title' ] )
+					),
+					'context'  => $context,
+					'priority' => $priority
+				);
 			}
 		}
-
 	}
 
 	return $widgets;
