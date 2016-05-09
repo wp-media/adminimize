@@ -42,6 +42,7 @@ function _mw_adminimize_dashboard_setup() {
 
 	$user_roles = _mw_adminimize_get_all_user_roles();
 
+	$disabled_dashboard_option_ = array();
 	foreach ( $user_roles as $role ) {
 		$disabled_dashboard_option_[ $role ] = _mw_adminimize_get_option_value(
 			'mw_adminimize_disabled_dashboard_option_' . $role . '_items'
