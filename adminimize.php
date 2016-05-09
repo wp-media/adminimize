@@ -621,20 +621,6 @@ function _mw_adminimize_set_menu_option() {
 		$mw_adminimize_submenu = _mw_adminimize_get_duplicate( $mw_adminimize_submenu );
 	}
 
-	/*
-	// Define custom slugs.
-	// Default menu slug as Administrator => Custom value
-	$custom_menu = array(
-		'vc-general' => 'vc-welcome'
-	);
-	// Custom Fall Backs for stupid plugins.
-	foreach ( $custom_menu as $slug => $custom_slug ) {
-		if ( in_array( $slug, $mw_adminimize_menu, FALSE ) ) {
-			$mw_adminimize_menu[] = $custom_slug;
-		}
-	}
-	*/
-
 	// Fallback on users.php on all user roles smaller admin.
 	if ( in_array( 'users.php', $mw_adminimize_menu, FALSE ) ) {
 		$mw_adminimize_menu[] = 'profile.php';
