@@ -1,6 +1,8 @@
 ## 1.10.3 ()
 * Fix exclude of set new Admin Bar on settings oage of Adminimize.
 * Fix check for settings page.
+* Fix colors on raws, column of the settings page.
+* Add buffering for debug helper in the console.
 
 ## 1.10.2 (2016-03-10)
 * Add possibility for custom menu slugs, especially for Plugins, Themes, there add different slug for different roles.
