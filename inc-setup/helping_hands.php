@@ -76,6 +76,8 @@ function _mw_adminimize_current_user_has_role( $role ) {
  *
  * @param string | array | object
  * @param string $description
+ *
+ * @return string|void
  */
 function _mw_adminimize_debug( $data, $description = '' ) {
 
@@ -87,11 +89,13 @@ function _mw_adminimize_debug( $data, $description = '' ) {
 		$description = 'Debug in Console via Adminimize Plugin:';
 	}
 
+	// Buffering to solve problems with WP core, header() etc.
+	ob_start();
 	$output  = 'console.info(' . json_encode( $description ) . ');';
 	$output .= 'console.log(' . json_encode( $data ) . ');';
 	$output  = sprintf( '<script>%s</script>', $output );
 
-	return $output;
+	echo $output;
 }
 
 /**
