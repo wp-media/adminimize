@@ -313,7 +313,7 @@ if ( ! function_exists( 'add_action' ) ) {
 						<br />
 						<label for="_mw_adminimize_own_menu_slug">
 							<?php esc_attr_e(
-								'String of the custom slug, matched to the the default menu slug, there you see aboive in the list.',
+								'Possible nomination for the slug. Separate multiple nominations through a carriage return.',
 								'adminimize'
 							); ?>
 						</label>
