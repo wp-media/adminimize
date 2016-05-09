@@ -16,6 +16,11 @@ if ( ! is_admin() ) {
 add_action( 'wp_dashboard_setup', '_mw_adminimize_update_dashboard_widgets', 9998 );
 function _mw_adminimize_update_dashboard_widgets() {
 
+	// Only manage options users have the chance to update the settings.
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return FALSE;
+	}
+
 	$adminimizeoptions = _mw_adminimize_get_option_value();
 
 	$widgets                                                = _mw_adminimize_get_dashboard_widgets();
