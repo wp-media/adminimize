@@ -14,6 +14,11 @@ if ( ! is_admin() ) {
 }
 
 add_action( 'wp_dashboard_setup', '_mw_adminimize_update_dashboard_widgets', 9998 );
+/**
+ * Write dashboard widgets in settings.
+ *
+ * @return bool
+ */
 function _mw_adminimize_update_dashboard_widgets() {
 
 	// Only manage options users have the chance to update the settings.
@@ -21,11 +26,10 @@ function _mw_adminimize_update_dashboard_widgets() {
 		return FALSE;
 	}
 
-	$adminimizeoptions = _mw_adminimize_get_option_value();
+	$adminimizeoptions                                      = _mw_adminimize_get_option_value();
+	$adminimizeoptions[ 'mw_adminimize_dashboard_widgets' ] = _mw_adminimize_get_dashboard_widgets();
 
-	$widgets                                                = _mw_adminimize_get_dashboard_widgets();
-	$adminimizeoptions[ 'mw_adminimize_dashboard_widgets' ] = $widgets;
-	_mw_adminimize_update_option( $adminimizeoptions );
+	return _mw_adminimize_update_option( $adminimizeoptions );
 }
 
 // Return registered widgets; only on page index/dashboard :(
@@ -55,24 +59,31 @@ function _mw_adminimize_dashboard_setup() {
 		}
 	}
 
+	// Get all widgets.
+	$widgets = _mw_adminimize_get_dashboard_widgets();
+	// Get current user data.
+	$user = wp_get_current_user();
 	foreach ( $user_roles as $role ) {
-		$user = wp_get_current_user();
 
-		if ( is_array( $user->roles ) && in_array( $role, $user->roles ) ) {
-			if ( _mw_adminimize_current_user_has_role( $role ) && is_array( $disabled_dashboard_option_[ $role ] ) ) {
-				foreach ( $disabled_dashboard_option_[ $role ] as $widget ) {
-					if ( isset( $widgets[ $widget ][ 'context' ] ) ) {
-						remove_meta_box( $widget, 'dashboard', $widgets[ $widget ][ 'context' ] );
-					}
+		if ( is_array( $user->roles )
+			&& is_array( $disabled_dashboard_option_[ $role ] )
+			&& in_array( $role, $user->roles )
+			&& _mw_adminimize_current_user_has_role( $role )
+		) {
+			foreach ( $disabled_dashboard_option_[ $role ] as $widget ) {
+				if ( isset( $widgets[ $widget ][ 'context' ] ) ) {
+					remove_meta_box( $widget, 'dashboard', $widgets[ $widget ][ 'context' ] );
 				}
 			}
 		}
+
 	}
 
 }
 
 /**
  * Get all registered dashboard widgets.
+ *
  * @return array
  */
 function _mw_adminimize_get_dashboard_widgets() {

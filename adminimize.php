@@ -1226,6 +1226,7 @@ function _mw_adminimize_update_option( $options ) {
 	} else {
 		update_option( 'mw_adminimize', $options );
 	}
+	wp_cache_add( 'mw_adminimize', $options );
 
 	return TRUE;
 }
