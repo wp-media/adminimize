@@ -1,23 +1,23 @@
-## 1.10.3 ()
+## 1.10.3
 * Fix exclude of set new Admin Bar on settings oage of Adminimize.
 * Fix check for settings page.
 * Fix colors on raws, column of the settings page.
 * Add buffering for debug helper in the console.
 * Fix caching for Dashbaord Widget options.
 
-## 1.10.2 (2016-03-10)
+## 1.10.2
 * Add possibility for custom menu slugs, especially for Plugins, Themes, there add different slug for different roles.
 * Add the possibility to use the WP object cache for settings, if the webspace support this, like Memcached, APC.
 * More clarity for the "own options" label.
 
-## 1.10.1 (2016-02-29)
+## 1.10.1
 * Fix the Removing of Admin Color Scheme Select on the profile page.
 * Back-end options are also excluded on the settings page.
 * Add new settings area for options of the plugin self.
 * The support for multiple roles is now optional.
 * The support for bbPress is now active and optional.
 
-## 1.10.0 (2016-02-21)
+## 1.10.0
 * Rewrite the Admin Bar settings, simplify the source and new hook to get and render the Admin Bar.
 * Change settings screen for custom post type.
 * Fix "select all" on Admin Bar settings.
