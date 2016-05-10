@@ -3,8 +3,8 @@ Contributors: Bueltge
 Donate link: https://www.paypal.me/FrankBueltge
 Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
 Requires at least: 4.0
-Tested up to: 4.5-beta3
-Stable tag: 1.10.2
+Tested up to: 4.5.2
+Stable tag: 1.10.3
 
 Adminimize that lets you hide 'unnecessary' items from the WordPress backend
 
@@ -41,7 +41,7 @@ Use the installer via back-end of your install or ...
 1. Settings area in WP 4.5-alpha
 
 == Changelog ==
-= 1.10.3 ()=
+= 1.10.3 (2016-05-11)=
 * Fix exclude of set new Admin Bar on settings oage of Adminimize.
 * Fix check for settings page.
 * Fix colors on raws, column of the settings page.
@@ -422,7 +422,7 @@ The plugin comes with various translations, please refer to the [WordPress Codex
 
 == Frequently Asked Questions ==
 = Help with "Your own options" =
-My english ist gruesome here and there and you can see the [entry on the WP community forum](http://wordpress.org/support/topic/328449 "[Plugin: Adminimize] Help with "Your own options" (3 posts)") for help with great function.
+See the [entry on the WP community forum](http://wordpress.org/support/topic/328449 "[Plugin: Adminimize] Help with "Your own options" (3 posts)") for help with great function to add custom/own options.
 
 = Post about the plugin with helpful hints =
  * [wpbeginner.com: How to Hide Unnecessary Items From WordPress Admin with Adminimize](http://www.wpbeginner.com/plugins/how-to-hide-unnecessary-items-from-wordpress-admin-with-adminimize/)
