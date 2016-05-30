@@ -89,29 +89,45 @@ function _mw_adminimize_change_admin_bar() {
 
 	// Get current user data.
 	$user      = wp_get_current_user();
-	if ( ! $user->roles[ 0 ] ) {
+	if ( ! $user->roles ) {
 		return;
 	}
-	$user_role = $user->roles[ 0 ];
+
+	// Get all roles of logged in user.
+	$user_roles = $user->roles;
+	//$user_roles = _mw_adminimize_get_all_user_roles();
+	$disabled_admin_bar_option_ = array();
 
 	// Get Backend Admin Bar settings for the current user role.
 	if ( is_admin() ) {
-		$disabled_admin_bar_option_[ $user_role ] = _mw_adminimize_get_option_value(
-			'mw_adminimize_disabled_admin_bar_' . $user_role . '_items'
-		);
+		foreach ( $user_roles as $role ) {
+			$disabled_admin_bar_option_[ $role ] = (array) _mw_adminimize_get_option_value(
+				'mw_adminimize_disabled_admin_bar_' . $role . '_items'
+			);
+		}
 	} else {
 		// Get Frontend Admin Bar settings for the current user role.
-		$disabled_admin_bar_option_[ $user_role ] = (array) _mw_adminimize_get_option_value(
-			'mw_adminimize_disabled_admin_bar_frontend_' . $user_role . '_items'
-		);
+		foreach ( $user_roles as $role ) {
+			$disabled_admin_bar_option_[ $role ] = (array) _mw_adminimize_get_option_value(
+				'mw_adminimize_disabled_admin_bar_frontend_' . $role . '_items'
+			);
+		}
+	}
+
+	// Merge multidimensional array in to one, flat.
+	$disabled_admin_bar_option_ = array_reduce( $disabled_admin_bar_option_, 'array_merge', array() );
+
+	// Support Multiple Roles for users.
+	if ( _mw_adminimize_get_option_value( 'mw_adminimize_multiple_roles' ) && 1 < count( $user->roles ) ) {
+		$disabled_admin_bar_option_ = _mw_adminimize_get_duplicate( $disabled_admin_bar_option_ );
 	}
 
 	// No settings for this role, exit.
-	if ( ! $disabled_admin_bar_option_[ $user_role ] ) {
+	if ( ! $disabled_admin_bar_option_ ) {
 		return;
 	}
 
-	foreach ( $disabled_admin_bar_option_[ $user_role ] as $admin_bar_item ) {
+	foreach ( $disabled_admin_bar_option_ as $admin_bar_item ) {
 		$wp_admin_bar->remove_node( $admin_bar_item );
 	}
 }
