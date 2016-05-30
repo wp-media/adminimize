@@ -1,3 +1,6 @@
+## 1.10.4
+* Add support for multiple roles to remove the Admin Bar via global options. 
+
 ## 1.10.3
 * Fix exclude of set new Admin Bar on settings page of Adminimize.
 * Fix check for settings page.

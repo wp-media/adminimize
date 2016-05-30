@@ -160,32 +160,39 @@ function _mw_adminimize_remove_admin_bar() {
 	}
 
 	$user_roles = _mw_adminimize_get_all_user_roles();
+	$disabled_global_option_ = array();
 
 	foreach ( $user_roles as $role ) {
-		$disabled_global_option_[ $role ] = _mw_adminimize_get_option_value(
+		$disabled_global_option_[ $role ] = (array) _mw_adminimize_get_option_value(
 			'mw_adminimize_disabled_global_option_' . $role . '_items'
 		);
 	}
 
-	foreach ( $user_roles as $role ) {
-		if ( ! isset( $disabled_global_option_[ $role ][ '0' ] ) ) {
-			$disabled_global_option_[ $role ][ '0' ] = '';
-		}
-	}
-
+	$mw_global_options = array();
 	$user            = wp_get_current_user();
-	$remove_adminbar = FALSE;
-	// new 1.7.8
+
 	foreach ( $user_roles as $role ) {
-		if ( is_array( $user->roles ) && in_array( $role, $user->roles, FALSE ) ) {
-			if ( _mw_adminimize_current_user_has_role( $role )
-				&& isset( $disabled_global_option_[ $role ] )
-				&& is_array( $disabled_global_option_[ $role ] )
-				&& _mw_adminimize_recursive_in_array( '.show-admin-bar', $disabled_global_option_[ $role ] )
-			) {
-				$remove_adminbar = TRUE;
+
+		if ( in_array( $role, $user->roles, FALSE )
+		     && _mw_adminimize_current_user_has_role( $role )
+		) {
+			// Create array about all items with all affected roles, important for multiple roles.
+			foreach ( $disabled_global_option_[ $role ] as $global_item ) {
+				$mw_global_options[] = $global_item;
 			}
 		}
+
+	}
+
+	// Support Multiple Roles for users.
+	if ( _mw_adminimize_get_option_value( 'mw_adminimize_multiple_roles' ) && 1 < count( $user->roles ) ) {
+		$mw_global_options = _mw_adminimize_get_duplicate( $mw_global_options );
+	}
+
+	$remove_adminbar = FALSE;
+	// Check for admin bar selector to set to remove the Admin Bar.
+	if ( _mw_adminimize_recursive_in_array( '.show-admin-bar', $mw_global_options ) ) {
+		$remove_adminbar = TRUE;
 	}
 
 	if ( $remove_adminbar ) {
