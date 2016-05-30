@@ -79,6 +79,11 @@ function _mw_adminimize_change_admin_bar() {
 		return;
 	}
 
+	// If the admin bar is not active, filtering is not necessary.
+	if ( ! is_admin_bar_showing() ) {
+		return;
+	}
+
 	/** @var $wp_admin_bar WP_Admin_Bar */
 	global $wp_admin_bar;
 
