@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/FrankBueltge
 Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
 Requires at least: 4.0
 Tested up to: 4.5.2
-Stable tag: 1.10.3
+Stable tag: 1.10.4
 
 Adminimize that lets you hide 'unnecessary' items from the WordPress backend
 
@@ -41,6 +41,12 @@ Use the installer via back-end of your install or ...
 1. Settings area in WP 4.5-alpha
 
 == Changelog ==
+= 1.10.4 (2016-06-03) =
+* Add support for multiple roles to remove the Admin Bar via global options.
+* Add support for multiple roles to remove the Admin Bar Back end items.
+* Add also this support for Front End Admin Bar items.
+* Multiple roles supported now on "Menu Options", "Global Options", "Admin Bar Back end options" and "Admin Bar Front end options".
+
 = 1.10.3 (2016-05-11)=
 * Fix exclude of set new Admin Bar on settings page of Adminimize.
 * Fix check for settings page.

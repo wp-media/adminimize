@@ -1,7 +1,8 @@
 ## 1.10.4
 * Add support for multiple roles to remove the Admin Bar via global options.
-* Add support for multiple roles to remove the Admin Bar Back End items.
+* Add support for multiple roles to remove the Admin Bar Back end items.
 * Add also this support for Front End Admin Bar items.
+* Multiple roles supported now on "Menu Options", "Global Options", "Admin Bar Back end options" and "Admin Bar Front end options".
 
 ## 1.10.3
 * Fix exclude of set new Admin Bar on settings page of Adminimize.
@@ -29,7 +30,7 @@
 * Fix exclude settings page for pages, there is the current screen not existent.
 * Improve the exclude settings page function for hooks, there fired before `get_current_screen`.
 * Remove more legacy code before WP 3.3.
-* Change removal of Menu and Submenu items to WP core functions, possible to non support older WP Versions.
+* Change removal of Menu and Sub-Menu items to WP core functions, possible to non support older WP Versions.
 * Supports multiple roles on "Menu Options" and "Global Options".
 * Add possibility to hide Admin Notices globally, new setting point in "Global Options".
 
@@ -40,7 +41,7 @@
 * Update pot and de_De language files.
 
 ## 1.9.1 (2016-25-01)
-* Bugfix for fixing ssl protocol in WP core on include styles and scripts.
+* Fixing ssl protocol in WP core on include styles and scripts.
 
 ## 1.9.0 (2016-01-21)
 * Change Ex-/Import functions to use JSON format and remove mysql topics, there no longer valid in WP core.
@@ -54,10 +55,10 @@
 * Replace static source to get option, only one function to get it.
 * Change Admin Bar Feature: Difference between front-end and back-end.
 * More stability on admin bar settings. Switch hook to set, get data of admin bar.
-* Add possibilty to select/unselect all checkboxess for each area.
+* Add possibility to select/unselect all checkboxes for each area.
 * Fix redirect feature, if Dashboard menu item is active for a role.
 * Remove functions for WordPress versions smaller 3.5.
-* Remove css tyles small WP 4.0
+* Remove css styles small WP 4.0
 * Add minify js/css.
 * Several code changes.
 * Add custom fix for hide editors on post types.
