@@ -83,6 +83,7 @@ if ( ! isset( $user_roles_names ) ) {
 
 						$is_parent = ! empty( $value->parent );
 						$has_link  = ! empty( $value->href );
+
 						// No title on the item.
 						if ( ! $value->title ) {
 							$value->title = '<b><i>' . esc_attr__( 'No Title!', 'adminimize' ) . '</i></b>';
