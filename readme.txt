@@ -49,7 +49,7 @@ Use the installer via back-end of your install or ...
 * Add also this support for Front End Admin Bar items.
 * Multiple roles supported now on "Menu Options", "Global Options", "Admin Bar Back end options" and "Admin Bar Front end options".
 
-= 1.10.3 (2016-05-11)=
+= 1.10.3 (2016-05-11) =
 * Fix exclude of set new Admin Bar on settings page of Adminimize.
 * Fix check for settings page.
 * Fix colors on raw, column of the settings page.
