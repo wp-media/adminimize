@@ -1,5 +1,5 @@
 === Adminimize ===
-Contributors: Bueltge
+Contributors: Bueltge, inpsyde
 Donate link: https://www.paypal.me/FrankBueltge
 Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
 Requires at least: 4.0
@@ -24,6 +24,8 @@ It is possible to add own options to hide areas in the back-end of WordPress. It
 
 = Compatibility with plugins for MetaBoxes in Write-area =
 You can add your own options, you must only check for css selectors.
+
+**Crafted by [Inpsyde](http://inpsyde.com) · Engineering the web since 2006.**
 
 == Installation ==
 = Requirements =
