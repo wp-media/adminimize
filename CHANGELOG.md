@@ -1,3 +1,6 @@
+## 1.10.5
+* Fix PHP Warning
+
 ## 1.10.4
 * Add support for multiple roles to remove the Admin Bar via global options.
 * Add support for multiple roles to remove the Admin Bar Back end items.
