@@ -19,6 +19,7 @@ All notable changes to this project will be documented in this file. This projec
 * Fix check for settings page.
 * Fix colors on raw, column of the settings page.
 * Fix caching for Dashboard Widget options.
+
 ### Added
 * Add buffering for debug helper in the console.
 
@@ -26,26 +27,39 @@ All notable changes to this project will be documented in this file. This projec
 ### Added
 * Add possibility for custom menu slugs, especially for Plugins, Themes, there add different slug for different roles.
 * Add the possibility to use the WP object cache for settings, if the webspace support this, like Memcached, APC.
+
 ### Changed
 * More clarity for the "own options" label.
 
-## 1.10.1
+## [1.10.1] - 2016-02-29
+### Fixed
 * Fix the Removing of Admin Color Scheme Select on the profile page.
+
+### Changed
 * Back-end options are also excluded on the settings page.
+
+### Added
 * Add new settings area for options of the plugin self.
 * The support for multiple roles is now optional.
 * The support for bbPress is now active and optional.
 
-## 1.10.0
-* Rewrite the Admin Bar settings, simplify the source and new hook to get and render the Admin Bar.
-* Change settings screen for custom post type.
+## [1.10.0] - 2016-02-21
+### Fixed
 * Fix "select all" on Admin Bar settings.
 * Fix exclude settings page for pages, there is the current screen not existent.
-* Improve the exclude settings page function for hooks, there fired before `get_current_screen`.
+
+### Removed
 * Remove more legacy code before WP 3.3.
+
+### Changed
+* Rewrite the Admin Bar settings, simplify the source and new hook to get and render the Admin Bar.
+* Change settings screen for custom post type.
 * Change removal of Menu and Sub-Menu items to WP core functions, possible to non support older WP Versions.
 * Supports multiple roles on "Menu Options" and "Global Options".
+
+### Added
 * Add possibility to hide Admin Notices globally, new setting point in "Global Options".
+* Improve the exclude settings page function for hooks, there fired before `get_current_screen`.
 
 ## 1.9.2 (2016-01-30)
 * Change get role name, return now a array with slug and name to fix "Select All" function for custom roles.
