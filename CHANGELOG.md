@@ -1,22 +1,29 @@
-## 1.10.5
+## [Unreleased 1.10.5]
+### Fixed
 * Fix PHP Warning
+* Fix check for active usage of Link Manager
 
-## 1.10.4
+## [1.10.4] - 2016-06-03
+### Added
 * Add support for multiple roles to remove the Admin Bar via global options.
 * Add support for multiple roles to remove the Admin Bar Back end items.
 * Add also this support for Front End Admin Bar items.
 * Multiple roles supported now on "Menu Options", "Global Options", "Admin Bar Back end options" and "Admin Bar Front end options".
 
-## 1.10.3
+## [1.10.3] - 2016-05-11
+### Fixed
 * Fix exclude of set new Admin Bar on settings page of Adminimize.
 * Fix check for settings page.
 * Fix colors on raw, column of the settings page.
-* Add buffering for debug helper in the console.
 * Fix caching for Dashboard Widget options.
+### Added
+* Add buffering for debug helper in the console.
 
-## 1.10.2
+## [1.10.2] - 2016-03-10
+### Added
 * Add possibility for custom menu slugs, especially for Plugins, Themes, there add different slug for different roles.
 * Add the possibility to use the WP object cache for settings, if the webspace support this, like Memcached, APC.
+### Changed
 * More clarity for the "own options" label.
 
 ## 1.10.1
