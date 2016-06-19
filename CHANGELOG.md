@@ -1,4 +1,7 @@
-## [Unreleased 1.10.5]
+# Change Log
+All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
+
+## [Unreleased]
 ### Fixed
 * Fix PHP Warning
 * Fix check for active usage of Link Manager
