@@ -99,7 +99,7 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 				}
 
 				// check for active links, active since WP 3.5
-				if ( 0 !== (int) get_option( 'link_manager_enabled' ) ) {
+				if ( 0 !== get_option( 'link_manager_enabled' ) ) {
 					?>
 					<tr>
 						<td class="row-title"><a href="#links_options"><?php esc_attr_e(
