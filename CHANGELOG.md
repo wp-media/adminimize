@@ -1,19 +1,19 @@
 # Change Log
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.10.4...HEAD)
 ### Fixed
 * Fix PHP Warning
 * Fix check for active usage of Link Manager
 
-## [1.10.4] - 2016-06-03
+## [1.10.4](https://github.com/bueltge/Adminimize/compare/1.10.3...1.10.4) - 2016-06-03
 ### Added
 * Add support for multiple roles to remove the Admin Bar via global options.
 * Add support for multiple roles to remove the Admin Bar Back end items.
 * Add also this support for Front End Admin Bar items.
 * Multiple roles supported now on "Menu Options", "Global Options", "Admin Bar Back end options" and "Admin Bar Front end options".
 
-## [1.10.3] - 2016-05-11
+## [1.10.3](https://github.com/bueltge/Adminimize/compare/1.10.2...1.10.3) - 2016-05-11
 ### Fixed
 * Fix exclude of set new Admin Bar on settings page of Adminimize.
 * Fix check for settings page.
@@ -23,7 +23,7 @@ All notable changes to this project will be documented in this file. This projec
 ### Added
 * Add buffering for debug helper in the console.
 
-## [1.10.2] - 2016-03-10
+## [1.10.2](https://github.com/bueltge/Adminimize/compare/1.10.1...1.10.2) - 2016-03-10
 ### Added
 * Add possibility for custom menu slugs, especially for Plugins, Themes, there add different slug for different roles.
 * Add the possibility to use the WP object cache for settings, if the webspace support this, like Memcached, APC.
@@ -31,7 +31,7 @@ All notable changes to this project will be documented in this file. This projec
 ### Changed
 * More clarity for the "own options" label.
 
-## [1.10.1] - 2016-02-29
+## [1.10.1](https://github.com/bueltge/Adminimize/compare/1.10.0...1.10.1) - 2016-02-29
 ### Fixed
 * Fix the Removing of Admin Color Scheme Select on the profile page.
 
@@ -43,7 +43,7 @@ All notable changes to this project will be documented in this file. This projec
 * The support for multiple roles is now optional.
 * The support for bbPress is now active and optional.
 
-## [1.10.0] - 2016-02-21
+## [1.10.0](https://github.com/bueltge/Adminimize/compare/1.9.2...1.10.0) - 2016-02-21
 ### Fixed
 * Fix "select all" on Admin Bar settings.
 * Fix exclude settings page for pages, there is the current screen not existent.
