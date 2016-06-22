@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file. This projec
 ### Fixed
 * Fix PHP Warning
 * Fix check for active usage of Link Manager
+* Fix menu var type, if is object.
 
 ## [1.10.4](https://github.com/bueltge/Adminimize/compare/1.10.3...1.10.4) - 2016-06-03
 ### Added

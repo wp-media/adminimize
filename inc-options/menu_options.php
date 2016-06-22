@@ -55,8 +55,8 @@ if ( ! function_exists( 'add_action' ) ) {
 				</thead>
 				<tbody>
 				<?php
-				$wp_menu    = _mw_adminimize_get_option_value( 'mw_adminimize_default_menu' );
-				$wp_submenu = _mw_adminimize_get_option_value( 'mw_adminimize_default_submenu' );
+				$wp_menu    = (array) _mw_adminimize_get_option_value( 'mw_adminimize_default_menu' );
+				$wp_submenu = (array) _mw_adminimize_get_option_value( 'mw_adminimize_default_submenu' );
 
 				// Object to array
 				if ( is_object( $wp_submenu ) ) {
@@ -66,7 +66,7 @@ if ( ! function_exists( 'add_action' ) ) {
 				if ( ! isset( $wp_menu ) || empty( $wp_menu ) ) {
 					global $menu;
 
-					$wp_menu = $menu;
+					$wp_menu = (array) $menu;
 				}
 				if ( ! isset( $wp_submenu ) || empty( $wp_submenu ) ) {
 					global $submenu;
