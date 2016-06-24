@@ -621,6 +621,8 @@ function _mw_adminimize_set_menu_option() {
 		$mw_adminimize_menu    = _mw_adminimize_get_duplicate( $mw_adminimize_menu );
 		$mw_adminimize_submenu = _mw_adminimize_get_duplicate( $mw_adminimize_submenu );
 	}
+	_mw_adminimize_debug( $mw_adminimize_menu, 'Adminimize, Settings Menu:' );
+	_mw_adminimize_debug( $mw_adminimize_submenu, 'Adminimize, Settings Sub-Menu:' );
 
 	// Fallback on users.php on all user roles smaller admin.
 	if ( in_array( 'users.php', $mw_adminimize_menu, FALSE ) ) {
