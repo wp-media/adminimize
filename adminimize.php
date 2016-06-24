@@ -597,6 +597,7 @@ function _mw_adminimize_set_menu_option() {
 	$mw_adminimize_menu    = array();
 	$mw_adminimize_submenu = array();
 	$user = wp_get_current_user();
+	_mw_adminimize_debug( $user, 'Adminimize, Current User:' );
 
 	// Set admin-menu.
 	foreach ( $user_roles as $role ) {
