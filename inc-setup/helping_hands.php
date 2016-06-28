@@ -91,9 +91,9 @@ function _mw_adminimize_debug( $data, $description = '' ) {
 
 	// Buffering to solve problems with WP core, header() etc.
 	ob_start();
-	$output  = 'console.info(' . json_encode( $description ) . ');';
+	$output = 'console.info(' . json_encode( $description ) . ');';
 	$output .= 'console.log(' . json_encode( $data ) . ');';
-	$output  = sprintf( '<script>%s</script>', $output );
+	$output = sprintf( '<script>%s</script>', $output );
 
 	echo $output;
 }
@@ -110,4 +110,18 @@ function _mw_adminimize_get_duplicate( $array ) {
 	return array_unique(
 		array_diff_assoc( $array, array_unique( $array ) )
 	);
+}
+
+/**
+ * Get intersection of a multiple array.
+ *
+ * @since 2016-06-28
+ *
+ * @param $array  array  Array with settings of all roles.
+ *
+ * @return        array  Data with only the data, there in each role active.
+ */
+function _mw_adminimize_get_intersection( $array ) {
+
+	return (array) call_user_func_array( 'array_intersect', $array );
 }

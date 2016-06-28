@@ -7,13 +7,13 @@
  * Description: Visually compresses the administrative meta-boxes so that more admin page content can be initially seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for all roles of your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible to simplify the admin in different for all roles.
  * Author:      Frank Bültge
  * Author URI:  http://bueltge.de/
- * Version:     1.10.5-dev
+ * Version:     1.10.5
  * License:     GPLv3+
  *
  * @package WordPress
  * @author  Frank Bültge <frank@bueltge.de>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 22016-06-24
+ * @version 22016-06-28
  */
 
 /**
@@ -22,6 +22,7 @@
  * of differently user-right and a user-friendly range in admin-area via reduce areas.
  * :( grmpf i have so much wishes and hints form users, there use the plugin and
  *    it is not easy to development this on my free time.
+ * Also I hate the source, old and harrd to maintain, no OOP.
  */
 
 if ( ! function_exists( 'add_action' ) ) {
@@ -581,9 +582,12 @@ function _mw_adminimize_set_menu_option() {
 	_mw_adminimize_debug( $menu, 'Adminimize, WordPress Menu:' );
 	_mw_adminimize_debug( $submenu, 'Adminimize, WordPress Sub-Menu:' );
 
-	$user_roles        = _mw_adminimize_get_all_user_roles();
+	//$user_roles        = _mw_adminimize_get_all_user_roles();
 	$disabled_menu_    = array();
 	$disabled_submenu_ = array();
+	$user              = wp_get_current_user();
+	$user_roles        = $user->roles;
+	_mw_adminimize_debug( $user, 'Adminimize, Current User:' );
 
 	foreach ( $user_roles as $role ) {
 		$disabled_menu_[ $role ]    = (array) _mw_adminimize_get_option_value(
@@ -596,8 +600,6 @@ function _mw_adminimize_set_menu_option() {
 
 	$mw_adminimize_menu    = array();
 	$mw_adminimize_submenu = array();
-	$user = wp_get_current_user();
-	_mw_adminimize_debug( $user, 'Adminimize, Current User:' );
 
 	// Set admin-menu.
 	foreach ( $user_roles as $role ) {
@@ -605,7 +607,7 @@ function _mw_adminimize_set_menu_option() {
 		if ( in_array( $role, $user->roles, FALSE )
 			&& _mw_adminimize_current_user_has_role( $role )
 		) {
-			// Create array about all items with all affected roles, important for multiple roles.
+			// Create array about all items with all affected roles.
 			foreach ( $disabled_menu_[ $role ] as $menu_item ) {
 				$mw_adminimize_menu[] = $menu_item;
 			}
@@ -617,12 +619,17 @@ function _mw_adminimize_set_menu_option() {
 	}
 
 	// Support Multiple Roles for users.
+	// Leave only the items, there are active on each roles of the users.
 	if ( _mw_adminimize_get_option_value( 'mw_adminimize_multiple_roles' ) && 1 < count( $user->roles ) ) {
-		$mw_adminimize_menu    = _mw_adminimize_get_duplicate( $mw_adminimize_menu );
-		$mw_adminimize_submenu = _mw_adminimize_get_duplicate( $mw_adminimize_submenu );
+		$mw_adminimize_menu    = _mw_adminimize_get_intersection( $disabled_menu_ );
+		$mw_adminimize_submenu = _mw_adminimize_get_intersection( $disabled_submenu_ );
+	} else {
+		// Alternative filter the array to remove duplicates, much faster.
+		$mw_adminimize_menu    = array_unique( $mw_adminimize_menu );
+		$mw_adminimize_submenu = array_unique( $mw_adminimize_submenu );
 	}
-	_mw_adminimize_debug( $mw_adminimize_menu, 'Adminimize, Settings Menu:' );
-	_mw_adminimize_debug( $mw_adminimize_submenu, 'Adminimize, Settings Sub-Menu:' );
+	_mw_adminimize_debug( $mw_adminimize_menu, 'Adminimize, Menu Slugs to hide after Filter.' );
+	_mw_adminimize_debug( $mw_adminimize_menu, 'Adminimize, Sub-Menu Slugs to hide after Filter.' );
 
 	// Fallback on users.php on all user roles smaller admin.
 	if ( in_array( 'users.php', $mw_adminimize_menu, FALSE ) ) {

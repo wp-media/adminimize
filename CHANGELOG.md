@@ -1,11 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.10.4...HEAD)
+## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.10.5...HEAD)
+* 
+
+## [1.10.4](https://github.com/bueltge/Adminimize/compare/1.10.4...1.10.5) - 2016-06-28
 ### Fixed
 * Fix PHP Warning
 * Fix check for active usage of Link Manager
 * Fix menu var type, if is object.
+* Check for multiple roles on Menu Settings, that it works only, if the option is still active on each role of this user.
 
 ## [1.10.4](https://github.com/bueltge/Adminimize/compare/1.10.3...1.10.4) - 2016-06-03
 ### Added
