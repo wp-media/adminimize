@@ -67,6 +67,17 @@ function _mw_adminimize_add_logout( $wp_admin_bar ) {
 }
 
 /**
+ * Add stylesheet for see the the admin bar item also on mobile.
+ */
+function _mw_adminimize_admin_bar_style() {
+	?>
+	<style type="text/css">
+		#wpadminbar #wp-admin-bar-mw-account { display: block; }
+	</style>
+	<?php
+}
+
+/**
  * Add Logout link include user info.
  *
  * @param $wp_admin_bar WP_Admin_Bar
@@ -104,6 +115,10 @@ function _mw_adminimize_add_user_logout( $wp_admin_bar ) {
  */
 function _mw_adminimize_set_logout_menu() {
 
+	if ( ! is_user_logged_in() ) {
+		return;
+	}
+
 	// exclude super admin
 	if ( _mw_adminimize_exclude_super_admin() ) {
 		return;
@@ -134,10 +149,14 @@ function _mw_adminimize_set_logout_menu() {
 		case 2:
 			add_action( 'wp_before_admin_bar_render', '_mw_adminimize_remove_my_account' );
 			add_action( 'admin_bar_menu', '_mw_adminimize_add_logout', 0 );
+			add_action( 'wp_head', '_mw_adminimize_admin_bar_style' );
+			add_action( 'admin_head', '_mw_adminimize_admin_bar_style' );
 			break;
 		case 3:
 			add_action( 'wp_before_admin_bar_render', '_mw_adminimize_remove_my_account' );
 			add_action( 'admin_bar_menu', '_mw_adminimize_add_user_logout', 0 );
+			add_action( 'wp_head', '_mw_adminimize_admin_bar_style' );
+			add_action( 'admin_head', '_mw_adminimize_admin_bar_style' );
 			break;
 	}
 }
@@ -148,6 +167,10 @@ function _mw_adminimize_set_logout_menu() {
  * @return null|void
  */
 function _mw_adminimize_remove_admin_bar() {
+
+	if ( ! is_user_logged_in() ) {
+		return;
+	}
 
 	// exclude super admin
 	if ( _mw_adminimize_exclude_super_admin() ) {
