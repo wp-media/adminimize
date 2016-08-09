@@ -114,6 +114,8 @@ function _mw_adminimize_change_admin_bar() {
 		}
 	}
 
+	// New declaration of type for array reduce.
+	$disabled_admin_bar_option_ = array();
 	// Merge multidimensional array in to one, flat.
 	$disabled_admin_bar_option_ = (array) array_reduce( $disabled_admin_bar_option_, 'array_merge', array() );
 
