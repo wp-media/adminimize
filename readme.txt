@@ -3,8 +3,8 @@ Contributors: Bueltge, inpsyde
 Donate link: https://www.paypal.me/FrankBueltge
 Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
 Requires at least: 4.0
-Tested up to: 4.5.3
-Stable tag: 1.10.5
+Tested up to: 4.6.0
+Stable tag: 1.10.6
 
 Adminimize that lets you hide 'unnecessary' items from the WordPress backend
 
@@ -43,6 +43,10 @@ Use the installer via back-end of your install or ...
 1. Settings area in WP 4.5-alpha
 
 == Changelog ==
+= 1.10.6 (2016-08-09) =
+* Fix to see Logout link also on mobile view.
+* Fix type definition.
+
 = 1.10.5 (2016-06-28) =
 * Fix PHP Warning
 * Fix check for active usage of Link Manager
