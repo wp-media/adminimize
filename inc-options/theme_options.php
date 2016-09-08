@@ -45,12 +45,12 @@ if ( ! function_exists( 'add_action' ) ) {
 						<thead>
 						<tr class="thead">
 							<th class="num">&nbsp;</th>
-							<th class="num"><?php esc_attr_e( 'User-ID' ) ?></th>
-							<th><?php esc_attr_e( 'Username' ) ?></th>
-							<th><?php esc_attr_e( 'Display name publicly as' ) ?></th>
-							<th><?php esc_attr_e( 'Admin-Color Scheme' ) ?></th>
-							<th><?php esc_attr_e( 'User Level' ) ?></th>
-							<th><?php esc_attr_e( 'Role' ) ?></th>
+							<th class="num"><?php esc_attr_e( 'User-ID', 'adminimize' ) ?></th>
+							<th><?php esc_attr_e( 'Username', 'adminimize' ) ?></th>
+							<th><?php esc_attr_e( 'Display name publicly as', 'adminimize' ) ?></th>
+							<th><?php esc_attr_e( 'Admin-Color Scheme', 'adminimize' ) ?></th>
+							<th><?php esc_attr_e( 'User Level', 'adminimize' ) ?></th>
+							<th><?php esc_attr_e( 'Role', 'adminimize' ) ?></th>
 						</tr>
 						</thead>
 						<tbody id="users" class="list:user user-list">
