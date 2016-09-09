@@ -162,8 +162,11 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 						'http://wordpress.org/extend/plugins/adminimize/',
 						'http://wordpress.org/support/plugin/adminimize'
 					);
+					_e(
+						'<br>'
+					);
 					printf(
-						__( '<br>For more hints about the functions and how to\'s with the possibilities of the plugin settings see the <a href="%s">FAQ page</a> on the plugin site.', 'adminimize' ),
+						__( 'For more hints about the functions and how to\'s with the possibilities of the plugin settings see the <a href="%s">FAQ page</a> on the plugin site.', 'adminimize' ),
 						'https://wordpress.org/plugins/adminimize/faq/'
 					);?></li>
 				<li><?php esc_attr_e( 'Report a issue on the development repository:', 'adminimize' ); ?>
