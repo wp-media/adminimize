@@ -48,7 +48,7 @@ if ( ! function_exists( 'add_action' ) ) {
 							<th class="num"><?php esc_attr_e( 'User-ID', 'adminimize' ) ?></th>
 							<th><?php esc_attr_e( 'Username', 'adminimize' ) ?></th>
 							<th><?php esc_attr_e( 'Display name publicly as', 'adminimize' ) ?></th>
-							<th><?php esc_attr_e( 'Admin-Color Scheme', 'adminimize' ) ?></th>
+							<th><?php esc_attr_e( 'Admin Color Scheme', 'adminimize' ) ?></th>
 							<th><?php esc_attr_e( 'User Level', 'adminimize' ) ?></th>
 							<th><?php esc_attr_e( 'Role', 'adminimize' ) ?></th>
 						</tr>
