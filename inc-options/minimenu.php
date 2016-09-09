@@ -191,6 +191,9 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 						'Please note: The Adminimize settings page ignores the Menu Options below and displays the menu with all entries.',
 						'adminimize'
 					);
+					_e(
+						' '
+					);
 					esc_attr_e(
 						'To view your changes to the menu you need to navigate away from the Adminimize settings page.',
 						'adminimize'
