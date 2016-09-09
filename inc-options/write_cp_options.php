@@ -165,15 +165,15 @@ foreach ( get_post_types( $args ) as $post_type ) {
 					$quickedit_names = array(
 						'<strong>' . esc_attr__( 'Quick Edit Link', 'adminimize' ) . '</strong>',
 						esc_attr__( 'QE', 'adminimize' ) . ' ' . esc_attr__( 'Inline Edit Left', 'adminimize' ),
-						'&emsp;QE &rArr;' . ' ' . esc_attr__( 'All Labels', 'adminimize' ),
-						'&emsp;QE &rArr;' . ' ' . esc_attr__( 'Author' ),
-						'&emsp;QE &rArr;' . ' ' . esc_attr__( 'Password and Private', 'adminimize' ),
+						'&emsp;' . esc_attr__( 'QE', 'adminimize' ) . ' &rArr;' . ' ' . esc_attr__( 'All Labels', 'adminimize' ),
+						'&emsp;' . esc_attr__( 'QE', 'adminimize' ) . ' &rArr;' . ' ' . esc_attr__( 'Author' ),
+						'&emsp;' . esc_attr__( 'QE', 'adminimize' ) . ' &rArr;' . ' ' . esc_attr__( 'Password and Private', 'adminimize' ),
 						esc_attr__( 'QE', 'adminimize' ) . ' ' . esc_attr__( 'Inline Edit Center', 'adminimize' ),
-						'&emsp;QE &rArr;' . ' ' . esc_attr__( 'Categories Title', 'adminimize' ),
-						'&emsp;QE &rArr;' . ' ' . esc_attr__( 'Categories List', 'adminimize' ),
+						'&emsp;' . esc_attr__( 'QE', 'adminimize' ) . ' &rArr;' . ' ' . esc_attr__( 'Categories Title', 'adminimize' ),
+						'&emsp;' . esc_attr__( 'QE', 'adminimize' ) . ' &rArr;' . ' ' . esc_attr__( 'Categories List', 'adminimize' ),
 						esc_attr__( 'QE', 'adminimize' ) . ' ' . esc_attr__( 'Inline Edit Right', 'adminimize' ),
-						'&emsp;QE &rArr;' . ' ' . esc_attr__( 'Tags' ),
-						'&emsp;QE &rArr;' . ' ' . esc_attr__( 'Status, Sticky', 'adminimize' ),
+						'&emsp;' . esc_attr__( 'QE', 'adminimize' ) . ' &rArr;' . ' ' . esc_attr__( 'Tags' ),
+						'&emsp;' . esc_attr__( 'QE', 'adminimize' ) . ' &rArr;' . ' ' . esc_attr__( 'Status, Sticky', 'adminimize' ),
 						esc_attr__( 'QE', 'adminimize' ) . ' ' . esc_attr__( 'Cancel/Save Button', 'adminimize' ),
 					);
 					$metaboxes_names = array_merge( $metaboxes_names, $quickedit_names );
