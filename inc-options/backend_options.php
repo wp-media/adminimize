@@ -224,7 +224,7 @@ if ( ! function_exists( 'add_action' ) ) {
 								</option>
 								<option value="6"<?php if ( $_mw_adminimize_db_redirect === 6 ) {
 									echo ' selected="selected"';
-								} ?>><?php esc_attr_e( 'other Page', 'adminimize' ); ?></option>
+								} ?>><?php esc_attr_e( 'Other Page', 'adminimize' ); ?></option>
 							</select>
 							<textarea style="width: 85%;" class="code" rows="1" cols="60" name="_mw_adminimize_db_redirect_txt" id="_mw_adminimize_db_redirect_txt"><?php
 								echo htmlspecialchars(
