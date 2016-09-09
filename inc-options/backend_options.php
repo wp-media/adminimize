@@ -162,7 +162,7 @@ if ( ! function_exists( 'add_action' ) ) {
 						<textarea style="width: 85%;" class="code" rows="1" cols="60" name="_mw_adminimize_advice_txt" id="_mw_adminimize_advice_txt"><?php echo htmlspecialchars(
 								stripslashes( _mw_adminimize_get_option_value( '_mw_adminimize_advice_txt' ) )
 							); ?></textarea><br /><?php esc_attr_e(
-							'In the Footer you can display an  advice for changing the Default-design, (x)HTML is possible.',
+							'In the Footer you can display an advice for changing the Default-design, (x)HTML is possible.',
 							'adminimize'
 						); ?>
 					</td>
