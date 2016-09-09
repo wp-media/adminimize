@@ -162,7 +162,9 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 						'http://wordpress.org/extend/plugins/adminimize/',
 						'http://wordpress.org/support/plugin/adminimize'
 					);
-					echo '<br>';
+					_e(
+						'<br>'
+					);
 					printf(
 						__( 'For more hints about the functions and how to\'s with the possibilities of the plugin settings see the <a href="%s">FAQ page</a> on the plugin site.', 'adminimize' ),
 						'https://wordpress.org/plugins/adminimize/faq/'
@@ -192,9 +194,7 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 						'Please note: The Adminimize settings page ignores the Menu Options below and displays the menu with all entries.',
 						'adminimize'
 					);
-					_e(
-						' '
-					);
+					echo ' ';
 					esc_attr_e(
 						'To view your changes to the menu you need to navigate away from the Adminimize settings page.',
 						'adminimize'
