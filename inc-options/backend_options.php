@@ -159,12 +159,11 @@ if ( ! function_exists( 'add_action' ) ) {
 								echo ' selected="selected"';
 							} ?>><?php esc_attr_e( 'Activate', 'adminimize' ); ?></option>
 						</select>
-						<textarea style="width: 85%;" class="code" rows="1" cols="60" name="_mw_adminimize_advice_txt" id="_mw_adminimize_advice_txt"><?php echo htmlspecialchars(
-								stripslashes( _mw_adminimize_get_option_value( '_mw_adminimize_advice_txt' ) )
-							); ?></textarea><br /><?php esc_attr_e(
+						<textarea style="width: 85%;" class="code" rows="1" cols="60" name="_mw_adminimize_advice_txt" id="_mw_adminimize_advice_txt"><?php echo  _mw_adminimize_get_option_value( '_mw_adminimize_advice_txt' ); ?></textarea><br /><?php esc_attr_e(
 							'In the Footer you can display an advice for changing the Default-design, (x)HTML is possible.',
 							'adminimize'
 						); ?>
+						<code>a - (href, title), br, em, strong</code>
 					</td>
 				</tr>
 				<?php

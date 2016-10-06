@@ -1352,8 +1352,17 @@ function _mw_adminimize_update() {
 	}
 
 	if ( isset( $_POST[ '_mw_adminimize_advice_txt' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_advice_txt' ] = htmlspecialchars(
-			stripslashes( $_POST[ '_mw_adminimize_advice_txt' ] )
+		$adminimizeoptions[ '_mw_adminimize_advice_txt' ] = wp_kses(
+			$_POST[ '_mw_adminimize_advice_txt' ],
+			array(
+				'a' => array(
+					'href' => array(),
+					'title' => array()
+				),
+				'br' => array(),
+				'em' => array(),
+				'strong' => array(),
+			)
 		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_advice_txt' ] = '';
