@@ -1074,6 +1074,7 @@ function _mw_adminimize_small_user_info() {
 
 // Include message class.
 require_once 'inc-setup/messages.php';
+
 // include helping functions
 require_once 'inc-setup/helping_hands.php';
 
