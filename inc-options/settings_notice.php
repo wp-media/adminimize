@@ -18,6 +18,7 @@ function _mw_adminimize_add_settings_error() {
 			'Please note: The Adminimize settings page ignores the Menu Options below and displays the menu with all entries.',
 			'adminimize'
 		)
+		. ' '
 		. esc_attr__(
 			'To view your changes to the menu you need to navigate away from the Adminimize settings page.',
 			'adminimize'

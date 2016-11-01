@@ -163,13 +163,13 @@ if ( ! function_exists( 'add_action' ) ) {
 				$quickedit_page_names = array(
 					'<strong>' . esc_attr__( 'Quick Edit Link', 'adminimize' ) . '</strong>',
 					esc_attr__( 'QE', 'adminimize' ) . ' ' . esc_attr__( 'Inline Edit Left', 'adminimize' ),
-					'&emsp;QE &rArr;' . ' ' . esc_attr__( 'All Labels', 'adminimize' ),
-					'&emsp;QE &rArr;' . ' ' . esc_attr__( 'Date', 'adminimize' ),
-					'&emsp;QE &rArr;' . ' ' . esc_attr__( 'Author' ),
-					'&emsp;QE &rArr;' . ' ' . esc_attr__( 'Password and Private', 'adminimize' ),
+					'&emsp;' . esc_attr__( 'QE', 'adminimize' ) . ' &rArr;' . ' ' . esc_attr__( 'All Labels', 'adminimize' ),
+					'&emsp;' . esc_attr__( 'QE', 'adminimize' ) . ' &rArr;' . ' ' . esc_attr__( 'Date', 'adminimize' ),
+					'&emsp;' . esc_attr__( 'QE', 'adminimize' ) . ' &rArr;' . ' ' . esc_attr__( 'Author' ),
+					'&emsp;' . esc_attr__( 'QE', 'adminimize' ) . ' &rArr;' . ' ' . esc_attr__( 'Password and Private', 'adminimize' ),
 					esc_attr__( 'QE', 'adminimize' ) . ' ' . esc_attr__( 'Inline Edit Right', 'adminimize' ),
-					'&emsp;QE &rArr;' . ' ' . esc_attr__( 'Parent, Order, Template', 'adminimize' ),
-					'&emsp;QE &rArr;' . ' ' . esc_attr__( 'Status', 'adminimize' ),
+					'&emsp;' . esc_attr__( 'QE', 'adminimize' ) . ' &rArr;' . ' ' . esc_attr__( 'Parent, Order, Template', 'adminimize' ),
+					'&emsp;' . esc_attr__( 'QE', 'adminimize' ) . ' &rArr;' . ' ' . esc_attr__( 'Status', 'adminimize' ),
 					esc_attr__( 'QE', 'adminimize' ) . ' ' . esc_attr__( 'Cancel/Save Button', 'adminimize' )
 				);
 				$metaboxes_names_page = array_merge( $metaboxes_names_page, $quickedit_page_names );

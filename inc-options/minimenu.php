@@ -162,8 +162,9 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 						'http://wordpress.org/extend/plugins/adminimize/',
 						'http://wordpress.org/support/plugin/adminimize'
 					);
+					echo '<br>';
 					printf(
-						__( '<br>For more hints about the functions and how to\'s with the possibilities of the plugin settings see the <a href="%s">FAQ page</a> on the plugin site.', 'adminimize' ),
+						__( 'For more hints about the functions and how to\'s with the possibilities of the plugin settings see the <a href="%s">FAQ page</a> on the plugin site.', 'adminimize' ),
 						'https://wordpress.org/plugins/adminimize/faq/'
 					);?></li>
 				<li><?php esc_attr_e( 'Report a issue on the development repository:', 'adminimize' ); ?>
@@ -191,6 +192,7 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 						'Please note: The Adminimize settings page ignores the Menu Options below and displays the menu with all entries.',
 						'adminimize'
 					);
+					echo ' ';
 					esc_attr_e(
 						'To view your changes to the menu you need to navigate away from the Adminimize settings page.',
 						'adminimize'
@@ -198,7 +200,7 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 				</strong></p>
 				<?php if ( _mw_adminimize_is_active_on_multisite() ) { ?>
 					<p><?php esc_attr_e(
-							'You have to activated the Plugin for your Multisite Network. Your settings works now on all blogs in the network. Please set the settings only in one blog, there you have all active menu items and plugins. If you update the settings then write the plugin new settings in dependence of the blog where you put, save the settings.',
+							'You have activated the Plugin for your Multisite Network. Your settings works now on all blogs in the network. Please set the settings only in one blog, there you have all active menu items and plugins. If you update the settings then write the plugin new settings in dependence of the blog where you put, save the settings.',
 							'adminimize'
 						); ?></p>
 				<?php } ?>

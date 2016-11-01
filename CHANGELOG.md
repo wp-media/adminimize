@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.10.6...HEAD)
+* Fix open Translations. props pedro-mendonca
+* Fix Typos.
+* Fix php warning on Admin Bar items.
 
 ## [1.10.6](https://github.com/bueltge/Adminimize/compare/1.10.5...1.10.6) - 2016-08-09
 ### Fixed
