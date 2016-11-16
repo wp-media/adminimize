@@ -11,7 +11,12 @@ if ( ! function_exists( 'add_action' ) ) {
 }
 
 if ( ! is_admin() ) {
-	return NULL;
+	return;
+}
+
+// If is AJAX Call.
+if ( defined('DOING_AJAX') && DOING_AJAX ) {
+	return;
 }
 
 // The global var is only usable on edit Post Type page

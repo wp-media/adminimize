@@ -8,7 +8,12 @@ if ( ! function_exists( 'add_action' ) ) {
 
 // Need only on admin area
 if ( ! is_admin() ) {
-	return NULL;
+	return;
+}
+
+// If is AJAX Call.
+if ( defined('DOING_AJAX') && DOING_AJAX ) {
+	return;
 }
 
 class _mw_adminimize_message_class {

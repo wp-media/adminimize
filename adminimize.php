@@ -97,6 +97,10 @@ function _mw_adminimize_exclude_settings_page() {
 		return FALSE;
 	}
 
+	if ( defined('DOING_AJAX') && DOING_AJAX ) {
+		return FALSE;
+	}
+
 	if ( ! isset( $_GET[ 'page' ] ) ) {
 		$page = '';
 	} else {
@@ -1659,7 +1663,12 @@ function _mw_adminimize_uninstall() {
 function _mw_adminimize_install() {
 
 	if ( ! is_admin() ) {
-		return NULL;
+		return;
+	}
+
+	// If is AJAX Call.
+	if ( defined('DOING_AJAX') && DOING_AJAX ) {
+		return;
 	}
 
 	global $menu, $submenu;

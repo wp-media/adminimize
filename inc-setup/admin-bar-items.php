@@ -39,7 +39,7 @@ function _mw_adminimize_get_admin_bar_nodes() {
 
 	$settings = 'mw_adminimize_admin_bar_frontend_nodes';
 	// Set string on settings for Admin Area.
-	if ( is_admin() ){
+	if ( is_admin() ) {
 		$settings = 'mw_adminimize_admin_bar_nodes';
 	}
 

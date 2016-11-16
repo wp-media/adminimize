@@ -10,7 +10,12 @@ if ( ! function_exists( 'add_action' ) ) {
 }
 
 if ( ! is_admin() ) {
-	return NULL;
+	return;
+}
+
+// If is AJAX Call.
+if ( defined('DOING_AJAX') && DOING_AJAX ) {
+	return;
 }
 
 // on init of WordPress
