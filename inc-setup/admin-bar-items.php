@@ -116,7 +116,9 @@ function _mw_adminimize_change_admin_bar() {
 
 	var_dump($disabled_admin_bar_option_);
 	// Merge multidimensional array in to one, flat.
-	$disabled_admin_bar_option_ = (array) array_reduce( (array) $disabled_admin_bar_option_, 'array_merge', array() );
+	$disabled_admin_bar_option_ = ( isset( $disabled_admin_bar_option_ ) && is_array( $disabled_admin_bar_option_ ) )
+		? $disabled_admin_bar_option_ : array();
+	$disabled_admin_bar_option_ = (array) array_reduce( $disabled_admin_bar_option_, 'array_merge', array() );
 
 	// Support Multiple Roles for users.
 	if ( _mw_adminimize_get_option_value( 'mw_adminimize_multiple_roles' ) && 1 < count( $user->roles ) ) {
