@@ -81,22 +81,28 @@ foreach ( get_post_types( $args ) as $post_type ) {
 						'#editor-toolbar #edButtonHTML, #quicktags, #content-html',
 					);
 
-					foreach ( $GLOBALS[ '_wp_post_type_features' ][ $post_type ] as $post_type_support => $key ) {
-						if ( post_type_supports( $post_type, $post_type_support ) && 'excerpt' === $post_type_support ) {
-								$post_type_support = 'postexcerpt';
-						}
-						if ( 'page-attributes' === $post_type_support ) {
-							$post_type_support = 'pageparentdiv';
-						}
-						if ( 'custom-fields' === $post_type_support ) {
-							$post_type_support = 'postcustom';
-						}
+					if ( ! empty( $GLOBALS[ '_wp_post_type_features' ][ $post_type ] ) ) {
+						foreach ( $GLOBALS[ '_wp_post_type_features' ][ $post_type ] as $post_type_support => $key ) {
 
-						$metaboxes[] = '#' . $post_type_support
-							. ', #' . $post_type_support
-							. 'div, th.column-' . $post_type_support
-							. ', td.' . $post_type_support; // td for raw in edit screen
+							if ( post_type_supports( $post_type, $post_type_support ) && 'excerpt' === $post_type_support ) {
+								$post_type_support = 'postexcerpt';
+							}
+
+							if ( 'page-attributes' === $post_type_support ) {
+								$post_type_support = 'pageparentdiv';
+							}
+
+							if ( 'custom-fields' === $post_type_support ) {
+								$post_type_support = 'postcustom';
+							}
+
+							$metaboxes[] = '#' . $post_type_support
+								. ', #' . $post_type_support
+								. 'div, th.column-' . $post_type_support
+								. ', td.' . $post_type_support; // td for raw in edit screen
+						}
 					}
+
 					if ( function_exists( 'current_theme_supports' )
 						&& current_theme_supports(
 							'post-thumbnails', $post_type
@@ -145,11 +151,14 @@ foreach ( get_post_types( $args ) as $post_type ) {
 						esc_attr__( 'HTML Editor Button' ),
 					);
 
-					foreach ( $GLOBALS[ '_wp_post_type_features' ][ $post_type ] as $post_type_support => $key ) {
-						if ( post_type_supports( $post_type, $post_type_support ) ) {
-							$metaboxes_names[] = ucfirst( $post_type_support );
+					if ( ! empty( $GLOBALS[ '_wp_post_type_features' ][ $post_type ] ) ) {
+						foreach ( $GLOBALS[ '_wp_post_type_features' ][ $post_type ] as $post_type_support => $key ) {
+							if ( post_type_supports( $post_type, $post_type_support ) ) {
+								$metaboxes_names[] = ucfirst( $post_type_support );
+							}
 						}
 					}
+
 					if ( function_exists( 'current_theme_supports' )
 						&& current_theme_supports(
 							'post-thumbnails', 'post'
@@ -157,6 +166,7 @@ foreach ( get_post_types( $args ) as $post_type ) {
 					) {
 						$metaboxes_names[] = esc_attr__( 'Post Thumbnail', 'adminimize' );
 					}
+
 					if ( function_exists( 'sticky_add_meta_box' ) ) {
 						$metaboxes_names[] = 'Post Sticky Status';
 					}

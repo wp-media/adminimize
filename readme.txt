@@ -14,7 +14,7 @@ If you manage a multi-author WordPress blog or WordPress sites for clients, then
 Adminimize makes it easy to remove items from view based on a user’s role.
 
 = What does this plugin do? =
-The plugin changes the administration backend and gives you the power to assign rights on certain parts. Admins can activate/deactivate every part of the menu and even parts of the sub-menu. Meta fields can be administered separately for posts and pages. Certain parts of the write menu can be deactivated separately for admins or non-admins. The header of the backend is minimized and optimized to give you more space and the structure of the menu gets changed to make it more logical - this can all be done per user so each user can have his own settings.
+The plugin changes the administration backend and gives you the power to assign rights on certain parts. Admins can activate/deactivate every part of the menu and even parts of the sub-menu. Meta fields can be administered separately for posts and pages. Certain parts of the write menu can be deactivated separately for admins or non-admins. The header of the backend is minimized and optimized to give you more space and the structure of the menu gets changed to make it more logical - this can all be done per user so each role and their resulting users can have his own settings.
 
 = Support Custom Post Type =
 The plugin support all functions also for custom post types, automatically in the settings page.
