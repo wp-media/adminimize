@@ -105,7 +105,9 @@ function _mw_adminimize_change_admin_bar() {
 	}
 
 	// Merge multidimensional array in to one, flat.
-	$disabled_admin_bar_option_ = array_unique( $disabled_admin_bar_option_ );
+	$disabled_admin_bar_option_ = call_user_func_array( 'array_merge', $disabled_admin_bar_option_ );
+	// Not usable in PHP 5.2
+	//$disabled_admin_bar_option_ = (array) array_reduce( $disabled_admin_bar_option_, 'array_merge', array() );
 
 	// Support Multiple Roles for users.
 	if ( _mw_adminimize_get_option_value( 'mw_adminimize_multiple_roles' ) && 1 < count( $user->roles ) ) {
@@ -117,7 +119,7 @@ function _mw_adminimize_change_admin_bar() {
 		return;
 	}
 
-	foreach ( $disabled_admin_bar_option_ as $admin_bar_item ) {
+	foreach ( (array) $disabled_admin_bar_option_ as $admin_bar_item ) {
 		$wp_admin_bar->remove_node( $admin_bar_item );
 	}
 }
