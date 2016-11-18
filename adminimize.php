@@ -1486,7 +1486,7 @@ function _mw_adminimize_update() {
 
 	// own options
 	if ( isset( $_POST[ '_mw_adminimize_own_values' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_values' ] = stripslashes( $_POST[ '_mw_adminimize_own_values' ] );
+		$adminimizeoptions[ '_mw_adminimize_own_values' ] = esc_textarea( stripslashes( $_POST[ '_mw_adminimize_own_values' ] ) );
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_values' ] = '';
 	}
