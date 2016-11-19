@@ -3,7 +3,7 @@ Contributors: Bueltge, inpsyde
 Donate link: https://www.paypal.me/FrankBueltge
 Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
 Requires at least: 4.0
-Tested up to: 4.7.1
+Tested up to: 4.7.0
 Stable tag: 1.10.6
 
 Adminimize that lets you hide 'unnecessary' items from the WordPress backend
