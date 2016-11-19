@@ -46,7 +46,9 @@ Use the installer via back-end of your install or ...
 = 1.10.7 (TODO) =
 * Fix open Translations. props pedro-mendonca
 * Fix Typos.
-* Fix php warning on Admin Bar items.
+* Fix php warning on Admin Bar items for PHP 5.2.
+* Fix CPT feature support, if it false.
+* Add check in different functions for AJAX request.
 
 = 1.10.6 (2016-08-09) =
 * Fix to see Logout link also on mobile view.
