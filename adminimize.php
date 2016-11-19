@@ -1403,7 +1403,7 @@ function _mw_adminimize_update() {
 	}
 	// own menu slug
 	if ( isset( $_POST[ '_mw_adminimize_own_menu_slug' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_menu_slug' ] = stripslashes(
+		$adminimizeoptions[ '_mw_adminimize_own_menu_slug' ] = sanitize_textarea_field(
 			$_POST[ '_mw_adminimize_own_menu_slug' ]
 		);
 	} else {
@@ -1411,7 +1411,7 @@ function _mw_adminimize_update() {
 	}
 	// own custom menu slug
 	if ( isset( $_POST[ '_mw_adminimize_own_menu_custom_slug' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_menu_custom_slug' ] = stripslashes(
+		$adminimizeoptions[ '_mw_adminimize_own_menu_custom_slug' ] = sanitize_textarea_field(
 			$_POST[ '_mw_adminimize_own_menu_custom_slug' ]
 		);
 	} else {
@@ -1486,20 +1486,20 @@ function _mw_adminimize_update() {
 
 	// own options
 	if ( isset( $_POST[ '_mw_adminimize_own_values' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_values' ] = esc_textarea( stripslashes( $_POST[ '_mw_adminimize_own_values' ] ) );
+		$adminimizeoptions[ '_mw_adminimize_own_values' ] = sanitize_textarea_field( $_POST[ '_mw_adminimize_own_values' ] );
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_values' ] = '';
 	}
 
 	if ( isset( $_POST[ '_mw_adminimize_own_options' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_options' ] = stripslashes( $_POST[ '_mw_adminimize_own_options' ] );
+		$adminimizeoptions[ '_mw_adminimize_own_options' ] = sanitize_textarea_field( $_POST[ '_mw_adminimize_own_options' ] );
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_options' ] = '';
 	}
 
 	// own post options
 	if ( isset( $_POST[ '_mw_adminimize_own_post_values' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_post_values' ] = stripslashes(
+		$adminimizeoptions[ '_mw_adminimize_own_post_values' ] = sanitize_textarea_field(
 			$_POST[ '_mw_adminimize_own_post_values' ]
 		);
 	} else {
@@ -1507,7 +1507,7 @@ function _mw_adminimize_update() {
 	}
 
 	if ( isset( $_POST[ '_mw_adminimize_own_post_options' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_post_options' ] = stripslashes(
+		$adminimizeoptions[ '_mw_adminimize_own_post_options' ] = sanitize_textarea_field(
 			$_POST[ '_mw_adminimize_own_post_options' ]
 		);
 	} else {
@@ -1516,7 +1516,7 @@ function _mw_adminimize_update() {
 
 	// own page options
 	if ( isset( $_POST[ '_mw_adminimize_own_page_values' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_page_values' ] = stripslashes(
+		$adminimizeoptions[ '_mw_adminimize_own_page_values' ] = sanitize_textarea_field(
 			$_POST[ '_mw_adminimize_own_page_values' ]
 		);
 	} else {
@@ -1524,7 +1524,7 @@ function _mw_adminimize_update() {
 	}
 
 	if ( isset( $_POST[ '_mw_adminimize_own_page_options' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_page_options' ] = stripslashes(
+		$adminimizeoptions[ '_mw_adminimize_own_page_options' ] = sanitize_textarea_field(
 			$_POST[ '_mw_adminimize_own_page_options' ]
 		);
 	} else {
@@ -1534,7 +1534,7 @@ function _mw_adminimize_update() {
 	// own custom  post options
 	foreach ( $post_types as $post_type ) {
 		if ( isset( $_POST[ '_mw_adminimize_own_values_' . $post_type ] ) ) {
-			$adminimizeoptions[ '_mw_adminimize_own_values_' . $post_type ] = stripslashes(
+			$adminimizeoptions[ '_mw_adminimize_own_values_' . $post_type ] = sanitize_textarea_field(
 				$_POST[ '_mw_adminimize_own_values_' . $post_type ]
 			);
 		} else {
@@ -1542,7 +1542,7 @@ function _mw_adminimize_update() {
 		}
 
 		if ( isset( $_POST[ '_mw_adminimize_own_options_' . $post_type ] ) ) {
-			$adminimizeoptions[ '_mw_adminimize_own_options_' . $post_type ] = stripslashes(
+			$adminimizeoptions[ '_mw_adminimize_own_options_' . $post_type ] = sanitize_textarea_field(
 				$_POST[ '_mw_adminimize_own_options_' . $post_type ]
 			);
 		} else {
@@ -1552,7 +1552,7 @@ function _mw_adminimize_update() {
 
 	// own link options
 	if ( isset( $_POST[ '_mw_adminimize_own_link_values' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_link_values' ] = stripslashes(
+		$adminimizeoptions[ '_mw_adminimize_own_link_values' ] = sanitize_textarea_field(
 			$_POST[ '_mw_adminimize_own_link_values' ]
 		);
 	} else {
@@ -1560,7 +1560,7 @@ function _mw_adminimize_update() {
 	}
 
 	if ( isset( $_POST[ '_mw_adminimize_own_link_options' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_link_options' ] = stripslashes(
+		$adminimizeoptions[ '_mw_adminimize_own_link_options' ] = sanitize_textarea_field(
 			$_POST[ '_mw_adminimize_own_link_options' ]
 		);
 	} else {
@@ -1569,7 +1569,7 @@ function _mw_adminimize_update() {
 
 	// wp nav menu options
 	if ( isset( $_POST[ '_mw_adminimize_own_nav_menu_values' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_nav_menu_values' ] = stripslashes(
+		$adminimizeoptions[ '_mw_adminimize_own_nav_menu_values' ] = sanitize_textarea_field(
 			$_POST[ '_mw_adminimize_own_nav_menu_values' ]
 		);
 	} else {
@@ -1577,7 +1577,7 @@ function _mw_adminimize_update() {
 	}
 
 	if ( isset( $_POST[ '_mw_adminimize_own_nav_menu_options' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_nav_menu_options' ] = stripslashes(
+		$adminimizeoptions[ '_mw_adminimize_own_nav_menu_options' ] = sanitize_textarea_field(
 			$_POST[ '_mw_adminimize_own_nav_menu_options' ]
 		);
 	} else {
@@ -1586,7 +1586,7 @@ function _mw_adminimize_update() {
 
 	// widget options
 	if ( isset( $_POST[ '_mw_adminimize_own_widget_values' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_widget_values' ] = stripslashes(
+		$adminimizeoptions[ '_mw_adminimize_own_widget_values' ] = sanitize_textarea_field(
 			$_POST[ '_mw_adminimize_own_widget_values' ]
 		);
 	} else {
@@ -1594,7 +1594,7 @@ function _mw_adminimize_update() {
 	}
 
 	if ( isset( $_POST[ '_mw_adminimize_own_widget_options' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_widget_options' ] = stripslashes(
+		$adminimizeoptions[ '_mw_adminimize_own_widget_options' ] = sanitize_textarea_field(
 			$_POST[ '_mw_adminimize_own_widget_options' ]
 		);
 	} else {
@@ -1603,7 +1603,7 @@ function _mw_adminimize_update() {
 
 	// own dashboard options
 	if ( isset( $_POST[ '_mw_adminimize_own_dashboard_values' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_dashboard_values' ] = stripslashes(
+		$adminimizeoptions[ '_mw_adminimize_own_dashboard_values' ] = sanitize_textarea_field(
 			$_POST[ '_mw_adminimize_own_dashboard_values' ]
 		);
 	} else {
@@ -1611,7 +1611,7 @@ function _mw_adminimize_update() {
 	}
 
 	if ( isset( $_POST[ '_mw_adminimize_own_dashboard_options' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_dashboard_options' ] = stripslashes(
+		$adminimizeoptions[ '_mw_adminimize_own_dashboard_options' ] = sanitize_textarea_field(
 			$_POST[ '_mw_adminimize_own_dashboard_options' ]
 		);
 	} else {

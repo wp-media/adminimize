@@ -105,9 +105,7 @@ function _mw_adminimize_change_admin_bar() {
 	}
 
 	// Merge multidimensional array in to one, flat.
-	$disabled_admin_bar_option_ = call_user_func_array( 'array_merge', $disabled_admin_bar_option_ );
-	// Not usable in PHP 5.2
-	//$disabled_admin_bar_option_ = (array) array_reduce( $disabled_admin_bar_option_, 'array_merge', array() );
+	$disabled_admin_bar_option_ = _mw_adminimize_array_flatten( $disabled_admin_bar_option_ );
 
 	// Support Multiple Roles for users.
 	if ( _mw_adminimize_get_option_value( 'mw_adminimize_multiple_roles' ) && 1 < count( $user->roles ) ) {

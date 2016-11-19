@@ -125,3 +125,26 @@ function _mw_adminimize_get_intersection( $array ) {
 
 	return (array) call_user_func_array( 'array_intersect', $array );
 }
+
+/**
+ * Flatten a multi-dimensional array in a simple array.
+ *
+ * @since  2016-11-19
+ *
+ * @param  array $array
+ *
+ * @return array $flat
+ */
+function _mw_adminimize_array_flatten( $array ) {
+
+	$flat = array();
+	foreach ( $array as $key => $value ) {
+		if ( is_array( $value ) ) {
+			$flat = array_merge( $flat, _mw_adminimize_array_flatten( $value ) );
+		} else {
+			$flat[ $key ] = $value;
+		}
+	}
+
+	return $flat;
+}
