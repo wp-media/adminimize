@@ -648,6 +648,8 @@ function _mw_adminimize_set_menu_option() {
 			if ( in_array( $menu_slug, $mw_adminimize_menu, FALSE )
 			) {
 				remove_menu_page( $menu_slug );
+				// Prevent access to the page with the slug, there was inactive.
+				add_action( 'load-' . $menu_slug, '_mw_adminimize_block_page_access' );
 			}
 
 			// Sub Menu Settings.
@@ -663,6 +665,9 @@ function _mw_adminimize_set_menu_option() {
 					) {
 						remove_submenu_page( $menu_slug, $subitem[ 2 ] );
 						//unset( $submenu[ $menu_slug ][ $subindex ] );
+						// @ToDo Prevent access have often the same slug, the get param is the value to filter.
+						// Prevent access to the page with the slug, there was inactive.
+						//add_action( 'load-' . $subitem[ 2 ], '_mw_adminimize_block_page_access' );
 					}
 				}
 			}

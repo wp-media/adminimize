@@ -148,3 +148,13 @@ function _mw_adminimize_array_flatten( $array ) {
 
 	return $flat;
 }
+
+/**
+ * Break the access to a page.
+ *
+ * @wp-hook load-$page_slug
+ */
+function _mw_adminimize_block_page_access() {
+
+	wp_die( esc_attr__( 'Cheatin&#8217; uh?', 'adminimize' ) );
+}
