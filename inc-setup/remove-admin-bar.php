@@ -111,7 +111,7 @@ function _mw_adminimize_add_user_logout( $wp_admin_bar ) {
 /**
  * Change logout, user info link in Admin bar.
  *
- * @return null|void
+ * @return void
  */
 function _mw_adminimize_set_logout_menu() {
 
@@ -164,7 +164,7 @@ function _mw_adminimize_set_logout_menu() {
 /**
  * Remove Admin Bar
  *
- * @return null|void
+ * @return void
  */
 function _mw_adminimize_remove_admin_bar() {
 
@@ -220,7 +220,7 @@ function _mw_adminimize_remove_admin_bar() {
 
 	if ( $remove_adminbar ) {
 		if ( ! is_admin_bar_showing() ) {
-			return FALSE;
+			return;
 		}
 
 		add_filter( 'show_admin_bar', '__return_false' );
