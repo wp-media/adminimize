@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. This projec
 * Fix php warning on Admin Bar items for PHP 5.2.
 * Fix CPT feature support, if it false.
 * Add check in different functions for AJAX request.
+* Add to prevent access to main pages of the menu.
 
 ## [1.10.6](https://github.com/bueltge/Adminimize/compare/1.10.5...1.10.6) - 2016-08-09
 ### Fixed
