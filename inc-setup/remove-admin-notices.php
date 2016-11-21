@@ -18,6 +18,11 @@ if ( defined('DOING_AJAX') && DOING_AJAX ) {
 	return;
 }
 
+// If is AJAX Call.
+if ( defined('DOING_AJAX') && DOING_AJAX ) {
+	return;
+}
+
 add_action( 'admin_init', '_mw_adminimize_init_to_remove_admin_notices' );
 /**
  * Fire all hooks to remove admin notices.
@@ -30,7 +35,9 @@ function _mw_adminimize_init_to_remove_admin_notices() {
 }
 
 /**
- * @return bool|null
+ * Remove Admin Notices.
+ *
+ * @return string|void
  */
 function _mw_adminimize_check_to_remove_admin_notices() {
 
