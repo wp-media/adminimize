@@ -153,8 +153,35 @@ function _mw_adminimize_array_flatten( $array ) {
  * Break the access to a page.
  *
  * @wp-hook load-$page_slug
+ *
+ * @param string $slug
+ */
+function _mw_adminimize_check_page_access( $slug ) {
+
+	$uri = esc_url_raw( $_SERVER[ 'REQUEST_URI' ] );
+	$uri = parse_url( $uri );
+
+	if ( ! isset( $uri[ 'path' ] ) ) {
+		return;
+	}
+
+	// URI without query parameter, like WP core edit.php.
+	if ( ! isset( $uri[ 'query' ] ) && strpos( $uri[ 'path' ], $slug ) !== FALSE ) {
+		add_action( 'load-' . $slug, '_mw_adminimize_block_page_access' );
+	}
+
+	// URI with get parameter, like CPT.
+	if ( isset( $uri[ 'query' ] ) && strpos( $slug, $uri[ 'query' ] ) !== FALSE ) {
+		add_action( 'load-' . basename( $uri[ 'path' ] ), '_mw_adminimize_block_page_access' );
+	}
+}
+
+/**
+ * Break the access to a page.
+ *
+ * @wp-hook load-$page_slug
  */
 function _mw_adminimize_block_page_access() {
 
-	wp_die( esc_attr__( 'Cheatin&#8217; uh?', 'adminimize' ) );
+	wp_die( esc_attr__( 'Cheatin&#8217; uh? Sorry, you are not allowed to access this site.', 'adminimize' ) );
 }
