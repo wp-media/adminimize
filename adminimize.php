@@ -22,7 +22,7 @@
  * of differently user-right and a user-friendly range in admin-area via reduce areas.
  * :( grmpf i have so much wishes and hints form users, there use the plugin and
  *    it is not easy to development this on my free time.
- * Also I hate the source, old and harrd to maintain, no OOP.
+ * Also I hate the source, old and hard to maintain, no OOP.
  */
 
 if ( ! function_exists( 'add_action' ) ) {

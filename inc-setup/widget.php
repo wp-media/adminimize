@@ -45,7 +45,6 @@ function _mw_adminimize_get_sidebars_widgets() {
 }
 
 function _mw_adminimize_get_registered_sidebars() {
-
 	global $wp_registered_sidebars;
 
 	return $wp_registered_sidebars;
