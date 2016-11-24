@@ -44,7 +44,7 @@ Use the installer via back-end of your install or ...
 
 == Changelog ==
 = 1.11.1 (2016-11-24) =
-* Fix fatal error for WP smaller then 4.7 - Sorry again!
+* Fix fatal error for WP smaller than 4.7 - Sorry again!
 
 = 1.11.0 (2016-11-24) =
 * Fix open Translations. props pedro-mendonca
