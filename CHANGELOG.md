@@ -1,7 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.10.6...HEAD)
+## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.0...HEAD)
+
+## [1.11.0](https://github.com/bueltge/Adminimize/compare/1.10.6...1.11.0) - 2016-11-24
 * Fix open Translations. props pedro-mendonca
 * Fix Typos.
 * Fix php warning on Admin Bar items for PHP 5.2.

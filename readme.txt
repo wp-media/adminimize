@@ -43,7 +43,7 @@ Use the installer via back-end of your install or ...
 1. Settings area in WP 4.5-alpha
 
 == Changelog ==
-= 1.11.0 (TODO) =
+= 1.11.0 (2016-11-24) =
 * Fix open Translations. props pedro-mendonca
 * Fix Typos.
 * Fix php warning on Admin Bar items for PHP 5.2.
