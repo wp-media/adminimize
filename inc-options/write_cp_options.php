@@ -17,7 +17,7 @@ foreach ( get_post_types( $args ) as $post_type ) {
 
 	<div id="poststuff" class="ui-sortable meta-box-sortables">
 		<div class="postbox">
-			<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle' ); ?>"><br /></div>
+			<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle', 'adminimize' ); ?>"><br /></div>
 			<h3 class="hndle" id="config_edit_<?php echo $post_type; ?>">
 				<?php esc_attr_e( 'Write options', 'adminimize' );
 				echo ' - ' . $post_type_object->label; ?>

@@ -21,7 +21,7 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 <br class="clear" />
 <div id="poststuff" class="ui-sortable meta-box-sortables">
 	<div id="minimeu" class="postbox ">
-		<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle' ); ?>"><br /></div>
+		<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle', 'adminimize' ); ?>"><br /></div>
 		<h3 class="hndle" id="menu"><?php esc_attr_e( 'MiniMenu', 'adminimize' ) ?></h3>
 
 		<div class="inside">
@@ -140,7 +140,7 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 
 <div id="poststuff" class="ui-sortable meta-box-sortables">
 	<div id="about" class="postbox">
-		<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle' ); ?>"><br /></div>
+		<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle', 'adminimize' ); ?>"><br /></div>
 		<h3 class="hndle" id="about-sidebar"><?php esc_attr_e( 'About the plugin', 'adminimize' ) ?></h3>
 
 		<div class="inside">
