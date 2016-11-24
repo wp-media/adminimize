@@ -54,7 +54,7 @@ if ( ! function_exists( 'add_action' ) ) {
 							_mw_adminimize_get_option_value( 'mw_adminimize_support_bbpress' ),
 							1,
 							TRUE ); ?>>
-						<?php esc_attr_e( 'See the bbPress roles also in each area to hide for this context.', 'adminimize' ); ?>
+						<?php esc_attr_e( 'Show bbPress roles for each area to allow bbPress specific user settings.', 'adminimize' ); ?>
 					</td>
 				</tr>
 				<tr>
