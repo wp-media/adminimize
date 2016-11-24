@@ -200,7 +200,7 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 				</strong></p>
 				<?php if ( _mw_adminimize_is_active_on_multisite() ) { ?>
 					<p><?php esc_attr_e(
-							'You have activated the Plugin for your Multisite Network._ *By default you will have all active menu items and plugins. The* _settings are for all network sites, you can set it from any site and it will be set for all network. You should also update the settings on every network site to include every custom items that might exist for each of it.',
+							'You have activated the Plugin for your Multisite Network. By default you will have all active menu items and plugins. The settings are for all network sites, you can set it from any site and it will be set for all network. You should also update the settings on every network site to include every custom items that might exist for each of it.',
 							'adminimize'
 						); ?></p>
 				<?php } ?>
