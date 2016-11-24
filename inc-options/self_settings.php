@@ -40,7 +40,7 @@ if ( ! function_exists( 'add_action' ) ) {
 							name="mw_adminimize_multiple_roles" <?php checked(
 							_mw_adminimize_get_option_value( 'mw_adminimize_multiple_roles' ),
 							1, TRUE ); ?>>
-						<?php esc_attr_e( 'A user with multiple roles must have an option selected for all roles in order to hide the selected option. If the option is unselected for any of the user’s roles, then the item will appear.', 'adminimize' ); ?>
+						<?php esc_attr_e( 'To hide an option for a user with multiple roles, the option must be selected for every role of that user. If the option is not selected for one of the user\'s roles, then the item will appear.', 'adminimize' ); ?>
 					</td>
 				</tr>
 				<tr>
