@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.0...HEAD)
 
+## [1.11.1](https://github.com/bueltge/Adminimize/compare/1.11.0...1.11.1) - 2016-11-24
+* Fix fatal error for WP smaller then 4.7 - Sorry again!
+
 ## [1.11.0](https://github.com/bueltge/Adminimize/compare/1.10.6...1.11.0) - 2016-11-24
 ### Fixed
 * Fix open Translations. props pedro-mendonca
