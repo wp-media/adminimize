@@ -68,7 +68,7 @@ if ( ! function_exists( 'add_action' ) ) {
 							_mw_adminimize_get_option_value( 'mw_adminimize_prevent_page_access' ),
 							1,
 							TRUE ); ?>>
-						<?php esc_attr_e( 'Active this option to remove the prevent for access of a page of the back end, there is active for hiding to a user role.', 'adminimize' ); ?>
+						<?php esc_attr_e( 'Activate this option to allow access to pages of the back end, even if it\'s hidden to a user role.', 'adminimize' ); ?>
 					</td>
 				</tr>
 			</table>
