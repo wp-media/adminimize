@@ -50,6 +50,7 @@ Use the installer via back-end of your install or ...
 * Fix CPT feature support, if it false.
 * Add check in different functions for AJAX request.
 * Add to prevent access to pages of the back end, there are active for hiding in the settings.
+* Add plugin option to remove the default behavior to prevent access to pages.
 
 = 1.10.6 (2016-08-09) =
 * Fix to see Logout link also on mobile view.

@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file. This projec
 * Fix CPT feature support, if it false.
 * Add check in different functions for AJAX request.
 * Add to prevent access to pages of the back end, there are active for hiding in the settings.
+* Add plugin option to remove the default behavior to prevent access to pages.
 
 ## [1.10.6](https://github.com/bueltge/Adminimize/compare/1.10.5...1.10.6) - 2016-08-09
 ### Fixed

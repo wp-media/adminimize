@@ -158,6 +158,11 @@ function _mw_adminimize_array_flatten( $array ) {
  */
 function _mw_adminimize_check_page_access( $slug ) {
 
+	// If this default behavior is deactivated.
+	if ( _mw_adminimize_get_option_value( 'mw_adminimize_prevent_page_access' ) ) {
+		return;
+	}
+
 	$uri = esc_url_raw( $_SERVER[ 'REQUEST_URI' ] );
 	$uri = parse_url( $uri );
 

@@ -57,6 +57,20 @@ if ( ! function_exists( 'add_action' ) ) {
 						<?php esc_attr_e( 'See the bbPress roles also in each area to hide for this context.', 'adminimize' ); ?>
 					</td>
 				</tr>
+				<tr>
+					<td class="row-title"><label for="mw_adminimize_prevent_page_access">
+							<?php esc_attr_e( 'Prevent Page Access', 'adminimize' ); ?>
+						</label>
+					</td>
+					<td>
+						<input type="checkbox" value="1" id="mw_adminimize_prevent_page_access"
+							name="mw_adminimize_prevent_page_access" <?php checked(
+							_mw_adminimize_get_option_value( 'mw_adminimize_prevent_page_access' ),
+							1,
+							TRUE ); ?>>
+						<?php esc_attr_e( 'Active this option to remove the prevent for access of a page of the back end, there is active for hiding to a user role.', 'adminimize' ); ?>
+					</td>
+				</tr>
 			</table>
 
 			<p id="submitbutton">

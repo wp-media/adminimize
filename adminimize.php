@@ -1292,6 +1292,12 @@ function _mw_adminimize_update() {
 		$adminimizeoptions[ 'mw_adminimize_support_bbpress' ] = 0;
 	}
 
+	if ( isset( $_POST[ 'mw_adminimize_prevent_page_access' ] ) ) {
+		$adminimizeoptions[ 'mw_adminimize_prevent_page_access' ] = (int) $_POST[ 'mw_adminimize_prevent_page_access' ];
+	} else {
+		$adminimizeoptions[ 'mw_adminimize_prevent_page_access' ] = 0;
+	}
+
 	// Admin Bar Front end settings
 	$adminimizeoptions[ 'mw_adminimize_admin_bar_frontend_nodes' ] = _mw_adminimize_get_option_value(
 		'mw_adminimize_admin_bar_frontend_nodes'
