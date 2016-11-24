@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file. This projec
 * Fix Typos.
 * Fix php warning on Admin Bar items for PHP 5.2.
 * Fix CPT feature support, if it false.
+
 ### Added
 * Add check in different functions for AJAX request.
 * Add to prevent access to pages of the back end, there are active for hiding in the settings.
