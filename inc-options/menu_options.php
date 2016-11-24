@@ -125,7 +125,7 @@ if ( ! function_exists( 'add_action' ) ) {
 						// non checked items
 						if ( $menu_slug === 'options-general.php' ) {
 							$disabled_item_adm_hint = '<abbr title="' . esc_attr__(
-									'After activate the check box it heavy attitudes will change.', 'adminimize'
+									'After activate the check box it will heavily change its behavior.', 'adminimize'
 								) . '" style="cursor:pointer;"> ! </acronym>';
 						} else {
 							$disabled_item_adm      = '';
@@ -221,7 +221,7 @@ if ( ! function_exists( 'add_action' ) ) {
 									//$disabled_subitem_adm = ' disabled="disabled"';
 									$disabled_subitem_adm_hint = '<abbr title="'
 									                             . esc_attr__(
-										                             'After activate the check box it heavy attitudes will change.',
+										                             'After activate the check box it will heavily change its behavior.',
 										                             'adminimize'
 									                             )
 									                             . '" style="cursor:pointer;"> ! </acronym>';
