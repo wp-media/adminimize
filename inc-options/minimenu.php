@@ -200,7 +200,7 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 				</strong></p>
 				<?php if ( _mw_adminimize_is_active_on_multisite() ) { ?>
 					<p><?php esc_attr_e(
-							'You have activated the Plugin for your Multisite Network. Your settings works now on all blogs in the network. Please set the settings only in one blog, there you have all active menu items and plugins. If you update the settings then write the plugin new settings in dependence of the blog where you put, save the settings.',
+							'You have activated the Plugin for your Multisite Network. Your settings works now on all blogs in the network. You set the settings for network, but set it on one site of the network, there you will have all active menu items and plugins by default. Does it look clearer for you? If you update the settings then write the plugin new settings in dependence of the blog where you put, save the settings.',
 							'adminimize'
 						); ?></p>
 				<?php } ?>
