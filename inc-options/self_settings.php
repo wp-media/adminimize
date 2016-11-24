@@ -59,7 +59,7 @@ if ( ! function_exists( 'add_action' ) ) {
 				</tr>
 				<tr>
 					<td class="row-title"><label for="mw_adminimize_prevent_page_access">
-							<?php esc_attr_e( 'Prevent Page Access', 'adminimize' ); ?>
+							<?php esc_attr_e( 'Allow Page Access', 'adminimize' ); ?>
 						</label>
 					</td>
 					<td>
