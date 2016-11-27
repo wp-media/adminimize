@@ -43,6 +43,9 @@ Use the installer via back-end of your install or ...
 1. Settings area in WP 4.5-alpha
 
 == Changelog ==
+= 1.11.2 (ToDo) =
+* Fix backticks for `shell_exec` error.
+
 = 1.11.1 (2016-11-24) =
 * Fix fatal error for WP smaller than 4.7 - Sorry again!
 
