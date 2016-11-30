@@ -2,7 +2,10 @@
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.0...HEAD)
+
+## [1.11.2](https://github.com/bueltge/Adminimize/compare/1.11.2...1.11.2) - 2016-12-01
 * Fix backticks for `shell_exec` error #59.
+* Fix prevent access function for pages #51, #57.
 
 ## [1.11.1](https://github.com/bueltge/Adminimize/compare/1.11.0...1.11.1) - 2016-11-24
 * Fix fatal error for WP smaller than 4.7 - Sorry again!
