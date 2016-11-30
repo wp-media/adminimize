@@ -163,8 +163,14 @@ function _mw_adminimize_check_page_access( $slug ) {
 		return;
 	}
 
-	$uri = esc_url_raw( $_SERVER[ 'REQUEST_URI' ] );
-	$uri = parse_url( $uri );
+	$url = basename( esc_url_raw( $_SERVER[ 'REQUEST_URI' ] ) );
+	$url = htmlspecialchars( $url );
+
+	if ( ! isset( $url ) ) {
+		return;
+	}
+
+	$uri = parse_url( $url );
 
 	if ( ! isset( $uri[ 'path' ] ) ) {
 		return;
@@ -175,8 +181,12 @@ function _mw_adminimize_check_page_access( $slug ) {
 		add_action( 'load-' . $slug, '_mw_adminimize_block_page_access' );
 	}
 
-	// URI with get parameter, like CPT.
-	if ( isset( $uri[ 'query' ] ) && strpos( $slug, $uri[ 'query' ] ) !== FALSE ) {
+	// URL is equal the slug of WP menu.
+	if ( $slug === $url ) {
+		add_action( 'load-' . basename( $uri[ 'path' ] ), '_mw_adminimize_block_page_access' );
+	}
+
+	if ( strpos( $url, urlencode( $slug ) ) !== FALSE ) {
 		add_action( 'load-' . basename( $uri[ 'path' ] ), '_mw_adminimize_block_page_access' );
 	}
 }
