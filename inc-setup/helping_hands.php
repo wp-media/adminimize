@@ -152,42 +152,40 @@ function _mw_adminimize_array_flatten( $array ) {
 /**
  * Break the access to a page.
  *
- * @wp-hook load-$page_slug
+ * @param string $slug Slug of each menu item.
  *
- * @param string $slug
+ * @return bool If the check is true, return also true as bool.
  */
 function _mw_adminimize_check_page_access( $slug ) {
 
 	// If this default behavior is deactivated.
 	if ( _mw_adminimize_get_option_value( 'mw_adminimize_prevent_page_access' ) ) {
-		return;
+		return FALSE;
 	}
 
 	$url = basename( esc_url_raw( $_SERVER[ 'REQUEST_URI' ] ) );
 	$url = htmlspecialchars( $url );
 
 	if ( ! isset( $url ) ) {
-		return;
+		return FALSE;
 	}
 
 	$uri = parse_url( $url );
 
 	if ( ! isset( $uri[ 'path' ] ) ) {
-		return;
+		return FALSE;
 	}
 
 	// URI without query parameter, like WP core edit.php.
 	if ( ! isset( $uri[ 'query' ] ) && strpos( $uri[ 'path' ], $slug ) !== FALSE ) {
 		add_action( 'load-' . $slug, '_mw_adminimize_block_page_access' );
+		return TRUE;
 	}
 
 	// URL is equal the slug of WP menu.
 	if ( $slug === $url ) {
 		add_action( 'load-' . basename( $uri[ 'path' ] ), '_mw_adminimize_block_page_access' );
-	}
-
-	if ( strpos( $url, urlencode( $slug ) ) !== FALSE ) {
-		add_action( 'load-' . basename( $uri[ 'path' ] ), '_mw_adminimize_block_page_access' );
+		return TRUE;
 	}
 }
 
