@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.0...HEAD)
 
-## [1.11.2](https://github.com/bueltge/Adminimize/compare/1.11.2...1.11.2) - 2016-12-01
+## [1.11.2](https://github.com/bueltge/Adminimize/compare/1.11.2...1.11.2) - 2016-12-04
 * Fix backticks for `shell_exec` error #59.
 * Fix prevent access function for pages #51, #57.
 

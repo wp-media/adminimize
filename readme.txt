@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/FrankBueltge
 Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
 Requires at least: 4.0
 Tested up to: 4.7.0
-Stable tag: 1.11.1
+Stable tag: 1.11.2
 
 Adminimize that lets you hide 'unnecessary' items from the WordPress backend
 
@@ -43,7 +43,7 @@ Use the installer via back-end of your install or ...
 1. Settings area in WP 4.5-alpha
 
 == Changelog ==
-= 1.11.2 (2016-12-01) =
+= 1.11.2 (2016-12-04) =
 * Fix backticks for `shell_exec` error.
 * Fix prevent access function for pages.
 
