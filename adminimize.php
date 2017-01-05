@@ -7,13 +7,13 @@
  * Description: Visually compresses the administrative meta-boxes so that more admin page content can be initially seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for all roles of your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible to simplify the admin in different for all roles.
  * Author:      Frank Bültge
  * Author URI:  http://bueltge.de/
- * Version:     1.11.2
+ * Version:     1.11.3-dev
  * License:     GPLv3+
  *
  * @package WordPress
  * @author  Frank Bültge <frank@bueltge.de>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2016-12-04
+ * @version 2016-12-09
  */
 
 /**
@@ -708,7 +708,7 @@ function _mw_adminimize_set_global_option() {
 		if ( in_array( $role, $user->roles, FALSE ) && _mw_adminimize_current_user_has_role( $role ) ) {
 
 			// Create array about all items with all affected roles, important for multiple roles.
-			foreach ( $disabled_global_option_[ $role ] as $global_item ) {
+			foreach ( (array) $disabled_global_option_[ $role ] as $global_item ) {
 				$disabled_global_option[] = $global_item;
 			}
 		}
@@ -1499,29 +1499,33 @@ function _mw_adminimize_update() {
 
 	// own options
 	if ( isset( $_POST[ '_mw_adminimize_own_values' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_values' ] = wp_strip_all_tags( $_POST[ '_mw_adminimize_own_values' ] );
+		$adminimizeoptions[ '_mw_adminimize_own_values' ] = stripslashes(
+			wp_strip_all_tags( $_POST[ '_mw_adminimize_own_values' ] )
+		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_values' ] = '';
 	}
 
 	if ( isset( $_POST[ '_mw_adminimize_own_options' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_options' ] = wp_strip_all_tags( $_POST[ '_mw_adminimize_own_options' ] );
+		$adminimizeoptions[ '_mw_adminimize_own_options' ] = stripslashes(
+			wp_strip_all_tags( $_POST[ '_mw_adminimize_own_options' ] )
+		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_options' ] = '';
 	}
 
 	// own post options
 	if ( isset( $_POST[ '_mw_adminimize_own_post_values' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_post_values' ] = wp_strip_all_tags(
-			$_POST[ '_mw_adminimize_own_post_values' ]
+		$adminimizeoptions[ '_mw_adminimize_own_post_values' ] = stripslashes(
+			wp_strip_all_tags( $_POST[ '_mw_adminimize_own_post_values' ] )
 		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_post_values' ] = '';
 	}
 
 	if ( isset( $_POST[ '_mw_adminimize_own_post_options' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_post_options' ] = wp_strip_all_tags(
-			$_POST[ '_mw_adminimize_own_post_options' ]
+		$adminimizeoptions[ '_mw_adminimize_own_post_options' ] = stripslashes(
+			wp_strip_all_tags( $_POST[ '_mw_adminimize_own_post_options' ] )
 		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_post_options' ] = '';
@@ -1529,16 +1533,16 @@ function _mw_adminimize_update() {
 
 	// own page options
 	if ( isset( $_POST[ '_mw_adminimize_own_page_values' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_page_values' ] = wp_strip_all_tags(
-			$_POST[ '_mw_adminimize_own_page_values' ]
+		$adminimizeoptions[ '_mw_adminimize_own_page_values' ] = stripslashes(
+			wp_strip_all_tags( $_POST[ '_mw_adminimize_own_page_values' ] )
 		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_page_values' ] = '';
 	}
 
 	if ( isset( $_POST[ '_mw_adminimize_own_page_options' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_page_options' ] = wp_strip_all_tags(
-			$_POST[ '_mw_adminimize_own_page_options' ]
+		$adminimizeoptions[ '_mw_adminimize_own_page_options' ] = stripslashes(
+			wp_strip_all_tags( $_POST[ '_mw_adminimize_own_page_options' ] )
 		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_page_options' ] = '';
@@ -1547,16 +1551,16 @@ function _mw_adminimize_update() {
 	// own custom  post options
 	foreach ( $post_types as $post_type ) {
 		if ( isset( $_POST[ '_mw_adminimize_own_values_' . $post_type ] ) ) {
-			$adminimizeoptions[ '_mw_adminimize_own_values_' . $post_type ] = wp_strip_all_tags(
-				$_POST[ '_mw_adminimize_own_values_' . $post_type ]
+			$adminimizeoptions[ '_mw_adminimize_own_values_' . $post_type ] = stripslashes(
+				wp_strip_all_tags( $_POST[ '_mw_adminimize_own_values_' . $post_type ] )
 			);
 		} else {
 			$adminimizeoptions[ '_mw_adminimize_own_values_' . $post_type ] = '';
 		}
 
 		if ( isset( $_POST[ '_mw_adminimize_own_options_' . $post_type ] ) ) {
-			$adminimizeoptions[ '_mw_adminimize_own_options_' . $post_type ] = wp_strip_all_tags(
-				$_POST[ '_mw_adminimize_own_options_' . $post_type ]
+			$adminimizeoptions[ '_mw_adminimize_own_options_' . $post_type ] = stripslashes(
+				wp_strip_all_tags( $_POST[ '_mw_adminimize_own_options_' . $post_type ] )
 			);
 		} else {
 			$adminimizeoptions[ '_mw_adminimize_own_options_' . $post_type ] = '';
@@ -1565,16 +1569,16 @@ function _mw_adminimize_update() {
 
 	// own link options
 	if ( isset( $_POST[ '_mw_adminimize_own_link_values' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_link_values' ] = wp_strip_all_tags(
-			$_POST[ '_mw_adminimize_own_link_values' ]
+		$adminimizeoptions[ '_mw_adminimize_own_link_values' ] = stripslashes(
+			wp_strip_all_tags( $_POST[ '_mw_adminimize_own_link_values' ] )
 		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_link_values' ] = '';
 	}
 
 	if ( isset( $_POST[ '_mw_adminimize_own_link_options' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_link_options' ] = wp_strip_all_tags(
-			$_POST[ '_mw_adminimize_own_link_options' ]
+		$adminimizeoptions[ '_mw_adminimize_own_link_options' ] = stripslashes(
+			wp_strip_all_tags( $_POST[ '_mw_adminimize_own_link_options' ] )
 		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_link_options' ] = '';
@@ -1582,16 +1586,16 @@ function _mw_adminimize_update() {
 
 	// wp nav menu options
 	if ( isset( $_POST[ '_mw_adminimize_own_nav_menu_values' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_nav_menu_values' ] = wp_strip_all_tags(
-			$_POST[ '_mw_adminimize_own_nav_menu_values' ]
+		$adminimizeoptions[ '_mw_adminimize_own_nav_menu_values' ] = stripslashes(
+			wp_strip_all_tags( $_POST[ '_mw_adminimize_own_nav_menu_values' ] )
 		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_nav_menu_values' ] = '';
 	}
 
 	if ( isset( $_POST[ '_mw_adminimize_own_nav_menu_options' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_nav_menu_options' ] = wp_strip_all_tags(
-			$_POST[ '_mw_adminimize_own_nav_menu_options' ]
+		$adminimizeoptions[ '_mw_adminimize_own_nav_menu_options' ] = stripslashes(
+			wp_strip_all_tags( $_POST[ '_mw_adminimize_own_nav_menu_options' ] )
 		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_nav_menu_options' ] = '';
@@ -1599,16 +1603,16 @@ function _mw_adminimize_update() {
 
 	// widget options
 	if ( isset( $_POST[ '_mw_adminimize_own_widget_values' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_widget_values' ] = wp_strip_all_tags(
-			$_POST[ '_mw_adminimize_own_widget_values' ]
+		$adminimizeoptions[ '_mw_adminimize_own_widget_values' ] = stripslashes(
+			wp_strip_all_tags( $_POST[ '_mw_adminimize_own_widget_values' ] )
 		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_widget_values' ] = '';
 	}
 
 	if ( isset( $_POST[ '_mw_adminimize_own_widget_options' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_widget_options' ] = wp_strip_all_tags(
-			$_POST[ '_mw_adminimize_own_widget_options' ]
+		$adminimizeoptions[ '_mw_adminimize_own_widget_options' ] = stripslashes(
+			wp_strip_all_tags( $_POST[ '_mw_adminimize_own_widget_options' ] )
 		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_widget_options' ] = '';
@@ -1616,16 +1620,16 @@ function _mw_adminimize_update() {
 
 	// own dashboard options
 	if ( isset( $_POST[ '_mw_adminimize_own_dashboard_values' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_dashboard_values' ] = wp_strip_all_tags(
-			$_POST[ '_mw_adminimize_own_dashboard_values' ]
+		$adminimizeoptions[ '_mw_adminimize_own_dashboard_values' ] = stripslashes(
+			wp_strip_all_tags( $_POST[ '_mw_adminimize_own_dashboard_values' ] )
 		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_dashboard_values' ] = '';
 	}
 
 	if ( isset( $_POST[ '_mw_adminimize_own_dashboard_options' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_dashboard_options' ] = wp_strip_all_tags(
-			$_POST[ '_mw_adminimize_own_dashboard_options' ]
+		$adminimizeoptions[ '_mw_adminimize_own_dashboard_options' ] = stripslashes(
+			wp_strip_all_tags( $_POST[ '_mw_adminimize_own_dashboard_options' ] )
 		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_dashboard_options' ] = '';
