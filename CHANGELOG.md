@@ -3,12 +3,12 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.0...HEAD)
 * Fix custom options to use also fields mit quotes.
+* Add custom dashbaord options to admin head to hide it via css.
+* Add support of multiple roles for dashboard options.
 
 ## [1.11.2](https://github.com/bueltge/Adminimize/compare/1.11.2...1.11.2) - 2016-12-04
 * Fix backticks for `shell_exec` error #59.
 * Fix prevent access function for pages #51, #57.
-* Add custom dashbaord options to admin head to hide it via css.
-* Add support of multiple roles for dashboard options.
 
 ## [1.11.1](https://github.com/bueltge/Adminimize/compare/1.11.0...1.11.1) - 2016-11-24
 * Fix fatal error for WP smaller than 4.7 - Sorry again!
