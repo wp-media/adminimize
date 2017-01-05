@@ -59,6 +59,11 @@ function _mw_adminimize_dashboard_setup() {
 		);
 	}
 
+	// Support Multiple Roles for users.
+	if ( _mw_adminimize_get_option_value( 'mw_adminimize_multiple_roles' ) && 1 < count( $user->roles ) ) {
+		$disabled_dashboard_option_ = _mw_adminimize_get_duplicate( $disabled_dashboard_option_ );
+	}
+
 	foreach ( $user_roles as $role ) {
 		if ( ! isset( $disabled_dashboard_option_[ $role ][ '0' ] ) ) {
 			$disabled_dashboard_option_[ $role ][ '0' ] = '';
@@ -130,7 +135,6 @@ function _mw_adminimize_remove_custom_panels() {
 	if ( empty( $disabled_dashboard_option_[ 0 ] ) ) {
 		return;
 	}
-	_mw_adminimize_debug( $disabled_dashboard_option_[ 0 ] );
 
 	$selectors = implode( ', ', $disabled_dashboard_option_[ 0 ] );
 	echo '<!-- Set Adminimize dashboard options -->' . "\n";
