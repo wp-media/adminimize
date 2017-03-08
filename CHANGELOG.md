@@ -2,9 +2,10 @@
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.0...HEAD)
-* Fix custom options to use also fields mit quotes.
-* Add custom dashbaord options to admin head to hide it via css.
-* Add support of multiple roles for dashboard options.
+* Fixed custom options to use also fields mit quotes.
+* Added custom dashbaord options to admin head to hide it via css.
+* Added support of multiple roles for dashboard options.
+* Fixed ID of Menu to use each link in the full width.
 
 ## [1.11.2](https://github.com/bueltge/Adminimize/compare/1.11.2...1.11.2) - 2016-12-04
 * Fix backticks for `shell_exec` error #59.
