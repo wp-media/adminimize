@@ -20,8 +20,8 @@ if ( ! function_exists( 'add_action' ) ) {
 				<colgroup>
 					<?php
 					$col = 0;
-					foreach ( $user_roles_names as $role_name ) {
-						echo '<col class="col' . $col . '">' . "\n";
+					foreach ( (array) $user_roles_names as $role_name ) {
+						echo '<col class="col' . (int) $col . '">' . "\n";
 						$col ++;
 					}
 					?>
@@ -30,19 +30,17 @@ if ( ! function_exists( 'add_action' ) ) {
 				<tr>
 					<th><?php esc_attr_e( 'Write options - Page', 'adminimize' ); ?></th>
 					<?php
-					foreach ( $user_roles_names as $role_name ) { ?>
-						<th><?php esc_attr_e( 'Deactivate for', 'adminimize' );
-							echo '<br />' . $role_name; ?></th>
-					<?php } ?>
+					foreach ( (array) $user_roles_names as $role_name ) {
+						echo '<th>' . esc_attr_e( 'Deactivate for', 'adminimize' )
+						     . '<br />' . esc_attr( $role_name ) . '</th>';
+					} ?>
 				</tr>
 				<tr>
 					<td><?php esc_attr_e( 'Select all', 'adminimize' ); ?></td>
 					<?php
-					foreach ( $user_roles as $role_slug ) {
-						echo '<td class="num">';
-						echo '<input id="select_all" class="write_page_options_' . $role_slug
-							. '" type="checkbox" name="" value="" />';
-						echo '</td>' . "\n";
+					foreach ( (array) $user_roles as $role_slug ) {
+						echo '<td class="num"><input id="select_all" class="write_page_options_'
+						     . esc_attr( $role_slug ) . '" type="checkbox" name="" value="" /></td>' . "\n";
 					} ?>
 				</tr>
 				</thead>
@@ -53,6 +51,7 @@ if ( ! function_exists( 'add_action' ) ) {
 				$metaboxes_page = array(
 					'#contextual-help-link-wrap',
 					'#screen-options-link-wrap',
+					'.page-title-action',
 					'#title, #titlediv, th.column-title, td.title',
 					'#pageslugdiv',
 					'#pagepostcustom, #pagecustomdiv, #postcustom',
@@ -72,7 +71,7 @@ if ( ! function_exists( 'add_action' ) ) {
 					'#slugdiv,#edit-slug-box',
 					'#misc-publishing-actions',
 					'#commentstatusdiv',
-					'#editor-toolbar #edButtonHTML, #quicktags, #content-html'
+					'#editor-toolbar #edButtonHTML, #quicktags, #content-html',
 				);
 
 				$post_type = 'page';
@@ -123,6 +122,7 @@ if ( ! function_exists( 'add_action' ) ) {
 				$metaboxes_names_page = array(
 					esc_attr__( 'Help' ),
 					esc_attr__( 'Screen Options' ),
+					esc_attr__( 'Add New' ),
 					esc_attr__( 'Title', 'adminimize' ),
 					esc_attr__( 'Permalink', 'adminimize' ),
 					esc_attr__( 'Custom Fields' ),

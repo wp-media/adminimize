@@ -10,6 +10,8 @@
  * Version:     1.11.3-dev
  * License:     GPLv3+
  *
+ * Php Version 5.6
+ *
  * @package WordPress
  * @author  Frank Bültge <frank@bueltge.de>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -32,7 +34,7 @@ if ( ! function_exists( 'add_action' ) ) {
 
 // plugin definitions
 define( 'FB_ADMINIMIZE_BASENAME', plugin_basename( __FILE__ ) );
-define( 'FB_ADMINIMIZE_BASEFOLDER', plugin_basename( dirname( __FILE__ ) ) );
+define( 'FB_ADMINIMIZE_BASEFOLDER', plugin_basename( __DIR__ ) );
 
 /**
  * Return data from the plugin.
@@ -101,21 +103,17 @@ function _mw_adminimize_exclude_settings_page() {
 		return FALSE;
 	}
 
-	if ( ! isset( $_GET[ 'page' ] ) ) {
-		$page = '';
-	} else {
+	$page = '';
+	if ( isset( $_GET[ 'page' ] ) ) {
 		$page = esc_attr( $_GET[ 'page' ] );
 	}
 
-	if ( ! function_exists( 'get_current_screen' ) ) {
-		$screen = $page;
-	} else {
+	$screen = $page;
+	if ( function_exists( 'get_current_screen' ) ) {
 		$screen = get_current_screen();
 	}
 
-	if ( ! isset( $screen->id ) ) {
-		$screen = $page;
-	} else {
+	if ( isset( $screen->id ) ) {
 		$screen = $screen->id;
 	}
 
@@ -131,7 +129,7 @@ function _mw_adminimize_exclude_settings_page() {
 function _mw_adminimize_is_active_on_multisite() {
 
 	if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
-		require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+		require_once ABSPATH . '/wp-admin/includes/plugin.php';
 	}
 
 	if ( is_multisite() && is_plugin_active_for_network( FB_ADMINIMIZE_BASENAME ) ) {
@@ -158,7 +156,7 @@ function _mw_adminimize_get_all_user_roles() {
 	if ( NULL !== $wp_roles->roles && is_array( $wp_roles->roles ) ) {
 		foreach ( $wp_roles->roles as $role => $data ) {
 			$user_roles[] = $role;
-			//$data contains caps, maybe for later use..
+			// The $data var contains caps, maybe for later use.
 		}
 	}
 
@@ -210,23 +208,25 @@ function _mw_adminimize_get_all_user_roles_names() {
 }
 
 /**
- * return post type
+ * Get post type.
+ *
+ * @return null|string String of the post type.
  */
 function _mw_adminimize_get_current_post_type() {
 
 	global $post, $typenow, $current_screen;
 
-	//we have a post so we can just get the post type from that
+	// We have a post so we can just get the post type from that.
 	if ( $post && $post->post_type ) {
 		return $post->post_type;
-	} //check the global $typenow - set in admin.php
-	else if ( $typenow ) {
+	} // Check the global $typenow - set in admin.php
+	elseif ( $typenow ) {
 		return $typenow;
 	} // check the global $current_screen object - set in sceen.php
-	else if ( $current_screen && $current_screen->post_type ) {
+	elseif ( $current_screen && $current_screen->post_type ) {
 		return $current_screen->post_type;
 	} // lastly check the post_type querystring
-	else if ( isset( $_REQUEST[ 'post_type' ] ) ) {
+	elseif ( isset( $_REQUEST[ 'post_type' ] ) ) {
 		return sanitize_key( $_REQUEST[ 'post_type' ] );
 	}
 
@@ -344,8 +344,8 @@ function _mw_adminimize_admin_init() {
 				break;
 		}
 
-		//post-page options
-		if ( in_array( $pagenow, $def_post_pages, FALSE ) ) {
+		// Post-page options.
+		if ( in_array( $pagenow, $def_post_pages, TRUE ) ) {
 
 			$_mw_adminimize_tb_window = (int) _mw_adminimize_get_option_value( '_mw_adminimize_tb_window' );
 			switch ( $_mw_adminimize_tb_window ) {
@@ -369,7 +369,7 @@ function _mw_adminimize_admin_init() {
 					break;
 			}
 
-			//category options
+			// Category options.
 			$_mw_adminimize_cat_full = (int) _mw_adminimize_get_option_value( '_mw_adminimize_cat_full' );
 			switch ( $_mw_adminimize_cat_full ) {
 				case 1:
@@ -380,7 +380,7 @@ function _mw_adminimize_admin_init() {
 					break;
 			}
 
-			// set default editor tinymce
+			// Set default editor tinymce
 			if ( _mw_adminimize_recursive_in_array(
 					'#editor-toolbar #edButtonHTML, #quicktags, #content-html',
 					$disabled_metaboxes_page_all
@@ -390,10 +390,15 @@ function _mw_adminimize_admin_init() {
 					$disabled_metaboxes_post_all
 				)
 			) {
-				add_filter( 'wp_default_editor', create_function( '', 'return "tinymce";' ) );
+				add_filter(
+					'wp_default_editor',
+					function() {
+						return 'tinymce';
+					}
+				);
 			}
 
-			// remove media bottons
+			// Remove media buttons
 			if ( _mw_adminimize_recursive_in_array( 'media_buttons', $disabled_metaboxes_page_all )
 				|| _mw_adminimize_recursive_in_array( 'media_buttons', $disabled_metaboxes_post_all )
 			) {
@@ -404,31 +409,29 @@ function _mw_adminimize_admin_init() {
 	}
 
 	// set meta-box post option
-	if ( in_array( $pagenow, $def_post_pages, FALSE ) && in_array( $current_post_type, $def_post_types, FALSE ) ) {
+	if ( in_array( $pagenow, $def_post_pages, TRUE ) && in_array( $current_post_type, $def_post_types, TRUE ) ) {
 		add_action( 'admin_head', '_mw_adminimize_set_metabox_post_option', 1 );
 	}
 	// set meta-box page option
-	if ( in_array( $pagenow, $def_page_pages, FALSE ) && in_array( $current_post_type, $def_page_types, FALSE ) ) {
+	if ( in_array( $pagenow, $def_page_pages, TRUE ) && in_array( $current_post_type, $def_page_types, TRUE ) ) {
 		add_action( 'admin_head', '_mw_adminimize_set_metabox_page_option', 1 );
 	}
 	// set custom post type options
-	if ( function_exists( 'get_post_types' ) && in_array( $pagenow, $def_custom_pages, FALSE )
-		&& in_array(
-			$current_post_type, $def_custom_types, FALSE
-		)
+	if ( function_exists( 'get_post_types' ) && in_array( $pagenow, $def_custom_pages, TRUE )
+		&& in_array( $current_post_type, $def_custom_types, TRUE )
 	) {
 		add_action( 'admin_head', '_mw_adminimize_set_metabox_cp_option', 1 );
 	}
 	// set link option
-	if ( in_array( $pagenow, $link_pages, FALSE ) ) {
+	if ( in_array( $pagenow, $link_pages, TRUE ) ) {
 		add_action( 'admin_head', '_mw_adminimize_set_link_option', 1 );
 	}
 	// set wp nav menu options
-	if ( in_array( $pagenow, $nav_menu_pages, FALSE ) ) {
+	if ( in_array( $pagenow, $nav_menu_pages, TRUE ) ) {
 		add_action( 'admin_head', '_mw_adminimize_set_nav_menu_option', 1 );
 	}
 	// set widget options
-	if ( in_array( $pagenow, $widget_pages, FALSE ) ) {
+	if ( in_array( $pagenow, $widget_pages, TRUE ) ) {
 		add_action( 'admin_head', '_mw_adminimize_set_widget_option', 1 );
 	}
 }
@@ -448,7 +451,6 @@ add_action( 'init', '_mw_adminimize_set_logout_menu', 2 );
 
 register_activation_hook( __FILE__, '_mw_adminimize_install' );
 register_uninstall_hook( __FILE__, '_mw_adminimize_uninstall' );
-//register_deactivation_hook(__FILE__, '_mw_adminimize_uninstall' );
 
 /**
  * Remove the dashboard
@@ -539,12 +541,12 @@ function _mw_adminimize_remove_dashboard() {
 			$dashboard_core_string = esc_attr__( 'Dashboard' );
 			$dashboard             = array( $menu[ $page ][ 0 ], $menu[ $page ][ 1 ] );
 			while (
-				! in_array( $dashboard_core_string, $dashboard, FALSE ) && next( $menu )
+				! in_array( $dashboard_core_string, $dashboard, TRUE ) && next( $menu )
 			) {
 				$page = key( $menu );
 			}
 
-			if ( in_array( $dashboard_core_string, $dashboard, FALSE ) ) {
+			if ( in_array( $dashboard_core_string, $dashboard, TRUE ) ) {
 				unset( $menu[ $page ] );
 			}
 			reset( $menu );
@@ -586,7 +588,6 @@ function _mw_adminimize_set_menu_option() {
 	_mw_adminimize_debug( $menu, 'Adminimize, WordPress Menu:' );
 	_mw_adminimize_debug( $submenu, 'Adminimize, WordPress Sub-Menu:' );
 
-	//$user_roles        = _mw_adminimize_get_all_user_roles();
 	$disabled_menu_    = array();
 	$disabled_submenu_ = array();
 	$user              = wp_get_current_user();
@@ -607,19 +608,17 @@ function _mw_adminimize_set_menu_option() {
 
 	// Set admin-menu.
 	foreach ( $user_roles as $role ) {
-
-		if ( in_array( $role, $user->roles, FALSE )
+		if ( in_array( $role, $user->roles, TRUE )
 			&& _mw_adminimize_current_user_has_role( $role )
 		) {
 			// Create array about all items with all affected roles.
-			foreach ( $disabled_menu_[ $role ] as $menu_item ) {
+			foreach ( (array) $disabled_menu_[ $role ] as $menu_item ) {
 				$mw_adminimize_menu[] = $menu_item;
 			}
-			foreach ( $disabled_submenu_[ $role ] as $submenu_item ) {
+			foreach ( (array) $disabled_submenu_[ $role ] as $submenu_item ) {
 				$mw_adminimize_submenu[] = $submenu_item;
 			}
 		}
-
 	}
 
 	// Support Multiple Roles for users.
@@ -636,7 +635,7 @@ function _mw_adminimize_set_menu_option() {
 	_mw_adminimize_debug( $mw_adminimize_menu, 'Adminimize, Sub-Menu Slugs to hide after Filter.' );
 
 	// Fallback on users.php on all user roles smaller admin.
-	if ( in_array( 'users.php', $mw_adminimize_menu, FALSE ) ) {
+	if ( in_array( 'users.php', $mw_adminimize_menu, TRUE ) ) {
 		$mw_adminimize_menu[] = 'profile.php';
 	}
 	foreach ( $menu as $key => $item ) {
@@ -645,7 +644,7 @@ function _mw_adminimize_set_menu_option() {
 		if ( isset( $item[ 2 ] ) ) {
 			$menu_slug = $item[ 2 ];
 			// Check, if the Menu item in the current user role settings?
-			if ( in_array( $menu_slug, $mw_adminimize_menu, FALSE )
+			if ( in_array( $menu_slug, $mw_adminimize_menu, TRUE )
 			) {
 				remove_menu_page( $menu_slug );
 				// Prevent access to the page with the slug, there was inactive.
@@ -654,7 +653,7 @@ function _mw_adminimize_set_menu_option() {
 
 			// Sub Menu Settings.
 			if ( isset( $submenu ) && ! empty( $submenu[ $menu_slug ] ) ) {
-				foreach ( $submenu[ $menu_slug ] as $subindex => $subitem ) {
+				foreach ( (array) $submenu[ $menu_slug ] as $subindex => $subitem ) {
 					// Check, if is Sub Menu item in the user role settings?
 					if (
 						isset( $mw_adminimize_submenu )
@@ -664,7 +663,6 @@ function _mw_adminimize_set_menu_option() {
 						)
 					) {
 						remove_submenu_page( $menu_slug, $subitem[ 2 ] );
-						//unset( $submenu[ $menu_slug ][ $subindex ] );
 						// Prevent access to the page with the slug, there was inactive.
 						_mw_adminimize_check_page_access( $subitem[ 2 ] );
 					}
@@ -705,7 +703,7 @@ function _mw_adminimize_set_global_option() {
 
 	// Write global options in an var.
 	foreach ( $user_roles as $role ) {
-		if ( in_array( $role, $user->roles, FALSE ) && _mw_adminimize_current_user_has_role( $role ) ) {
+		if ( in_array( $role, $user->roles, TRUE ) && _mw_adminimize_current_user_has_role( $role ) ) {
 
 			// Create array about all items with all affected roles, important for multiple roles.
 			foreach ( (array) $disabled_global_option_[ $role ] as $global_item ) {
@@ -733,13 +731,13 @@ function _mw_adminimize_set_global_option() {
 }
 
 /**
- * set metabox options from database an area post
+ * Set metabox options from database an area post.
  */
 function _mw_adminimize_set_metabox_post_option() {
 
 	// exclude super admin
 	if ( _mw_adminimize_exclude_super_admin() ) {
-		return NULL;
+		return;
 	}
 
 	// Leave the settings screen from Adminimize to see all areas on settings.
@@ -760,9 +758,9 @@ function _mw_adminimize_set_metabox_post_option() {
 			$disabled_metaboxes_post_[ $role ][ '0' ] = '';
 		}
 
-		// new 1.7.8
+		// New since 1.7.8
 		$user = wp_get_current_user();
-		if ( is_array( $user->roles ) && in_array( $role, $user->roles, FALSE ) ) {
+		if ( is_array( $user->roles ) && in_array( $role, $user->roles, TRUE ) ) {
 			if ( _mw_adminimize_current_user_has_role( $role ) && isset( $disabled_metaboxes_post_[ $role ] )
 				&& is_array(
 					$disabled_metaboxes_post_[ $role ]
@@ -783,7 +781,7 @@ function _mw_adminimize_set_metabox_post_option() {
 }
 
 /**
- * set metabox options from database an area page
+ * Set metabox options from database an area page.
  */
 function _mw_adminimize_set_metabox_page_option() {
 
@@ -810,9 +808,9 @@ function _mw_adminimize_set_metabox_page_option() {
 			$disabled_metaboxes_page_[ $role ][ '0' ] = '';
 		}
 
-		// new 1.7.8
+		// New since 1.7.8
 		$user = wp_get_current_user();
-		if ( is_array( $user->roles ) && in_array( $role, $user->roles, FALSE ) ) {
+		if ( is_array( $user->roles ) && in_array( $role, $user->roles, TRUE ) ) {
 			if ( _mw_adminimize_current_user_has_role( $role )
 				&& isset( $disabled_metaboxes_page_[ $role ] )
 				&& is_array( $disabled_metaboxes_page_[ $role ] )
@@ -832,7 +830,7 @@ function _mw_adminimize_set_metabox_page_option() {
 }
 
 /**
- * set metabox options from database an area post
+ * Set metabox options from database an area post.
  */
 function _mw_adminimize_set_metabox_cp_option() {
 
@@ -882,7 +880,7 @@ function _mw_adminimize_set_metabox_cp_option() {
 		}
 
 		$user = wp_get_current_user();
-		if ( is_array( $user->roles ) && in_array( $role, $user->roles, FALSE ) ) {
+		if ( is_array( $user->roles ) && in_array( $role, $user->roles, TRUE ) ) {
 			if ( _mw_adminimize_current_user_has_role( $role )
 				&& isset( $disabled_metaboxes_[ $current_post_type . '_' . $role ] )
 				&& is_array( $disabled_metaboxes_[ $current_post_type . '_' . $role ] )
@@ -902,7 +900,7 @@ function _mw_adminimize_set_metabox_cp_option() {
 }
 
 /**
- * set link options in area Links of Backend
+ * Set link options in area links of back end.
  */
 function _mw_adminimize_set_link_option() {
 
@@ -932,10 +930,10 @@ function _mw_adminimize_set_link_option() {
 	}
 
 	$link_options = '';
-	// new 1.7.8
+	// New since 1.7.8
 	foreach ( $user_roles as $role ) {
 		$user = wp_get_current_user();
-		if ( is_array( $user->roles ) && in_array( $role, $user->roles, FALSE ) ) {
+		if ( is_array( $user->roles ) && in_array( $role, $user->roles, TRUE ) ) {
 			if ( _mw_adminimize_current_user_has_role( $role )
 				&& isset( $disabled_link_option_[ $role ] )
 				&& is_array( $disabled_link_option_[ $role ] )
@@ -955,7 +953,7 @@ function _mw_adminimize_set_link_option() {
 }
 
 /**
- * remove objects on wp nav menu
+ * Remove objects on wp nav menu.
  */
 function _mw_adminimize_set_nav_menu_option() {
 
@@ -985,10 +983,10 @@ function _mw_adminimize_set_nav_menu_option() {
 	}
 
 	$nav_menu_options = '';
-	// new 1.7.8
+	// New since 1.7.8
 	foreach ( $user_roles as $role ) {
 		$user = wp_get_current_user();
-		if ( is_array( $user->roles ) && in_array( $role, $user->roles, FALSE ) ) {
+		if ( is_array( $user->roles ) && in_array( $role, $user->roles, TRUE ) ) {
 			if ( _mw_adminimize_current_user_has_role( $role )
 				&& isset( $disabled_nav_menu_option_[ $role ] )
 				&& is_array( $disabled_nav_menu_option_[ $role ] )
@@ -997,7 +995,6 @@ function _mw_adminimize_set_nav_menu_option() {
 			}
 		}
 	}
-	//remove_meta_box( $id, 'nav-menus', 'side' );
 
 	$_mw_adminimize_admin_head .= '<!-- Set Adminimize WP Nav Menu options -->' . "\n";
 	$_mw_adminimize_admin_head .= '<style type="text/css">' .
@@ -1042,7 +1039,7 @@ function _mw_adminimize_set_widget_option() {
 	// new 1.7.8
 	foreach ( $user_roles as $role ) {
 		$user = wp_get_current_user();
-		if ( is_array( $user->roles ) && in_array( $role, $user->roles, FALSE ) ) {
+		if ( is_array( $user->roles ) && in_array( $role, $user->roles, TRUE ) ) {
 			if ( _mw_adminimize_current_user_has_role( $role )
 				&& isset( $disabled_widget_option_[ $role ] )
 				&& is_array( $disabled_widget_option_[ $role ] )
@@ -1051,7 +1048,6 @@ function _mw_adminimize_set_widget_option() {
 			}
 		}
 	}
-	//remove_meta_box( $id, 'nav-menus', 'side' );
 
 	$_mw_adminimize_admin_head .= '<!-- Set Adminimize Widget options -->' . "\n";
 	$_mw_adminimize_admin_head .= '<style type="text/css">' .
@@ -1117,10 +1113,10 @@ require_once 'inc-setup/remove-admin-notices.php';
 /**
  * Add action link(s) to plugins page
  *
- * @param $links , $file
- * @param $file
+ * @param  array $links
+ * @param  string $file
  *
- * @return  $links
+ * @return string $links
  */
 function _mw_adminimize_filter_plugin_meta( $links, $file ) {
 
@@ -1180,7 +1176,7 @@ function _mw_adminimize_set_theme() {
 		wp_die( esc_attr__( 'Cheatin&#8217; uh?' ) );
 	}
 
-	$user_ids    = $_POST[ 'mw_adminimize_theme_items' ];
+	$user_ids    = (array) $_POST[ 'mw_adminimize_theme_items' ];
 	$admin_color = htmlspecialchars( stripslashes( $_POST[ '_mw_adminimize_set_theme' ] ) );
 
 	if ( ! $user_ids ) {

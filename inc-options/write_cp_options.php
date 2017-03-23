@@ -4,6 +4,7 @@
  * @subpackage Custom Post type options
  * @author     Frank Bültge
  */
+
 if ( ! function_exists( 'add_action' ) ) {
 	echo "Hi there!  I'm just a part of plugin, not much I can do when called directly.";
 	exit;
@@ -30,8 +31,8 @@ foreach ( get_post_types( $args ) as $post_type ) {
 					<colgroup>
 						<?php
 						$col = 0;
-						foreach ( $user_roles_names as $role_name ) {
-							echo '<col class="col' . $col . '">' . "\n";
+						foreach ( (array) $user_roles_names as $role_name ) {
+							echo '<col class="col' . (int) $col . '">' . "\n";
 							$col ++;
 						}
 						?>
@@ -41,20 +42,18 @@ foreach ( get_post_types( $args ) as $post_type ) {
 						<th><?php esc_attr_e( 'Write options', 'adminimize' );
 							echo ' - ' . $post_type_object->label ?></th>
 						<?php
-						foreach ( $user_roles_names as $role_name ) { ?>
-							<th><?php esc_attr_e( 'Deactivate for', 'adminimize' );
-								echo '<br/>' . $role_name; ?></th>
-						<?php } ?>
+						foreach ( (array) $user_roles_names as $role_name ) {
+							echo '<th>' . esc_attr_e( 'Deactivate for', 'adminimize' )
+						. '<br/>' . esc_attr( $role_name ) . '</th>';
+						} ?>
 					</tr>
 					<tr>
 						<td><?php esc_attr_e( 'Select all', 'adminimize' ); ?></td>
 						<?php
-						foreach ( $user_roles as $role_slug ) {
-							echo '<td class="num">';
-							echo '<input id="select_all" class="write_cp_options_' . $post_type .
-								'_' . $role_slug
-								. '" type="checkbox" name="" value="" />';
-							echo '</td>' . "\n";
+						foreach ( (array) $user_roles as $role_slug ) {
+							echo '<td class="num"><input id="select_all" class="write_cp_options_'
+							     . esc_attr( $post_type ) . '_' . esc_attr( $role_slug )
+								. '" type="checkbox" name="" value="" /></td>' . "\n";
 						} ?>
 					</tr>
 					</thead>
@@ -64,6 +63,7 @@ foreach ( get_post_types( $args ) as $post_type ) {
 					$metaboxes = array(
 						'#contextual-help-link-wrap',
 						'#screen-options-link-wrap',
+						'.page-title-action',
 						'#pageslugdiv',
 						'#tagsdiv,#tagsdivsb,#tagsdiv-post_tag',
 						'#formatdiv',
@@ -134,6 +134,7 @@ foreach ( get_post_types( $args ) as $post_type ) {
 					$metaboxes_names = array(
 						esc_attr__( 'Help' ),
 						esc_attr__( 'Screen Options' ),
+						esc_attr__( 'Add New' ),
 						esc_attr__( 'Permalink', 'adminimize' ),
 						esc_attr__( 'Tags', 'adminimize' ),
 						esc_attr__( 'Format', 'adminimize' ),
@@ -215,14 +216,14 @@ foreach ( get_post_types( $args ) as $post_type ) {
 					foreach ( $metaboxes as $index => $metabox ) {
 						if ( '' !== $metabox ) {
 							$checked_user_role_ = array();
-							foreach ( $user_roles as $role ) {
+							foreach ( (array) $user_roles as $role ) {
 								$disabled_metaboxes_[ $post_type . '_' . $role ] = _mw_adminimize_get_option_value(
 									'mw_adminimize_disabled_metaboxes_' . $post_type . '_' . $role . '_items'
 								);
 								$checked_user_role_[ $post_type . '_' . $role ]  = (
 									isset( $disabled_metaboxes_[ $post_type . '_' . $role ] )
 									&& in_array(
-										$metabox, $disabled_metaboxes_[ $post_type . '_' . $role ], FALSE
+										$metabox, $disabled_metaboxes_[ $post_type . '_' . $role ], TRUE
 									)
 								) ? ' checked="checked"' : '';
 							}
@@ -249,7 +250,7 @@ foreach ( get_post_types( $args ) as $post_type ) {
 				</table>
 
 				<?php
-				//your own post options
+				// Your own post options
 				?>
 				<br style="margin-top: 10px;" />
 				<table summary="config_own_post" class="widefat">
