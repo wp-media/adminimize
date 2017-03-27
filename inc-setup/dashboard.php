@@ -59,6 +59,7 @@ function _mw_adminimize_dashboard_setup() {
 		);
 	}
 
+	$user              = wp_get_current_user();
 	// Support Multiple Roles for users.
 	if ( _mw_adminimize_get_option_value( 'mw_adminimize_multiple_roles' ) && 1 < count( $user->roles ) ) {
 		$disabled_dashboard_option_ = _mw_adminimize_get_duplicate( $disabled_dashboard_option_ );
