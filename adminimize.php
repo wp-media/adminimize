@@ -634,10 +634,14 @@ function _mw_adminimize_set_menu_option() {
 	_mw_adminimize_debug( $mw_adminimize_menu, 'Adminimize, Menu Slugs to hide after Filter.' );
 	_mw_adminimize_debug( $mw_adminimize_menu, 'Adminimize, Sub-Menu Slugs to hide after Filter.' );
 
+	/**
+	 * @ToDo Remove it after feedback from users.
+	 *
 	// Fallback on users.php on all user roles smaller admin.
 	if ( in_array( 'users.php', $mw_adminimize_menu, TRUE ) ) {
 		$mw_adminimize_menu[] = 'profile.php';
 	}
+	 */
 	foreach ( $menu as $key => $item ) {
 
 		// Menu

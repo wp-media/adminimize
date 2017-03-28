@@ -108,6 +108,9 @@ if ( ! function_exists( 'add_action' ) ) {
 					$i = 0;
 					$x = 0;
 
+					/**
+					 * @ToDo Remove it after feedback from users.
+					 *
 					$users = array(
 						0 => 'Profile',
 						1 => 'edit_users',
@@ -117,6 +120,7 @@ if ( ! function_exists( 'add_action' ) ) {
 						5 => 'menu-users',
 						6 => 'div',
 					);
+					 */
 
 					foreach ( $wp_menu as $key => $item ) {
 
@@ -190,6 +194,9 @@ if ( ! function_exists( 'add_action' ) ) {
 							}
 							echo '</tr>';
 
+							/**
+							 * @ToDo Remove it after feedback from users.
+							 *
 							// Only for user smaller administrator, change user-Profile-File.
 							if ( 'users.php' === $menu_slug ) {
 								$x ++;
@@ -205,6 +212,7 @@ if ( ! function_exists( 'add_action' ) ) {
 								}
 								echo '</tr>';
 							}
+							 */
 
 							$x ++;
 
