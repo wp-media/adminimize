@@ -43,9 +43,18 @@ Use the installer via back-end of your install or ...
 1. Settings area in WP 4.5-alpha
 
 == Changelog ==
+1.11.3 ()
+* Fixed custom options to use also fields mit quotes.
+* Added custom dashbaord options to admin head to hide it via css.
+* Added support of multiple roles for dashboard options.
+* Added new option to hide 'Add New' Button on each post type.
+* Fixed ID of Menu to use each link in the full width.
+* Fixed error for check dashboard setup on multiple roles.
+* Removed dependency from users.php to profile.php.
+
 = 1.11.2 (2016-12-04) =
-* Fix backticks for `shell_exec` error.
-* Fix prevent access function for pages.
+* Fixed backticks for `shell_exec` error.
+* Fixed prevent access function for pages.
 
 = 1.11.1 (2016-11-24) =
 * Fix fatal error for WP smaller than 4.7 - Sorry again!
