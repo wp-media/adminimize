@@ -1416,16 +1416,16 @@ function _mw_adminimize_update() {
 
 	// own menu slug
 	if ( isset( $_POST[ '_mw_adminimize_own_menu_slug' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_menu_slug' ] = wp_strip_all_tags(
-			$_POST[ '_mw_adminimize_own_menu_slug' ]
+		$adminimizeoptions[ '_mw_adminimize_own_menu_slug' ] = stripslashes(
+			wp_strip_all_tags( $_POST[ '_mw_adminimize_own_menu_slug' ] )
 		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_menu_slug' ] = '';
 	}
 	// own custom menu slug
 	if ( isset( $_POST[ '_mw_adminimize_own_menu_custom_slug' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_menu_custom_slug' ] = wp_strip_all_tags(
-			$_POST[ '_mw_adminimize_own_menu_custom_slug' ]
+		$adminimizeoptions[ '_mw_adminimize_own_menu_custom_slug' ] = stripslashes(
+			wp_strip_all_tags( $_POST[ '_mw_adminimize_own_menu_custom_slug' ] )
 		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_menu_custom_slug' ] = '';
