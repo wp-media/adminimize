@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file. This projec
 * Fixed ID of Menu to use each link in the full width.
 * Fixed error for check dashboard setup on multiple roles.
 * Removed dependency from users.php to profile.php.
+* Allow attribute selector for custom options, remove slashes in options.
 
 ## [1.11.2](https://github.com/bueltge/Adminimize/compare/1.11.2...1.11.2) - 2016-12-04
 * Fix backticks for `shell_exec` error #59.

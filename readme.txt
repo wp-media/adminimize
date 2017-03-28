@@ -51,6 +51,7 @@ Use the installer via back-end of your install or ...
 * Fixed ID of Menu to use each link in the full width.
 * Fixed error for check dashboard setup on multiple roles.
 * Removed dependency from users.php to profile.php.
+* Allow attribute selector for custom options, remove slashes in options.
 
 = 1.11.2 (2016-12-04) =
 * Fixed backticks for `shell_exec` error.
