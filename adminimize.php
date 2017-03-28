@@ -1238,6 +1238,11 @@ function _mw_adminimize_update_option( $options ) {
 		return FALSE;
 	}
 
+	// Remove slashes always.
+	foreach ( $options as $key => $value ) {
+		$options[ $key ] = stripslashes_deep( $value );
+	}
+
 	// Kill the cache for the settings page.
 	wp_cache_delete( 'mw_adminimize' );
 	if ( _mw_adminimize_is_active_on_multisite() ) {
@@ -1437,7 +1442,7 @@ function _mw_adminimize_update() {
 		// global options
 		if ( isset( $_POST[ 'mw_adminimize_disabled_global_option_' . $role . '_items' ] ) ) {
 			$adminimizeoptions[ 'mw_adminimize_disabled_global_option_' . $role . '_items' ] =
-				$_POST[ 'mw_adminimize_disabled_global_option_' . $role . '_items' ];
+					$_POST[ 'mw_adminimize_disabled_global_option_' . $role . '_items' ];
 		} else {
 			$adminimizeoptions[ 'mw_adminimize_disabled_global_option_' . $role . '_items' ] = array();
 		}
