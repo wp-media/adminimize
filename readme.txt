@@ -44,7 +44,6 @@ Use the installer via back-end of your install or ...
 
 == Changelog ==
 1.11.3 ()
-* Fixed custom options to use also fields mit quotes.
 * Added custom dashbaord options to admin head to hide it via css.
 * Added support of multiple roles for dashboard options.
 * Added new option to hide 'Add New' Button on each post type.
@@ -52,6 +51,7 @@ Use the installer via back-end of your install or ...
 * Fixed error for check dashboard setup on multiple roles.
 * Removed dependency from users.php to profile.php.
 * Allow attribute selector for custom options, remove slashes in options.
+* Change hook for change menu items ot solve order problem with third plugins.
 
 = 1.11.2 (2016-12-04) =
 * Fixed backticks for `shell_exec` error.
