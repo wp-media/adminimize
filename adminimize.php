@@ -1726,17 +1726,18 @@ function _mw_adminimize_install() {
 	wp_cache_add( 'mw_adminimize', $adminimizeoptions );
 }
 
+add_action( 'admin_init', '_mw_adminimize_export_json' );
 /**
  * Process a settings export that generates a .json file of the shop settings
  */
 function _mw_adminimize_export_json() {
 
-	if ( empty( $_GET[ '_mw_adminimize_export' ] ) || 'true' !== $_GET[ '_mw_adminimize_export' ] ) {
+	if ( empty( $_POST[ '_mw_adminimize_export' ] ) || 'true' !== $_POST[ '_mw_adminimize_export' ] ) {
 		return;
 	}
 
 	require_once ABSPATH . 'wp-includes/pluggable.php';
-	if ( ! wp_verify_nonce( $_GET[ 'mw_adminimize_export_nonce' ], 'mw_adminimize_export_nonce' ) ) {
+	if ( ! wp_verify_nonce( $_POST[ 'mw_adminimize_export_nonce' ], 'mw_adminimize_export_nonce' ) ) {
 		return;
 	}
 
@@ -1757,6 +1758,7 @@ function _mw_adminimize_export_json() {
 	exit();
 }
 
+add_action( 'admin_init', '_mw_adminimize_import_json' );
 /**
  * Process a settings import from a json file
  */

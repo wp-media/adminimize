@@ -8,12 +8,13 @@ if ( ! function_exists( 'add_action' ) ) {
 	echo "Hi there!  I'm just a part of plugin, not much I can do when called directly.";
 	exit;
 }
-
+/*
 // Export the options to local client.
 if ( array_key_exists( '_mw_adminimize_export', $_GET ) ) {
-	_mw_adminimize_export_json();
+	add_action( 'admin_init', '_mw_adminimize_export_json' );
+	//_mw_adminimize_export_json();
 	die();
-}
+}*/
 
 function _mw_adminimize_options() {
 	global $wpdb, $_wp_admin_css_colors, $wp_version, $wp_roles, $table_prefix;
