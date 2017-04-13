@@ -40,9 +40,9 @@ function _mw_adminimize_import_json() {
 		return;
 	}
 
-	$path = esc_attr( $_FILES[ 'import_file' ][ 'tmp_name' ] );
-	$type = (string) esc_attr( $_FILES[ 'import_file' ][ 'type' ] );
-	$tmp = explode( '/', $type );
+	$path      = esc_attr( $_FILES[ 'import_file' ][ 'tmp_name' ] );
+	$type      = (string) esc_attr( $_FILES[ 'import_file' ][ 'type' ] );
+	$tmp       = explode( '/', $type );
 	$extension = end( $tmp );
 
 	if ( 'json' !== $extension ) {
