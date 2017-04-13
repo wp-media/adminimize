@@ -1113,6 +1113,10 @@ require_once 'inc-setup/admin-bar-items.php';
 // Remove Admin Notices.
 require_once 'inc-setup/remove-admin-notices.php';
 
+// Add Ex-Import functions.
+require_once 'inc-setup/export.php';
+require_once 'inc-setup/import.php';
+
 /**
  * Add action link(s) to plugins page
  *
@@ -1722,72 +1726,4 @@ function _mw_adminimize_install() {
 		add_option( 'mw_adminimize', $adminimizeoptions );
 	}
 	wp_cache_add( 'mw_adminimize', $adminimizeoptions );
-}
-
-add_action( 'admin_init', '_mw_adminimize_export_json' );
-/**
- * Process a settings export that generates a .json file of the shop settings
- */
-function _mw_adminimize_export_json() {
-
-	if ( empty( $_POST[ '_mw_adminimize_export' ] ) || 'true' !== $_POST[ '_mw_adminimize_export' ] ) {
-		return;
-	}
-
-	require_once ABSPATH . 'wp-includes/pluggable.php';
-	if ( ! wp_verify_nonce( $_POST[ 'mw_adminimize_export_nonce' ], 'mw_adminimize_export_nonce' ) ) {
-		return;
-	}
-
-	if ( ! current_user_can( 'manage_options' ) ) {
-		return;
-	}
-
-	$settings = _mw_adminimize_get_option_value();
-
-	ignore_user_abort( TRUE );
-
-	nocache_headers();
-	header( 'Content-Type: application/json; charset=utf-8' );
-	header( 'Content-Disposition: attachment; filename=mw_adminimize-settings-export-' . date( 'm-d-Y' ) . '.json' );
-	header( 'Expires: 0' );
-
-	echo json_encode( $settings );
-	exit();
-}
-
-add_action( 'admin_init', '_mw_adminimize_import_json' );
-/**
- * Process a settings import from a json file
- */
-function _mw_adminimize_import_json() {
-
-	if ( empty( $_POST[ '_mw_adminimize_action' ] ) || '_mw_adminimize_import' !== $_POST[ '_mw_adminimize_action' ] ) {
-		return;
-	}
-
-	if ( ! wp_verify_nonce( $_POST[ 'mw_adminimize_import_nonce' ], 'mw_adminimize_import_nonce' ) ) {
-		return;
-	}
-
-	if ( ! current_user_can( 'manage_options' ) ) {
-		return;
-	}
-
-	$extension = pathinfo( $_FILES[ 'import_file' ][ 'name' ], PATHINFO_EXTENSION );
-	if ( $extension !== 'json' ) {
-		wp_die( esc_attr__( 'Please upload a valid .json file' ) );
-	}
-
-	$import_file = $_FILES[ 'import_file' ][ 'tmp_name' ];
-
-	if ( empty( $import_file ) ) {
-		wp_die( esc_attr__( 'Please upload a file to import' ) );
-	}
-
-	// Retrieve the settings from the file and convert the json object to an array.
-	$settings = (array) json_decode( file_get_contents( $import_file ) );
-	unlink( $import_file );
-
-	_mw_adminimize_update_option( $settings );
 }

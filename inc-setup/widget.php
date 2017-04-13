@@ -5,6 +5,7 @@
  * @author     Frank Bültge
  * @since      1.8.1  01/10/2013
  */
+
 if ( ! function_exists( 'add_action' ) ) {
 	echo "Hi there!  I'm just a part of plugin, not much I can do when called directly.";
 	exit;
