@@ -256,8 +256,7 @@ function _mw_adminimize_admin_init() {
 	if ( ! isset( $current_post_type ) || empty( $current_post_type ) ) {
 		$current_post_type = _mw_adminimize_get_current_post_type();
 	}
-	if ( ! $current_post_type ) // set hard to post
-	{
+	if ( ! $current_post_type ) { // set hard to post
 		$current_post_type = 'post';
 	}
 
@@ -405,7 +404,6 @@ function _mw_adminimize_admin_init() {
 				remove_action( 'media_buttons', 'media_buttons' );
 			}
 		}
-
 	}
 
 	// set meta-box post option
