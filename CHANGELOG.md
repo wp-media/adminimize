@@ -2,11 +2,14 @@
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.0...HEAD)
-* Fixed custom options to use also fields mit quotes.
 * Added custom dashbaord options to admin head to hide it via css.
 * Added support of multiple roles for dashboard options.
 * Added new option to hide 'Add New' Button on each post type.
 * Fixed ID of Menu to use each link in the full width.
+* Fixed error for check dashboard setup on multiple roles.
+* Removed dependency from users.php to profile.php. #61
+* Allow attribute selector for custom options, remove slashes in options. #65
+* Change hook for change menu items ot solve order problem with third plugins. #68
 
 ## [1.11.2](https://github.com/bueltge/Adminimize/compare/1.11.2...1.11.2) - 2016-12-04
 * Fix backticks for `shell_exec` error #59.

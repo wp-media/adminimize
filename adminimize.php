@@ -434,8 +434,9 @@ function _mw_adminimize_admin_init() {
 	}
 }
 
-// Alternative run the hok admin_head later
-add_action( 'admin_menu', '_mw_adminimize_set_menu_option', 99999 );
+// Change menu via settings of Adminimize.
+add_action( 'custom_menu_order', '_mw_adminimize_set_menu_option', 99999 );
+
 // global_options
 add_action( 'admin_head', '_mw_adminimize_set_global_option', 1 );
 // on admin init
@@ -632,10 +633,14 @@ function _mw_adminimize_set_menu_option() {
 	_mw_adminimize_debug( $mw_adminimize_menu, 'Adminimize, Menu Slugs to hide after Filter.' );
 	_mw_adminimize_debug( $mw_adminimize_menu, 'Adminimize, Sub-Menu Slugs to hide after Filter.' );
 
+	/**
+	 * @ToDo Remove it after feedback from users.
+	 *
 	// Fallback on users.php on all user roles smaller admin.
 	if ( in_array( 'users.php', $mw_adminimize_menu, TRUE ) ) {
 		$mw_adminimize_menu[] = 'profile.php';
 	}
+	 */
 	foreach ( $menu as $key => $item ) {
 
 		// Menu
@@ -1232,6 +1237,11 @@ function _mw_adminimize_update_option( $options ) {
 		return FALSE;
 	}
 
+	// Remove slashes always.
+	foreach ( $options as $key => $value ) {
+		$options[ $key ] = stripslashes_deep( $value );
+	}
+
 	// Kill the cache for the settings page.
 	wp_cache_delete( 'mw_adminimize' );
 	if ( _mw_adminimize_is_active_on_multisite() ) {
@@ -1410,16 +1420,16 @@ function _mw_adminimize_update() {
 
 	// own menu slug
 	if ( isset( $_POST[ '_mw_adminimize_own_menu_slug' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_menu_slug' ] = wp_strip_all_tags(
-			$_POST[ '_mw_adminimize_own_menu_slug' ]
+		$adminimizeoptions[ '_mw_adminimize_own_menu_slug' ] = stripslashes(
+			wp_strip_all_tags( $_POST[ '_mw_adminimize_own_menu_slug' ] )
 		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_menu_slug' ] = '';
 	}
 	// own custom menu slug
 	if ( isset( $_POST[ '_mw_adminimize_own_menu_custom_slug' ] ) ) {
-		$adminimizeoptions[ '_mw_adminimize_own_menu_custom_slug' ] = wp_strip_all_tags(
-			$_POST[ '_mw_adminimize_own_menu_custom_slug' ]
+		$adminimizeoptions[ '_mw_adminimize_own_menu_custom_slug' ] = stripslashes(
+			wp_strip_all_tags( $_POST[ '_mw_adminimize_own_menu_custom_slug' ] )
 		);
 	} else {
 		$adminimizeoptions[ '_mw_adminimize_own_menu_custom_slug' ] = '';
@@ -1431,7 +1441,7 @@ function _mw_adminimize_update() {
 		// global options
 		if ( isset( $_POST[ 'mw_adminimize_disabled_global_option_' . $role . '_items' ] ) ) {
 			$adminimizeoptions[ 'mw_adminimize_disabled_global_option_' . $role . '_items' ] =
-				$_POST[ 'mw_adminimize_disabled_global_option_' . $role . '_items' ];
+					$_POST[ 'mw_adminimize_disabled_global_option_' . $role . '_items' ];
 		} else {
 			$adminimizeoptions[ 'mw_adminimize_disabled_global_option_' . $role . '_items' ] = array();
 		}
@@ -1714,17 +1724,18 @@ function _mw_adminimize_install() {
 	wp_cache_add( 'mw_adminimize', $adminimizeoptions );
 }
 
+add_action( 'admin_init', '_mw_adminimize_export_json' );
 /**
  * Process a settings export that generates a .json file of the shop settings
  */
 function _mw_adminimize_export_json() {
 
-	if ( empty( $_GET[ '_mw_adminimize_export' ] ) || 'true' !== $_GET[ '_mw_adminimize_export' ] ) {
+	if ( empty( $_POST[ '_mw_adminimize_export' ] ) || 'true' !== $_POST[ '_mw_adminimize_export' ] ) {
 		return;
 	}
 
 	require_once ABSPATH . 'wp-includes/pluggable.php';
-	if ( ! wp_verify_nonce( $_GET[ 'mw_adminimize_export_nonce' ], 'mw_adminimize_export_nonce' ) ) {
+	if ( ! wp_verify_nonce( $_POST[ 'mw_adminimize_export_nonce' ], 'mw_adminimize_export_nonce' ) ) {
 		return;
 	}
 
@@ -1745,6 +1756,7 @@ function _mw_adminimize_export_json() {
 	exit();
 }
 
+add_action( 'admin_init', '_mw_adminimize_import_json' );
 /**
  * Process a settings import from a json file
  */

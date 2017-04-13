@@ -15,10 +15,23 @@ if ( ! function_exists( 'add_action' ) ) {
 		<h3 class="hndle" id="import"><?php esc_attr_e( 'Export/Import Options', 'adminimize' ) ?></h3>
 
 		<div class="inside">
-			<br class="clear" />
 
 			<h4><?php esc_attr_e( 'Export', 'adminimize' ) ?></h4>
+			<p><?php esc_attr_e(
+					'You can save a JSON formatted ".json" file with your settings.', 'adminimize'
+				) ?></p>
+			<form method="post">
+				<p><input type="hidden" name="_mw_adminimize_export" value="true" /></p>
+				<p>
+					<?php wp_nonce_field( 'mw_adminimize_export_nonce', 'mw_adminimize_export_nonce' ); ?>
+					<?php
+					$submit_text = esc_html__( 'Export &raquo;', 'adminimize' );
+					submit_button( $submit_text, 'primary', '_mw_adminimize_save', false ); ?>
+				</p>
+			</form>
+			<br class="clear" />
 
+<?php /*
 			<form name="export_options" method="get" action="">
 				<p><?php esc_attr_e(
 						'You can save a JSON formatted ".json" file with your settings.', 'adminimize'
@@ -36,9 +49,8 @@ if ( ! function_exists( 'add_action' ) ) {
 					?>
 				</p>
 			</form>
-
+*/ ?>
 			<h4><?php esc_attr_e( 'Import', 'adminimize' ) ?></h4>
-
 			<form name="import_options" enctype="multipart/form-data" method="post" action="?page=<?php echo esc_attr(
 				$_GET[ 'page' ]
 			); ?>">
