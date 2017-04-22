@@ -502,7 +502,7 @@ function _mw_adminimize_remove_dashboard() {
 			}
 		}
 
-		// redirect option, if Dashboard is inactive
+		// Redirect option, if Dashboard is inactive
 		if ( $redirect ) {
 			$_mw_adminimize_db_redirect           = (int) _mw_adminimize_get_option_value(
 				'_mw_adminimize_db_redirect'
@@ -1155,6 +1155,9 @@ function _mw_adminimize_add_settings_page() {
 	add_action( 'load-' . $pagehook, '_mw_adminimize_on_load_page' );
 }
 
+/**
+ * Enqueue script and styles for the settings page.
+ */
 function _mw_adminimize_on_load_page() {
 
 	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
@@ -1175,6 +1178,7 @@ function _mw_adminimize_on_load_page() {
 /**
  * Set theme for users
  * Kill with version 1.7.18
+ * @ToDo Remove for the feature releases.
  */
 function _mw_adminimize_set_theme() {
 

@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file. This projec
 * Removed dependency from users.php to profile.php. #61
 * Allow attribute selector for custom options, remove slashes in options. #65
 * Change hook for change menu items ot solve order problem with third plugins. #68
+* Remove Set Theme for users option - noit relevant for the plugin, old dependencies.
 
 ## [1.11.2](https://github.com/bueltge/Adminimize/compare/1.11.2...1.11.2) - 2016-12-04
 * Fix backticks for `shell_exec` error #59.
