@@ -241,12 +241,11 @@ function _mw_adminimize_admin_init() {
 
 	global $pagenow, $post_type, $menu, $submenu;
 
+	$post_id = 0;
 	if ( isset( $_GET[ 'post' ] ) && ! is_array( $_GET[ 'post' ] ) ) {
 		$post_id = (int) esc_attr( $_GET[ 'post' ] );
 	} elseif ( isset( $_POST[ 'post_ID' ] ) ) {
 		$post_id = (int) esc_attr( $_POST[ 'post_ID' ] );
-	} else {
-		$post_id = 0;
 	}
 
 	$current_post_type = $post_type;
@@ -286,7 +285,7 @@ function _mw_adminimize_admin_init() {
 	$widget_pages = array( 'widgets.php' );
 
 	foreach ( $user_roles as $role ) {
-		$disabled_global_option_[ $role ]  = _mw_adminimize_get_option_value(
+		$disabled_admin_bar_[ $role ]  = _mw_adminimize_get_option_value(
 			'mw_adminimize_disabled_admin_bar_' . $role . '_items'
 		);
 		$disabled_global_option_[ $role ]  = _mw_adminimize_get_option_value(
@@ -556,10 +555,9 @@ function _mw_adminimize_remove_dashboard() {
 			}
 
 			if ( preg_match( '#wp-admin/?(index.php)?$#', $_SERVER[ 'REQUEST_URI' ] ) ) {
-				wp_redirect( $_mw_adminimize_db_redirect );
+				wp_safe_redirect( $_mw_adminimize_db_redirect );
 			}
 		}
-
 	}
 }
 
@@ -761,7 +759,7 @@ function _mw_adminimize_set_metabox_post_option() {
 			$disabled_metaboxes_post_[ $role ][ '0' ] = '';
 		}
 
-		// New since 1.7.8
+		// New since version 1.7.8.
 		$user = wp_get_current_user();
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles, TRUE ) ) {
 			if ( _mw_adminimize_current_user_has_role( $role ) && isset( $disabled_metaboxes_post_[ $role ] )
@@ -811,7 +809,7 @@ function _mw_adminimize_set_metabox_page_option() {
 			$disabled_metaboxes_page_[ $role ][ '0' ] = '';
 		}
 
-		// New since 1.7.8
+		// New since version 1.7.8.
 		$user = wp_get_current_user();
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles, TRUE ) ) {
 			if ( _mw_adminimize_current_user_has_role( $role )
@@ -847,12 +845,11 @@ function _mw_adminimize_set_metabox_cp_option() {
 		return;
 	}
 
+	$post_id = 0;
 	if ( isset( $_GET[ 'post' ] ) ) {
 		$post_id = (int) $_GET[ 'post' ];
 	} elseif ( isset( $_POST[ 'post_ID' ] ) ) {
 		$post_id = (int) $_POST[ 'post_ID' ];
-	} else {
-		$post_id = 0;
 	}
 
 	$current_post_type = $GLOBALS[ 'post_type' ];
@@ -933,7 +930,6 @@ function _mw_adminimize_set_link_option() {
 	}
 
 	$link_options = '';
-	// New since 1.7.8
 	foreach ( $user_roles as $role ) {
 		$user = wp_get_current_user();
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles, TRUE ) ) {
@@ -986,7 +982,6 @@ function _mw_adminimize_set_nav_menu_option() {
 	}
 
 	$nav_menu_options = '';
-	// New since 1.7.8
 	foreach ( $user_roles as $role ) {
 		$user = wp_get_current_user();
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles, TRUE ) ) {
@@ -1039,7 +1034,6 @@ function _mw_adminimize_set_widget_option() {
 	}
 
 	$widget_options = '';
-	// new 1.7.8
 	foreach ( $user_roles as $role ) {
 		$user = wp_get_current_user();
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles, TRUE ) ) {
@@ -1062,7 +1056,7 @@ function _mw_adminimize_set_widget_option() {
 }
 
 /**
- * small user-info
+ * Print small user-info.
  */
 function _mw_adminimize_small_user_info() {
 
@@ -1120,7 +1114,7 @@ require_once 'inc-setup/import.php';
 /**
  * Add action link(s) to plugins page
  *
- * @param  array $links
+ * @param  array  $links
  * @param  string $file
  *
  * @return string $links
@@ -1131,7 +1125,11 @@ function _mw_adminimize_filter_plugin_meta( $links, $file ) {
 	if ( FB_ADMINIMIZE_BASENAME === $file ) {
 		array_unshift(
 			$links,
-			sprintf( '<a href="options-general.php?page=%s">%s</a>', FB_ADMINIMIZE_BASENAME, esc_attr__( 'Settings' ) )
+			sprintf(
+				'<a href="options-general.php?page=%s">%s</a>',
+				FB_ADMINIMIZE_BASENAME,
+				esc_attr__( 'Settings' )
+			)
 		);
 	}
 
@@ -1139,7 +1137,7 @@ function _mw_adminimize_filter_plugin_meta( $links, $file ) {
 }
 
 /**
- * settings in plugin-admin-page
+ * Add settings in plugin-admin-page.
  */
 function _mw_adminimize_add_settings_page() {
 
@@ -1147,9 +1145,10 @@ function _mw_adminimize_add_settings_page() {
 		esc_attr__( 'Adminimize Options', 'adminimize' ),
 		esc_attr__( 'Adminimize', 'adminimize' ),
 		'manage_options',
-		__FILE__,
+		'adminimize-options',
 		'_mw_adminimize_options'
 	);
+
 	if ( ! is_network_admin() ) {
 		add_filter( 'plugin_action_links', '_mw_adminimize_filter_plugin_meta', 10, 2 );
 	}
