@@ -4,6 +4,7 @@
  * @subpackage Add Hint in Admin Footer
  * @author     Frank Bültge
  */
+
 if ( ! function_exists( 'add_action' ) ) {
 	echo "Hi there!  I'm just a part of plugin, not much I can do when called directly.";
 	exit;

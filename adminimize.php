@@ -320,16 +320,6 @@ function _mw_adminimize_admin_init() {
 	// Backend options
 	// exclude super admin
 	if ( ! _mw_adminimize_exclude_super_admin() && ! _mw_adminimize_exclude_settings_page() ) {
-		$_mw_adminimize_footer = (int) _mw_adminimize_get_option_value( '_mw_adminimize_footer' );
-		switch ( $_mw_adminimize_footer ) {
-			case 1:
-				wp_enqueue_script(
-					'_mw_adminimize_remove_footer',
-					WP_PLUGIN_URL . '/' . FB_ADMINIMIZE_BASEFOLDER . '/js/remove_footer' . $suffix . '.js',
-					array( 'jquery' )
-				);
-				break;
-		}
 
 		$_mw_adminimize_header = (int) _mw_adminimize_get_option_value( '_mw_adminimize_header' );
 		switch ( $_mw_adminimize_header ) {
@@ -1087,6 +1077,7 @@ require_once 'inc-setup/dashboard.php';
 
 // widget options
 require_once 'inc-setup/widget.php';
+require_once 'inc-setup/footer.php';
 require_once 'inc-setup/admin-footer.php';
 
 // global settings

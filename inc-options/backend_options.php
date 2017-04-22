@@ -73,20 +73,21 @@ if ( ! function_exists( 'add_action' ) ) {
 					$disabled_item = ' disabled="disabled"';
 				} ?>
 				<tr valign="top">
-					<td><?php esc_attr_e( 'Change User-Info, redirect to', 'adminimize' ); ?></td>
+					<td><label for="_mw_adminimize_ui_redirect"><?php esc_attr_e( 'Change User-Info, redirect to', 'adminimize' ); ?></td>
 					<td>
 						<?php $_mw_adminimize_ui_redirect = (int) _mw_adminimize_get_option_value(
 							'_mw_adminimize_ui_redirect'
 						); ?>
-						<select name="_mw_adminimize_ui_redirect" <?php if ( isset( $disabled_item ) ) {
-							echo $disabled_item;
-						} ?>>
+						<select name="_mw_adminimize_ui_redirect" id="_mw_adminimize_ui_redirect"
+							<?php if ( isset( $disabled_item ) ) { echo $disabled_item; } ?>>
 							<option value="0"<?php if ( $_mw_adminimize_ui_redirect === 0 ) {
-								echo ' selected="selected"';
-							} ?>><?php esc_attr_e( 'Default', 'adminimize' ); ?></option>
+								echo ' selected="selected"';} ?>>
+								<?php esc_attr_e( 'Default', 'adminimize' ); ?>
+							</option>
 							<option value="1"<?php if ( $_mw_adminimize_ui_redirect === 1 ) {
-								echo ' selected="selected"';
-							} ?>><?php esc_attr_e( 'Frontpage of the Blog', 'adminimize' ); ?>
+								echo ' selected="selected"';} ?>>
+								<?php esc_attr_e( 'Frontpage of the Blog', 'adminimize' ); ?>
+							</option>
 						</select> <?php esc_attr_e(
 							'When the &quot;User-Info-area&quot; change it, then it is possible to change the redirect.',
 							'adminimize'
@@ -94,16 +95,18 @@ if ( ! function_exists( 'add_action' ) ) {
 					</td>
 				</tr>
 				<tr valign="top">
-					<td><?php esc_attr_e( 'Footer', 'adminimize' ); ?></td>
+					<td><label for="_mw_adminimize_footer"><?php esc_attr_e( 'Footer', 'adminimize' ); ?></label></td>
 					<td>
 						<?php $_mw_adminimize_footer = (int) _mw_adminimize_get_option_value( '_mw_adminimize_footer' ); ?>
-						<select name="_mw_adminimize_footer">
-							<option value="0"<?php if ( $_mw_adminimize_footer === 0 ) {
-								echo ' selected="selected"';
-							} ?>><?php esc_attr_e( 'Default', 'adminimize' ); ?></option>
-							<option value="1"<?php if ( $_mw_adminimize_footer === 1 ) {
-								echo ' selected="selected"';
-							} ?>><?php esc_attr_e( 'Hide', 'adminimize' ); ?></option>
+						<select name="_mw_adminimize_footer" id="_mw_adminimize_footer">
+							<option value="0"<?php if ( 0 === $_mw_adminimize_footer ) {
+								echo ' selected="selected"'; } ?>>
+								<?php esc_attr_e( 'Default', 'adminimize' ); ?>
+							</option>
+							<option value="1"<?php if ( 1 === $_mw_adminimize_footer ) {
+								echo ' selected="selected"';} ?>>
+								<?php esc_attr_e( 'Hide', 'adminimize' ); ?>
+							</option>
 						</select> <?php esc_attr_e(
 							'The Footer-area can hide, include all links and details.', 'adminimize'
 						); ?>
@@ -255,4 +258,3 @@ if ( ! function_exists( 'add_action' ) ) {
 		</div>
 	</div>
 </div>
-		
