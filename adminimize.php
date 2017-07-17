@@ -1196,7 +1196,7 @@ function _mw_adminimize_set_theme() {
  *
  * @param string|bool $key
  *
- * @return array
+ * @return string
  */
 function _mw_adminimize_get_option_value( $key = FALSE ) {
 

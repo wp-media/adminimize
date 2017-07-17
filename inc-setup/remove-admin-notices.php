@@ -94,6 +94,7 @@ function _mw_adminimize_remove_admin_notices() {
 	remove_action( 'admin_notices', 'new_user_email_admin_notice' );
 	remove_action( 'admin_notices', 'site_admin_notice' );
 
+	// @ToDo, if we will use this.
 	// Catch all admin notices.
 	add_action( 'admin_notices', function () {
 		ob_start();
