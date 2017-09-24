@@ -44,6 +44,7 @@ function _mw_adminimize_get_admin_bar_nodes() {
 	}
 
 	if ( $all_toolbar_nodes ) {
+
 		// get all options
 		$adminimizeoptions = _mw_adminimize_get_option_value();
 
@@ -100,7 +101,7 @@ function _mw_adminimize_change_admin_bar() {
 
 	$role_prefix = is_admin() ? 'mw_adminimize_disabled_admin_bar_' : 'mw_adminimize_disabled_admin_bar_frontend_';
 
-	foreach( $user_roles as $role ) {
+	foreach ( $user_roles as $role ) {
 		$disabled_admin_bar_option_[] = _mw_adminimize_get_option_value( $role_prefix . $role . '_items' );
 	}
 
