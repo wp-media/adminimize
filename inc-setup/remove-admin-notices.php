@@ -43,7 +43,7 @@ function _mw_adminimize_check_to_remove_admin_notices() {
 
 	// Exclude super admin.
 	if ( _mw_adminimize_exclude_super_admin() ) {
-		return;
+		return false;
 	}
 
 	$user_roles = _mw_adminimize_get_all_user_roles();
@@ -60,7 +60,7 @@ function _mw_adminimize_check_to_remove_admin_notices() {
 		}
 	}
 
-	$remove_admin_notices = FALSE;
+	$remove_admin_notices = false;
 	foreach ( $user_roles as $role ) {
 
 		$user = wp_get_current_user();
@@ -77,7 +77,7 @@ function _mw_adminimize_check_to_remove_admin_notices() {
 		}
 	}
 
-	if ( ! $remove_admin_notices ) {
+	if ( $remove_admin_notices ) {
 		return true;
 	}
 
