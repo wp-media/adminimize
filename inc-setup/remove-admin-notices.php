@@ -96,6 +96,7 @@ function _mw_adminimize_remove_admin_notices() {
 
 	// @ToDo, if we will use this.
 	// Catch all admin notices.
+	/*
 	add_action( 'admin_notices', function () {
 		ob_start();
 	}, PHP_INT_MAX + 1 );
@@ -105,4 +106,5 @@ function _mw_adminimize_remove_admin_notices() {
 		'$1 inline$2',
 		$adm_notices
 	);
+	*/
 }
