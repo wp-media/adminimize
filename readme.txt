@@ -39,9 +39,6 @@ Use the installer via back-end of your install or ...
 3. Activate the plugin through the Plugins menu in WordPress and click Activate.
 4. Administrator can go to `Settings` > `Adminimize` menu and configure the plugin (Menu, Sub-menu, Meta boxes, ...)
 
-== Screenshots ==
-1. Settings area in WP 4.5-alpha
-
 == Changelog ==
 1.11.3 ()
 * Added custom dashbaord options to admin head to hide it via css.
@@ -49,9 +46,13 @@ Use the installer via back-end of your install or ...
 * Added new option to hide 'Add New' Button on each post type.
 * Fixed ID of Menu to use each link in the full width.
 * Fixed error for check dashboard setup on multiple roles.
-* Removed dependency from users.php to profile.php.
-* Allow attribute selector for custom options, remove slashes in options.
-* Change hook for change menu items ot solve order problem with third plugins.
+* Removed dependency from users.php to profile.php. #61
+* Allow attribute selector for custom options, remove slashes in options. #65
+* Change hook for change menu items ot solve order problem with third plugins. #68
+* Remove Set Theme for users option - noit relevant for the plugin, old dependencies.
+* Change selector to remove footer area.
+* Remove Screenshots on readme page, to big, not helpful.
+* Added filter hook `adminimize_nopage_access_message` to change the message for no access to a page. see the [wiki](https://github.com/bueltge/Adminimize/wiki/Filter-Hooks)
 
 = 1.11.2 (2016-12-04) =
 * Fixed backticks for `shell_exec` error.

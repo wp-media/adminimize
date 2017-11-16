@@ -196,5 +196,7 @@ function _mw_adminimize_check_page_access( $slug ) {
  */
 function _mw_adminimize_block_page_access() {
 
-	wp_die( esc_attr__( 'Cheatin&#8217; uh? Sorry, you are not allowed to access this site.', 'adminimize' ) );
+	$message = esc_attr__( 'Cheatin&#8217; uh? Sorry, you are not allowed to access this site.', 'adminimize' );
+	$message = apply_filters( 'adminimize_nopage_access_message', $message );
+	wp_die( $message );
 }
