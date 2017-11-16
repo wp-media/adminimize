@@ -1063,11 +1063,11 @@ function _mw_adminimize_small_user_info() {
 	<?php
 }
 
-// Include message class.
-require_once 'inc-setup/messages.php';
-
 // include helping functions
 require_once 'inc-setup/helping_hands.php';
+
+// Include message class.
+require_once 'inc-setup/messages.php';
 
 // inc. settings page
 require_once 'adminimize_page.php';
