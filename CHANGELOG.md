@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.0...HEAD)
+
+## [1.11.3](https://github.com/bueltge/Adminimize/compare/1.11.2...1.11.3) - 2017-11-16
 * Added custom dashbaord options to admin head to hide it via css.
 * Added support of multiple roles for dashboard options.
 * Added new option to hide 'Add New' Button on each post type.
@@ -15,7 +17,7 @@ All notable changes to this project will be documented in this file. This projec
 * Remove Screenshots on readme page, to big, not helpful.
 * Added filter hook `adminimize_nopage_access_message` to change the message for no access to a page. see the [wiki](https://github.com/bueltge/Adminimize/wiki/Filter-Hooks)
 
-## [1.11.2](https://github.com/bueltge/Adminimize/compare/1.11.2...1.11.2) - 2016-12-04
+## [1.11.2](https://github.com/bueltge/Adminimize/compare/1.11.1...1.11.2) - 2016-12-04
 * Fix backticks for `shell_exec` error #59.
 * Fix prevent access function for pages #51, #57.
 
