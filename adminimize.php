@@ -430,7 +430,6 @@ add_action( 'custom_menu_order', '_mw_adminimize_set_menu_option', 99999 );
 add_action( 'admin_head', '_mw_adminimize_set_global_option', 1 );
 // on admin init
 if ( is_admin() ) {
-	add_action( 'admin_init', '_mw_adminimize_textdomain' );
 	add_action( 'admin_init', '_mw_adminimize_admin_init' );
 	add_action( 'admin_menu', '_mw_adminimize_add_settings_page' );
 	add_action( 'admin_menu', '_mw_adminimize_remove_dashboard' );
@@ -1150,6 +1149,9 @@ function _mw_adminimize_add_settings_page() {
  * Enqueue script and styles for the settings page.
  */
 function _mw_adminimize_on_load_page() {
+
+	// Load translation files on options page.
+	_mw_adminimize_textdomain();
 
 	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
