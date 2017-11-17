@@ -424,7 +424,8 @@ function _mw_adminimize_admin_init() {
 }
 
 // Change menu via settings of Adminimize.
-add_action( 'custom_menu_order', '_mw_adminimize_set_menu_option', 99999 );
+//add_filter( 'custom_menu_order', '__return_true' );
+add_filter( 'admin_menu', '_mw_adminimize_set_menu_option', 99999 );
 
 // global_options
 add_action( 'admin_head', '_mw_adminimize_set_global_option', 1 );
@@ -1068,19 +1069,15 @@ require_once 'inc-setup/helping_hands.php';
 require_once 'inc-setup/messages.php';
 
 // inc. settings page
-//require_once 'adminimize_page.php';
+require_once 'adminimize_page.php';
 
 // dashboard options
-//require_once 'inc-setup/dashboard.php';
+require_once 'inc-setup/dashboard.php';
 
 // widget options
 require_once 'inc-setup/widget.php';
 require_once 'inc-setup/footer.php';
 require_once 'inc-setup/admin-footer.php';
-
-// global settings
-// @TODO Testing, not ready for productive
-//require_once( 'inc-options/settings_notice.php' );
 
 // remove admin bar
 require_once 'inc-setup/remove-admin-bar.php';
