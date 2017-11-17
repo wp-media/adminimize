@@ -108,6 +108,7 @@ function _mw_adminimize_add_user_logout( $wp_admin_bar ) {
 	);
 }
 
+add_action( 'init', '_mw_adminimize_set_logout_menu', 2 );
 /**
  * Change logout, user info link in Admin bar.
  *

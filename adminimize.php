@@ -434,7 +434,6 @@ if ( is_admin() ) {
 	add_action( 'admin_menu', '_mw_adminimize_add_settings_page' );
 	add_action( 'admin_menu', '_mw_adminimize_remove_dashboard' );
 }
-add_action( 'init', '_mw_adminimize_set_logout_menu', 2 );
 
 register_activation_hook( __FILE__, '_mw_adminimize_install' );
 register_uninstall_hook( __FILE__, '_mw_adminimize_uninstall' );
@@ -1069,10 +1068,10 @@ require_once 'inc-setup/helping_hands.php';
 require_once 'inc-setup/messages.php';
 
 // inc. settings page
-require_once 'adminimize_page.php';
+//require_once 'adminimize_page.php';
 
 // dashboard options
-require_once 'inc-setup/dashboard.php';
+//require_once 'inc-setup/dashboard.php';
 
 // widget options
 require_once 'inc-setup/widget.php';
