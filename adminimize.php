@@ -1112,8 +1112,7 @@ function _mw_adminimize_filter_plugin_meta( $links, $file ) {
 		array_unshift(
 			$links,
 			sprintf(
-				'<a href="options-general.php?page=%s">%s</a>',
-				FB_ADMINIMIZE_BASENAME,
+				'<a href="options-general.php?page=adminimize-options">%s</a>',
 				esc_attr__( 'Settings' )
 			)
 		);
