@@ -44,16 +44,32 @@ function _mw_adminimize_import_json() {
 	$type      = (string) esc_attr( $_FILES[ 'import_file' ][ 'type' ] );
 	$tmp       = explode( '/', $type );
 	$extension = end( $tmp );
-
+/*
 	if ( 'json' !== $extension ) {
 		wp_die(
-			esc_attr__( 'Please upload a valid .json file, Extension check.', 'adminimize' )
+			sprintf(
+				esc_attr__( 'Please upload a valid .json file, Extension check. Your file have the extension %s.', 'adminimize' ),
+				$extension
+			)
 		);
 	}
-
+*/var_dump($path);
+var_dump(json_decode($path, true, 32 ));var_dump(json_last_error());
+	if ( json_decode($path, true, 32 ) === null || json_last_error() === JSON_ERROR_NONE ) {
+		wp_die(
+			sprintf(
+				esc_attr__( 'Please upload a valid .json file, Extension check. Your file have the extension %s.', 'adminimize' ),
+				$extension
+			)
+		);
+	}var_dump('test');
+exit;
 	if ( empty( $path ) ) {
 		wp_die(
-			esc_attr__( 'Please upload a file to import, Path check.', 'adminimize' )
+			sprintf(
+				esc_attr__( 'Please upload a file to import, Path check.', 'adminimize' ),
+				$path
+			)
 		);
 	}
 

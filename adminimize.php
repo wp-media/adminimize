@@ -7,7 +7,7 @@
  * Description: Visually compresses the administrative meta-boxes so that more admin page content can be initially seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for all roles of your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible to simplify the admin in different for all roles.
  * Author:      Frank Bültge
  * Author URI:  http://bueltge.de/
- * Version:     1.11.3
+ * Version:     1.11.4-dev
  * License:     GPLv3+
  *
  * Php Version 5.6
@@ -15,7 +15,7 @@
  * @package WordPress
  * @author  Frank Bültge <frank@bueltge.de>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2017-11-16
+ * @version 2017-11-17
  */
 
 /**
@@ -424,7 +424,8 @@ function _mw_adminimize_admin_init() {
 }
 
 // Change menu via settings of Adminimize.
-add_action( 'admin_menu', '_mw_adminimize_set_menu_option', 99999 );
+//add_filter( 'custom_menu_order', '__return_true' );
+add_filter( 'admin_menu', '_mw_adminimize_set_menu_option', 99999 );
 
 // global_options
 add_action( 'admin_head', '_mw_adminimize_set_global_option', 1 );
@@ -434,7 +435,6 @@ if ( is_admin() ) {
 	add_action( 'admin_menu', '_mw_adminimize_add_settings_page' );
 	add_action( 'admin_menu', '_mw_adminimize_remove_dashboard' );
 }
-add_action( 'init', '_mw_adminimize_set_logout_menu', 2 );
 
 register_activation_hook( __FILE__, '_mw_adminimize_install' );
 register_uninstall_hook( __FILE__, '_mw_adminimize_uninstall' );
@@ -1078,10 +1078,6 @@ require_once 'inc-setup/dashboard.php';
 require_once 'inc-setup/widget.php';
 require_once 'inc-setup/footer.php';
 require_once 'inc-setup/admin-footer.php';
-
-// global settings
-// @TODO Testing, not ready for productive
-//require_once( 'inc-options/settings_notice.php' );
 
 // remove admin bar
 require_once 'inc-setup/remove-admin-bar.php';
