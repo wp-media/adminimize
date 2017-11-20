@@ -42,12 +42,16 @@ function _mw_adminimize_export_json() {
 	}
 
 	$settings = _mw_adminimize_get_option_value();
+	$filepath = 'mw_adminimize-settings-export-' . date( 'm-d-Y' ) . '.json';
 
 	ignore_user_abort( TRUE );
 
 	nocache_headers();
+	header( 'Cache-Control: public' );
 	header( 'Content-Type: application/json; charset=utf-8' );
-	header( 'Content-Disposition: attachment; filename=mw_adminimize-settings-export-' . date( 'm-d-Y' ) . '.json' );
+	header( 'Content-Transfer-Encoding: binary' );
+	header( 'Content-Disposition: attachment; filename=' . $filepath );
+	//header( 'Content-Length: ' . filesize( $filepath ) );
 	header( 'Expires: 0' );
 
 	echo wp_json_encode( $settings );
