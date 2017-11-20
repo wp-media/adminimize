@@ -47,13 +47,13 @@ function _mw_adminimize_import_json() {
 
 	if ( 'json' !== $extension ) {
 		wp_die(
-			esc_attr__( 'Please upload a valid .json file', 'adminimize' )
+			esc_attr__( 'Please upload a valid .json file, Extension check.', 'adminimize' )
 		);
 	}
 
 	if ( empty( $path ) ) {
 		wp_die(
-			esc_attr__( 'Please upload a file to import', 'adminimize' )
+			esc_attr__( 'Please upload a file to import, Path check.', 'adminimize' )
 		);
 	}
 

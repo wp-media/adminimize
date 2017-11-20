@@ -424,7 +424,7 @@ function _mw_adminimize_admin_init() {
 }
 
 // Change menu via settings of Adminimize.
-add_action( 'custom_menu_order', '_mw_adminimize_set_menu_option', 99999 );
+add_action( 'admin_menu', '_mw_adminimize_set_menu_option', 99999 );
 
 // global_options
 add_action( 'admin_head', '_mw_adminimize_set_global_option', 1 );
