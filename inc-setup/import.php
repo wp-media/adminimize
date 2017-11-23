@@ -44,7 +44,7 @@ function _mw_adminimize_import_json() {
 	$type      = (string) esc_attr( $_FILES[ 'import_file' ][ 'type' ] );
 	$tmp       = explode( '/', $type );
 	$extension = end( $tmp );
-/*
+
 	if ( 'json' !== $extension ) {
 		wp_die(
 			sprintf(
@@ -53,8 +53,10 @@ function _mw_adminimize_import_json() {
 			)
 		);
 	}
-*/var_dump($path);
-var_dump(json_decode($path, true, 32 ));var_dump(json_last_error());
+
+	/**
+	 * Check for a valid json file, alternate for the extension check.
+	 *
 	if ( json_decode($path, true, 32 ) === null || json_last_error() === JSON_ERROR_NONE ) {
 		wp_die(
 			sprintf(
@@ -62,12 +64,12 @@ var_dump(json_decode($path, true, 32 ));var_dump(json_last_error());
 				$extension
 			)
 		);
-	}var_dump('test');
-exit;
-	if ( empty( $path ) ) {
+	}*/
+
+	if ( empty( $path ) || ! is_readable( $path ) ) {
 		wp_die(
 			sprintf(
-				esc_attr__( 'Please upload a file to import, Path check.', 'adminimize' ),
+				esc_attr__( 'It is not possible to find a file in %s', 'adminimize' ),
 				$path
 			)
 		);
