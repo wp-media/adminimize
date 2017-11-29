@@ -45,26 +45,23 @@ function _mw_adminimize_import_json() {
 	$tmp       = explode( '/', $type );
 	$extension = end( $tmp );
 
-	if ( 'json' !== $extension ) {
+	// Fallback, if we have no file information on server.
+	$extension_types = array( 'octet-stream' );
+	if ( in_array( $extension, $extension_types, false ) ) {
+		$finfo = new finfo(FILEINFO_MIME_TYPE);
+		$extension = $finfo->file( $_FILES[ 'import_file' ][ 'tmp_name' ] );
+	}
+
+	$extension_allow = array( 'json', 'text/plain', 'text/html' );
+	if ( false !== $extension && ! in_array( $extension, $extension_allow, false ) ) {
+		var_dump('test');var_dump($extension);
 		wp_die(
 			sprintf(
 				esc_attr__( 'Please upload a valid .json file, Extension check. Your file have the extension %s.', 'adminimize' ),
-				$extension
+				'<code>' . $extension . '</code>'
 			)
 		);
 	}
-
-	/**
-	 * Check for a valid json file, alternate for the extension check.
-	 *
-	if ( json_decode($path, true, 32 ) === null || json_last_error() === JSON_ERROR_NONE ) {
-	wp_die(
-	sprintf(
-	esc_attr__( 'Please upload a valid .json file, Extension check. Your file have the extension %s.', 'adminimize' ),
-	$extension
-	)
-	);
-	}*/
 
 	if ( empty( $path ) || ! is_readable( $path ) ) {
 		wp_die(
@@ -82,4 +79,5 @@ function _mw_adminimize_import_json() {
 	unlink( $path );
 
 	_mw_adminimize_update_option( $settings );
+	wp_safe_redirect( get_option( 'siteurl' ) . '/wp-admin/options-general.php?page=adminimize-options' );
 }
