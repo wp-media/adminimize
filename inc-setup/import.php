@@ -39,12 +39,15 @@ function _mw_adminimize_import_json() {
 	if ( ! wp_verify_nonce( $_POST[ 'mw_adminimize_import_nonce' ], 'mw_adminimize_import_nonce' ) ) {
 		return;
 	}
+	echo '<pre>';var_dump($_FILES);echo '</pre>';
+	$finfo = new finfo(FILEINFO_MIME_TYPE);
+	echo '<pre>';var_dump($finfo->file($_FILES['import_file']['tmp_name']));echo '</pre>';
 
 	$path      = esc_attr( $_FILES[ 'import_file' ][ 'tmp_name' ] );
 	$type      = (string) esc_attr( $_FILES[ 'import_file' ][ 'type' ] );
 	$tmp       = explode( '/', $type );
 	$extension = end( $tmp );
-/*
+var_dump();
 	if ( 'json' !== $extension ) {
 		wp_die(
 			sprintf(
@@ -53,7 +56,8 @@ function _mw_adminimize_import_json() {
 			)
 		);
 	}
-*/var_dump($path);
+
+/*
 var_dump(json_decode($path, true, 32 ));var_dump(json_last_error());
 	if ( json_decode($path, true, 32 ) === null || json_last_error() === JSON_ERROR_NONE ) {
 		wp_die(
@@ -62,7 +66,7 @@ var_dump(json_decode($path, true, 32 ));var_dump(json_last_error());
 				$extension
 			)
 		);
-	}var_dump('test');
+	}var_dump('test');*/
 exit;
 	if ( empty( $path ) ) {
 		wp_die(
