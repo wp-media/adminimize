@@ -39,15 +39,12 @@ function _mw_adminimize_import_json() {
 	if ( ! wp_verify_nonce( $_POST[ 'mw_adminimize_import_nonce' ], 'mw_adminimize_import_nonce' ) ) {
 		return;
 	}
-	echo '<pre>';var_dump($_FILES);echo '</pre>';
-	$finfo = new finfo(FILEINFO_MIME_TYPE);
-	echo '<pre>';var_dump($finfo->file($_FILES['import_file']['tmp_name']));echo '</pre>';
 
 	$path      = esc_attr( $_FILES[ 'import_file' ][ 'tmp_name' ] );
 	$type      = (string) esc_attr( $_FILES[ 'import_file' ][ 'type' ] );
 	$tmp       = explode( '/', $type );
 	$extension = end( $tmp );
-var_dump();
+
 	if ( 'json' !== $extension ) {
 		wp_die(
 			sprintf(
@@ -57,21 +54,22 @@ var_dump();
 		);
 	}
 
-/*
-var_dump(json_decode($path, true, 32 ));var_dump(json_last_error());
+	/**
+	 * Check for a valid json file, alternate for the extension check.
+	 *
 	if ( json_decode($path, true, 32 ) === null || json_last_error() === JSON_ERROR_NONE ) {
+	wp_die(
+	sprintf(
+	esc_attr__( 'Please upload a valid .json file, Extension check. Your file have the extension %s.', 'adminimize' ),
+	$extension
+	)
+	);
+	}*/
+
+	if ( empty( $path ) || ! is_readable( $path ) ) {
 		wp_die(
 			sprintf(
-				esc_attr__( 'Please upload a valid .json file, Extension check. Your file have the extension %s.', 'adminimize' ),
-				$extension
-			)
-		);
-	}var_dump('test');*/
-exit;
-	if ( empty( $path ) ) {
-		wp_die(
-			sprintf(
-				esc_attr__( 'Please upload a file to import, Path check.', 'adminimize' ),
+				esc_attr__( 'It is not possible to find a file in %s', 'adminimize' ),
 				$path
 			)
 		);
