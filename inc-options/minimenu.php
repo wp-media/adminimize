@@ -118,13 +118,6 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 								'WP Nav Menu', 'adminimize'
 							); ?></a></td>
 				</tr>
-				<!-- @ToDo Remove for the feature releases.
-				<tr>
-					<td class="row-title"><a href="#set_theme"><?php esc_attr_e(
-								'Set Theme', 'adminimize'
-							); ?></a></td>
-				</tr>
-				-->
 				<tr>
 					<td class="row-title"><a href="#import"><?php esc_attr_e(
 								'Export/Import Options', 'adminimize'

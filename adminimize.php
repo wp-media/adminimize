@@ -620,14 +620,6 @@ function _mw_adminimize_set_menu_option() {
 	_mw_adminimize_debug( $mw_adminimize_menu, 'Adminimize, Menu Slugs to hide after Filter.' );
 	_mw_adminimize_debug( $mw_adminimize_menu, 'Adminimize, Sub-Menu Slugs to hide after Filter.' );
 
-	/**
-	 * @ToDo Remove it after feedback from users.
-	 *
-	// Fallback on users.php on all user roles smaller admin.
-	if ( in_array( 'users.php', $mw_adminimize_menu, TRUE ) ) {
-		$mw_adminimize_menu[] = 'profile.php';
-	}
-	 */
 	foreach ( $menu as $key => $item ) {
 
 		// Menu
@@ -1161,31 +1153,6 @@ function _mw_adminimize_on_load_page() {
 		TRUE
 	);
 	wp_enqueue_script( 'adminimize-settings-script' );
-}
-
-/**
- * Set theme for users
- * Kill with version 1.7.18
- * @ToDo Remove for the feature releases.
- */
-function _mw_adminimize_set_theme() {
-
-	if ( ! current_user_can( 'edit_users' ) ) {
-		wp_die( esc_attr__( 'Cheatin&#8217; uh?' ) );
-	}
-
-	$user_ids    = (array) $_POST[ 'mw_adminimize_theme_items' ];
-	$admin_color = htmlspecialchars( stripslashes( $_POST[ '_mw_adminimize_set_theme' ] ) );
-
-	if ( ! $user_ids ) {
-		return FALSE;
-	}
-
-	foreach ( $user_ids as $user_id ) {
-		update_user_meta( $user_id, 'admin_color', $admin_color );
-	}
-
-	return TRUE;
 }
 
 /**

@@ -198,10 +198,6 @@ function _mw_adminimize_options() {
 		<?php
 		do_action( 'mw_adminimize_after_settings_form' );
 
-		// Theme Options
-		// @ToDo Remove for the feature releases.
-		//require_once 'inc-options/theme_options.php';
-
 		// Im/Export Options
 		require_once 'inc-options/im_export_options.php';
 

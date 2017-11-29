@@ -107,21 +107,6 @@ if ( ! function_exists( 'add_action' ) ) {
 
 					$i = 0;
 					$x = 0;
-
-					/**
-					 * @ToDo Remove it after feedback from users.
-					 *
-					$users = array(
-						0 => 'Profile',
-						1 => 'edit_users',
-						2 => 'profile.php',
-						3 => '',
-						4 => 'menu-top',
-						5 => 'menu-users',
-						6 => 'div',
-					);
-					 */
-
 					foreach ( $wp_menu as $key => $item ) {
 
 						$menu_slug = $item[ 2 ];
@@ -193,26 +178,6 @@ if ( ! function_exists( 'add_action' ) ) {
 								     . $menu_slug . '" />' . $disabled_item_adm_hint . '</td>' . "\n";
 							}
 							echo '</tr>';
-
-							/**
-							 * @ToDo Remove it after feedback from users.
-							 *
-							// Only for user smaller administrator, change user-Profile-File.
-							if ( 'users.php' === $menu_slug ) {
-								$x ++;
-								echo '<tr>' . "\n";
-								echo "\t" . '<th>' . esc_attr__( 'Profile' ) . ' <span>(profile.php)</span> </th>';
-								foreach ( $user_roles as $role ) {
-									echo "\t" . '<td class="num"><input disabled="disabled" id="check_menu'
-									     . $role . $x . '" class="menu_options_'
-									     . preg_replace( '/[^a-z0-9_-]+/', '', $role )
-									     . '" type="checkbox"' . $checked_user_role_[ $role ]
-									     . ' name="mw_adminimize_disabled_menu_' . $role
-									     . '_items[]" value="profile.php" /></td>' . "\n";
-								}
-								echo '</tr>';
-							}
-							 */
 
 							$x ++;
 
