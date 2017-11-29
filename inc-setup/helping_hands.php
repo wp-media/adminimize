@@ -81,6 +81,11 @@ function _mw_adminimize_current_user_has_role( $role ) {
  */
 function _mw_adminimize_debug( $data, $description = '' ) {
 
+	// Don't run on export data of Adminimize settings.
+	if ( isset( $_POST[ '_mw_adminimize_export' ] ) ) {
+		return;
+	}
+
 	if ( ! _mw_adminimize_get_option_value( 'mw_adminimize_debug' ) ) {
 		return;
 	}
