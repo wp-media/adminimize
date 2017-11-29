@@ -5,7 +5,7 @@
  * @package    Adminimize
  * @subpackage import
  * @author     Frank Bültge
- * @version    2017-04-13
+ * @version    2017-11-29
  */
 
 if ( ! function_exists( 'add_action' ) ) {
