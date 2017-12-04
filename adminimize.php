@@ -622,11 +622,13 @@ function _mw_adminimize_set_menu_option() {
 
 	foreach ( $menu as $key => $item ) {
 
+		_mw_adminimize_debug( $item, 'Adminimize, Each Menu Item Array to check for hiding.' );
+
 		// Menu
 		if ( isset( $item[ 2 ] ) ) {
 			$menu_slug = $item[ 2 ];
 			// Check, if the Menu item in the current user role settings?
-			if ( in_array( $menu_slug, $mw_adminimize_menu, TRUE )
+			if ( in_array( $menu_slug, $mw_adminimize_menu, false )
 			) {
 				remove_menu_page( $menu_slug );
 				// Prevent access to the page with the slug, there was inactive.
