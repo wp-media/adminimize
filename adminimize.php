@@ -378,12 +378,16 @@ function _mw_adminimize_admin_init() {
 					$disabled_metaboxes_post_all
 				)
 			) {
-				add_filter(
-					'wp_default_editor',
-					function() {
-						return 'tinymce';
-					}
-				);
+				add_filter( 'wp_default_editor', '_mw_admininimize_return_tinmyce' );
+				/**
+				 * Return string tinymce.
+				 * Necessary for php 5.2 usage :(; not possible to use an anonymous function.
+				 *
+				 * @return string
+				 */
+				function _mw_admininimize_return_tinmyce() {
+					return 'tinymce';
+				}
 			}
 
 			// Remove media buttons
