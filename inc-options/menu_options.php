@@ -112,12 +112,13 @@ if ( ! function_exists( 'add_action' ) ) {
 						$menu_slug = $item[ 2 ];
 
 						// non checked items
+						$disabled_item_adm      = '';
 						if ( $menu_slug === 'options-general.php' ) {
 							$disabled_item_adm_hint = '<abbr title="' . esc_attr__(
-									'After activate the checkbox you will loose its easy access in the menu.', 'adminimize'
+									'After activation of this checkbox you will loose the easy access to the settings area inside the menu.', 'adminimize'
 								) . '" style="cursor:pointer;"> ! </acronym>';
 						} else {
-							$disabled_item_adm      = '';
+							
 							$disabled_item_adm_hint = '';
 						}
 
