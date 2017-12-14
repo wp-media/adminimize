@@ -1,9 +1,8 @@
-<?php # -*- coding: utf-8 -*-
+<?php declare( strict_types = 1 ); # -*- coding: utf-8 -*-
+
 namespace Adminimize;
 
-use Inpsyde\Autoload;
-
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+if ( ! \defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	return;
 }
 

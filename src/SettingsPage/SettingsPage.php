@@ -1,4 +1,5 @@
-<?php # -*- coding: utf-8 -*-
+<?php declare( strict_types = 1 ); # -*- coding: utf-8 -*-
+
 namespace Adminimize\SettingsPage;
 
 class SettingsPage implements SettingsPageInterface {
@@ -27,7 +28,7 @@ class SettingsPage implements SettingsPageInterface {
 	 *
 	 * @return string
 	 */
-	public function get_capability() {
+	public function get_capability() : string {
 
 		return $this->capability;
 	}
@@ -37,7 +38,7 @@ class SettingsPage implements SettingsPageInterface {
 	 *
 	 * @return string
 	 */
-	public function get_slug() {
+	public function get_slug() : string {
 
 		return $this->slug;
 	}
