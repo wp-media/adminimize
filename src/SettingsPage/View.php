@@ -50,7 +50,7 @@ class View implements ViewInterface {
 			$menu_title,
 			$capability,
 			$menu_slug,
-			[ $this, 'get_page' ]
+			[ $this, 'render_page' ]
 		);
 	}
 
