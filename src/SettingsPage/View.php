@@ -57,11 +57,8 @@ class View implements ViewInterface {
 	/**
 	 * HTML and Content for the settings page.
 	 */
-	public function get_page() {
+	public function render_page() {
 
-		include $this->settings_page->get_template_path() . '/Templates/SettingsPage.php'
-		?>
-		The Admin Page
-		<?php
+		include $this->settings_page->get_template_path() . '/Templates/SettingsPage.php';
 	}
 }

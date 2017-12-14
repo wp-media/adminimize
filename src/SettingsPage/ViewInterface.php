@@ -14,5 +14,5 @@ interface ViewInterface {
 	/**
 	 * HTML and Content for the settings page.
 	 */
-	public function get_page();
+	public function render_page();
 }
