@@ -25,6 +25,7 @@ add_action( 'plugins_loaded', __NAMESPACE__ . '\init' );
  */
 function init() {
 
+	// @ToDo Switch to Composer autoload; remove /release/src/Autoload
 	$autoload = new Autoload\Autoload();
 	$autoload->add_rule( new Autoload\NamespaceRule( __DIR__ . '/src/', __NAMESPACE__ ) );
 
