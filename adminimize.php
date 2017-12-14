@@ -14,8 +14,6 @@ namespace Adminimize;
 
 ! \defined( 'ABSPATH' ) && exit;
 
-require_once __DIR__ . '/src/Autoload/bootstrap.php';
-
 add_action( 'plugins_loaded', __NAMESPACE__ . '\\init' );
 /**
  * Initialize in the WP circus.
