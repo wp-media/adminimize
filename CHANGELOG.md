@@ -1,7 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.0...HEAD)
+## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.4...HEAD)
+
+## [1.11.4](https://github.com/bueltge/Adminimize/compare/1.11.3...1.11.4) - 2017-12-14
+* Fixed hide of menu items, if you use custom menu, see [wiki page](https://github.com/bueltge/Adminimize/wiki/Custom-Menu-Order)
+* Fixed Import/Export for different server environments.
+* Remove languge file on github, we use always the translation community from wordpress.org
+* Fixed check for settings page of Adminimize, so that we see all options, areas of the install.
 
 ## [1.11.3](https://github.com/bueltge/Adminimize/compare/1.11.2...1.11.3) - 2017-11-16
 * Added custom dashbaord options to admin head to hide it via css.
