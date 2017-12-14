@@ -1,4 +1,5 @@
-<?php # -*- coding: utf-8 -*-
+<?php declare( strict_types = 1 ); # -*- coding: utf-8 -*-
+
 namespace Adminimize\Settings;
 
 class Option {
@@ -13,7 +14,7 @@ class Option {
 	 *
 	 * @return string
 	 */
-	public function get_name() {
+	public function get_name() : string {
 
 		return $this->option_name;
 	}
@@ -23,7 +24,7 @@ class Option {
 	 *
 	 * @param array $default
 	 *
-	 * @return mixed|void
+	 * @return mixed
 	 */
 	public function get( array $default = array() ) {
 

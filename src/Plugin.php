@@ -28,7 +28,7 @@ class Plugin {
 		$option = new Settings\Option();
 
 		// Render the settings page.
-		$settings_page         = new SettingsPage\SettingsPage();
+		$settings_page         = new SettingsPage\SettingsPage( __DIR__ );
 		$settings_page_view    = new SettingsPage\View( $settings_page, $option );
 		$settings_page_control = new SettingsPage\Controller( $settings_page_view );
 		$settings_page_control->init();

@@ -3,6 +3,7 @@
 namespace Adminimize\SettingsPage;
 
 use Adminimize\Settings\Option;
+use function Composer\Autoload\includeFile;
 
 class View implements ViewInterface {
 
@@ -58,6 +59,7 @@ class View implements ViewInterface {
 	 */
 	public function get_page() {
 
+		include $this->settings_page->get_template_path() . '/Templates/SettingsPage.php'
 		?>
 		The Admin Page
 		<?php

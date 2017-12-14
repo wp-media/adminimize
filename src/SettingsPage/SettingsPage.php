@@ -15,12 +15,25 @@ class SettingsPage implements SettingsPageInterface {
 	private $slug;
 
 	/**
-	 * SettingsPageInterface constructor.
+	 * @var
 	 */
-	public function __construct() {
+	private $template_path;
 
+	/**
+	 * SettingsPageInterface constructor.
+	 *
+	 * @param $template_path
+	 */
+	public function __construct( $template_path ) {
+
+		$this->template_path = $template_path;
 		$this->capability = 'manage_options';
 		$this->slug       = 'adminimize';
+	}
+
+	public function get_template_path() : string {
+
+		return $this->template_path;
 	}
 
 	/**
