@@ -20,7 +20,7 @@ add_action( 'plugins_loaded', __NAMESPACE__ . '\\init' );
  */
 function init() {
 
-	$autoload = __DIR__ . 'vendor/autoload.php';
+	$autoload = __DIR__ . '/vendor/autoload.php';
 	if ( file_exists( $autoload ) ) {
 		/** @noinspection PhpIncludeInspection */
 		require_once $autoload;
