@@ -6,8 +6,8 @@ We would create a new solution, important is the maintainance of the source code
 
 - [ ] Usage of https://github.com/Chrico/wp-fields for creating fields and his validation
 
-      - Example: https://github.com/inpsyde/inpsyde-google-tag-manager/blob/master/src/Settings/View/TabbedSettingsPageView.php#L61
-      - Create Fields Example https://github.com/inpsyde/inpsyde-google-tag-manager/blob/master/src/DataLayer/User/UserDataCollector.php#L133-L149
+  - Example: https://github.com/inpsyde/inpsyde-google-tag-manager/blob/master/src/Settings/View/TabbedSettingsPageView.php#L61
+  - Create Fields Example https://github.com/inpsyde/inpsyde-google-tag-manager/blob/master/src/DataLayer/User/UserDataCollector.php#L133-L149
 
 - [ ] Usage of https://github.com/Brain-WP/Nonces for OOP deal with WordPress Nonces
 - [ ] Add Unittests 
