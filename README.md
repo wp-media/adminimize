@@ -6,8 +6,8 @@ We would create a new solution, important is the maintainance of the source code
 
 - [ ] Usage of https://github.com/Chrico/wp-fields for creating fields and his validation
 
-      - Example: https://github.com/inpsyde/inpsyde-google-tag-manager/blob/master/src/Settings/View/TabbedSettingsPageView.php#L61
-      - Create Fields Example: https://github.com/inpsyde/inpsyde-google-tag-manager/blob/master/src/DataLayer/User/UserDataCollector.php#L133-L149
+  - Example: https://github.com/inpsyde/inpsyde-google-tag-manager/blob/master/src/Settings/View/TabbedSettingsPageView.php#L61
+  - Create Fields Example: https://github.com/inpsyde/inpsyde-google-tag-manager/blob/master/src/DataLayer/User/UserDataCollector.php#L133-L149
 
 - [ ] Usage of https://github.com/Brain-WP/Nonces for OOP deal with WordPress Nonces
 - [ ] Add Unittests 
@@ -24,13 +24,13 @@ We should implement in the follow order. Is not a must, however is it helpful to
 - [ ] Each settings area should use a custom class, code so that we can maintain this sepparatly.
 - [ ] Implement settings and his execution for
 
-      - [ ] Adminimize Plugin Settings
-      - [ ] Admin Menu
-      - [ ] Admin Sub Menu
-      - [ ] Widgets for Front End
-      - [ ] Widgets for Dashboard
-      - [ ] Admin Bar Back End
-      - [ ] Admin Bar Front End
-      - [ ] Meta Box and additional areas for each Post Type
-      - [ ] Custom Options for each Settings area
-      - [ ] ...
+  - [ ] Adminimize Plugin Settings
+  - [ ] Admin Menu
+  - [ ] Admin Sub Menu
+  - [ ] Widgets for Front End
+  - [ ] Widgets for Dashboard
+  - [ ] Admin Bar Back End
+  - [ ] Admin Bar Front End
+  - [ ] Meta Box and additional areas for each Post Type
+  - [ ] Custom Options for each Settings area
+  - [ ] ...
