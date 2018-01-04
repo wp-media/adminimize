@@ -23,6 +23,7 @@ We should implement in the follow order. Is not a must, however is it helpful to
 - [ ] Settings page, include Tabs for each settings area. The settings are dynamically, really complex and lot of options for each area and each role. So that we should create a solid settings page, that we enhance via hook, function and each area should use a tab.
 - [ ] Each settings area should use a custom class, code so that we can maintain this sepparatly.
 - [ ] Implement settings and his execution for
+
       - [ ] Adminimize Plugin Settings
       - [ ] Admin Menu
       - [ ] Admin Sub Menu
