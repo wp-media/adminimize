@@ -5,10 +5,73 @@
  * @version 2016-01-06
  */
 
-#minimenu td a {
+/**
+ *	Vertical Tabs
+ */
+.nav-tabs {
+	display: flex;
+}
+.nav-tabs ul {
+	width: 200px;
+	margin: 0;
+}
+.nav-tabs ul li{
+	margin: 0;
+}
+.nav-tabs ul li a {
 	display: block;
+	padding: 10px;
+	text-decoration: none;
+	background: #444;
+	color: #fff;
+	position: relative;
+}
+.nav-tabs ul li a:focus {
+	box-shadow: none;
+}
+.nav-tabs ul a span{
+	display: block;
+	font-size: 10px;
+}
+.nav-tabs ul li.ui-tabs-active a {
+	background: #0073aa;
+}
+.nav-tabs ul li.ui-tabs-active a:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	margin-top: -10px;
+	border-top: 10px solid transparent;
+	border-right: 10px solid #e5e5e5;
+	border-bottom: 10px solid transparent;
+}
+.nav-tabs ul li a:hover {
+	background: #191e23;
+	color: #00b9eb;
+}
+.nav-tabs ul li.ui-tabs-active a:hover {
+	background: #0073aa;
+	color: #fff;
 }
 
+/**
+ *	Tab Content
+ */
+.nav-tabs .tab-content-holder {
+	background: #e5e5e5;
+	padding: 10px;
+	flex-grow: 1;
+}
+.tab-content h3 {
+	margin-top: 0;
+	border-bottom: #ccc 1px solid;
+	padding-bottom: 10px;
+}
+
+/**
+ *	Options table
+ */
 table th, table tr:nth-child(odd) {
 	background: #eee;
 }

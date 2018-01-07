@@ -4,6 +4,9 @@ namespace Adminimize\SettingsPage;
 
 use Adminimize\Settings\Option;
 use function Composer\Autoload\includeFile;
+use Adminimize\SettingsPage\Tabs\AdminBar;
+use Adminimize\SettingsPage\Tabs\Dashboard;
+use Adminimize\SettingsPage\Tabs\Menu;
 
 class View implements ViewInterface {
 
@@ -33,7 +36,7 @@ class View implements ViewInterface {
 		$this->settings_page = $settings_page;
 		$this->option        = $option;
 
-		$this->page_title = esc_html_x( 'Adminimize', 'Settings page title', 'adminimize' );
+		$this->page_title = esc_html_x( 'Adminimize settings', 'Settings page title', 'adminimize' );
 	}
 
 	/**
@@ -59,6 +62,35 @@ class View implements ViewInterface {
 	 */
 	public function render_page() {
 
+		$this->register_scripts_styles();
+
+		$tabs = [
+			new AdminBar(),
+			new Dashboard(),
+			new Menu()
+		];
+
 		include $this->settings_page->get_template_path() . '/Templates/SettingsPage.php';
+	}
+
+
+	/**
+	 * Load the admin scripts and styles
+	 *
+	 * @return    bool
+	 */
+	private function register_scripts_styles(): bool {
+
+		wp_enqueue_script(
+			'adminimize-admin-scripts',
+			plugins_url('../../assets/js/adminimize.js', __FILE__),
+			[ 'jquery-ui-tabs' ]
+		);
+		wp_enqueue_style(
+			'adminimize-admin-styles',
+			plugins_url('../../assets/css/style.css', __FILE__)
+		);
+
+		return TRUE;
 	}
 }

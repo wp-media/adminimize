@@ -22,4 +22,7 @@ jQuery( document ).ready( function( $ ) {
 		e.preventDefault();
 	} );
 
+	// UI Tabs
+	$( '.nav-tabs' ).tabs();
+
 } );
