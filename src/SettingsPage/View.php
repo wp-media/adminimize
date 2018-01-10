@@ -70,6 +70,8 @@ class View implements ViewInterface {
 			new Menu()
 		];
 
+		$tabs = apply_filters( 'adminimize_settings_tabs', $tabs );
+
 		include $this->settings_page->get_template_path() . '/Templates/SettingsPage.php';
 	}
 
@@ -83,12 +85,12 @@ class View implements ViewInterface {
 
 		wp_enqueue_script(
 			'adminimize-admin-scripts',
-			plugins_url('../../assets/js/adminimize.js', __FILE__),
+			plugins_url( '../../assets/js/adminimize.js', __FILE__ ),
 			[ 'jquery-ui-tabs' ]
 		);
 		wp_enqueue_style(
 			'adminimize-admin-styles',
-			plugins_url('../../assets/css/style.css', __FILE__)
+			plugins_url( '../../assets/css/style.css', __FILE__ )
 		);
 
 		return TRUE;

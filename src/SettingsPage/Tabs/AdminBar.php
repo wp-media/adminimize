@@ -28,6 +28,6 @@ class AdminBar implements TabInterface {
 	 * @return string
 	 */
 	public function getContent(): string {
-		return __('<h3>Admin Bar Back end Options</h3>');
+		return '<h3>' . esc_html_x('Admin Bar Back end Options', 'Settings tab title', 'adminimize') . '</h3>';
 	}
 }

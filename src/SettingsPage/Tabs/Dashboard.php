@@ -28,6 +28,6 @@ class Dashboard implements TabInterface {
 	 * @return string
 	 */
 	public function getContent(): string {
-		return __('<h3>Dashboard Options</h3>');
+		return '<h3>' . esc_html_x('Dashboard Options', 'Settings tab title', 'adminimize') . '</h3>';
 	}
 }

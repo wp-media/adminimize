@@ -28,6 +28,6 @@ class Menu implements TabInterface {
 	 * @return string
 	 */
 	public function getContent(): string {
-		return __('<h3>Menu Options</h3>');
+		return '<h3>' . esc_html_x('Menu Options', 'Settings tab title', 'adminimize') . '</h3>';
 	}
 }
