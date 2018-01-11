@@ -29,13 +29,15 @@ install:
   # install all composer dependencies.
   - composer install
 
-script:
-  - vendor/bin/phpunit
+#script:
+#  - vendor/bin/phpunit
 
 jobs:
   include:
   - stage: phpcs
-    script: vendor/bin/phpcs --standard=vendor/inpsyde/php-coding-standards/Inpsyde/ruleset.xml {src,assets,*.php}
+    script:
+    - vendor/bin/phpunit
+    - vendor/bin/phpcs --standard=vendor/inpsyde/php-coding-standards/Inpsyde/ruleset.xml {src,assets,*.php}
     php: 7.0
 
 allow_failures:
