@@ -17,13 +17,13 @@ We would create a new solution, important is the maintainance of the source code
 ## First Steps
 We should implement in the follow order. Is not a must, however is it helpful to start to help me. The source of the current plugin can you find in the [master branch](https://github.com/bueltge/adminimize/tree/master), not fine, more bad, but all features are implement and we should refactor, rewrite this with the same goal.
 
+- [ ] Add CI, Travis to catch bugs, enforce style, and increase confidence in your code before I merge.
 - [ ] Settings are stored in `mw_adminimize` option
 - [ ] Use `WP_Cache` for support with caching environment
 - [ ] Create an idea for usage in a Multisite environment
 - [ ] Settings page, include Tabs for each settings area. The settings are dynamically, really complex and lot of options for each area and each role. So that we should create a solid settings page, that we enhance via hook, function and each area should use a tab.
 - [ ] Each settings area should use a custom class, code so that we can maintain this sepparatly.
 - [ ] Implement settings and his execution for
-
   - [ ] Adminimize Plugin Settings
   - [ ] Admin Menu
   - [ ] Admin Sub Menu

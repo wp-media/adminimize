@@ -12,7 +12,8 @@
   "require": {
     "php": ">=7",
     "chrico/wp-fields": "0.2.0",
-    "brain/nonces": "1.0.3"
+    "brain/nonces": "1.0.3",
+    "dg/composer-cleaner": "^1.1"
   },
   "require-dev": {
     "phpunit/phpunit": "6.3.*",
