@@ -30,6 +30,10 @@ cache:
   - vendor
   - $HOME/.composer/cache
 
+deploy:
+  on:
+    branch: refactor
+
 before_install:
   # disable xDebug.
   - phpenv config-rm xdebug.ini || true
