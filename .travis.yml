@@ -46,5 +46,6 @@ install:
 
 
 script:
-  - vendor/bin/phpcs
+ # - vendor/bin/phpcs
   - vendor/bin/phpunit
+  - vendor/bin/phpcs --standard=/vendor/inpsyde/php-coding-standards/Inpsyde/ruleset.xml
