@@ -2,13 +2,6 @@ language: php
 
 matrix:
   fast_finish: true
-  allow_failures:
-    - php: nightly
-  include:
-    - php: nightly
-    - php: 7.2
-    - php: 7.1
-    - php: 7.0
 
 cache:
   directories:
@@ -35,12 +28,25 @@ install:
 jobs:
   include:
   - stage: phpcs
-    script:
-      - vendor/bin/phpunit
-      - vendor/bin/phpcs --standard=vendor/inpsyde/php-coding-standards/Inpsyde/ruleset.xml {src,assets,*.php}
+    script: vendor/bin/phpcs --standard=vendor/inpsyde/php-coding-standards/Inpsyde/ruleset.xml {src,assets,*.php}
     php: 7.0
+  - stage: phpunit
+    script: vendor/bin/phpunit
+    php: 7.0
+  - stage: phpunit
+    script: vendor/bin/phpunit
+    php: 7.1
+  - stage: phpunit
+    script: vendor/bin/phpunit
+    php: 7.2
+  - stage: phpunit
+    script: vendor/bin/phpunit
+    php: nightly
 
 allow_failures:
   - stage: phpcs
     script: vendor/bin/phpcs --standard=vendor/inpsyde/php-coding-standards/Inpsyde/ruleset.xml {src,assets,*.php}
     php: 7.0
+  - stage: phpunit
+    script: vendor/bin/phpunit
+    php: nightly
