@@ -15,7 +15,6 @@ matrix:
     - php: 7.0
 
 cache:
-  yarn: true
   directories:
   - vendor
   - $HOME/.composer/cache
@@ -33,11 +32,6 @@ before_install:
 install:
   # install all composer dependencies.
   - composer install
-  # install and configure WordPress.
-  #- bin/setup-wp.sh
-  # setup webserver.
-  #- bin/setup-server.sh
-
 
 script:
   - vendor/bin/phpunit
