@@ -30,9 +30,9 @@ cache:
   - vendor
   - $HOME/.composer/cache
 
-deploy:
-  on:
-    branch: refactor
+branches:
+  only:
+    refactor
 
 before_install:
   # disable xDebug.
@@ -52,4 +52,4 @@ install:
 script:
  # - vendor/bin/phpcs
   - vendor/bin/phpunit
-  - vendor/bin/phpcs --standard=/vendor/inpsyde/php-coding-standards/Inpsyde/ruleset.xml
+  - vendor/bin/phpcs --standard=vendor/inpsyde/php-coding-standards/Inpsyde/ruleset.xml
