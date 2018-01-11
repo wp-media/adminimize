@@ -44,9 +44,9 @@ install:
   # install all composer dependencies.
   - composer install
   # install and configure WordPress.
-  - bin/setup-wp.sh
+  #- bin/setup-wp.sh
   # setup webserver.
-  - bin/setup-server.sh
+  #- bin/setup-server.sh
 
 
 script:
