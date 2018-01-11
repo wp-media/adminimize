@@ -10,19 +10,9 @@ matrix:
     - php: nightly
   include:
     - php: nightly
-      env: WORDPRESS_VERSION=nightly
     - php: 7.2
-      env: WORDPRESS_VERSION=latest
     - php: 7.1
-      env: WORDPRESS_VERSION=latest
     - php: 7.0
-      env: WORDPRESS_VERSION=latest
-    - php: 7.0
-      env: WORDPRESS_VERSION=4.8.3
-    - php: 7.0
-      env: WORDPRESS_VERSION=4.7.7
-    - php: 7.0
-      env: WORDPRESS_VERSION=4.6.8
 
 cache:
   yarn: true
@@ -50,6 +40,5 @@ install:
 
 
 script:
- # - vendor/bin/phpcs
   - vendor/bin/phpunit
   - vendor/bin/phpcs --standard=vendor/inpsyde/php-coding-standards/Inpsyde/ruleset.xml {src,assets,*.php}
