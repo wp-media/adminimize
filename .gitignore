@@ -34,8 +34,7 @@ composer.phar
 *.pydevproject
 .project
 .metadata
-tmp/**
-tmp/**/*
+tmp
 *.tmp
 *.bak
 *.swp
