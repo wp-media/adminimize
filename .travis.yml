@@ -1,9 +1,5 @@
 language: php
 
-env:
-  global:
-    - WORDPRESS_DIR=tmp/wordress WORDPRESS_URL=localhost:8080 DB_USER=root DB_PASSWORD='' DB_NAME=dev DB_HOST=localhost
-
 matrix:
   fast_finish: true
   allow_failures:
