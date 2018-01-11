@@ -1,14 +1,22 @@
 language: php
 
+php:
+  - 7.0
+  - 7.1
+  - 7.2
+  - nightly
+
+env: # important!
+
 matrix:
   fast_finish: true
-  allow_failures:
-    - php: nightly
   include:
     - php: nightly
     - php: 7.2
     - php: 7.1
     - php: 7.0
+  allow_failures:
+    - php: nightly
 
 cache:
   directories:
