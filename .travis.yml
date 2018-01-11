@@ -45,8 +45,5 @@ jobs:
 
 allow_failures:
   - stage: phpcs
-    script: vendor/bin/phpcs --standard=vendor/inpsyde/php-coding-standards/Inpsyde/ruleset.xml {src,assets,*.php}
-    php: 7.0
   - stage: phpunit
-    script: vendor/bin/phpunit
     php: nightly
