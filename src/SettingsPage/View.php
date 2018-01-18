@@ -89,39 +89,30 @@ class View implements ViewInterface {
 	 * HTML and Content for the settings page.
 	 */
 	public function render_page() {
-		$this->get_tabs();
+		$this->tabs = $this->instantiate_tabs();
 
 		include $this->settings_page->get_template_path() . '/Templates/SettingsPage.php';
 	}
 
 	/**
-	 * Get instances of all tabs.
+	 * Get and instantiate all Tabs.
 	 *
-	 * @return void
+	 * @return Tabs\TabInterface[] Array of instantiated Tabs.
 	 */
-	private function get_tabs() {
+	private function instantiate_tabs() : array {
 		$tabs = new Tabs\Tabs;
 
 		$tabs_list = $tabs->get_tabs_list();
 
+		$all_tabs = array();
+
 		foreach ( $tabs_list as $tab_class ) {
-			if ( ! is_null( $tab = $this->instantiate_tab( $tab_class ) ) ) {
-				$this->tabs[] = $tab;
+			if ( class_exists( $tab_class ) ) {
+				$tab = new $tab_class( $this->settings_page );
+				$all_tabs[] = $tab;
 			}
 		}
-	}
 
-	/**
-	 * Instantiate single tab if class exists.
-	 *
-	 * @param string $tab_class Class name of Tab to be instantiated
-	 * @return Tabs\TabInterface|null
-	 */
-	private function instantiate_tab( string $tab_class ) : ?Tabs\TabInterface {
-		if ( class_exists( $tab_class ) ) {
-			return new $tab_class( $this->settings_page );
-		} else {
-			return null;
-		}
+		return $all_tabs;
 	}
 }
