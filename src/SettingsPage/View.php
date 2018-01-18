@@ -43,7 +43,6 @@ class View implements ViewInterface {
 
 		$this->settings_page = $settings_page;
 		$this->option        = $option;
-		//$this->tabs          = array();
 
 		$this->page_title    = esc_html_x( 'Adminimize', 'Settings page title', 'adminimize' );
 	}
@@ -68,21 +67,23 @@ class View implements ViewInterface {
 
 	/**
 	 * Enqueue scripts and styles necessary for the Settings Page.
-	 * 
+	 *
 	 * Only executed when the Settings Page is actually displayed.
 	 *
 	 * @return void
 	 */
-	public function enqueue_scripts_styles() {		
+	public function enqueue_scripts_styles() {
 		$screen = get_current_screen();
 
-		if ( $screen->id === 'settings_page_adminimize' ) {
-			wp_enqueue_script(
-				'adminimize_admin',
-				plugins_url( '../../assets/js/adminimize.js', __FILE__ ),
-				[ 'jquery', 'jquery-ui-tabs' ]
-			);
-		}		
+		if ( $screen->id !== 'settings_page_adminimize' ) {
+			return;
+		}
+
+		wp_enqueue_script(
+			'adminimize_admin',
+			plugins_url( '../../assets/js/adminimize.js', __FILE__ ),
+			[ 'jquery', 'jquery-ui-tabs' ]
+		);
 	}
 
 	/**
@@ -105,7 +106,7 @@ class View implements ViewInterface {
 		$tabs_list = $tabs->get_tabs_list();
 
 		foreach ( $tabs_list as $tab_class ) {
-			if ( ! is_null( $tab = $this->instantiate_tab( $tab_class ) ) ) {
+			if ( null !== $tab = $this->instantiate_tab( $tab_class ) ) {
 				$this->tabs[] = $tab;
 			}
 		}
@@ -114,14 +115,15 @@ class View implements ViewInterface {
 	/**
 	 * Instantiate single tab if class exists.
 	 *
-	 * @param string $tab_class Class name of Tab to be instantiated
+	 * @param string $tab_class Class name of Tab to be instantiated.
 	 * @return Tabs\TabInterface|null
 	 */
 	private function instantiate_tab( string $tab_class ) : ?Tabs\TabInterface {
+
 		if ( class_exists( $tab_class ) ) {
 			return new $tab_class( $this->settings_page );
-		} else {
-			return null;
 		}
+
+		return null;
 	}
 }
