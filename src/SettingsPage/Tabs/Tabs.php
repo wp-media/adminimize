@@ -20,9 +20,9 @@ class Tabs implements TabsInterface {
 	public function __construct() {
 
 		$this->tabs = array(
-			'Adminimize\\SettingsPage\\Tabs\\AdminBar',
-			'Adminimize\\SettingsPage\\Tabs\\Dashboard',
-			'Adminimize\\SettingsPage\\Tabs\\AdminMenu',
+			AdminBar::class,
+			Dashboard::class,
+			AdminMenu::class,
 		);
 	}
 
