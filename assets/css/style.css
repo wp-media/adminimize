@@ -61,3 +61,27 @@ th:first-child + th + th + th + th + th + th + th + th + th {
 table.usertheme .num {
 	width: 25px;
 }
+
+#nav-tabs, #nav-tabs ul, #nav-tabs li, #nav-tabs h2 {
+	background: none;
+	border: none;
+}
+#nav-tabs li {
+	margin-left: 5px;
+}
+#nav-tabs ul {
+	border-bottom: 1px solid #ccc;
+	border-radius: 0;
+}
+#nav-tabs .nav-tab-active {
+	border-bottom: none;
+}
+#nav-tabs .ui-tabs-active {
+	border-bottom: 1px solid #f1f1f1;
+	padding-bottom: 0;
+}
+
+#nav-tabs li a {
+	border-bottom: none;
+	margin: 0;
+}

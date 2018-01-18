@@ -82,11 +82,19 @@ class View implements ViewInterface {
 			return;
 		}
 
-		wp_enqueue_script(
+		wp_register_script(
 			'adminimize_admin',
 			plugins_url( '../../assets/js/adminimize.js', __FILE__ ),
 			[ 'jquery', 'jquery-ui-tabs' ]
 		);
+		wp_enqueue_script( 'adminimize_admin' );
+
+		wp_register_style(
+			'adminimize_admin',
+			plugins_url( '../../assets/css/style.css', __FILE__ ),
+			[]
+		);
+		wp_enqueue_style( 'adminimize_admin' );
 	}
 
 	/**
