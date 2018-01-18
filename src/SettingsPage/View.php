@@ -4,7 +4,6 @@ namespace Adminimize\SettingsPage;
 
 use Adminimize\Settings\Option;
 use Adminimize\SettingsPage\Tabs;
-use function Composer\Autoload\includeFile;
 
 /**
  * View for the SettingsPage.
