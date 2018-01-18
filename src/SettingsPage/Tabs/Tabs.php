@@ -18,7 +18,6 @@ class Tabs implements TabsInterface {
             'Adminimize\\SettingsPage\\Tabs\\AdminBar',
             'Adminimize\\SettingsPage\\Tabs\\Dashboard',
             'Adminimize\\SettingsPage\\Tabs\\AdminMenu',
-            'Adminimize\\SettingsPage\\Tabs\\AdminMenuze',
         );
     }
 
