@@ -28,6 +28,17 @@ class Tabs implements TabsInterface {
      * @return array
      */
     public function get_tabs_list() : array {
+        /**
+         * Add Tabs to the SettingsPage.
+         * 
+         * All classes added must implement Adminimize\SettingsPage\Tabs\TabsInterface.
+         * 
+         * @param array $tabs {
+         *      Array of namespaced classes.
+         * 
+         *      $type string $class Namespaced class.
+         * }
+         */
         return apply_filters( 'adminimize_settings_tabs', $this->tabs );
     }
 }
