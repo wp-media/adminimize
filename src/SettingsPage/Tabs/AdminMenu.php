@@ -43,6 +43,7 @@ class AdminMenu implements TabInterface {
 	 */
 	public function render_tab_content() {
 
+		/** @noinspection PhpIncludeInspection */
 		include $this->settings_page->get_template_path() . '/AdminMenu.php';
 	}
 }
