@@ -1,4 +1,4 @@
-<?php declare( strict_types=1 ); # -*- coding: utf-8 -*-
+<?php declare( strict_types = 1 ); # -*- coding: utf-8 -*-
 
 namespace Adminimize\SettingsPage\Tabs;
 
@@ -10,9 +10,9 @@ use Adminimize\SettingsPage;
 class Dashboard implements TabInterface {
 
 	/**
-	 * Holds an instance of the settings page
+	 * Holds an instance of the settings page.
 	 *
-	 * @var SettingsPageInterface
+	 * @var \Adminimize\SettingsPage\SettingsPageInterface
 	 */
 	private $settings_page;
 
@@ -43,6 +43,7 @@ class Dashboard implements TabInterface {
 	 */
 	public function render_tab_content() {
 
-		include $this->settings_page->get_template_path() . '/Templates/Dashboard.php';
+		/** @noinspection PhpIncludeInspection */
+		include $this->settings_page->get_template_path() . '/Dashboard.php';
 	}
 }

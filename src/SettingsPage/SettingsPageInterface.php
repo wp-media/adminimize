@@ -4,6 +4,12 @@ namespace Adminimize\SettingsPage;
 interface SettingsPageInterface {
 
 	/**
+	 * Get the path to the templates.
+	 *
+	 * @return string
+	 */
+	public function get_template_path() : string;
+	/**
 	 * @return string
 	 */
 	public function get_capability() : string;

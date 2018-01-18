@@ -39,6 +39,6 @@ class AdminBar implements TabInterface {
      * @return void
      */
     public function render_tab_content() {
-        include $this->settings_page->get_template_path() . '/Templates/AdminBar.php';
+        include $this->settings_page->get_template_path() . '/AdminBar.php';
     }
 }

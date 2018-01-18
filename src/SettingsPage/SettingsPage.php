@@ -26,11 +26,16 @@ class SettingsPage implements SettingsPageInterface {
 	 */
 	public function __construct( $template_path ) {
 
-		$this->template_path = $template_path;
+		$this->template_path = $template_path . '/Templates';
 		$this->capability = 'manage_options';
 		$this->slug       = 'adminimize';
 	}
 
+	/**
+	 * Get the path to the templates.
+	 *
+	 * @return string
+	 */
 	public function get_template_path() : string {
 
 		return $this->template_path;
