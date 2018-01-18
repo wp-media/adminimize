@@ -120,6 +120,8 @@ class View implements ViewInterface {
 	private function instantiate_tab( string $tab_class ) : ?Tabs\TabInterface {
 		if ( class_exists( $tab_class ) ) {
 			return new $tab_class( $this->settings_page );
+		} else {
+			return null;
 		}
 	}
 }
