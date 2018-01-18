@@ -73,7 +73,11 @@ class View implements ViewInterface {
 	 * @return void
 	 */
 	public function enqueue_scripts_styles() {
+
 		$screen = get_current_screen();
+		if ( null === $screen ) {
+			return;
+		}
 
 		if ( $screen->id !== 'settings_page_adminimize' ) {
 			return;
