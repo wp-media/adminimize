@@ -107,11 +107,9 @@ class View implements ViewInterface {
 	private function instantiate_tabs() : array {
 		$tabs = new Tabs\Tabs();
 
-		$tabs_list = $tabs->get_tabs_list();
+		$all_tabs = [];
 
-		$all_tabs = array();
-
-		foreach ( $tabs_list as $tab_class ) {
+		foreach ( $tabs->get_tabs_list() as $tab_class ) {
 			if ( class_exists( $tab_class ) ) {
 				$tab = new $tab_class( $this->settings_page );
 				$all_tabs[] = $tab;
