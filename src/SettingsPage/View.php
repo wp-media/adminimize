@@ -92,6 +92,7 @@ class View implements ViewInterface {
 	public function render_page() {
 		$this->tabs = $this->instantiate_tabs();
 
+		/** @noinspection PhpIncludeInspection */
 		include $this->settings_page->get_template_path() . '/Templates/SettingsPage.php';
 	}
 
