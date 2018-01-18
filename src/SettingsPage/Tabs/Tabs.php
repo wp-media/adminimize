@@ -2,6 +2,9 @@
 
 namespace Adminimize\SettingsPage\Tabs;
 
+/**
+ * Define Tabs for the Settings Page.
+ */
 class Tabs implements TabsInterface {
     /**
      * Holds all namespaced class names for tabs defined by this class.
@@ -38,6 +41,6 @@ class Tabs implements TabsInterface {
          *      $type string $class Namespaced class.
          * }
          */
-        return apply_filters( 'adminimize_settings_tabs', $this->tabs );
+        return apply_filters( 'adminimize.settings_tabs', $this->tabs );
     }
 }
