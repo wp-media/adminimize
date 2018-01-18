@@ -2,6 +2,9 @@
 
 namespace Adminimize\SettingsPage;
 
+/**
+ * Controller for the SettingsPage.
+ */
 class Controller implements ControllerInterface {
 
 	/**
@@ -25,5 +28,6 @@ class Controller implements ControllerInterface {
 	public function init() {
 
 		add_action( 'admin_menu', [ $this->view, 'add_options_page' ] );
+		add_action( 'admin_enqueue_scripts', [ $this->view, 'enqueue_scripts_styles' ] );
 	}
 }

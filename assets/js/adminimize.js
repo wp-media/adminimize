@@ -7,6 +7,15 @@
 jQuery( document ).ready( function( $ ) {
 	'use strict';
 
+	$( '#nav-tabs' ).tabs();
+
+	$( 'a.nav-tab' ).click( function() {
+		$( 'a.nav-tab' ).each( function() {
+			$( this ).removeClass( 'nav-tab-active' );
+		} );
+		$( this ).addClass( 'nav-tab-active' );
+	} );
+
 	$( 'thead input:checkbox' ).change( function() {
 
 		var className = this.className,
