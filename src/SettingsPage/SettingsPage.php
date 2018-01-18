@@ -2,6 +2,11 @@
 
 namespace Adminimize\SettingsPage;
 
+/**
+ * Class SettingsPage
+ *
+ * @package Adminimize\SettingsPage
+ */
 class SettingsPage implements SettingsPageInterface {
 
 	/**
@@ -15,14 +20,16 @@ class SettingsPage implements SettingsPageInterface {
 	private $slug;
 
 	/**
-	 * @var
+	 * Store path to the templates for each tab.
+	 *
+	 * @var string
 	 */
 	private $template_path;
 
 	/**
 	 * SettingsPageInterface constructor.
 	 *
-	 * @param $template_path
+	 * @param string $template_path
 	 */
 	public function __construct( $template_path ) {
 
