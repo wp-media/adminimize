@@ -117,7 +117,7 @@ class View implements ViewInterface {
 	 * @param string $tab_class Class name of Tab to be instantiated
 	 * @return Tabs\TabInterface|null
 	 */
-	private function instantiate_tab( string $tab_class ) : ?Tabs\TabInterface {
+	private function instantiate_tab( string $tab_class ) {
 		if ( class_exists( $tab_class ) ) {
 			return new $tab_class( $this->settings_page );
 		} else {
