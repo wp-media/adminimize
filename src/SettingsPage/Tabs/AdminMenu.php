@@ -10,9 +10,9 @@ use Adminimize\SettingsPage;
 class AdminMenu implements TabInterface {
 
 	/**
-	 * Holds an instance of the settings page
+	 * Holds an instance of the settings page.
 	 *
-	 * @var SettingsPageInterface
+	 * @var \Adminimize\SettingsPage\SettingsPageInterface
 	 */
 	private $settings_page;
 
