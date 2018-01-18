@@ -105,7 +105,7 @@ class View implements ViewInterface {
 	 * @return Tabs\TabInterface[] Array of instantiated Tabs.
 	 */
 	private function instantiate_tabs() : array {
-		$tabs = new Tabs\Tabs;
+		$tabs = new Tabs\Tabs();
 
 		$tabs_list = $tabs->get_tabs_list();
 
