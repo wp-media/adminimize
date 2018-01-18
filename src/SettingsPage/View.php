@@ -43,7 +43,6 @@ class View implements ViewInterface {
 
 		$this->settings_page = $settings_page;
 		$this->option        = $option;
-		//$this->tabs          = array();
 
 		$this->page_title    = esc_html_x( 'Adminimize', 'Settings page title', 'adminimize' );
 	}
@@ -68,21 +67,23 @@ class View implements ViewInterface {
 
 	/**
 	 * Enqueue scripts and styles necessary for the Settings Page.
-	 * 
+	 *
 	 * Only executed when the Settings Page is actually displayed.
 	 *
 	 * @return void
 	 */
-	public function enqueue_scripts_styles() {		
+	public function enqueue_scripts_styles() {
 		$screen = get_current_screen();
 
-		if ( $screen->id === 'settings_page_adminimize' ) {
-			wp_enqueue_script(
-				'adminimize_admin',
-				plugins_url( '../../assets/js/adminimize.js', __FILE__ ),
-				[ 'jquery', 'jquery-ui-tabs' ]
-			);
-		}		
+		if ( $screen->id !== 'settings_page_adminimize' ) {
+			return;
+		}
+
+		wp_enqueue_script(
+			'adminimize_admin',
+			plugins_url( '../../assets/js/adminimize.js', __FILE__ ),
+			[ 'jquery', 'jquery-ui-tabs' ]
+		);
 	}
 
 	/**
