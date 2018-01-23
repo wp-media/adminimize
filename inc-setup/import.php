@@ -54,7 +54,6 @@ function _mw_adminimize_import_json() {
 
 	$extension_allow = array( 'json', 'text/plain', 'text/html' );
 	if ( false !== $extension && ! in_array( $extension, $extension_allow, false ) ) {
-		var_dump('test');var_dump($extension);
 		wp_die(
 			sprintf(
 				esc_attr__( 'Please upload a valid .json file, Extension check. Your file have the extension %s.', 'adminimize' ),
@@ -79,5 +78,6 @@ function _mw_adminimize_import_json() {
 	unlink( $path );
 
 	_mw_adminimize_update_option( $settings );
-	wp_safe_redirect( get_option( 'siteurl' ) . '/wp-admin/options-general.php?page=adminimize-options' );
+	wp_safe_redirect( esc_url( site_url('/wp-admin/options-general.php?page=adminimize-options') ) );
+	exit();
 }

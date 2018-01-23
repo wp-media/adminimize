@@ -14,7 +14,7 @@ if ( ! is_admin() ) {
 	return;
 }
 
-// If is AJAX Call.
+// If is an AJAX Call.
 if ( defined('DOING_AJAX') && DOING_AJAX ) {
 	return;
 }

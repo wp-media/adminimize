@@ -252,7 +252,7 @@ if ( ! function_exists( 'add_action' ) ) {
 				); ?> &raquo;" /><input type="hidden" name="page_options" value="'dofollow_timeout'" />
 			</p>
 			<p>
-				<a class="alignright button" href="javascript:void(0);" onclick="window.scrollTo(0,0);" style="margin:3px 0 0 30px;"><?php
+                <a class="alignright button adminimize-scroltop" href="#" style="margin:3px 0 0 30px;"><?php
 					esc_attr_e( 'scroll to top', 'adminimize' ); ?></a><br class="clear" />
 			</p>
 		</div>

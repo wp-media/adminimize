@@ -22,4 +22,19 @@ jQuery( document ).ready( function( $ ) {
 		e.preventDefault();
 	} );
 
+    // Close every box other than the first, to keep the page clean.
+    $('.postbox:not(:first)').addClass('closed');
+
+    // Open the box when the user clicks the shortcut
+    $('#minimenu a').on('click',function(e){
+		var ID = $(this).attr('href');
+		$(ID).closest( '.postbox' ).removeClass('closed');
+	});
+
+    // Scroll to top
+	$('.adminimize-scroltop').on('click',function(e){
+		e.preventDefault();
+        $('html,body').animate({scrollTop:0},700);
+	});
+
 } );

@@ -27,9 +27,9 @@
  * Also I hate the source, old and hard to maintain, no OOP.
  */
 
-if ( ! function_exists( 'add_action' ) ) {
-	echo "Hi there!  I'm just a part of plugin, not much I can do when called directly.";
-	exit;
+// A rather more popular way to check if the file is being accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	die( "Hi there!  I'm just a part of plugin, not much I can do when called directly." );
 }
 
 // plugin definitions
@@ -113,7 +113,9 @@ function _mw_adminimize_exclude_settings_page() {
 		$screen_tmp = get_current_screen();
 	}
 
-	if ( isset( $screen_tmp->id ) && null !== $screen_tmp->id ) {
+	// Make sure the used variable is defined. We could also define a $screen_tmp = NULL before
+    // function_exists(), then override it.
+	if ( isset( $screen_tmp ) && isset( $screen_tmp->id ) && null !== $screen_tmp->id ) {
 		$screen = $screen_tmp->id;
 	}
 
@@ -239,7 +241,8 @@ function _mw_adminimize_get_current_post_type() {
  */
 function _mw_adminimize_admin_init() {
 
-	global $pagenow, $post_type, $menu, $submenu;
+    // Removed unused variables
+	global $pagenow, $post_type;
 
 	$post_id = 0;
 	if ( isset( $_GET[ 'post' ] ) && ! is_array( $_GET[ 'post' ] ) ) {
@@ -262,8 +265,7 @@ function _mw_adminimize_admin_init() {
 	// Get all user roles.
 	$user_roles = _mw_adminimize_get_all_user_roles();
 
-	// Get settings.
-	$adminimizeoptions = _mw_adminimize_get_option_value();
+	// Removed unused variable
 
 	// pages for post type Post
 	$def_post_pages              = array( 'edit.php', 'post.php', 'post-new.php' );
@@ -904,6 +906,9 @@ function _mw_adminimize_set_link_option() {
 	$user_roles                = _mw_adminimize_get_all_user_roles();
 	$_mw_adminimize_admin_head = '';
 
+	// Define an empty array to prevent Undefined Index warnings
+	$disabled_link_option_ = [];
+
 	foreach ( $user_roles as $role ) {
 		$disabled_link_option_[ $role ] = _mw_adminimize_get_option_value(
 			'mw_adminimize_disabled_link_option_' . $role . '_items'
@@ -955,6 +960,9 @@ function _mw_adminimize_set_nav_menu_option() {
 
 	$user_roles                = _mw_adminimize_get_all_user_roles();
 	$_mw_adminimize_admin_head = '';
+
+	// Define an empty array to prevent Undefined Index warnings
+	$disabled_nav_menu_option_ = [];
 
 	foreach ( $user_roles as $role ) {
 		$disabled_nav_menu_option_[ $role ] = _mw_adminimize_get_option_value(
@@ -1019,6 +1027,9 @@ function _mw_adminimize_set_widget_option() {
 			$disabled_widget_option_[ $role ][ '0' ] = '';
 		}
 	}
+
+	// Define an empty array to prevent Undefined Index warnings
+	$disabled_widget_option_ = [];
 
 	$widget_options = '';
 	foreach ( $user_roles as $role ) {
@@ -1101,7 +1112,7 @@ require_once 'inc-setup/import.php';
  * @param  array  $links
  * @param  string $file
  *
- * @return string $links
+ * @return array $links
  */
 function _mw_adminimize_filter_plugin_meta( $links, $file ) {
 
@@ -1110,7 +1121,8 @@ function _mw_adminimize_filter_plugin_meta( $links, $file ) {
 		array_unshift(
 			$links,
 			sprintf(
-				'<a href="options-general.php?page=adminimize-options">%s</a>',
+				'<a href="%s/options-general.php?page=adminimize-options">%s</a>',
+				esc_url( untrailingslashit( admin_url() ) ),
 				esc_attr__( 'Settings' )
 			)
 		);
