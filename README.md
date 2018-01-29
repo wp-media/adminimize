@@ -11,6 +11,9 @@ This plugin help you to hide unnecessary items from WordPress admin area.
 Adminimize makes it easy to remove items from view based on a user’s role.
 
 ## Other Notes
+### How to, FAQ
+Please visit the [Wiki](https://github.com/bueltge/adminimize/wiki) on the development repository for known problems and his solutions. Also we list helpful issues, how tos.
+
 ### Help with "Your own options"
 See this [entry on the WP community forum](http://wordpress.org/support/topic/328449 "Plugin: Adminimize Help with Your own options (3 posts)") for help with great functions.
 
