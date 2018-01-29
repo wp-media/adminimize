@@ -12,7 +12,7 @@ if ( ! is_admin() ) {
 }
 
 // If is AJAX Call.
-if ( defined('DOING_AJAX') && DOING_AJAX ) {
+if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 	return;
 }
 
@@ -23,7 +23,7 @@ class _mw_adminimize_message_class {
 	 */
 	public function __construct() {
 
-		$this->errors          = new WP_Error();
+		$this->errors = new WP_Error();
 		$this->initialize_errors();
 	}
 

@@ -81,7 +81,7 @@ if ( ! function_exists( 'add_action' ) ) {
 			</p>
 
 			<p>
-				<a class="alignright button" href="javascript:void(0);"
+                <a class="alignright button adminimize-scroltop" href="#"
 					onclick="window.scrollTo(0,0);" style="margin:3px 0 0 30px;"><?php esc_attr_e(
 						'scroll to top', 'adminimize'
 					); ?></a><br class="clear" />

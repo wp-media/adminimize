@@ -4,9 +4,10 @@
  * @subpackage Settings page
  * @author     Frank Bültge
  */
-if ( ! function_exists( 'add_action' ) ) {
-	echo "Hi there!  I'm just a part of plugin, not much I can do when called directly.";
-	exit;
+
+// A rather more popular way to check if the file is being accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	die( "Hi there!  I'm just a part of plugin, not much I can do when called directly." );
 }
 /*
 // Export the options to local client.
@@ -17,19 +18,15 @@ if ( array_key_exists( '_mw_adminimize_export', $_GET ) ) {
 }*/
 
 function _mw_adminimize_options() {
-	global $wpdb, $_wp_admin_css_colors, $wp_version, $wp_roles, $table_prefix;
 
-	$_mw_adminimize_user_info = 0;
-
-	// get array with userroles
-	// also provide for the other files
-	$user_roles       = _mw_adminimize_get_all_user_roles();
-	$user_roles_names = _mw_adminimize_get_all_user_roles_names();
+	// The removed data is never used.
 
 	// update options
-	if ( ( array_key_exists( '_mw_adminimize_action', $_POST )
+	// Some indenting cleanups
+	if (
+	        ( array_key_exists( '_mw_adminimize_action', $_POST )
 			&& $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_insert' )
-		&& $_POST[ '_mw_adminimize_save' ]
+		    && $_POST[ '_mw_adminimize_save' ]
 	) {
 
 		if ( function_exists( 'current_user_can' ) && current_user_can( 'manage_options' ) ) {
@@ -38,27 +35,34 @@ function _mw_adminimize_options() {
 			_mw_adminimize_update();
 		} else {
 			$myErrors = new _mw_adminimize_message_class();
-			$myErrors = '<div id="message" class="error"><p>' . $myErrors->get_error(
-					'_mw_adminimize_access_denied'
-				) . '</p></div>';
+			$myErrors = '<div id="message" class="error"><p>' .
+                        $myErrors->get_error(
+                            '_mw_adminimize_access_denied'
+				        ) .
+                        '</p></div>';
 			wp_die( $myErrors );
+
+			// Some indenting cleanups
 		}
 	}
 
 	// import options
-	if ( ( array_key_exists( '_mw_adminimize_action', $_POST )
+	// Some indenting cleanups
+	if (
+	        ( array_key_exists( '_mw_adminimize_action', $_POST )
 			&& $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_import' )
-		&& $_POST[ '_mw_adminimize_save' ]
+		    && $_POST[ '_mw_adminimize_save' ]
 	) {
 
 		_mw_adminimize_import_json();
 	}
 
 	// Uninstall options
-	if ( ( array_key_exists( '_mw_adminimize_action', $_POST )
-		&& $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_uninstall' )
-		&& ! array_key_exists( '_mw_adminimize_uninstall_yes', $_POST )
-
+	// Some indenting cleanups
+	if (
+	        ( array_key_exists( '_mw_adminimize_action', $_POST )
+		    && $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_uninstall' )
+		    && ! array_key_exists( '_mw_adminimize_uninstall_yes', $_POST )
 	) {
 		$myErrors = new _mw_adminimize_message_class();
 		$myErrors = '<div id="message" class="error"><p>' . $myErrors->get_error(
@@ -67,11 +71,13 @@ function _mw_adminimize_options() {
 		wp_die( $myErrors );
 	}
 
-	if ( ( array_key_exists( '_mw_adminimize_action', $_POST )
-		&& array_key_exists( '_mw_adminimize_uninstall_yes', $_POST )
-		&& $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_uninstall' )
-		&& $_POST[ '_mw_adminimize_uninstall' ]
-		&& $_POST[ '_mw_adminimize_uninstall_yes' ] === '_mw_adminimize_uninstall'
+	// Some indenting cleanups
+	if (
+	        ( array_key_exists( '_mw_adminimize_action', $_POST )
+		    && array_key_exists( '_mw_adminimize_uninstall_yes', $_POST )
+		    && $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_uninstall' )
+		    && $_POST[ '_mw_adminimize_uninstall' ]
+		    && $_POST[ '_mw_adminimize_uninstall_yes' ] === '_mw_adminimize_uninstall'
 	) {
 		if ( function_exists( 'current_user_can' ) && current_user_can( 'manage_options' ) ) {
 			check_admin_referer( 'mw_adminimize_nonce' );
@@ -93,46 +99,59 @@ function _mw_adminimize_options() {
 	}
 
 	// load theme user data
-	if ( ( array_key_exists( '_mw_adminimize_action', $_POST )
+	// Some indenting cleanups
+	if (
+	        ( array_key_exists( '_mw_adminimize_action', $_POST )
 			&& $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_load_theme' )
-		&& $_POST[ '_mw_adminimize_load' ]
+		    && $_POST[ '_mw_adminimize_load' ]
 	) {
 		if ( function_exists( 'current_user_can' ) && current_user_can( 'edit_users' ) ) {
 			check_admin_referer( 'mw_adminimize_nonce' );
 
 			$myErrors = new _mw_adminimize_message_class();
-			$myErrors = '<div id="message" class="updated fade"><p>' . $myErrors->get_error(
-					'_mw_adminimize_load_theme'
-				) . '</p></div>';
+			$myErrors = '<div id="message" class="updated fade"><p>' .
+                        $myErrors->get_error(
+					    '_mw_adminimize_load_theme'
+				        ) .
+                        '</p></div>';
 			echo $myErrors;
 		} else {
 			$myErrors = new _mw_adminimize_message_class();
-			$myErrors = '<div id="message" class="error"><p>' . $myErrors->get_error(
-					'_mw_adminimize_access_denied'
-				) . '</p></div>';
+			$myErrors = '<div id="message" class="error"><p>' .
+                        $myErrors->get_error(
+                            '_mw_adminimize_access_denied'
+				        ) .
+                        '</p></div>';
 			wp_die( $myErrors );
 		}
 	}
 
-	if ( ( array_key_exists( '_mw_adminimize_action', $_POST )
+	// Some indenting cleanups
+	if (
+	        ( array_key_exists( '_mw_adminimize_action', $_POST )
 			&& $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_set_theme' )
-		&& $_POST[ '_mw_adminimize_save' ]
+		    && $_POST[ '_mw_adminimize_save' ]
 	) {
 		if ( function_exists( 'current_user_can' ) && current_user_can( 'edit_users' ) ) {
 			check_admin_referer( 'mw_adminimize_nonce' );
 
-			_mw_adminimize_set_theme();
+			// _mw_adminimize_set_theme();
+            // This function isn't defined anywhere.
 
 			$myErrors = new _mw_adminimize_message_class();
-			$myErrors = '<div id="message" class="updated fade"><p>' . $myErrors->get_error(
-					'_mw_adminimize_set_theme'
-				) . '</p></div>';
+			$myErrors = '<div id="message" class="updated fade"><p>' .
+                        $myErrors->get_error(
+					    '_mw_adminimize_set_theme'
+				        ) .
+                        '</p></div>';
 			echo $myErrors;
 		} else {
 			$myErrors = new _mw_adminimize_message_class();
-			$myErrors = '<div id="message" class="error"><p>' . $myErrors->get_error(
-					'_mw_adminimize_access_denied'
-				) . '</p></div>';
+			$myErrors = '<div id="message" class="error"><p>' .
+                        $myErrors->get_error(
+					    '_mw_adminimize_access_denied'
+				        ) .
+                        '</p></div>';
 			wp_die( $myErrors );
 		}
 	}
@@ -144,9 +163,7 @@ function _mw_adminimize_options() {
 		// Backend Options for all roles
 		require_once 'inc-options/minimenu.php';
 		?>
-		<form name="backend_option" method="post" id="_mw_adminimize_options" action="?page=<?php echo esc_attr(
-			$_GET[ 'page' ]
-		); ?>">
+		<form name="backend_option" method="post" id="_mw_adminimize_options" action="?page=<?php echo esc_attr( $_GET[ 'page' ] ); ?>">
 			<?php
 			// Adminimize Settings for the plugin.
 			require_once 'inc-options/self_settings.php';

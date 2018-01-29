@@ -19,7 +19,7 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 <h2><?php esc_attr_e( 'Adminimize', 'adminimize' );
 	echo ' ' . $message; ?></h2>
 <br class="clear" />
-<div id="poststuff" class="ui-sortable meta-box-sortables">
+<div id="poststuff" class="ui-sortable meta-box-sortables"><!-- The ID should be unique. Right now, all the option panels are sharing the $poststuff ID-->
 	<div id="minimenu" class="postbox ">
 		<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle', 'adminimize' ); ?>"><br /></div>
 		<h3 class="hndle" id="menu"><?php esc_attr_e( 'MiniMenu', 'adminimize' ) ?></h3>
@@ -203,7 +203,7 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 			<p>&copy; Copyright 2008 - <?php echo date( 'Y' ); ?> <a href="http://bueltge.de">Frank B&uuml;ltge</a></p>
 
 			<p>
-				<a class="alignright button" href="javascript:void(0);" onclick="window.scrollTo(0,0);" style="margin:3px 0 0 30px;"><?php esc_attr_e(
+                <a class="alignright button adminimize-scroltop" href="#" style="margin:3px 0 0 30px;"><?php esc_attr_e(
 						'scroll to top', 'adminimize'
 					); ?></a><br class="clear" /></p>
 		</div>
