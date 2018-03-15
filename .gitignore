@@ -15,6 +15,12 @@
 *.ipr
 *.iws
 *.iml
+*.sh
+*.lock
+
+## Composer
+composer.phar
+/vendor/
 
 ## Additional for IntelliJ
 out/
