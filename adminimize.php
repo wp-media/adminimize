@@ -696,6 +696,7 @@ function _mw_adminimize_set_global_option() {
 		if ( in_array( $role, $user->roles, TRUE ) && _mw_adminimize_current_user_has_role( $role ) ) {
 
 			// Create array about all items with all affected roles, important for multiple roles.
+            // Important fpr array_unique(); there not support multidimensional array.
 			foreach ( (array) $disabled_global_option_[ $role ] as $global_item ) {
 				$disabled_global_option[] = $global_item;
 			}
@@ -706,6 +707,7 @@ function _mw_adminimize_set_global_option() {
 	if ( _mw_adminimize_get_option_value( 'mw_adminimize_multiple_roles' ) && 1 < count( $user->roles ) ) {
 		$disabled_global_option = _mw_adminimize_get_duplicate( $disabled_global_option );
 	}
+
 	$global_options = implode( ', ', $disabled_global_option );
 
 	if ( 0 === strpos( $global_options, '#your-profile .form-table fieldset' ) ) {

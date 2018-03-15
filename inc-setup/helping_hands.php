@@ -112,9 +112,7 @@ function _mw_adminimize_debug( $data, $description = '' ) {
  */
 function _mw_adminimize_get_duplicate( $array ) {
 
-	return array_unique(
-		array_diff_assoc( $array, array_unique( $array ) )
-	);
+	return array_unique( array_diff_assoc( $array, array_unique( $array ) ) );
 }
 
 /**
