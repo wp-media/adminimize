@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.4...HEAD)
+* Fixed: Dashboard removels for multible roles.
+* Fixed: settings link.
+* Maintenance: More solid page checks, codex issues.
+* Maintenance: Remove Javascript for the settings page for scrolling top, simplify.
+* Fixed: A little bid spelling is now fixed.
+* Feauture: Close every box other than the first, to keep the page clean.
 
 ## [1.11.4](https://github.com/bueltge/Adminimize/compare/1.11.3...1.11.4) - 2017-12-14
 * Fixed hide of menu items, if you use custom menu, see [wiki page](https://github.com/bueltge/Adminimize/wiki/Custom-Menu-Order)
