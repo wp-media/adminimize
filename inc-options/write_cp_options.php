@@ -132,9 +132,9 @@ foreach ( get_post_types( $args ) as $post_type ) {
 					$metaboxes       = array_merge( $metaboxes, $quickedit_areas );
 
 					$metaboxes_names = array(
-						esc_attr__( 'Help' ),
-						esc_attr__( 'Screen Options' ),
-						esc_attr__( 'Add New' ),
+						esc_attr__( 'Help', 'adminimize' ),
+						esc_attr__( 'Screen Options', 'adminimize' ),
+						esc_attr__( 'Add New', 'adminimize' ),
 						esc_attr__( 'Permalink', 'adminimize' ),
 						esc_attr__( 'Tags', 'adminimize' ),
 						esc_attr__( 'Format', 'adminimize' ),
@@ -148,8 +148,8 @@ foreach ( get_post_types( $args ) as $post_type ) {
 						esc_attr__( 'Word count', 'adminimize' ),
 						esc_attr__( 'Post Slug', 'adminimize' ),
 						esc_attr__( 'Publish Actions', 'adminimize' ),
-						esc_attr__( 'Discussion' ),
-						esc_attr__( 'HTML Editor Button' ),
+						esc_attr__( 'Discussion', 'adminimize' ),
+						esc_attr__( 'HTML Editor Button', 'adminimize' ),
 					);
 
 					if ( ! empty( $GLOBALS[ '_wp_post_type_features' ][ $post_type ] ) ) {

@@ -24,7 +24,7 @@ if ( ! function_exists( 'add_action' ) ) {
 				); ?>">
 					<?php wp_nonce_field( 'mw_adminimize_nonce' ); ?>
 					<p><?php esc_attr_e(
-							'For better peformance on sites with many users, you should load userlist data before making any changes in the theme options for users.',
+							'For better performance on sites with many users, you should load userlist data before making any changes in the theme options for users.',
 							'adminimize'
 						); ?></p>
 
