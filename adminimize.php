@@ -870,7 +870,7 @@ function _mw_adminimize_set_metabox_cp_option() {
 
 	$user_roles                = _mw_adminimize_get_all_user_roles();
 	$_mw_adminimize_admin_head = '';
-	$metaboxes                 = '';
+	$metaboxes                 = [];
 
 	foreach ( $user_roles as $role ) {
 		$disabled_metaboxes_[ $current_post_type . '_' . $role ] = _mw_adminimize_get_option_value(
@@ -879,22 +879,24 @@ function _mw_adminimize_set_metabox_cp_option() {
 
 		if ( ! isset( $disabled_metaboxes_[ $current_post_type . '_' . $role ][ '0' ] ) ) {
 			$disabled_metaboxes_[ $current_post_type . '_' . $role ][ '0' ] = '';
+
+			continue;
 		}
 
-		$user = wp_get_current_user();
+		$user = $GLOBALS['current_user'];
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles, TRUE ) ) {
 			if ( _mw_adminimize_current_user_has_role( $role )
-				&& isset( $disabled_metaboxes_[ $current_post_type . '_' . $role ] )
-				&& is_array( $disabled_metaboxes_[ $current_post_type . '_' . $role ] )
+			     && isset( $disabled_metaboxes_[ $current_post_type . '_' . $role ] )
+			     && is_array( $disabled_metaboxes_[ $current_post_type . '_' . $role ] )
 			) {
-				$metaboxes = implode( ',', $disabled_metaboxes_[ $current_post_type . '_' . $role ] );
+				$metaboxes[] = implode( ',', $disabled_metaboxes_[ $current_post_type . '_' . $role ] );
 			}
 		}
 	}
 
 	$_mw_adminimize_admin_head .= '<!-- Set Adminimize post options -->' . "\n";
 	$_mw_adminimize_admin_head .= '<style type="text/css">' .
-	                              $metaboxes . ' {display:none !important;}</style>' . "\n";
+	                              implode(',', $metaboxes) . ' {display:none !important;}</style>' . "\n";
 
 	if ( ! empty( $metaboxes ) ) {
 		echo $_mw_adminimize_admin_head;
