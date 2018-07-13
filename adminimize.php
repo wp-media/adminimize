@@ -7,7 +7,7 @@
  * Description: Visually compresses the administrative meta-boxes so that more admin page content can be initially seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for all roles of your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible to simplify the admin in different for all roles.
  * Author:      Frank Bültge
  * Author URI:  http://bueltge.de/
- * Version:     1.11.4
+ * Version:     1.11.5-dev
  * License:     GPLv3+
  *
  * Php Version 5.6
@@ -220,13 +220,13 @@ function _mw_adminimize_get_current_post_type() {
 	if ( $post && $post->post_type ) {
 		return $post->post_type;
 	} // Check the global $typenow - set in admin.php
-    elseif ( $typenow ) {
+	elseif ( $typenow ) {
 		return $typenow;
 	} // check the global $current_screen object - set in sceen.php
-    elseif ( $current_screen && $current_screen->post_type ) {
+	elseif ( $current_screen && $current_screen->post_type ) {
 		return $current_screen->post_type;
 	} // lastly check the post_type querystring
-    elseif ( isset( $_REQUEST[ 'post_type' ] ) ) {
+	elseif ( isset( $_REQUEST['post_type'] ) ) {
 		return sanitize_key( $_REQUEST[ 'post_type' ] );
 	}
 
@@ -884,8 +884,8 @@ function _mw_adminimize_set_metabox_cp_option() {
 		$user = wp_get_current_user();
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles, TRUE ) ) {
 			if ( _mw_adminimize_current_user_has_role( $role )
-			     && isset( $disabled_metaboxes_[ $current_post_type . '_' . $role ] )
-			     && is_array( $disabled_metaboxes_[ $current_post_type . '_' . $role ] )
+				&& isset( $disabled_metaboxes_[ $current_post_type . '_' . $role ] )
+				&& is_array( $disabled_metaboxes_[ $current_post_type . '_' . $role ] )
 			) {
 				$metaboxes = implode( ',', $disabled_metaboxes_[ $current_post_type . '_' . $role ] );
 			}
@@ -936,8 +936,8 @@ function _mw_adminimize_set_link_option() {
 		$user = wp_get_current_user();
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles, TRUE ) ) {
 			if ( _mw_adminimize_current_user_has_role( $role )
-			     && isset( $disabled_link_option_[ $role ] )
-			     && is_array( $disabled_link_option_[ $role ] )
+				&& isset( $disabled_link_option_[ $role ] )
+				&& is_array( $disabled_link_option_[ $role ] )
 			) {
 				$link_options = implode( ',', $disabled_link_option_[ $role ] );
 			}
@@ -988,8 +988,8 @@ function _mw_adminimize_set_nav_menu_option() {
 		$user = wp_get_current_user();
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles, TRUE ) ) {
 			if ( _mw_adminimize_current_user_has_role( $role )
-			     && isset( $disabled_nav_menu_option_[ $role ] )
-			     && is_array( $disabled_nav_menu_option_[ $role ] )
+				&& isset( $disabled_nav_menu_option_[ $role ] )
+				&& is_array( $disabled_nav_menu_option_[ $role ] )
 			) {
 				$nav_menu_options = implode( ',', $disabled_nav_menu_option_[ $role ] );
 			}
@@ -1040,8 +1040,8 @@ function _mw_adminimize_set_widget_option() {
 		$user = wp_get_current_user();
 		if ( is_array( $user->roles ) && in_array( $role, $user->roles, TRUE ) ) {
 			if ( _mw_adminimize_current_user_has_role( $role )
-			     && isset( $disabled_widget_option_[ $role ] )
-			     && is_array( $disabled_widget_option_[ $role ] )
+				&& isset( $disabled_widget_option_[ $role ] )
+				&& is_array( $disabled_widget_option_[ $role ] )
 			) {
 				$widget_options = implode( ',', $disabled_widget_option_[ $role ] );
 			}
@@ -1063,15 +1063,15 @@ function _mw_adminimize_set_widget_option() {
 function _mw_adminimize_small_user_info() {
 
 	?>
-    <div id="small_user_info">
-        <p>
-            <a href="<?php echo wp_nonce_url(
+	<div id="small_user_info">
+		<p>
+			<a href="<?php echo wp_nonce_url(
 				site_url( 'wp-login.php?action=logout' ),
 				'log-out'
 			) ?>"
-               title="<?php esc_attr_e( 'Log Out' ) ?>"><?php esc_attr_e( 'Log Out' ); ?></a>
-        </p>
-    </div>
+				title="<?php esc_attr_e( 'Log Out' ) ?>"><?php esc_attr_e( 'Log Out' ); ?></a>
+		</p>
+	</div>
 	<?php
 }
 
@@ -1116,7 +1116,7 @@ require_once 'inc-setup/import.php';
  * @param  array  $links
  * @param  string $file
  *
- * @return string $links
+ * @return array $links
  */
 function _mw_adminimize_filter_plugin_meta( $links, $file ) {
 
