@@ -736,15 +736,15 @@ function _mw_adminimize_set_metabox_post_option() {
 	$user_roles                = _mw_adminimize_get_all_user_roles();
 	$_mw_adminimize_admin_head = '';
 	// It's better to declare $metaboxes as an array for better manipulation later.
-	$metaboxes                 = [];
+	$metaboxes                 = array();
 
 	foreach ( $user_roles as $role ) {
 		$disabled_metaboxes_post_[ $role ] = _mw_adminimize_get_option_value(
 			'mw_adminimize_disabled_metaboxes_post_' . $role . '_items'
 		);
 
-		if ( ! isset( $disabled_metaboxes_post_[ $role ][ '0' ] ) ) {
-			$disabled_metaboxes_post_[ $role ][ '0' ] = '';
+		if ( ! isset( $disabled_metaboxes_post_[ $role ]['0'] ) ) {
+			$disabled_metaboxes_post_[ $role ]['0'] = '';
 
 			/**
 			 * @todo    Think why keep going if $role does not even have boxes to hide? We may as well jump to the next $role.
@@ -754,12 +754,12 @@ function _mw_adminimize_set_metabox_post_option() {
 
 		/**
 		 * @todo    Think why call a function as we can use a global variable already declared by WordPress.
-		 * @var WP_User $user
+		 * @var WP_User $user Instance of WP_User.
 		 * @since   1.7.8
 		 * @version 1.11.4
 		 */
 		$user = $GLOBALS['current_user'];
-		if ( is_array( $user->roles ) && in_array( $role, $user->roles, TRUE ) ) {
+		if ( is_array( $user->roles ) && in_array( $role, $user->roles, true ) ) {
 			if ( _mw_adminimize_current_user_has_role( $role ) && isset( $disabled_metaboxes_post_[ $role ] )
 			     && is_array(
 				     $disabled_metaboxes_post_[ $role ]
@@ -776,7 +776,7 @@ function _mw_adminimize_set_metabox_post_option() {
 	$_mw_adminimize_admin_head .= '<!-- Set Adminimize metabox post options -->' . "\n";
 	// And below we implode $metaboxes because it's an array now.
 	$_mw_adminimize_admin_head .= '<style type="text/css">' .
-	                              implode(',', $metaboxes) . ' {display:none !important;}</style>' . "\n";
+	                              implode( ',', $metaboxes ) . ' {display:none !important;}</style>' . "\n";
 
 	if ( ! empty( $metaboxes ) ) {
 		echo $_mw_adminimize_admin_head;
@@ -870,31 +870,33 @@ function _mw_adminimize_set_metabox_cp_option() {
 
 	$user_roles                = _mw_adminimize_get_all_user_roles();
 	$_mw_adminimize_admin_head = '';
-	$metaboxes                 = '';
+	$metaboxes                 = array();
 
 	foreach ( $user_roles as $role ) {
 		$disabled_metaboxes_[ $current_post_type . '_' . $role ] = _mw_adminimize_get_option_value(
 			'mw_adminimize_disabled_metaboxes_' . $current_post_type . '_' . $role . '_items'
 		);
 
-		if ( ! isset( $disabled_metaboxes_[ $current_post_type . '_' . $role ][ '0' ] ) ) {
-			$disabled_metaboxes_[ $current_post_type . '_' . $role ][ '0' ] = '';
+		if ( ! isset( $disabled_metaboxes_[ $current_post_type . '_' . $role ]['0'] ) ) {
+			$disabled_metaboxes_[ $current_post_type . '_' . $role ]['0'] = '';
+
+			continue;
 		}
 
-		$user = wp_get_current_user();
-		if ( is_array( $user->roles ) && in_array( $role, $user->roles, TRUE ) ) {
+		$user = $GLOBALS['current_user'];
+		if ( is_array( $user->roles ) && in_array( $role, $user->roles, true ) ) {
 			if ( _mw_adminimize_current_user_has_role( $role )
-				&& isset( $disabled_metaboxes_[ $current_post_type . '_' . $role ] )
-				&& is_array( $disabled_metaboxes_[ $current_post_type . '_' . $role ] )
+			     && isset( $disabled_metaboxes_[ $current_post_type . '_' . $role ] )
+			     && is_array( $disabled_metaboxes_[ $current_post_type . '_' . $role ] )
 			) {
-				$metaboxes = implode( ',', $disabled_metaboxes_[ $current_post_type . '_' . $role ] );
+				$metaboxes[] = implode( ',', $disabled_metaboxes_[ $current_post_type . '_' . $role ] );
 			}
 		}
 	}
 
 	$_mw_adminimize_admin_head .= '<!-- Set Adminimize post options -->' . "\n";
 	$_mw_adminimize_admin_head .= '<style type="text/css">' .
-	                              $metaboxes . ' {display:none !important;}</style>' . "\n";
+	                              implode( ',', $metaboxes ) . ' {display:none !important;}</style>' . "\n";
 
 	if ( ! empty( $metaboxes ) ) {
 		echo $_mw_adminimize_admin_head;
