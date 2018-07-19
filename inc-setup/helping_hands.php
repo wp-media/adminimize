@@ -1,11 +1,13 @@
 <?php
 /**
+ * Helper functions.
  *
  * @package    Adminimize
  * @subpackage Helping_Functions
  * @author     Frank Bültge <frank@bueltge.de
  * @since      2016-01-22
  */
+
 if ( ! function_exists( 'add_action' ) ) {
 	die( "Hi there!  I'm just a part of plugin, not much I can do when called directly." );
 }
@@ -64,7 +66,7 @@ function _mw_adminimize_in_arrays( $array1, $array2 ) {
 function _mw_adminimize_current_user_has_role( $role ) {
 
 	$user = wp_get_current_user();
-	if ( in_array( $role, (array) $user->roles, false ) ) {
+	if ( in_array( $role, (array) $user->roles, true ) ) {
 		return true;
 	}
 
@@ -174,7 +176,7 @@ function _mw_adminimize_check_page_access( $slug ) {
 		return false;
 	}
 
-	$uri = parse_url( $url );
+	$uri = wp_parse_url( $url );
 
 	if ( ! isset( $uri['path'] ) ) {
 		return false;
@@ -202,5 +204,5 @@ function _mw_adminimize_block_page_access() {
 
 	$message = esc_attr__( 'Cheatin&#8217; uh? Sorry, you are not allowed to access this site.', 'adminimize' );
 	$message = apply_filters( 'adminimize_nopage_access_message', $message );
-	wp_die( $message );
+	wp_die( esc_html( $message ) );
 }
