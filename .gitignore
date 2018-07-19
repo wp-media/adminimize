@@ -19,7 +19,8 @@
 
 ## Composer
 composer.phar
-/vendor/
+vendor/
+wpcs/
 
 ## Additional for IntelliJ
 out/
