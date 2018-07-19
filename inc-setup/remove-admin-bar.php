@@ -237,15 +237,14 @@ function _mw_adminimize_remove_admin_bar() {
 		foreach ( array( 'wp_head', 'admin_head' ) as $hook ) {
 			add_action(
 				$hook,
-				create_function(
-					'',
-					"echo '<style>body.admin-bar, body.admin-bar #wpcontent, body.admin-bar #adminmenu {
-							 padding-top: 0 !important;
-						}
-						html.wp-toolbar {
-							padding-top: 0 !important;
-						}</style>';"
-				)
+				function() {
+					echo '<style>body.admin-bar, body.admin-bar #wpcontent, body.admin-bar #adminmenu {
+						 padding-top: 0 !important;
+					}
+					html.wp-toolbar {
+						padding-top: 0 !important;
+					}</style>';
+				}
 			);
 		}
 
