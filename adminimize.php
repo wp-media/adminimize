@@ -96,26 +96,26 @@ function _mw_adminimize_exclude_super_admin() {
 function _mw_adminimize_exclude_settings_page() {
 
 	if ( ! is_admin() ) {
-		return FALSE;
+		return false;
 	}
 
-	if ( defined('DOING_AJAX') && DOING_AJAX ) {
-		return FALSE;
+	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+		return false;
 	}
 
 	$page = '';
-	if ( isset( $_GET[ 'page' ] ) ) {
-		$page = esc_attr( $_GET[ 'page' ] );
+	if ( isset( $_GET['page'] ) ) {
+		$page = esc_attr( $_GET['page'] );
 	}
 
 	$screen = $page;
 	if ( function_exists( 'get_current_screen' ) ) {
 		$screen_tmp = get_current_screen();
-	}
 
-	if ( isset( $screen_tmp->id ) && null !== $screen_tmp->id ) {
-		$screen = $screen_tmp->id;
+		if ( isset( $screen_tmp->id ) && null !== $screen_tmp->id ) {
+			$screen = $screen_tmp->id;
 	}
+}
 
 	// Don't filter on settings page
 	return FALSE !== strpos( $screen, 'adminimize' );

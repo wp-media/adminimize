@@ -1,5 +1,7 @@
 <?php
 /**
+ * Get Admin Bar items and change them.
+ *
  * @package    Adminimize
  * @subpackage Admin Bar Items
  * @author     Frank Bültge
@@ -31,27 +33,30 @@ function _mw_adminimize_get_admin_bar_nodes() {
 		return;
 	}
 
-	/** @var $wp_admin_bar WP_Admin_Bar */
+	/**
+	 * Link to Admin Bar class to get the methods.
+	 *
+	 * @var $wp_admin_bar \WP_Admin_Bar
+	 */
 	global $wp_admin_bar;
 
 	// @see: http://codex.wordpress.org/Function_Reference/get_nodes
 	$all_toolbar_nodes = $wp_admin_bar->get_nodes();
 
-	$settings = 'mw_adminimize_admin_bar_frontend_nodes';
-	// Set string on settings for Admin Area.
-	if ( is_admin() ) {
-		$settings = 'mw_adminimize_admin_bar_nodes';
-	}
-
 	if ( $all_toolbar_nodes ) {
 
-		// get all options
-		$adminimizeoptions = _mw_adminimize_get_option_value();
+		$settings = 'mw_adminimize_admin_bar_frontend_nodes';
+		// Set string on settings for Admin Area.
+		if ( is_admin() ) {
+			$settings = 'mw_adminimize_admin_bar_nodes';
+		}
 
-		// add admin bar array
+		// get all options.
+		$adminimizeoptions = (array) _mw_adminimize_get_option_value();
+
+		// add admin bar array.
 		$adminimizeoptions[ $settings ] = $all_toolbar_nodes;
 
-		// update options
 		_mw_adminimize_update_option( $adminimizeoptions );
 	}
 }
@@ -85,23 +90,24 @@ function _mw_adminimize_change_admin_bar() {
 		return;
 	}
 
-	/** @var $wp_admin_bar WP_Admin_Bar */
+	/**
+	 * Link to Admin Bar class to get the methods.
+	 *
+	 * @var $wp_admin_bar \WP_Admin_Bar
+	 */
 	global $wp_admin_bar;
 
 	// Get current user data.
-	$user      = wp_get_current_user();
+	$user = wp_get_current_user();
 	if ( ! $user->roles ) {
 		return;
 	}
 
-	// Get all roles of logged in user.
-	$user_roles = $user->roles;
-	//$user_roles = _mw_adminimize_get_all_user_roles();
 	$disabled_admin_bar_option_ = array();
 
 	$role_prefix = is_admin() ? 'mw_adminimize_disabled_admin_bar_' : 'mw_adminimize_disabled_admin_bar_frontend_';
 
-	foreach ( $user_roles as $role ) {
+	foreach ( $user->roles as $role ) {
 		$disabled_admin_bar_option_[] = _mw_adminimize_get_option_value( $role_prefix . $role . '_items' );
 	}
 
