@@ -16,7 +16,6 @@
 *.iws
 *.iml
 *.sh
-*.lock
 
 ## Composer
 composer.phar
