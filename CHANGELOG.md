@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.4...HEAD)
+* Fixed: Remove deprecated version for support of php 7.2 #109.
 * Fixed: Dashboard removels for multible roles.
 * Fixed: settings link.
 * Maintenance: More solid page checks, codex issues.
