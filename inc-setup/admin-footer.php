@@ -1,7 +1,9 @@
 <?php
 /**
+ * Add Hints in Admin Footer.
+ *
  * @package    Adminimize
- * @subpackage Add Hint in Admin Footer
+ * @subpackage Add Hints in Admin Footer
  * @author     Frank Bültge
  */
 
@@ -15,12 +17,14 @@ if ( ! is_admin() ) {
 }
 
 // If is an AJAX Call.
-if ( defined('DOING_AJAX') && DOING_AJAX ) {
+if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 	return;
 }
 
-// on init of WordPress
 add_action( 'admin_init', '_mw_adminimize_init_admin_footer' );
+/**
+ * Hook in to admin footer to print message.
+ */
 function _mw_adminimize_init_admin_footer() {
 
 	if ( (int) _mw_adminimize_get_option_value( '_mw_adminimize_advice' ) === 1 ) {
@@ -33,5 +37,5 @@ function _mw_adminimize_init_admin_footer() {
  */
 function _mw_adminimize_add_admin_footer() {
 
-	echo _mw_adminimize_get_option_value( '_mw_adminimize_advice_txt' ) . '<br />';
+	echo esc_html( _mw_adminimize_get_option_value( '_mw_adminimize_advice_txt' ) ) . '<br />';
 }
