@@ -206,7 +206,7 @@ function _mw_adminimize_remove_admin_bar() {
 	foreach ( $user_roles as $role ) {
 
 		if ( in_array( $role, $user->roles, true )
-			&& mw_adminimize_current_user_has_role( $role )
+			&& _mw_adminimize_current_user_has_role( $role )
 		) {
 			// Create array about all items with all affected roles, important for multiple roles.
 			foreach ( $disabled_global_option_[ $role ] as $global_item ) {
