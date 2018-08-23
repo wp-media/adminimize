@@ -206,3 +206,24 @@ function _mw_adminimize_block_page_access() {
 	$message = apply_filters( 'adminimize_nopage_access_message', $message );
 	wp_die( esc_html( $message ) );
 }
+
+/**
+ * Check option value string in array and get string back for active checkboxes.
+ *
+ * @param string $option String of option to check.
+ * @param array  $haystack Array of all options.
+ *
+ * @return string String for checked input box or empty string.
+ */
+function _mw_adminimize_is_checked( $option, $haystack ) {
+
+	if ( ! isset( $haystack ) ) {
+		return '';
+	}
+
+	if ( in_array( htmlspecialchars_decode( $option ), $haystack, true ) ) {
+		return ' checked="checked"';
+	}
+
+	return '';
+}

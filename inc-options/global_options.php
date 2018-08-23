@@ -102,9 +102,10 @@ if ( ! function_exists( 'add_action' ) ) {
 
 					$checked_user_role_ = array();
 					foreach ( (array) $user_roles as $role ) {
-						$checked_user_role_[ $role ] = ( isset( $disabled_global_option_[ $role ] )
-							&& in_array( htmlspecialchars_decode( $global_option ), $disabled_global_option_[ $role ], true ) ) ? ' checked="checked"'
-							: '';
+						$checked_user_role_[ $role ] = _mw_adminimize_is_checked($global_option, $disabled_global_option_[ $role ]);
+//						$checked_user_role_[ $role ] = ( isset( $disabled_global_option_[ $role ] )
+//							&& in_array( htmlspecialchars_decode( $global_option ), $disabled_global_option_[ $role ], true ) ) ? ' checked="checked"'
+//							: '';
 					}
 					echo '<tr>' . "\n";
 					echo '<td>' . $global_options_names[ $index ] . ' <span>(' . $global_option . ')</span> </td>' . "\n";
