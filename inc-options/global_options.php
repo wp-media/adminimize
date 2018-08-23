@@ -98,10 +98,12 @@ if ( ! function_exists( 'add_action' ) ) {
 						continue;
 					}
 
+					$global_option = esc_attr( $global_option );
+
 					$checked_user_role_ = array();
 					foreach ( (array) $user_roles as $role ) {
 						$checked_user_role_[ $role ] = ( isset( $disabled_global_option_[ $role ] )
-							&& in_array( $global_option, $disabled_global_option_[ $role ], true ) ) ? ' checked="checked"'
+							&& in_array( htmlspecialchars_decode( $global_option ), $disabled_global_option_[ $role ], true ) ) ? ' checked="checked"'
 							: '';
 					}
 					echo '<tr>' . "\n";
