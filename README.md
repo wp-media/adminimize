@@ -11,8 +11,11 @@ We would create a new solution, important is the maintainance of the source code
   - Example: https://github.com/inpsyde/inpsyde-google-tag-manager/blob/master/src/Settings/View/TabbedSettingsPageView.php#L61
   - Create Fields Example: https://github.com/inpsyde/inpsyde-google-tag-manager/blob/master/src/DataLayer/User/UserDataCollector.php#L133-L149
 
+- [ ] Usage of [Inpsyde php Codex](https://github.com/inpsyde/php-coding-standards)
+- [ ] Usage of [Robot](https://robo.li/) as task runner of development (optional, also Gulp is an option)
 - [ ] Usage of https://github.com/Brain-WP/Nonces for OOP deal with WordPress Nonces
-- [ ] Add Unittests 
+- [ ] Add Unit tests via PHP Unit
+- [ ] Add Acceptance tests via Codeception 
 - [x] ~The settings page should use for each settings area - see [#17](https://github.com/bueltge/Adminimize/issues/17)~ Done with #81
 - [ ] Multisite usage - how we can realized this requirement; each option in each site is different?
 
