@@ -2,6 +2,8 @@
 
 namespace Adminimize\SettingsPage;
 
+use Adminimize\SettingsPage\Interfaces\SettingsPageInterface;
+
 /**
  * Class SettingsPage
  *
@@ -33,10 +35,10 @@ class SettingsPage implements SettingsPageInterface {
 	 */
 	public function __construct( $template_path ) {
 
-		$this->template_path = $template_path . '/Templates';
-		$this->capability = 'manage_options';
-		$this->slug       = 'adminimize';
-	}
+        $this->slug = 'adminimize';
+        $this->capability = 'manage_options';
+        $this->template_path = $template_path . '/Templates';
+    }
 
 	/**
 	 * Get the path to the templates.

@@ -2,7 +2,8 @@
 
 namespace Adminimize\SettingsPage\Tabs;
 
-use Adminimize\SettingsPage;
+use Adminimize\SettingsPage\Interfaces\TabInterface;
+use Adminimize\SettingsPage\Interfaces\SettingsPageInterface;
 
 /**
  * Stub: Tab for Dashboard Settings.
@@ -12,16 +13,16 @@ class Dashboard implements TabInterface {
 	/**
 	 * Holds an instance of the settings page.
 	 *
-	 * @var \Adminimize\SettingsPage\SettingsPageInterface
+	 * @var \Adminimize\SettingsPage\Interfaces\SettingsPageInterface
 	 */
 	private $settings_page;
 
-	/**
-	 * Constructor.
-	 *
-	 * @param SettingsPage\SettingsPageInterface $settings_page
-	 */
-	public function __construct( SettingsPage\SettingsPageInterface $settings_page ) {
+    /**
+     * Constructor.
+     *
+     * @param \Adminimize\SettingsPage\Interfaces\SettingsPageInterface $settings_page
+     */
+	public function __construct( SettingsPageInterface $settings_page ) {
 
 		$this->settings_page = $settings_page;
 	}

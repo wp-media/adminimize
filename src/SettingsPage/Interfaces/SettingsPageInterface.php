@@ -1,5 +1,5 @@
 <?php # -*- coding: utf-8 -*-
-namespace Adminimize\SettingsPage;
+namespace Adminimize\SettingsPage\Interfaces;
 
 interface SettingsPageInterface {
 

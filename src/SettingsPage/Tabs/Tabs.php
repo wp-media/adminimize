@@ -2,6 +2,8 @@
 
 namespace Adminimize\SettingsPage\Tabs;
 
+use Adminimize\SettingsPage\Interfaces\TabsInterface;
+
 /**
  * Define Tabs for the Settings Page.
  */

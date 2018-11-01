@@ -1,6 +1,6 @@
 <?php declare( strict_types = 1 ); # -*- coding: utf-8 -*-
 
-namespace Adminimize\SettingsPage\Tabs;
+namespace Adminimize\SettingsPage\Interfaces;
 
 /**
  * Interface for single tabs.

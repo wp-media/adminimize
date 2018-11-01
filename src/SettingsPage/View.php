@@ -4,6 +4,8 @@ namespace Adminimize\SettingsPage;
 
 use Adminimize\Settings\Option;
 use Adminimize\SettingsPage\Tabs;
+use Adminimize\SettingsPage\Interfaces\ViewInterface;
+use Adminimize\SettingsPage\Interfaces\SettingsPageInterface;
 
 /**
  * View for the SettingsPage.
@@ -32,12 +34,12 @@ class View implements ViewInterface {
 	 */
 	private $tabs = array();
 
-	/**
-	 * View constructor.
-	 *
-	 * @param \Adminimize\SettingsPage\SettingsPage|\Adminimize\SettingsPage\SettingsPageInterface $settings_page
-	 * @param Option                                                                               $option
-	 */
+    /**
+     * View constructor.
+     *
+     * @param \Adminimize\SettingsPage\SettingsPage $settings_page
+     * @param Option                                $option
+     */
 	public function __construct( SettingsPage $settings_page, Option $option ) {
 
 		$this->settings_page = $settings_page;

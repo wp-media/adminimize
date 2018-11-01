@@ -2,6 +2,8 @@
 
 namespace Adminimize\SettingsPage;
 
+use Adminimize\SettingsPage\Interfaces\ControllerInterface;
+
 /**
  * Controller for the SettingsPage.
  */
