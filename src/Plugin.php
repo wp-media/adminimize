@@ -2,6 +2,11 @@
 
 namespace Adminimize;
 
+use Adminimize\SettingsPage\View;
+use Adminimize\SettingsPage\Controller;
+use Adminimize\SettingsPage\SettingsPage;
+use Adminimize\Settings\SettingsRepository;
+
 class Plugin {
 
 	/**
@@ -25,12 +30,12 @@ class Plugin {
 	public function init() {
 
 		// Set option possibility.
-		$option = new Settings\Option();
+		$settings_repository = new SettingsRepository();
 
 		// Render the settings page.
-		$settings_page         = new SettingsPage\SettingsPage( __DIR__ );
-		$settings_page_view    = new SettingsPage\View( $settings_page, $option );
-		$settings_page_control = new SettingsPage\Controller( $settings_page_view );
+		$settings_page = new SettingsPage( __DIR__ );
+		$settings_page_view = new View( $settings_page, $settings_repository );
+		$settings_page_control = new Controller( $settings_page_view );
 		$settings_page_control->init();
 	}
 }

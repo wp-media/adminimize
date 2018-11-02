@@ -37,6 +37,14 @@ class Dashboard implements TabInterface {
 		return esc_html_x( 'Dashboard', 'Tab Title', 'adminimize' );
 	}
 
+    /**
+     * @return array
+     */
+    public function define_fields(): array
+    {
+        return [];
+    }
+
 	/**
 	 * Render content of the tab.
 	 *

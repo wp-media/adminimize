@@ -37,6 +37,14 @@ class AdminMenu implements TabInterface {
 		return esc_html_x( 'Admin Menu', 'Tab Title', 'adminimize' );
 	}
 
+    /**
+     * @return array
+     */
+    public function define_fields(): array
+    {
+        return [];
+    }
+
 	/**
 	 * Render content of the tab.
 	 *

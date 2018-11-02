@@ -40,9 +40,9 @@ class Tabs implements TabsInterface {
 		 * All classes added must implement Adminimize\SettingsPage\Tabs\TabsInterface.
 		 *
 		 * @param array $tabs {
-		 *                    Array of namespaced classes.
-		 *                    $type string $class Namespaced class.
-		 *                    }
+		 *                  Array of namespaced classes.
+		 *                  $type string $class Namespaced class.
+		 *              }
 		 */
 		return apply_filters( 'adminimize.settings_tabs', $this->tabs );
 	}

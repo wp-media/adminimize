@@ -2,7 +2,7 @@
 
 namespace Adminimize\SettingsPage;
 
-use Adminimize\Settings\Option;
+use Adminimize\Settings\SettingsRepository;
 use Adminimize\SettingsPage\Tabs;
 use Adminimize\SettingsPage\Interfaces\ViewInterface;
 use Adminimize\SettingsPage\Interfaces\SettingsPageInterface;
@@ -18,9 +18,9 @@ class View implements ViewInterface {
 	private $settings_page;
 
 	/**
-	 * @var Option
+	 * @var SettingsRepository
 	 */
-	private $option;
+	private $settings;
 
 	/**
 	 * @var string
@@ -37,15 +37,15 @@ class View implements ViewInterface {
     /**
      * View constructor.
      *
-     * @param \Adminimize\SettingsPage\SettingsPage $settings_page
-     * @param Option                                $option
+     * @param \Adminimize\SettingsPage\SettingsPage   $settings_page
+     * @param \Adminimize\Settings\SettingsRepository $settings
      */
-	public function __construct( SettingsPage $settings_page, Option $option ) {
+	public function __construct( SettingsPage $settings_page, SettingsRepository $settings ) {
 
-		$this->settings_page = $settings_page;
-		$this->option        = $option;
+        $this->settings = $settings;
+        $this->settings_page = $settings_page;
 
-		$this->page_title    = esc_html_x( 'Adminimize', 'Settings page title', 'adminimize' );
+		$this->page_title = esc_html_x( 'Adminimize', 'Settings page title', 'adminimize' );
 	}
 
 	/**
@@ -114,7 +114,7 @@ class View implements ViewInterface {
 	 *
 	 * @return Tabs\TabInterface[] Array of instantiated Tabs.
 	 */
-	private function instantiate_tabs() : array {
+	private function instantiate_tabs(): array {
 		$tabs = new Tabs\Tabs();
 
 		$all_tabs = [];

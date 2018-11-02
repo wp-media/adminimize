@@ -14,6 +14,13 @@ interface TabInterface {
 	 */
 	public function get_tab_title(): string;
 
+    /**
+     * Define which fields should be displayed in this tab.
+     *
+     * @return array
+     */
+	public function define_fields(): array;
+
 	/**
 	 * Render content of the tab.
 	 *
