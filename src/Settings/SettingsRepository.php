@@ -4,32 +4,19 @@ namespace Adminimize\Settings;
 
 use Adminimize\Settings\Exceptions\SettingNotFoundException;
 
-/**
- * Class Settings to handle settings in the database.
- *
- * @package Adminimize\Settings
- */
 class SettingsRepository {
 
 	/**
 	 * @var string
 	 */
-	private $option_name = 'mw_adminimize';
+	const OPTION_NAME = 'mw_adminimize';
 
 	/**
 	 * SettingsRepository constructor.
 	 */
 	public function __construct()
     {
-		add_option($this->get_name(), [], '', 'no');
-	}
-
-    /**
-     * @return string
-     */
-	public function get_name(): string
-	{
-	    return $this->option_name;
+		add_option(self::OPTION_NAME, [], '', 'no');
 	}
 
     /**
@@ -41,7 +28,7 @@ class SettingsRepository {
      */
     public function get(string $key = '')
 	{
-	    $options = get_option($this->get_name());
+	    $options = get_option(self::OPTION_NAME);
 
 	    if (!$key) {
 	        return $options;
@@ -62,6 +49,6 @@ class SettingsRepository {
      */
 	public function update(array $options): bool
 	{
-        return update_option($this->get_name(), $options);
+        return update_option(self::OPTION_NAME, $options);
 	}
 }
