@@ -7,7 +7,7 @@ use Adminimize\Settings\Exceptions\SettingNotFoundException;
 class SettingsRepository {
 
 	/**
-	 * @var string
+	 * Option's key in WP.
 	 */
 	const OPTION_NAME = 'mw_adminimize';
 

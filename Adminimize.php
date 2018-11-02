@@ -16,6 +16,7 @@ namespace Adminimize;
 ! \defined( 'ABSPATH' ) && exit;
 
 add_action( 'plugins_loaded', __NAMESPACE__ . '\\init' );
+
 /**
  * Initialize in the WP circus.
  */
