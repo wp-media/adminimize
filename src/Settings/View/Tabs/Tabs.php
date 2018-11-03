@@ -1,8 +1,8 @@
 <?php declare( strict_types=1 ); # -*- coding: utf-8 -*-
 
-namespace Adminimize\SettingsPage\Tabs;
+namespace Adminimize\Settings\View\Tabs;
 
-use Adminimize\SettingsPage\Interfaces\TabsInterface;
+use Adminimize\Settings\Interfaces\TabsInterface;
 
 /**
  * Define Tabs for the Settings Page.

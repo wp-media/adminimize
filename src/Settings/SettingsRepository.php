@@ -2,7 +2,7 @@
 
 namespace Adminimize\Settings;
 
-use Adminimize\Settings\Exceptions\SettingNotFoundException;
+use Adminimize\Exceptions\SettingNotFoundException;
 
 class SettingsRepository {
 
@@ -23,8 +23,9 @@ class SettingsRepository {
      * Gets all options if no key is provided, otherwise returns requested option.
      *
      * @param string $key
+     *
      * @return mixed
-     * @throws \Adminimize\Settings\Exceptions\SettingNotFoundException
+     * @throws \Adminimize\Exceptions\SettingNotFoundException
      */
     public function get(string $key = '')
 	{

@@ -1,8 +1,9 @@
 <?php declare( strict_types = 1 ); # -*- coding: utf-8 -*-
 
-namespace Adminimize\SettingsPage;
+namespace Adminimize\Settings;
 
-use Adminimize\SettingsPage\Interfaces\ControllerInterface;
+use Adminimize\Settings\View;
+use Adminimize\Settings\Interfaces\ControllerInterface;
 
 /**
  * Controller for the SettingsPage.

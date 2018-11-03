@@ -1,5 +1,5 @@
 <?php
 
-namespace Adminimize\Settings\Exceptions;
+namespace Adminimize\Exceptions;
 
 class SettingNotFoundException extends \Exception {}

@@ -1,26 +1,25 @@
-<?php declare( strict_types=1 ); # -*- coding: utf-8 -*-
+<?php declare( strict_types = 1 ); # -*- coding: utf-8 -*-
 
-namespace Adminimize\SettingsPage\Tabs;
+namespace Adminimize\Settings\View\Tabs;
 
-use Adminimize\SettingsPage\Interfaces\TabInterface;
-use Adminimize\SettingsPage\Interfaces\SettingsPageInterface;
+use Adminimize\Settings\Interfaces\SettingsPageInterface;
 
 /**
- * Stub: Tab for Admin Menu Settings.
+ * Stub: Tab for Dashboard Settings.
  */
-class AdminMenu implements TabInterface {
+class Dashboard extends Tab {
 
 	/**
 	 * Holds an instance of the settings page.
 	 *
-	 * @var \Adminimize\SettingsPage\Interfaces\SettingsPageInterface
+	 * @var \Adminimize\Settings\Interfaces\SettingsPageInterface
 	 */
 	private $settings_page;
 
     /**
      * Constructor.
      *
-     * @param \Adminimize\SettingsPage\Interfaces\SettingsPageInterface $settings_page
+     * @param \Adminimize\Settings\Interfaces\SettingsPageInterface $settings_page
      */
 	public function __construct( SettingsPageInterface $settings_page ) {
 
@@ -34,7 +33,7 @@ class AdminMenu implements TabInterface {
 	 */
 	public function get_tab_title(): string {
 
-		return esc_html_x( 'Admin Menu', 'Tab Title', 'adminimize' );
+		return esc_html_x( 'Dashboard', 'Tab Title', 'adminimize' );
 	}
 
     /**
@@ -53,6 +52,6 @@ class AdminMenu implements TabInterface {
 	public function render_tab_content() {
 
 		/** @noinspection PhpIncludeInspection */
-		include $this->settings_page->get_template_path() . '/AdminMenu.php';
+		include $this->settings_page->get_template_path() . '/Dashboard.php';
 	}
 }

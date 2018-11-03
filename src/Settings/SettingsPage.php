@@ -1,8 +1,8 @@
 <?php declare( strict_types = 1 ); # -*- coding: utf-8 -*-
 
-namespace Adminimize\SettingsPage;
+namespace Adminimize\Settings;
 
-use Adminimize\SettingsPage\Interfaces\SettingsPageInterface;
+use Adminimize\Settings\Interfaces\SettingsPageInterface;
 
 /**
  * Class SettingsPage

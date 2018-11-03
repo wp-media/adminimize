@@ -2,9 +2,11 @@
 
 namespace Adminimize;
 
-if ( ! \defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+use Adminimize\Settings\SettingsRepository;
+
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	return;
 }
 
-delete_site_option( 'mw_adminimize' );
-delete_option( 'mw_adminimize' );
+delete_site_option( SettingsRepository::OPTION_NAME );
+delete_option( SettingsRepository::OPTION_NAME );

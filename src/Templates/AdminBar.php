@@ -4,4 +4,4 @@
 
 <p>Dummy Content for AdminBar Settings</p>
 
-<?= $settingsHtml ?>
+<?= $this->view->render($this->form) ?>

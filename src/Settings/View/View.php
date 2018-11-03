@@ -1,11 +1,11 @@
 <?php declare( strict_types = 1 ); # -*- coding: utf-8 -*-
 
-namespace Adminimize\SettingsPage;
+namespace Adminimize\Settings\View;
 
+use Adminimize\Settings\View\Tabs;
 use Adminimize\Settings\SettingsRepository;
-use Adminimize\SettingsPage\Tabs;
-use Adminimize\SettingsPage\Interfaces\ViewInterface;
-use Adminimize\SettingsPage\Interfaces\SettingsPageInterface;
+use Adminimize\Settings\Interfaces\ViewInterface;
+use Adminimize\Settings\Interfaces\SettingsPageInterface;
 
 /**
  * View for the SettingsPage.
