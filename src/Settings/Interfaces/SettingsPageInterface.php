@@ -1,4 +1,5 @@
 <?php # -*- coding: utf-8 -*-
+
 namespace Adminimize\Settings\Interfaces;
 
 interface SettingsPageInterface {
@@ -9,6 +10,7 @@ interface SettingsPageInterface {
 	 * @return string
 	 */
 	public function get_template_path() : string;
+
 	/**
 	 * @return string
 	 */

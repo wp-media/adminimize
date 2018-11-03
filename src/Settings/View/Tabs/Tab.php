@@ -28,13 +28,13 @@ abstract class Tab
     /**
      * Constructor.
      *
-     * @param \Adminimize\SettingsPage\Interfaces\SettingsPageInterface $settings_page
+     * @param \Adminimize\Settings\Interfaces\SettingsPageInterface $settings_page
      */
     public function __construct(SettingsPageInterface $settings_page)
     {
+        $this->settings_page = $settings_page;
         $this->form = (new ElementFactory())->create($this->define_fields());
         $this->view = (new ViewFactory())->create('form');
-        $this->settings_page = $settings_page;
     }
 
     /**

@@ -23,7 +23,7 @@ class AdminBar extends Tab {
 	public function define_fields(): array
 	{
         $url = add_query_arg(
-            ['page' => $_GET['page']],
+            ['page' => $this->settings_page->get_slug()],
             admin_url('options-general.php')
         );
 
@@ -68,8 +68,6 @@ class AdminBar extends Tab {
 	 */
 	public function render_tab_content()
     {
-        var_dump($this->form->isSubmitted());
-
 		/** @noinspection PhpIncludeInspection */
 		include $this->settings_page->get_template_path() . '/AdminBar.php';
 	}

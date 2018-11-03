@@ -2,9 +2,9 @@
 
 namespace Adminimize;
 
-use Adminimize\SettingsPage\View;
-use Adminimize\SettingsPage\Controller;
-use Adminimize\SettingsPage\SettingsPage;
+use Adminimize\Settings\View\View;
+use Adminimize\Settings\Controller;
+use Adminimize\Settings\SettingsPage;
 use Adminimize\Settings\SettingsRepository;
 
 class Plugin {

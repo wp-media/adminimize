@@ -3,6 +3,7 @@
 namespace Adminimize\Settings\View;
 
 use Adminimize\Settings\View\Tabs;
+use Adminimize\Settings\SettingsPage;
 use Adminimize\Settings\SettingsRepository;
 use Adminimize\Settings\Interfaces\ViewInterface;
 use Adminimize\Settings\Interfaces\SettingsPageInterface;
@@ -37,7 +38,7 @@ class View implements ViewInterface {
     /**
      * View constructor.
      *
-     * @param \Adminimize\SettingsPage\SettingsPage   $settings_page
+     * @param \Adminimize\Settings\SettingsPage $settings_page
      * @param \Adminimize\Settings\SettingsRepository $settings
      */
 	public function __construct( SettingsPage $settings_page, SettingsRepository $settings ) {
@@ -86,16 +87,18 @@ class View implements ViewInterface {
 
 		wp_register_script(
 			'adminimize_admin',
-			plugins_url( '../../assets/js/adminimize.js', __FILE__ ),
+			plugins_url( '../../../assets/js/adminimize.js', __FILE__ ),
 			[ 'jquery', 'jquery-ui-tabs' ]
 		);
+
 		wp_enqueue_script( 'adminimize_admin' );
 
 		wp_register_style(
 			'adminimize_admin',
-			plugins_url( '../../assets/css/style.css', __FILE__ ),
+			plugins_url( '../../../assets/css/style.css', __FILE__ ),
 			[]
 		);
+
 		wp_enqueue_style( 'adminimize_admin' );
 	}
 

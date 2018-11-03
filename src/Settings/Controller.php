@@ -2,7 +2,7 @@
 
 namespace Adminimize\Settings;
 
-use Adminimize\Settings\View;
+use Adminimize\Settings\View\View;
 use Adminimize\Settings\Interfaces\ControllerInterface;
 
 /**

@@ -2,29 +2,10 @@
 
 namespace Adminimize\Settings\View\Tabs;
 
-use Adminimize\Settings\Interfaces\SettingsPageInterface;
-
 /**
  * Stub: Tab for Dashboard Settings.
  */
 class Dashboard extends Tab {
-
-	/**
-	 * Holds an instance of the settings page.
-	 *
-	 * @var \Adminimize\Settings\Interfaces\SettingsPageInterface
-	 */
-	private $settings_page;
-
-    /**
-     * Constructor.
-     *
-     * @param \Adminimize\Settings\Interfaces\SettingsPageInterface $settings_page
-     */
-	public function __construct( SettingsPageInterface $settings_page ) {
-
-		$this->settings_page = $settings_page;
-	}
 
 	/**
 	 * Get display title for the tab.
@@ -41,7 +22,43 @@ class Dashboard extends Tab {
      */
     public function define_fields(): array
     {
-        return [];
+        $url = add_query_arg(
+            ['page' => $this->settings_page->get_slug()],
+            admin_url('options-general.php')
+        );
+
+        return [
+            'attributes' => [
+                'name' => 'my-form',
+                'action' => $url,
+                'type' => 'form',
+                'method' => 'post',
+            ],
+            'elements' => [
+                [
+                    'attributes' => [
+                        'name' => 'test1',
+                        'type' => 'text'
+                    ],
+                    'label' => 'Test 1',
+                    'label_attributes' => [ 'for' => 'test1' ],
+                ],
+                [
+                    'attributes' => [
+                        'name' => 'test2',
+                        'type' => 'text'
+                    ],
+                    'label' => 'Test 2',
+                    'label_attributes' => [ 'for' => 'test1' ],
+                ],
+                [
+                    'attributes' => [
+                        'name' => 'submit',
+                        'type' => 'submit'
+                    ],
+                ],
+            ],
+        ];
     }
 
 	/**
