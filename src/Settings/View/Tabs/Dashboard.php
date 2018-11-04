@@ -1,29 +1,29 @@
-<?php declare( strict_types = 1 ); # -*- coding: utf-8 -*-
+<?php declare(strict_types = 1); # -*- coding: utf-8 -*-
 
 namespace Adminimize\Settings\View\Tabs;
 
 /**
  * Stub: Tab for Dashboard Settings.
  */
-class Dashboard extends Tab {
-
+class Dashboard extends Tab
+{
 	/**
 	 * Get display title for the tab.
 	 *
 	 * @return string
 	 */
-	public function get_tab_title(): string {
-
-		return esc_html_x( 'Dashboard', 'Tab Title', 'adminimize' );
+	public function getTabTitle(): string
+    {
+		return esc_html_x('Dashboard', 'Tab Title', 'adminimize');
 	}
 
     /**
      * @return array
      */
-    public function define_fields(): array
+    public function defineFields(): array
     {
         $url = add_query_arg(
-            ['page' => $this->settings_page->get_slug()],
+            ['page' => $this->settingsPage->getSlug()],
             admin_url('options-general.php')
         );
 
@@ -66,9 +66,9 @@ class Dashboard extends Tab {
 	 *
 	 * @return void
 	 */
-	public function render_tab_content() {
-
+	public function render()
+    {
 		/** @noinspection PhpIncludeInspection */
-		include $this->settings_page->get_template_path() . '/Dashboard.php';
+		include $this->settingsPage->getTemplatePath() . '/Dashboard.php';
 	}
 }

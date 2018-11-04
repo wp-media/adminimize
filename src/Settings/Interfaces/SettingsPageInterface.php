@@ -2,22 +2,22 @@
 
 namespace Adminimize\Settings\Interfaces;
 
-interface SettingsPageInterface {
-
+interface SettingsPageInterface
+{
 	/**
 	 * Get the path to the templates.
 	 *
 	 * @return string
 	 */
-	public function get_template_path() : string;
+	public function getTemplatePath(): string;
 
 	/**
 	 * @return string
 	 */
-	public function get_capability() : string;
+	public function getCapability(): string;
 
 	/**
 	 * @return string
 	 */
-	public function get_slug() : string;
+	public function getSlug(): string;
 }

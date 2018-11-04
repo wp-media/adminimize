@@ -5,25 +5,25 @@ namespace Adminimize\Settings\View\Tabs;
 /**
  * Stub: Tab for Admin Menu Settings.
  */
-class AdminMenu extends Tab {
-
+class AdminMenu extends Tab
+{
 	/**
 	 * Get display title for the tab.
 	 *
 	 * @return string
 	 */
-	public function get_tab_title(): string {
-
-		return esc_html_x( 'Admin Menu', 'Tab Title', 'adminimize' );
+	public function getTabTitle(): string
+    {
+		return esc_html_x('Admin Menu', 'Tab Title', 'adminimize');
 	}
 
     /**
      * @return array
      */
-    public function define_fields(): array
+    public function defineFields(): array
     {
         $url = add_query_arg(
-            ['page' => $_GET['page']],
+            ['page' => $this->settingsPage->getSlug()],
             admin_url('options-general.php')
         );
 
@@ -66,9 +66,9 @@ class AdminMenu extends Tab {
 	 *
 	 * @return void
 	 */
-	public function render_tab_content() {
-
+	public function render()
+    {
 		/** @noinspection PhpIncludeInspection */
-		include $this->settings_page->get_template_path() . '/AdminMenu.php';
+		include $this->settingsPage->getTemplatePath() . '/AdminMenu.php';
 	}
 }

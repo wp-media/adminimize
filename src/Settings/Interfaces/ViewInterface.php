@@ -2,17 +2,17 @@
 
 namespace Adminimize\Settings\Interfaces;
 
-interface ViewInterface {
-
+interface ViewInterface
+{
 	/**
 	 * Adds the settings page to the WP menu.
 	 *
 	 * @return mixed
 	 */
-	public function add_options_page();
+	public function addOptionsPage();
 
 	/**
 	 * HTML and Content for the settings page.
 	 */
-	public function render_page();
+	public function renderPage();
 }

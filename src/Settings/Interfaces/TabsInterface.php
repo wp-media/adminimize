@@ -5,12 +5,12 @@ namespace Adminimize\Settings\Interfaces;
 /**
  * Interface for Tabs class.
  */
-interface TabsInterface {
-
+interface TabsInterface
+{
 	/**
 	 * Returns array with namespaced class names of all tabs.
 	 *
 	 * @return array
 	 */
-	public function get_tabs_list(): array;
+	public function getTabsList(): array;
 }

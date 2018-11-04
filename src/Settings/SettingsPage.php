@@ -9,8 +9,8 @@ use Adminimize\Settings\Interfaces\SettingsPageInterface;
  *
  * @package Adminimize\SettingsPage
  */
-class SettingsPage implements SettingsPageInterface {
-
+class SettingsPage implements SettingsPageInterface
+{
 	/**
 	 * @var string
 	 */
@@ -26,18 +26,18 @@ class SettingsPage implements SettingsPageInterface {
 	 *
 	 * @var string
 	 */
-	private $template_path;
+	private $templatePath;
 
 	/**
 	 * SettingsPageInterface constructor.
 	 *
-	 * @param string $template_path
+	 * @param string $templatePath
 	 */
-	public function __construct( $template_path ) {
+	public function __construct( $templatePath ) {
 
         $this->slug = 'adminimize';
         $this->capability = 'manage_options';
-        $this->template_path = $template_path . '/Templates';
+        $this->templatePath = $templatePath . '/Templates';
     }
 
 	/**
@@ -45,9 +45,9 @@ class SettingsPage implements SettingsPageInterface {
 	 *
 	 * @return string
 	 */
-	public function get_template_path() : string {
+	public function getTemplatePath() : string {
 
-		return $this->template_path;
+		return $this->templatePath;
 	}
 
 	/**
@@ -55,7 +55,7 @@ class SettingsPage implements SettingsPageInterface {
 	 *
 	 * @return string
 	 */
-	public function get_capability() : string {
+	public function getCapability() : string {
 
 		return $this->capability;
 	}
@@ -65,7 +65,7 @@ class SettingsPage implements SettingsPageInterface {
 	 *
 	 * @return string
 	 */
-	public function get_slug() : string {
+	public function getSlug() : string {
 
 		return $this->slug;
 	}

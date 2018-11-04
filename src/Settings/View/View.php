@@ -2,6 +2,8 @@
 
 namespace Adminimize\Settings\View;
 
+use Adminimize\Http\Request;
+use ChriCo\Fields\ElementFactory;
 use Adminimize\Settings\View\Tabs;
 use Adminimize\Settings\SettingsPage;
 use Adminimize\Settings\SettingsRepository;
@@ -11,60 +13,93 @@ use Adminimize\Settings\Interfaces\SettingsPageInterface;
 /**
  * View for the SettingsPage.
  */
-class View implements ViewInterface {
+class View implements ViewInterface
+{
+    /**
+     * @var SettingsRepository
+     */
+    private $settings;
 
-	/**
+    /**
 	 * @var SettingsPageInterface
 	 */
-	private $settings_page;
-
-	/**
-	 * @var SettingsRepository
-	 */
-	private $settings;
+	private $settingsPage;
 
 	/**
 	 * @var string
 	 */
-	private $page_title;
+	private $pageTitle;
 
 	/**
 	 * Holds all instantiated tabs.
 	 *
-	 * @var Tabs\TabInterface[]
+	 * @var \Adminimize\Settings\View\Tabs\Tab
 	 */
-	private $tabs = array();
+	private $tabs = [];
+
+    /**
+     * @var ElementFactory
+     */
+    public $form;
+
+    /**
+     * @var Request
+     */
+    private $request;
 
     /**
      * View constructor.
      *
-     * @param \Adminimize\Settings\SettingsPage $settings_page
+     * @param \Adminimize\Settings\SettingsPage       $settingsPage
      * @param \Adminimize\Settings\SettingsRepository $settings
+     * @param \ChriCo\Fields\ElementFactory           $form
      */
-	public function __construct( SettingsPage $settings_page, SettingsRepository $settings ) {
-
+	public function __construct(
+	    SettingsPage $settingsPage,
+        SettingsRepository $settings,
+        ElementFactory $form
+    )
+    {
         $this->settings = $settings;
-        $this->settings_page = $settings_page;
+        $this->settingsPage = $settingsPage;
+        $this->form = $form;
+        $this->request = Request::fromGlobals();
 
-		$this->page_title = esc_html_x( 'Adminimize', 'Settings page title', 'adminimize' );
+		$this->pageTitle = esc_html_x('Adminimize', 'Settings page title', 'adminimize');
 	}
 
 	/**
 	 * Adds the settings page to the WP menu.
 	 */
-	public function add_options_page() {
+	public function addOptionsPage()
+    {
+		$menuTitle = esc_html_x('Adminimize', 'Settings menu title', 'adminimize');
+		$capability = $this->settingsPage->getCapability();
+		$menuSlug = $this->settingsPage->getSlug();
 
-		$menu_title = esc_html_x( 'Adminimize', 'Settings menu title', 'adminimize' );
-		$capability = $this->settings_page->get_capability();
-		$menu_slug  = $this->settings_page->get_slug();
-
-		add_options_page(
-			$this->page_title,
-			$menu_title,
+		$hook = add_options_page(
+			$this->pageTitle,
+			$menuTitle,
 			$capability,
-			$menu_slug,
-			[ $this, 'render_page' ]
+			$menuSlug,
+			[$this, 'renderPage']
 		);
+
+        add_action('load-' . $hook, [$this, 'update']);
+	}
+
+    /**
+     * @return bool
+     */
+	public function update()
+	{
+        if ('POST' !== $this->request->server()->get('REQUEST_METHOD', 'GET')) {
+            return false;
+        }
+
+        $postData = $this->request->data()->all();
+
+	    exit(print_r($postData));
 	}
 
 	/**
@@ -74,42 +109,43 @@ class View implements ViewInterface {
 	 *
 	 * @return void
 	 */
-	public function enqueue_scripts_styles() {
-
+	public function enqueueScriptsStyles()
+    {
 		$screen = get_current_screen();
-		if ( null === $screen ) {
+		if (null === $screen ) {
 			return;
 		}
 
-		if ( $screen->id !== 'settings_page_adminimize' ) {
+		if ($screen->id !== 'settings_page_adminimize') {
 			return;
 		}
 
 		wp_register_script(
 			'adminimize_admin',
-			plugins_url( '../../../assets/js/adminimize.js', __FILE__ ),
-			[ 'jquery', 'jquery-ui-tabs' ]
+			plugins_url( '../../../assets/js/adminimize.js', __FILE__),
+			['jquery', 'jquery-ui-tabs']
 		);
 
-		wp_enqueue_script( 'adminimize_admin' );
+		wp_enqueue_script('adminimize_admin');
 
 		wp_register_style(
 			'adminimize_admin',
-			plugins_url( '../../../assets/css/style.css', __FILE__ ),
+			plugins_url('../../../assets/css/style.css', __FILE__),
 			[]
 		);
 
-		wp_enqueue_style( 'adminimize_admin' );
+		wp_enqueue_style('adminimize_admin');
 	}
 
 	/**
 	 * HTML and Content for the settings page.
 	 */
-	public function render_page() {
-		$this->tabs = $this->instantiate_tabs();
+	public function renderPage()
+    {
+		$this->tabs = $this->initTabs();
 
 		/** @noinspection PhpIncludeInspection */
-		include $this->settings_page->get_template_path() . '/SettingsPage.php';
+		include $this->settingsPage->getTemplatePath() . '/SettingsPage.php';
 	}
 
 	/**
@@ -117,18 +153,18 @@ class View implements ViewInterface {
 	 *
 	 * @return Tabs\TabInterface[] Array of instantiated Tabs.
 	 */
-	private function instantiate_tabs(): array {
+	private function initTabs(): array
+    {
 		$tabs = new Tabs\Tabs();
+		$allTabs = [];
 
-		$all_tabs = [];
-
-		foreach ( $tabs->get_tabs_list() as $tab_class ) {
-			if ( class_exists( $tab_class ) ) {
-				$tab = new $tab_class( $this->settings_page );
-				$all_tabs[] = $tab;
+		foreach ($tabs->getTabsList() as $tabClass) {
+			if (class_exists( $tabClass)) {
+				$tab = new $tabClass($this, $this->settingsPage);
+				$allTabs[] = $tab;
 			}
 		}
 
-		return $all_tabs;
+		return $allTabs;
 	}
 }

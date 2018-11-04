@@ -1,29 +1,31 @@
-<?php declare( strict_types = 1 ); # -*- coding: utf-8 -*-
+<?php declare(strict_types = 1); # -*- coding: utf-8 -*-
 
 namespace Adminimize\Settings\View\Tabs;
+
+use ChriCo\Fields\ViewFactory;
 
 /**
  * Stub: Tab for Admin Bar Settings.
  */
-class AdminBar extends Tab {
-
+class AdminBar extends Tab
+{
 	/**
 	 * Get display title for the tab.
 	 *
 	 * @return string
 	 */
-	public function get_tab_title(): string {
-
-		return esc_html_x( 'Admin Bar', 'Tab Title', 'adminimize' );
+	public function getTabTitle(): string
+    {
+		return esc_html_x('Admin Bar', 'Tab Title', 'adminimize');
 	}
 
     /**
      * @return array
      */
-	public function define_fields(): array
+	public function defineFields(): array
 	{
         $url = add_query_arg(
-            ['page' => $this->settings_page->get_slug()],
+            ['page' => $this->settingsPage->getSlug()],
             admin_url('options-general.php')
         );
 
@@ -66,9 +68,11 @@ class AdminBar extends Tab {
 	 *
 	 * @return void
 	 */
-	public function render_tab_content()
+	public function render()
     {
+        $html = (new ViewFactory)->create('form')->render($this->form);
+
 		/** @noinspection PhpIncludeInspection */
-		include $this->settings_page->get_template_path() . '/AdminBar.php';
+		include $this->settingsPage->getTemplatePath() . '/AdminBar.php';
 	}
 }

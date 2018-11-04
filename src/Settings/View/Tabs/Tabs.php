@@ -1,4 +1,4 @@
-<?php declare( strict_types=1 ); # -*- coding: utf-8 -*-
+<?php declare(strict_types=1); # -*- coding: utf-8 -*-
 
 namespace Adminimize\Settings\View\Tabs;
 
@@ -33,7 +33,7 @@ class Tabs implements TabsInterface {
 	 *
 	 * @return array
 	 */
-	public function get_tabs_list(): array {
+	public function getTabsList(): array {
 
 		/**
 		 * Add Tabs to the SettingsPage.
@@ -44,6 +44,6 @@ class Tabs implements TabsInterface {
 		 *                  $type string $class Namespaced class.
 		 *              }
 		 */
-		return apply_filters( 'adminimize.settings_tabs', $this->tabs );
+		return apply_filters('adminimize.settings_tabs', $this->tabs);
 	}
 }

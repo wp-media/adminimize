@@ -30,7 +30,7 @@ class Controller implements ControllerInterface {
 	 */
 	public function init() {
 
-		add_action( 'admin_menu', [ $this->view, 'add_options_page' ] );
-		add_action( 'admin_enqueue_scripts', [ $this->view, 'enqueue_scripts_styles' ] );
+		add_action('admin_menu', [$this->view, 'addOptionsPage']);
+		add_action('admin_enqueue_scripts', [$this->view, 'enqueueScriptsStyles']);
 	}
 }

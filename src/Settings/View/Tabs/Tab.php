@@ -2,8 +2,7 @@
 
 namespace Adminimize\Settings\View\Tabs;
 
-use ChriCo\Fields\ViewFactory;
-use ChriCo\Fields\ElementFactory;
+use Adminimize\Settings\Interfaces\ViewInterface;
 use Adminimize\Settings\Interfaces\SettingsPageInterface;
 
 abstract class Tab
@@ -13,43 +12,46 @@ abstract class Tab
      *
      * @var \Adminimize\Settings\Interfaces\SettingsPageInterface
      */
-    protected $settings_page;
+    protected $settingsPage;
 
     /**
-     * @var ElementFactory
-     */
-    protected $form;
-
-    /**
-     * @var ViewFactory
+     * Holds an instance of the settings page
+     *
+     * @var \Adminimize\Settings\Interfaces\ViewInterface $view
      */
     protected $view;
 
     /**
+     * @var \ChriCo\Fields\Element\Form
+     */
+    protected $form;
+
+    /**
      * Constructor.
      *
-     * @param \Adminimize\Settings\Interfaces\SettingsPageInterface $settings_page
+     * @param \Adminimize\Settings\Interfaces\ViewInterface         $view
+     * @param \Adminimize\Settings\Interfaces\SettingsPageInterface $settingsPage
      */
-    public function __construct(SettingsPageInterface $settings_page)
+    public function __construct(ViewInterface $view, SettingsPageInterface $settingsPage)
     {
-        $this->settings_page = $settings_page;
-        $this->form = (new ElementFactory())->create($this->define_fields());
-        $this->view = (new ViewFactory())->create('form');
+        $this->view = $view;
+        $this->settingsPage = $settingsPage;
+        $this->form = $this->view->form->create($this->defineFields());
     }
 
     /**
      * @return array
      */
-    protected function user_roles()
+    protected function userRoles()
     {
-        $wp_roles  = get_editable_roles();
-        $all_roles = [];
+        $allRoles = [];
+        $wpRoles  = get_editable_roles();
 
-        foreach ($wp_roles as $role_key => $role_data) {
-            $all_roles[$role_key] = $role_data['name'];
+        foreach ($wpRoles as $roleKey => $roleData) {
+            $allRoles[$roleKey] = $roleData['name'];
         }
 
-        return $all_roles;
+        return $allRoles;
     }
 
     /**
@@ -57,19 +59,19 @@ abstract class Tab
      *
      * @return string
      */
-    abstract public function get_tab_title(): string;
+    abstract public function getTabTitle(): string;
 
     /**
      * Define which fields should be displayed in this tab.
      *
      * @return array
      */
-    abstract public function define_fields(): array;
+    abstract public function defineFields(): array;
 
     /**
      * Render content of the tab.
      *
      * @return void
      */
-    abstract public function render_tab_content();
+    abstract public function render();
 }
