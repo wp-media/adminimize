@@ -9,6 +9,7 @@ use Adminimize\Settings\SettingsPage;
 use Adminimize\Settings\SettingsRepository;
 use Adminimize\Settings\Interfaces\ViewInterface;
 use Adminimize\Settings\Interfaces\SettingsPageInterface;
+use ChriCo\Fields\ViewFactory;
 
 /**
  * View for the SettingsPage.
@@ -43,6 +44,11 @@ class View implements ViewInterface
     public $form;
 
     /**
+     * @var ViewFactory
+     */
+    public $factory;
+
+    /**
      * @var Request
      */
     private $request;
@@ -53,16 +59,19 @@ class View implements ViewInterface
      * @param \Adminimize\Settings\SettingsPage       $settingsPage
      * @param \Adminimize\Settings\SettingsRepository $settings
      * @param \ChriCo\Fields\ElementFactory           $form
+     * @param \ChriCo\Fields\ViewFactory              $viewFactory
      */
 	public function __construct(
 	    SettingsPage $settingsPage,
         SettingsRepository $settings,
-        ElementFactory $form
+        ElementFactory $form,
+        ViewFactory $viewFactory
     )
     {
         $this->settings = $settings;
         $this->settingsPage = $settingsPage;
         $this->form = $form;
+        $this->factory = $viewFactory;
         $this->request = Request::fromGlobals();
 
 		$this->pageTitle = esc_html_x('Adminimize', 'Settings page title', 'adminimize');
@@ -99,7 +108,7 @@ class View implements ViewInterface
 
         $postData = $this->request->data()->all();
 
-	    exit(print_r($postData));
+	    return $this->settings->update($postData);
 	}
 
 	/**
@@ -112,7 +121,8 @@ class View implements ViewInterface
 	public function enqueueScriptsStyles()
     {
 		$screen = get_current_screen();
-		if (null === $screen ) {
+
+		if (null === $screen) {
 			return;
 		}
 
@@ -155,11 +165,11 @@ class View implements ViewInterface
 	 */
 	private function initTabs(): array
     {
-		$tabs = new Tabs\Tabs();
-		$allTabs = [];
+        $allTabs = [];
+        $tabs = new Tabs\Tabs();
 
 		foreach ($tabs->getTabsList() as $tabClass) {
-			if (class_exists( $tabClass)) {
+			if (class_exists($tabClass)) {
 				$tab = new $tabClass($this, $this->settingsPage);
 				$allTabs[] = $tab;
 			}

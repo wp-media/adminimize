@@ -2,8 +2,8 @@
 
 namespace Adminimize\Settings\Interfaces;
 
-interface ControllerInterface {
-
+interface ControllerInterface
+{
 	/**
 	 * Control the initialize of the settings page.
 	 *

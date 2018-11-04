@@ -2,8 +2,6 @@
 
 namespace Adminimize\Settings\View\Tabs;
 
-use ChriCo\Fields\ViewFactory;
-
 /**
  * Stub: Tab for Admin Bar Settings.
  */
@@ -70,7 +68,7 @@ class AdminBar extends Tab
 	 */
 	public function render()
     {
-        $html = (new ViewFactory)->create('form')->render($this->form);
+        $html = $this->view->factory->create('form')->render($this->form);
 
 		/** @noinspection PhpIncludeInspection */
 		include $this->settingsPage->getTemplatePath() . '/AdminBar.php';

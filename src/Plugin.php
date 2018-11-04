@@ -2,6 +2,7 @@
 
 namespace Adminimize;
 
+use ChriCo\Fields\ViewFactory;
 use ChriCo\Fields\ElementFactory;
 use Adminimize\Settings\View\View;
 use Adminimize\Settings\Controller;
@@ -20,23 +21,18 @@ class Plugin {
 	 *
 	 * @param string $file Main plugin file.
 	 */
-	public function __construct($file) {
-
+	public function __construct($file)
+    {
 		$this->file = $file;
 	}
 
 	/**
 	 * Initialize the plugin.
 	 */
-	public function init() {
+	public function init()
+    {
+		$settingsPageView = new View(new SettingsPage(__DIR__), new SettingsRepository, new ElementFactory, new ViewFactory);
 
-		// Set option possibility.
-		$settingsRepository = new SettingsRepository();
-
-		// Render the settings page.
-		$settingsPage = new SettingsPage(__DIR__);
-		$settingsPageView = new View($settingsPage, $settingsRepository, new ElementFactory);
-		$settingsPageController = new Controller($settingsPageView);
-		$settingsPageController->init();
+        (new Controller($settingsPageView))->init();
 	}
 }

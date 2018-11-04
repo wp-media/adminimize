@@ -21,11 +21,11 @@ class Tabs implements TabsInterface {
 	 */
 	public function __construct() {
 
-		$this->tabs = array(
+		$this->tabs = [
 			AdminBar::class,
 			Dashboard::class,
 			AdminMenu::class,
-		);
+		];
 	}
 
 	/**
