@@ -8,8 +8,8 @@ use Adminimize\Settings\Interfaces\ControllerInterface;
 /**
  * Controller for the SettingsPage.
  */
-class Controller implements ControllerInterface {
-
+class Controller implements ControllerInterface
+{
 	/**
 	 * @var View
 	 */
@@ -20,16 +20,16 @@ class Controller implements ControllerInterface {
 	 *
 	 * @param View $view
 	 */
-	public function __construct( View $view ) {
-
+	public function __construct( View $view )
+    {
 		$this->view = $view;
 	}
 
 	/**
 	 * Control the initialize for display settings.
 	 */
-	public function init() {
-
+	public function init()
+    {
 		add_action('admin_menu', [$this->view, 'addOptionsPage']);
 		add_action('admin_enqueue_scripts', [$this->view, 'enqueueScriptsStyles']);
 	}

@@ -22,25 +22,20 @@ class Dashboard extends Tab
      */
     public function defineFields(): array
     {
-        $url = add_query_arg(
-            ['page' => $this->settingsPage->getSlug()],
-            admin_url('options-general.php')
-        );
-
         return [
             'attributes' => [
                 'name' => 'my-form',
-                'action' => $url,
+                'action' => $this->settingsPage->getUrl(),
                 'type' => 'form',
                 'method' => 'post',
             ],
             'elements' => [
                 [
                     'attributes' => [
-                        'name' => 'test1',
+                        'name' => 'dashboard stuff',
                         'type' => 'text'
                     ],
-                    'label' => 'Test 1',
+                    'label' => 'DASHBOARD',
                     'label_attributes' => [ 'for' => 'test1' ],
                 ],
                 [
@@ -60,15 +55,4 @@ class Dashboard extends Tab
             ],
         ];
     }
-
-	/**
-	 * Render content of the tab.
-	 *
-	 * @return void
-	 */
-	public function render()
-    {
-		/** @noinspection PhpIncludeInspection */
-		include $this->settingsPage->getTemplatePath() . '/Dashboard.php';
-	}
 }

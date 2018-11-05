@@ -33,8 +33,8 @@ class SettingsPage implements SettingsPageInterface
 	 *
 	 * @param string $templatePath
 	 */
-	public function __construct( $templatePath ) {
-
+	public function __construct( $templatePath )
+    {
         $this->slug = 'adminimize';
         $this->capability = 'manage_options';
         $this->templatePath = $templatePath . '/Templates';
@@ -45,8 +45,8 @@ class SettingsPage implements SettingsPageInterface
 	 *
 	 * @return string
 	 */
-	public function getTemplatePath() : string {
-
+	public function getTemplatePath(): string
+    {
 		return $this->templatePath;
 	}
 
@@ -55,8 +55,8 @@ class SettingsPage implements SettingsPageInterface
 	 *
 	 * @return string
 	 */
-	public function getCapability() : string {
-
+	public function getCapability(): string
+    {
 		return $this->capability;
 	}
 
@@ -65,8 +65,21 @@ class SettingsPage implements SettingsPageInterface
 	 *
 	 * @return string
 	 */
-	public function getSlug() : string {
-
+	public function getSlug(): string
+    {
 		return $this->slug;
+	}
+
+    /**
+     * Get the URL to the Adminimize settings area.
+     *
+     * @return string
+     */
+	public function getUrl(): string
+	{
+        return add_query_arg(
+            ['page' => $this->getSlug()],
+            admin_url('options-general.php')
+        );
 	}
 }

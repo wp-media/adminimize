@@ -22,15 +22,10 @@ class AdminMenu extends Tab
      */
     public function defineFields(): array
     {
-        $url = add_query_arg(
-            ['page' => $this->settingsPage->getSlug()],
-            admin_url('options-general.php')
-        );
-
-        return [
+       return [
             'attributes' => [
                 'name' => 'my-form',
-                'action' => $url,
+                'action' => $this->settingsPage->getUrl(),
                 'type' => 'form',
                 'method' => 'post',
             ],
@@ -60,15 +55,4 @@ class AdminMenu extends Tab
             ],
         ];
     }
-
-	/**
-	 * Render content of the tab.
-	 *
-	 * @return void
-	 */
-	public function render()
-    {
-		/** @noinspection PhpIncludeInspection */
-		include $this->settingsPage->getTemplatePath() . '/AdminMenu.php';
-	}
 }

@@ -29,7 +29,8 @@ class SettingsRepository {
      */
     public function get(string $key = '')
 	{
-	    $options = get_option(self::OPTION_NAME);
+	    $cachedOptions = wp_cache_get(self::OPTION_NAME);
+	    $options = $cachedOptions !== false ? $cachedOptions : get_option(self::OPTION_NAME);
 
 	    if (!$key) {
 	        return $options;
@@ -46,10 +47,16 @@ class SettingsRepository {
      * Updates the whole options set with a new set.
      *
      * @param array $options
+     *
      * @return bool
+     * @throws \Adminimize\Exceptions\SettingNotFoundException
      */
 	public function update(array $options): bool
 	{
+	    if ($options !== $this->get()) {
+            wp_cache_set(self::OPTION_NAME, $options);
+        }
+
         return update_option(self::OPTION_NAME, $options);
 	}
 }

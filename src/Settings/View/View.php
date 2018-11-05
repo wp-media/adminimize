@@ -41,12 +41,12 @@ class View implements ViewInterface
     /**
      * @var ElementFactory
      */
-    public $form;
+    private $form;
 
     /**
      * @var ViewFactory
      */
-    public $factory;
+    private $factory;
 
     /**
      * @var Request
@@ -99,6 +99,7 @@ class View implements ViewInterface
 
     /**
      * @return bool
+     * @throws \Adminimize\Exceptions\SettingNotFoundException
      */
 	public function update()
 	{
@@ -108,7 +109,9 @@ class View implements ViewInterface
 
         $postData = $this->request->data()->all();
 
-	    return $this->settings->update($postData);
+	    if ($this->settings->update($postData)) {
+	        wp_redirect($this->settingsPage->getUrl());
+        }
 	}
 
 	/**
@@ -147,6 +150,23 @@ class View implements ViewInterface
 		wp_enqueue_style('adminimize_admin');
 	}
 
+    /**
+     * Returns all user roles.
+     *
+     * @return array
+     */
+    protected function userRoles()
+    {
+        $wpRoles = get_editable_roles();
+
+        $allRoles = [];
+        foreach ($wpRoles as $roleKey => $roleData) {
+            $allRoles[$roleKey] = $roleData['name'];
+        }
+
+        return $allRoles;
+    }
+
 	/**
 	 * HTML and Content for the settings page.
 	 */
@@ -170,7 +190,7 @@ class View implements ViewInterface
 
 		foreach ($tabs->getTabsList() as $tabClass) {
 			if (class_exists($tabClass)) {
-				$tab = new $tabClass($this, $this->settingsPage);
+				$tab = new $tabClass($this->settingsPage, $this->form, $this->factory);
 				$allTabs[] = $tab;
 			}
 		}

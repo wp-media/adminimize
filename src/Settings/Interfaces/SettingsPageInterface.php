@@ -20,4 +20,9 @@ interface SettingsPageInterface
 	 * @return string
 	 */
 	public function getSlug(): string;
+
+    /**
+     * @return string
+     */
+    public function getUrl(): string;
 }

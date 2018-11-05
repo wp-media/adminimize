@@ -4,6 +4,9 @@ namespace Adminimize\Settings\View\Tabs;
 
 use Adminimize\Settings\Interfaces\ViewInterface;
 use Adminimize\Settings\Interfaces\SettingsPageInterface;
+use ChriCo\Fields\Element\Element;
+use ChriCo\Fields\ElementFactory;
+use ChriCo\Fields\ViewFactory;
 
 abstract class Tab
 {
@@ -15,11 +18,14 @@ abstract class Tab
     protected $settingsPage;
 
     /**
-     * Holds an instance of the settings page
-     *
-     * @var \Adminimize\Settings\Interfaces\ViewInterface $view
+     * ElementFactory
      */
-    protected $view;
+    protected $elementFactory;
+
+    /**
+     * ViewFactory
+     */
+    protected $viewFactory;
 
     /**
      * @var \ChriCo\Fields\Element\Form
@@ -29,29 +35,16 @@ abstract class Tab
     /**
      * Constructor.
      *
-     * @param \Adminimize\Settings\Interfaces\ViewInterface         $view
      * @param \Adminimize\Settings\Interfaces\SettingsPageInterface $settingsPage
+     * @param \ChriCo\Fields\ElementFactory                         $elementFactory
+     * @param \ChriCo\Fields\ViewFactory                            $viewFactory
      */
-    public function __construct(ViewInterface $view, SettingsPageInterface $settingsPage)
+    public function __construct(SettingsPageInterface $settingsPage, ElementFactory $elementFactory, ViewFactory $viewFactory)
     {
-        $this->view = $view;
+        $this->elementFactory = $elementFactory;
+        $this->viewFactory = $viewFactory;
         $this->settingsPage = $settingsPage;
-        $this->form = $this->view->form->create($this->defineFields());
-    }
-
-    /**
-     * @return array
-     */
-    protected function userRoles()
-    {
-        $allRoles = [];
-        $wpRoles  = get_editable_roles();
-
-        foreach ($wpRoles as $roleKey => $roleData) {
-            $allRoles[$roleKey] = $roleData['name'];
-        }
-
-        return $allRoles;
+        $this->form = $this->elementFactory->create($this->defineFields());
     }
 
     /**
@@ -73,5 +66,12 @@ abstract class Tab
      *
      * @return void
      */
-    abstract public function render();
+    public function render()
+    {
+        $html = $this->viewFactory->create('form')->render($this->form);
+        $baseClassName = substr(strrchr(static::class, '\\'), 1);
+
+        /** @noinspection PhpIncludeInspection */
+        include $this->settingsPage->getTemplatePath() . '/' . $baseClassName . '.php';
+    }
 }
