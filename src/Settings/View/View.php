@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 ); # -*- coding: utf-8 -*-
+<?php declare(strict_types = 1); // -*- coding: utf-8 -*-
 
 namespace Adminimize\Settings\View;
 
@@ -22,21 +22,21 @@ class View implements ViewInterface
     private $settings;
 
     /**
-	 * @var SettingsPageInterface
-	 */
-	private $settingsPage;
+     * @var SettingsPageInterface
+     */
+    private $settingsPage;
 
-	/**
-	 * @var string
-	 */
-	private $pageTitle;
+    /**
+     * @var string
+     */
+    private $pageTitle;
 
-	/**
-	 * Holds all instantiated tabs.
-	 *
-	 * @var \Adminimize\Settings\View\Tabs\Tab
-	 */
-	private $tabs = [];
+    /**
+     * Holds all instantiated tabs.
+     *
+     * @var \Adminimize\Settings\View\Tabs\Tab
+     */
+    private $tabs = [];
 
     /**
      * @var ElementFactory
@@ -61,94 +61,94 @@ class View implements ViewInterface
      * @param \ChriCo\Fields\ElementFactory           $elementFactory
      * @param \ChriCo\Fields\ViewFactory              $viewFactory
      */
-	public function __construct(
-	    SettingsPage $settingsPage,
+    public function __construct(
+        SettingsPage $settingsPage,
         SettingsRepository $settings,
         ElementFactory $elementFactory,
         ViewFactory $viewFactory
-    )
-    {
+    ) {
+
         $this->settings = $settings;
         $this->settingsPage = $settingsPage;
         $this->elementFactory = $elementFactory;
         $this->viewFactory = $viewFactory;
         $this->request = Request::fromGlobals();
 
-		$this->pageTitle = esc_html_x('Adminimize', 'Settings page title', 'adminimize');
-	}
+        $this->pageTitle = esc_html_x('Adminimize', 'Settings page title', 'adminimize');
+    }
 
-	/**
-	 * Adds the settings page to the WP menu.
-	 */
-	public function addOptionsPage()
+    /**
+     * Adds the settings page to the WP menu.
+     */
+    public function addOptionsPage()
     {
-		$menuTitle = esc_html_x('Adminimize', 'Settings menu title', 'adminimize');
-		$capability = $this->settingsPage->getCapability();
-		$menuSlug = $this->settingsPage->getSlug();
+        $menuTitle = esc_html_x('Adminimize', 'Settings menu title', 'adminimize');
+        $capability = $this->settingsPage->capability();
+        $menuSlug = $this->settingsPage->slug();
 
-		$hook = add_options_page(
-			$this->pageTitle,
-			$menuTitle,
-			$capability,
-			$menuSlug,
-			[$this, 'renderPage']
-		);
+        $hook = add_options_page(
+            $this->pageTitle,
+            $menuTitle,
+            $capability,
+            $menuSlug,
+            [$this, 'renderPage']
+        );
 
         add_action('load-' . $hook, [$this, 'update']);
-	}
+    }
 
     /**
      * @return bool
      * @throws \Adminimize\Exceptions\SettingNotFoundException
      */
-	public function update()
-	{
+    public function update()
+    {
         if ($this->request->server()->get('REQUEST_METHOD', 'GET') !== 'POST') {
             return false;
         }
 
         $postData = $this->request->data()->all();
 
-	    if ($this->settings->update($postData)) {
-	        wp_redirect($this->settingsPage->getUrl());
+        if ($this->settings->update($postData)) {
+            wp_redirect($this->settingsPage->url());
         }
-	}
+    }
 
-	/**
-	 * Enqueue scripts and styles necessary for the Settings Page.
-	 *
-	 * Only executed when the Settings Page is actually displayed.
-	 *
-	 * @return void
-	 */
-	public function enqueueScriptsStyles()
+    /**
+     * Enqueue scripts and styles necessary for the Settings Page.
+     *
+     * Only executed when the Settings Page is actually displayed.
+     *
+     * @return void
+     */
+    public function enqueueScriptsStyles()
     {
-		$screen = get_current_screen();
+        $screen = get_current_screen();
 
-		if (null === $screen) {
-			return;
-		}
+        if (null === $screen) {
+            return;
+        }
 
-		if ($screen->id !== 'settings_page_adminimize') {
-			return;
-		}
+        if ($screen->id !== 'settings_page_adminimize') {
+            return;
+        }
 
-		wp_register_script(
-			'adminimize_admin',
-			plugins_url('../../../assets/js/adminimize.js', __FILE__),
-			['jquery', 'jquery-ui-tabs']
-		);
+        wp_register_script(
+            'adminimize_admin',
+            plugins_url('../../../assets/js/adminimize.js', __FILE__),
+            ['jquery', 'jquery-ui-tabs']
+        );
 
-		wp_enqueue_script('adminimize_admin');
+        wp_enqueue_script('adminimize_admin');
 
-		wp_register_style(
-			'adminimize_admin',
-			plugins_url('../../../assets/css/style.css', __FILE__),
-			[]
-		);
+        wp_register_style(
+            'adminimize_admin',
+            plugins_url('../../../assets/css/style.css', __FILE__),
+            []
+        );
 
-		wp_enqueue_style('adminimize_admin');
-	}
+        wp_enqueue_style('adminimize_admin');
+    }
 
     /**
      * Returns all user roles.
@@ -167,34 +167,36 @@ class View implements ViewInterface
         return $allRoles;
     }
 
-	/**
-	 * HTML and Content for the settings page.
-	 */
-	public function renderPage()
+    /**
+     * HTML and Content for the settings page.
+     */
+    public function renderPage()
     {
-		$this->tabs = $this->initTabs();
+        $this->tabs = $this->initTabs();
 
-		/** @noinspection PhpIncludeInspection */
-		include $this->settingsPage->getTemplatePath() . '/SettingsPage.php';
-	}
+        /**
+        * @noinspection PhpIncludeInspection
+        */
+        include $this->settingsPage->templatePath() . '/SettingsPage.php';
+    }
 
-	/**
-	 * Get and instantiate all Tabs.
-	 *
-	 * @return \Adminimize\Settings\View\Tabs\Tab[] Array of instantiated Tabs.
-	 */
-	private function initTabs(): array
+    /**
+     * Get and instantiate all Tabs.
+     *
+     * @return \Adminimize\Settings\View\Tabs\Tab[] Array of instantiated Tabs.
+     */
+    private function initTabs(): array
     {
         $allTabs = [];
         $tabs = new Tabs();
 
-		foreach ($tabs->list() as $tabClass) {
-			if (class_exists($tabClass)) {
-				$tab = new $tabClass($this->settingsPage, $this->elementFactory, $this->viewFactory);
-				$allTabs[] = $tab;
-			}
-		}
+        foreach ($tabs->list() as $tabClass) {
+            if (class_exists($tabClass)) {
+                $tab = new $tabClass($this->settingsPage, $this->elementFactory, $this->viewFactory);
+                $allTabs[] = $tab;
+            }
+        }
 
-		return $allTabs;
-	}
+        return $allTabs;
+    }
 }

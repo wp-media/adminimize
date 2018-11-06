@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1); // -*- coding: utf-8 -*-
 
 namespace Adminimize\Settings\View\Tabs;
 
@@ -75,7 +75,9 @@ abstract class Tab
 
         $baseClassName = substr(strrchr(static::class, '\\'), 1);
 
-        /** @noinspection PhpIncludeInspection */
-        include $this->settingsPage->getTemplatePath() . '/' . $baseClassName . '.php';
+        /**
+ * @noinspection PhpIncludeInspection
+*/
+        include $this->settingsPage->templatePath() . '/' . $baseClassName . '.php';
     }
 }

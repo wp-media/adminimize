@@ -1,5 +1,5 @@
-<?php declare(strict_types = 1); # -*- coding: utf-8 -*- ?>
+<?php declare(strict_types = 1); // -*- coding: utf-8 -*- ?>
 
 <p>Dummy Content for AdminBar Settings</p>
 
-<?= $html ?>
+<?= esc_attr($html) ?>

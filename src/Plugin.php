@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 ); # -*- coding: utf-8 -*-
+<?php declare(strict_types = 1); // -*- coding: utf-8 -*-
 
 namespace Adminimize;
 
@@ -9,30 +9,36 @@ use Adminimize\Settings\Controller;
 use Adminimize\Settings\SettingsPage;
 use Adminimize\Settings\SettingsRepository;
 
-class Plugin {
+class Plugin
+{
 
-	/**
-	 * @var string
-	 */
-	private $file;
+    /**
+     * @var string
+     */
+    private $file;
 
-	/**
-	 * Plugin constructor.
-	 *
-	 * @param string $file Main plugin file.
-	 */
-	public function __construct($file)
+    /**
+     * Plugin constructor.
+     *
+     * @param string $file Main plugin file.
+     */
+    public function __construct(string $file)
     {
-		$this->file = $file;
-	}
+        $this->file = $file;
+    }
 
-	/**
-	 * Initialize the plugin.
-	 */
-	public function init()
+    /**
+     * Initialize the plugin.
+     */
+    public function init()
     {
-		$settingsPageView = new View(new SettingsPage(__DIR__), new SettingsRepository, new ElementFactory, new ViewFactory);
+        $settingsPageView = new View(
+            new SettingsPage(__DIR__),
+            new SettingsRepository,
+            new ElementFactory,
+            new ViewFactory
+        );
 
         (new Controller($settingsPageView))->init();
-	}
+    }
 }

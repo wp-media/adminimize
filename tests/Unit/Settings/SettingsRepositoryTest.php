@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1); // -*- coding: utf-8 -*-
 
 namespace Adminimize\Tests\Unit\Settings;
 
@@ -16,6 +16,7 @@ class SettingsRepositoryTest extends AbstractTestCase
     protected function setUp()
     {
         parent::setUp();
+        delete_option(SettingsRepository::OPTION_NAME);
         $this->settingsRepository = new SettingsRepository;
     }
 
@@ -76,11 +77,5 @@ class SettingsRepositoryTest extends AbstractTestCase
         $this->settingsRepository->update($data);
 
         $this->settingsRepository->get('BADKEY');
-    }
-
-    protected function tearDown()
-    {
-        parent::tearDown();
-        delete_option(SettingsRepository::OPTION_NAME);
     }
 }

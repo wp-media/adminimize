@@ -1,28 +1,28 @@
-<?php # -*- coding: utf-8 -*-
+<?php // -*- coding: utf-8 -*-
 
 namespace Adminimize\Settings\Interfaces;
 
 interface SettingsPageInterface
 {
-	/**
-	 * Get the path to the templates.
-	 *
-	 * @return string
-	 */
-	public function getTemplatePath(): string;
-
-	/**
-	 * @return string
-	 */
-	public function getCapability(): string;
-
-	/**
-	 * @return string
-	 */
-	public function getSlug(): string;
+    /**
+     * Get the path to the templates.
+     *
+     * @return string
+     */
+    public function templatePath(): string;
 
     /**
      * @return string
      */
-    public function getUrl(): string;
+    public function capability(): string;
+
+    /**
+     * @return string
+     */
+    public function slug(): string;
+
+    /**
+     * @return string
+     */
+    public function url(): string;
 }

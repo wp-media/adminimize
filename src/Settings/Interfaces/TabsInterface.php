@@ -1,4 +1,4 @@
-<?php declare( strict_types=1 ); # -*- coding: utf-8 -*-
+<?php declare( strict_types=1 ); // -*- coding: utf-8 -*-
 
 namespace Adminimize\Settings\Interfaces;
 
@@ -7,10 +7,10 @@ namespace Adminimize\Settings\Interfaces;
  */
 interface TabsInterface
 {
-	/**
-	 * Returns array with namespaced class names of all tabs.
-	 *
-	 * @return array
-	 */
-	public function list(): array;
+    /**
+     * Returns array with namespaced class names of all tabs.
+     *
+     * @return array
+     */
+    public function list(): array;
 }

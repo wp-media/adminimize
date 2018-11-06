@@ -1,4 +1,4 @@
-<?php declare(strict_types = 1); # -*- coding: utf-8 -*-
+<?php declare(strict_types = 1); // -*- coding: utf-8 -*-
 
 namespace Adminimize\Settings\View\Tabs;
 
@@ -7,25 +7,25 @@ namespace Adminimize\Settings\View\Tabs;
  */
 class AdminBar extends Tab
 {
-	/**
-	 * Get display title for the tab.
-	 *
-	 * @return string
-	 */
-	public function title(): string
+    /**
+     * Get display title for the tab.
+     *
+     * @return string
+     */
+    public function title(): string
     {
-		return esc_html_x('Admin Bar', 'Tab Title', 'adminimize');
-	}
+        return esc_html_x('Admin Bar', 'Tab Title', 'adminimize');
+    }
 
     /**
      * @return array
      */
-	public function defineFields(): array
-	{
+    public function defineFields(): array
+    {
         return [
             'attributes' => [
                 'name' => 'my-form',
-                'action' => $this->settingsPage->getUrl(),
+                'action' => $this->settingsPage->url(),
                 'type' => 'form',
                 'method' => 'post',
             ],
@@ -33,7 +33,7 @@ class AdminBar extends Tab
                 [
                     'attributes' => [
                         'name' => 'test1',
-                        'type' => 'text'
+                        'type' => 'text',
                     ],
                     'label' => 'Test 1',
                     'label_attributes' => [ 'for' => 'test1' ],
@@ -41,7 +41,7 @@ class AdminBar extends Tab
                 [
                     'attributes' => [
                         'name' => 'test2',
-                        'type' => 'text'
+                        'type' => 'text',
                     ],
                     'label' => 'Test 2',
                     'label_attributes' => [ 'for' => 'test1' ],
@@ -49,10 +49,10 @@ class AdminBar extends Tab
                 [
                     'attributes' => [
                         'name' => 'submit',
-                        'type' => 'submit'
+                        'type' => 'submit',
                     ],
                 ],
             ],
         ];
-	}
+    }
 }

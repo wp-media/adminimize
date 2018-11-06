@@ -1,4 +1,4 @@
-<?php declare(strict_types=1); # -*- coding: utf-8 -*-
+<?php declare(strict_types=1); // -*- coding: utf-8 -*-
 
 namespace Adminimize\Http;
 
@@ -37,7 +37,7 @@ class ParameterBag implements Countable, IteratorAggregate
     /**
      * Count elements of an object.
      *
-     * @link  http://php.net/manual/en/countable.count.php
+     * @link http://php.net/manual/en/countable.count.php
      *
      * @return int The custom count as an integer.
      */
@@ -80,7 +80,7 @@ class ParameterBag implements Countable, IteratorAggregate
      * Returns a parameter by name.
      *
      * @param string $key
-     * @param mixed $default The default value if the parameter key does not exist.
+     * @param mixed  $default The default value if the parameter key does not exist.
      *
      * @return mixed
      */
@@ -95,7 +95,7 @@ class ParameterBag implements Countable, IteratorAggregate
      * Sets a parameter by name.
      *
      * @param string $key
-     * @param mixed $value
+     * @param mixed  $value
      */
     public function set(string $key, $value)
     {
@@ -117,7 +117,7 @@ class ParameterBag implements Countable, IteratorAggregate
     /**
      * Retrieve an external iterator,
      *
-     * @link  http://php.net/manual/en/iteratoraggregate.getiterator.php
+     * @link http://php.net/manual/en/iteratoraggregate.getiterator.php
      *
      * @return Traversable An instance of an object implementing <b>Iterator</b> or <b>Traversable</b>,
      */
