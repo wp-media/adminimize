@@ -76,8 +76,8 @@ abstract class Tab
         $baseClassName = substr(strrchr(static::class, '\\'), 1);
 
         /**
- * @noinspection PhpIncludeInspection
-*/
+        * @noinspection PhpIncludeInspection
+        */
         include $this->settingsPage->templatePath() . '/' . $baseClassName . '.php';
     }
 }

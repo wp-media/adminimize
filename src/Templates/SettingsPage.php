@@ -1,7 +1,7 @@
 <?php declare(strict_types=1); // -*- coding: utf-8 -*- ?>
 
 <div class="wrap">
-    <h1><?php echo esc_attr($this->pageTitle); ?></h1>
+    <h1><?= esc_attr($this->pageTitle); ?></h1>
 
     <div id="nav-tabs">
         <h2 class="nav-tab-wrapper">
@@ -9,7 +9,7 @@
                 <?php foreach ((array)$this->tabs as $key => $tab) : ?>
                     <li>
                         <a class="nav-tab <?php echo $key === 0 ? 'nav-tab-active' : ''; ?>"
-                            href="#tab-<?php echo esc_attr($key); ?>">
+                            href="#tab-<?= esc_attr($key); ?>">
                             <?= esc_html($tab->title()); ?>
                         </a>
                     </li>
@@ -17,10 +17,10 @@
             </ul>
         </h2>
 
-    <?php foreach ((array)$this->tabs as $key => $tab) : ?>
+        <?php foreach ((array)$this->tabs as $key => $tab): ?>
             <div id="tab-<?php echo esc_attr($key) ?>">
                 <?= esc_attr($tab->render()) ?>
             </div>
-    <?php endforeach; ?>
+        <?php endforeach; ?>
     </div>
 </div>

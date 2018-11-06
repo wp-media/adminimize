@@ -2,4 +2,4 @@
 
 <p>Dummy Content for AdminBar Settings</p>
 
-<?= esc_attr($html) ?>
+<?= $html ?>
