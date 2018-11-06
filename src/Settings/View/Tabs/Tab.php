@@ -2,11 +2,9 @@
 
 namespace Adminimize\Settings\View\Tabs;
 
-use Adminimize\Settings\Interfaces\ViewInterface;
-use Adminimize\Settings\Interfaces\SettingsPageInterface;
-use ChriCo\Fields\Element\Element;
-use ChriCo\Fields\ElementFactory;
 use ChriCo\Fields\ViewFactory;
+use ChriCo\Fields\ElementFactory;
+use Adminimize\Settings\Interfaces\SettingsPageInterface;
 
 abstract class Tab
 {
@@ -41,10 +39,13 @@ abstract class Tab
      */
     public function __construct(SettingsPageInterface $settingsPage, ElementFactory $elementFactory, ViewFactory $viewFactory)
     {
-        $this->elementFactory = $elementFactory;
         $this->viewFactory = $viewFactory;
         $this->settingsPage = $settingsPage;
-        $this->form = $this->elementFactory->create($this->defineFields());
+        $this->elementFactory = $elementFactory;
+
+        if ($fields = $this->defineFields()) {
+            $this->form = $this->elementFactory->create($fields);
+        }
     }
 
     /**
@@ -52,7 +53,7 @@ abstract class Tab
      *
      * @return string
      */
-    abstract public function getTabTitle(): string;
+    abstract public function title(): string;
 
     /**
      * Define which fields should be displayed in this tab.
@@ -68,7 +69,10 @@ abstract class Tab
      */
     public function render()
     {
-        $html = $this->viewFactory->create('form')->render($this->form);
+        if ($this->form) {
+            $html = $this->viewFactory->create('form')->render($this->form);
+        }
+
         $baseClassName = substr(strrchr(static::class, '\\'), 1);
 
         /** @noinspection PhpIncludeInspection */

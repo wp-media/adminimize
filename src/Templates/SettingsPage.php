@@ -10,7 +10,7 @@
 					<li>
 						<a class="nav-tab <?php echo $key === 0 ? 'nav-tab-active' : ''; ?>"
 							href="#tab-<?php echo esc_attr($key); ?>">
-							<?= esc_html($tab->getTabTitle()); ?>
+							<?= esc_html($tab->title()); ?>
 						</a>
 					</li>
 				<?php endforeach; ?>

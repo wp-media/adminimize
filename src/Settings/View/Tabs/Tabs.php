@@ -7,8 +7,8 @@ use Adminimize\Settings\Interfaces\TabsInterface;
 /**
  * Define Tabs for the Settings Page.
  */
-class Tabs implements TabsInterface {
-
+class Tabs implements TabsInterface
+{
 	/**
 	 * Holds all namespaced class names for tabs defined by this class.
 	 *
@@ -33,7 +33,7 @@ class Tabs implements TabsInterface {
 	 *
 	 * @return array
 	 */
-	public function getTabsList(): array {
+	public function list(): array {
 
 		/**
 		 * Add Tabs to the SettingsPage.

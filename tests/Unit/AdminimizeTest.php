@@ -9,15 +9,11 @@ use Adminimize\Plugin;
  *
  * @package Inpsyde\NetworkPosts\Tests\Unit
  */
-class AdminimizeTest extends AbstractTestCase {
-
-	/**
-	 *
-	 */
-	public function test_basic() {
-
-		$plugin = new Plugin( __DIR__ );
-		static::assertInstanceOf( Plugin::class, $plugin );
+class AdminimizeTest extends AbstractTestCase
+{
+	public function test_basic()
+    {
+		$plugin = new Plugin(__DIR__);
+		static::assertInstanceOf(Plugin::class, $plugin);
 	}
-
 }

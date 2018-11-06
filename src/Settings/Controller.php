@@ -20,7 +20,7 @@ class Controller implements ControllerInterface
 	 *
 	 * @param View $view
 	 */
-	public function __construct( View $view )
+	public function __construct(View $view)
     {
 		$this->view = $view;
 	}

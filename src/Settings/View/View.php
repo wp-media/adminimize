@@ -3,13 +3,13 @@
 namespace Adminimize\Settings\View;
 
 use Adminimize\Http\Request;
+use ChriCo\Fields\ViewFactory;
 use ChriCo\Fields\ElementFactory;
-use Adminimize\Settings\View\Tabs;
 use Adminimize\Settings\SettingsPage;
+use Adminimize\Settings\View\Tabs\Tabs;
 use Adminimize\Settings\SettingsRepository;
 use Adminimize\Settings\Interfaces\ViewInterface;
 use Adminimize\Settings\Interfaces\SettingsPageInterface;
-use ChriCo\Fields\ViewFactory;
 
 /**
  * View for the SettingsPage.
@@ -41,12 +41,12 @@ class View implements ViewInterface
     /**
      * @var ElementFactory
      */
-    private $form;
+    private $elementFactory;
 
     /**
      * @var ViewFactory
      */
-    private $factory;
+    private $viewFactory;
 
     /**
      * @var Request
@@ -58,20 +58,20 @@ class View implements ViewInterface
      *
      * @param \Adminimize\Settings\SettingsPage       $settingsPage
      * @param \Adminimize\Settings\SettingsRepository $settings
-     * @param \ChriCo\Fields\ElementFactory           $form
+     * @param \ChriCo\Fields\ElementFactory           $elementFactory
      * @param \ChriCo\Fields\ViewFactory              $viewFactory
      */
 	public function __construct(
 	    SettingsPage $settingsPage,
         SettingsRepository $settings,
-        ElementFactory $form,
+        ElementFactory $elementFactory,
         ViewFactory $viewFactory
     )
     {
         $this->settings = $settings;
         $this->settingsPage = $settingsPage;
-        $this->form = $form;
-        $this->factory = $viewFactory;
+        $this->elementFactory = $elementFactory;
+        $this->viewFactory = $viewFactory;
         $this->request = Request::fromGlobals();
 
 		$this->pageTitle = esc_html_x('Adminimize', 'Settings page title', 'adminimize');
@@ -103,7 +103,7 @@ class View implements ViewInterface
      */
 	public function update()
 	{
-        if ('POST' !== $this->request->server()->get('REQUEST_METHOD', 'GET')) {
+        if ($this->request->server()->get('REQUEST_METHOD', 'GET') !== 'POST') {
             return false;
         }
 
@@ -135,7 +135,7 @@ class View implements ViewInterface
 
 		wp_register_script(
 			'adminimize_admin',
-			plugins_url( '../../../assets/js/adminimize.js', __FILE__),
+			plugins_url('../../../assets/js/adminimize.js', __FILE__),
 			['jquery', 'jquery-ui-tabs']
 		);
 
@@ -181,16 +181,16 @@ class View implements ViewInterface
 	/**
 	 * Get and instantiate all Tabs.
 	 *
-	 * @return Tabs\TabInterface[] Array of instantiated Tabs.
+	 * @return \Adminimize\Settings\View\Tabs\Tab[] Array of instantiated Tabs.
 	 */
 	private function initTabs(): array
     {
         $allTabs = [];
-        $tabs = new Tabs\Tabs();
+        $tabs = new Tabs();
 
-		foreach ($tabs->getTabsList() as $tabClass) {
+		foreach ($tabs->list() as $tabClass) {
 			if (class_exists($tabClass)) {
-				$tab = new $tabClass($this->settingsPage, $this->form, $this->factory);
+				$tab = new $tabClass($this->settingsPage, $this->elementFactory, $this->viewFactory);
 				$allTabs[] = $tab;
 			}
 		}

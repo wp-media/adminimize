@@ -12,5 +12,5 @@ interface TabsInterface
 	 *
 	 * @return array
 	 */
-	public function getTabsList(): array;
+	public function list(): array;
 }

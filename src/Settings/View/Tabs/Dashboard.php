@@ -12,7 +12,7 @@ class Dashboard extends Tab
 	 *
 	 * @return string
 	 */
-	public function getTabTitle(): string
+	public function title(): string
     {
 		return esc_html_x('Dashboard', 'Tab Title', 'adminimize');
 	}

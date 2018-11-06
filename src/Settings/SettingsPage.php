@@ -33,7 +33,7 @@ class SettingsPage implements SettingsPageInterface
 	 *
 	 * @param string $templatePath
 	 */
-	public function __construct( $templatePath )
+	public function __construct($templatePath)
     {
         $this->slug = 'adminimize';
         $this->capability = 'manage_options';

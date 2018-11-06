@@ -12,7 +12,7 @@ class AdminMenu extends Tab
 	 *
 	 * @return string
 	 */
-	public function getTabTitle(): string
+	public function title(): string
     {
 		return esc_html_x('Admin Menu', 'Tab Title', 'adminimize');
 	}
@@ -22,37 +22,6 @@ class AdminMenu extends Tab
      */
     public function defineFields(): array
     {
-       return [
-            'attributes' => [
-                'name' => 'my-form',
-                'action' => $this->settingsPage->getUrl(),
-                'type' => 'form',
-                'method' => 'post',
-            ],
-            'elements' => [
-                [
-                    'attributes' => [
-                        'name' => 'test1',
-                        'type' => 'text'
-                    ],
-                    'label' => 'Test 1',
-                    'label_attributes' => [ 'for' => 'test1' ],
-                ],
-                [
-                    'attributes' => [
-                        'name' => 'test2',
-                        'type' => 'text'
-                    ],
-                    'label' => 'Test 2',
-                    'label_attributes' => [ 'for' => 'test1' ],
-                ],
-                [
-                    'attributes' => [
-                        'name' => 'submit',
-                        'type' => 'submit'
-                    ],
-                ],
-            ],
-        ];
+       return [];
     }
 }
