@@ -69,10 +69,7 @@ abstract class Tab
      */
     public function render()
     {
-        if ($this->form) {
-            $html = $this->viewFactory->create('form')->render($this->form);
-        }
-
+        $form = $this->form ? $this->viewFactory->create('form')->render($this->form) : '';
         $baseClassName = substr(strrchr(static::class, '\\'), 1);
 
         /**
