@@ -2,20 +2,21 @@
 
 namespace Adminimize\Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
 use Brain\Monkey;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class AbstractTestCase
  */
-abstract class AbstractTestCase extends TestCase {
-
+abstract class AbstractTestCase extends TestCase
+{
 	/**
 	 * Sets up the environment.
 	 *
 	 * @return void
 	 */
-	protected function setUp() {
+	protected function setUp()
+    {
 		parent::setUp();
 		Monkey\setUp();
 	}
@@ -25,7 +26,8 @@ abstract class AbstractTestCase extends TestCase {
 	 *
 	 * @return void
 	 */
-	protected function tearDown() {
+	protected function tearDown()
+    {
 		Monkey\tearDown();
 		parent::tearDown();
 	}

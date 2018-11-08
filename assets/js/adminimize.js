@@ -4,31 +4,32 @@
  *
  * @version 2015-12-20
  */
-jQuery( document ).ready( function( $ ) {
-	'use strict';
+jQuery(document).ready(function ( $ ) {
+    'use strict';
 
-	$( '#nav-tabs' ).tabs();
+    $('#nav-tabs').tabs();
 
-	$( 'a.nav-tab' ).click( function() {
-		$( 'a.nav-tab' ).each( function() {
-			$( this ).removeClass( 'nav-tab-active' );
-		} );
-		$( this ).addClass( 'nav-tab-active' );
-	} );
+    $('a.nav-tab').click(function () {
+        $('a.nav-tab').each(function () {
+            $(this).removeClass('nav-tab-active');
+        });
+        $(this).addClass('nav-tab-active');
+    });
 
-	$( 'thead input:checkbox' ).change( function() {
+    $('thead input:checkbox').change(function () {
 
-		var className = this.className,
-			input = 'input:checkbox.' + className;
+        var className = this.className,
+            input = 'input:checkbox.' + className;
 
-		$( input ).prop(
-			'checked', $( this ).prop( 'checked' )
-		);
-	} );
+        $(input).prop(
+            'checked',
+            $(this).prop('checked')
+        );
+    });
 
-	$( '.postbox h3' ).on( 'click', function( e ) {
-		$( this ).closest( '.postbox' ).toggleClass( 'closed' );
-		e.preventDefault();
-	} );
+    $('.postbox h3').on('click', function ( e ) {
+        $(this).closest('.postbox').toggleClass('closed');
+        e.preventDefault();
+    });
 
-} );
+});

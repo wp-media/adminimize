@@ -1,36 +1,44 @@
-<?php declare( strict_types = 1 ); # -*- coding: utf-8 -*-
+<?php declare(strict_types = 1); // -*- coding: utf-8 -*-
 
 namespace Adminimize;
 
-class Plugin {
+use ChriCo\Fields\ViewFactory;
+use ChriCo\Fields\ElementFactory;
+use Adminimize\Settings\View\View;
+use Adminimize\Settings\Controller;
+use Adminimize\Settings\SettingsPage;
+use Adminimize\Settings\SettingsRepository;
 
-	/**
-	 * @var string
-	 */
-	private $file;
+class Plugin
+{
 
-	/**
-	 * Plugin constructor.
-	 *
-	 * @param string $file Main plugin file.
-	 */
-	public function __construct( $file ) {
+    /**
+     * @var string
+     */
+    private $file;
 
-		$this->file = $file;
-	}
+    /**
+     * Plugin constructor.
+     *
+     * @param string $file Main plugin file.
+     */
+    public function __construct(string $file)
+    {
+        $this->file = $file;
+    }
 
-	/**
-	 * Initialize the plugin.
-	 */
-	public function init() {
+    /**
+     * Initialize the plugin.
+     */
+    public function init()
+    {
+        $settingsPageView = new View(
+            new SettingsPage(__DIR__),
+            new SettingsRepository,
+            new ElementFactory,
+            new ViewFactory
+        );
 
-		// Set option possibility.
-		$option = new Settings\Option();
-
-		// Render the settings page.
-		$settings_page         = new SettingsPage\SettingsPage( __DIR__ );
-		$settings_page_view    = new SettingsPage\View( $settings_page, $option );
-		$settings_page_control = new SettingsPage\Controller( $settings_page_view );
-		$settings_page_control->init();
-	}
+        (new Controller($settingsPageView))->init();
+    }
 }

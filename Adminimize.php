@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 ); # -*- coding: utf-8 -*-
+<?php declare(strict_types = 1); # -*- coding: utf-8 -*-
 
 /**
  * Plugin Name: Adminimize
@@ -13,27 +13,26 @@
 
 namespace Adminimize;
 
-! \defined( 'ABSPATH' ) && exit;
+!defined('ABSPATH') && exit;
 
-add_action( 'plugins_loaded', __NAMESPACE__ . '\\init' );
+add_action('plugins_loaded', __NAMESPACE__ . '\\init');
+
 /**
  * Initialize in the WP circus.
  */
-function init() {
+function init()
+{
+    $autoload = __DIR__ . '/vendor/autoload.php';
+    if (file_exists($autoload)) {
+        /** @noinspection PhpIncludeInspection */
+        require_once $autoload;
+    }
 
-	$autoload = __DIR__ . '/vendor/autoload.php';
-	if ( file_exists( $autoload ) ) {
-		/** @noinspection PhpIncludeInspection */
-		require_once $autoload;
-	}
-
-	try {
-		load_plugin_textdomain( 'adminimize' );
-
-		$plugin = new Plugin( __FILE__ );
-		$plugin->init();
-
-	} catch ( \Exception $e ) {
-		wp_die( esc_html( $e->getMessage() ) );
-	}
+    try {
+        load_plugin_textdomain('adminimize');
+        $plugin = new Plugin(__FILE__);
+        $plugin->init();
+    } catch (\Exception $exception) {
+        wp_die(esc_html($exception->getMessage()));
+    }
 }

@@ -6,20 +6,20 @@
  */
 
 #minimenu td a {
-	display: block;
+    display: block;
 }
 
 table th, table tr:nth-child(odd) {
-	background: #eee;
+    background: #eee;
 }
 
 .widefat thead td input[type=checkbox] {
-	margin: 0 2px 0 0;
-	vertical-align: middle;
+    margin: 0 2px 0 0;
+    vertical-align: middle;
 }
 
 table tbody td span, table tbody th span {
-	float: right;
+    float: right;
 }
 
 tr:hover,
@@ -28,11 +28,11 @@ td:first-child + td + td + td:hover,
 td:first-child + td + td + td + td + td:hover,
 td:first-child + td + td + td + td + td + td + td:hover,
 td:first-child + td + td + td + td + td + td + td + td + td:hover {
-	background: #DFDFDF !important;
+    background: #DFDFDF !important;
 }
 
 td:first-child {
-	width: 30%;
+    width: 30%;
 }
 
 td:first-child + td,
@@ -44,44 +44,44 @@ th:first-child + th + th + th + th + th,
 td:first-child + td + td + td + td + td + td + td,
 th:first-child + th + th + th + th + th + th + th,
 th:first-child + th + th + th + th + th + th + th + th + th {
-	background-color: #ffebe8;
+    background-color: #ffebe8;
 }
 
 .col1, .col3, .col5,
 .col7, .col9, .col11 {
-	background-color: #ffebe8;
+    background-color: #ffebe8;
 }
 
 .widefat td span, .widefat th span {
-	color: #ccc;
-	font-size: x-small;
-	font-weight: lighter;
+    color: #ccc;
+    font-size: x-small;
+    font-weight: lighter;
 }
 
 table.usertheme .num {
-	width: 25px;
+    width: 25px;
 }
 
 #nav-tabs, #nav-tabs ul, #nav-tabs li, #nav-tabs h2 {
-	background: none;
-	border: none;
+    background: none;
+    border: none;
 }
 #nav-tabs li {
-	margin-left: 5px;
+    margin-left: 5px;
 }
 #nav-tabs ul {
-	border-bottom: 1px solid #ccc;
-	border-radius: 0;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
 }
 #nav-tabs .nav-tab-active {
-	border-bottom: none;
+    border-bottom: none;
 }
 #nav-tabs .ui-tabs-active {
-	border-bottom: 1px solid #f1f1f1;
-	padding-bottom: 0;
+    border-bottom: 1px solid #f1f1f1;
+    padding-bottom: 0;
 }
 
 #nav-tabs li a {
-	border-bottom: none;
-	margin: 0;
+    border-bottom: none;
+    margin: 0;
 }

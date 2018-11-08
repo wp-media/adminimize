@@ -2,15 +2,31 @@ language: php
 
 env: # important!
 
-matrix:
-  fast_finish: true
-  include:
-    - php: nightly
-    - php: 7.2
-    - php: 7.1
-    - php: 7.0
+stages:
+- quality
+- test
+
+jobs:
   allow_failures:
-    - php: nightly
+  - env: STAGE=quality
+  - php: nightly
+  include:
+  # PHPCS ##################
+  - stage: quality
+    env: STAGE=quality
+    php: '7.1'
+    script: vendor/bin/phpcs
+
+  # PHPUnit ################
+  - stage: test
+    php: '7.1'
+    script: vendor/bin/phpunit
+  - stage: test
+    php: '7.2'
+    script: vendor/bin/phpunit
+  - stage: test
+    php: nightly
+    script: vendor/bin/phpunit
 
 cache:
   directories:
@@ -22,15 +38,11 @@ branches:
     refactor
 
 before_install:
-  # disable xDebug.
-  - phpenv config-rm xdebug.ini || true
-  # update Composer.
-  - composer self-update
+# disable xDebug.
+- phpenv config-rm xdebug.ini || true
+# update Composer.
+- composer self-update
 
 install:
-  # install all composer dependencies.
-  - composer install
-
-script:
-  - vendor/bin/phpunit
-  - vendor/bin/phpcs -n
+# install all composer dependencies.
+- composer install

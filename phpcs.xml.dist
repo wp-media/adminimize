@@ -6,5 +6,4 @@
 
     <config name="text_domain" value="adminimize"/>
     <rule ref="Inpsyde"/>
-
 </ruleset>
