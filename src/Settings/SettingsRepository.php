@@ -6,7 +6,6 @@ use Adminimize\Exceptions\SettingNotFoundException;
 
 class SettingsRepository
 {
-
     /**
      * Option's key in WP.
      */

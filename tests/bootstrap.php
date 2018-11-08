@@ -7,6 +7,5 @@ if (!realpath($vendor)) {
 }
 
 require_once $vendor . 'autoload.php';
-require_once '../../../wp-config.php';
 
 unset($vendor);

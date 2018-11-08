@@ -2,6 +2,7 @@
 
 namespace Adminimize\Tests\Unit\Settings;
 
+use Brain\Monkey\Functions;
 use Adminimize\Tests\Unit\AbstractTestCase;
 use Adminimize\Settings\SettingsRepository;
 use Adminimize\Exceptions\SettingNotFoundException;
@@ -13,68 +14,72 @@ class SettingsRepositoryTest extends AbstractTestCase
      */
     protected $settingsRepository;
 
+    /**
+     * @var array
+     */
+    protected $actualData = [];
+
+    /**
+     * @var array
+     */
+    protected $data = [
+        'k1' => 'v1',
+        'k2' => 'v2',
+        'k3' => 'v3',
+    ];
+
+    /**
+     * Setup everything.
+     */
     protected function setUp()
     {
         parent::setUp();
+
+        Functions\when('add_option')->justReturn(null);
+        Functions\when('update_option')->justReturn(true);
+        Functions\when('wp_cache_get')->justReturn(false);
+        Functions\when('wp_cache_set')->justReturn(true);
+
+        Functions\when('delete_option')->alias(function ($key) {
+            unset($this->actualData[$key]);
+            return true;
+        });
+
+        Functions\when('get_option')->alias(function ($key) {
+            $this->actualData[$key] = $this->data;
+            return $this->actualData[$key];
+        });
+
         delete_option(SettingsRepository::OPTION_NAME);
         $this->settingsRepository = new SettingsRepository;
     }
 
-    public function testToSeeIfOptionsKeyIsInitialized()
-    {
-        $this->assertEquals([], get_option(SettingsRepository::OPTION_NAME));
-    }
-    
     public function testSavingOptions()
     {
-        $data = [
-            'k1' => 'v1',
-            'k2' => 'v2',
-            'k3' => 'v3',
-        ];
+        $this->settingsRepository->update($this->data);
 
-        $this->settingsRepository->update($data);
-
-        $this->assertEquals($data, get_option(SettingsRepository::OPTION_NAME));
+        $this->assertEquals($this->data, get_option(SettingsRepository::OPTION_NAME));
     }
 
     public function testFetchingAllOptions()
     {
-        $data = [
-            'k1' => 'v1',
-            'k2' => 'v2',
-            'k3' => 'v3',
-        ];
+        $this->settingsRepository->update($this->data);
 
-        $this->settingsRepository->update($data);
-
-        $this->assertEquals($data, $this->settingsRepository->get());
+        $this->assertEquals($this->data, $this->settingsRepository->get());
     }
 
     public function testFetchingSpecificOption()
     {
-        $data = [
-            'k1' => 'v1',
-            'k2' => 'v2',
-            'k3' => 'v3',
-        ];
+        $this->settingsRepository->update($this->data);
 
-        $this->settingsRepository->update($data);
-
-        $this->assertEquals($data['k1'], $this->settingsRepository->get('k1'));
+        $this->assertEquals($this->data['k1'], $this->settingsRepository->get('k1'));
     }
 
     public function testFetchingSpecificOptionWithWrongKey()
     {
         $this->expectException(SettingNotFoundException::class);
 
-        $data = [
-            'k1' => 'v1',
-            'k2' => 'v2',
-            'k3' => 'v3',
-        ];
-
-        $this->settingsRepository->update($data);
+        $this->settingsRepository->update($this->data);
 
         $this->settingsRepository->get('BADKEY');
     }

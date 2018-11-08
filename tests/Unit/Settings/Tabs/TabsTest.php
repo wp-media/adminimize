@@ -3,6 +3,7 @@
 namespace Adminimize\Tests\Unit\Settings\Tabs;
 
 use Adminimize\Tests\Unit;
+use Brain\Monkey\Functions;
 use Adminimize\Settings\View\Tabs\Tabs;
 
 /**
@@ -15,7 +16,7 @@ class TabsTest extends Unit\AbstractTestCase
      *
      * @return void
      */
-    public function test_new_tabs()
+    public function testNewTabs()
     {
         $tabs = new Tabs();
 
@@ -28,19 +29,12 @@ class TabsTest extends Unit\AbstractTestCase
      *
      * @return void
      */
-    public function test_get_tabs_list()
+    public function testGettingTabsList()
     {
-        $tabsArray = [
-            'Test1',
-            'Test2',
-        ];
+        $tabsArray = ['Test1', 'Test2'];
 
-        $mock = $this->getMockBuilder(Tabs::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $mock->tabs = $tabsArray;
-        $mock->method('list')->willReturn($mock->tabs);
+        Functions\expect('apply_filters')->once()->andReturn($tabsArray);
 
-        $this->assertEquals($tabsArray, $mock->list());
+        $this->assertEquals($tabsArray, (new Tabs)->list());
     }
 }
