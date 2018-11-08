@@ -26,6 +26,7 @@ node_modules/
 ### Composer template
 composer.phar
 /vendor/
+wpcs
 
 #################
 ## Eclipse / Aptana IDE
