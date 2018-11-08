@@ -168,19 +168,6 @@ class View implements ViewInterface
     }
 
     /**
-     * HTML and Content for the settings page.
-     */
-    public function renderPage()
-    {
-        $this->tabs = $this->initTabs();
-
-        /**
-        * @noinspection PhpIncludeInspection
-        */
-        include $this->settingsPage->templatePath() . '/SettingsPage.php';
-    }
-
-    /**
      * Get and instantiate all Tabs.
      *
      * @return \Adminimize\Settings\View\Tabs\Tab[] Array of instantiated Tabs.
@@ -198,5 +185,18 @@ class View implements ViewInterface
         }
 
         return $allTabs;
+    }
+
+    /**
+     * HTML and Content for the settings page.
+     */
+    public function renderPage()
+    {
+        $this->tabs = $this->initTabs();
+
+        /**
+         * @noinspection PhpIncludeInspection
+         */
+        include $this->settingsPage->templatePath() . '/SettingsPage.php';
     }
 }
