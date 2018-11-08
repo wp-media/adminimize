@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <ruleset name="Adminimize">
+    <description>PhpCS Rules for Adminimize WordPress plugin project</description>
+
     <file>./src</file>
+
     <config name="text_domain" value="adminimize"/>
     <rule ref="Inpsyde"/>
 </ruleset>
