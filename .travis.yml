@@ -33,4 +33,5 @@ install:
 
 script:
   - vendor/bin/phpunit
-  - vendor/bin/phpcs --standard=vendor/inpsyde/php-coding-standards/Inpsyde/ruleset.xml {src,assets,*.php}
+  - vendor/bin/phpcs --config-set installed_paths "../../wp-coding-standards/wpcs/,../../automattic/phpcs-neutron-standard/,../../inpsyde/php-coding-standards/,../../wimg/php-compatibility/,../../pheromone/phpcs-security-audit/Security/"
+  - vendor/bin/phpcs -n
