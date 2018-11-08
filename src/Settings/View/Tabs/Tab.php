@@ -49,6 +49,67 @@ abstract class Tab
     }
 
     /**
+     * Render content of the tab.
+     *
+     * @return void
+     */
+    public function render()
+    {
+        $baseClassName = substr(strrchr(static::class, '\\'), 1);
+
+        /**
+        * @noinspection PhpIncludeInspection
+        */
+        include $this->settingsPage->templatePath() . '/' . $baseClassName . '.php';
+    }
+
+    /**
+     * Returns the allowed HTML elements and attributes to be used in wp_kses.
+     *
+     * @return array
+     */
+    public function allowedElements()
+    {
+        $genericAttributes = [
+            'id'     => [],
+            'class'  => [],
+        ];
+
+        $formAttributes = [
+            'type'       => [],
+            'name'       => [],
+            'value'      => [],
+            'checked'    => [],
+            '_lpchecked' => [],
+            'action'     => [],
+        ];
+
+        $attributes = array_merge($genericAttributes, $formAttributes);
+
+        $elements = [
+            'input' => $attributes,
+            'form'  => $attributes,
+            'table' => $genericAttributes,
+            'tbody' => $genericAttributes,
+            'tr'    => $genericAttributes,
+            'th'    => $genericAttributes,
+            'td'    => $genericAttributes,
+        ];
+
+        return $elements;
+    }
+
+    /**
+     * Returns the rendered HTML form as a string.
+     *
+     * @return string
+     */
+    public function form()
+    {
+        return $this->form ? $this->viewFactory->create('form')->render($this->form) : '';
+    }
+
+    /**
      * Get display title for the tab.
      *
      * @return string
@@ -61,20 +122,4 @@ abstract class Tab
      * @return array
      */
     abstract public function defineFields(): array;
-
-    /**
-     * Render content of the tab.
-     *
-     * @return void
-     */
-    public function render()
-    {
-        $form = $this->form ? $this->viewFactory->create('form')->render($this->form) : '';
-        $baseClassName = substr(strrchr(static::class, '\\'), 1);
-
-        /**
-        * @noinspection PhpIncludeInspection
-        */
-        include $this->settingsPage->templatePath() . '/' . $baseClassName . '.php';
-    }
 }

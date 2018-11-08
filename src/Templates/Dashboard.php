@@ -2,7 +2,4 @@
 
 <p>Dummy Content for Dashboard Settings</p>
 
-<?php
-// phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
-echo $form;
-?>
+<?= wp_kses($this->form(), $this->allowedElements()) ?>

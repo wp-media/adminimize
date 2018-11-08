@@ -14,7 +14,7 @@ class Tabs implements TabsInterface
      *
      * @var array
      */
-    private $tabs;
+    protected $tabs;
 
     /**
      * Constructor.
