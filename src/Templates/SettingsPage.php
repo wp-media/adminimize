@@ -17,7 +17,7 @@
             </ul>
         </h2>
 
-        <?php foreach ((array)$this->tabs as $key => $tab): ?>
+        <?php foreach ((array)$this->tabs as $key => $tab) : ?>
             <div id="tab-<?php echo esc_attr($key) ?>">
                 <?= esc_attr($tab->render()) ?>
             </div>

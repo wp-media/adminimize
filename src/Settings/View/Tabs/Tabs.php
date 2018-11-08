@@ -22,9 +22,9 @@ class Tabs implements TabsInterface
     public function __construct()
     {
         $this->tabs = [
-        AdminBar::class,
-        Dashboard::class,
-        AdminMenu::class,
+            AdminBar::class,
+            Dashboard::class,
+            AdminMenu::class,
         ];
     }
 

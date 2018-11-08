@@ -2,4 +2,7 @@
 
 <p>Dummy Content for Dashboard Settings</p>
 
-<?= $form ?>
+<?php
+// phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+echo $form;
+?>

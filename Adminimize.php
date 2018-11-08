@@ -22,17 +22,17 @@ add_action('plugins_loaded', __NAMESPACE__ . '\\init');
  */
 function init()
 {
-	$autoload = __DIR__ . '/vendor/autoload.php';
-	if (file_exists($autoload)) {
-		/** @noinspection PhpIncludeInspection */
-		require_once $autoload;
-	}
+    $autoload = __DIR__ . '/vendor/autoload.php';
+    if (file_exists($autoload)) {
+        /** @noinspection PhpIncludeInspection */
+        require_once $autoload;
+    }
 
-	try {
-		load_plugin_textdomain('adminimize');
-		$plugin = new Plugin(__FILE__);
-		$plugin->init();
-	} catch ( \Exception $e ) {
-		wp_die(esc_html($e->getMessage()));
-	}
+    try {
+        load_plugin_textdomain('adminimize');
+        $plugin = new Plugin(__FILE__);
+        $plugin->init();
+    } catch (\Exception $exception) {
+        wp_die(esc_html($exception->getMessage()));
+    }
 }

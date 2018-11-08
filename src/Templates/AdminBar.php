@@ -2,4 +2,8 @@
 
 <p>Dummy Content for AdminBar Settings</p>
 
-<?= $form ?>
+
+<?php
+// phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+echo $form;
+?>
