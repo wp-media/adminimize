@@ -35,10 +35,12 @@ class SettingsRepositoryTest extends AbstractTestCase
     {
         parent::setUp();
 
-        Functions\when('add_option')->justReturn(null);
-        Functions\when('update_option')->justReturn(true);
-        Functions\when('wp_cache_get')->justReturn(false);
-        Functions\when('wp_cache_set')->justReturn(true);
+        Functions\stubs([
+            'add_option' => '__return_null',
+            'update_option' => true,
+            'wp_cache_get' => false,
+            'wp_cache_set' => true,
+        ]);
 
         Functions\when('delete_option')->alias(function ($key) {
             unset($this->actualData[$key]);
