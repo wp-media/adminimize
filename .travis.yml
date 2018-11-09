@@ -6,6 +6,10 @@ stages:
 - quality
 - test
 
+php:
+- 7.2
+- 7.1
+
 jobs:
   allow_failures:
   - env: STAGE=quality
@@ -35,7 +39,7 @@ cache:
 
 branches:
   only:
-    refactor
+  - refactor
 
 before_install:
 # disable xDebug.
