@@ -14,20 +14,20 @@ jobs:
   - env: STAGE=quality
   - php: nightly
   include:
-  # PHPCS ##################
   - stage: quality
     env: STAGE=quality
     php: '7.1'
     script: vendor/bin/phpcs
-
-  # PHPUnit ################
   - stage: test
+    env: STAGE=test
     php: '7.1'
     script: vendor/bin/phpunit
   - stage: test
+    env: STAGE=test
     php: '7.2'
     script: vendor/bin/phpunit
   - stage: test
+    env: STAGE=test
     php: nightly
     script: vendor/bin/phpunit
 
