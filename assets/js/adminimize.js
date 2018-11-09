@@ -4,16 +4,23 @@
  *
  * @version 2015-12-20
  */
-jQuery(document).ready(function ( $ ) {
+jQuery(document).ready(function ($) {
     'use strict';
-
-    $('#nav-tabs').tabs();
 
     $('a.nav-tab').click(function () {
         $('a.nav-tab').each(function () {
             $(this).removeClass('nav-tab-active');
         });
+
+        $('div.tab-content').each(function () {
+            $(this).addClass('hidden');
+        });
+
+        var tabKey = $(this).data('tab');
+        $('div#tab-' + tabKey).removeClass('hidden');
         $(this).addClass('nav-tab-active');
+
+        return false;
     });
 
     $('thead input:checkbox').change(function () {
