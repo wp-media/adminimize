@@ -24,10 +24,10 @@ class AdminBar extends Tab
     {
         return [
             'attributes' => [
+                'method' => 'post',
                 'name' => 'my-form',
                 'action' => $this->settingsPage->url(),
                 'type' => 'form',
-                'method' => 'post',
             ],
             'elements' => [
                 [
