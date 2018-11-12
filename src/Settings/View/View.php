@@ -136,7 +136,7 @@ class View implements ViewInterface
         wp_register_script(
             'adminimize_admin',
             plugins_url('../../../assets/js/adminimize.js', __FILE__),
-            ['jquery', 'jquery-ui-tabs']
+            ['jquery']
         );
 
         wp_enqueue_script('adminimize_admin');

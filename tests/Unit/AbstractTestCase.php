@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
  */
 abstract class AbstractTestCase extends TestCase
 {
-	/**
+    /**
 	 * Sets up the environment.
 	 *
 	 * @return void
@@ -31,5 +31,4 @@ abstract class AbstractTestCase extends TestCase
 		Monkey\tearDown();
 		parent::tearDown();
 	}
-
 }

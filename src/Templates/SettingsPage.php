@@ -3,22 +3,18 @@
 <div class="wrap">
     <h1><?= esc_attr($this->pageTitle); ?></h1>
 
-    <div id="nav-tabs">
+    <div class="nav-tabs">
         <h2 class="nav-tab-wrapper">
-            <ul>
-                <?php foreach ((array)$this->tabs as $key => $tab) : ?>
-                    <li>
-                        <a class="nav-tab <?php echo $key === 0 ? 'nav-tab-active' : ''; ?>"
-                            href="#tab-<?= esc_attr($key); ?>">
-                            <?= esc_html($tab->title()); ?>
-                        </a>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
+            <?php foreach ((array)$this->tabs as $key => $tab) : ?>
+                <a class="nav-tab <?php echo $key === 0 ? 'nav-tab-active' : ''; ?>"
+                    href="#tab-<?= esc_attr($key); ?>" data-tab="<?= esc_attr($key); ?>">
+                    <?= esc_html($tab->title()); ?>
+                </a>
+            <?php endforeach; ?>
         </h2>
 
         <?php foreach ((array)$this->tabs as $key => $tab) : ?>
-            <div id="tab-<?php echo esc_attr($key) ?>">
+            <div id="tab-<?= esc_attr($key) ?>" class="tab-content <?php echo $key !== 0 ? 'hidden' : ''; ?>"">
                 <?= esc_attr($tab->render()) ?>
             </div>
         <?php endforeach; ?>

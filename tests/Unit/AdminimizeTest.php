@@ -11,7 +11,7 @@ use Adminimize\Plugin;
  */
 class AdminimizeTest extends AbstractTestCase
 {
-	public function test_basic()
+	public function testBasicInstantiation()
     {
 		$plugin = new Plugin(__DIR__);
 		static::assertInstanceOf(Plugin::class, $plugin);
