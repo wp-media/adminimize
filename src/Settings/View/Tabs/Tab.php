@@ -67,6 +67,7 @@ abstract class Tab
             'checked' => [],
             '_lpchecked' => [],
             'action' => [],
+            'method' => [],
         ];
 
         $attributes = array_merge($genericAttributes, $formAttributes);
