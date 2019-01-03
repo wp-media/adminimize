@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="marksimple">
+<ruleset name="adminimize">
 	<description>Rules for WordPress Adminimize projects</description>
 
 	<!-- What to scan -->
@@ -30,14 +30,14 @@
  	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<property name="prefixes" type="array">
-				<element name="dark_mode"/>
+				<element name="adminimize"/>
 			</property>
 		</properties>
 	</rule>
  	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element name="dark-mode"/>
+				<element name="adminimize"/>
 			</property>
 		</properties>
 	</rule>
