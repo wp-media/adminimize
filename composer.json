@@ -2,7 +2,7 @@
 	"name": "bueltge/adminimze",
 	"description": "Adminimize is a WordPress plugin that lets you hide 'unnecessary' items from the WordPress backend.",
 	"keywords"   : ["wordpress", "plugin"],
-	"license": "GPL-3.0-or-later",
+	"license": "GPL-2.0-or-later",
 	"type": "wordpress-plugin",
 	"homepage": "https://github.com/bueltge/adminimize",
 	"authors": [

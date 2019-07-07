@@ -1,11 +1,11 @@
 {
   "name": "Adminimize",
-  "version": "1.11.4",
+  "version": "1.11.5",
   "repository": {
     "type": "git",
     "url": "git@github.com:bueltge/Adminimize.git"
   },
-  "license": "GPL-3.0",
+  "license": "GPL-2.0-or-later",
   "devDependencies": {
     "eslint": "^3.4.0",
     "eslint-config-inpsyde": "^1.0.0",
