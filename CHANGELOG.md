@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file. This projec
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.5...HEAD)
 * 
 
-## [1.11.4](https://github.com/bueltge/Adminimize/compare/1.11.4...1.11.5) - 2019-07-07
+## [1.11.5](https://github.com/bueltge/Adminimize/compare/1.11.4...1.11.5) - 2019-07-07
 * Fixed: Remove deprecated version for support of php 7.2 #109.
 * Fixed: Dashboard removels for multible roles.
 * Fixed: settings link.
@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file. This projec
 * Maintenance: Remove Javascript for the settings page for scrolling top, simplify.
 * Fixed: A little bid spelling is now fixed.
 * Feature: Close every box other than the first, to keep the page clean.
-# Fixed: Hide Meta Boxes on usage of multiple roles, Probs @filipecsweb.
+* Fixed: Hide Meta Boxes on usage of multiple roles, Probs @filipecsweb.
 
 ## [1.11.4](https://github.com/bueltge/Adminimize/compare/1.11.3...1.11.4) - 2017-12-14
 * Fixed hide of menu items, if you use custom menu, see [wiki page](https://github.com/bueltge/Adminimize/wiki/Custom-Menu-Order)
