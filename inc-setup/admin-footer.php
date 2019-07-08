@@ -37,5 +37,6 @@ function _mw_adminimize_init_admin_footer() {
  */
 function _mw_adminimize_add_admin_footer() {
 
-	echo esc_html( _mw_adminimize_get_option_value( '_mw_adminimize_advice_txt' ) ) . '<br />';
+	// Filtered via post save with wp_kses()
+	echo _mw_adminimize_get_option_value( '_mw_adminimize_advice_txt' ) . '<br />';
 }
