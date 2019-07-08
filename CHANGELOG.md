@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.5...HEAD)
-* 
+* Fixed to allow br, a, strong, em on admin footer hint. #20bffc9bdfec95b0c92a2a1d2c1e90af74a68022
 
 ## [1.11.5](https://github.com/bueltge/Adminimize/compare/1.11.4...1.11.5) - 2019-07-07
 * Fixed: Remove deprecated version for support of php 7.2 #109.
