@@ -132,7 +132,11 @@ function _mw_adminimize_is_active_on_multisite() {
 		require_once ABSPATH . '/wp-admin/includes/plugin.php';
 	}
 
-	if ( is_multisite() && is_plugin_active_for_network( FB_ADMINIMIZE_BASENAME ) ) {
+	$force_single_site_usage = apply_filters( 'adminimize_mu_force_options_per_site', false );
+
+	if ( is_multisite() 
+		&& is_plugin_active_for_network( FB_ADMINIMIZE_BASENAME )
+		&& ! $force_single_site_usage ) {
 		return TRUE;
 	}
 
@@ -168,7 +172,7 @@ function _mw_adminimize_get_all_user_roles() {
 		);
 	}
 
-	return $user_roles;
+	return apply_filters( 'adminimize_user_roles_filter', $user_roles );
 }
 
 /**
@@ -204,7 +208,7 @@ function _mw_adminimize_get_all_user_roles_names() {
 		);
 	}
 
-	return $user_roles_names;
+	return apply_filters( 'adminimize_user_roles_names_filter', $user_roles_names );
 }
 
 /**
