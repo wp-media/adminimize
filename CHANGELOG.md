@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.5...HEAD) 
+* Added filter hook `adminimize_mu_force_options_per_site` to allow different adminimize options per site on multisite.
+* Added filter hooks `adminimize_user_roles_filter` and `adminimize_user_roles_names_filter` to allow add or remove role column in adminimize options.
+
+
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.5...HEAD)
 * Fixed to allow br, a, strong, em on admin footer hint. #20bffc9bdfec95b0c92a2a1d2c1e90af74a68022
 
