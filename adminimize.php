@@ -1635,6 +1635,19 @@ function _mw_adminimize_update() {
 		$adminimizeoptions[ 'mw_adminimize_default_submenu' ] = $GLOBALS[ 'submenu' ];
 	}
 
+	/**
+	 * Filter the adminimize options.
+	*
+	* Make the options filterable, so we can modify what is saved before it's sent to the db
+	*
+	* @since 1.11.6
+	*
+	* @param array  $adminimizeoptions the original options.
+	* @param array $user_roles Array of the user roles.
+	* @param array  $_POST Post data.
+	*/
+	$adminimizeoptions = apply_filters( 'mw_adminimize_options_before_update', $adminimizeoptions, $user_roles, $_POST );
+
 	// update
 	$update_status = _mw_adminimize_update_option( $adminimizeoptions );
 

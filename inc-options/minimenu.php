@@ -26,6 +26,16 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 
 		<div class="inside">
 			<table class="widefat" cellspacing="0">
+				<?php
+					/**
+					* Before first row minimenu
+					*
+					* Add the possibility to add element before first row of the minimenu.
+					*
+					* @since 1.11.6
+					*/
+					do_action( 'mw_adminimize_minimenu_before_first_tr' );
+				?>
 				<tr>
 					<td class="row-title"><a href="#about"><?php esc_attr_e(
 								'About the plugin', 'adminimize'
@@ -128,6 +138,16 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 								'Uninstall Options', 'adminimize'
 							); ?></a></td>
 				</tr>
+				<?php
+					/**
+					* After last row minimenu
+					*
+					* Add the possibility to add element after last row of the minimenu.
+					*
+					* @since 1.11.6
+					*/
+					do_action( 'mw_adminimize_minimenu_after_last_tr' );
+				?>
 			</table>
 		</div>
 	</div>
