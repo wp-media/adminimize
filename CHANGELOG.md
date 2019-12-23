@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.5...HEAD)
 * Fixed to allow br, a, strong, em on admin footer hint. #20bffc9bdfec95b0c92a2a1d2c1e90af74a68022
+* Add new hooks to change the options, like more or less options. `mw_adminimize_options_before_update`, Probs @g-kanoufi
+* Add new hooks to add custom area on the settings page, before and after Minmenu on top. `mw_adminimize_minimenu_before_first_tr` and `mw_adminimize_minimenu_after_last_tr`, Probs @g-kanoufi
 
 ## [1.11.5](https://github.com/bueltge/Adminimize/compare/1.11.4...1.11.5) - 2019-07-07
 * Fixed: Remove deprecated version for support of php 7.2 #109.
