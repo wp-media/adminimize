@@ -132,6 +132,13 @@ function _mw_adminimize_is_active_on_multisite() {
 		require_once ABSPATH . '/wp-admin/includes/plugin.php';
 	}
 
+	/**
+	 * Allow different adminimize options per site on multisite.
+	 * 
+	 * @since 1.11.6
+	 * 
+	 * @param bool
+	 */
 	$force_single_site_usage = apply_filters( 'adminimize_mu_force_options_per_site', false );
 
 	if ( is_multisite() 
@@ -172,6 +179,13 @@ function _mw_adminimize_get_all_user_roles() {
 		);
 	}
 
+	/**
+	 * Use this filter to add or remove a role in Adminimize options.
+	 * 
+	 * @since 1.11.6
+	 * 
+	 * @param array
+	 */
 	return apply_filters( 'adminimize_user_roles_filter', $user_roles );
 }
 
@@ -208,6 +222,13 @@ function _mw_adminimize_get_all_user_roles_names() {
 		);
 	}
 
+		/**
+	 * Use this filter to add or remove a role-name in Adminimize options.
+	 * 
+	 * @since 1.11.6
+	 * 
+	 * @param array
+	 */
 	return apply_filters( 'adminimize_user_roles_names_filter', $user_roles_names );
 }
 

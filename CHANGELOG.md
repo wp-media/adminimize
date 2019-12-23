@@ -1,15 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.5...HEAD) 
-* Added filter hook `adminimize_mu_force_options_per_site` to allow different adminimize options per site on multisite.
-* Added filter hooks `adminimize_user_roles_filter` and `adminimize_user_roles_names_filter` to allow add or remove role column in adminimize options.
+## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.6...HEAD)
+* 
 
-
-## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.5...HEAD)
+## [1.11.6](https://github.com/bueltge/Adminimize/compare/1.11.5...1.11.6)
 * Fixed to allow br, a, strong, em on admin footer hint. #20bffc9bdfec95b0c92a2a1d2c1e90af74a68022
-* Add new hooks to change the options, like more or less options. `mw_adminimize_options_before_update`, Probs @g-kanoufi
-* Add new hooks to add custom area on the settings page, before and after Minmenu on top. `mw_adminimize_minimenu_before_first_tr` and `mw_adminimize_minimenu_after_last_tr`, Probs @g-kanoufi
+* Add new filter hook to change the options, like more or less options. `mw_adminimize_options_before_update`, Probs @g-kanoufi
+* Add new filter hooks to add custom area on the settings page, before and after Minmenu on top. `mw_adminimize_minimenu_before_first_tr` and `mw_adminimize_minimenu_after_last_tr`, Probs @g-kanoufi
+* Add filter hook `adminimize_mu_force_options_per_site` to allow different adminimize options per site on multisite, Probs @ulietNoth
+* Add filter hooks `adminimize_user_roles_filter` and `adminimize_user_roles_names_filter` to allow add or remove role column in adminimize options, Probs @ulietNoth
 
 ## [1.11.5](https://github.com/bueltge/Adminimize/compare/1.11.4...1.11.5) - 2019-07-07
 * Fixed: Remove deprecated version for support of php 7.2 #109.
