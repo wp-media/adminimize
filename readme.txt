@@ -3,8 +3,8 @@ Contributors: Bueltge, inpsyde
 Donate link: https://www.paypal.me/FrankBueltge
 Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
 Requires at least: 4.0
-Tested up to: 5.2
-Stable tag: 1.11.5
+Tested up to: 5.3
+Stable tag: 1.11.6
 
 Adminimize that lets you hide 'unnecessary' items from the WordPress backend
 
@@ -25,7 +25,7 @@ It is possible to add own options to hide areas in the back-end of WordPress. It
 = Compatibility with plugins for MetaBoxes in Write-area =
 You can add your own options, you must only check for css selectors.
 
-**Crafted by [Inpsyde](http://inpsyde.com) · Engineering the web since 2006.**
+**Crafted by [Inpsyde](https://inpsyde.com) · Engineering the web since 2006.**
 
 == Installation ==
 = Requirements =
@@ -40,6 +40,13 @@ Use the installer via back-end of your install or ...
 4. Administrator can go to `Settings` > `Adminimize` menu and configure the plugin (Menu, Sub-menu, Meta boxes, ...)
 
 == Changelog ==
+1.11.6 (2019-12-23)
+* Fixed to allow br, a, strong, em on admin footer hint.
+* Add new filter hook to change the options, like more or less options. `mw_adminimize_options_before_update`, Probs @g-kanoufi
+* Add new filter hooks to add custom area on the settings page, before and after Minmenu on top. `mw_adminimize_minimenu_before_first_tr` and `mw_adminimize_minimenu_after_last_tr`, Probs @g-kanoufi
+* Add filter hook `adminimize_mu_force_options_per_site` to allow different adminimize options per site on multisite, Probs @ulietNoth
+* Add filter hooks `adminimize_user_roles_filter` and `adminimize_user_roles_names_filter` to allow add or remove role column in adminimize options, Probs @ulietNoth
+
 1.11.5 (2019-07-07)
 * Fixed: Remove deprecated version for support of php 7.2 #109.
 * Fixed: Dashboard removels for multible roles.
