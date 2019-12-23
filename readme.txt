@@ -40,14 +40,14 @@ Use the installer via back-end of your install or ...
 4. Administrator can go to `Settings` > `Adminimize` menu and configure the plugin (Menu, Sub-menu, Meta boxes, ...)
 
 == Changelog ==
-1.11.6 (2019-12-23)
+= 1.11.6 (2019-12-23) =
 * Fixed to allow br, a, strong, em on admin footer hint.
 * Add new filter hook to change the options, like more or less options. `mw_adminimize_options_before_update`, Probs @g-kanoufi
 * Add new filter hooks to add custom area on the settings page, before and after Minmenu on top. `mw_adminimize_minimenu_before_first_tr` and `mw_adminimize_minimenu_after_last_tr`, Probs @g-kanoufi
 * Add filter hook `adminimize_mu_force_options_per_site` to allow different adminimize options per site on multisite, Probs @ulietNoth
 * Add filter hooks `adminimize_user_roles_filter` and `adminimize_user_roles_names_filter` to allow add or remove role column in adminimize options, Probs @ulietNoth
 
-1.11.5 (2019-07-07)
+= 1.11.5 (2019-07-07) =
 * Fixed: Remove deprecated version for support of php 7.2 #109.
 * Fixed: Dashboard removels for multible roles.
 * Fixed: settings link.
@@ -57,13 +57,13 @@ Use the installer via back-end of your install or ...
 * Feature: Close every box other than the first, to keep the page clean.
 # Fixed: Hide Meta Boxes on usage of multiple roles, Probs @filipecsweb.
 
-1.11.4 (2017-12-14)
+= 1.11.4 (2017-12-14) =
 * Fixed hide of menu items, if you use custom menu, see [wiki page](https://github.com/bueltge/Adminimize/wiki/Custom-Menu-Order)
 * Fixed Import/Export for different server environments.
 * Remove languge file on github, we use always the translation community from wordpress.org
 * Fixed check for settings page of Adminimize, so that we see all options, areas of the install.
 
-1.11.3 (2017-11-16)
+= 1.11.3 (2017-11-16) =
 * Added custom dashbaord options to admin head to hide it via css.
 * Added support of multiple roles for dashboard options.
 * Added new option to hide 'Add New' Button on each post type.
