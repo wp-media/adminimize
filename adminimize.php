@@ -7,7 +7,7 @@
  * Description: Visually compresses the administrative meta-boxes so that more admin page content can be initially seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for all roles of your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible to simplify the admin in different for all roles.
  * Author:      Frank Bültge
  * Author URI:  http://bueltge.de/
- * Version:     1.11.5
+ * Version:     1.11.6
  * License:     GPLv2+
  *
  * Php Version 5.6
@@ -15,7 +15,7 @@
  * @package WordPress
  * @author  Frank Bültge <frank@bueltge.de>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2019-07-07
+ * @version 2019-12-23
  */
 
 /**
@@ -132,7 +132,18 @@ function _mw_adminimize_is_active_on_multisite() {
 		require_once ABSPATH . '/wp-admin/includes/plugin.php';
 	}
 
-	if ( is_multisite() && is_plugin_active_for_network( FB_ADMINIMIZE_BASENAME ) ) {
+	/**
+	 * Allow different adminimize options per site on multisite.
+	 * 
+	 * @since 1.11.6
+	 * 
+	 * @param bool
+	 */
+	$force_single_site_usage = apply_filters( 'adminimize_mu_force_options_per_site', false );
+
+	if ( is_multisite() 
+		&& is_plugin_active_for_network( FB_ADMINIMIZE_BASENAME )
+		&& ! $force_single_site_usage ) {
 		return TRUE;
 	}
 
@@ -168,7 +179,14 @@ function _mw_adminimize_get_all_user_roles() {
 		);
 	}
 
-	return $user_roles;
+	/**
+	 * Use this filter to add or remove a role in Adminimize options.
+	 * 
+	 * @since 1.11.6
+	 * 
+	 * @param array
+	 */
+	return apply_filters( 'adminimize_user_roles_filter', $user_roles );
 }
 
 /**
@@ -204,7 +222,14 @@ function _mw_adminimize_get_all_user_roles_names() {
 		);
 	}
 
-	return $user_roles_names;
+		/**
+	 * Use this filter to add or remove a role-name in Adminimize options.
+	 * 
+	 * @since 1.11.6
+	 * 
+	 * @param array
+	 */
+	return apply_filters( 'adminimize_user_roles_names_filter', $user_roles_names );
 }
 
 /**
@@ -1634,6 +1659,19 @@ function _mw_adminimize_update() {
 	if ( isset( $GLOBALS[ 'submenu' ] ) ) {
 		$adminimizeoptions[ 'mw_adminimize_default_submenu' ] = $GLOBALS[ 'submenu' ];
 	}
+
+	/**
+	 * Filter the adminimize options.
+	*
+	* Make the options filterable, so we can modify what is saved before it's sent to the db
+	*
+	* @since 1.11.6
+	*
+	* @param array  $adminimizeoptions the original options.
+	* @param array $user_roles Array of the user roles.
+	* @param array  $_POST Post data.
+	*/
+	$adminimizeoptions = apply_filters( 'mw_adminimize_options_before_update', $adminimizeoptions, $user_roles, $_POST );
 
 	// update
 	$update_status = _mw_adminimize_update_option( $adminimizeoptions );
