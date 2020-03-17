@@ -80,7 +80,7 @@ function _mw_adminimize_dashboard_setup() {
 	}
 
 	// Remove the dashboards widgets for the current active role.
-	foreach ( (array) $disabled_dashboard_option as $widget ) {
+	foreach ( $disabled_dashboard_option as $widget ) {
 		if ( isset( $widgets[ $widget ]['context'] ) ) {
 			remove_meta_box( $widget, 'dashboard', $widgets[ $widget ]['context'] );
 		}
