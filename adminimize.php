@@ -741,6 +741,9 @@ function _mw_adminimize_set_global_option() {
 	$_mw_adminimize_admin_head .= '<!-- Set Adminimize global options -->' . "\n";
 	$_mw_adminimize_admin_head .= '<style type="text/css">' . $global_options . ' {display:none !important;}</style>' . "\n";
 
+	// List options if the debug option is active.
+	_mw_adminimize_debug($global_options, 'Adminimize: List active global options:');
+
 	if ( '' !== $global_options ) {
 		echo $_mw_adminimize_admin_head;
 	}
