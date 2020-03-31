@@ -20,8 +20,6 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
-    # Run PHPUnit tests
-    - name: PHPUnit tests
-      uses: php-actions/phpunit@v1
-      with:
-        config: ./phpcs.xml
+    # Run PHPCS
+    - name: PHP CodeSniffer
+      uses: chekalsky/phpcs-action@v1
