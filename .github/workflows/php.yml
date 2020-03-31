@@ -1,0 +1,27 @@
+name: PHP Composer & PHPCS
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
+
+    # Run PHPUnit tests
+    - name: PHPUnit tests
+      uses: php-actions/phpunit@v1
+      with:
+        config: ./phpunit.xml.dist
