@@ -28,4 +28,4 @@ jobs:
       uses: chekalsky/phpcs-action@option-installed-paths
       with:
         enable_warnings: false
-        installed_paths: /home/runner/work/adminimize/adminimize/wpcs
+        installed_paths: /github/workspace/wpcs
