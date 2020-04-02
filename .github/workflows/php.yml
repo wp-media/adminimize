@@ -20,6 +20,9 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
+    - name: Echo current path
+      uses: echo $PWD
+      
     # Run PHPCS
     - name: PHP CodeSniffer
       uses: chekalsky/phpcs-action@option-installed-paths
