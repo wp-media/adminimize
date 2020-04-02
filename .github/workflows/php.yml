@@ -22,4 +22,7 @@ jobs:
 
     # Run PHPCS
     - name: PHP CodeSniffer
-      uses: chekalsky/phpcs-action@v1
+      uses: chekalsky/phpcs-action@option-installed-paths
+      with:
+        enable_warnings: true
+        installed_paths: --config-set installed_paths "../../coding-standards/example/,../../automattic/phpcs-neutron-standard/"
