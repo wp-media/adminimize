@@ -28,4 +28,4 @@ jobs:
       uses: chekalsky/phpcs-action@option-installed-paths
       with:
         enable_warnings: false
-        installed_paths: --config-set installed_paths "../../coding-standards/example/,../../automattic/phpcs-neutron-standard/"
+        installed_paths: ../wpcs
