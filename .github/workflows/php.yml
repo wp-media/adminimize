@@ -17,7 +17,7 @@ jobs:
     - name: Clear cache of Composer
       run: composer clear-cache
 
-    - name: Validate composer.json and composer.lock
+    - name: Update composer.json and composer.lock
       run: composer update
 
     - name: Install dependencies
@@ -27,5 +27,5 @@ jobs:
     - name: PHP CodeSniffer
       uses: chekalsky/phpcs-action@option-installed-paths
       with:
-        enable_warnings: true
+        enable_warnings: false
         installed_paths: --config-set installed_paths "../../coding-standards/example/,../../automattic/phpcs-neutron-standard/"
