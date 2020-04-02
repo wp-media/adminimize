@@ -29,8 +29,14 @@
 		"dg/composer-cleaner": "^2"
 	},
 	"config": {
-		"sort-packages": true
+		"sort-packages": true,
+		"optimize-autoloader": true
 	},
 	"minimum-stability": "dev",
-	"prefer-stable": true
+	"prefer-stable": true,
+    "scripts": {
+        "cs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+        "pu": "@php ./vendor/bin/phpunit",
+        "qa": ["@cs", "@pu"]
+    }
 }
