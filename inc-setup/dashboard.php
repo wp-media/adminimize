@@ -80,7 +80,7 @@ function _mw_adminimize_dashboard_setup() {
 	}
 
 	// Remove the dashboards widgets for the current active role.
-	foreach ( (array) $disabled_dashboard_option as $widget ) {
+	foreach ( $disabled_dashboard_option as $widget ) {
 		if ( isset( $widgets[ $widget ]['context'] ) ) {
 			remove_meta_box( $widget, 'dashboard', $widgets[ $widget ]['context'] );
 		}
@@ -150,6 +150,11 @@ function _mw_adminimize_get_dashboard_widgets() {
 	foreach ( (array) $wp_meta_boxes['dashboard'] as $context => $datas ) {
 		foreach ( (array) $datas as $priority => $data ) {
 			foreach ( (array) $data as $widget => $value ) {
+
+				if ( ! isset( $value['title'])) {
+					$value['title'] = '';
+				}
+
 				$widgets[ $widget ] = array(
 					'id'       => $widget,
 					'title'    => strip_tags(

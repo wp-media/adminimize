@@ -7,7 +7,7 @@
  * Description: Visually compresses the administrative meta-boxes so that more admin page content can be initially seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for all roles of your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible to simplify the admin in different for all roles.
  * Author:      Frank Bültge
  * Author URI:  http://bueltge.de/
- * Version:     1.11.6
+ * Version:     1.11.7-dev
  * License:     GPLv2+
  *
  * Php Version 5.6
@@ -15,7 +15,7 @@
  * @package WordPress
  * @author  Frank Bültge <frank@bueltge.de>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2019-12-23
+ * @version 2020-01-27
  */
 
 /**
@@ -134,14 +134,14 @@ function _mw_adminimize_is_active_on_multisite() {
 
 	/**
 	 * Allow different adminimize options per site on multisite.
-	 * 
+	 *
 	 * @since 1.11.6
-	 * 
+	 *
 	 * @param bool
 	 */
 	$force_single_site_usage = apply_filters( 'adminimize_mu_force_options_per_site', false );
 
-	if ( is_multisite() 
+	if ( is_multisite()
 		&& is_plugin_active_for_network( FB_ADMINIMIZE_BASENAME )
 		&& ! $force_single_site_usage ) {
 		return TRUE;
@@ -181,9 +181,9 @@ function _mw_adminimize_get_all_user_roles() {
 
 	/**
 	 * Use this filter to add or remove a role in Adminimize options.
-	 * 
+	 *
 	 * @since 1.11.6
-	 * 
+	 *
 	 * @param array
 	 */
 	return apply_filters( 'adminimize_user_roles_filter', $user_roles );
@@ -224,9 +224,9 @@ function _mw_adminimize_get_all_user_roles_names() {
 
 		/**
 	 * Use this filter to add or remove a role-name in Adminimize options.
-	 * 
+	 *
 	 * @since 1.11.6
-	 * 
+	 *
 	 * @param array
 	 */
 	return apply_filters( 'adminimize_user_roles_names_filter', $user_roles_names );
@@ -244,14 +244,20 @@ function _mw_adminimize_get_current_post_type() {
 	// We have a post so we can just get the post type from that.
 	if ( $post && $post->post_type ) {
 		return $post->post_type;
-	} // Check the global $typenow - set in admin.php
-	elseif ( $typenow ) {
+	}
+
+	// Check the global $typenow - set in admin.php
+	if ( $typenow ) {
 		return $typenow;
-	} // check the global $current_screen object - set in sceen.php
-	elseif ( $current_screen && $current_screen->post_type ) {
+	}
+
+	// Check the global $current_screen object - set in screen.php
+	if ( $current_screen && $current_screen->post_type ) {
 		return $current_screen->post_type;
-	} // lastly check the post_type querystring
-	elseif ( isset( $_REQUEST['post_type'] ) ) {
+	}
+
+	// lastly check the post_type querystring
+	if ( isset( $_REQUEST['post_type'] ) ) {
 		return sanitize_key( $_REQUEST[ 'post_type' ] );
 	}
 
@@ -345,16 +351,13 @@ function _mw_adminimize_admin_init() {
 	// Backend options
 	// exclude super admin
 	if ( ! _mw_adminimize_exclude_super_admin() && ! _mw_adminimize_exclude_settings_page() ) {
-
 		$_mw_adminimize_header = (int) _mw_adminimize_get_option_value( '_mw_adminimize_header' );
-		switch ( $_mw_adminimize_header ) {
-			case 1:
-				wp_enqueue_script(
-					'_mw_adminimize_remove_header',
-					WP_PLUGIN_URL . '/' . FB_ADMINIMIZE_BASEFOLDER . '/js/remove_header' . $suffix . '.js',
-					array( 'jquery' )
-				);
-				break;
+		if ( 1 === $_mw_adminimize_header ) {
+			wp_enqueue_script(
+				'_mw_adminimize_remove_header',
+				WP_PLUGIN_URL . '/' . FB_ADMINIMIZE_BASEFOLDER . '/js/remove_header' . $suffix . '.js',
+				[ 'jquery' ]
+			);
 		}
 
 		// Post-page options.
