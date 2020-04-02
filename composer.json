@@ -28,6 +28,14 @@
 		"wp-coding-standards/wpcs": "^1",
 		"dg/composer-cleaner": "^2"
 	},
+	"extra": {
+        "installer-types": ["library", "phpcodesniffer-standard"],
+        "installer-paths": {
+            "/srv/www/phpcs/": ["squizlabs/php_codesniffer"],
+            "/srv/www/phpcs/CodeSniffer/Standards/WordPress/": ["wp-coding-standards/wpcs"],
+            "/srv/www/phpcs/CodeSniffer/Standards/PHPCompatibilityWP/": ["phpcompatibility/phpcompatibility-wp"]
+        }
+    },
 	"config": {
 		"sort-packages": true,
 		"optimize-autoloader": true
