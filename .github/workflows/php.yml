@@ -21,7 +21,7 @@ jobs:
       run: composer install --prefer-dist --no-progress --no-suggest
 
     - name: Echo current path
-      uses: echo $PWD
+      run: echo $PWD
       
     # Run PHPCS
     - name: PHP CodeSniffer
