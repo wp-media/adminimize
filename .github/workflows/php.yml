@@ -20,12 +20,12 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
-    - name: Echo current path
-      run: echo $PWD
+    - name: Install wpcs project
+      run: composer create-project wp-coding-standards/wpcs --no-dev
       
     # Run PHPCS
     - name: PHP CodeSniffer
       uses: chekalsky/phpcs-action@option-installed-paths
-      with:
-        enable_warnings: false
-        installed_paths: /github/workspace/wpcs
+#      with:
+#        enable_warnings: false
+#        installed_paths: ../wpcs
