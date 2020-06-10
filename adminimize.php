@@ -650,7 +650,7 @@ function _mw_adminimize_set_menu_option() {
 		$mw_adminimize_submenu = array_unique( $mw_adminimize_submenu );
 	}
 	_mw_adminimize_debug( $mw_adminimize_menu, 'Adminimize, Menu Slugs to hide after Filter.' );
-	_mw_adminimize_debug( $mw_adminimize_menu, 'Adminimize, Sub-Menu Slugs to hide after Filter.' );
+	_mw_adminimize_debug( $mw_adminimize_submenu, 'Adminimize, Sub-Menu Slugs to hide after Filter.' );
 
 	foreach ( $menu as $key => $item ) {
 
