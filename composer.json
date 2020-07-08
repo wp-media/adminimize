@@ -26,7 +26,8 @@
 		"phpcompatibility/phpcompatibility-wp": "^2.1",
 		"wp-coding-standards/wpcs": "*",
 		"roave/security-advisories": "dev-master",
-		"dg/composer-cleaner": "^2"
+		"dg/composer-cleaner": "^2",
+		"roots/wordpress": "@stable"
 	},
 	"config": {
 		"optimize-autoloader": true
