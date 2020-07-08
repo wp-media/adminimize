@@ -93,17 +93,12 @@ function _mw_adminimize_debug( $data, $description = '' ) {
 		return;
 	}
 
-	if ( '' === $description ) {
-		$description = 'Debug in Console via Adminimize Plugin:';
+	if ( ! class_exists('DebugListener')) {
+		return;
 	}
 
-	// Buffering to solve problems with WP core, header() etc.
-	ob_start();
-	$output  = 'console.info(' . json_encode( $description ) . ');';
-	$output .= 'console.log(' . json_encode( $data ) . ');';
-	$output  = sprintf( '<script>%s</script>', $output );
-
-	echo $output;
+	$listener = ( new DebugListener() )->listen( $description, $data );
+	add_action( 'wp_footer', [$listener, 'dump'], PHP_INT_MAX );
 }
 
 /**
