@@ -38,5 +38,8 @@
         "cs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
         "pu": "@php ./vendor/bin/phpunit",
         "qa": ["@cs", "@pu"]
+    },
+	"extra": {
+        "wordpress-install-dir": "vendor/roots/wordpress"
     }
 }
