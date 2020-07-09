@@ -1165,9 +1165,11 @@ function _mw_adminimize_on_load_page() {
 
 	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
+	wp_enqueue_style( 'select2-style', plugins_url( 'css/select2' . $suffix . '.css', __FILE__ ), [], false );
 	wp_register_style( 'adminimize-style', plugins_url( 'css/style' . $suffix . '.css', __FILE__ ) );
 	wp_enqueue_style( 'adminimize-style' );
 
+	wp_enqueue_script( 'select2-script', plugins_url( 'js/select2' . $suffix . '.js', __FILE__ ), array( 'jquery' ),'',false );
 	wp_register_script(
 		'adminimize-settings-script',
 		plugins_url( 'js/adminimize' . $suffix . '.js', __FILE__ ),
@@ -1220,6 +1222,10 @@ function _mw_adminimize_update_option( $options ) {
 
 	if ( ! current_user_can( 'manage_options' ) ) {
 		return FALSE;
+	}
+
+	if ( _mw_adminimize_is_roles_options_import( $options ) ){
+		$options = _mw_adminimize_roles_complete_options( $options );
 	}
 
 	// Remove slashes always.
@@ -1707,4 +1713,47 @@ function _mw_adminimize_install() {
 		add_option( 'mw_adminimize', $adminimizeoptions );
 	}
 	wp_cache_add( 'mw_adminimize', $adminimizeoptions );
+}
+
+/**
+ * Make sure adminimize option is complete when a role json file is imported
+ */
+function _mw_adminimize_roles_complete_options( $roles_options ){
+
+	$adminimizeoption = _mw_adminimize_get_option_value();
+
+	foreach ( $roles_options as $role_option_name => $role_option_value ){
+		$adminimizeoption[$role_option_name] = $role_option_value;
+	}
+
+	return $adminimizeoption;
+}
+
+/**
+ * Check if options comes from roles adminimize settings export
+ */
+function _mw_adminimize_is_roles_options_import( $options ){
+	global $wp_roles;
+
+	$roles_options = [];
+	foreach (  $wp_roles->role_names as $role_slug => $role_name ){
+
+		$role_options = array_filter(
+			$options, function ( $option_key ) use ( $role_slug ) {
+				return stripos( $option_key, '_' . $role_slug ) !== false;
+			}, ARRAY_FILTER_USE_KEY
+		);
+
+		if ( empty( $roles_options ) ){
+			$roles_options = $role_options;
+		} else {
+			$roles_options = array_merge( $roles_options, $role_options );
+		} 
+	}
+
+	if ( count( $options ) == count( $roles_options ) ){
+		return true;
+	} else {
+		return false;
+	}
 }

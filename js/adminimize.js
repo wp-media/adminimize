@@ -37,4 +37,20 @@ jQuery( document ).ready( function( $ ) {
         $('html,body').animate({scrollTop:0},700);
 	});
 
+	// Adminimize export switch
+	$('#adminimize-toggle').on('click', function(e){
+		var value = $(this).attr('checked');
+		if ( value == 'checked'){
+			$('#adminimize-export-role').css('display', 'none');
+			$('#adminimize-export').css('display', 'block');
+		} else {
+			$('#adminimize-export-role').css('display', 'flex');
+			$('#adminimize-export').css('display', 'none');
+		}
+	});
+	
+	$('#mw_adminimize_export_select_roles').select2({
+		width: '100%'
+	});
+
 } );
