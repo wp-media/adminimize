@@ -118,7 +118,7 @@ if ( ! function_exists( 'add_action' ) ) {
 									'After activation of this checkbox you will loose the easy access to the settings area inside the menu.', 'adminimize'
 								) . '" style="cursor:pointer;"> ! </acronym>';
 						} else {
-							
+
 							$disabled_item_adm_hint = '';
 						}
 

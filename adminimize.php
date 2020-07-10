@@ -671,6 +671,9 @@ function _mw_adminimize_set_menu_option() {
 			if ( isset( $submenu ) && ! empty( $submenu[ $menu_slug ] ) ) {
 				foreach ( (array) $submenu[ $menu_slug ] as $subindex => $subitem ) {
 					// Check, if is Sub Menu item in the user role settings?
+					_mw_adminimize_debug($subitem,'FB Subitem (>2)');
+					_mw_adminimize_debug($menu_slug . '__' . $subindex , 'FB MenuSlug');
+					_mw_adminimize_debug($mw_adminimize_submenu, 'FB Submenu');
 					if (
 						isset( $mw_adminimize_submenu )
 						&& _mw_adminimize_in_arrays(
