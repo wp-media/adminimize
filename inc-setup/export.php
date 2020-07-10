@@ -60,6 +60,11 @@ function _mw_adminimize_export_json() {
 	exit();
 }
 
+/**
+ * Process a settings export for one or many roles that generates a .json file of the shop settings.
+ * 
+ * @return array
+ */
 function _mw_adminimize_export_role_json() {
 
 	if ( ! is_admin() ) {
@@ -112,7 +117,6 @@ function _mw_adminimize_export_role_json() {
 	header( 'Content-Type: application/json; charset=utf-8' );
 	header( 'Content-Transfer-Encoding: binary' );
 	header( 'Content-Disposition: attachment; filename=' . $filepath );
-	//header( 'Content-Length: ' . filesize( $filepath ) );
 	header( 'Expires: 0' );
 
 	echo wp_json_encode( $keys );

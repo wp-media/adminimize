@@ -1717,6 +1717,10 @@ function _mw_adminimize_install() {
 
 /**
  * Make sure adminimize option is complete when a role json file is imported
+ * 
+ * @param array $roles_options
+ *
+ * @return array
  */
 function _mw_adminimize_roles_complete_options( $roles_options ){
 
@@ -1731,6 +1735,10 @@ function _mw_adminimize_roles_complete_options( $roles_options ){
 
 /**
  * Check if options comes from roles adminimize settings export
+ * 
+ * @param array $options
+ *
+ * @return bool
  */
 function _mw_adminimize_is_roles_options_import( $options ){
 	global $wp_roles;
@@ -1751,9 +1759,7 @@ function _mw_adminimize_is_roles_options_import( $options ){
 		} 
 	}
 
-	if ( count( $options ) == count( $roles_options ) ){
+	if ( count( $options ) === count( $roles_options ) ){
 		return true;
-	} else {
-		return false;
-	}
+	} 
 }
