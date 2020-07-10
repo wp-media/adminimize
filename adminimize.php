@@ -1109,6 +1109,7 @@ function _mw_adminimize_small_user_info() {
 }
 
 // include helping functions
+require_once 'inc-setup/DebugListener.php';
 require_once 'inc-setup/helping_hands.php';
 
 // Include message class.
