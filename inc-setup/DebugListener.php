@@ -2,32 +2,38 @@
 
 class DebugListener {
 
-	protected $data = [];
+	/**
+	 * Store message and data for output.
+	 *
+	 * @var array
+	 */
+	protected $data = array();
 
 	/**
+	 * Set default message and set var.
 	 *
+	 * @param string $message Message about the data.
+	 * @param mixed  $data    The data for debugging.
 	 */
-	public function listen(string $message = '', array $data): void
-	{
-		if ( '' === $message ) {
+	public function listen( $message, $data ) {
+		if ( ! $message ) {
 			$message = 'Debug in Console via Adminimize Plugin:';
 		}
-		$this->data[] = [$message, $data];
+		$this->data = array( $message, $data );
 	}
 
 	/**
-	 *
+	 * Print the message and data inside the console of the browser.
 	 */
-	public function dump(): void
-	{
+	public function dump() {
 		// Buffering.
 		ob_start();
 		$output = '';
-		foreach($this->data as $entry ) {
-			$output  = 'console.info(' . json_encode( $entry[0] ) . ');';
+		foreach ( $this->data as $entry ) {
+			$output .= 'console.info(' . json_encode( $entry[0] ) . ');';
 			$output .= 'console.log(' . json_encode( $entry[1] ) . ');';
 		}
 
-		echo sprintf('<script>%s</script>', $output);
+		echo sprintf( '<script>%s</script>', $output );
 	}
 }

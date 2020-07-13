@@ -93,12 +93,13 @@ function _mw_adminimize_debug( $data, $description = '' ) {
 		return;
 	}
 
-	if ( ! class_exists('DebugListener')) {
+	if ( ! class_exists( 'DebugListener' ) ) {
 		return;
 	}
 
-	$listener = ( new DebugListener() )->listen( $description, $data );
-	add_action( 'wp_footer', [$listener, 'dump'], PHP_INT_MAX );
+	$listener = new DebugListener();
+	$listener = $listener->listen( $description, $data );
+	add_action( 'wp_footer', array( $listener, 'dump' ), PHP_INT_MAX );
 }
 
 /**
