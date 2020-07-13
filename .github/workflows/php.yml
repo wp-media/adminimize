@@ -23,9 +23,6 @@ jobs:
     - name: Install wpcs project
       run: composer create-project wp-coding-standards/wpcs --no-dev
       
-    # Run PHPCS
-    - name: PHP CodeSniffer
-      uses: chekalsky/phpcs-action@v1
-      with:
-        enable_warnings: false
-        installed_paths: /github/workspace/vendor/phpcompatibility/php-compatibility,/github/workspace/vendor/phpcompatibility/php-compatibility-wp
+    # Run QA
+    - name: Run QA Scripts from composer.json
+      run: composer qa
