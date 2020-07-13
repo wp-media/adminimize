@@ -25,7 +25,4 @@ jobs:
       
     # Run PHPCS
     - name: PHP CodeSniffer
-      uses: chekalsky/phpcs-action@v1
-      with:
-        enable_warnings: false
-        installed_paths: /github/workspace/vendor/phpcompatibility/php-compatibility,/github/workspace/vendor/phpcompatibility/php-compatibility-wp
+      run: ./vendor/bin/phpcs
