@@ -650,7 +650,7 @@ function _mw_adminimize_set_menu_option() {
 		$mw_adminimize_submenu = array_unique( $mw_adminimize_submenu );
 	}
 	_mw_adminimize_debug( $mw_adminimize_menu, 'Adminimize, Menu Slugs to hide after Filter.' );
-	_mw_adminimize_debug( $mw_adminimize_menu, 'Adminimize, Sub-Menu Slugs to hide after Filter.' );
+	_mw_adminimize_debug( $mw_adminimize_submenu, 'Adminimize, Sub-Menu Slugs to hide after Filter.' );
 
 	foreach ( $menu as $key => $item ) {
 
@@ -671,6 +671,9 @@ function _mw_adminimize_set_menu_option() {
 			if ( isset( $submenu ) && ! empty( $submenu[ $menu_slug ] ) ) {
 				foreach ( (array) $submenu[ $menu_slug ] as $subindex => $subitem ) {
 					// Check, if is Sub Menu item in the user role settings?
+					_mw_adminimize_debug($subitem,'FB Subitem (>2)');
+					_mw_adminimize_debug($menu_slug . '__' . $subindex , 'FB MenuSlug');
+					_mw_adminimize_debug($mw_adminimize_submenu, 'FB Submenu');
 					if (
 						isset( $mw_adminimize_submenu )
 						&& _mw_adminimize_in_arrays(
@@ -1109,6 +1112,7 @@ function _mw_adminimize_small_user_info() {
 }
 
 // include helping functions
+require_once 'inc-setup/DebugListener.php';
 require_once 'inc-setup/helping_hands.php';
 
 // Include message class.

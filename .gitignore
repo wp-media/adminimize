@@ -48,5 +48,8 @@ local.properties
 *.launch
 
 ## Windows
-Thumbs.db 
+Thumbs.db
 Desktop.ini
+
+# WordPress
+wordpress/
