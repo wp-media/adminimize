@@ -290,6 +290,13 @@ function _mw_adminimize_admin_init() {
 		$current_post_type = 'post';
 	}
 
+	// Debug helper
+	if ( class_exists( 'DebugListener' ) ) {
+		$listener = new DebugListener();
+		add_action( 'adminimize.log', [$listener, 'listen'], 10, 2);
+		add_action( 'wp_footer', array( $listener, 'dump' ), PHP_INT_MAX );
+	}
+
 	// Get all user roles.
 	$user_roles = _mw_adminimize_get_all_user_roles();
 
