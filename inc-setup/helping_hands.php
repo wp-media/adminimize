@@ -83,7 +83,6 @@ function _mw_adminimize_current_user_has_role( $role ) {
  * @return string|void
  */
 function _mw_adminimize_debug( $data, $description = '' ) {
-
 	if ( ! _mw_adminimize_get_option_value( 'mw_adminimize_debug' ) ) {
 		return;
 	}
@@ -92,7 +91,15 @@ function _mw_adminimize_debug( $data, $description = '' ) {
 		return;
 	}
 
-	do_action('adminimize.log', $description, $data);
+	// Buffering.
+	ob_start();
+	$output  = '';
+	$output .= 'console.info(' . json_encode( $description ) . ');';
+	$output .= 'console.log(' . json_encode( $data ) . ');';
+
+	echo sprintf( '<script>%s</script>', $output );
+
+	do_action( 'adminimize.log', $description, $data );
 }
 
 /**

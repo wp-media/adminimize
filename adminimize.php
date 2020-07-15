@@ -108,17 +108,16 @@ function _mw_adminimize_exclude_settings_page() {
 		$page = esc_attr( $_GET['page'] );
 	}
 
-	$screen = $page;
 	if ( function_exists( 'get_current_screen' ) ) {
 		$screen_tmp = get_current_screen();
 
 		if ( isset( $screen_tmp->id ) && null !== $screen_tmp->id ) {
-			$screen = $screen_tmp->id;
+			$page = $screen_tmp->id;
+		}
 	}
-}
 
 	// Don't filter on settings page
-	return FALSE !== strpos( $screen, 'adminimize' );
+	return FALSE !== strpos( $page, 'adminimize' );
 }
 
 /**
@@ -293,7 +292,7 @@ function _mw_adminimize_admin_init() {
 	// Debug helper
 	if ( class_exists( 'DebugListener' ) ) {
 		$listener = new DebugListener();
-		add_action( 'adminimize.log', [$listener, 'listen'], 10, 2);
+		add_action( 'adminimize.log', [$listener, 'listen'], 10, 2 );
 		add_action( 'wp_footer', array( $listener, 'dump' ), PHP_INT_MAX );
 	}
 
@@ -596,7 +595,7 @@ function _mw_adminimize_set_menu_option() {
 
 	// exclude super admin
 	if ( _mw_adminimize_exclude_super_admin() ) {
-		return NULL;
+		return;
 	}
 
 	// Leave the settings screen from Adminimize to see all areas on settings.
@@ -605,13 +604,26 @@ function _mw_adminimize_set_menu_option() {
 	}
 
 	global $menu, $submenu;
+	$wp_menu    = (array) _mw_adminimize_get_option_value( 'mw_adminimize_default_menu' );
+	$wp_submenu = (array) _mw_adminimize_get_option_value( 'mw_adminimize_default_submenu' );
 
+	// Object to array
+	if ( is_object( $wp_submenu ) ) {
+		$wp_submenu = get_object_vars( $wp_submenu );
+	}
+
+	if ( ! isset( $wp_menu ) || empty( $wp_menu ) ) {
+		$wp_menu = $menu;
+	}
+	if ( ! isset( $wp_submenu ) || empty( $wp_submenu ) ) {
+		$wp_submenu = $submenu;
+	}
 	if ( ! isset( $menu ) || empty( $menu ) ) {
 		return;
 	}
 
-	_mw_adminimize_debug( $menu, 'Adminimize, WordPress Menu:' );
-	_mw_adminimize_debug( $submenu, 'Adminimize, WordPress Sub-Menu:' );
+	_mw_adminimize_debug( $wp_menu, 'Adminimize, WordPress Menu:' );
+	_mw_adminimize_debug( $wp_submenu, 'Adminimize, WordPress Sub-Menu:' );
 
 	$disabled_menu_    = array();
 	$disabled_submenu_ = array();
@@ -659,7 +671,7 @@ function _mw_adminimize_set_menu_option() {
 	_mw_adminimize_debug( $mw_adminimize_menu, 'Adminimize, Menu Slugs to hide after Filter.' );
 	_mw_adminimize_debug( $mw_adminimize_submenu, 'Adminimize, Sub-Menu Slugs to hide after Filter.' );
 
-	foreach ( $menu as $key => $item ) {
+	foreach ( $wp_menu as $key => $item ) {
 
 		_mw_adminimize_debug( $item, 'Adminimize, Each Menu Item Array to check for hiding.' );
 
@@ -675,12 +687,9 @@ function _mw_adminimize_set_menu_option() {
 			}
 
 			// Sub Menu Settings.
-			if ( isset( $submenu ) && ! empty( $submenu[ $menu_slug ] ) ) {
-				foreach ( (array) $submenu[ $menu_slug ] as $subindex => $subitem ) {
+			if ( isset( $wp_submenu ) && ! empty( $wp_submenu[ $menu_slug ] ) ) {
+				foreach ( (array) $wp_submenu[ $menu_slug ] as $subindex => $subitem ) {
 					// Check, if is Sub Menu item in the user role settings?
-					_mw_adminimize_debug($subitem,'FB Subitem (>2)');
-					_mw_adminimize_debug($menu_slug . '__' . $subindex , 'FB MenuSlug');
-					_mw_adminimize_debug($mw_adminimize_submenu, 'FB Submenu');
 					if (
 						isset( $mw_adminimize_submenu )
 						&& _mw_adminimize_in_arrays(
