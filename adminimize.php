@@ -1238,15 +1238,15 @@ function _mw_adminimize_on_load_page() {
  *
  * @return string
  */
-function _mw_adminimize_get_option_value( $key = FALSE ) {
+function _mw_adminimize_get_option_value( $key = false ) {
 
-	$adminimizeoptions = FALSE;
+	$adminimizeoptions = false;
 	if ( ! _mw_adminimize_exclude_settings_page() ) {
 		$adminimizeoptions = wp_cache_get( 'mw_adminimize' );
 	}
 
-	if ( FALSE === $adminimizeoptions ) {
-		// check for use on multisite
+	if ( false === $adminimizeoptions ) {
+		// check for use on multisite.
 		if ( _mw_adminimize_is_active_on_multisite() ) {
 			$adminimizeoptions = (array) get_site_option( 'mw_adminimize', array() );
 		} else {
@@ -1259,7 +1259,7 @@ function _mw_adminimize_get_option_value( $key = FALSE ) {
 		return $adminimizeoptions;
 	}
 
-	return array_key_exists( $key, $adminimizeoptions ) ? $adminimizeoptions[ $key ] : NULL;
+	return array_key_exists( $key, $adminimizeoptions ) ? $adminimizeoptions[ $key ] : null;
 }
 
 /**
