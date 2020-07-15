@@ -8,6 +8,8 @@ if ( ! function_exists( 'add_action' ) ) {
 	echo "Hi there!  I'm just a part of plugin, not much I can do when called directly.";
 	exit;
 }
+global $wp_roles;
+
 ?>
 <div id="poststuff" class="ui-sortable meta-box-sortables">
 	<div class="postbox">
@@ -19,7 +21,10 @@ if ( ! function_exists( 'add_action' ) ) {
 			<p><?php esc_attr_e(
 					'You can save a JSON formatted ".json" file with your settings.', 'adminimize'
 				) ?></p>
-			<form method="post">
+			<label for="_mw_adminimize_choose_export" class="control-label">Export All Roles</label>
+			<input type="checkbox" id="adminimize-toggle" name="_mw_adminimize_choose_export" value="1" class="adminimize-checkbox" checked="checked">
+			<label for="adminimize-toggle" class="switch"></label>
+			<form method="post" id="adminimize-export">
 				<p><input type="hidden" name="_mw_adminimize_export" value="true" /></p>
 				<p>
 					<?php wp_nonce_field( 'mw_adminimize_export_nonce', 'mw_adminimize_export_nonce' ); ?>
@@ -29,6 +34,25 @@ if ( ! function_exists( 'add_action' ) ) {
 				</p>
 			</form>
 			<br class="clear" />
+			<form method="post" id="adminimize-export-role">
+				<p>
+					<label><?php esc_attr_e( 'Choose one or more roles :', 'adminimize' ); ?>
+  						<select name="select_adminimize_roles[]" multiple id="mw_adminimize_export_select_roles" >
+						<?php 
+						foreach (  $wp_roles->role_names as $role_name => $data ) : ?>
+							<option value="<?php echo $role_name; ?>"><?php echo $data; ?></option>
+						<?php endforeach; ?>
+ 		 				</select>
+					</label>
+				</p>
+				<p><input type="hidden" name="_mw_adminimize_export_role" value="true" /></p>
+				<p>
+					<?php wp_nonce_field( 'mw_adminimize_export_role_nonce', 'mw_adminimize_export_role_nonce' ); ?>
+					<?php
+					$submit_text = esc_html__( 'Export role(s) &raquo;', 'adminimize' );
+					submit_button( $submit_text, 'primary', '_mw_adminimize_save', false ); ?>
+				</p>
+			</form>
 
 <?php /*
 			<form name="export_options" method="get" action="">
