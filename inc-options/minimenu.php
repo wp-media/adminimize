@@ -21,8 +21,7 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 <br class="clear" />
 <div id="poststuff" class="ui-sortable meta-box-sortables"><!-- The ID should be unique. Right now, all the option panels are sharing the $poststuff ID-->
 	<div id="minimenu" class="postbox ">
-		<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle', 'adminimize' ); ?>"><br /></div>
-		<h3 class="hndle" id="menu"><?php esc_attr_e( 'MiniMenu', 'adminimize' ) ?></h3>
+		<h3 class="hndle ui-sortable-handle" title="<?php esc_attr_e( 'Click to toggle', 'adminimize' ); ?>" id="menu"><?php esc_attr_e( 'MiniMenu', 'adminimize' ) ?></h3>
 
 		<div class="inside">
 			<table class="widefat" cellspacing="0">
@@ -155,8 +154,7 @@ if ( _mw_adminimize_is_active_on_multisite() ) {
 
 <div id="poststuff" class="ui-sortable meta-box-sortables">
 	<div id="about" class="postbox">
-		<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle', 'adminimize' ); ?>"><br /></div>
-		<h3 class="hndle" id="about-sidebar"><?php esc_attr_e( 'About the plugin', 'adminimize' ) ?></h3>
+		<h3 class="hndle ui-sortable-handle" title="<?php esc_attr_e( 'Click to toggle', 'adminimize' ); ?>" id="about-sidebar"><?php esc_attr_e( 'About the plugin', 'adminimize' ) ?></h3>
 
 		<div class="inside">
 			<p>

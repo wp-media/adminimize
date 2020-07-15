@@ -23,8 +23,7 @@ if ( ! isset( $user_roles_names ) ) {
 ?>
 <div id="poststuff" class="ui-sortable meta-box-sortables">
 	<div class="postbox">
-		<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle', 'adminimize' ); ?>"><br /></div>
-		<h3 class="hndle" id="admin_bar_frontend_options" title="<?php esc_attr_e( 'Click to toggle', 'adminimize' ); ?>"><?php
+		<h3 class="hndle ui-sortable-handle" id="admin_bar_frontend_options" title="<?php esc_attr_e( 'Click to toggle', 'adminimize' ); ?>"><?php
 			esc_attr_e( 'Admin Bar Front end Options', 'adminimize' ); ?></h3>
 
 		<div class="inside">
