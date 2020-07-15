@@ -2,7 +2,10 @@
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.6...HEAD)
-* 
+* Add Im-/Export possibility only for different roles, Probs @JulietNoth, #139
+* Fix problems with plugins in menus, like WooCommerce, #130
+* Fix UI topics on settings page
+* Fix simple PHP warnings
 
 ## [1.11.6](https://github.com/bueltge/Adminimize/compare/1.11.5...1.11.6)
 * Fixed to allow br, a, strong, em on admin footer hint. #20bffc9bdfec95b0c92a2a1d2c1e90af74a68022
