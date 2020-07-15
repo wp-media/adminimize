@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file. This projec
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.7...HEAD)
 * 
 
-## [1.11.6](https://github.com/bueltge/Adminimize/compare/1.11.6...1.11.7)
+## [1.11.7](https://github.com/bueltge/Adminimize/compare/1.11.6...1.11.7)
 * Add Im-/Export possibility only for different roles, Probs @JulietNoth, #139
 * Fix problems with plugins in menus, like WooCommerce, #130
 * Fix UI topics on settings page
