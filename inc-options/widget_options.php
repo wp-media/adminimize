@@ -9,7 +9,16 @@ if ( ! function_exists( 'add_action' ) ) {
 	echo "Hi there!  I'm just a part of plugin, not much I can do when called directly.";
 	exit;
 }
+
+if ( ! isset( $user_roles ) ) {
+	$user_roles = _mw_adminimize_get_all_user_roles();
+}
+
+if ( ! isset( $user_roles_names ) ) {
+	$user_roles_names = _mw_adminimize_get_all_user_roles_names();
+}
 ?>
+
 <div id="poststuff" class="ui-sortable meta-box-sortables">
 	<div class="postbox">
 		<h3 class="hndle ui-sortable-handle" title="<?php esc_attr_e( 'Click to toggle', 'adminimize' ); ?>" id="widget_options"><?php esc_attr_e( 'Widgets', 'adminimize' ); ?></h3>

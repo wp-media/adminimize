@@ -1,7 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.6...HEAD)
+## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.7...HEAD)
+* 
+
+## [1.11.6](https://github.com/bueltge/Adminimize/compare/1.11.6...1.11.7)
 * Add Im-/Export possibility only for different roles, Probs @JulietNoth, #139
 * Fix problems with plugins in menus, like WooCommerce, #130
 * Fix UI topics on settings page

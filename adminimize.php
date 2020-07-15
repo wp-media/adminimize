@@ -7,7 +7,7 @@
  * Description: Visually compresses the administrative meta-boxes so that more admin page content can be initially seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for all roles of your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible to simplify the admin in different for all roles.
  * Author:      Frank Bültge
  * Author URI:  http://bueltge.de/
- * Version:     1.11.7-dev
+ * Version:     1.11.7
  * License:     GPLv2+
  *
  * Php Version 5.6
@@ -15,7 +15,7 @@
  * @package WordPress
  * @author  Frank Bültge <frank@bueltge.de>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2020-01-27
+ * @version 2020-07-15
  */
 
 /**
@@ -163,7 +163,7 @@ function _mw_adminimize_get_all_user_roles() {
 
 	$user_roles = array();
 
-	if ( NULL !== $wp_roles->roles && is_array( $wp_roles->roles ) ) {
+	if ( null !== $wp_roles->roles && is_array( $wp_roles->roles ) ) {
 		foreach ( $wp_roles->roles as $role => $data ) {
 			$user_roles[] = $role;
 			// The $data var contains caps, maybe for later use.
@@ -1781,7 +1781,7 @@ function _mw_adminimize_install() {
 
 /**
  * Make sure adminimize option is complete when a role json file is imported
- * 
+ *
  * @param array $roles_options
  *
  * @return array
@@ -1799,7 +1799,7 @@ function _mw_adminimize_roles_complete_options( $roles_options ){
 
 /**
  * Check if options comes from roles adminimize settings export
- * 
+ *
  * @param array $options
  *
  * @return bool
@@ -1820,10 +1820,10 @@ function _mw_adminimize_is_roles_options_import( $options ){
 			$roles_options = $role_options;
 		} else {
 			$roles_options = array_merge( $roles_options, $role_options );
-		} 
+		}
 	}
 
 	if ( count( $options ) === count( $roles_options ) ){
 		return true;
-	} 
+	}
 }

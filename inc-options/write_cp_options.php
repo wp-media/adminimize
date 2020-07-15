@@ -42,7 +42,7 @@ foreach ( get_post_types( $args ) as $post_type ) {
 							echo ' - ' . $post_type_object->label ?></th>
 						<?php
 						foreach ( (array) $user_roles_names as $role_name ) {
-							echo '<th>' . esc_attr_e( 'Deactivate for', 'adminimize' )
+							echo '<th>' . esc_attr__( 'Deactivate for', 'adminimize' )
 						. '<br/>' . esc_attr( $role_name ) . '</th>';
 						} ?>
 					</tr>
