@@ -4,13 +4,13 @@ All notable changes to this project will be documented in this file. This projec
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.7...HEAD)
 * 
 
-## [1.11.7](https://github.com/bueltge/Adminimize/compare/1.11.6...1.11.7)
+## [1.11.7](https://github.com/bueltge/Adminimize/compare/1.11.6...1.11.7) - 2020-07-15
 * Add Im-/Export possibility only for different roles, Probs @JulietNoth, #139
 * Fix problems with plugins in menus, like WooCommerce, #130
 * Fix UI topics on settings page
 * Fix simple PHP warnings
 
-## [1.11.6](https://github.com/bueltge/Adminimize/compare/1.11.5...1.11.6)
+## [1.11.6](https://github.com/bueltge/Adminimize/compare/1.11.5...1.11.6) - 2019-12-23
 * Fixed to allow br, a, strong, em on admin footer hint. #20bffc9bdfec95b0c92a2a1d2c1e90af74a68022
 * Add new filter hook to change the options, like more or less options. `mw_adminimize_options_before_update`, Probs @g-kanoufi
 * Add new filter hooks to add custom area on the settings page, before and after Minmenu on top. `mw_adminimize_minimenu_before_first_tr` and `mw_adminimize_minimenu_after_last_tr`, Probs @g-kanoufi
