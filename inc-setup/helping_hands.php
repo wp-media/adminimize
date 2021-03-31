@@ -125,7 +125,7 @@ function _mw_adminimize_get_duplicate( $array ) {
  */
 function _mw_adminimize_get_intersection( $array ) {
 
-	return (array) call_user_func_array( 'array_intersect', $array );
+	return (array) call_user_func_array( 'array_intersect', array_values( $array ) );
 }
 
 /**
