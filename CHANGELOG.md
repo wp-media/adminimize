@@ -2,10 +2,10 @@
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.7...HEAD)
-* 
+* Fix for PHP8, #148, Probs @g-kanoufi
 
 ## [1.11.7](https://github.com/bueltge/Adminimize/compare/1.11.6...1.11.7) - 2020-07-15
-* Add Im-/Export possibility only for different roles, Probs @JulietNoth, #139
+* Add Im-/Export possibility only for different roles, #139, Probs @JulietNoth
 * Fix problems with plugins in menus, like WooCommerce, #130
 * Fix UI topics on settings page
 * Fix simple PHP warnings
