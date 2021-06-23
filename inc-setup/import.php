@@ -72,9 +72,7 @@ function _mw_adminimize_import_json() {
 	}
 
 	// Retrieve the settings from the file and convert the json object to an array.
-	$settings = (array) json_decode(
-		file_get_contents( $path )
-	);
+	$settings = json_decode( file_get_contents( $path ), true );
 	unlink( $path );
 
 	_mw_adminimize_update_option( $settings );
