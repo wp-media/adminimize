@@ -21,6 +21,9 @@ if ( ! function_exists( 'add_action' ) ) {
 				<colgroup>
 					<?php
 					$col = 0;
+					if ( ! isset( $user_roles_names ) ) {
+						$user_roles_names = _mw_adminimize_get_all_user_roles_names();
+					}
 					foreach ( $user_roles_names as $role_name ) {
 						echo '<col class="col' . $col . '">' . "\n";
 						$col ++;
@@ -40,6 +43,9 @@ if ( ! function_exists( 'add_action' ) ) {
 				<tr>
 					<td><?php esc_attr_e( 'Select all', 'adminimize' ); ?></td>
 					<?php
+					if ( ! isset( $user_roles ) ) {
+						$user_roles = _mw_adminimize_get_all_user_roles();
+					}
 					foreach ( $user_roles as $role_slug ) {
 						echo '<td class="num">';
 						echo '<span class="form-invalid">';
