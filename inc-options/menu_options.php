@@ -184,17 +184,21 @@ if ( ! function_exists( 'add_action' ) ) {
 
 							// Loop about Sub Menu items.
 							foreach ( $wp_submenu[ $menu_slug ] as $subkey => $subitem ) {
+
+								// @see https://github.com/bueltge/adminimize/issues/116
+								if ( is_object( $subitem ) ) {
+									$subitem = json_decode( json_encode( $subitem ), true );
+								}
+
 								$submenu_slug = $subitem[ 2 ];
 
 								// Special solutions for the Adminimize link, that it not works on settings site.
 								if ( strtolower( $submenu_slug ) === 'adminimize/adminimize.php' ) {
 									//$disabled_subitem_adm = ' disabled="disabled"';
-									$disabled_subitem_adm_hint = '<abbr title="'
-									                             . esc_attr__(
-										                             'After activate the checkbox you will loose its easy access in the menu.',
-										                             'adminimize'
-									                             )
-									                             . '" style="cursor:pointer;"> ! </acronym>';
+									$disabled_subitem_adm_hint = '<abbr title="' . esc_attr__(
+										'After activate the checkbox you will loose its easy access in the menu.',
+										'adminimize'
+									) . '" style="cursor:pointer;"> ! </acronym>';
 								} else {
 									$disabled_subitem_adm      = '';
 									$disabled_subitem_adm_hint = '';
