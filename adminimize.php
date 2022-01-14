@@ -689,6 +689,12 @@ function _mw_adminimize_set_menu_option() {
 			// Sub Menu Settings.
 			if ( isset( $wp_submenu ) && ! empty( $wp_submenu[ $menu_slug ] ) ) {
 				foreach ( (array) $wp_submenu[ $menu_slug ] as $subindex => $subitem ) {
+
+					// @see https://github.com/bueltge/adminimize/issues/149
+					if ( is_object( $subitem ) ) {
+						$subitem = json_decode( json_encode( $subitem ), true );
+					}
+
 					// Check, if is Sub Menu item in the user role settings?
 					if (
 						isset( $mw_adminimize_submenu )
