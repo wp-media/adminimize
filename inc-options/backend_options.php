@@ -406,14 +406,7 @@ if ( ! function_exists( 'add_action' ) ) {
 							</label>
 							<br>
 							<label for="_mw_adminimize_db_redirect_txt"></label>
-							<textarea style="width: 85%;" class="code" rows="1" cols="60"
-							          name="_mw_adminimize_db_redirect_txt" id="_mw_adminimize_db_redirect_txt">
-							<?php
-							echo htmlspecialchars(
-								stripslashes( _mw_adminimize_get_option_value( '_mw_adminimize_db_redirect_txt' ) )
-							);
-							?>
-							</textarea>
+							<textarea style="width: 85%;" class="code" rows="1" cols="60" name="_mw_adminimize_db_redirect_txt" id="_mw_adminimize_db_redirect_txt"><?php echo htmlspecialchars( stripslashes( _mw_adminimize_get_option_value( '_mw_adminimize_db_redirect_txt' ) ) ); ?></textarea>
 							<br/>
 							<?php
 							esc_attr_e(
