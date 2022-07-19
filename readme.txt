@@ -40,7 +40,7 @@ Use the installer via back-end of your install or ...
 == Changelog ==
 = 1.11.8 (2022-07-19) =
 * Fix for PHP8, #148, Probs @g-kanoufi
-* Fix spaces intextara, global options, #141
+* Fix spaces in textara, global options, #141
 
 = 1.11.7 (2020-07-15) =
 * Add Im-/Export possibility only for different roles, Probs @JulietNoth, #139
