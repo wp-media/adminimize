@@ -38,6 +38,9 @@ Use the installer via back-end of your install or ...
 4. Administrator can go to `Settings` > `Adminimize` menu and configure the plugin (Menu, Sub-menu, Meta boxes, ...)
 
 == Changelog ==
+= 1.11.9 () =
+* Fix title of plugins there get a array instead string, #153, Probs @denarie
+
 = 1.11.8 (2022-07-19) =
 * Fix for PHP8, #148, Probs @g-kanoufi
 * Fix spaces in textara, global options, #141
