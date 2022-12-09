@@ -79,7 +79,7 @@ if ( ! isset( $user_roles_names ) ) {
 				$message = '';
 				if ( ! empty( $admin_bar_frontend_items ) && is_array( $admin_bar_frontend_items ) ) {
 					foreach ( $admin_bar_frontend_items as $key => $value ) {
-
+						$value = (is_object($value)) ? $value : (object) $value;
 						$is_parent = ! empty( $value->parent );
 						$has_link  = ! empty( $value->href );
 						// No title on the item.
