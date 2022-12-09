@@ -1,7 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.8...HEAD)
+## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.9...HEAD)
+*
+
+## [1.11.9](https://github.com/bueltge/Adminimize/compare/1.11.8...1.11.9) - 2022-12-09
+* Fix Settings after JSON Import , #155, Probs @borsodigerii
 * Fix title of plugins there get a array instead string, #153, Probs @denarie
 
 ## [1.11.8](https://github.com/bueltge/Adminimize/compare/1.11.7...1.11.8) - 2022-07-19
