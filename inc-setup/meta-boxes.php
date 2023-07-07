@@ -38,16 +38,16 @@ function _mw_adminimize_get_all_meta_boxes( $post_type, $priority, $post ) {
 	}
 }
 
-function _mw_adminimize_get_meta_boxes( $post_type = NULL, $context = 'advanced' ) {
+function _mw_adminimize_get_meta_boxes( $post_type = null, $context = 'advanced' ) {
 
 	$saved_wp_meta_boxes = _mw_adminimize_get_option_value( 'mw_adminimize_meta_boxes_' . $post_type );
 
 	return $saved_wp_meta_boxes;
 }
 
-function _mw_adminimize_remove_meta_boxes( $post_type = NULL, $context = 'advanced', $priority = 'default', $id ) {
+function _mw_adminimize_remove_meta_boxes( $id, $post_type = null, $context = 'advanced', $priority = 'default' ) {
 
-	// @TODO foreach about settings
+	// @TODO for each about settings
 	remove_meta_box( $id, $post_type, $context );
 }
 
