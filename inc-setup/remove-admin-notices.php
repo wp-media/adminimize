@@ -1,9 +1,11 @@
 <?php
 /**
- * Remove the admin notices from global options settings
+ * Remove the admin notices from the global options settings.
  *
- * @since  2015-12-09
+ * @package Adminimize
+ * @since   2015-12-09
  */
+
 if ( ! function_exists( 'add_action' ) ) {
 	die( "Hi there!  I'm just a part of plugin, not much I can do when called directly." );
 }
