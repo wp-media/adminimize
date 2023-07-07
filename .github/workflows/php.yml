@@ -18,21 +18,29 @@ jobs:
                 - '7.2'
                 - '7.4'
                 - '8.1'
-                include:
-                  - php-version: '8.2'
-                    experimental: true
+                - '8.2'
+                dependency-versions: [ 'lowest', 'highest' ]
+                container-versions: [ '^1.1.0', '^2' ]
 
         steps:
-            -   uses: actions/checkout@v3
+            -   name: Checkout
+                uses: actions/checkout@v3
 
             -   name: Setup PHP, Version ${{ matrix.php-versions }}
                 uses: shivammathur/setup-php@v2
                 with:
                     php-version: ${{ matrix.php-versions }}
+                    ini-values: zend.assertions=1, error_reporting=-1, display_errors=On
+                    coverage: ${{ ((env.USE_COVERAGE == 'yes') && 'xdebug') || 'none' }}
 
             -   name: Check syntax error in sources
                 run: find ./ -type f -name '*.php' -print0 | xargs -0 -L 1 -P 4 -- php -l
-
+                
+            -   name: Install Composer dependencies
+                uses: ramsey/composer-install@v2
+                with:
+                    dependency-versions: ${{ matrix.dependency-versions }}
+          
             -   name: Clear cache of Composer
                 run: composer clear-cache
 
