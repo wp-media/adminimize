@@ -3,7 +3,10 @@
 	<description>Rules for WordPress Adminimize projects</description>
 
 	<!-- What to scan -->
-	<file>.</file>
+	<file>./adminimize.php</file>
+    <file>./adminimize_page.php</file>
+    <file>./inc-setup</file>
+    <file>./inc-options</file>
 	<!-- Ignoring Files and Folders:
 		https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage#ignoring-files-and-folders -->
 	<exclude-pattern>./vendor/</exclude-pattern>
