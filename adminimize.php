@@ -278,6 +278,9 @@ function _mw_adminimize_admin_init() {
 		$post_id = (int) esc_attr( $_POST[ 'post_ID' ] );
 	}
 
+	if ( ! isset( $post_type ) || empty( $post_type ) ) {
+		$post_type = get_post_type();
+	}
 	$current_post_type = $post_type;
 	if ( ! isset( $current_post_type ) || empty( $current_post_type ) ) {
 		$current_post_type = get_post_type( $post_id );
