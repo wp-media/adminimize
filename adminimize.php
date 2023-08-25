@@ -7,7 +7,7 @@
  * Description: Visually compresses the administrative meta-boxes so that more admin page content can be initially seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for all roles of your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible to simplify the admin in different for all roles.
  * Author:      Frank Bültge
  * Author URI:  https://bueltge.de/
- * Version:     1.11.9
+ * Version:     1.11.10
  * License:     GPLv2+
  *
  * Php Version 5.6
@@ -15,7 +15,7 @@
  * @package WordPress
  * @author  Frank Bültge <frank@bueltge.de>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2022-12-09
+ * @version 2023-08-25
  */
 
 /**
@@ -269,7 +269,7 @@ function _mw_adminimize_get_current_post_type() {
  */
 function _mw_adminimize_admin_init() {
 
-	global $pagenow, $post_type, $menu, $submenu;
+	global $pagenow, $menu, $submenu;
 
 	$post_id = 0;
 	if ( isset( $_GET[ 'post' ] ) && ! is_array( $_GET[ 'post' ] ) ) {
@@ -277,11 +277,13 @@ function _mw_adminimize_admin_init() {
 	} elseif ( isset( $_POST[ 'post_ID' ] ) ) {
 		$post_id = (int) esc_attr( $_POST[ 'post_ID' ] );
 	}
-
-	if ( ! isset( $post_type ) || empty( $post_type ) ) {
-		$post_type = get_post_type();
+	// Fallback to get always the post type.
+	if ( isset( $_GET[ 'post_type' ] ) && ! is_array( $_GET[ 'post_type' ] ) ) {
+		$current_post_type = esc_attr( $_GET['post_type'] );
 	}
-	$current_post_type = $post_type;
+	if ( ! isset( $current_post_type ) || empty( $current_post_type ) ) {
+		$current_post_type = get_post_type($post->ID);
+	}
 	if ( ! isset( $current_post_type ) || empty( $current_post_type ) ) {
 		$current_post_type = get_post_type( $post_id );
 	}
