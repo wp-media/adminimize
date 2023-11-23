@@ -269,7 +269,7 @@ function _mw_adminimize_get_current_post_type() {
  */
 function _mw_adminimize_admin_init() {
 
-	global $pagenow, $post_type, $menu, $submenu;
+	global $pagenow, $menu, $submenu;
 
 	$post_id = 0;
 	if ( isset( $_GET[ 'post' ] ) && ! is_array( $_GET[ 'post' ] ) ) {
@@ -277,8 +277,13 @@ function _mw_adminimize_admin_init() {
 	} elseif ( isset( $_POST[ 'post_ID' ] ) ) {
 		$post_id = (int) esc_attr( $_POST[ 'post_ID' ] );
 	}
-
-	$current_post_type = $post_type;
+	// Fallback to get always the post type.
+	if ( isset( $_GET[ 'post_type' ] ) && ! is_array( $_GET[ 'post_type' ] ) ) {
+		$current_post_type = esc_attr( $_GET['post_type'] );
+	}
+	if ( ! isset( $current_post_type ) || empty( $current_post_type ) ) {
+		$current_post_type = get_post_type($post->ID);
+	}
 	if ( ! isset( $current_post_type ) || empty( $current_post_type ) ) {
 		$current_post_type = get_post_type( $post_id );
 	}
