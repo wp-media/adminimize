@@ -15,7 +15,7 @@
  * @package WordPress
  * @author  Frank Bültge <frank@bueltge.de>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2023-08-25
+ * @version 2023-11-23
  */
 
 /**
