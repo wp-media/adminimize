@@ -1,8 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.9...HEAD)
+## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.10...HEAD)
 *
+
+## [1.11.9](https://github.com/bueltge/Adminimize/compare/1.11.9...1.11.10) - 2023-11-23
+* Fix access for global variable query
 
 ## [1.11.9](https://github.com/bueltge/Adminimize/compare/1.11.8...1.11.9) - 2022-12-09
 * Fix Settings after JSON Import , #155, Probs @borsodigerii
