@@ -1,5 +1,5 @@
 === Adminimize ===
-Contributors: Bueltge, inpsyde
+Contributors: wp_media, Bueltge, inpsyde
 Donate link: https://www.paypal.me/FrankBueltge
 Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
 Requires at least: 4.0
@@ -40,6 +40,9 @@ Use the installer via back-end of your install or ...
 == Changelog ==
 = 1.11.10 (2023-11-23) =
 * Fix access for global variable query
+* Fix post type for WP 6.3, #159
+* Fix Dashboard title
+* Fix PHP 8 incompatibility with conversion false to array
 
 = 1.11.9 (2022-12-09) =
 * Fix Settings after JSON Import , #155, Probs @borsodigerii
