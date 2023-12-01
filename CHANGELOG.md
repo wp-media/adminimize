@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file. This projec
 * Fix access for global variable query
 * Fix post type for WP 6.3, #159
 * Fix Dashboard title
+* Fix PHP 8 incompatibility with conversion false to array
 
 ## [1.11.9](https://github.com/bueltge/Adminimize/compare/1.11.8...1.11.9) - 2022-12-09
 * Fix Settings after JSON Import , #155, Probs @borsodigerii
