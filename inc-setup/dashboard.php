@@ -152,12 +152,17 @@ function _mw_adminimize_get_dashboard_widgets() {
 			foreach ( (array) $data as $widget => $value ) {
 
 				$value['title'] = ($value['title'] == FALSE) ? [] : $value['title'];
+				
+				if ( ! is_array( $value ) ) {
+					$value = [];
+				}
+				
 				if ( ! isset( $value['title'])) {
 					$value['title'] = '';
 				}
 
 				// Some plugins create a title that contains an array, we create an empty string to prevent an error in strip_tags
-				if (is_array ( $value['title'])) {
+				if ( is_array( $value['title'])) {
 					$value['title'] = '';
 				}
 
