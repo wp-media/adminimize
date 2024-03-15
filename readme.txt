@@ -37,7 +37,7 @@ Use the installer via back-end of your install or ...
 4. Administrator can go to `Settings` > `Adminimize` menu and configure the plugin (Menu, Sub-menu, Meta boxes, ...)
 
 == Changelog ==
-= 1.11.11 (2024-03-15)=
+= 1.11.11 (2024-03-15) =
 * Fix PHP Warning (Trying to access array offset on value of type bool)
 
 = 1.11.10 (2023-11-23) =
