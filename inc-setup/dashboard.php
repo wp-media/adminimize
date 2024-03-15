@@ -151,12 +151,10 @@ function _mw_adminimize_get_dashboard_widgets() {
 		foreach ( (array) $datas as $priority => $data ) {
 			foreach ( (array) $data as $widget => $value ) {
 
-				$value['title'] = ($value['title'] == FALSE) ? [] : $value['title'];
-				
-				if ( ! is_array( $value ) ) {
+				if ($value === false) {
 					$value = [];
 				}
-				
+
 				if ( ! isset( $value['title'])) {
 					$value['title'] = '';
 				}
@@ -174,6 +172,7 @@ function _mw_adminimize_get_dashboard_widgets() {
 					'context'  => $context,
 					'priority' => $priority,
 				);
+        
 			}
 		}
 	}
