@@ -15,7 +15,7 @@
  * @package WordPress
  * @author  Frank Bültge <frank@bueltge.de>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2023-08-25
+ * @version 2023-11-23
  */
 
 /**
@@ -282,7 +282,7 @@ function _mw_adminimize_admin_init() {
 		$current_post_type = esc_attr( $_GET['post_type'] );
 	}
 	if ( ! isset( $current_post_type ) || empty( $current_post_type ) ) {
-		$current_post_type = get_post_type($post->ID);
+		$current_post_type = get_post_type( get_queried_object_id() );
 	}
 	if ( ! isset( $current_post_type ) || empty( $current_post_type ) ) {
 		$current_post_type = get_post_type( $post_id );
