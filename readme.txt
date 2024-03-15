@@ -1,6 +1,6 @@
 === Adminimize ===
 Contributors: wp_media, Bueltge, inpsyde
-Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
+Tags: customization, administration
 Requires at least: 4.0
 Tested up to: 6.4
 Stable tag: 1.11.11
