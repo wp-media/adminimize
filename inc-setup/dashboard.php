@@ -151,7 +151,10 @@ function _mw_adminimize_get_dashboard_widgets() {
 		foreach ( (array) $datas as $priority => $data ) {
 			foreach ( (array) $data as $widget => $value ) {
 
-				$value['title'] = ($value['title'] == FALSE) ? [] : $value['title'];
+				if ($value === false) {
+					$value = [];
+				}
+
 				if ( ! isset( $value['title'])) {
 					$value['title'] = '';
 				}
