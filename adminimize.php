@@ -5,9 +5,9 @@
  * Text Domain: adminimize
  * Domain Path: /languages
  * Description: Visually compresses the administrative meta-boxes so that more admin page content can be initially seen. The plugin that lets you hide 'unnecessary' items from the WordPress administration menu, for all roles of your install. You can also hide post meta controls on the edit-area to simplify the interface. It is possible to simplify the admin in different for all roles.
- * Author:      Frank Bültge
- * Author URI:  https://bueltge.de/
- * Version:     1.11.10
+ * Author:      WP Media
+ * Author URI:  https://wp-media.me
+ * Version:     1.11.11
  * License:     GPLv2+
  *
  * Php Version 5.6
@@ -15,7 +15,7 @@
  * @package WordPress
  * @author  Frank Bültge <frank@bueltge.de>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2023-08-25
+ * @version 2024-03-15
  */
 
 /**
