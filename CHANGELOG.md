@@ -1,8 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.10...HEAD)
+## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.11...HEAD)
 *
+
+## [1.11.11](https://github.com/bueltge/Adminimize/compare/1.11.10...1.11.11) - 2024-03-15
+* Fix PHP Warning (Trying to access array offset on value of type bool)
 
 ## [1.11.10](https://github.com/bueltge/Adminimize/compare/1.11.9...1.11.10) - 2023-11-23
 * Fix access for global variable query

@@ -1,10 +1,9 @@
 === Adminimize ===
 Contributors: wp_media, Bueltge, inpsyde
-Donate link: https://www.paypal.me/FrankBueltge
 Tags: color, scheme, theme, admin, dashboard, color scheme, plugin, interface, ui, metabox, hide, editor, minimal, menu, customization, interface, administration, lite, light, usability, lightweight, layout, zen
 Requires at least: 4.0
 Tested up to: 6.4
-Stable tag: 1.11.10
+Stable tag: 1.11.11
 
 Adminimize that lets you hide 'unnecessary' items from the WordPress backend
 
@@ -38,6 +37,9 @@ Use the installer via back-end of your install or ...
 4. Administrator can go to `Settings` > `Adminimize` menu and configure the plugin (Menu, Sub-menu, Meta boxes, ...)
 
 == Changelog ==
+= 1.11.11 (2024-03-15)=
+* Fix PHP Warning (Trying to access array offset on value of type bool)
+
 = 1.11.10 (2023-11-23) =
 * Fix access for global variable query
 * Fix post type for WP 6.3, #159
