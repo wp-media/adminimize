@@ -20,7 +20,7 @@ global $wp_roles;
 
 			<h3><?php esc_attr_e( 'Export', 'adminimize' ); ?></h3>
 			<p><?php esc_attr_e( 'You can save a JSON formatted ".json" file with your settings.', 'adminimize' ); ?></p>
-			<label for="_mw_adminimize_choose_export" class="control-label">Export All Roles</label>
+			<label for="_mw_adminimize_choose_export" class="control-label"><?php esc_attr_e( 'Export All Roles', 'adminimize' ); ?></label>
 			<input type="checkbox" id="adminimize-toggle" name="_mw_adminimize_choose_export" value="1"
 				   class="adminimize-checkbox" checked="checked">
 			<label for="adminimize-toggle" class="switch"></label>
