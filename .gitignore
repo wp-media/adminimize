@@ -17,6 +17,7 @@ atlassian-ide-plugin.xml
 
 ## Composer
 composer.phar
+composer.lock
 vendor/
 wpcs/
 
@@ -28,6 +29,7 @@ wpcs/
 
 ## Grunt, NPM
 node_modules/
+package-lock.json
 
 ## Eclipse / Aptana IDE
 *.pydevproject
