@@ -5,6 +5,10 @@ out/
 .idea_modules/
 atlassian-ide-plugin.xml
 
+## https://idx.google.com/
+.idx/
+.idx/*
+
 ## File-based project format
 *.ipr
 *.iws
