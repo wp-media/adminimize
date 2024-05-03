@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file. This projec
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.11...HEAD)
 * Fix untranslatable string, #166
 * Add check for global var, #165
+* Add strict type for strip_tags
 
 ## [1.11.11](https://github.com/bueltge/Adminimize/compare/1.11.10...1.11.11) - 2024-03-15
 * Fix PHP Warning (Trying to access array offset on the value of type bool)

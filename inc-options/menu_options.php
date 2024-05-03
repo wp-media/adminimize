@@ -225,7 +225,7 @@ if ( ! function_exists( 'add_action' ) ) {
 										$checked_user_role_[ $role ] = ' checked="checked"';
 									}
 								}
-								echo '<td> &mdash; ' . strip_tags( $subitem[ 0 ] ) . ' <span>(Slug: '
+								echo '<td> &mdash; ' . strip_tags( (string) $subitem[ 0 ] ) . ' <span>(Slug: '
 								     . preg_replace(
 									     '#[%2].*#',
 									     '...',

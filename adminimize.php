@@ -13,9 +13,9 @@
  * Php Version 5.6
  *
  * @package WordPress
- * @author  Frank Bültge <frank@bueltge.de>
+ * @author  WP Media <contact@wp-media.me>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- * @version 2024-03-15
+ * @version 2024-05-03
  */
 
 /**
