@@ -2,65 +2,65 @@
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/bueltge/Adminimize/compare/1.11.11...HEAD)
-*
+* Fix untranslatable string, #166
 
 ## [1.11.11](https://github.com/bueltge/Adminimize/compare/1.11.10...1.11.11) - 2024-03-15
-* Fix PHP Warning (Trying to access array offset on value of type bool)
+* Fix PHP Warning (Trying to access array offset on the value of type bool)
 
 ## [1.11.10](https://github.com/bueltge/Adminimize/compare/1.11.9...1.11.10) - 2023-11-23
 * Fix access for global variable query
 * Fix post type for WP 6.3, #159
 * Fix Dashboard title
-* Fix PHP 8 incompatibility with conversion false to array
+* Fix PHP 8 incompatibility with conversion false to an array
 
 ## [1.11.9](https://github.com/bueltge/Adminimize/compare/1.11.8...1.11.9) - 2022-12-09
-* Fix Settings after JSON Import , #155, Probs @borsodigerii
-* Fix title of plugins there get a array instead string, #153, Probs @denarie
+* Fix Settings after JSON Import, #155, Probs @borsodigerii
+* Fix the title of plugins there get an array instead of a string, #153, Probs @denarie
 
 ## [1.11.8](https://github.com/bueltge/Adminimize/compare/1.11.7...1.11.8) - 2022-07-19
 * Fix for PHP8, #148, Probs @g-kanoufi
-* Fix spaces intextara, global options, #141
+* Fix spaces in textara, global options, #141
 
 ## [1.11.7](https://github.com/bueltge/Adminimize/compare/1.11.6...1.11.7) - 2020-07-15
 * Add Im-/Export possibility only for different roles, #139, Probs @JulietNoth
 * Fix problems with plugins in menus, like WooCommerce, #130
-* Fix UI topics on settings page
+* Fix UI topics on the settings page
 * Fix simple PHP warnings
 
 ## [1.11.6](https://github.com/bueltge/Adminimize/compare/1.11.5...1.11.6) - 2019-12-23
 * Fixed to allow br, a, strong, em on admin footer hint. #20bffc9bdfec95b0c92a2a1d2c1e90af74a68022
-* Add new filter hook to change the options, like more or less options. `mw_adminimize_options_before_update`, Probs @g-kanoufi
-* Add new filter hooks to add custom area on the settings page, before and after Minmenu on top. `mw_adminimize_minimenu_before_first_tr` and `mw_adminimize_minimenu_after_last_tr`, Probs @g-kanoufi
+* Add a new filter hook to change the options, like more or fewer options. `mw_adminimize_options_before_update`, Probs @g-kanoufi
+* Add new filter hooks to add a custom area on the settings page, before and after Minmenu on top. `mw_adminimize_minimenu_before_first_tr` and `mw_adminimize_minimenu_after_last_tr`, Probs @g-kanoufi
 * Add filter hook `adminimize_mu_force_options_per_site` to allow different adminimize options per site on multisite, Probs @ulietNoth
 * Add filter hooks `adminimize_user_roles_filter` and `adminimize_user_roles_names_filter` to allow add or remove role column in adminimize options, Probs @ulietNoth
 
 ## [1.11.5](https://github.com/bueltge/Adminimize/compare/1.11.4...1.11.5) - 2019-07-07
-* Fixed: Remove deprecated version for support of php 7.2, #109.
-* Fixed: Dashboard removels for multible roles.
+* Fixed: Remove deprecated version for support of PHP 7.2, #109.
+* Fixed: Dashboard removals for multiple roles.
 * Fixed: settings link.
 * Maintenance: More solid page checks, codex issues.
 * Maintenance: Remove Javascript for the settings page for scrolling top, simplify.
-* Fixed: A little bid spelling is now fixed.
+* Fixed: A little bit spelling is now fixed.
 * Feature: Close every box other than the first, to keep the page clean.
 * Fixed: Hide Meta Boxes on usage of multiple roles, Probs @filipecsweb.
 
 ## [1.11.4](https://github.com/bueltge/Adminimize/compare/1.11.3...1.11.4) - 2017-12-14
-* Fixed hide of menu items, if you use custom menu, see [wiki page](https://github.com/bueltge/Adminimize/wiki/Custom-Menu-Order)
+* Fixed hide of menu items, if you use a custom menu, see [wiki page](https://github.com/bueltge/Adminimize/wiki/Custom-Menu-Order)
 * Fixed Import/Export for different server environments.
-* Remove languge file on github, we use always the translation community from wordpress.org
-* Fixed check for settings page of Adminimize, so that we see all options, areas of the install.
+* Remove language file on GitHub, we use always the translation community from wordpress.org
+* Fixed check for the settings page of Adminimize so that we see all options and areas of the install.
 
 ## [1.11.3](https://github.com/bueltge/Adminimize/compare/1.11.2...1.11.3) - 2017-11-16
-* Added custom dashbaord options to admin head to hide it via css.
+* Added custom dashboard options to the admin's head to hide it via CSS.
 * Added support of multiple roles for dashboard options.
 * Added new option to hide 'Add New' Button on each post type.
 * Fixed ID of Menu to use each link in the full width.
 * Fixed error for check dashboard setup on multiple roles.
 * Removed dependency from users.php to profile.php. #61
 * Allow attribute selector for custom options, remove slashes in options. #65
-* Change hook for change menu items ot solve order problem with third plugins. #68
+* Change hook for changing menu items to solve order problems with third plugins. #68
 * Remove Set Theme for users option - noit relevant for the plugin, old dependencies.
-* Change selector to remove footer area.
+* Change the selector to remove footer area.
 * Remove Screenshots on readme page, to big, not helpful.
 * Added filter hook `adminimize_nopage_access_message` to change the message for no access to a page. see the [wiki](https://github.com/bueltge/Adminimize/wiki/Filter-Hooks)
 
@@ -75,7 +75,7 @@ All notable changes to this project will be documented in this file. This projec
 ### Fixed
 * Fix open Translations. props pedro-mendonca
 * Fix Typos.
-* Fix php warning on Admin Bar items for PHP 5.2.
+* Fix PHP warning on Admin Bar items for PHP 5.2.
 * Fix CPT feature support, if it false.
 
 ### Added
