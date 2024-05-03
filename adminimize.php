@@ -915,7 +915,12 @@ function _mw_adminimize_set_metabox_cp_option() {
 		$post_id = (int) $_POST[ 'post_ID' ];
 	}
 
-	$current_post_type = $GLOBALS[ 'post_type' ];
+	if ( ! isset( $GLOBALS[ 'post_type' ] ) || empty( $GLOBALS[ 'post_type' ] ) ) {
+		$current_post_type = get_post_type();
+	} else  {
+		$current_post_type = $GLOBALS[ 'post_type' ];
+	}
+
 	if ( ! isset( $current_post_type ) ) {
 		$current_post_type = get_post_type( $post_id );
 	}
