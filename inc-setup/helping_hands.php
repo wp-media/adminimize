@@ -178,15 +178,29 @@ function _mw_adminimize_check_page_access( $slug ) {
 		return false;
 	}
 
-	// URI without query parameter, like WP core edit.php.
-	if ( ! isset( $uri['query'] ) && strpos( $uri['path'], $slug ) !== false ) {
-		add_action( 'load-' . $slug, '_mw_adminimize_block_page_access' );
-		return true;
-	}
+	// Parse the slug to extract its path and query components for comparison.
+	$slug_parts = wp_parse_url( $slug );
+	$slug_path  = isset( $slug_parts['path'] ) ? $slug_parts['path'] : $slug;
+	$slug_query = isset( $slug_parts['query'] ) ? $slug_parts['query'] : '';
 
-	// URL is equal the slug of WP menu.
-	if ( $slug === $url ) {
-		add_action( 'load-' . basename( $uri['path'] ), '_mw_adminimize_block_page_access' );
+	// Check if the current page path matches the blocked slug path.
+	if ( strpos( $uri['path'], $slug_path ) !== false ) {
+		// If the slug has its own query params (e.g. edit.php?post_type=page),
+		// verify those params are present in the current request.
+		if ( $slug_query ) {
+			$request_query = isset( $uri['query'] ) ? $uri['query'] : '';
+			parse_str( $slug_query, $slug_params );
+			parse_str( $request_query, $request_params );
+
+			// All slug query params must be present in the request.
+			foreach ( $slug_params as $key => $value ) {
+				if ( ! isset( $request_params[ $key ] ) || $request_params[ $key ] !== $value ) {
+					return false;
+				}
+			}
+		}
+
+		add_action( 'load-' . $uri['path'], '_mw_adminimize_block_page_access' );
 		return true;
 	}
 }
