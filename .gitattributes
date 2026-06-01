@@ -13,3 +13,9 @@ composer.json       export-ignore
 package.json        export-ignore
 phpunit.xml.dist    export-ignore
 .travis.yml         export-ignore
+.github/            export-ignore
+.gitpod.dockerfile  export-ignore
+.gitpod.yml         export-ignore
+.editorconfig       export-ignore
+CHANGELOG.md        export-ignore
+phpcs.xml           export-ignore
