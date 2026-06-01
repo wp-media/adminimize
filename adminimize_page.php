@@ -24,14 +24,13 @@ function _mw_adminimize_options() {
 	// update options
 	// Some indenting cleanups
 	if (
-	        ( array_key_exists( '_mw_adminimize_action', $_POST )
+	        ( isset( $_POST[ '_mw_adminimize_action' ] )
 			&& $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_insert' )
-		    && $_POST[ '_mw_adminimize_save' ]
+		    && isset( $_POST[ '_mw_adminimize_save' ] )
+			&& check_admin_referer( 'mw_adminimize_nonce' )
 	) {
 
-		if ( function_exists( 'current_user_can' ) && current_user_can( 'manage_options' ) ) {
-			check_admin_referer( 'mw_adminimize_nonce' );
-
+		if ( current_user_can( 'manage_options' ) ) {
 			_mw_adminimize_update();
 		} else {
 			$myErrors = new _mw_adminimize_message_class();
@@ -49,21 +48,30 @@ function _mw_adminimize_options() {
 	// import options
 	// Some indenting cleanups
 	if (
-	        ( array_key_exists( '_mw_adminimize_action', $_POST )
+	        ( isset( $_POST[ '_mw_adminimize_action' ] )
 			&& $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_import' )
-		    && $_POST[ '_mw_adminimize_save' ]
+		    && isset( $_POST[ '_mw_adminimize_save' ] )
+			&& check_admin_referer( 'mw_adminimize_nonce' )
 	) {
-
-		_mw_adminimize_import_json();
+		if ( current_user_can( 'manage_options' ) ) {
+			_mw_adminimize_import_json();
+		} else {
+			wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'adminimize' ) );
+		}
 	}
 
 	// Uninstall options
 	// Some indenting cleanups
 	if (
-	        ( array_key_exists( '_mw_adminimize_action', $_POST )
+	        ( isset( $_POST[ '_mw_adminimize_action' ] )
 		    && $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_uninstall' )
-		    && ! array_key_exists( '_mw_adminimize_uninstall_yes', $_POST )
+		    && ! isset( $_POST[ '_mw_adminimize_uninstall_yes' ] )
+			&& check_admin_referer( 'mw_adminimize_nonce' )
 	) {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'adminimize' ) );
+		}
+
 		$myErrors = new _mw_adminimize_message_class();
 		$myErrors = '<div id="message" class="error"><p>' . $myErrors->get_error(
 				'_mw_adminimize_uninstall_yes'
@@ -73,15 +81,14 @@ function _mw_adminimize_options() {
 
 	// Some indenting cleanups
 	if (
-	        ( array_key_exists( '_mw_adminimize_action', $_POST )
-		    && array_key_exists( '_mw_adminimize_uninstall_yes', $_POST )
+	        ( isset( $_POST[ '_mw_adminimize_action' ] )
+		    && isset( $_POST[ '_mw_adminimize_uninstall_yes' ] )
 		    && $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_uninstall' )
-		    && $_POST[ '_mw_adminimize_uninstall' ]
+		    && isset( $_POST[ '_mw_adminimize_uninstall' ] )
 		    && $_POST[ '_mw_adminimize_uninstall_yes' ] === '_mw_adminimize_uninstall'
+			&& check_admin_referer( 'mw_adminimize_nonce' )
 	) {
-		if ( function_exists( 'current_user_can' ) && current_user_can( 'manage_options' ) ) {
-			check_admin_referer( 'mw_adminimize_nonce' );
-
+		if ( current_user_can( 'manage_options' ) ) {
 			_mw_adminimize_uninstall();
 
 			$myErrors = new _mw_adminimize_message_class();
@@ -101,12 +108,12 @@ function _mw_adminimize_options() {
 	// load theme user data
 	// Some indenting cleanups
 	if (
-	        ( array_key_exists( '_mw_adminimize_action', $_POST )
+	        ( isset( $_POST[ '_mw_adminimize_action' ] )
 			&& $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_load_theme' )
-		    && $_POST[ '_mw_adminimize_load' ]
+		    && isset( $_POST[ '_mw_adminimize_load' ] )
+			&& check_admin_referer( 'mw_adminimize_nonce' )
 	) {
-		if ( function_exists( 'current_user_can' ) && current_user_can( 'edit_users' ) ) {
-			check_admin_referer( 'mw_adminimize_nonce' );
+		if ( current_user_can( 'edit_users' ) ) {
 
 			$myErrors = new _mw_adminimize_message_class();
 			$myErrors = '<div id="message" class="updated fade"><p>' .
@@ -128,12 +135,12 @@ function _mw_adminimize_options() {
 
 	// Some indenting cleanups
 	if (
-	        ( array_key_exists( '_mw_adminimize_action', $_POST )
+	        ( isset( $_POST[ '_mw_adminimize_action' ] )
 			&& $_POST[ '_mw_adminimize_action' ] === '_mw_adminimize_set_theme' )
-		    && $_POST[ '_mw_adminimize_save' ]
+		    && isset( $_POST[ '_mw_adminimize_save' ] )
+			&& check_admin_referer( 'mw_adminimize_nonce' )
 	) {
-		if ( function_exists( 'current_user_can' ) && current_user_can( 'edit_users' ) ) {
-			check_admin_referer( 'mw_adminimize_nonce' );
+		if ( current_user_can( 'edit_users' ) ) {
 
 			// _mw_adminimize_set_theme();
             // This function isn't defined anywhere.

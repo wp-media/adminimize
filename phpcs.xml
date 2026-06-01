@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="adminimize">
-	<description>Rules for WordPress Adminimize projects</description>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="WP Media" xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
+	<description>The custom ruleset for WP Media.</description>
 
 	<!-- What to scan -->
 	<file>./adminimize.php</file>
@@ -42,11 +42,6 @@
 			<property name="text_domain" type="array">
 				<element name="adminimize"/>
 			</property>
-		</properties>
-	</rule>
- 	<rule ref="WordPress.WhiteSpace.ControlStructureSpacing">
-		<properties>
-			<property name="blank_line_check" value="true"/>
 		</properties>
 	</rule>
 </ruleset>
