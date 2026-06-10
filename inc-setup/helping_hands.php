@@ -178,17 +178,59 @@ function _mw_adminimize_check_page_access( $slug ) {
 		return false;
 	}
 
-	// URI without query parameter, like WP core edit.php.
-	if ( ! isset( $uri['query'] ) && strpos( $uri['path'], $slug ) !== false ) {
-		add_action( 'load-' . $slug, '_mw_adminimize_block_page_access' );
-		return true;
-	}
+	$slug_parts = wp_parse_url( $slug );
+	$slug_path  = isset( $slug_parts['path'] ) ? $slug_parts['path'] : $slug;
+	$slug_query = isset( $slug_parts['query'] ) ? $slug_parts['query'] : '';
+	$request_query = isset( $uri['query'] ) ? $uri['query'] : '';
 
-	// URL is equal the slug of WP menu.
-	if ( $slug === $url ) {
-		add_action( 'load-' . basename( $uri['path'] ), '_mw_adminimize_block_page_access' );
-		return true;
-	}
+    if ( strpos( $uri['path'], $slug_path ) !== false ) {
+        if ( empty( $slug_query ) && empty( $request_query ) ) {
+            add_action( 'load-' . $slug, '_mw_adminimize_block_page_access' );
+            return true;
+        }
+
+        // Slug has no query, but request does
+        if ( empty( $slug_query ) && ! empty( $request_query ) ) {
+            wp_parse_str( html_entity_decode( $request_query ), $request_params );
+
+			// Only treat `post_type` as a differentiator on core post list / add-new screens.
+			if (
+				in_array( $slug_path, array( 'edit.php', 'post-new.php' ), true )
+				&& isset( $request_params['post_type'] )
+				&& 'post' !== $request_params['post_type']
+			) {
+				return false;
+			}
+
+            // Request is for default post type or doesn't specify post_type - block it
+            add_action( 'load-' . $slug, '_mw_adminimize_block_page_access' );
+            return true;
+        }
+
+        // Both have query params - verify slug params match in request
+        if ( $slug_query && $request_query ) {
+            wp_parse_str( html_entity_decode( $slug_query ), $slug_params );
+            wp_parse_str( html_entity_decode( $request_query ), $request_params );
+
+            // Check if all slug params are present in request with matching values
+            $all_match = true;
+            foreach ( $slug_params as $key => $value ) {
+                if ( ! isset( $request_params[ $key ] ) || $request_params[ $key ] !== $value ) {
+                    $all_match = false;
+                    break;
+                }
+            }
+
+            if ( $all_match ) {
+                add_action( 'load-' . basename( $uri['path'] ), '_mw_adminimize_block_page_access' );
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+	return false;
 }
 
 /**

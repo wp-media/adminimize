@@ -3,7 +3,7 @@ Contributors: wp_media, Bueltge, inpsyde
 Tags: customization, administration
 Requires at least: 4.0
 Tested up to: 7.0
-Stable tag: 1.11.13
+Stable tag: 1.11.14
 
 Adminimize that lets you hide 'unnecessary' items from the WordPress backend
 
@@ -37,6 +37,9 @@ Use the installer via back-end of your install or ...
 4. Administrator can go to `Settings` > `Adminimize` menu and configure the plugin (Menu, Sub-menu, Meta boxes, ...)
 
 == Changelog ==
+= 1.11.14 (2026-06-10) =
+* Improve pages access blocking
+
 = 1.11.13 (2026-06-02) =
 * Revert change blocking unexpected pages
 
