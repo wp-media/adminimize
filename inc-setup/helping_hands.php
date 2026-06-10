@@ -193,10 +193,14 @@ function _mw_adminimize_check_page_access( $slug ) {
         if ( empty( $slug_query ) && ! empty( $request_query ) ) {
             wp_parse_str( html_entity_decode( $request_query ), $request_params );
 
-            // If request has post_type, but slug doesn't, we're on the posts section
-            if ( isset( $request_params['post_type'] ) && 'post' !== $request_params['post_type'] ) {
-                return false;
-            }
+			// Only treat `post_type` as a differentiator on core post list / add-new screens.
+			if (
+				in_array( $slug_path, array( 'edit.php', 'post-new.php' ), true )
+				&& isset( $request_params['post_type'] )
+				&& 'post' !== $request_params['post_type']
+			) {
+				return false;
+			}
 
             // Request is for default post type or doesn't specify post_type - block it
             add_action( 'load-' . $slug, '_mw_adminimize_block_page_access' );
